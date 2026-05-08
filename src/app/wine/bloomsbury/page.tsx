@@ -1,0 +1,566 @@
+"use client";
+
+import { ReactNode } from "react";
+import { motion } from "framer-motion";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import { BottomNav } from "@/components/BottomNav";
+import { basePath } from "@/lib/basePath";
+
+// ── Animation Helpers ────────────────────────────────────────────────────────
+
+function FadeUp({ children, delay = 0, className = "" }: {
+  children: ReactNode; delay?: number; duration?: number; className?: string;
+}) {
+  return (
+    <div
+      className={`mn-fx ${className}`}
+      style={{ transitionDelay: `${delay}s` }}
+    >
+      {children}
+    </div>
+  );
+}
+
+function GoldDivider({ origin = "left" as "left" | "center" }) {
+  return (
+    <motion.div
+      initial={{ scaleX: 0 }}
+      whileInView={{ scaleX: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+      style={{
+        height: "1px",
+        background: "rgba(200,169,110,0.18)",
+        transformOrigin: origin,
+      }}
+    />
+  );
+}
+
+// ── Hero / Product Showcase ─────────────────────────────────────────────────
+
+function ProductHero() {
+  return (
+    <section className="relative bg-[#010101] pt-28 md:pt-32 pb-8 md:pb-12 overflow-hidden">
+      {/* Ambient gold glow */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 70% 50% at 50% 50%, rgba(200,169,110,0.04) 0%, transparent 70%)",
+        }}
+      />
+
+      <div className="relative max-w-[1600px] mx-auto px-4 md:px-8">
+        {/* Breadcrumb */}
+        <FadeUp>
+          <p className="font-body text-white/35 text-[10px] uppercase tracking-[0.3em] mb-10 md:mb-14">
+            <a href={`${basePath}/`} className="link-underline hover:text-[#C8A96E] transition-colors duration-500">Home</a>
+            <span className="mx-3 text-white/20">/</span>
+            <a href={`${basePath}/#wine-collection`} className="link-underline hover:text-[#C8A96E] transition-colors duration-500">Shop</a>
+            <span className="mx-3 text-white/20">/</span>
+            <span className="text-white/55">Bloomsbury</span>
+          </p>
+        </FadeUp>
+
+        <div className="grid grid-cols-1 md:grid-cols-[58fr_42fr] gap-10 md:gap-12 items-start">
+          {/* ── Info column ───────────────────────────────── */}
+          <div className="order-2 md:order-1">
+            <FadeUp>
+              <p
+                className="font-display italic text-[#C8A96E] tracking-widest mb-5"
+                style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
+              >
+                [ Non Vintage · House Cuvée ]
+              </p>
+            </FadeUp>
+
+            <div className="overflow-hidden mb-5">
+              <motion.h1
+                className="font-display italic text-cream leading-[1.02]"
+                style={{ fontSize: "clamp(38px, 6vw, 88px)", fontWeight: 400 }}
+                initial={{ y: "102%", opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1.1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <span className="text-[#C8A96E]">Bloomsbury</span>
+              </motion.h1>
+            </div>
+
+            <FadeUp delay={0.3}>
+              <p
+                className="font-display italic text-white/85 mb-8"
+                style={{ fontSize: "clamp(18px, 2vw, 26px)", fontWeight: 400, lineHeight: 1.35 }}
+              >
+                Official wine of the Queen&rsquo;s Diamond Jubilee
+              </p>
+            </FadeUp>
+
+            <FadeUp delay={0.4}>
+              <div className="mb-9">
+                <GoldDivider />
+              </div>
+            </FadeUp>
+
+            <FadeUp delay={0.45}>
+              <p
+                className="font-body text-white/70 mb-10"
+                style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, lineHeight: 1.75, maxWidth: "540px" }}
+              >
+                Bright, fresh and fruit-driven with vibrant citrus aromas and notes of lemon zest,
+                green apple and honey. Our bestselling blend epitomises the Classic Method English
+                style &mdash; structured and bright, with crisp green apple and citrus layered
+                with toasted almond and buttery pastry, finishing fresh and moreish with a touch
+                of saline minerality.
+              </p>
+            </FadeUp>
+
+            {/* Price + CTA row */}
+            <FadeUp delay={0.55}>
+              <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-2">
+                <div>
+                  <p className="font-body text-white/35 text-[10px] uppercase tracking-[0.25em] mb-2">
+                    From
+                  </p>
+                  <p
+                    className="font-display italic text-cream"
+                    style={{ fontSize: "clamp(32px, 3.6vw, 48px)", fontWeight: 400 }}
+                  >
+                    £34.00
+                  </p>
+                  <p className="font-body text-white/45 text-[12px] mt-1">75cl bottle · 12% ABV</p>
+                </div>
+                <div className="flex flex-wrap items-center gap-3">
+                  <button
+                    className="btn-ridge group font-body text-white/85 hover:text-white text-[10px] uppercase tracking-[0.22em] border border-white/30 hover:border-[#C8A96E]/70 px-7 py-4 rounded-sm transition-all duration-300"
+                    type="button"
+                  >
+                    Add to basket
+                    <span className="inline-block ml-2 transition-transform duration-400 ease-out group-hover:translate-x-1">&rarr;</span>
+                  </button>
+                  <a
+                    href={`${basePath}/#wine-collection`}
+                    className="font-body text-white/55 hover:text-[#C8A96E] text-[10px] uppercase tracking-[0.22em] border border-white/12 hover:border-[#C8A96E]/40 px-5 py-3.5 rounded-sm transition-all duration-300"
+                  >
+                    Back to Shop
+                  </a>
+                </div>
+              </div>
+              <p className="font-body text-white/40 text-[12px] mt-4 leading-relaxed" style={{ maxWidth: "440px" }}>
+                20% off for members. Add a free personalised gift note at checkout.
+              </p>
+            </FadeUp>
+          </div>
+
+          {/* ── Bottle ─────────────────────────────────────── */}
+          <FadeUp delay={0.05} className="order-1 md:order-2">
+            <div
+              className="relative flex items-center justify-center min-h-[40svh] md:min-h-[72svh]"
+              style={{ overflow: "visible" }}
+            >
+              {/* soft halo */}
+              <div
+                className="absolute"
+                style={{
+                  width: 520,
+                  height: 520,
+                  borderRadius: "50%",
+                  background:
+                    "radial-gradient(circle, rgba(200,169,110,0.09) 0%, transparent 70%)",
+                  filter: "blur(32px)",
+                }}
+              />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`${basePath}/products/bloomsbury.png`}
+                alt="Ridgeview Bloomsbury NV — English Sparkling Wine, 75cl bottle"
+                className="relative w-auto max-w-none object-contain h-[min(48svh,420px)] md:h-[min(105svh,1180px)] [transform:translateY(-20px)_rotate(35deg)] md:[transform:translateY(-230px)_rotate(35deg)] hover:[transform:translateY(-20px)_rotate(35deg)_scale(1.015)] md:hover:[transform:translateY(-230px)_rotate(35deg)_scale(1.015)] [transition:transform_900ms_cubic-bezier(0.16,1,0.3,1),filter_900ms_cubic-bezier(0.16,1,0.3,1)] hover:[filter:drop-shadow(0_40px_80px_rgba(0,0,0,0.7))_drop-shadow(0_0_60px_rgba(200,169,110,0.12))]"
+                style={{
+                  transformOrigin: "center",
+                  filter: "drop-shadow(0 30px 60px rgba(0,0,0,0.6))",
+                }}
+              />
+            </div>
+          </FadeUp>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ── Tasting Notes & Food Pairing ────────────────────────────────────────────
+
+function TastingPairingSection() {
+  const tastingNotes = ["Lemon Zest", "Green Apple", "Toasted Almond"];
+  const foodPairings = [
+    "Prosciutto di Parma",
+    "Smoked Salmon & Cream Cheese Crostini",
+    "Houmous & Baba Ganoush with Crudités",
+    "Cornish Brie",
+    "Lemon Posset",
+  ];
+
+  return (
+    <section className="bg-[#0a0a0a] border-t border-white/[0.06]">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-16 py-20 md:py-28">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
+          {/* Tasting Notes */}
+          <div>
+            <FadeUp>
+              <p
+                className="font-display italic text-[#C8A96E] tracking-widest mb-4"
+                style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
+              >
+                [ On the Palate ]
+              </p>
+            </FadeUp>
+            <FadeUp delay={0.08}>
+              <h2
+                className="font-display italic text-white leading-[1.05] mb-8"
+                style={{ fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 400 }}
+              >
+                Tasting <span className="text-[#C8A96E]">Note</span>
+              </h2>
+            </FadeUp>
+            <FadeUp delay={0.16}>
+              <div className="mb-8">
+                <GoldDivider />
+              </div>
+            </FadeUp>
+            <ul className="space-y-5">
+              {tastingNotes.map((note, i) => (
+                <FadeUp key={note} delay={0.2 + i * 0.08}>
+                  <li className="group flex items-baseline gap-5 cursor-default">
+                    <span className="font-body text-white/30 group-hover:text-[#C8A96E]/85 text-[11px] tracking-[0.25em] transition-colors duration-500">
+                      0{i + 1}
+                    </span>
+                    <span
+                      className="font-display italic text-white/90 group-hover:text-cream group-hover:translate-x-1.5 transition-all duration-500 ease-out"
+                      style={{ fontSize: "clamp(20px, 2vw, 28px)", fontWeight: 400 }}
+                    >
+                      {note}
+                    </span>
+                  </li>
+                </FadeUp>
+              ))}
+            </ul>
+          </div>
+
+          {/* Food Pairing */}
+          <div>
+            <FadeUp>
+              <p
+                className="font-display italic text-[#C8A96E] tracking-widest mb-4"
+                style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
+              >
+                [ At the Table ]
+              </p>
+            </FadeUp>
+            <FadeUp delay={0.08}>
+              <h2
+                className="font-display italic text-white leading-[1.05] mb-8"
+                style={{ fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 400 }}
+              >
+                Food <span className="text-[#C8A96E]">Pairing</span>
+              </h2>
+            </FadeUp>
+            <FadeUp delay={0.16}>
+              <div className="mb-8">
+                <GoldDivider />
+              </div>
+            </FadeUp>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+              {foodPairings.map((item, i) => (
+                <FadeUp key={item} delay={0.2 + i * 0.05}>
+                  <li className="group flex items-center gap-3 font-body text-white/75 group-hover:text-white text-[14px] cursor-default transition-colors duration-400">
+                    <span className="w-1 h-1 rounded-full bg-[#C8A96E]/55 group-hover:bg-[#C8A96E] group-hover:w-1.5 group-hover:h-1.5 flex-shrink-0 transition-all duration-300 ease-out" />
+                    <span className="group-hover:text-white/95 transition-colors duration-400">{item}</span>
+                  </li>
+                </FadeUp>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ── Blend ───────────────────────────────────────────────────────────────────
+
+function BlendSection() {
+  const blend = [
+    { percent: "61", grape: "Chardonnay" },
+    { percent: "27", grape: "Pinot Noir" },
+    { percent: "12", grape: "Pinot Meunier" },
+  ];
+
+  return (
+    <section className="relative bg-[#010101] border-t border-white/[0.06] overflow-hidden">
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 65% 55% at 50% 50%, rgba(200,169,110,0.05) 0%, transparent 70%)",
+        }}
+      />
+
+      <div className="relative max-w-[1400px] mx-auto px-4 md:px-8 py-24 md:py-32">
+        <div className="text-center mb-16 md:mb-20">
+          <FadeUp>
+            <p
+              className="font-display italic text-[#C8A96E] tracking-widest mb-4"
+              style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
+            >
+              [ Blend ]
+            </p>
+          </FadeUp>
+          <FadeUp delay={0.08}>
+            <h2
+              className="font-display italic text-white leading-[1.1] mb-5"
+              style={{ fontSize: "clamp(30px, 4vw, 56px)", fontWeight: 400 }}
+            >
+              Fresh and <span className="text-[#C8A96E]">fruit-driven</span>.
+            </h2>
+          </FadeUp>
+          <FadeUp delay={0.16}>
+            <p
+              className="font-body text-white/55"
+              style={{ fontSize: "clamp(13px, 1.25vw, 15px)", maxWidth: "520px", margin: "0 auto" }}
+            >
+              Epitomising the Classic Method English style.
+            </p>
+          </FadeUp>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-14 md:gap-0 mb-20 md:mb-24">
+          {blend.map((b, i) => (
+            <FadeUp key={b.grape} delay={0.28 + i * 0.1}>
+              <div
+                className="group text-center md:px-8 cursor-default"
+                style={{
+                  borderLeft: i > 0 ? "1px solid rgba(200,169,110,0.16)" : "none",
+                }}
+              >
+                <p
+                  className="font-display italic text-cream leading-none mb-4 transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  style={{ fontSize: "clamp(64px, 9vw, 132px)", fontWeight: 400 }}
+                >
+                  <span className="text-[#C8A96E] transition-[text-shadow] duration-700 ease-out group-hover:[text-shadow:0_0_40px_rgba(200,169,110,0.45)]">{b.percent}</span>
+                  <span
+                    className="text-white/55 group-hover:text-white/80 transition-colors duration-700"
+                    style={{ fontSize: "0.42em", verticalAlign: "super", marginLeft: "0.04em" }}
+                  >
+                    %
+                  </span>
+                </p>
+                <p
+                  className="font-body text-white/70 group-hover:text-cream uppercase tracking-[0.34em] transition-colors duration-500"
+                  style={{ fontSize: "clamp(11px, 1.1vw, 13px)" }}
+                >
+                  {b.grape}
+                </p>
+              </div>
+            </FadeUp>
+          ))}
+        </div>
+
+        <FadeUp delay={0.6}>
+          <div className="max-w-[820px] mx-auto text-center">
+            <GoldDivider origin="center" />
+            <p
+              className="font-body text-white/60 mt-10 leading-[1.85]"
+              style={{ fontSize: "clamp(14px, 1.35vw, 17px)", fontWeight: 300 }}
+            >
+              Grapes are sourced from our original estate vines, along with carefully
+              selected partner vineyards across southern England &mdash; typically south-facing,
+              with free-draining slopes, on varied chalk, clay, gravel and sandstone soils.
+              Sites range between 10&ndash;50 metres above sea level, benefitting from a cool,
+              maritime climate.
+            </p>
+          </div>
+        </FadeUp>
+      </div>
+    </section>
+  );
+}
+
+// ── Awards & Specs ──────────────────────────────────────────────────────────
+
+function AwardsSpecsSection() {
+  const awards = [
+    { medal: "Silver", body: "Decanter World Wine Awards", year: "2018" },
+    { medal: "Silver Outstanding", body: "International Wine & Spirit Competition", year: "2018" },
+    { medal: "Star of England · Star Taste · Star Value", body: "Harpers Wine Star Awards", year: "2021" },
+  ];
+
+  const specs = [
+    { label: "Vintage", value: "Non Vintage" },
+    { label: "Bottle Size", value: "75cl" },
+    { label: "ABV", value: "12%" },
+    { label: "Acidity", value: "7.7 g/l" },
+    { label: "Residual Sugar", value: "6.5 g/l" },
+    { label: "pH", value: "3.03" },
+    { label: "Lees Ageing", value: "18 months" },
+    { label: "Allergens", value: "Contains Sulphites" },
+    { label: "Suitable for", value: "Vegans & Vegetarians" },
+    { label: "Product Code", value: "R2201" },
+  ];
+
+  return (
+    <section className="bg-[#0a0a0a] border-t border-white/[0.06]">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-16 py-20 md:py-28">
+        <div className="grid grid-cols-1 md:grid-cols-[55fr_45fr] gap-16 md:gap-24">
+          {/* Awards */}
+          <div>
+            <FadeUp>
+              <p
+                className="font-display italic text-[#C8A96E] tracking-widest mb-4"
+                style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
+              >
+                [ Recognition ]
+              </p>
+            </FadeUp>
+            <FadeUp delay={0.08}>
+              <h2
+                className="font-display italic text-white leading-[1.05] mb-8"
+                style={{ fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 400 }}
+              >
+                <span className="text-[#C8A96E]">Awards</span>
+              </h2>
+            </FadeUp>
+            <FadeUp delay={0.16}>
+              <div className="mb-10">
+                <GoldDivider />
+              </div>
+            </FadeUp>
+            <ul className="space-y-7">
+              {awards.map((a, i) => (
+                <FadeUp key={`${a.medal}-${i}`} delay={0.2 + i * 0.08}>
+                  <li className="group grid grid-cols-[60px_1fr_auto] gap-4 items-baseline border-b border-white/[0.06] hover:border-[#C8A96E]/30 pb-6 last:border-0 last:pb-0 cursor-default transition-colors duration-500">
+                    <span className="font-body text-white/30 group-hover:text-[#C8A96E]/85 text-[11px] tracking-[0.25em] transition-colors duration-500">
+                      0{i + 1}
+                    </span>
+                    <div className="transition-transform duration-500 ease-out group-hover:translate-x-1.5">
+                      <p
+                        className="font-display italic text-cream mb-1"
+                        style={{ fontSize: "clamp(18px, 1.8vw, 24px)", fontWeight: 400 }}
+                      >
+                        {a.medal}
+                      </p>
+                      <p className="font-body text-white/55 group-hover:text-white/75 text-[13px] transition-colors duration-500">{a.body}</p>
+                    </div>
+                    <span className="font-body text-[#C8A96E]/80 group-hover:text-[#C8A96E] text-[11px] tracking-[0.25em] transition-colors duration-500">
+                      {a.year}
+                    </span>
+                  </li>
+                </FadeUp>
+              ))}
+            </ul>
+          </div>
+
+          {/* Specs */}
+          <div>
+            <FadeUp>
+              <p
+                className="font-display italic text-[#C8A96E] tracking-widest mb-4"
+                style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
+              >
+                [ Information ]
+              </p>
+            </FadeUp>
+            <FadeUp delay={0.08}>
+              <h2
+                className="font-display italic text-white leading-[1.05] mb-8"
+                style={{ fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 400 }}
+              >
+                <span className="text-[#C8A96E]">Information</span>
+              </h2>
+            </FadeUp>
+            <FadeUp delay={0.16}>
+              <div className="mb-10">
+                <GoldDivider />
+              </div>
+            </FadeUp>
+            <dl className="space-y-5">
+              {specs.map((s, i) => (
+                <FadeUp key={s.label} delay={0.18 + i * 0.05}>
+                  <div className="group grid grid-cols-[1fr_1fr] gap-6 border-b border-white/[0.05] hover:border-[#C8A96E]/30 pb-4 cursor-default transition-colors duration-500">
+                    <dt className="font-body text-white/40 group-hover:text-[#C8A96E]/85 text-[11px] uppercase tracking-[0.22em] transition-colors duration-500">
+                      {s.label}
+                    </dt>
+                    <dd className="font-body text-white/85 group-hover:text-cream text-[14px] text-right transition-colors duration-500">
+                      {s.value}
+                    </dd>
+                  </div>
+                </FadeUp>
+              ))}
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ── Closing CTA ─────────────────────────────────────────────────────────────
+
+function ClosingCTA() {
+  return (
+    <section className="bg-[#010101] border-t border-white/[0.06]">
+      <div className="max-w-[960px] mx-auto px-6 md:px-16 py-20 md:py-28 text-center">
+        <FadeUp>
+          <p
+            className="font-display italic text-[#C8A96E] tracking-widest mb-6"
+            style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
+          >
+            [ Add to your collection ]
+          </p>
+        </FadeUp>
+        <FadeUp delay={0.1}>
+          <h2
+            className="font-display italic text-cream leading-[1.05] mb-10"
+            style={{ fontSize: "clamp(32px, 4.5vw, 64px)", fontWeight: 400 }}
+          >
+            A true <span className="text-[#C8A96E]">celebration</span> in a bottle.
+          </h2>
+        </FadeUp>
+        <FadeUp delay={0.2}>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <button
+              type="button"
+              className="btn-ridge group font-body text-white/85 hover:text-white text-[10px] uppercase tracking-[0.22em] border border-white/30 hover:border-[#C8A96E]/70 px-8 py-4 rounded-sm transition-all duration-300"
+            >
+              Add to basket · £34.00
+              <span className="inline-block ml-2 transition-transform duration-400 ease-out group-hover:translate-x-1">&rarr;</span>
+            </button>
+            <a
+              href={`${basePath}/#wine-collection`}
+              className="link-underline font-body text-white/55 hover:text-[#C8A96E] text-[10px] uppercase tracking-[0.22em] border border-white/12 hover:border-[#C8A96E]/40 px-6 py-3.5 rounded-sm transition-all duration-300"
+            >
+              Explore the Collection
+            </a>
+          </div>
+        </FadeUp>
+      </div>
+    </section>
+  );
+}
+
+// ── Page ────────────────────────────────────────────────────────────────────
+
+export default function BloomsburyPage() {
+  return (
+    <main className="bg-[#010101]">
+      <Navbar />
+      <ProductHero />
+      <TastingPairingSection />
+      <BlendSection />
+      <AwardsSpecsSection />
+      <ClosingCTA />
+      <Footer />
+      <BottomNav />
+    </main>
+  );
+}

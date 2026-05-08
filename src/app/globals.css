@@ -1,26 +1,179 @@
 @import "tailwindcss";
 
+@theme {
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Raleway', system-ui, sans-serif;
+  --color-cream: #f5f0e8;
+  --color-muted: #9a9390;
+  --color-brand: #583D3D;
+  --color-surface: #111111;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #f5f0e8;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
+  scroll-padding-top: 0px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Offset for fixed navbar when scrolling to anchor links */
+[id] {
+  scroll-margin-top: 66px;
+}
+
+/* Sections with large internal padding need less scroll-margin
+   so the kicker sits snug below the navbar */
+#wine-collection {
+  scroll-margin-top: 2px;
+}
+#heritage {
+  scroll-margin-top: 66px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0a0a0a;
+  color: #f5f0e8;
+  font-family: 'Raleway', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* ─── Grain texture overlay ─────────────────────────────── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch"/></filter><rect width="200" height="200" filter="url(%23g)"/></svg>');
+  background-size: 180px 180px;
+  opacity: 0.038;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: overlay;
+}
+
+/* ─── Button hover fill micro-interaction ───────────────── */
+.btn-ridge {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.btn-ridge::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(245, 240, 232, 0.12);
+  transform: translateX(-101%);
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: -1;
+}
+.btn-ridge:hover::before {
+  transform: translateX(0);
+}
+
+/* ─── Link hover underline slide-in ────────────────────── */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* ─── Mobile background-position overrides ─────────────── */
+@media (max-width: 767px) {
+  .bg-hero    { background-position: 65% center !important; }
+  .bg-discover { background-position: center 20% !important; }
+  .bg-cellar  { background-position: 60% center !important; }
+}
+
+/* ─── Hide scrollbar for carousels ─────────────────────── */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ─── Custom scrollbar ──────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { background: #3a3a3a; border-radius: 2px; }
+
+/* --- Text selection --- */
+::selection {
+  background: rgba(245, 240, 232, 0.14);
+  color: #f5f0e8;
+}
+
+/* --- Focus ring --- */
+:focus-visible {
+  outline: 1px solid rgba(245, 240, 232, 0.35);
+  outline-offset: 3px;
+}
+
+/* ─── Image reveal on hover (panels) ─────────────────────── */
+.img-hover-zoom {
+  transition: transform 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.group:hover .img-hover-zoom {
+  transform: scale(1.03);
+}
+
+/* ─── Social icon hover micro-interaction ─────────────────── */
+.social-icon {
+  transition: color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.social-icon:hover {
+  color: #C8A96E;
+  transform: translateY(-2px);
+}
+
+/* ─── Gold link hover (footer, nav) ────────────────────────── */
+.link-gold:hover {
+  color: #C8A96E !important;
+}
+
+/* ─── Scroll-Reveal with Re-Show-Reset (mn-fx) ─────────────── */
+/* Initial hidden state — fade + 28px slide up + 6px blur */
+.mn-fx {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  filter: blur(6px);
+  transition:
+    opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: opacity, transform, filter;
+}
+/* Revealed state — added by MnRevealInit IntersectionObserver */
+.mn-fx.mn-fx-in {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* ─── Reduced motion ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  /* Show mn-fx elements immediately if user prefers reduced motion */
+  .mn-fx {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
 }
