@@ -117,10 +117,10 @@ export function HeroSection() {
         >
           <a
             href={`${basePath}/#wine-collection`}
-            className="group inline-flex items-center font-body text-white text-[10px] md:text-[11px] uppercase tracking-[0.22em] border border-[#C8A96E]/55 hover:border-[#C8A96E] bg-[#C8A96E]/15 hover:bg-[#C8A96E]/25 active:scale-[0.97] px-7 py-4 rounded-sm transition-all duration-300 backdrop-blur-sm"
+            className="btn-atb backdrop-blur-2xl backdrop-saturate-150"
           >
             View all Wines
-            <span className="inline-block ml-2 transition-transform duration-400 ease-out group-hover:translate-x-1">&rarr;</span>
+            <span className="btn-atb-arrow">&rarr;</span>
           </a>
         </motion.div>
       </div>

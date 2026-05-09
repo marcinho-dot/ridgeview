@@ -82,8 +82,9 @@ export function OurViewSection() {
               className="flex-1 bg-transparent font-body text-cream text-sm py-3 outline-none placeholder:text-white/30 focus:placeholder:text-white/50 transition-colors"
               style={{ fontWeight: 300 }}
             />
-            <button className="btn-ridge font-body text-cream text-xs uppercase tracking-[0.2em] border border-white/30 px-5 py-3 flex items-center gap-2 hover:border-white/55 transition-colors ml-4 mb-0.5 rounded-sm whitespace-nowrap">
-              Subscribe &nbsp;→
+            <button className="btn-atb backdrop-blur-2xl backdrop-saturate-150 ml-4 mb-0.5">
+              Subscribe
+              <span className="btn-atb-arrow">&rarr;</span>
             </button>
           </div>
         </motion.div>

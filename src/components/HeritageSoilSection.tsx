@@ -99,14 +99,9 @@ export function HeritageSoilSection() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.65, ease: "easeOut" }}
             >
-              <Link href="/booking">
-                <motion.span
-                  className="inline-block border border-white/35 bg-black/25 px-7 py-4 rounded-full font-body text-white/85 text-[10px] md:text-[11px] uppercase tracking-[0.22em] hover:border-[#C8A96E]/70 hover:text-[#C8A96E] transition-all duration-300 backdrop-blur-sm whitespace-nowrap cursor-pointer"
-                  whileHover={{ scale: 1.03 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  Discover the Vineyard &rarr;
-                </motion.span>
+              <Link href="/booking" className="btn-atb backdrop-blur-2xl backdrop-saturate-150">
+                Discover the Vineyard
+                <span className="btn-atb-arrow">&rarr;</span>
               </Link>
             </motion.div>
           </div>

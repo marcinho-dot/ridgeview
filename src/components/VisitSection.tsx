@@ -111,14 +111,10 @@ export function VisitSection() {
               1.5 hrs · From £20pp · Fri–Sun
             </p>
 
-            <motion.a
-              href={`${basePath}/booking`}
-              className="inline-flex items-center gap-3 font-body text-white/80 text-[10px] md:text-[11px] uppercase tracking-[0.22em] border border-white/30 bg-black/20 px-7 py-4 rounded-full hover:border-[#C8A96E]/70 hover:text-[#C8A96E] transition-all duration-300 backdrop-blur-sm whitespace-nowrap"
-              whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.2 }}
-            >
-              Book a Vineyard Tour &nbsp;→
-            </motion.a>
+            <a href={`${basePath}/booking`} className="btn-atb backdrop-blur-2xl backdrop-saturate-150">
+              Book a Vineyard Tour
+              <span className="btn-atb-arrow">&rarr;</span>
+            </a>
           </div>
         </motion.div>
 
@@ -183,14 +179,10 @@ export function VisitSection() {
               Spring &amp; Summer · Open Daily
             </p>
 
-            <motion.a
-              href={`${basePath}/booking`}
-              className="inline-flex items-center gap-3 font-body text-white/80 text-[10px] md:text-[11px] uppercase tracking-[0.22em] border border-white/30 bg-black/20 px-7 py-4 rounded-full hover:border-[#C8A96E]/70 hover:text-[#C8A96E] transition-all duration-300 backdrop-blur-sm whitespace-nowrap"
-              whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.2 }}
-            >
-              Reserve a Table &nbsp;→
-            </motion.a>
+            <a href={`${basePath}/booking`} className="btn-atb backdrop-blur-2xl backdrop-saturate-150">
+              Reserve a Table
+              <span className="btn-atb-arrow">&rarr;</span>
+            </a>
           </div>
         </motion.div>
 
