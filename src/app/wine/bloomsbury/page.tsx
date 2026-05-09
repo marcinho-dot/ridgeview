@@ -194,23 +194,9 @@ function ProductHero() {
                   </div>
                 </div>
               </div>
-              {/* Mobile-only CTA — Desktop CTA is anchored to the bottle column.
-                  The id="hero-mobile-cta" is observed by <StickyMobileCTA /> —
-                  when this element scrolls out of viewport, the sticky bar slides in.
-                  No "Back to Shop" sekundär-CTA: navbar + sticky-bar Shop-link +
-                  ClosingCTA already provide three navigation paths back. */}
-              <div
-                id="hero-mobile-cta"
-                className="md:hidden mt-6 flex flex-wrap items-center gap-3"
-              >
-                <button
-                  className="group font-body text-white text-[10px] uppercase tracking-[0.22em] border border-[#C8A96E]/55 hover:border-[#C8A96E] bg-[#C8A96E]/15 hover:bg-[#C8A96E]/25 active:scale-[0.97] px-7 py-4 rounded-sm transition-all duration-300"
-                  type="button"
-                >
-                  Add to basket
-                  <span className="inline-block ml-2 transition-transform duration-400 ease-out group-hover:translate-x-1">&rarr;</span>
-                </button>
-              </div>
+              {/* Add-to-basket CTA moved INTO the bottle wrapper (bottom-right
+                  anchor). Same id="hero-mobile-cta" so the StickyMobileCTA
+                  IntersectionObserver still triggers when it scrolls out. */}
             </FadeUp>
           </div>
 
@@ -274,12 +260,16 @@ function ProductHero() {
                 />
               </div>
 
-              {/* Desktop CTA — anchored bottom-right next to the bottle.
-                  No "Back to Shop" sekundär-CTA: navbar already has it and
-                  the user can naturally scroll back to the collection. */}
-              <div className="hidden md:flex absolute bottom-0 right-0 flex-wrap items-center justify-end gap-3 z-10">
+              {/* Add-to-basket CTA — anchored bottom-right next to the bottle
+                  on BOTH mobile and desktop. The id is observed by
+                  <StickyMobileCTA />: when this element scrolls out of view,
+                  the mobile sticky bar slides up. */}
+              <div
+                id="hero-mobile-cta"
+                className="absolute bottom-0 right-0 flex flex-wrap items-center justify-end gap-3 z-10"
+              >
                 <button
-                  className="group font-body text-white text-[10px] uppercase tracking-[0.22em] border border-[#C8A96E]/55 hover:border-[#C8A96E] bg-[#C8A96E]/15 hover:bg-[#C8A96E]/25 active:scale-[0.97] px-7 py-4 rounded-sm transition-all duration-300 backdrop-blur-sm"
+                  className="group font-body text-white text-[10px] uppercase tracking-[0.22em] border border-[#C8A96E]/55 hover:border-[#C8A96E] bg-[#C8A96E]/15 hover:bg-[#C8A96E]/25 active:scale-[0.97] px-6 md:px-7 py-3.5 md:py-4 rounded-sm transition-all duration-300 backdrop-blur-sm"
                   type="button"
                 >
                   Add to basket
