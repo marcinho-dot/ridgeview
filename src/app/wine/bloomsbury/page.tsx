@@ -261,6 +261,19 @@ function ProductHero() {
                 />
               </div>
 
+              {/* Bottom-fade vignette — combined dark anchor (mid-zone) plus a
+                  warm gold base at the very bottom edge. The dark band gives the
+                  ATB button a "stage" to sit on, the gold adds editorial warmth. */}
+              <div
+                aria-hidden
+                className="absolute bottom-0 left-0 right-0 pointer-events-none z-[5]"
+                style={{
+                  height: "160px",
+                  background:
+                    "linear-gradient(to top, rgba(200,169,110,0.10) 0%, rgba(0,0,0,0.45) 35%, rgba(0,0,0,0.18) 70%, transparent 100%)",
+                }}
+              />
+
               {/* Add-to-basket CTA — anchored bottom-right next to the bottle
                   on BOTH mobile and desktop. The id is observed by
                   <StickyMobileCTA />: when this element scrolls out of view,
