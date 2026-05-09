@@ -98,7 +98,7 @@ function ProductHero() {
 
             <FadeUp delay={0.3} className="order-3">
               <p
-                className="font-display italic text-white/85 mb-6 md:mb-8"
+                className="font-display italic text-white/85 mb-3 md:mb-8"
                 style={{ fontSize: "clamp(18px, 2vw, 26px)", fontWeight: 400, lineHeight: 1.35 }}
               >
                 Official wine of the Queen&rsquo;s Diamond Jubilee
@@ -107,7 +107,7 @@ function ProductHero() {
 
             {/* Award Badges (Mobile only) — under subtitle, staged like AwardSection */}
             <FadeUp delay={0.35} className="md:hidden order-4">
-              <div className="flex items-end justify-start gap-6 mb-9" aria-label="Awards">
+              <div className="flex items-end justify-start gap-5 mb-4" aria-label="Awards">
                 {/* IWSC 93 Points · 2020 */}
                 <div className="flex flex-col items-center gap-2">
                   <motion.img
@@ -170,9 +170,6 @@ function ProductHero() {
             <FadeUp delay={0.55} className="order-5 mb-6 md:mb-0">
               <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-2">
                 <div>
-                  <p className="font-body text-white/35 text-[10px] uppercase tracking-[0.25em] mb-2">
-                    From
-                  </p>
                   <p
                     className="font-display italic text-cream"
                     style={{ fontSize: "clamp(32px, 3.6vw, 48px)", fontWeight: 400 }}
