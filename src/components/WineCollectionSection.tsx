@@ -271,9 +271,10 @@ export function WineCollectionSection() {
                   {wine.slug ? (
                     <a
                       href={`${basePath}/wine/${wine.slug}`}
-                      className="btn-ridge w-fit font-body text-white/80 hover:text-white text-[10px] uppercase tracking-[0.22em] border border-white/15 hover:border-[#C8A96E]/50 px-6 py-3 rounded-sm transition-all duration-300"
+                      className="group w-fit inline-flex items-center font-body text-white text-[10px] uppercase tracking-[0.22em] border border-[#C8A96E]/55 hover:border-[#C8A96E] bg-[#C8A96E]/15 hover:bg-[#C8A96E]/25 active:scale-[0.97] px-6 py-3 rounded-sm transition-all duration-300"
                     >
-                      Shop Bottle &nbsp;&rarr;
+                      Shop Bottle
+                      <span className="inline-block ml-2 transition-transform duration-400 ease-out group-hover:translate-x-1">&rarr;</span>
                     </a>
                   ) : (
                     <button className="btn-ridge w-fit font-body text-white/80 hover:text-white text-[10px] uppercase tracking-[0.22em] border border-white/15 hover:border-white/40 px-6 py-3 rounded-sm transition-all duration-300">
@@ -414,9 +415,10 @@ export function WineCollectionSection() {
               {wine.slug ? (
                 <a
                   href={`${basePath}/wine/${wine.slug}`}
-                  className="btn-ridge font-body text-white/75 hover:text-white text-[10px] uppercase tracking-[0.22em] border border-white/15 hover:border-[#C8A96E]/50 px-7 py-3 rounded-sm transition-all duration-300"
+                  className="group inline-flex items-center font-body text-white text-[10px] uppercase tracking-[0.22em] border border-[#C8A96E]/55 hover:border-[#C8A96E] bg-[#C8A96E]/15 hover:bg-[#C8A96E]/25 active:scale-[0.97] px-7 py-3 rounded-sm transition-all duration-300"
                 >
-                  Shop Bottle &nbsp;&rarr;
+                  Shop Bottle
+                  <span className="inline-block ml-2 transition-transform duration-400 ease-out group-hover:translate-x-1">&rarr;</span>
                 </a>
               ) : (
                 <button className="btn-ridge font-body text-white/75 hover:text-white text-[10px] uppercase tracking-[0.22em] border border-white/15 hover:border-white/40 px-7 py-3 rounded-sm transition-all duration-300">
