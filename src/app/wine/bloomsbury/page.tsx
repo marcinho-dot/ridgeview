@@ -108,43 +108,9 @@ function ProductHero() {
               </p>
             </FadeUp>
 
-            {/* Award Badges (Mobile only) — under subtitle, staged like AwardSection */}
-            <FadeUp delay={0.35} className="md:hidden order-4">
-              <div className="flex items-end justify-start gap-5 mb-4" aria-label="Awards">
-                {/* IWSC 93 Points · 2020 */}
-                <div className="flex flex-col items-center gap-2">
-                  <motion.img
-                    src={`${basePath}/images/awards/iwsc-93pts-2020.webp`}
-                    alt="IWSC 93 Points — International Wine & Spirit Competition 2020"
-                    title="IWSC 93 Points · 2020"
-                    className="h-[clamp(82px,22vw,108px)] w-auto [filter:drop-shadow(0_8px_24px_rgba(0,0,0,0.5))]"
-                    loading="lazy"
-                    initial={{ opacity: 0, scale: 0.94, y: 6 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.45 }}
-                  />
-                  <p className="font-body text-white/45 text-[9px] uppercase tracking-[0.28em] whitespace-nowrap">
-                    IWSC <span className="text-[#C8A96E]/70 mx-1">·</span> 2020
-                  </p>
-                </div>
-                {/* Decanter Silver · 2018 */}
-                <div className="flex flex-col items-center gap-2">
-                  <motion.img
-                    src={`${basePath}/images/awards/decanter-2018-silver.webp`}
-                    alt="Silver — Decanter World Wine Awards 2018"
-                    title="Decanter Silver · 2018"
-                    className="h-[clamp(82px,22vw,108px)] w-auto [filter:drop-shadow(0_8px_24px_rgba(0,0,0,0.5))]"
-                    loading="lazy"
-                    initial={{ opacity: 0, scale: 0.94, y: 6 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.57 }}
-                  />
-                  <p className="font-body text-white/45 text-[9px] uppercase tracking-[0.28em] whitespace-nowrap">
-                    Decanter <span className="text-[#C8A96E]/70 mx-1">·</span> 2018
-                  </p>
-                </div>
-              </div>
-            </FadeUp>
+            {/* Mobile award badges moved INTO the bottle wrapper (left-side overlay)
+                so they sit next to the bottle visually and free up vertical space
+                for the ATB button to land inside the initial viewport. */}
 
             {/* Divider — Desktop: between subtitle and description; Mobile: between
                 Price/CTAs and the description block (pushed below the fold via order). */}
@@ -246,15 +212,15 @@ function ProductHero() {
           {/* ── Bottle + Desktop CTAs ──────────────────────── */}
           <FadeUp delay={0.05} className="order-1 md:order-2">
             <div
-              className="relative h-[clamp(220px,30svh,300px)] md:h-[clamp(480px,62svh,720px)]"
+              className="relative h-[clamp(320px,44svh,420px)] md:h-[clamp(480px,62svh,720px)]"
               style={{ overflow: "visible" }}
             >
               {/* soft halo — absolute centered, no layout impact */}
               <div
                 className="absolute top-1/2 left-1/2 pointer-events-none"
                 style={{
-                  width: "min(520px, 60vw)",
-                  height: "min(520px, 60vw)",
+                  width: "min(520px, 70vw)",
+                  height: "min(520px, 70vw)",
                   borderRadius: "50%",
                   background:
                     "radial-gradient(circle, rgba(200,169,110,0.09) 0%, transparent 70%)",
@@ -262,13 +228,40 @@ function ProductHero() {
                   transform: "translate(-50%, -50%)",
                 }}
               />
+
+              {/* Mobile award badges — absolute overlay, vertically stacked
+                  on the left side of the bottle wrapper. Hidden on desktop
+                  where the badges sit in the price row. */}
+              <div className="md:hidden absolute left-0 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-10 pointer-events-none">
+                <motion.img
+                  src={`${basePath}/images/awards/iwsc-93pts-2020.webp`}
+                  alt="IWSC 93 Points — International Wine & Spirit Competition 2020"
+                  title="IWSC 93 Points · 2020"
+                  className="h-[clamp(60px,16vw,80px)] w-auto [filter:drop-shadow(0_6px_18px_rgba(0,0,0,0.55))]"
+                  loading="lazy"
+                  initial={{ opacity: 0, x: -8, scale: 0.94 }}
+                  animate={{ opacity: 1, x: 0, scale: 1 }}
+                  transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
+                />
+                <motion.img
+                  src={`${basePath}/images/awards/decanter-2018-silver.webp`}
+                  alt="Silver — Decanter World Wine Awards 2018"
+                  title="Decanter Silver · 2018"
+                  className="h-[clamp(60px,16vw,80px)] w-auto [filter:drop-shadow(0_6px_18px_rgba(0,0,0,0.55))]"
+                  loading="lazy"
+                  initial={{ opacity: 0, x: -8, scale: 0.94 }}
+                  animate={{ opacity: 1, x: 0, scale: 1 }}
+                  transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.62 }}
+                />
+              </div>
+
               {/* Bottle wrapper — absolute, doesn't dictate column height */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={`${basePath}/products/bloomsbury.png`}
                   alt="Ridgeview Bloomsbury NV — English Sparkling Wine, 75cl bottle"
-                  className="pointer-events-auto w-auto max-w-none object-contain h-[clamp(220px,30svh,300px)] md:h-[clamp(640px,82svh,980px)] [transform:translateY(-10px)_rotate(35deg)] md:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)] hover:[transform:translateY(-10px)_rotate(35deg)_scale(1.015)] md:hover:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)_scale(1.015)] [transition:transform_900ms_cubic-bezier(0.16,1,0.3,1),filter_900ms_cubic-bezier(0.16,1,0.3,1)] hover:[filter:drop-shadow(0_40px_80px_rgba(0,0,0,0.7))_drop-shadow(0_0_60px_rgba(200,169,110,0.12))]"
+                  className="pointer-events-auto w-auto max-w-none object-contain h-[clamp(340px,46svh,440px)] md:h-[clamp(640px,82svh,980px)] [transform:translateX(8%)_translateY(-10px)_rotate(35deg)] md:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)] hover:[transform:translateX(8%)_translateY(-10px)_rotate(35deg)_scale(1.015)] md:hover:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)_scale(1.015)] [transition:transform_900ms_cubic-bezier(0.16,1,0.3,1),filter_900ms_cubic-bezier(0.16,1,0.3,1)] hover:[filter:drop-shadow(0_40px_80px_rgba(0,0,0,0.7))_drop-shadow(0_0_60px_rgba(200,169,110,0.12))]"
                   style={{
                     transformOrigin: "center",
                     filter: "drop-shadow(0 30px 60px rgba(0,0,0,0.6))",
