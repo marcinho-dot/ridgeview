@@ -10,22 +10,24 @@ function getLinks(isBookingPage: boolean) {
   // On the booking page, anchor links must point back to the homepage
   const anchor = (hash: string) => isBookingPage ? `${basePath}/${hash}` : hash;
 
+  // "Shop" is the primary CTA — rendered separately as a gold-tinted button.
+  const shopHref = anchor("#wine-collection");
+
   const desktop = [
-    { label: "Shop", href: anchor("#wine-collection") },
     { label: "Vineyard Bookings", href: `${basePath}/booking` },
   ];
 
   const wineClubHref = anchor("#ourview");
 
   const mobile = [
-    { label: "Shop", href: anchor("#wine-collection") },
+    { label: "Shop", href: shopHref },
     { label: "Vineyard Bookings", href: `${basePath}/booking` },
     { label: "Wine Club", href: anchor("#ourview") },
     { label: "Our Story", href: anchor("#heritage") },
     { label: "Contact", href: anchor("#footer") },
   ];
 
-  return { desktop, mobile, wineClubHref };
+  return { desktop, mobile, wineClubHref, shopHref };
 }
 
 export function Navbar() {
@@ -48,7 +50,7 @@ export function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
-  const { desktop: desktopLinks, mobile: mobileLinks, wineClubHref } = getLinks(isBookingPage);
+  const { desktop: desktopLinks, mobile: mobileLinks, wineClubHref, shopHref } = getLinks(isBookingPage);
 
   return (
     <>
@@ -60,8 +62,17 @@ export function Navbar() {
             : "py-5 md:py-6 bg-transparent"
         }`}
       >
-        {/* Left links — desktop */}
-        <div className="hidden md:flex items-center gap-7">
+        {/* Left links — desktop. "Shop" is rendered as a gold-tinted button
+            with arrow (matching the hero "View all Wines" CTA), other entries
+            stay as understated underline-on-hover text links. */}
+        <div className="hidden md:flex items-center gap-6">
+          <a
+            href={shopHref}
+            className="group inline-flex items-center font-body text-white text-[10px] uppercase tracking-[0.22em] border border-[#C8A96E]/55 hover:border-[#C8A96E] bg-[#C8A96E]/15 hover:bg-[#C8A96E]/25 active:scale-[0.97] px-5 py-2.5 rounded-sm transition-all duration-300 backdrop-blur-sm"
+          >
+            Shop
+            <span className="inline-block ml-2 transition-transform duration-400 ease-out group-hover:translate-x-1">&rarr;</span>
+          </a>
           {desktopLinks.map(({ label, href }) => (
             <a
               key={label}

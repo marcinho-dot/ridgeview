@@ -223,9 +223,11 @@ function ProductHero() {
                 20% off for members. Add a free personalised gift note at checkout.
               </p>
 
-              {/* Mobile-only CTAs — Desktop CTAs are anchored to the bottle column.
+              {/* Mobile-only CTA — Desktop CTA is anchored to the bottle column.
                   The id="hero-mobile-cta" is observed by <StickyMobileCTA /> —
-                  when this element scrolls out of viewport, the sticky bar slides in. */}
+                  when this element scrolls out of viewport, the sticky bar slides in.
+                  No "Back to Shop" sekundär-CTA: navbar + sticky-bar Shop-link +
+                  ClosingCTA already provide three navigation paths back. */}
               <div
                 id="hero-mobile-cta"
                 className="md:hidden mt-6 flex flex-wrap items-center gap-3"
@@ -237,12 +239,6 @@ function ProductHero() {
                   Add to basket
                   <span className="inline-block ml-2 transition-transform duration-400 ease-out group-hover:translate-x-1">&rarr;</span>
                 </button>
-                <a
-                  href={`${basePath}/#wine-collection`}
-                  className="font-body text-white/55 hover:text-[#C8A96E] text-[10px] uppercase tracking-[0.22em] border border-white/12 hover:border-[#C8A96E]/40 px-5 py-3.5 rounded-sm transition-all duration-300"
-                >
-                  Back to Shop
-                </a>
               </div>
             </FadeUp>
           </div>
@@ -280,14 +276,10 @@ function ProductHero() {
                 />
               </div>
 
-              {/* Desktop CTAs — anchored bottom-right next to the bottle */}
+              {/* Desktop CTA — anchored bottom-right next to the bottle.
+                  No "Back to Shop" sekundär-CTA: navbar already has it and
+                  the user can naturally scroll back to the collection. */}
               <div className="hidden md:flex absolute bottom-0 right-0 flex-wrap items-center justify-end gap-3 z-10">
-                <a
-                  href={`${basePath}/#wine-collection`}
-                  className="font-body text-white/55 hover:text-[#C8A96E] text-[10px] uppercase tracking-[0.22em] border border-white/12 hover:border-[#C8A96E]/40 px-5 py-3.5 rounded-sm transition-all duration-300 backdrop-blur-sm bg-black/20"
-                >
-                  Back to Shop
-                </a>
                 <button
                   className="group font-body text-white text-[10px] uppercase tracking-[0.22em] border border-[#C8A96E]/55 hover:border-[#C8A96E] bg-[#C8A96E]/15 hover:bg-[#C8A96E]/25 active:scale-[0.97] px-7 py-4 rounded-sm transition-all duration-300 backdrop-blur-sm"
                   type="button"
@@ -700,10 +692,9 @@ export default function BloomsburyPage() {
           Shown when #hero-mobile-cta scrolls out of viewport. */}
       <StickyMobileCTA
         productName="Bloomsbury NV"
-        price="From £34.00 · 75cl"
+        price="£34.00 · 75cl"
         thumbnailSrc="/products/bloomsbury.png"
         triggerId="hero-mobile-cta"
-        backHref={`${basePath}/#wine-collection`}
       />
     </main>
   );
