@@ -4,10 +4,10 @@ import { ReactNode, useEffect, useRef, useState } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { BottomNav } from "@/components/BottomNav";
 import { ScrollReset } from "@/components/ScrollReset";
 import { TestimonialSection } from "@/components/sku/TestimonialSection";
 import { AwardSection } from "@/components/sku/AwardSection";
+import { StickyMobileCTA } from "@/components/sku/StickyMobileCTA";
 import { PurchaseWidget, type Variant } from "@/components/sku/PurchaseWidget";
 import { BehindTheBottleSection } from "@/components/sku/BehindTheBottleSection";
 import { WineClubUpsellSection } from "@/components/sku/WineClubUpsellSection";
@@ -923,10 +923,16 @@ export default function BloomsburyPage() {
 
       <ScrollReset><ClosingCTA /></ScrollReset>
       <Footer />
-      {/* BottomNav appears only when EVERY ATB on the page (hero bottle-side,
-          widget, ClosingCTA — all marked with data-atb-trigger) is out of
-          viewport. As soon as any ATB scrolls back in, the nav hides. */}
-      <BottomNav hideWhileVisibleSelector="[data-atb-trigger]" />
+      {/* Sticky mobile purchase bar (Mini-Flasche + Preis + ATB) appears only
+          when EVERY ATB on the page (hero bottle-side, widget, ClosingCTA —
+          all marked with data-atb-trigger) is out of viewport. As soon as
+          any ATB scrolls back in, the bar hides. */}
+      <StickyMobileCTA
+        productName="Bloomsbury NV"
+        price="£34.00 · 75cl"
+        thumbnailSrc="/products/bloomsbury.png"
+        triggerSelector="[data-atb-trigger]"
+      />
     </main>
   );
 }
