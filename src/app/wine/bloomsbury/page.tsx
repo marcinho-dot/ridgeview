@@ -46,10 +46,11 @@ function GoldDivider({ origin = "left" as "left" | "center" }) {
 
 function ProductHero() {
   return (
-    // min-h-[100svh] ensures the hero fills the full visible viewport on mobile
-    // (svh accounts for the iOS / Android URL bar — 100vh would overshoot).
-    // On desktop min-h-0 disables the constraint so the natural content height drives.
-    <section className="relative bg-[#010101] pt-28 md:pt-32 pb-8 md:pb-12 min-h-[100svh] md:min-h-0 overflow-hidden">
+    // min-h-[100svh] on every breakpoint — hero always fills the full visible
+    // viewport (svh accounts for the iOS / Android URL bar so 100vh wouldn't
+    // overshoot on mobile). Without the constraint on desktop, shorter content
+    // would let the next section peek through at the bottom of the fold.
+    <section className="relative bg-[#010101] pt-28 md:pt-32 pb-8 md:pb-12 min-h-[100svh] overflow-hidden">
       {/* Ambient gold glow */}
       <div
         className="absolute inset-0 pointer-events-none"

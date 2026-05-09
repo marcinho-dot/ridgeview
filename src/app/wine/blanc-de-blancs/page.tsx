@@ -42,9 +42,9 @@ function GoldDivider({ origin = "left" as "left" | "center" }) {
 // ── Hero / Product Showcase ─────────────────────────────────────────────────
 
 function ProductHero() {
-  // min-h-[100svh] keeps the hero filling the visible viewport on mobile.
+  // min-h-[100svh] on every breakpoint — hero always fills full viewport.
   return (
-    <section className="relative bg-[#010101] pt-32 md:pt-36 pb-20 md:pb-28 min-h-[100svh] md:min-h-0 overflow-hidden">
+    <section className="relative bg-[#010101] pt-32 md:pt-36 pb-20 md:pb-28 min-h-[100svh] overflow-hidden">
       {/* Ambient gold glow */}
       <div
         className="absolute inset-0 pointer-events-none"
