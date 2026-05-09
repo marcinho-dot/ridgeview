@@ -237,7 +237,14 @@ export function ImageRevealSection() {
   // Exception: this section animates EVERY time the user scrolls into it
   // (egal ob von oben oder unten). once:false + higher amount delays the
   // trigger until the section is more visible.
-  const inView = useInView(ref, { once: false, amount: 0.55 });
+  // margin: shrinks the viewport bottom by 100px so the cards have to clear
+  // the mobile BottomNav (≈80px tall) before the entrance animation fires —
+  // otherwise the cards would appear behind the sticky bar.
+  const inView = useInView(ref, {
+    once: false,
+    amount: 0.55,
+    margin: "0px 0px -100px 0px",
+  });
   const [mobile, setMobile] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const lightboxImages = galleryImages.map((img) => ({
