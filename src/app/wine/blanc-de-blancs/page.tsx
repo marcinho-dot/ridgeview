@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { BottomNav } from "@/components/BottomNav";
+import { ScrollReset } from "@/components/ScrollReset";
 import { basePath } from "@/lib/basePath";
 
 // ── Animation Helpers ────────────────────────────────────────────────────────
@@ -14,7 +15,7 @@ function FadeUp({ children, delay = 0, className = "" }: {
 }) {
   return (
     <div
-      className={`mn-fx ${className}`}
+      className={`reveal ${className}`}
       style={{ transitionDelay: `${delay}s` }}
     >
       {children}
@@ -502,10 +503,10 @@ export default function BlancDeBlancsPage() {
     <main className="bg-[#010101]">
       <Navbar />
       <ProductHero />
-      <TastingPairingSection />
-      <CellarNotesSection />
-      <AwardsSpecsSection />
-      <ClosingCTA />
+      <ScrollReset><TastingPairingSection /></ScrollReset>
+      <ScrollReset><CellarNotesSection /></ScrollReset>
+      <ScrollReset><AwardsSpecsSection /></ScrollReset>
+      <ScrollReset><ClosingCTA /></ScrollReset>
       <Footer />
       <BottomNav />
     </main>

@@ -6,7 +6,7 @@ import { basePath } from "@/lib/basePath";
 
 export function EstatePeopleSection() {
   const ref = useRef<HTMLElement>(null);
-  const isInView = useInView(ref, { once: false, amount: 0.1 });
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
     <section ref={ref} className="bg-[#010101] pt-28 pb-20 md:pt-36 md:pb-28">

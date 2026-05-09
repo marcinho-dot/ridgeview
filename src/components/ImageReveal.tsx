@@ -234,7 +234,10 @@ function Lightbox({
 
 export function ImageRevealSection() {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: false, amount: 0.1 });
+  // Exception: this section animates EVERY time the user scrolls into it
+  // (egal ob von oben oder unten). once:false + higher amount delays the
+  // trigger until the section is more visible.
+  const inView = useInView(ref, { once: false, amount: 0.55 });
   const [mobile, setMobile] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const lightboxImages = galleryImages.map((img) => ({

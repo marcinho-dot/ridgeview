@@ -145,20 +145,20 @@ body::after {
   color: #C8A96E !important;
 }
 
-/* ─── Scroll-Reveal with Re-Show-Reset (mn-fx) ─────────────── */
+/* ─── Scroll-Reveal with Re-Show-Reset ─────────────────────── */
 /* Initial hidden state — fade + 28px slide up + 6px blur */
-.mn-fx {
+.reveal {
   opacity: 0;
   transform: translate3d(0, 28px, 0);
   filter: blur(6px);
   transition:
-    opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
-    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
-    filter 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+    opacity 1.4s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 1.4s cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 1.4s cubic-bezier(0.2, 0.7, 0.2, 1);
   will-change: opacity, transform, filter;
 }
-/* Revealed state — added by MnRevealInit IntersectionObserver */
-.mn-fx.mn-fx-in {
+/* Revealed state — added by RevealInit IntersectionObserver */
+.reveal.reveal-in {
   opacity: 1;
   transform: none;
   filter: none;
@@ -170,8 +170,8 @@ body::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
-  /* Show mn-fx elements immediately if user prefers reduced motion */
-  .mn-fx {
+  /* Show .reveal elements immediately if user prefers reduced motion */
+  .reveal {
     opacity: 1;
     transform: none;
     filter: none;

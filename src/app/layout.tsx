@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
-import { MnRevealInit } from "@/components/MnRevealInit";
+import { RevealInit } from "@/components/RevealInit";
 
 export const metadata: Metadata = {
   title: "Ridgeview Wine Estate — English Sparkling Wine",
@@ -24,7 +24,7 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
-        <MnRevealInit />
+        <RevealInit />
         <ScrollProgress />
         {children}
       </body>

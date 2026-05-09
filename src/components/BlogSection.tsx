@@ -1,8 +1,25 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { basePath } from "@/lib/basePath";
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Hook: useCanHover() — true on devices with a real pointer (mouse/trackpad).
+   False on touch-only devices, so hover-to-open won't fire on tap.
+───────────────────────────────────────────────────────────────────────── */
+function useCanHover() {
+  const [canHover, setCanHover] = useState(false);
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.matchMedia) return;
+    const mq = window.matchMedia("(hover: hover)");
+    setCanHover(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setCanHover(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+  return canHover;
+}
 
 /* ─────────────────────────────────────────────────────────────────────────
    Blog data — all content verified from ridgeview.co.uk
@@ -81,6 +98,7 @@ const posts = [
 
 function AccordionPanels() {
   const [active, setActive] = useState(0);
+  const canHover = useCanHover();
 
   return (
     <div className="hidden md:flex gap-2 h-[480px] lg:h-[540px]">
@@ -90,13 +108,16 @@ function AccordionPanels() {
         return (
           <motion.div
             key={post.title}
-            className="relative overflow-hidden rounded-lg cursor-pointer"
+            className="reveal relative overflow-hidden rounded-lg cursor-pointer"
+            initial={false}
             animate={{ flex: isActive ? 6 : 1 }}
             transition={{
               duration: 0.5,
               ease: [0.25, 0.46, 0.45, 0.94],
             }}
+            style={{ transitionDelay: `${0.05 + i * 0.10}s` }}
             onClick={() => setActive(i)}
+            onMouseEnter={canHover ? () => setActive(i) : undefined}
           >
             {/* Image */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -111,8 +132,8 @@ function AccordionPanels() {
               className="absolute inset-0 transition-colors duration-500"
               style={{
                 backgroundColor: isActive
-                  ? "rgba(0,0,0,0.35)"
-                  : "rgba(0,0,0,0.75)",
+                  ? "rgba(0,0,0,0.05)"
+                  : "rgba(0,0,0,0.25)",
               }}
             />
 
@@ -132,12 +153,15 @@ function AccordionPanels() {
                   transition={{ duration: 0.3 }}
                 >
                   <span
-                    className="font-display italic text-[#C8A96E] tracking-widest whitespace-nowrap"
+                    className="font-body uppercase text-[#E5C896] whitespace-nowrap"
                     style={{
                       writingMode: "vertical-rl",
                       textOrientation: "mixed",
-                      fontSize: "clamp(12px, 1.1vw, 15px)",
-                      textShadow: "0 1px 8px rgba(0,0,0,0.9)",
+                      fontSize: "clamp(14px, 1.25vw, 18px)",
+                      fontWeight: 500,
+                      letterSpacing: "0.32em",
+                      textShadow:
+                        "0 1px 12px rgba(0,0,0,0.95), 0 0 24px rgba(0,0,0,0.7), 0 2px 4px rgba(0,0,0,0.9)",
                     }}
                   >
                     {post.category}
@@ -158,11 +182,12 @@ function AccordionPanels() {
                 >
                   {/* Category */}
                   <p
-                    className="font-body text-[#C8A96E] uppercase mb-3"
+                    className="font-body text-[#E5C896] uppercase mb-3"
                     style={{
-                      fontSize: "clamp(9px, 0.85vw, 11px)",
-                      fontWeight: 400,
-                      letterSpacing: "0.2em",
+                      fontSize: "clamp(11px, 1vw, 13px)",
+                      fontWeight: 500,
+                      letterSpacing: "0.24em",
+                      textShadow: "0 1px 8px rgba(0,0,0,0.85)",
                     }}
                   >
                     {post.category}
@@ -170,11 +195,12 @@ function AccordionPanels() {
 
                   {/* Date */}
                   <p
-                    className="font-body text-white/35 uppercase mb-2"
+                    className="font-body text-white/55 uppercase mb-2"
                     style={{
-                      fontSize: "clamp(9px, 0.8vw, 10px)",
-                      letterSpacing: "0.15em",
-                      fontWeight: 300,
+                      fontSize: "clamp(10px, 0.9vw, 12px)",
+                      letterSpacing: "0.18em",
+                      fontWeight: 400,
+                      textShadow: "0 1px 6px rgba(0,0,0,0.85)",
                     }}
                   >
                     {post.date}
@@ -182,13 +208,14 @@ function AccordionPanels() {
 
                   {/* Title */}
                   <h3
-                    className="font-display italic text-cream mb-3"
+                    className="font-display italic text-cream mb-4"
                     style={{
-                      fontSize: "clamp(20px, 2vw, 28px)",
+                      fontSize: "clamp(22px, 2.4vw, 34px)",
                       fontWeight: 400,
                       lineHeight: 1.15,
-                      maxWidth: "480px",
-                      textShadow: "0 2px 12px rgba(0,0,0,0.7)",
+                      maxWidth: "520px",
+                      textShadow:
+                        "0 2px 16px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.85)",
                     }}
                   >
                     {post.title}
@@ -196,12 +223,13 @@ function AccordionPanels() {
 
                   {/* Excerpt */}
                   <p
-                    className="font-body text-white/55 leading-relaxed mb-5"
+                    className="font-body text-white/80 leading-relaxed mb-6"
                     style={{
-                      fontSize: "clamp(12px, 1vw, 14px)",
-                      fontWeight: 300,
-                      maxWidth: "440px",
-                      textShadow: "0 1px 6px rgba(0,0,0,0.6)",
+                      fontSize: "clamp(13px, 1.15vw, 16px)",
+                      fontWeight: 400,
+                      maxWidth: "480px",
+                      textShadow:
+                        "0 1px 10px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,0.85)",
                     }}
                   >
                     {post.excerpt}
@@ -213,11 +241,12 @@ function AccordionPanels() {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
-                    className="inline-flex items-center gap-2 font-body text-[#C8A96E]/70 uppercase hover:text-[#C8A96E] transition-colors duration-300"
+                    className="inline-flex items-center gap-2 font-body text-[#E5C896] uppercase hover:text-cream transition-colors duration-300"
                     style={{
-                      fontSize: "clamp(9px, 0.85vw, 11px)",
-                      fontWeight: 400,
-                      letterSpacing: "0.18em",
+                      fontSize: "clamp(11px, 1vw, 13px)",
+                      fontWeight: 500,
+                      letterSpacing: "0.22em",
+                      textShadow: "0 1px 8px rgba(0,0,0,0.85)",
                     }}
                   >
                     Read More
@@ -260,15 +289,14 @@ function MobileAccordion() {
           <motion.div
             key={post.title}
             layout
-            className="relative overflow-hidden rounded-lg cursor-pointer"
+            className="reveal relative overflow-hidden rounded-lg cursor-pointer"
+            initial={false}
             animate={{ height: isActive ? 320 : 52 }}
-            initial={{ height: 52, opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: false }}
             transition={{
               duration: 0.5,
               ease: [0.25, 0.46, 0.45, 0.94],
             }}
+            style={{ transitionDelay: `${0.05 + i * 0.10}s` }}
             onClick={() => setActive(i)}
           >
             {/* Image — always present */}
@@ -284,8 +312,8 @@ function MobileAccordion() {
               className="absolute inset-0 transition-colors duration-500"
               style={{
                 backgroundColor: isActive
-                  ? "rgba(0,0,0,0.35)"
-                  : "rgba(0,0,0,0.82)",
+                  ? "rgba(0,0,0,0.05)"
+                  : "rgba(0,0,0,0.25)",
               }}
             />
 
@@ -304,19 +332,24 @@ function MobileAccordion() {
                   transition={{ duration: 0.25 }}
                 >
                   <span
-                    className="font-body text-[#C8A96E] uppercase shrink-0"
+                    className="font-body text-[#E5C896] uppercase shrink-0"
                     style={{
-                      fontSize: "9px",
-                      fontWeight: 400,
-                      letterSpacing: "0.18em",
-                      minWidth: "80px",
+                      fontSize: "11px",
+                      fontWeight: 500,
+                      letterSpacing: "0.22em",
+                      minWidth: "92px",
+                      textShadow: "0 1px 6px rgba(0,0,0,0.85)",
                     }}
                   >
                     {post.category}
                   </span>
                   <span
-                    className="font-display italic text-white/60 truncate"
-                    style={{ fontSize: "15px", fontWeight: 400 }}
+                    className="font-display italic text-white/85 truncate"
+                    style={{
+                      fontSize: "16px",
+                      fontWeight: 400,
+                      textShadow: "0 1px 8px rgba(0,0,0,0.85)",
+                    }}
                   >
                     {post.title}
                   </span>
@@ -347,11 +380,12 @@ function MobileAccordion() {
                 >
                   {/* Category */}
                   <p
-                    className="font-body text-[#C8A96E] uppercase mb-1.5"
+                    className="font-body text-[#E5C896] uppercase mb-2"
                     style={{
-                      fontSize: "9px",
-                      fontWeight: 400,
-                      letterSpacing: "0.2em",
+                      fontSize: "11px",
+                      fontWeight: 500,
+                      letterSpacing: "0.24em",
+                      textShadow: "0 1px 8px rgba(0,0,0,0.85)",
                     }}
                   >
                     {post.category}
@@ -359,11 +393,12 @@ function MobileAccordion() {
 
                   {/* Date */}
                   <p
-                    className="font-body text-white/35 uppercase mb-1.5"
+                    className="font-body text-white/55 uppercase mb-2"
                     style={{
-                      fontSize: "9px",
-                      letterSpacing: "0.15em",
-                      fontWeight: 300,
+                      fontSize: "11px",
+                      letterSpacing: "0.18em",
+                      fontWeight: 400,
+                      textShadow: "0 1px 6px rgba(0,0,0,0.85)",
                     }}
                   >
                     {post.date}
@@ -371,12 +406,13 @@ function MobileAccordion() {
 
                   {/* Title */}
                   <h3
-                    className="font-display italic text-cream mb-2"
+                    className="font-display italic text-cream mb-3"
                     style={{
-                      fontSize: "20px",
+                      fontSize: "24px",
                       fontWeight: 400,
                       lineHeight: 1.15,
-                      textShadow: "0 2px 12px rgba(0,0,0,0.7)",
+                      textShadow:
+                        "0 2px 16px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.85)",
                     }}
                   >
                     {post.title}
@@ -384,11 +420,12 @@ function MobileAccordion() {
 
                   {/* Excerpt */}
                   <p
-                    className="font-body text-white/55 leading-relaxed mb-4"
+                    className="font-body text-white/80 leading-relaxed mb-4"
                     style={{
-                      fontSize: "12px",
-                      fontWeight: 300,
-                      textShadow: "0 1px 6px rgba(0,0,0,0.6)",
+                      fontSize: "14px",
+                      fontWeight: 400,
+                      textShadow:
+                        "0 1px 10px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,0.85)",
                     }}
                   >
                     {post.excerpt}
@@ -400,11 +437,12 @@ function MobileAccordion() {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
-                    className="inline-flex items-center gap-2 font-body text-[#C8A96E]/70 uppercase"
+                    className="inline-flex items-center gap-2 font-body text-[#E5C896] uppercase"
                     style={{
-                      fontSize: "10px",
-                      fontWeight: 400,
-                      letterSpacing: "0.18em",
+                      fontSize: "11px",
+                      fontWeight: 500,
+                      letterSpacing: "0.22em",
+                      textShadow: "0 1px 8px rgba(0,0,0,0.85)",
                     }}
                   >
                     Read More
@@ -473,14 +511,8 @@ export function BlogSection() {
   return (
     <section id="journal" className="relative z-[1] bg-[#010101] -mt-[8vh] md:mt-0 pt-6 pb-12 md:pt-8 md:pb-16">
       <div className="max-w-[1400px] mx-auto px-6 md:px-16">
-        {/* Section Header */}
-        <motion.div
-          className="mb-12 md:mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.1 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-        >
+        {/* Section Header — uses .reveal (mn-fx-style: fade + 28px slide + blur 6px, 0.9s cubic-bezier(.2,.7,.2,1)) */}
+        <div className="reveal mb-12 md:mb-16">
           <p
             className="font-display italic text-[#C8A96E] tracking-widest mb-4"
             style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
@@ -497,27 +529,13 @@ export function BlogSection() {
           >
             Beyond the Bottle
           </h2>
-        </motion.div>
+        </div>
 
-        {/* Desktop: Accordion Panels */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.1 }}
-          transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
-        >
-          <AccordionPanels />
-        </motion.div>
+        {/* Desktop: Accordion Panels — each panel reveals individually with stagger */}
+        <AccordionPanels />
 
-        {/* Mobile: Vertical Accordion */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.1 }}
-          transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
-        >
-          <MobileAccordion />
-        </motion.div>
+        {/* Mobile: Vertical Accordion — each item reveals individually with stagger */}
+        <MobileAccordion />
       </div>
     </section>
   );

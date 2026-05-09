@@ -36,7 +36,7 @@ export function OurViewSection() {
           className="flex flex-col justify-center"
           initial={{ opacity: 0, y: 36 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.5, margin: "0px 0px -80px 0px" }}
+          viewport={{ once: true, amount: 0.5, margin: "0px 0px -80px 0px" }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
           <p
@@ -58,7 +58,7 @@ export function OurViewSection() {
             className="h-px bg-white/20 mb-6"
             initial={{ scaleX: 0, originX: 0 }}
             whileInView={{ scaleX: 1 }}
-            viewport={{ once: false, amount: 0.7, margin: "0px 0px -80px 0px" }}
+            viewport={{ once: true, amount: 0.7, margin: "0px 0px -80px 0px" }}
             transition={{ duration: 0.9, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
             style={{ maxWidth: "460px" }}
           />
@@ -97,7 +97,7 @@ export function OurViewSection() {
               className="flex items-center gap-4 py-3.5 text-left group"
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false, amount: 0.5, margin: "0px 0px -80px 0px" }}
+              viewport={{ once: true, amount: 0.5, margin: "0px 0px -80px 0px" }}
               transition={{ duration: 0.65, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
               {/* Arrow indicator */}

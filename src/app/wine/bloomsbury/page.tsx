@@ -4,7 +4,11 @@ import { ReactNode } from "react";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { BottomNav } from "@/components/BottomNav";
+import { ScrollReset } from "@/components/ScrollReset";
+import { TestimonialSection } from "@/components/sku/TestimonialSection";
+import { AwardSection } from "@/components/sku/AwardSection";
+import { StickyMobileCTA } from "@/components/sku/StickyMobileCTA";
+import { getTestimonial } from "@/data/testimonials";
 import { basePath } from "@/lib/basePath";
 
 // ── Animation Helpers ────────────────────────────────────────────────────────
@@ -14,7 +18,7 @@ function FadeUp({ children, delay = 0, className = "" }: {
 }) {
   return (
     <div
-      className={`mn-fx ${className}`}
+      className={`reveal ${className}`}
       style={{ transitionDelay: `${delay}s` }}
     >
       {children}
@@ -65,9 +69,13 @@ function ProductHero() {
         </FadeUp>
 
         <div className="grid grid-cols-1 md:grid-cols-[58fr_42fr] gap-10 md:gap-12 items-start">
-          {/* ── Info column ───────────────────────────────── */}
-          <div className="order-2 md:order-1">
-            <FadeUp>
+          {/* ── Info column ─────────────────────────────────
+              Mobile: flex-col with explicit `order-N` so Price + CTAs
+              appear in the initial viewport (right after the subtitle/awards).
+              Desktop: `md:block` removes the flex container, source order
+              applies → Price + CTAs land back at the end as designed. */}
+          <div className="order-2 md:order-1 flex flex-col md:block">
+            <FadeUp className="order-1">
               <p
                 className="font-display italic text-[#C8A96E] tracking-widest mb-5"
                 style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
@@ -76,7 +84,7 @@ function ProductHero() {
               </p>
             </FadeUp>
 
-            <div className="overflow-hidden mb-5">
+            <div className="overflow-hidden mb-5 order-2">
               <motion.h1
                 className="font-display italic text-cream leading-[1.02]"
                 style={{ fontSize: "clamp(38px, 6vw, 88px)", fontWeight: 400 }}
@@ -88,22 +96,62 @@ function ProductHero() {
               </motion.h1>
             </div>
 
-            <FadeUp delay={0.3}>
+            <FadeUp delay={0.3} className="order-3">
               <p
-                className="font-display italic text-white/85 mb-8"
+                className="font-display italic text-white/85 mb-6 md:mb-8"
                 style={{ fontSize: "clamp(18px, 2vw, 26px)", fontWeight: 400, lineHeight: 1.35 }}
               >
                 Official wine of the Queen&rsquo;s Diamond Jubilee
               </p>
             </FadeUp>
 
-            <FadeUp delay={0.4}>
-              <div className="mb-9">
+            {/* Award Badges (Mobile only) — under subtitle, staged like AwardSection */}
+            <FadeUp delay={0.35} className="md:hidden order-4">
+              <div className="flex items-end justify-start gap-6 mb-9" aria-label="Awards">
+                {/* IWSC 93 Points · 2020 */}
+                <div className="flex flex-col items-center gap-2">
+                  <motion.img
+                    src={`${basePath}/images/awards/iwsc-93pts-2020.webp`}
+                    alt="IWSC 93 Points — International Wine & Spirit Competition 2020"
+                    title="IWSC 93 Points · 2020"
+                    className="h-[clamp(82px,22vw,108px)] w-auto [filter:drop-shadow(0_8px_24px_rgba(0,0,0,0.5))]"
+                    loading="lazy"
+                    initial={{ opacity: 0, scale: 0.94, y: 6 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.45 }}
+                  />
+                  <p className="font-body text-white/45 text-[9px] uppercase tracking-[0.28em] whitespace-nowrap">
+                    IWSC <span className="text-[#C8A96E]/70 mx-1">·</span> 2020
+                  </p>
+                </div>
+                {/* Decanter Silver · 2018 */}
+                <div className="flex flex-col items-center gap-2">
+                  <motion.img
+                    src={`${basePath}/images/awards/decanter-2018-silver.webp`}
+                    alt="Silver — Decanter World Wine Awards 2018"
+                    title="Decanter Silver · 2018"
+                    className="h-[clamp(82px,22vw,108px)] w-auto [filter:drop-shadow(0_8px_24px_rgba(0,0,0,0.5))]"
+                    loading="lazy"
+                    initial={{ opacity: 0, scale: 0.94, y: 6 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.57 }}
+                  />
+                  <p className="font-body text-white/45 text-[9px] uppercase tracking-[0.28em] whitespace-nowrap">
+                    Decanter <span className="text-[#C8A96E]/70 mx-1">·</span> 2018
+                  </p>
+                </div>
+              </div>
+            </FadeUp>
+
+            {/* Divider — Desktop: between subtitle and description; Mobile: between
+                Price/CTAs and the description block (pushed below the fold via order). */}
+            <FadeUp delay={0.4} className="order-6">
+              <div className="mb-6 md:mb-9">
                 <GoldDivider />
               </div>
             </FadeUp>
 
-            <FadeUp delay={0.45}>
+            <FadeUp delay={0.45} className="order-7">
               <p
                 className="font-body text-white/70 mb-10"
                 style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, lineHeight: 1.75, maxWidth: "540px" }}
@@ -116,8 +164,10 @@ function ProductHero() {
               </p>
             </FadeUp>
 
-            {/* Price + CTA row */}
-            <FadeUp delay={0.55}>
+            {/* Price + Award Badges row.
+                Mobile: order-5 → sits BEFORE the divider/description (visible in fold).
+                Desktop: source order applies → block is at the end as before. */}
+            <FadeUp delay={0.55} className="order-5 mb-6 md:mb-0">
               <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-2">
                 <div>
                   <p className="font-body text-white/35 text-[10px] uppercase tracking-[0.25em] mb-2">
@@ -131,56 +181,121 @@ function ProductHero() {
                   </p>
                   <p className="font-body text-white/45 text-[12px] mt-1">75cl bottle · 12% ABV</p>
                 </div>
-                <div className="flex flex-wrap items-center gap-3">
-                  <button
-                    className="btn-ridge group font-body text-white/85 hover:text-white text-[10px] uppercase tracking-[0.22em] border border-white/30 hover:border-[#C8A96E]/70 px-7 py-4 rounded-sm transition-all duration-300"
-                    type="button"
-                  >
-                    Add to basket
-                    <span className="inline-block ml-2 transition-transform duration-400 ease-out group-hover:translate-x-1">&rarr;</span>
-                  </button>
-                  <a
-                    href={`${basePath}/#wine-collection`}
-                    className="font-body text-white/55 hover:text-[#C8A96E] text-[10px] uppercase tracking-[0.22em] border border-white/12 hover:border-[#C8A96E]/40 px-5 py-3.5 rounded-sm transition-all duration-300"
-                  >
-                    Back to Shop
-                  </a>
+                {/* Award Badges (Desktop only) — staged like AwardSection */}
+                <div className="hidden md:flex items-end gap-7" aria-label="Awards">
+                  {/* IWSC 93 Points · 2020 */}
+                  <div className="flex flex-col items-center gap-2.5">
+                    <motion.img
+                      src={`${basePath}/images/awards/iwsc-93pts-2020.webp`}
+                      alt="IWSC 93 Points — International Wine & Spirit Competition 2020"
+                      title="IWSC 93 Points · 2020"
+                      className="h-[clamp(104px,9vw,128px)] w-auto [filter:drop-shadow(0_10px_28px_rgba(0,0,0,0.55))] hover:[filter:drop-shadow(0_14px_36px_rgba(0,0,0,0.65))_drop-shadow(0_0_24px_rgba(200,169,110,0.18))] transition-[filter] duration-500"
+                      loading="lazy"
+                      initial={{ opacity: 0, scale: 0.94, y: 8 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
+                      whileHover={{ scale: 1.04 }}
+                    />
+                    <p className="font-body text-white/50 text-[10px] uppercase tracking-[0.3em] whitespace-nowrap">
+                      IWSC <span className="text-[#C8A96E]/70 mx-1">·</span> 2020
+                    </p>
+                  </div>
+                  {/* Decanter Silver · 2018 */}
+                  <div className="flex flex-col items-center gap-2.5">
+                    <motion.img
+                      src={`${basePath}/images/awards/decanter-2018-silver.webp`}
+                      alt="Silver — Decanter World Wine Awards 2018"
+                      title="Decanter Silver · 2018"
+                      className="h-[clamp(104px,9vw,128px)] w-auto [filter:drop-shadow(0_10px_28px_rgba(0,0,0,0.55))] hover:[filter:drop-shadow(0_14px_36px_rgba(0,0,0,0.65))_drop-shadow(0_0_24px_rgba(200,169,110,0.18))] transition-[filter] duration-500"
+                      loading="lazy"
+                      initial={{ opacity: 0, scale: 0.94, y: 8 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1], delay: 0.74 }}
+                      whileHover={{ scale: 1.04 }}
+                    />
+                    <p className="font-body text-white/50 text-[10px] uppercase tracking-[0.3em] whitespace-nowrap">
+                      Decanter <span className="text-[#C8A96E]/70 mx-1">·</span> 2018
+                    </p>
+                  </div>
                 </div>
               </div>
               <p className="font-body text-white/40 text-[12px] mt-4 leading-relaxed" style={{ maxWidth: "440px" }}>
                 20% off for members. Add a free personalised gift note at checkout.
               </p>
+
+              {/* Mobile-only CTAs — Desktop CTAs are anchored to the bottle column.
+                  The id="hero-mobile-cta" is observed by <StickyMobileCTA /> —
+                  when this element scrolls out of viewport, the sticky bar slides in. */}
+              <div
+                id="hero-mobile-cta"
+                className="md:hidden mt-6 flex flex-wrap items-center gap-3"
+              >
+                <button
+                  className="group font-body text-white text-[10px] uppercase tracking-[0.22em] border border-[#C8A96E]/55 hover:border-[#C8A96E] bg-[#C8A96E]/15 hover:bg-[#C8A96E]/25 active:scale-[0.97] px-7 py-4 rounded-sm transition-all duration-300"
+                  type="button"
+                >
+                  Add to basket
+                  <span className="inline-block ml-2 transition-transform duration-400 ease-out group-hover:translate-x-1">&rarr;</span>
+                </button>
+                <a
+                  href={`${basePath}/#wine-collection`}
+                  className="font-body text-white/55 hover:text-[#C8A96E] text-[10px] uppercase tracking-[0.22em] border border-white/12 hover:border-[#C8A96E]/40 px-5 py-3.5 rounded-sm transition-all duration-300"
+                >
+                  Back to Shop
+                </a>
+              </div>
             </FadeUp>
           </div>
 
-          {/* ── Bottle ─────────────────────────────────────── */}
+          {/* ── Bottle + Desktop CTAs ──────────────────────── */}
           <FadeUp delay={0.05} className="order-1 md:order-2">
             <div
-              className="relative flex items-center justify-center min-h-[40svh] md:min-h-[72svh]"
+              className="relative h-[clamp(220px,30svh,300px)] md:h-[clamp(480px,62svh,720px)]"
               style={{ overflow: "visible" }}
             >
-              {/* soft halo */}
+              {/* soft halo — absolute centered, no layout impact */}
               <div
-                className="absolute"
+                className="absolute top-1/2 left-1/2 pointer-events-none"
                 style={{
-                  width: 520,
-                  height: 520,
+                  width: "min(520px, 60vw)",
+                  height: "min(520px, 60vw)",
                   borderRadius: "50%",
                   background:
                     "radial-gradient(circle, rgba(200,169,110,0.09) 0%, transparent 70%)",
                   filter: "blur(32px)",
+                  transform: "translate(-50%, -50%)",
                 }}
               />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={`${basePath}/products/bloomsbury.png`}
-                alt="Ridgeview Bloomsbury NV — English Sparkling Wine, 75cl bottle"
-                className="relative w-auto max-w-none object-contain h-[min(48svh,420px)] md:h-[min(105svh,1180px)] [transform:translateY(-20px)_rotate(35deg)] md:[transform:translateY(-230px)_rotate(35deg)] hover:[transform:translateY(-20px)_rotate(35deg)_scale(1.015)] md:hover:[transform:translateY(-230px)_rotate(35deg)_scale(1.015)] [transition:transform_900ms_cubic-bezier(0.16,1,0.3,1),filter_900ms_cubic-bezier(0.16,1,0.3,1)] hover:[filter:drop-shadow(0_40px_80px_rgba(0,0,0,0.7))_drop-shadow(0_0_60px_rgba(200,169,110,0.12))]"
-                style={{
-                  transformOrigin: "center",
-                  filter: "drop-shadow(0 30px 60px rgba(0,0,0,0.6))",
-                }}
-              />
+              {/* Bottle wrapper — absolute, doesn't dictate column height */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`${basePath}/products/bloomsbury.png`}
+                  alt="Ridgeview Bloomsbury NV — English Sparkling Wine, 75cl bottle"
+                  className="pointer-events-auto w-auto max-w-none object-contain h-[clamp(220px,30svh,300px)] md:h-[clamp(640px,82svh,980px)] [transform:translateY(-10px)_rotate(35deg)] md:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)] hover:[transform:translateY(-10px)_rotate(35deg)_scale(1.015)] md:hover:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)_scale(1.015)] [transition:transform_900ms_cubic-bezier(0.16,1,0.3,1),filter_900ms_cubic-bezier(0.16,1,0.3,1)] hover:[filter:drop-shadow(0_40px_80px_rgba(0,0,0,0.7))_drop-shadow(0_0_60px_rgba(200,169,110,0.12))]"
+                  style={{
+                    transformOrigin: "center",
+                    filter: "drop-shadow(0 30px 60px rgba(0,0,0,0.6))",
+                  }}
+                />
+              </div>
+
+              {/* Desktop CTAs — anchored bottom-right next to the bottle */}
+              <div className="hidden md:flex absolute bottom-0 right-0 flex-wrap items-center justify-end gap-3 z-10">
+                <a
+                  href={`${basePath}/#wine-collection`}
+                  className="font-body text-white/55 hover:text-[#C8A96E] text-[10px] uppercase tracking-[0.22em] border border-white/12 hover:border-[#C8A96E]/40 px-5 py-3.5 rounded-sm transition-all duration-300 backdrop-blur-sm bg-black/20"
+                >
+                  Back to Shop
+                </a>
+                <button
+                  className="group font-body text-white text-[10px] uppercase tracking-[0.22em] border border-[#C8A96E]/55 hover:border-[#C8A96E] bg-[#C8A96E]/15 hover:bg-[#C8A96E]/25 active:scale-[0.97] px-7 py-4 rounded-sm transition-all duration-300 backdrop-blur-sm"
+                  type="button"
+                >
+                  Add to basket
+                  <span className="inline-block ml-2 transition-transform duration-400 ease-out group-hover:translate-x-1">&rarr;</span>
+                </button>
+              </div>
             </div>
           </FadeUp>
         </div>
@@ -551,16 +666,45 @@ function ClosingCTA() {
 // ── Page ────────────────────────────────────────────────────────────────────
 
 export default function BloomsburyPage() {
+  const testimonial = getTestimonial("bloomsbury");
+
   return (
-    <main className="bg-[#010101]">
+    <main className="bg-[#010101] pb-[80px] md:pb-0">
       <Navbar />
       <ProductHero />
-      <TastingPairingSection />
-      <BlendSection />
-      <AwardsSpecsSection />
-      <ClosingCTA />
+      <ScrollReset><TastingPairingSection /></ScrollReset>
+      <ScrollReset><BlendSection /></ScrollReset>
+      {testimonial && (
+        <ScrollReset><TestimonialSection testimonial={testimonial} /></ScrollReset>
+      )}
+      {/* PILOT — Award-Trophy-Pseudo-Testimonial.
+          Soll als Alternative für SKUs ohne externe Press-Review dienen
+          (Still Chardonnay, Still English Rosé). Hier in Bloomsbury als
+          Pilot direkt unter dem regulären Testimonial. */}
+      <ScrollReset>
+        <AwardSection
+          data={{
+            medal: "Silver",
+            body: "Decanter World Wine Awards",
+            year: 2018,
+            tier: "Highly Recommended",
+            badgeSrc: "/images/awards/decanter-2018-silver.webp",
+            description: "Recognised among the world's leading sparkling wines by the global Decanter judging panel.",
+          }}
+        />
+      </ScrollReset>
+      <ScrollReset><AwardsSpecsSection /></ScrollReset>
+      <ScrollReset><ClosingCTA /></ScrollReset>
       <Footer />
-      <BottomNav />
+      {/* Mobile sticky purchase CTA — replaces the generic BottomNav on SKU pages.
+          Shown when #hero-mobile-cta scrolls out of viewport. */}
+      <StickyMobileCTA
+        productName="Bloomsbury NV"
+        price="From £34.00 · 75cl"
+        thumbnailSrc="/products/bloomsbury.png"
+        triggerId="hero-mobile-cta"
+        backHref={`${basePath}/#wine-collection`}
+      />
     </main>
   );
 }

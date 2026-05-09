@@ -12,7 +12,7 @@ import { basePath } from "@/lib/basePath";
 
 export function HeritageSoilSection() {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: false, amount: 0.15 });
+  const inView = useInView(ref, { once: true, amount: 0.15 });
 
   return (
     <section id="heritage" ref={ref} className="bg-[#010101]">

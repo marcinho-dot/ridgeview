@@ -19,8 +19,8 @@ const milestones = [
 export function RecognitionSection() {
   const ref = useRef<HTMLElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: false, amount: 0.08 });
-  const timelineInView = useInView(timelineRef, { once: false, amount: 0.3 });
+  const isInView = useInView(ref, { once: true, amount: 0.08 });
+  const timelineInView = useInView(timelineRef, { once: true, amount: 0.3 });
   const [activeYear, setActiveYear] = useState<string | null>("2010");
   const [isMobile, setIsMobile] = useState(false);
 

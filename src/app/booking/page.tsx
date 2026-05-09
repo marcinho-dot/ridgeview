@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { BottomNav } from "@/components/BottomNav";
 import { RecognitionSection } from "@/components/RecognitionSection";
 import { EstatePeopleSection } from "@/components/EstatePeopleSection";
+import { ScrollReset } from "@/components/ScrollReset";
 import { basePath } from "@/lib/basePath";
 
 // ── Animation Helpers ────────────────────────────────────────────────────────
@@ -16,7 +17,7 @@ function FadeUp({ children, delay = 0, className = "" }: {
 }) {
   return (
     <div
-      className={`mn-fx ${className}`}
+      className={`reveal ${className}`}
       style={{ transitionDelay: `${delay}s` }}
     >
       {children}
@@ -29,7 +30,7 @@ function FadeIn({ children, delay = 0, className = "" }: {
 }) {
   return (
     <div
-      className={`mn-fx ${className}`}
+      className={`reveal ${className}`}
       style={{ transitionDelay: `${delay}s` }}
     >
       {children}
@@ -226,7 +227,7 @@ function HeritageTerroirSection() {
               style={{ height: "1px", background: "rgba(200,169,110,0.2)", transformOrigin: "left" }}
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               transition={{ duration: 1.1, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
             />
 
@@ -286,7 +287,7 @@ function HeritageDiscoverySection() {
             }}
             initial={{ scaleY: 0 }}
             whileInView={{ scaleY: 1 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ duration: 1.4, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           />
 
@@ -360,7 +361,7 @@ function HeritageDiscoverySection() {
               style={{ height: "1px", background: "rgba(200,169,110,0.15)", maxWidth: "400px", transformOrigin: "left" }}
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               transition={{ duration: 1.1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
             />
           </div>
@@ -422,7 +423,7 @@ function HeritageMethodSection() {
             }}
             initial={{ scaleY: 0 }}
             whileInView={{ scaleY: 1 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           />
 
@@ -747,13 +748,13 @@ export default function BookingPage() {
       <Navbar />
       <main>
         <PageHeader />
-        <EstatePeopleSection />
-        <HeritageTerroirSection />
-        <HeritageMethodSection />
-        <HeritageDiscoverySection />
-        <RecognitionSection />
-        <VisitPanels />
-        <PracticalInfo />
+        <ScrollReset><EstatePeopleSection /></ScrollReset>
+        <ScrollReset><HeritageTerroirSection /></ScrollReset>
+        <ScrollReset><HeritageMethodSection /></ScrollReset>
+        <ScrollReset><HeritageDiscoverySection /></ScrollReset>
+        <ScrollReset><RecognitionSection /></ScrollReset>
+        <ScrollReset><VisitPanels /></ScrollReset>
+        <ScrollReset><PracticalInfo /></ScrollReset>
       </main>
       <Footer />
       <BottomNav />
