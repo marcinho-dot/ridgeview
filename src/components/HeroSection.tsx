@@ -106,6 +106,23 @@ export function HeroSection() {
             </AnimatePresence>
           </div>
         </motion.div>
+
+        {/* Primary CTA — same gold-tinted high-contrast style as the SKU
+            "Add to basket" button for visual consistency across the site. */}
+        <motion.div
+          className="mt-6 md:mt-8"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2.25, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <a
+            href={`${basePath}/#wine-collection`}
+            className="group inline-flex items-center font-body text-white text-[10px] md:text-[11px] uppercase tracking-[0.22em] border border-[#C8A96E]/55 hover:border-[#C8A96E] bg-[#C8A96E]/15 hover:bg-[#C8A96E]/25 active:scale-[0.97] px-7 py-4 rounded-sm transition-all duration-300 backdrop-blur-sm"
+          >
+            View all Wines
+            <span className="inline-block ml-2 transition-transform duration-400 ease-out group-hover:translate-x-1">&rarr;</span>
+          </a>
+        </motion.div>
       </div>
 
     </section>
