@@ -23,7 +23,10 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    // h-[100svh] uses "small viewport height" so the hero sizes correctly on
+    // mobile browsers — h-screen / 100vh would overshoot the visible area
+    // when the iOS / Android URL bar is showing.
+    <section className="relative h-[100svh] w-full overflow-hidden">
 
       {/* Background image — Seven Sisters chalk cliffs + vineyard + Ridgeview bottle */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -40,8 +43,9 @@ export function HeroSection() {
       {/* Extra dark layer on bottom third for text readability */}
       <div className="absolute left-0 right-0 bottom-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent" style={{ height: "55%" }} />
 
-      {/* Main content — bottom-left aligned */}
-      <div className="absolute inset-0 flex flex-col justify-end pb-[18vh] md:pb-[11vh] px-6 md:px-16 max-w-[1400px] mx-auto left-0 right-0">
+      {/* Main content — bottom-left aligned (svh-based padding so the headline
+          stays in view on mobile when the browser chrome is showing) */}
+      <div className="absolute inset-0 flex flex-col justify-end pb-[18svh] md:pb-[11svh] px-6 md:px-16 max-w-[1400px] mx-auto left-0 right-0">
 
         {/* Kicker */}
         <motion.p
