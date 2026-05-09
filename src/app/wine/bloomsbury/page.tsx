@@ -268,12 +268,9 @@ function ProductHero() {
                 id="hero-mobile-cta"
                 className="absolute bottom-[40px] right-0 flex flex-wrap items-center justify-end gap-3 z-10"
               >
-                <button
-                  className="group font-body text-white text-[9px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.22em] border border-[#C8A96E]/55 hover:border-[#C8A96E] bg-[#C8A96E]/15 hover:bg-[#C8A96E]/25 active:scale-[0.97] px-5 md:px-7 py-3 md:py-4 rounded-sm transition-all duration-300 backdrop-blur-sm"
-                  type="button"
-                >
+                <button className="btn-atb backdrop-blur-2xl backdrop-saturate-150" type="button">
                   Add to basket
-                  <span className="inline-block ml-2 transition-transform duration-400 ease-out group-hover:translate-x-1">&rarr;</span>
+                  <span className="btn-atb-arrow">&rarr;</span>
                 </button>
               </div>
             </div>
@@ -623,12 +620,9 @@ function ClosingCTA() {
         </FadeUp>
         <FadeUp delay={0.2}>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <button
-              type="button"
-              className="btn-ridge group font-body text-white/85 hover:text-white text-[10px] uppercase tracking-[0.22em] border border-white/30 hover:border-[#C8A96E]/70 px-8 py-4 rounded-sm transition-all duration-300"
-            >
+            <button type="button" className="btn-atb backdrop-blur-2xl backdrop-saturate-150">
               Add to basket · £34.00
-              <span className="inline-block ml-2 transition-transform duration-400 ease-out group-hover:translate-x-1">&rarr;</span>
+              <span className="btn-atb-arrow">&rarr;</span>
             </button>
             <a
               href={`${basePath}/#wine-collection`}

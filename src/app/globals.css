@@ -77,6 +77,78 @@ body::after {
   transform: translateX(0);
 }
 
+/* ─── Unified Add-to-Basket button (Apple "liquid milk-glass") ─────────────
+   Height MUST stay identical across mobile + desktop and across every
+   instance — Hero, ClosingCTA, StickyMobileCTA all share `.btn-atb`. */
+.btn-atb {
+  /* Layout / typography */
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Raleway', system-ui, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #ffffff;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  padding: 12px 22px;          /* mobile-first — sets the reference height (~36px) */
+  border-radius: 8px;
+  cursor: pointer;
+  isolation: isolate;
+  /* Liquid milk-glass surface */
+  background: linear-gradient(
+    180deg,
+    rgba(200, 169, 110, 0.18) 0%,
+    rgba(200, 169, 110, 0.08) 100%
+  );
+  border: 1px solid rgba(200, 169, 110, 0.45);
+  backdrop-filter: blur(22px) saturate(140%);
+  -webkit-backdrop-filter: blur(22px) saturate(140%);
+  /* Inner highlight (top edge gloss) + soft outer drop */
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.15),
+    0 4px 16px rgba(0, 0, 0, 0.35);
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.18s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.btn-atb:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(200, 169, 110, 0.28) 0%,
+    rgba(200, 169, 110, 0.16) 100%
+  );
+  border-color: rgba(200, 169, 110, 0.85);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.24),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.15),
+    0 6px 24px rgba(200, 169, 110, 0.22);
+}
+.btn-atb:active {
+  transform: scale(0.97);
+}
+@media (min-width: 768px) {
+  .btn-atb {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    /* Identical height to mobile (~36px) — Hero/ClosingCTA/StickyMobileCTA
+       are visually consistent on every breakpoint. */
+    padding: 12px 26px;
+  }
+}
+/* Arrow that slides on hover */
+.btn-atb-arrow {
+  display: inline-block;
+  margin-left: 0.6em;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-atb:hover .btn-atb-arrow {
+  transform: translateX(4px);
+}
+
 /* ─── Link hover underline slide-in ────────────────────── */
 .link-underline {
   position: relative;
