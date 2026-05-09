@@ -746,7 +746,7 @@ function ClosingCTA() {
             </button>
             <a
               href={`${basePath}/#wine-collection`}
-              className="link-underline font-body text-white/55 hover:text-[#C8A96E] text-[10px] uppercase tracking-[0.22em] border border-white/12 hover:border-[#C8A96E]/40 px-6 py-3.5 rounded-sm transition-all duration-300"
+              className="btn-line"
             >
               Explore the Collection
             </a>
