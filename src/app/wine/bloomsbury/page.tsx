@@ -285,18 +285,6 @@ function ProductHero() {
                 />
               </motion.div>
 
-              {/* Bottom-fade vignette — anchors the bottle-side ATB button
-                  and provides a smoother visual transition into the next section. */}
-              <div
-                aria-hidden
-                className="absolute bottom-0 left-0 right-0 pointer-events-none z-[5]"
-                style={{
-                  height: "160px",
-                  background:
-                    "linear-gradient(to top, rgba(200,169,110,0.10) 0%, rgba(0,0,0,0.45) 35%, rgba(0,0,0,0.18) 70%, transparent 100%)",
-                }}
-              />
-
               {/* Quick "Add to basket" — anchored bottom-right next to the bottle
                   on every breakpoint. Marked with data-atb-trigger so the
                   StickyMobileCTA only appears when this AND every other ATB
