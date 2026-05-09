@@ -746,7 +746,7 @@ function ClosingCTA() {
             </button>
             <a
               href={`${basePath}/#wine-collection`}
-              className="btn-line"
+              className="btn-line backdrop-blur-md backdrop-saturate-125"
             >
               Explore the Collection
             </a>
