@@ -1,15 +1,27 @@
 "use client";
 
-import { ReactNode } from "react";
-import { motion } from "framer-motion";
+import { ReactNode, useEffect, useRef, useState } from "react";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ScrollReset } from "@/components/ScrollReset";
 import { TestimonialSection } from "@/components/sku/TestimonialSection";
 import { AwardSection } from "@/components/sku/AwardSection";
 import { StickyMobileCTA } from "@/components/sku/StickyMobileCTA";
+import { PurchaseWidget, type Variant } from "@/components/sku/PurchaseWidget";
+import { BehindTheBottleSection } from "@/components/sku/BehindTheBottleSection";
+import { WineClubUpsellSection } from "@/components/sku/WineClubUpsellSection";
+import { RelatedWinesSection } from "@/components/sku/RelatedWinesSection";
+import { FAQSection } from "@/components/sku/FAQSection";
 import { getTestimonial } from "@/data/testimonials";
 import { basePath } from "@/lib/basePath";
+
+// Bloomsbury bottle variants — from Ridgeview shop (75cl, Magnum, Case of 6).
+const BLOOMSBURY_VARIANTS: Variant[] = [
+  { label: "75cl Bottle", detail: "75cl · 12% ABV", price: 34 },
+  { label: "Magnum", detail: "1.5L · 12% ABV · Cellar size", price: 75 },
+  { label: "Case of 6", detail: "6 × 75cl · Save 12%", price: 180, badge: "Best value" },
+];
 
 // ── Animation Helpers ────────────────────────────────────────────────────────
 
@@ -45,12 +57,21 @@ function GoldDivider({ origin = "left" as "left" | "center" }) {
 // ── Hero / Product Showcase ─────────────────────────────────────────────────
 
 function ProductHero() {
+  // Parallax: bottle drifts upward 80px as the hero scrolls out of view.
+  // Subtle premium effect — Apple product pages use this exact pattern.
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const bottleY = useTransform(scrollYProgress, [0, 1], [0, -80]);
+
   return (
     // min-h-[100svh] on every breakpoint — hero always fills the full visible
     // viewport (svh accounts for the iOS / Android URL bar so 100vh wouldn't
     // overshoot on mobile). Without the constraint on desktop, shorter content
     // would let the next section peek through at the bottom of the fold.
-    <section className="relative bg-[#010101] pt-28 md:pt-32 pb-8 md:pb-12 min-h-[100svh] overflow-hidden">
+    <section ref={heroRef} className="relative bg-[#010101] pt-28 md:pt-32 pb-8 md:pb-12 min-h-[100svh] overflow-hidden">
       {/* Ambient gold glow */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -134,38 +155,29 @@ function ProductHero() {
               </p>
             </FadeUp>
 
-            {/* Price + Award Badges row.
+            {/* Purchase Widget + Award Badges row.
                 Mobile: order-5 → sits BEFORE the divider/description (visible in fold).
                 Desktop: source order applies → block is at the end as before. */}
             <FadeUp delay={0.55} className="order-5 mb-6 md:mb-0">
-              <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-2">
-                <div>
-                  <p
-                    className="font-display italic text-cream"
-                    style={{ fontSize: "clamp(32px, 3.6vw, 48px)", fontWeight: 400 }}
-                  >
-                    £34.00
-                  </p>
-                  <p className="font-body text-white/45 text-[12px] mt-1">75cl bottle · 12% ABV</p>
-                  {/* Gift-note moved INTO the price column so on desktop the
-                      `items-end` alignment puts it at the same vertical level
-                      as the badge captions on the right (bottom-aligned). */}
-                  <p
-                    className="font-body text-white/40 text-[12px] mt-3 leading-relaxed"
-                    style={{ maxWidth: "440px" }}
-                  >
-                    20% off for members. Add a free personalised gift note at checkout.
-                  </p>
+              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 md:gap-10">
+                {/* Stateful purchase block — variant + qty + free-shipping bar + ATB */}
+                <div className="flex-1 max-w-[480px]">
+                  <PurchaseWidget
+                    variants={BLOOMSBURY_VARIANTS}
+                    freeShippingThreshold={45}
+                    ctaId="hero-mobile-cta"
+                  />
                 </div>
-                {/* Award Badges (Desktop only) — staged like AwardSection */}
-                <div className="hidden md:flex items-end gap-7" aria-label="Awards">
+
+                {/* Award Badges (Desktop only) — top-aligned next to widget */}
+                <div className="hidden md:flex items-start gap-6 pt-1" aria-label="Awards">
                   {/* IWSC 93 Points · 2020 */}
                   <div className="flex flex-col items-center gap-2.5">
                     <motion.img
                       src={`${basePath}/images/awards/iwsc-93pts-2020.webp`}
                       alt="IWSC 93 Points — International Wine & Spirit Competition 2020"
                       title="IWSC 93 Points · 2020"
-                      className="h-[clamp(104px,9vw,128px)] w-auto [filter:drop-shadow(0_10px_28px_rgba(0,0,0,0.55))] hover:[filter:drop-shadow(0_14px_36px_rgba(0,0,0,0.65))_drop-shadow(0_0_24px_rgba(200,169,110,0.18))] transition-[filter] duration-500"
+                      className="h-[clamp(86px,7.5vw,108px)] w-auto [filter:drop-shadow(0_10px_28px_rgba(0,0,0,0.55))] hover:[filter:drop-shadow(0_14px_36px_rgba(0,0,0,0.65))_drop-shadow(0_0_24px_rgba(200,169,110,0.18))] transition-[filter] duration-500"
                       loading="lazy"
                       initial={{ opacity: 0, scale: 0.94, y: 8 }}
                       animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -182,7 +194,7 @@ function ProductHero() {
                       src={`${basePath}/images/awards/decanter-2018-silver.webp`}
                       alt="Silver — Decanter World Wine Awards 2018"
                       title="Decanter Silver · 2018"
-                      className="h-[clamp(104px,9vw,128px)] w-auto [filter:drop-shadow(0_10px_28px_rgba(0,0,0,0.55))] hover:[filter:drop-shadow(0_14px_36px_rgba(0,0,0,0.65))_drop-shadow(0_0_24px_rgba(200,169,110,0.18))] transition-[filter] duration-500"
+                      className="h-[clamp(86px,7.5vw,108px)] w-auto [filter:drop-shadow(0_10px_28px_rgba(0,0,0,0.55))] hover:[filter:drop-shadow(0_14px_36px_rgba(0,0,0,0.65))_drop-shadow(0_0_24px_rgba(200,169,110,0.18))] transition-[filter] duration-500"
                       loading="lazy"
                       initial={{ opacity: 0, scale: 0.94, y: 8 }}
                       animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -195,9 +207,6 @@ function ProductHero() {
                   </div>
                 </div>
               </div>
-              {/* Add-to-basket CTA moved INTO the bottle wrapper (bottom-right
-                  anchor). Same id="hero-mobile-cta" so the StickyMobileCTA
-                  IntersectionObserver still triggers when it scrolls out. */}
             </FadeUp>
           </div>
 
@@ -222,33 +231,48 @@ function ProductHero() {
               />
 
               {/* Mobile award badges — absolute overlay, vertically stacked
-                  on the left side of the bottle wrapper. Hidden on desktop
-                  where the badges sit in the price row. */}
-              <div className="md:hidden absolute left-0 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-10 pointer-events-none">
-                <motion.img
-                  src={`${basePath}/images/awards/iwsc-93pts-2020.webp`}
-                  alt="IWSC 93 Points — International Wine & Spirit Competition 2020"
-                  title="IWSC 93 Points · 2020"
-                  className="h-[clamp(60px,16vw,80px)] w-auto [filter:drop-shadow(0_6px_18px_rgba(0,0,0,0.55))]"
-                  loading="lazy"
-                  initial={{ opacity: 0, x: -8, scale: 0.94 }}
-                  animate={{ opacity: 1, x: 0, scale: 1 }}
-                  transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
-                />
-                <motion.img
-                  src={`${basePath}/images/awards/decanter-2018-silver.webp`}
-                  alt="Silver — Decanter World Wine Awards 2018"
-                  title="Decanter Silver · 2018"
-                  className="h-[clamp(60px,16vw,80px)] w-auto [filter:drop-shadow(0_6px_18px_rgba(0,0,0,0.55))]"
-                  loading="lazy"
-                  initial={{ opacity: 0, x: -8, scale: 0.94 }}
-                  animate={{ opacity: 1, x: 0, scale: 1 }}
-                  transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.62 }}
-                />
+                  on the left side of the bottle wrapper. Each badge has a
+                  micro-caption underneath (matches desktop). */}
+              <div className="md:hidden absolute left-0 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-10 pointer-events-none">
+                <div className="flex flex-col items-center gap-1.5">
+                  <motion.img
+                    src={`${basePath}/images/awards/iwsc-93pts-2020.webp`}
+                    alt="IWSC 93 Points — International Wine & Spirit Competition 2020"
+                    title="IWSC 93 Points · 2020"
+                    className="h-[clamp(60px,16vw,80px)] w-auto [filter:drop-shadow(0_6px_18px_rgba(0,0,0,0.55))]"
+                    loading="lazy"
+                    initial={{ opacity: 0, x: -8, scale: 0.94 }}
+                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
+                  />
+                  <p className="font-body text-white/45 text-[8px] uppercase tracking-[0.28em] whitespace-nowrap">
+                    IWSC <span className="text-[#C8A96E]/70 mx-0.5">·</span> 2020
+                  </p>
+                </div>
+                <div className="flex flex-col items-center gap-1.5">
+                  <motion.img
+                    src={`${basePath}/images/awards/decanter-2018-silver.webp`}
+                    alt="Silver — Decanter World Wine Awards 2018"
+                    title="Decanter Silver · 2018"
+                    className="h-[clamp(60px,16vw,80px)] w-auto [filter:drop-shadow(0_6px_18px_rgba(0,0,0,0.55))]"
+                    loading="lazy"
+                    initial={{ opacity: 0, x: -8, scale: 0.94 }}
+                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.62 }}
+                  />
+                  <p className="font-body text-white/45 text-[8px] uppercase tracking-[0.28em] whitespace-nowrap">
+                    Decanter <span className="text-[#C8A96E]/70 mx-0.5">·</span> 2018
+                  </p>
+                </div>
               </div>
 
-              {/* Bottle wrapper — absolute, doesn't dictate column height */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              {/* Bottle wrapper — absolute, doesn't dictate column height.
+                  Wrapped in motion.div so the bottle drifts upward via the
+                  scroll-driven parallax (subtle 80px range). */}
+              <motion.div
+                className="absolute inset-0 flex items-center justify-center pointer-events-none"
+                style={{ y: bottleY }}
+              >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={`${basePath}/products/bloomsbury.png`}
@@ -259,11 +283,11 @@ function ProductHero() {
                     filter: "drop-shadow(0 30px 60px rgba(0,0,0,0.6))",
                   }}
                 />
-              </div>
+              </motion.div>
 
-              {/* Bottom-fade vignette — combined dark anchor (mid-zone) plus a
-                  warm gold base at the very bottom edge. The dark band gives the
-                  ATB button a "stage" to sit on, the gold adds editorial warmth. */}
+              {/* Bottom-fade vignette — softens the lower bottle silhouette
+                  and provides a smoother visual transition into the next
+                  section. ATB now lives in the PurchaseWidget (info column). */}
               <div
                 aria-hidden
                 className="absolute bottom-0 left-0 right-0 pointer-events-none z-[5]"
@@ -273,20 +297,6 @@ function ProductHero() {
                     "linear-gradient(to top, rgba(200,169,110,0.10) 0%, rgba(0,0,0,0.45) 35%, rgba(0,0,0,0.18) 70%, transparent 100%)",
                 }}
               />
-
-              {/* Add-to-basket CTA — anchored bottom-right next to the bottle
-                  on BOTH mobile and desktop. The id is observed by
-                  <StickyMobileCTA />: when this element scrolls out of view,
-                  the mobile sticky bar slides up. */}
-              <div
-                id="hero-mobile-cta"
-                className="absolute bottom-[40px] right-0 flex flex-wrap items-center justify-end gap-3 z-10"
-              >
-                <button className="btn-atb backdrop-blur-2xl backdrop-saturate-150" type="button">
-                  Add to basket
-                  <span className="btn-atb-arrow">&rarr;</span>
-                </button>
-              </div>
             </div>
           </FadeUp>
         </div>
@@ -395,11 +405,95 @@ function TastingPairingSection() {
 
 // ── Blend ───────────────────────────────────────────────────────────────────
 
+// AnimatedCounter — counts from 0 → target when in view (J).
+function AnimatedCounter({ value, duration = 1.4 }: { value: number; duration?: number }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.5 });
+  const [display, setDisplay] = useState(0);
+  useEffect(() => {
+    if (!inView) return;
+    const start = performance.now();
+    let raf = 0;
+    const tick = (now: number) => {
+      const t = Math.min(1, (now - start) / (duration * 1000));
+      // Ease-out cubic
+      const eased = 1 - Math.pow(1 - t, 3);
+      setDisplay(Math.round(value * eased));
+      if (t < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [inView, value, duration]);
+  return <span ref={ref}>{display}</span>;
+}
+
+// BlendDonutChart — SVG donut with sweep-in animation (F).
+function BlendDonutChart({
+  segments,
+  size = 240,
+}: {
+  segments: { value: number; color: string; label: string }[];
+  size?: number;
+}) {
+  const ref = useRef<SVGSVGElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.4 });
+  const radius = size / 2 - 18;
+  const circumference = 2 * Math.PI * radius;
+  let cumulative = 0;
+  return (
+    <svg
+      ref={ref}
+      width={size}
+      height={size}
+      viewBox={`0 0 ${size} ${size}`}
+      className="block mx-auto"
+      style={{ transform: "rotate(-90deg)" }}
+    >
+      {/* Background ring */}
+      <circle
+        cx={size / 2}
+        cy={size / 2}
+        r={radius}
+        fill="none"
+        stroke="rgba(255,255,255,0.05)"
+        strokeWidth="14"
+      />
+      {/* Segments */}
+      {segments.map((s, i) => {
+        const length = (s.value / 100) * circumference;
+        const offset = (cumulative / 100) * circumference;
+        cumulative += s.value;
+        return (
+          <motion.circle
+            key={s.label}
+            cx={size / 2}
+            cy={size / 2}
+            r={radius}
+            fill="none"
+            stroke={s.color}
+            strokeWidth="14"
+            strokeLinecap="butt"
+            strokeDasharray={`${length} ${circumference - length}`}
+            strokeDashoffset={-offset}
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={inView ? { pathLength: 1, opacity: 1 } : {}}
+            transition={{
+              pathLength: { duration: 1.3, ease: [0.16, 1, 0.3, 1], delay: 0.2 + i * 0.18 },
+              opacity: { duration: 0.4, delay: 0.2 + i * 0.18 },
+            }}
+            style={{ transformOrigin: "center" }}
+          />
+        );
+      })}
+    </svg>
+  );
+}
+
 function BlendSection() {
   const blend = [
-    { percent: "61", grape: "Chardonnay" },
-    { percent: "27", grape: "Pinot Noir" },
-    { percent: "12", grape: "Pinot Meunier" },
+    { percent: 61, grape: "Chardonnay", color: "#C8A96E" },     // Gold — primary
+    { percent: 27, grape: "Pinot Noir", color: "#7A4F4F" },      // Burgundy-brown
+    { percent: 12, grape: "Pinot Meunier", color: "#9a9390" },   // Muted
   ];
 
   return (
@@ -413,7 +507,7 @@ function BlendSection() {
       />
 
       <div className="relative max-w-[1400px] mx-auto px-4 md:px-8 py-24 md:py-32">
-        <div className="text-center mb-16 md:mb-20">
+        <div className="text-center mb-12 md:mb-16">
           <FadeUp>
             <p
               className="font-display italic text-[#C8A96E] tracking-widest mb-4"
@@ -440,39 +534,43 @@ function BlendSection() {
           </FadeUp>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-14 md:gap-0 mb-20 md:mb-24">
-          {blend.map((b, i) => (
-            <FadeUp key={b.grape} delay={0.28 + i * 0.1}>
-              <div
-                className="group text-center md:px-8 cursor-default"
-                style={{
-                  borderLeft: i > 0 ? "1px solid rgba(200,169,110,0.16)" : "none",
-                }}
-              >
-                <p
-                  className="font-display italic text-cream leading-none mb-4 transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                  style={{ fontSize: "clamp(64px, 9vw, 132px)", fontWeight: 400 }}
-                >
-                  <span className="text-[#C8A96E] transition-[text-shadow] duration-700 ease-out group-hover:[text-shadow:0_0_40px_rgba(200,169,110,0.45)]">{b.percent}</span>
+        {/* Donut chart + grape list — split layout on desktop, stacked on mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] items-center gap-12 md:gap-20 max-w-[900px] mx-auto mb-20 md:mb-24">
+          <FadeUp delay={0.28} className="flex justify-center">
+            <BlendDonutChart segments={blend.map((b) => ({ value: b.percent, color: b.color, label: b.grape }))} size={260} />
+          </FadeUp>
+
+          <ul className="space-y-5 md:space-y-7">
+            {blend.map((b, i) => (
+              <FadeUp key={b.grape} delay={0.45 + i * 0.12}>
+                <li className="group flex items-baseline gap-5 cursor-default">
                   <span
-                    className="text-white/55 group-hover:text-white/80 transition-colors duration-700"
-                    style={{ fontSize: "0.42em", verticalAlign: "super", marginLeft: "0.04em" }}
-                  >
-                    %
-                  </span>
-                </p>
-                <p
-                  className="font-body text-white/70 group-hover:text-cream uppercase tracking-[0.34em] transition-colors duration-500"
-                  style={{ fontSize: "clamp(11px, 1.1vw, 13px)" }}
-                >
-                  {b.grape}
-                </p>
-              </div>
-            </FadeUp>
-          ))}
+                    aria-hidden
+                    className="block w-2 h-2 rounded-full flex-shrink-0 mt-1.5"
+                    style={{ background: b.color, boxShadow: `0 0 10px ${b.color}` }}
+                  />
+                  <div className="flex-1 flex items-baseline justify-between gap-4">
+                    <span
+                      className="font-display italic text-cream group-hover:text-[#C8A96E] transition-colors duration-500"
+                      style={{ fontSize: "clamp(20px, 2vw, 28px)", fontWeight: 400 }}
+                    >
+                      {b.grape}
+                    </span>
+                    <span
+                      className="font-display italic leading-none"
+                      style={{ fontSize: "clamp(28px, 3vw, 44px)", fontWeight: 400, color: b.color }}
+                    >
+                      <AnimatedCounter value={b.percent} />
+                      <span className="text-white/45 ml-0.5" style={{ fontSize: "0.55em" }}>%</span>
+                    </span>
+                  </div>
+                </li>
+              </FadeUp>
+            ))}
+          </ul>
         </div>
 
-        <FadeUp delay={0.6}>
+        <FadeUp delay={0.7}>
           <div className="max-w-[820px] mx-auto text-center">
             <GoldDivider origin="center" />
             <p
@@ -653,22 +751,140 @@ function ClosingCTA() {
 
 // ── Page ────────────────────────────────────────────────────────────────────
 
+// ── Schema.org JSON-LD ─────────────────────────────────────────────────────
+// Provides Google Rich Snippets: product, aggregate rating, individual reviews.
+// Aggregate rating reflects the press-quote scores on this page.
+const SCHEMA_LD = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "Ridgeview Bloomsbury NV",
+  description:
+    "Bright, fresh and fruit-driven English Sparkling Wine — vibrant citrus aromas with green apple and honey. Bestselling Classic Method blend from Sussex.",
+  image: "https://darkslateblue-alligator-388666.hostingersite.com/ridgeview/products/bloomsbury.png",
+  brand: { "@type": "Brand", name: "Ridgeview Wine Estate" },
+  sku: "R2201",
+  category: "English Sparkling Wine",
+  offers: {
+    "@type": "AggregateOffer",
+    priceCurrency: "GBP",
+    lowPrice: "34.00",
+    highPrice: "180.00",
+    offerCount: "3",
+    availability: "https://schema.org/InStock",
+    url: "https://darkslateblue-alligator-388666.hostingersite.com/ridgeview/wine/bloomsbury/",
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.7",
+    reviewCount: "3",
+    bestRating: "5",
+  },
+  review: [
+    {
+      "@type": "Review",
+      author: { "@type": "Person", name: "Anne Krebiehl MW" },
+      publisher: { "@type": "Organization", name: "Wine Enthusiast" },
+      reviewBody:
+        "It is zesty lemon that takes center stage on the slender palate. This is frothy, fresh, invigorating and dry.",
+      reviewRating: { "@type": "Rating", ratingValue: "4.5", bestRating: "5" },
+    },
+  ],
+  award: [
+    "Silver — Decanter World Wine Awards 2018",
+    "Silver Outstanding — International Wine & Spirit Competition 2018",
+    "Star of England, Star Taste, Star Value, Star of Sussex — Harpers Wine Star Awards 2021",
+  ],
+};
+
+const FAQ_ITEMS = [
+  {
+    question: "When will my order arrive?",
+    answer:
+      "Standard UK delivery is 2–4 working days. Order before noon for next-working-day dispatch. Free UK delivery on orders over £45.",
+  },
+  {
+    question: "How should I store Bloomsbury?",
+    answer:
+      "Lay bottles flat in a cool, dark place between 8–12°C. Bloomsbury NV drinks beautifully on release; if you wish to age, store away from light and temperature swings — it'll continue to develop richness for 3–5 years.",
+  },
+  {
+    question: "Can I add a personalised gift note?",
+    answer:
+      "Yes — every order includes a complimentary handwritten gift note option at checkout. Add the recipient's address and we'll ship directly to them, with no prices on the packing slip.",
+  },
+  {
+    question: "Do you ship outside the UK?",
+    answer:
+      "International shipping is available to most of Europe and selected destinations. Customs and duties may apply at the destination — please contact our team for a tailored quote.",
+  },
+  {
+    question: "What if I'm not happy with the wine?",
+    answer:
+      "We stand behind every bottle. If a wine is faulty or damaged in transit, contact us within 14 days and we'll replace or refund without question.",
+  },
+];
+
+const RELATED_WINES = [
+  {
+    slug: "fitzrovia",
+    name: "Fitzrovia Rosé",
+    style: "Rosé · Non Vintage",
+    price: 36,
+    image: "/products/fitzrovia-rose.webp",
+    note: "Pink-grapefruit and wild strawberry — the breezy sister to Bloomsbury.",
+  },
+  {
+    slug: "cavendish",
+    name: "Cavendish",
+    style: "House Cuvée · Non Vintage",
+    price: 36,
+    image: "/products/cavendish.webp",
+    note: "Pinot-led blend with red apple and white pepper. Fine-boned elegance.",
+  },
+  {
+    slug: "blanc-de-blancs",
+    name: "Blanc de Blancs",
+    style: "Single-Vineyard Chardonnay · Vintage",
+    price: 75,
+    image: "/products/blanc-de-blancs.webp",
+    note: "From Ridgeview's first-planted vines, 1995. Brightness and depth.",
+  },
+];
+
 export default function BloomsburyPage() {
   const testimonial = getTestimonial("bloomsbury");
 
   return (
     <main className="bg-[#010101] pb-[80px] md:pb-0">
+      {/* Schema.org JSON-LD — Google Rich Snippets (product, aggregate rating, reviews) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA_LD) }}
+      />
+
       <Navbar />
       <ProductHero />
       <ScrollReset><TastingPairingSection /></ScrollReset>
       <ScrollReset><BlendSection /></ScrollReset>
+
+      {/* A) Behind the Bottle — production craft pillars */}
+      <ScrollReset>
+        <BehindTheBottleSection
+          headline={<>Crafted in the <span className="text-[#C8A96E]">Classic Method</span>.</>}
+          intro="Bloomsbury reflects three decades of craftsmanship on the chalk hills of Sussex — a wine made the long way, by hand, in pursuit of the freshest expression of English fizz."
+          pillars={[
+            { label: "Hand Harvest", detail: "Grapes are picked at first light and sorted by hand to keep only the most balanced bunches." },
+            { label: "Méthode Traditionnelle", detail: "Secondary fermentation in bottle — the same Classic Method used in the great houses of Champagne." },
+            { label: "18 Months on Lees", detail: "Extended lees ageing builds the toasted-almond and buttery-pastry notes that define the Bloomsbury palate." },
+            { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region — the foundation of every great sparkling wine." },
+          ]}
+        />
+      </ScrollReset>
+
       {testimonial && (
         <ScrollReset><TestimonialSection testimonial={testimonial} /></ScrollReset>
       )}
-      {/* PILOT — Award-Trophy-Pseudo-Testimonial.
-          Soll als Alternative für SKUs ohne externe Press-Review dienen
-          (Still Chardonnay, Still English Rosé). Hier in Bloomsbury als
-          Pilot direkt unter dem regulären Testimonial. */}
+
       <ScrollReset>
         <AwardSection
           data={{
@@ -681,11 +897,24 @@ export default function BloomsburyPage() {
           }}
         />
       </ScrollReset>
+
       <ScrollReset><AwardsSpecsSection /></ScrollReset>
+
+      {/* C) Wine Club Upsell */}
+      <ScrollReset><WineClubUpsellSection /></ScrollReset>
+
+      {/* D) Related Wines */}
+      <ScrollReset>
+        <RelatedWinesSection wines={RELATED_WINES} />
+      </ScrollReset>
+
+      {/* N) FAQ */}
+      <ScrollReset>
+        <FAQSection items={FAQ_ITEMS} />
+      </ScrollReset>
+
       <ScrollReset><ClosingCTA /></ScrollReset>
       <Footer />
-      {/* Mobile sticky purchase CTA — replaces the generic BottomNav on SKU pages.
-          Shown when #hero-mobile-cta scrolls out of viewport. */}
       <StickyMobileCTA
         productName="Bloomsbury NV"
         price="£34.00 · 75cl"
