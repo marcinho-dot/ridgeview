@@ -167,17 +167,15 @@ body::after {
   font-size: 10px;
   letter-spacing: 0.22em;
   padding: 12px 22px;
-  /* Brighter gold edges so they read clearly against the near-black bg */
+  /* Gold edges on three sides; bottom is held by the animated ::after underline */
   border-top: 1px solid rgba(200, 169, 110, 0.85);
   border-right: 1px solid rgba(200, 169, 110, 0.85);
   border-left: 1px solid rgba(200, 169, 110, 0.85);
-  border-bottom: 2px solid #C8A96E; /* underline 2px so it reads clearly */
+  border-bottom: 2px solid transparent; /* reserves space; the gold underline slides in via ::after */
   border-radius: 4px;
-  /* Stronger milk-glass — more visible on dark bg */
   background: rgba(255, 255, 255, 0.085);
   backdrop-filter: blur(16px) saturate(140%);
   -webkit-backdrop-filter: blur(16px) saturate(140%);
-  /* Inner highlight on top edge for liquid-glass feel */
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.12),
     0 4px 12px rgba(0, 0, 0, 0.25);
@@ -190,11 +188,25 @@ body::after {
     box-shadow 0.35s ease,
     transform 0.18s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+/* Slide-in gold underline (left → right on hover) */
+.btn-line::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: #C8A96E;
+  transition: width 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+}
+.btn-line:hover::after {
+  width: 100%;
+}
 .btn-line:hover {
   border-top-color: #ffffff;
   border-right-color: #ffffff;
   border-left-color: #ffffff;
-  /* Bottom edge stays gold — the persistent underline */
   background: rgba(255, 255, 255, 0.13);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.18),
