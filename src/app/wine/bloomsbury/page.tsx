@@ -252,7 +252,7 @@ function ProductHero() {
                 <img
                   src={`${basePath}/products/bloomsbury.png`}
                   alt="Ridgeview Bloomsbury NV — English Sparkling Wine, 75cl bottle"
-                  className="pointer-events-auto w-auto max-w-none object-contain h-[clamp(340px,46svh,440px)] md:h-[clamp(640px,82svh,980px)] [transform:translateX(8%)_translateY(-30px)_rotate(35deg)] md:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)] hover:[transform:translateX(8%)_translateY(-30px)_rotate(35deg)_scale(1.015)] md:hover:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)_scale(1.015)] [transition:transform_900ms_cubic-bezier(0.16,1,0.3,1),filter_900ms_cubic-bezier(0.16,1,0.3,1)] hover:[filter:drop-shadow(0_40px_80px_rgba(0,0,0,0.7))_drop-shadow(0_0_60px_rgba(200,169,110,0.12))]"
+                  className="pointer-events-auto w-auto max-w-none object-contain h-[clamp(376px,51svh,484px)] md:h-[clamp(704px,90svh,1078px)] [transform:translateX(8%)_translateY(-30px)_rotate(35deg)] md:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)] hover:[transform:translateX(8%)_translateY(-30px)_rotate(35deg)_scale(1.015)] md:hover:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)_scale(1.015)] [transition:transform_900ms_cubic-bezier(0.16,1,0.3,1),filter_900ms_cubic-bezier(0.16,1,0.3,1)] hover:[filter:drop-shadow(0_40px_80px_rgba(0,0,0,0.7))_drop-shadow(0_0_60px_rgba(200,169,110,0.12))]"
                   style={{
                     transformOrigin: "center",
                     filter: "drop-shadow(0 30px 60px rgba(0,0,0,0.6))",
@@ -266,7 +266,7 @@ function ProductHero() {
                   the mobile sticky bar slides up. */}
               <div
                 id="hero-mobile-cta"
-                className="absolute bottom-0 right-0 flex flex-wrap items-center justify-end gap-3 z-10"
+                className="absolute bottom-[40px] right-0 flex flex-wrap items-center justify-end gap-3 z-10"
               >
                 <button
                   className="group font-body text-white text-[9px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.22em] border border-[#C8A96E]/55 hover:border-[#C8A96E] bg-[#C8A96E]/15 hover:bg-[#C8A96E]/25 active:scale-[0.97] px-5 md:px-7 py-3 md:py-4 rounded-sm transition-all duration-300 backdrop-blur-sm"
