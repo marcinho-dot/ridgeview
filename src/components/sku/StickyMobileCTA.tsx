@@ -20,12 +20,17 @@ interface Props {
   /** Pfad zum Flaschen-Thumbnail, RELATIV zu /public/, ohne basePath. */
   thumbnailSrc: string;
   /**
-   * Trigger — entweder ein Ref auf das ursprüngliche Hero-CTA-Element ODER
-   * eine DOM-id (kein "#"-Präfix). Sobald dieses Element NICHT mehr im
-   * Viewport ist, slidet der Sticky-Bar nach oben.
+   * Trigger — entweder ein Ref auf EIN spezifisches Element ODER eine
+   * DOM-id (kein "#"-Präfix) für SINGLE-element observation, ODER
+   * `triggerSelector` für MULTI-element observation: der Sticky erscheint
+   * dann nur, wenn KEINER der gematchten Elemente im Viewport ist
+   * (typischer Use-Case: alle Add-to-Basket-Buttons gleichzeitig
+   * beobachten, sodass die Bar verschwindet sobald irgendein ATB sichtbar
+   * wird).
    */
   triggerRef?: RefObject<HTMLElement | null>;
   triggerId?: string;
+  triggerSelector?: string;
   onAddToBasket?: () => void;
   /** Optional: Link für den "Back to Shop"-Sekundär-CTA. */
   backHref?: string;
@@ -37,31 +42,45 @@ export function StickyMobileCTA({
   thumbnailSrc,
   triggerRef,
   triggerId,
+  triggerSelector,
   onAddToBasket,
   backHref,
 }: Props) {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
+    // Multi-element mode: show sticky only when NONE of the targets are visible.
+    if (triggerSelector) {
+      const targets = Array.from(document.querySelectorAll<HTMLElement>(triggerSelector));
+      if (!targets.length) return;
+      const visible = new Set<Element>();
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) visible.add(entry.target);
+            else visible.delete(entry.target);
+          }
+          setShow(visible.size === 0);
+        },
+        { rootMargin: "0px 0px 0px 0px", threshold: 0 },
+      );
+      targets.forEach((t) => observer.observe(t));
+      return () => observer.disconnect();
+    }
+
+    // Single-element mode (legacy)
     const target: HTMLElement | null =
       triggerRef?.current ?? (triggerId ? document.getElementById(triggerId) : null);
     if (!target) return;
 
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        // Show sticky CTA when the original hero CTA is no longer visible.
-        setShow(!entry.isIntersecting);
-      },
-      {
-        // Trigger as soon as the bottom edge of the original CTA leaves the viewport.
-        rootMargin: "0px 0px 0px 0px",
-        threshold: 0,
-      },
+      ([entry]) => setShow(!entry.isIntersecting),
+      { rootMargin: "0px 0px 0px 0px", threshold: 0 },
     );
 
     observer.observe(target);
     return () => observer.disconnect();
-  }, [triggerRef, triggerId]);
+  }, [triggerRef, triggerId, triggerSelector]);
 
   return (
     <AnimatePresence>

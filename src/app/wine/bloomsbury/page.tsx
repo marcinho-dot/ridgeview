@@ -285,9 +285,8 @@ function ProductHero() {
                 />
               </motion.div>
 
-              {/* Bottom-fade vignette — softens the lower bottle silhouette
-                  and provides a smoother visual transition into the next
-                  section. ATB now lives in the PurchaseWidget (info column). */}
+              {/* Bottom-fade vignette — anchors the bottle-side ATB button
+                  and provides a smoother visual transition into the next section. */}
               <div
                 aria-hidden
                 className="absolute bottom-0 left-0 right-0 pointer-events-none z-[5]"
@@ -297,6 +296,23 @@ function ProductHero() {
                     "linear-gradient(to top, rgba(200,169,110,0.10) 0%, rgba(0,0,0,0.45) 35%, rgba(0,0,0,0.18) 70%, transparent 100%)",
                 }}
               />
+
+              {/* Quick "Add to basket" — anchored bottom-right next to the bottle
+                  on every breakpoint. Marked with data-atb-trigger so the
+                  StickyMobileCTA only appears when this AND every other ATB
+                  on the page is out of view. The widget ATB in the info
+                  column has the dynamic price (variant × quantity); this
+                  one is the quick-action visual anchor. */}
+              <div className="absolute bottom-[40px] right-0 z-10">
+                <button
+                  data-atb-trigger
+                  type="button"
+                  className="btn-atb backdrop-blur-2xl backdrop-saturate-150"
+                >
+                  Add to basket
+                  <span className="btn-atb-arrow">&rarr;</span>
+                </button>
+              </div>
             </div>
           </FadeUp>
         </div>
@@ -732,7 +748,11 @@ function ClosingCTA() {
         </FadeUp>
         <FadeUp delay={0.2}>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <button type="button" className="btn-atb backdrop-blur-2xl backdrop-saturate-150">
+            <button
+              data-atb-trigger
+              type="button"
+              className="btn-atb backdrop-blur-2xl backdrop-saturate-150"
+            >
               Add to basket · £34.00
               <span className="btn-atb-arrow">&rarr;</span>
             </button>
@@ -915,11 +935,14 @@ export default function BloomsburyPage() {
 
       <ScrollReset><ClosingCTA /></ScrollReset>
       <Footer />
+      {/* Sticky mobile bar appears only when EVERY ATB on the page (hero
+          bottle-side ATB, widget ATB, ClosingCTA ATB — all marked with
+          data-atb-trigger) is out of viewport. */}
       <StickyMobileCTA
         productName="Bloomsbury NV"
         price="£34.00 · 75cl"
         thumbnailSrc="/products/bloomsbury.png"
-        triggerId="hero-mobile-cta"
+        triggerSelector="[data-atb-trigger]"
       />
     </main>
   );

@@ -130,9 +130,10 @@ export function PurchaseWidget({
           </button>
         </div>
 
-        {/* ATB Button */}
+        {/* ATB Button — data-atb-trigger ties into the StickyMobileCTA observer */}
         <button
           id={ctaId}
+          data-atb-trigger
           type="button"
           onClick={() => onAddToBasket?.({ variant, quantity, total })}
           className="btn-atb backdrop-blur-2xl backdrop-saturate-150"
