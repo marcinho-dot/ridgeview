@@ -167,11 +167,11 @@ body::after {
   font-size: 10px;
   letter-spacing: 0.22em;
   padding: 12px 22px;
-  /* Gold edges on three sides; bottom is the persistent thick gold underline */
+  /* Gold edges on three sides + thin gold underline always visible */
   border-top: 1px solid rgba(200, 169, 110, 0.85);
   border-right: 1px solid rgba(200, 169, 110, 0.85);
   border-left: 1px solid rgba(200, 169, 110, 0.85);
-  border-bottom: 2px solid #C8A96E; /* Persistent gold underline — always visible */
+  border-bottom: 1px solid rgba(200, 169, 110, 0.85); /* thin underline — thickens on hover via ::after */
   border-radius: 4px;
   background: rgba(255, 255, 255, 0.085);
   backdrop-filter: blur(16px) saturate(140%);
@@ -188,16 +188,16 @@ body::after {
     box-shadow 0.35s ease,
     transform 0.18s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-/* Hover-only "shine" — a brighter gold strip sweeps across the persistent
-   underline from left to right, refreshing it in place. */
+/* Hover-only thick gold underline — slides left → right over the existing
+   1px border, making the bottom edge read as a thicker (2px) gold line. */
 .btn-line::after {
   content: '';
   position: absolute;
   left: 0;
-  bottom: -2px;
+  bottom: -1px;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #ffd58c, #ffd58c, transparent);
+  background: #C8A96E;
   transition: width 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   pointer-events: none;
 }
