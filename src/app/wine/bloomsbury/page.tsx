@@ -146,6 +146,15 @@ function ProductHero() {
                     £34.00
                   </p>
                   <p className="font-body text-white/45 text-[12px] mt-1">75cl bottle · 12% ABV</p>
+                  {/* Gift-note moved INTO the price column so on desktop the
+                      `items-end` alignment puts it at the same vertical level
+                      as the badge captions on the right (bottom-aligned). */}
+                  <p
+                    className="font-body text-white/40 text-[12px] mt-3 leading-relaxed"
+                    style={{ maxWidth: "440px" }}
+                  >
+                    20% off for members. Add a free personalised gift note at checkout.
+                  </p>
                 </div>
                 {/* Award Badges (Desktop only) — staged like AwardSection */}
                 <div className="hidden md:flex items-end gap-7" aria-label="Awards">
@@ -185,10 +194,6 @@ function ProductHero() {
                   </div>
                 </div>
               </div>
-              <p className="font-body text-white/40 text-[12px] mt-4 leading-relaxed" style={{ maxWidth: "440px" }}>
-                20% off for members. Add a free personalised gift note at checkout.
-              </p>
-
               {/* Mobile-only CTA — Desktop CTA is anchored to the bottle column.
                   The id="hero-mobile-cta" is observed by <StickyMobileCTA /> —
                   when this element scrolls out of viewport, the sticky bar slides in.
