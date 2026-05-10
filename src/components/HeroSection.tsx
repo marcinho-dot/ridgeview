@@ -45,11 +45,13 @@ export function HeroSection() {
       />
 
       {/* Three-layer overlay stack (mobile + desktop):
-          1) Full-frame vertical gradient — original strength
-          2) Left-side fade — original strength
+          1) Full-frame vertical gradient — TOP boosted to compensate
+             for the brighter sky in the new 16:9 image, so the upper
+             zone reads as dark as on the old crop.
+          2) Left-side fade — original strength.
           3) Bottom dark band on lower 55% — reduced to 25% of
-             original (95/70 → 24/18) so the lower image breathes */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/10 to-black/50 pointer-events-none" />
+             original (95/70 → 24/18) so the lower image breathes. */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/15 to-black/50 pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-transparent to-transparent pointer-events-none" />
       <div
         className="absolute left-0 right-0 bottom-0 bg-gradient-to-t from-black/24 via-black/[0.18] to-transparent pointer-events-none"
