@@ -131,7 +131,7 @@ function HeritageTerroirSection() {
       </div>
 
       {/* ── Content — 2-column on desktop, stacked on mobile ── */}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-16 py-20 md:py-28">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-16 py-20 md:py-44">
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-center">
 
