@@ -190,27 +190,14 @@ function HeritageTerroirSection() {
 
           {/* ── Right: Chalk soil card with grape labels ── */}
           <div className="flex flex-col justify-center">
-            {/* Placeholder card — chalk-soil.jpg was reading as charred wood;
-                replace with a real close-up chalk-soil shot (Marc feedback). */}
+            {/* Placeholder card — clean milk-glass surface, awaiting a real
+                Sussex chalk-soil photograph. */}
             <FadeUp delay={0.4}>
               <div
-                className="relative overflow-hidden rounded-sm mb-6 border border-dashed border-[#C8A96E]/35 bg-gradient-to-br from-white/[0.04] via-transparent to-[#C8A96E]/[0.04] backdrop-blur-sm flex flex-col items-center justify-center gap-2"
+                className="relative overflow-hidden rounded-sm mb-6 border border-white/[0.10] bg-white/[0.06] backdrop-blur-md backdrop-saturate-150"
                 style={{ height: "clamp(180px, 24vw, 280px)" }}
               >
-                <span
-                  className="font-display italic text-[#C8A96E]/70 tracking-widest text-center px-6"
-                  style={{ fontSize: "clamp(12px, 1.2vw, 14px)" }}
-                >
-                  [ Image placeholder ]
-                </span>
-                <span
-                  className="font-body text-white/45 text-center px-6 max-w-[320px] leading-relaxed"
-                  style={{ fontSize: "clamp(11px, 1.05vw, 13px)" }}
-                >
-                  Chalk-soil close-up — to be replaced with a real Sussex chalk photograph.
-                </span>
-
-                {/* Grape labels stay on the placeholder so the bottom-edge composition holds */}
+                {/* Grape labels anchor the bottom edge */}
                 <div className="absolute bottom-4 left-5 right-5 flex gap-4">
                   {["Chardonnay", "Pinot Noir", "Pinot Meunier"].map((grape) => (
                     <p
