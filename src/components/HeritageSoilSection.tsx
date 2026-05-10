@@ -29,10 +29,10 @@ export function HeritageSoilSection() {
               style={{ objectPosition: "center 45%" }}
             />
 
-            {/* Symmetric overlay (mobile + desktop identical):
-                30% base scrim + bottom gradient 82% → 35% → transparent. */}
-            <div className="absolute inset-0 bg-black/30" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/82 via-black/35 to-transparent" />
+            {/* Lighter on mobile so the image breathes — slightly stronger
+                on desktop where the wider crop tolerates more weight. */}
+            <div className="absolute inset-0 bg-black/20 sm:bg-black/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent sm:from-black/82 sm:via-black/35 sm:to-transparent" />
           </div>
 
           {/* Content overlay — bottom-aligned on all breakpoints */}
