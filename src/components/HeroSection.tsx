@@ -37,19 +37,22 @@ export function HeroSection() {
         style={{ objectPosition: "center 50%" }}
       />
 
-      {/* Single dark layer on the bottom 15% only — keeps the rest of the
-          misty-morning image fully visible (no top/side darkening).
-          Texts above this band rely on their own text-shadow for legibility. */}
+      {/* Soft dark layer fading down across the top ~55% — gives the
+          upper text block (kicker / headline / proof / CTA) a quiet
+          backdrop while leaving the lower 45% of the misty image
+          completely undimmed. Long, gentle fade (max 70% black at the
+          very top → transparent at the midpoint) so the navbar zone
+          never feels like a hard band. */}
       <div
-        className="absolute left-0 right-0 bottom-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent pointer-events-none"
-        style={{ height: "15%" }}
+        className="absolute left-0 right-0 top-0 bg-gradient-to-b from-black/70 via-black/28 to-transparent pointer-events-none"
+        style={{ height: "55%" }}
       />
 
-      {/* Main content — bottom-left aligned. On mobile we push everything
-          right down to the bottom edge (pb-[8svh]) so the text block sits
-          inside / just above the 15% dark zone. Desktop keeps the original
-          mid-bottom anchor at 11svh. */}
-      <div className="absolute inset-0 flex flex-col justify-end pb-[8svh] md:pb-[11svh] px-6 md:px-16 max-w-[1400px] mx-auto left-0 right-0">
+      {/* Main content — top-left aligned. Sits in the upper third of the
+          hero, comfortably clear of the navbar (mobile ~70px, desktop ~95px)
+          and inside the soft dark fade. The big undimmed lower half of
+          the image then carries the misty-morning atmosphere. */}
+      <div className="absolute inset-0 flex flex-col justify-start pt-[14svh] md:pt-[18vh] px-6 md:px-16 max-w-[1400px] mx-auto left-0 right-0">
 
         {/* Kicker */}
         <motion.p
