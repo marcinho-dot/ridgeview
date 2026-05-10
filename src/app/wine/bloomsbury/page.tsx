@@ -490,13 +490,12 @@ function BlendSection() {
         </div>
 
         <FadeUp delay={0.7}>
-          {/* Narrower column (620px instead of 820px) ensures the paragraph
-              wraps onto 4–5 lines instead of 3 + a widow. `text-wrap: balance`
-              then distributes the words evenly across all lines, so the last
-              line ends up roughly as full as the others (target: 5–10 words).
-              The GoldDivider lives inside the same container, so it inherits
-              the narrower width automatically. */}
-          <div className="max-w-[620px] mx-auto text-center">
+          {/* Wide column (~920px) so the 45-word paragraph fits onto three
+              lines (~15 words per line). `text-wrap: balance` then spreads
+              the words evenly so all three lines end up similar in length —
+              no widow on the last line. The GoldDivider sits in the same
+              container and inherits the new width. */}
+          <div className="max-w-[920px] mx-auto text-center">
             <GoldDivider origin="center" />
             <p
               className="font-body text-white/60 mt-10 leading-[1.85]"
