@@ -26,14 +26,21 @@ export function HeroSection() {
     // h-[100svh] uses "small viewport height" so the hero sizes correctly on
     // mobile browsers — h-screen / 100vh would overshoot the visible area
     // when the iOS / Android URL bar is showing.
-    <section className="relative h-[100svh] w-full overflow-hidden">
+    // bg-black fills the side pillars on desktop where the 4:3 source image
+    // doesn't fully cover the 16:9+ viewport (we use object-contain there).
+    <section className="relative h-[100svh] w-full overflow-hidden bg-black">
 
-      {/* Background image — misty autumn morning at Ridgeview vineyard, Sussex */}
+      {/* Background image — misty autumn morning at Ridgeview vineyard, Sussex.
+          Source is 3072×2304 (4:3). On mobile (portrait viewport) we keep
+          object-cover so the image fully bleeds; on desktop (16:9+ landscape)
+          we switch to object-contain so the entire frame is visible — no
+          vertical cropping. The side pillars then sit on the section's
+          black background. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={`${basePath}/images/hero-bg.jpg`}
         alt="Misty autumn morning at Ridgeview vineyard, Sussex"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover md:object-contain"
         style={{ objectPosition: "center 50%" }}
       />
 
