@@ -49,19 +49,12 @@ function PageHeader() {
   return (
     <section ref={ref} className="relative h-screen w-full overflow-hidden">
       <motion.div style={{ y: bgY }} className="absolute inset-0">
-        {/* Desktop hero */}
+        {/* Hero — aerial estate view (vineyard rows + cellar buildings) */}
         <img
-          src={`${basePath}/images/booking-hero-table.jpg`}
-          alt="Ridgeview vineyard dining at sunset"
-          className="absolute inset-0 w-full h-full object-cover hidden sm:block"
+          src={`${basePath}/images/estate-people.webp`}
+          alt="Aerial view of Ridgeview Wine Estate — vineyard rows and cellar buildings"
+          className="absolute inset-0 w-full h-full object-cover"
           style={{ objectPosition: "center 50%" }}
-        />
-        {/* Mobile hero */}
-        <img
-          src={`${basePath}/images/terroir-hero.jpg`}
-          alt="Ridgeview vineyard rows stretching toward the South Downs"
-          className="absolute inset-0 w-full h-full object-cover sm:hidden"
-          style={{ objectPosition: "center 35%" }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#010101]/30 via-transparent to-[#010101]/60" />
       </motion.div>
