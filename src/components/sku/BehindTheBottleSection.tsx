@@ -2,19 +2,18 @@
 
 import { ReactNode } from "react";
 import { motion } from "framer-motion";
-import { basePath } from "@/lib/basePath";
 
 /**
  * BehindTheBottleSection — Production / craftsmanship story for an SKU.
  *
- * Layout: Asymmetric two-column grid on desktop (image left, story right),
- * stacked on mobile. Background image (chalk soil or cellar) sits behind
- * the column with a tonal overlay for legibility.
+ * Layout: Asymmetric two-column grid on desktop (kicker/headline left,
+ * pillars right), stacked on mobile. Solid #0a0a0a background — no
+ * imagery — so the gold accent rings on the pillar numbers stay crisp.
  *
- * The four "craft pillars" use small icons + caption — Hand Harvest /
- * Méthode Traditionnelle / Lees Ageing / Sussex Chalk Soil are universal
- * to every Ridgeview wine, so this section can be shared SKU-wide with
- * minor pillar tweaks via props.
+ * The four "craft pillars" follow the production chronology:
+ * Soil → Harvest → Winemaking → Maturation. Universal to every
+ * Ridgeview wine, this section is shared SKU-wide with per-SKU
+ * pillar tweaks via props.
  */
 
 export interface CraftPillar {
@@ -29,8 +28,6 @@ interface Props {
   headline: ReactNode;
   intro?: string;
   pillars: CraftPillar[];
-  /** Background image src (without basePath) — defaults to chalk-soil.jpg */
-  backgroundSrc?: string;
 }
 
 export function BehindTheBottleSection({
@@ -38,21 +35,18 @@ export function BehindTheBottleSection({
   headline,
   intro,
   pillars,
-  backgroundSrc = "/images/chalk-soil.jpg",
 }: Props) {
   return (
     <section className="relative bg-[#0a0a0a] border-t border-white/[0.06] overflow-hidden">
-      {/* Background image — chalk soil / cellar atmosphere */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={`${basePath}${backgroundSrc}`}
-        alt=""
+      {/* Subtle ambient gold glow keeps the section editorial — no background image */}
+      <div
         aria-hidden
-        className="absolute inset-0 w-full h-full object-cover opacity-25"
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 70% at 30% 50%, rgba(200,169,110,0.05) 0%, transparent 70%)",
+        }}
       />
-      {/* Tonal overlay so the text stays legible */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/65 to-black/40" />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/85" />
 
       <div className="relative max-w-[1400px] mx-auto px-6 md:px-16 py-24 md:py-36">
         <div className="grid grid-cols-1 md:grid-cols-[5fr_7fr] gap-12 md:gap-20 items-center">
