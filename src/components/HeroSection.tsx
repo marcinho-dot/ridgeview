@@ -23,12 +23,12 @@ export function HeroSection() {
   }, []);
 
   return (
-    // h-[100dvh] uses "dynamic viewport height": matches whatever is
-    // actually visible right now. Better than 100svh (which reserves
-    // space for the mobile URL bar even in DevTools, leaving a black
-    // strip at the bottom) and better than 100vh (which overshoots on
-    // mobile when the URL bar is showing).
-    <section className="relative h-[100dvh] w-full overflow-hidden">
+    // h-screen (= 100vh) gives the section the FULL viewport height in
+    // every context: DevTools mobile simulation, desktop, and real
+    // mobile (where the lower edge may sit under the URL bar — that's
+    // fine because all our content is top-aligned, the unused bottom
+    // of the image is just decorative).
+    <section className="relative h-screen w-full overflow-hidden">
 
       {/* Background image — misty autumn morning at Ridgeview vineyard, Sussex.
           Source is now 2560×1440 (16:9), which matches the aspect of most
@@ -59,7 +59,7 @@ export function HeroSection() {
           hero, comfortably clear of the navbar (mobile ~70px, desktop ~95px)
           and inside the soft dark fade. The big undimmed lower half of
           the image then carries the misty-morning atmosphere. */}
-      <div className="absolute inset-0 flex flex-col justify-start pt-[14dvh] md:pt-[18vh] px-6 md:px-16 max-w-[1400px] mx-auto left-0 right-0">
+      <div className="absolute inset-0 flex flex-col justify-start pt-[14vh] md:pt-[18vh] px-6 md:px-16 max-w-[1400px] mx-auto left-0 right-0">
 
         {/* Kicker */}
         <motion.p
@@ -87,7 +87,22 @@ export function HeroSection() {
             <span key="l1">In the chalk hills of Sussex,</span>,
             <span key="l2"><span className="text-[#C8A96E]">something remarkable</span> is made.</span>,
           ].map((line, i) => (
-              <span key={i} className="block overflow-hidden">
+              // Padding + negative margin: the overflow-hidden line-box
+              // was clipping the textShadow blur at its hard edges
+              // (visible as a sharp "stroke" around the letters). The
+              // padding gives the 22px blur room to fade naturally; the
+              // matching negative margin keeps the headline visually
+              // anchored at its original position.
+              <span
+                key={i}
+                className="block overflow-hidden"
+                style={{
+                  paddingBlock: "0.35em",
+                  paddingInline: "0.5em",
+                  marginBlock: "-0.35em",
+                  marginInline: "-0.5em",
+                }}
+              >
                 <motion.span
                   className="block"
                   initial={{ y: "102%" }}
