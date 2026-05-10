@@ -29,9 +29,10 @@ export function HeritageSoilSection() {
               style={{ objectPosition: "center 45%" }}
             />
 
-            {/* Mobile: stronger scrim covering text zone (center→bottom) */}
-            <div className="absolute inset-0 bg-black/40 sm:bg-black/20" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-[55%] to-transparent sm:from-black/75 sm:via-black/20 sm:to-transparent" />
+            {/* Symmetric overlay (mobile + desktop identical):
+                30% base scrim + bottom gradient 82% → 35% → transparent. */}
+            <div className="absolute inset-0 bg-black/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/82 via-black/35 to-transparent" />
           </div>
 
           {/* Content overlay — bottom-aligned on all breakpoints */}
