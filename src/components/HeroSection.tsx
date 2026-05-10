@@ -23,10 +23,12 @@ export function HeroSection() {
   }, []);
 
   return (
-    // h-[100svh] uses "small viewport height" so the hero sizes correctly on
-    // mobile browsers — h-screen / 100vh would overshoot the visible area
-    // when the iOS / Android URL bar is showing.
-    <section className="relative h-[100svh] w-full overflow-hidden">
+    // h-[100dvh] uses "dynamic viewport height": matches whatever is
+    // actually visible right now. Better than 100svh (which reserves
+    // space for the mobile URL bar even in DevTools, leaving a black
+    // strip at the bottom) and better than 100vh (which overshoots on
+    // mobile when the URL bar is showing).
+    <section className="relative h-[100dvh] w-full overflow-hidden">
 
       {/* Background image — misty autumn morning at Ridgeview vineyard, Sussex.
           Source is now 2560×1440 (16:9), which matches the aspect of most
@@ -57,7 +59,7 @@ export function HeroSection() {
           hero, comfortably clear of the navbar (mobile ~70px, desktop ~95px)
           and inside the soft dark fade. The big undimmed lower half of
           the image then carries the misty-morning atmosphere. */}
-      <div className="absolute inset-0 flex flex-col justify-start pt-[14svh] md:pt-[18vh] px-6 md:px-16 max-w-[1400px] mx-auto left-0 right-0">
+      <div className="absolute inset-0 flex flex-col justify-start pt-[14dvh] md:pt-[18vh] px-6 md:px-16 max-w-[1400px] mx-auto left-0 right-0">
 
         {/* Kicker */}
         <motion.p
