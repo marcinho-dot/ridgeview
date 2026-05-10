@@ -68,7 +68,7 @@ export function HeroSection() {
         {/* Headline — staggered line reveal */}
         <div className="relative">
           <h1
-            className="relative font-display italic text-cream leading-[1.02] mb-8"
+            className="relative font-display italic text-cream leading-[1.12] mb-8"
             style={{
               fontSize: "clamp(38px, 6.5vw, 102px)",
               fontWeight: 400,
