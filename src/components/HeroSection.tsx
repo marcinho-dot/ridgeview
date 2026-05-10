@@ -28,13 +28,13 @@ export function HeroSection() {
     // when the iOS / Android URL bar is showing.
     <section className="relative h-[100svh] w-full overflow-hidden">
 
-      {/* Background image — Seven Sisters chalk cliffs + vineyard + Ridgeview bottle */}
+      {/* Background image — misty autumn morning at Ridgeview vineyard, Sussex */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={`${basePath}/images/hero-bg.jpg`}
-        alt="Ridgeview vineyard with Seven Sisters chalk cliffs, Sussex"
+        alt="Misty autumn morning at Ridgeview vineyard, Sussex"
         className="absolute inset-0 w-full h-full object-cover"
-        style={{ objectPosition: "center 60%" }}
+        style={{ objectPosition: "center 50%" }}
       />
 
       {/* Layered gradients */}
