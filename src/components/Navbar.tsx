@@ -64,7 +64,7 @@ export function Navbar() {
       <nav
         className={`fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 md:px-10 transition-all duration-500 ease-out ${
           milkGlass
-            ? "py-[15px] md:py-3 bg-black/60 backdrop-blur-xl border-b border-white/[0.06]"
+            ? "py-4 md:py-5 bg-black/60 backdrop-blur-xl border-b border-white/[0.06]"
             : "py-5 md:py-6 bg-transparent"
         }`}
       >
