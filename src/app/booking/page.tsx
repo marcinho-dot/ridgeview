@@ -56,12 +56,12 @@ function PageHeader() {
           className="absolute inset-0 w-full h-full object-cover sm:hidden"
           style={{ objectPosition: "center 50%" }}
         />
-        {/* Desktop hero — aerial estate view (vineyard rows + cellar buildings) */}
+        {/* Desktop hero — drone shot, vineyard rows + cellar buildings */}
         <img
-          src={`${basePath}/images/estate-people.webp`}
+          src={`${basePath}/images/booking-hero-aerial.jpg`}
           alt="Aerial view of Ridgeview Wine Estate — vineyard rows and cellar buildings"
           className="absolute inset-0 w-full h-full object-cover hidden sm:block"
-          style={{ objectPosition: "25% 50%" }}
+          style={{ objectPosition: "center 50%" }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#010101]/30 via-transparent to-[#010101]/60" />
       </motion.div>
