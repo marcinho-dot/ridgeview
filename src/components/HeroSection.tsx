@@ -44,18 +44,15 @@ export function HeroSection() {
         style={{ objectPosition: "center 50%" }}
       />
 
-      {/* Original three-layer overlay stack (mobile + desktop):
-          1) Full-frame vertical gradient — darkens top and bottom
-             with a lighter middle so the image keeps depth without
-             washing the texts out.
-          2) Left-side fade — anchors the left-aligned text block
-             against a slightly darker zone.
-          3) Bottom dark band — anchored to the lower 55% for
-             foreground separation against the next section. */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/10 to-black/50 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-transparent to-transparent pointer-events-none" />
+      {/* Three-layer overlay stack at 25% strength of the original
+          (mobile + desktop):
+          1) Full-frame vertical gradient (60/10/50 → 15/3/12)
+          2) Left-side fade (45 → 11)
+          3) Bottom dark band on lower 55% (95/70 → 24/18) */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/[0.03] to-black/[0.12] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/[0.11] via-transparent to-transparent pointer-events-none" />
       <div
-        className="absolute left-0 right-0 bottom-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent pointer-events-none"
+        className="absolute left-0 right-0 bottom-0 bg-gradient-to-t from-black/24 via-black/[0.18] to-transparent pointer-events-none"
         style={{ height: "55%" }}
       />
 
