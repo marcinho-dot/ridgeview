@@ -1,7 +1,7 @@
 "use client";
 
-import { ReactNode, useEffect, useRef, useState } from "react";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { ReactNode, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ScrollReset } from "@/components/ScrollReset";
@@ -409,95 +409,11 @@ function TastingPairingSection() {
 
 // ── Blend ───────────────────────────────────────────────────────────────────
 
-// AnimatedCounter — counts from 0 → target when in view (J).
-function AnimatedCounter({ value, duration = 1.4 }: { value: number; duration?: number }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.5 });
-  const [display, setDisplay] = useState(0);
-  useEffect(() => {
-    if (!inView) return;
-    const start = performance.now();
-    let raf = 0;
-    const tick = (now: number) => {
-      const t = Math.min(1, (now - start) / (duration * 1000));
-      // Ease-out cubic
-      const eased = 1 - Math.pow(1 - t, 3);
-      setDisplay(Math.round(value * eased));
-      if (t < 1) raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [inView, value, duration]);
-  return <span ref={ref}>{display}</span>;
-}
-
-// BlendDonutChart — SVG donut with sweep-in animation (F).
-function BlendDonutChart({
-  segments,
-  size = 240,
-}: {
-  segments: { value: number; color: string; label: string }[];
-  size?: number;
-}) {
-  const ref = useRef<SVGSVGElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.4 });
-  const radius = size / 2 - 18;
-  const circumference = 2 * Math.PI * radius;
-  let cumulative = 0;
-  return (
-    <svg
-      ref={ref}
-      width={size}
-      height={size}
-      viewBox={`0 0 ${size} ${size}`}
-      className="block mx-auto"
-      style={{ transform: "rotate(-90deg)" }}
-    >
-      {/* Background ring */}
-      <circle
-        cx={size / 2}
-        cy={size / 2}
-        r={radius}
-        fill="none"
-        stroke="rgba(255,255,255,0.05)"
-        strokeWidth="14"
-      />
-      {/* Segments */}
-      {segments.map((s, i) => {
-        const length = (s.value / 100) * circumference;
-        const offset = (cumulative / 100) * circumference;
-        cumulative += s.value;
-        return (
-          <motion.circle
-            key={s.label}
-            cx={size / 2}
-            cy={size / 2}
-            r={radius}
-            fill="none"
-            stroke={s.color}
-            strokeWidth="14"
-            strokeLinecap="butt"
-            strokeDasharray={`${length} ${circumference - length}`}
-            strokeDashoffset={-offset}
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={inView ? { pathLength: 1, opacity: 1 } : {}}
-            transition={{
-              pathLength: { duration: 1.3, ease: [0.16, 1, 0.3, 1], delay: 0.2 + i * 0.18 },
-              opacity: { duration: 0.4, delay: 0.2 + i * 0.18 },
-            }}
-            style={{ transformOrigin: "center" }}
-          />
-        );
-      })}
-    </svg>
-  );
-}
-
 function BlendSection() {
   const blend = [
-    { percent: 61, grape: "Chardonnay", color: "#C8A96E" },     // Gold — primary
-    { percent: 27, grape: "Pinot Noir", color: "#7A4F4F" },      // Burgundy-brown
-    { percent: 12, grape: "Pinot Meunier", color: "#9a9390" },   // Muted
+    { percent: "61", grape: "Chardonnay" },
+    { percent: "27", grape: "Pinot Noir" },
+    { percent: "12", grape: "Pinot Meunier" },
   ];
 
   return (
@@ -538,40 +454,39 @@ function BlendSection() {
           </FadeUp>
         </div>
 
-        {/* Donut chart + grape list — split layout on desktop, stacked on mobile */}
-        <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] items-center gap-12 md:gap-20 max-w-[900px] mx-auto mb-20 md:mb-24">
-          <FadeUp delay={0.28} className="flex justify-center">
-            <BlendDonutChart segments={blend.map((b) => ({ value: b.percent, color: b.color, label: b.grape }))} size={260} />
-          </FadeUp>
-
-          <ul className="space-y-5 md:space-y-7">
-            {blend.map((b, i) => (
-              <FadeUp key={b.grape} delay={0.45 + i * 0.12}>
-                <li className="group flex items-baseline gap-5 cursor-default">
+        {/* Big percentages — 3-column grid, vertical gold borders */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-14 md:gap-0 mb-20 md:mb-24">
+          {blend.map((b, i) => (
+            <FadeUp key={b.grape} delay={0.28 + i * 0.1}>
+              <div
+                className="group text-center md:px-8 cursor-default"
+                style={{
+                  borderLeft: i > 0 ? "1px solid rgba(200,169,110,0.16)" : "none",
+                }}
+              >
+                <p
+                  className="font-display italic text-cream leading-none mb-4 transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  style={{ fontSize: "clamp(64px, 9vw, 132px)", fontWeight: 400 }}
+                >
+                  <span className="text-[#C8A96E] transition-[text-shadow] duration-700 ease-out group-hover:[text-shadow:0_0_40px_rgba(200,169,110,0.45)]">
+                    {b.percent}
+                  </span>
                   <span
-                    aria-hidden
-                    className="block w-2 h-2 rounded-full flex-shrink-0 mt-1.5"
-                    style={{ background: b.color, boxShadow: `0 0 10px ${b.color}` }}
-                  />
-                  <div className="flex-1 flex items-baseline justify-between gap-4">
-                    <span
-                      className="font-display italic text-cream group-hover:text-[#C8A96E] transition-colors duration-500"
-                      style={{ fontSize: "clamp(20px, 2vw, 28px)", fontWeight: 400 }}
-                    >
-                      {b.grape}
-                    </span>
-                    <span
-                      className="font-display italic leading-none"
-                      style={{ fontSize: "clamp(28px, 3vw, 44px)", fontWeight: 400, color: b.color }}
-                    >
-                      <AnimatedCounter value={b.percent} />
-                      <span className="text-white/45 ml-0.5" style={{ fontSize: "0.55em" }}>%</span>
-                    </span>
-                  </div>
-                </li>
-              </FadeUp>
-            ))}
-          </ul>
+                    className="text-white/55 group-hover:text-white/80 transition-colors duration-700"
+                    style={{ fontSize: "0.42em", verticalAlign: "super", marginLeft: "0.04em" }}
+                  >
+                    %
+                  </span>
+                </p>
+                <p
+                  className="font-body text-white/70 group-hover:text-cream uppercase tracking-[0.34em] transition-colors duration-500"
+                  style={{ fontSize: "clamp(11px, 1.1vw, 13px)" }}
+                >
+                  {b.grape}
+                </p>
+              </div>
+            </FadeUp>
+          ))}
         </div>
 
         <FadeUp delay={0.7}>
