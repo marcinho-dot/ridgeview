@@ -14,13 +14,14 @@ function getLinks(isBookingPage: boolean) {
   const desktop = [
     { label: "Home", href: `${basePath}/` },
     { label: "Vineyard Bookings", href: `${basePath}/booking` },
+    { label: "View all Wines", href: anchor("#wine-collection") },
   ];
 
   const wineClubHref = anchor("#ourview");
 
   const mobile = [
     { label: "Home", href: `${basePath}/` },
-    { label: "Shop", href: anchor("#wine-collection") },
+    { label: "View all Wines", href: anchor("#wine-collection") },
     { label: "Vineyard Bookings", href: `${basePath}/booking` },
     { label: "Wine Club", href: anchor("#ourview") },
     { label: "Our Story", href: anchor("#heritage") },
