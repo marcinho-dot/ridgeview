@@ -49,12 +49,13 @@ function PageHeader() {
   return (
     <section ref={ref} className="relative h-screen w-full overflow-hidden">
       <motion.div style={{ y: bgY }} className="absolute inset-0">
-        {/* Hero — aerial estate view (vineyard rows + cellar buildings) */}
+        {/* Hero — aerial estate view (vineyard rows + cellar buildings).
+            Mobile shows the left part of the image (cellar buildings),
+            desktop sits at 25% so the buildings frame the left edge. */}
         <img
           src={`${basePath}/images/estate-people.webp`}
           alt="Aerial view of Ridgeview Wine Estate — vineyard rows and cellar buildings"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "25% 50%" }}
+          className="absolute inset-0 w-full h-full object-cover object-[0%_50%] sm:object-[25%_50%]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#010101]/30 via-transparent to-[#010101]/60" />
       </motion.div>
