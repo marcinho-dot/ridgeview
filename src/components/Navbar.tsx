@@ -10,24 +10,24 @@ function getLinks(isBookingPage: boolean) {
   // On the booking page, anchor links must point back to the homepage
   const anchor = (hash: string) => isBookingPage ? `${basePath}/${hash}` : hash;
 
-  // "Shop" is the primary CTA — rendered separately as a gold-tinted button.
-  const shopHref = anchor("#wine-collection");
-
+  // Desktop nav: simple text links (link-underline style), no standalone CTA button.
   const desktop = [
+    { label: "Home", href: `${basePath}/` },
     { label: "Vineyard Bookings", href: `${basePath}/booking` },
   ];
 
   const wineClubHref = anchor("#ourview");
 
   const mobile = [
-    { label: "Shop", href: shopHref },
+    { label: "Home", href: `${basePath}/` },
+    { label: "Shop", href: anchor("#wine-collection") },
     { label: "Vineyard Bookings", href: `${basePath}/booking` },
     { label: "Wine Club", href: anchor("#ourview") },
     { label: "Our Story", href: anchor("#heritage") },
     { label: "Contact", href: anchor("#footer") },
   ];
 
-  return { desktop, mobile, wineClubHref, shopHref };
+  return { desktop, mobile, wineClubHref };
 }
 
 export function Navbar() {
@@ -50,7 +50,7 @@ export function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
-  const { desktop: desktopLinks, mobile: mobileLinks, wineClubHref, shopHref } = getLinks(isBookingPage);
+  const { desktop: desktopLinks, mobile: mobileLinks, wineClubHref } = getLinks(isBookingPage);
 
   return (
     <>
@@ -62,17 +62,9 @@ export function Navbar() {
             : "py-5 md:py-6 bg-transparent"
         }`}
       >
-        {/* Left links — desktop. "Shop" is rendered as a gold-tinted button
-            with arrow (matching the hero "View all Wines" CTA), other entries
-            stay as understated underline-on-hover text links. */}
-        <div className="hidden md:flex items-center gap-6">
-          <a
-            href={shopHref}
-            className="btn-atb backdrop-blur-2xl backdrop-saturate-150"
-          >
-            Shop
-            <span className="btn-atb-arrow">&rarr;</span>
-          </a>
+        {/* Left links — desktop. All entries use the same link-underline
+            text style (no standalone gold CTA). Home + Vineyard Bookings. */}
+        <div className="hidden md:flex items-center gap-7">
           {desktopLinks.map(({ label, href }) => (
             <a
               key={label}
