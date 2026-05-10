@@ -494,13 +494,17 @@ function BlendSection() {
             <GoldDivider origin="center" />
             <p
               className="font-body text-white/60 mt-10 leading-[1.85]"
-              style={{ fontSize: "clamp(14px, 1.35vw, 17px)", fontWeight: 300 }}
+              style={{
+                fontSize: "clamp(14px, 1.35vw, 17px)",
+                fontWeight: 300,
+                textWrap: "pretty",
+              }}
             >
               Grapes are sourced from our original estate vines, along with carefully
               selected partner vineyards across southern England &mdash; typically south-facing,
               with free-draining slopes, on varied chalk, clay, gravel and sandstone soils.
               Sites range between 10&ndash;50 metres above sea level, benefitting from a cool,
-              maritime climate.
+              maritime&nbsp;climate.
             </p>
           </div>
         </FadeUp>
