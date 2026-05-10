@@ -490,21 +490,27 @@ function BlendSection() {
         </div>
 
         <FadeUp delay={0.7}>
-          <div className="max-w-[820px] mx-auto text-center">
+          {/* Narrower column (620px instead of 820px) ensures the paragraph
+              wraps onto 4–5 lines instead of 3 + a widow. `text-wrap: balance`
+              then distributes the words evenly across all lines, so the last
+              line ends up roughly as full as the others (target: 5–10 words).
+              The GoldDivider lives inside the same container, so it inherits
+              the narrower width automatically. */}
+          <div className="max-w-[620px] mx-auto text-center">
             <GoldDivider origin="center" />
             <p
               className="font-body text-white/60 mt-10 leading-[1.85]"
               style={{
                 fontSize: "clamp(14px, 1.35vw, 17px)",
                 fontWeight: 300,
-                textWrap: "pretty",
+                textWrap: "balance",
               }}
             >
               Grapes are sourced from our original estate vines, along with carefully
               selected partner vineyards across southern England &mdash; typically south-facing,
               with free-draining slopes, on varied chalk, clay, gravel and sandstone soils.
               Sites range between 10&ndash;50 metres above sea level, benefitting from a cool,
-              maritime&nbsp;climate.
+              maritime climate.
             </p>
           </div>
         </FadeUp>
