@@ -8,6 +8,7 @@ import { BottomNav } from "@/components/BottomNav";
 import { RecognitionSection } from "@/components/RecognitionSection";
 import { EstatePeopleSection } from "@/components/EstatePeopleSection";
 import { ScrollReset } from "@/components/ScrollReset";
+import { BehindTheBottleSection } from "@/components/sku/BehindTheBottleSection";
 import { basePath } from "@/lib/basePath";
 
 // ── Animation Helpers ────────────────────────────────────────────────────────
@@ -366,105 +367,11 @@ function HeritageDiscoverySection() {
   );
 }
 
-// ── Section: Heritage Part 3 — The Method ───────────────────────────────────
-
-function HeritageMethodSection() {
-  return (
-    <section className="bg-[#010101] relative overflow-hidden">
-
-      {/* Text content */}
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16 py-16 md:py-24">
-
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_1px_1fr] gap-10 md:gap-0">
-
-          {/* Left column — kicker + body */}
-          <div className="md:pr-12">
-            <FadeUp>
-              <p
-                className="font-display italic text-[#C8A96E] mb-5 tracking-widest"
-                style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
-              >
-                [ The Method ]
-              </p>
-            </FadeUp>
-
-            <FadeUp delay={0.1}>
-              <h2
-                className="font-display italic text-white leading-[1.08] mb-6"
-                style={{ fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 400 }}
-              >
-                The patience to <span className="text-[#C8A96E]">wait.</span>
-              </h2>
-            </FadeUp>
-
-            <FadeUp delay={0.2}>
-              <p
-                className="font-body text-white/60 leading-relaxed mb-5"
-                style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, maxWidth: "460px" }}
-              >
-                Three and a half centuries later, on the same chalk,
-                Ridgeview practises the same method. Secondary fermentation in bottle.
-                Extended ageing on lees.
-              </p>
-            </FadeUp>
-          </div>
-
-          {/* Vertical gold divider (desktop) */}
-          <motion.div
-            className="hidden md:block self-stretch"
-            style={{
-              background: "linear-gradient(to bottom, transparent 5%, rgba(200,169,110,0.15) 25%, rgba(200,169,110,0.15) 75%, transparent 95%)",
-              transformOrigin: "top",
-            }}
-            initial={{ scaleY: 0 }}
-            whileInView={{ scaleY: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          />
-
-          {/* Right column — method pillars */}
-          <div className="md:pl-12">
-            {[
-              { label: "Méthode Traditionnelle", detail: "Secondary fermentation in bottle" },
-              { label: "Extended Lees Ageing", detail: "Complexity built over time" },
-              { label: "Chardonnay · Pinot Noir · Pinot Meunier", detail: "From chalk vineyards across Sussex" },
-            ].map((item, i) => (
-              <FadeUp key={item.label} delay={0.15 + i * 0.1}>
-                <div className="flex items-start gap-4 py-5 border-b border-white/[0.07] last:border-0">
-                  <span className="text-[#C8A96E] text-[7px] mt-1.5 flex-shrink-0">◆</span>
-                  <div>
-                    <p className="font-body text-white/75 text-[13px] tracking-wide mb-1" style={{ fontWeight: 400 }}>{item.label}</p>
-                    <p className="font-body text-white/35 text-[12px]" style={{ fontWeight: 300 }}>{item.detail}</p>
-                  </div>
-                </div>
-              </FadeUp>
-            ))}
-
-            {/* Recognition */}
-            <FadeUp delay={0.5}>
-              <div className="mt-8 pt-6">
-                <p className="font-body text-white/30 text-[10px] uppercase tracking-[0.25em] mb-4">Recognition</p>
-                <div className="space-y-2">
-                  {[
-                    "Decanter International Trophy, 2010",
-                    "Queen\u2019s Diamond Jubilee, 2012",
-                    "UK Government\u2019s official sparkling wine",
-                  ].map((award) => (
-                    <p key={award} className="font-body text-white/45 text-[12px] leading-relaxed" style={{ fontWeight: 300 }}>
-                      {award}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            </FadeUp>
-          </div>
-
-        </div>
-      </div>
-
-    </section>
-  );
-}
+// ── Section: Heritage Part 3 — Behind the Bottle (shared with SKU pages) ────
+// The legacy HeritageMethodSection lived here. Replaced by the shared
+// BehindTheBottleSection component used on the SKU pages, so the same
+// four craft pillars (Soil → Harvest → Method → Lees) tell the same
+// story everywhere on the site.
 
 // ── Section: Visit Panels ───────────────────────────────────────────────────
 
@@ -737,7 +644,18 @@ export default function BookingPage() {
         <PageHeader />
         <ScrollReset><EstatePeopleSection /></ScrollReset>
         <ScrollReset><HeritageTerroirSection /></ScrollReset>
-        <ScrollReset><HeritageMethodSection /></ScrollReset>
+        <ScrollReset>
+          <BehindTheBottleSection
+            headline={<>Crafted in the <span className="text-[#C8A96E]">Classic Method</span>.</>}
+            intro="Three decades of craftsmanship on Sussex chalk — every Ridgeview wine made the long way, by hand, in pursuit of the freshest expression of English fizz."
+            pillars={[
+              { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region — the foundation of every great sparkling wine." },
+              { label: "Hand Harvest", detail: "Grapes are picked at first light and sorted by hand to keep only the most balanced bunches." },
+              { label: "Méthode Traditionnelle", detail: "Secondary fermentation in bottle — the same Classic Method used in the great houses of Champagne." },
+              { label: "Extended Lees Ageing", detail: "Long ageing on the lees builds the toasted-almond and buttery-pastry complexity that defines the Ridgeview palate." },
+            ]}
+          />
+        </ScrollReset>
         <ScrollReset><HeritageDiscoverySection /></ScrollReset>
         <ScrollReset><RecognitionSection /></ScrollReset>
         <ScrollReset><VisitPanels /></ScrollReset>
