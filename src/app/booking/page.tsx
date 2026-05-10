@@ -188,31 +188,35 @@ function HeritageTerroirSection() {
             </FadeUp>
           </div>
 
-          {/* ── Right: Chalk image with grape labels + text ── */}
+          {/* ── Right: Chalk soil card with grape labels ── */}
           <div className="flex flex-col justify-center">
-            {/* Chalk soil image with grape variety overlay */}
+            {/* Placeholder card — chalk-soil.jpg was reading as charred wood;
+                replace with a real close-up chalk-soil shot (Marc feedback). */}
             <FadeUp delay={0.4}>
               <div
-                className="relative overflow-hidden rounded-sm mb-6"
+                className="relative overflow-hidden rounded-sm mb-6 border border-dashed border-[#C8A96E]/35 bg-gradient-to-br from-white/[0.04] via-transparent to-[#C8A96E]/[0.04] backdrop-blur-sm flex flex-col items-center justify-center gap-2"
                 style={{ height: "clamp(180px, 24vw, 280px)" }}
               >
-                <img
-                  src={`${basePath}/images/chalk-soil.jpg`}
-                  alt="South Downs chalk soil — the same geology as Champagne"
-                  className="absolute inset-0 w-full h-full object-cover"
-                  style={{ objectPosition: "center 45%" }}
-                />
-                <div className="absolute inset-0 bg-black/25" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <div className="absolute inset-0 border border-white/[0.08] rounded-sm" />
+                <span
+                  className="font-display italic text-[#C8A96E]/70 tracking-widest text-center px-6"
+                  style={{ fontSize: "clamp(12px, 1.2vw, 14px)" }}
+                >
+                  [ Image placeholder ]
+                </span>
+                <span
+                  className="font-body text-white/45 text-center px-6 max-w-[320px] leading-relaxed"
+                  style={{ fontSize: "clamp(11px, 1.05vw, 13px)" }}
+                >
+                  Chalk-soil close-up — to be replaced with a real Sussex chalk photograph.
+                </span>
 
-                {/* Grape labels on image */}
+                {/* Grape labels stay on the placeholder so the bottom-edge composition holds */}
                 <div className="absolute bottom-4 left-5 right-5 flex gap-4">
                   {["Chardonnay", "Pinot Noir", "Pinot Meunier"].map((grape) => (
                     <p
                       key={grape}
-                      className="font-display italic text-[#C8A96E]/70"
-                      style={{ fontSize: "clamp(11px, 1.1vw, 14px)", letterSpacing: "0.06em", textShadow: "0 1px 8px rgba(0,0,0,0.9)" }}
+                      className="font-display italic text-[#C8A96E]/55"
+                      style={{ fontSize: "clamp(11px, 1.1vw, 14px)", letterSpacing: "0.06em" }}
                     >
                       {grape}
                     </p>
