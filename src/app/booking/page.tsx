@@ -54,7 +54,7 @@ function PageHeader() {
           src={`${basePath}/images/estate-people.webp`}
           alt="Aerial view of Ridgeview Wine Estate — vineyard rows and cellar buildings"
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "center 50%" }}
+          style={{ objectPosition: "75% 50%" }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#010101]/30 via-transparent to-[#010101]/60" />
       </motion.div>
