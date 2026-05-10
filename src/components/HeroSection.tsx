@@ -75,7 +75,7 @@ export function HeroSection() {
         {/* Headline — staggered line reveal */}
         <div className="relative">
           <h1
-            className="relative font-display italic text-cream leading-[1.12] mb-8"
+            className="relative font-display italic text-cream leading-[1.05] mb-8"
             style={{
               fontSize: "clamp(38px, 6.5vw, 102px)",
               fontWeight: 400,
@@ -87,31 +87,20 @@ export function HeroSection() {
             <span key="l1">In the chalk hills of Sussex,</span>,
             <span key="l2"><span className="text-[#C8A96E]">something remarkable</span> is made.</span>,
           ].map((line, i) => (
-              // Padding + negative margin: the overflow-hidden line-box
-              // was clipping the textShadow blur at its hard edges
-              // (visible as a sharp "stroke" around the letters). The
-              // padding gives the 22px blur room to fade naturally; the
-              // matching negative margin keeps the headline visually
-              // anchored at its original position.
-              <span
+              // Animation: fade + small upward translate, no overflow-hidden
+              // wrapper. The original slide-up-from-below clipped the
+              // textShadow blur and forced loose leading; this approach
+              // keeps the editorial tight line-spacing and lets the
+              // shadow render freely.
+              <motion.span
                 key={i}
-                className="block overflow-hidden"
-                style={{
-                  paddingBlock: "0.35em",
-                  paddingInline: "0.5em",
-                  marginBlock: "-0.35em",
-                  marginInline: "-0.5em",
-                }}
+                className="block"
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.65 + i * 0.18, duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
               >
-                <motion.span
-                  className="block"
-                  initial={{ y: "102%" }}
-                  animate={{ y: 0 }}
-                  transition={{ delay: 0.65 + i * 0.18, duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-                >
-                  {line}
-                </motion.span>
-              </span>
+                {line}
+              </motion.span>
             ))}
           </h1>
         </div>
