@@ -44,14 +44,18 @@ export function HeroSection() {
         style={{ objectPosition: "center 50%" }}
       />
 
-      {/* Soft dark layer fading down across the top ~55% — gives the
-          upper text block (kicker / headline / proof / CTA) a quiet
-          backdrop while leaving the lower 45% of the misty image
-          completely undimmed. Long, gentle fade (max 70% black at the
-          very top → transparent at the midpoint) so the navbar zone
-          never feels like a hard band. */}
+      {/* Original three-layer overlay stack (mobile + desktop):
+          1) Full-frame vertical gradient — darkens top and bottom
+             with a lighter middle so the image keeps depth without
+             washing the texts out.
+          2) Left-side fade — anchors the left-aligned text block
+             against a slightly darker zone.
+          3) Bottom dark band — anchored to the lower 55% for
+             foreground separation against the next section. */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/10 to-black/50 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-transparent to-transparent pointer-events-none" />
       <div
-        className="absolute left-0 right-0 top-0 bg-gradient-to-b from-black/70 via-black/28 to-transparent pointer-events-none"
+        className="absolute left-0 right-0 bottom-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent pointer-events-none"
         style={{ height: "55%" }}
       />
 
