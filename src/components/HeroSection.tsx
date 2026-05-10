@@ -37,15 +37,19 @@ export function HeroSection() {
         style={{ objectPosition: "center 50%" }}
       />
 
-      {/* Layered gradients */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/10 to-black/50" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-transparent to-transparent" />
-      {/* Extra dark layer on bottom third for text readability */}
-      <div className="absolute left-0 right-0 bottom-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent" style={{ height: "55%" }} />
+      {/* Single dark layer on the bottom 15% only — keeps the rest of the
+          misty-morning image fully visible (no top/side darkening).
+          Texts above this band rely on their own text-shadow for legibility. */}
+      <div
+        className="absolute left-0 right-0 bottom-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent pointer-events-none"
+        style={{ height: "15%" }}
+      />
 
-      {/* Main content — bottom-left aligned (svh-based padding so the headline
-          stays in view on mobile when the browser chrome is showing) */}
-      <div className="absolute inset-0 flex flex-col justify-end pb-[18svh] md:pb-[11svh] px-6 md:px-16 max-w-[1400px] mx-auto left-0 right-0">
+      {/* Main content — bottom-left aligned. On mobile we push everything
+          right down to the bottom edge (pb-[8svh]) so the text block sits
+          inside / just above the 15% dark zone. Desktop keeps the original
+          mid-bottom anchor at 11svh. */}
+      <div className="absolute inset-0 flex flex-col justify-end pb-[8svh] md:pb-[11svh] px-6 md:px-16 max-w-[1400px] mx-auto left-0 right-0">
 
         {/* Kicker */}
         <motion.p
@@ -62,7 +66,12 @@ export function HeroSection() {
         <div className="relative">
           <h1
             className="relative font-display italic text-cream leading-[1.02] mb-8"
-            style={{ fontSize: "clamp(38px, 6.5vw, 102px)", fontWeight: 400 }}
+            style={{
+              fontSize: "clamp(38px, 6.5vw, 102px)",
+              fontWeight: 400,
+              textShadow:
+                "0 2px 22px rgba(0,0,0,0.9), 0 1px 6px rgba(0,0,0,0.95)",
+            }}
           >
             {[
             <span key="l1">In the chalk hills of Sussex,</span>,
@@ -94,8 +103,13 @@ export function HeroSection() {
             <AnimatePresence mode="wait">
               <motion.p
                 key={proofIndex}
-                className="font-body text-white/45"
-                style={{ fontSize: "clamp(10px, 1vw, 12px)", fontWeight: 300, letterSpacing: "0.1em" }}
+                className="font-body text-white/55"
+                style={{
+                  fontSize: "clamp(10px, 1vw, 12px)",
+                  fontWeight: 300,
+                  letterSpacing: "0.1em",
+                  textShadow: "0 1px 8px rgba(0,0,0,0.95)",
+                }}
                 initial={{ y: "110%", opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: "-110%", opacity: 0 }}
