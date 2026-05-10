@@ -198,12 +198,16 @@ function HeritageTerroirSection() {
                 style={{ height: "clamp(180px, 24vw, 280px)" }}
               >
                 {/* Grape labels anchor the bottom edge */}
-                <div className="absolute bottom-4 left-5 right-5 flex gap-4">
+                <div className="absolute bottom-5 left-5 right-5 flex gap-5">
                   {["Chardonnay", "Pinot Noir", "Pinot Meunier"].map((grape) => (
                     <p
                       key={grape}
-                      className="font-display italic text-[#C8A96E]/55"
-                      style={{ fontSize: "clamp(11px, 1.1vw, 14px)", letterSpacing: "0.06em" }}
+                      className="font-display italic text-[#C8A96E]"
+                      style={{
+                        fontSize: "clamp(12px, 1.2vw, 15px)",
+                        letterSpacing: "0.06em",
+                        textShadow: "0 1px 8px rgba(0,0,0,0.7)",
+                      }}
                     >
                       {grape}
                     </p>
