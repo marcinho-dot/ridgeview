@@ -23,20 +23,17 @@ export function HeroSection() {
   }, []);
 
   return (
-    // Mobile: h-[100svh] (full small-viewport height — the iOS/Android
-    // URL bar is accounted for).
-    // Desktop: aspect-[4/3] matches the source image exactly, so the
-    // photo fills the section edge-to-edge with no crop AND no pillars.
-    // Tradeoff: at most desktop resolutions the section ends up taller
-    // than the viewport (e.g. 1920×1080 viewport → 1920×1440 hero), so
-    // the user scrolls through the lower portion of the image.
-    <section className="relative h-[100svh] md:h-auto md:aspect-[4/3] w-full overflow-hidden bg-black">
+    // h-[100svh] uses "small viewport height" so the hero sizes correctly on
+    // mobile browsers — h-screen / 100vh would overshoot the visible area
+    // when the iOS / Android URL bar is showing.
+    <section className="relative h-[100svh] w-full overflow-hidden">
 
       {/* Background image — misty autumn morning at Ridgeview vineyard, Sussex.
-          Source is 3072×2304 (4:3). Mobile uses object-cover (the portrait
-          viewport doesn't share the 4:3 ratio, so some crop is unavoidable).
-          Desktop's section IS 4:3, so object-cover is now lossless — no
-          crop, no pillars. */}
+          Source is now 2560×1440 (16:9), which matches the aspect of most
+          desktop viewports — object-cover lands edge-to-edge with no
+          visible crop on landscape screens. On mobile (portrait) the
+          cover still crops left/right; the key motif (vineyard path,
+          trees, light beam) is centered so the crop is graceful. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={`${basePath}/images/hero-bg.jpg`}
