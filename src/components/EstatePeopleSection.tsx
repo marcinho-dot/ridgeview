@@ -25,10 +25,10 @@ export function EstatePeopleSection() {
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={`${basePath}/images/estate-people.webp`}
-              alt="Ridgeview Wine Estate from above — vineyard, winery and restaurant at Ditchling Common"
+              src={`${basePath}/images/estate-vineyard.jpg`}
+              alt="Ridgeview vineyard with the South Downs ridge in the distance"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.03]"
-              style={{ objectPosition: "left center" }}
+              style={{ objectPosition: "center center" }}
             />
             <div className="absolute inset-0 bg-black/15" />
             <div className="absolute inset-0 border border-white/[0.06] rounded-sm" />
