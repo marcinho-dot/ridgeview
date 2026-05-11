@@ -38,7 +38,7 @@ export function HeroSection() {
           trees, light beam) is centered so the crop is graceful. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={`${basePath}/images/hero-bg.jpg`}
+        src={`${basePath}/images/hero-bg-v2.jpg`}
         alt="Misty autumn morning at Ridgeview vineyard, Sussex"
         className="absolute inset-0 w-full h-full object-cover"
         style={{ objectPosition: "center 50%" }}
