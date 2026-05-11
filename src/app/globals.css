@@ -246,10 +246,15 @@ body::after {
   color: #f5f0e8;
   cursor: pointer;
   isolation: isolate;
+  /* `touch-action: manipulation` removes the 300ms tap delay on mobile,
+     so the press feedback lands instantly under the user's finger. */
+  touch-action: manipulation;
   transition:
     color 0.35s ease,
     border-color 0.35s ease,
-    background 0.35s ease;
+    background 0.25s ease,
+    transform 0.18s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.18s ease;
 }
 @media (min-width: 768px) {
   .btn-cta {
@@ -275,8 +280,34 @@ body::after {
 .btn-cta:hover::after {
   transform: scaleX(1);
 }
+/* Tactile click feedback — combines four micro-effects so the press
+   feels physical without ever being loud:
+   1. Scale slightly inward (0.97) — finger pressure illusion
+   2. Inset shadow — the surface dips
+   3. Soft warm gold tint behind the text — like a thumbprint glow
+   4. Underline snaps to full width briefly — confirms the action */
 .btn-cta:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
+  background: rgba(200, 169, 110, 0.10);
+  border-color: #C8A96E;
+  box-shadow:
+    inset 0 1px 3px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(200, 169, 110, 0.2);
+}
+.btn-cta:active::after {
+  transform: scaleX(1);
+  height: 2px;
+  background: #C8A96E;
+  transition: transform 0.12s ease, height 0.12s ease;
+}
+/* Keyboard accessibility — match the same tactile feedback when an
+   "Enter" press triggers :active via :focus-visible chain on some
+   browsers. Also gives focused state a quiet ring without the bright
+   default outline. */
+.btn-cta:focus-visible {
+  outline: none;
+  border-color: #C8A96E;
+  box-shadow: 0 0 0 2px rgba(200, 169, 110, 0.25);
 }
 
 /* ─── Underline-Frame Button Family (used by /buttons showcase) ─────────
