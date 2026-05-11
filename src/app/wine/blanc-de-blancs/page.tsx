@@ -165,9 +165,8 @@ function ProductHero() {
                   <p className="font-body text-white/45 text-[12px] mt-1">75cl bottle · 12% ABV</p>
                 </div>
                 <div className="flex flex-wrap items-center gap-3">
-                  <button className="btn-atb backdrop-blur-2xl backdrop-saturate-150" type="button">
+                  <button className="btn-cta" type="button">
                     Add to basket
-                    <span className="btn-atb-arrow">&rarr;</span>
                   </button>
                 </div>
               </div>
@@ -470,13 +469,12 @@ function ClosingCTA() {
         </FadeUp>
         <FadeUp delay={0.2}>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <button type="button" className="btn-atb backdrop-blur-2xl backdrop-saturate-150">
+            <button type="button" className="btn-cta">
               Add to basket · £75.00
-              <span className="btn-atb-arrow">&rarr;</span>
             </button>
             <a
               href={`${basePath}/#wine-collection`}
-              className="font-body text-white/55 hover:text-[#C8A96E] text-[10px] uppercase tracking-[0.22em] border border-white/12 hover:border-[#C8A96E]/40 px-6 py-3.5 rounded-sm transition-all duration-300"
+              className="btn-cta"
             >
               Explore the Collection
             </a>

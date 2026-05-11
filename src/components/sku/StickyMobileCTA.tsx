@@ -123,15 +123,14 @@ export function StickyMobileCTA({
             </a>
           )}
 
-          {/* Primary CTA — Add to basket (shared .btn-atb so this is visually
-              identical to the hero ATB and the closing-CTA ATB) */}
+          {/* Primary CTA — Add to basket (shared .btn-cta so every CTA on
+              the site is visually identical) */}
           <button
             type="button"
             onClick={onAddToBasket}
-            className="btn-atb backdrop-blur-2xl backdrop-saturate-150 shrink-0"
+            className="btn-cta shrink-0"
           >
             Add to basket
-            <span className="btn-atb-arrow">&rarr;</span>
           </button>
         </motion.div>
       )}

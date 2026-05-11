@@ -111,9 +111,8 @@ export function VisitSection() {
               1.5 hrs · From £20pp · Fri–Sun
             </p>
 
-            <a href={`${basePath}/booking`} className="btn-atb backdrop-blur-2xl backdrop-saturate-150">
+            <a href={`${basePath}/booking`} className="btn-cta">
               Book a Vineyard Tour
-              <span className="btn-atb-arrow">&rarr;</span>
             </a>
           </div>
         </motion.div>
@@ -179,9 +178,8 @@ export function VisitSection() {
               Spring &amp; Summer · Open Daily
             </p>
 
-            <a href={`${basePath}/booking`} className="btn-atb backdrop-blur-2xl backdrop-saturate-150">
+            <a href={`${basePath}/booking`} className="btn-cta">
               Reserve a Table
-              <span className="btn-atb-arrow">&rarr;</span>
             </a>
           </div>
         </motion.div>

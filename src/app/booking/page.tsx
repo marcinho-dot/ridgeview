@@ -455,9 +455,8 @@ function VisitPanels() {
               >
                 1.5 hrs · Fri–Sun
               </p>
-              <a href="#" className="btn-atb backdrop-blur-2xl backdrop-saturate-150">
+              <a href="#" className="btn-cta">
                 Book a Vineyard Tour
-                <span className="btn-atb-arrow">&rarr;</span>
               </a>
             </div>
           </div>
@@ -507,9 +506,8 @@ function VisitPanels() {
               >
                 Spring &amp; Summer · Open Daily
               </p>
-              <a href="#" className="btn-atb backdrop-blur-2xl backdrop-saturate-150">
+              <a href="#" className="btn-cta">
                 Reserve a Table
-                <span className="btn-atb-arrow">&rarr;</span>
               </a>
             </div>
           </div>

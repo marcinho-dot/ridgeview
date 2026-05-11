@@ -151,10 +151,9 @@ export function HeroSection() {
         >
           <a
             href={`${basePath}/#wine-collection`}
-            className="btn-atb backdrop-blur-2xl backdrop-saturate-150"
+            className="btn-cta"
           >
             View all Wines
-            <span className="btn-atb-arrow">&rarr;</span>
           </a>
         </motion.div>
       </div>

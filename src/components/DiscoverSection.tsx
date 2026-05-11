@@ -88,9 +88,8 @@ export function DiscoverSection() {
             transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
           >
             <MagneticButton strength={0.04}>
-              <a href={`${basePath}/booking`} className="btn-atb backdrop-blur-2xl backdrop-saturate-150">
+              <a href={`${basePath}/booking`} className="btn-cta">
                 Discover our Vineyard
-                <span className="btn-atb-arrow">&rarr;</span>
               </a>
             </MagneticButton>
           </motion.div>

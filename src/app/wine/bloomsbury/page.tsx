@@ -295,10 +295,9 @@ function ProductHero() {
                 <button
                   data-atb-trigger
                   type="button"
-                  className="btn-atb backdrop-blur-2xl backdrop-saturate-150"
+                  className="btn-cta"
                 >
                   Add to basket
-                  <span className="btn-atb-arrow">&rarr;</span>
                 </button>
               </div>
             </div>
@@ -663,14 +662,13 @@ function ClosingCTA() {
             <button
               data-atb-trigger
               type="button"
-              className="btn-atb backdrop-blur-2xl backdrop-saturate-150"
+              className="btn-cta"
             >
               Add to basket · £34.00
-              <span className="btn-atb-arrow">&rarr;</span>
             </button>
             <a
               href={`${basePath}/#wine-collection`}
-              className="btn-line backdrop-blur-md backdrop-saturate-125"
+              className="btn-cta"
             >
               Explore the Collection
             </a>

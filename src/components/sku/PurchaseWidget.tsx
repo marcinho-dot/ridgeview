@@ -136,10 +136,9 @@ export function PurchaseWidget({
           data-atb-trigger
           type="button"
           onClick={() => onAddToBasket?.({ variant, quantity, total })}
-          className="btn-atb backdrop-blur-2xl backdrop-saturate-150"
+          className="btn-cta"
         >
           Add to basket · {formatGBP(total)}
-          <span className="btn-atb-arrow">&rarr;</span>
         </button>
       </div>
 

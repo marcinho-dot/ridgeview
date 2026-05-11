@@ -84,9 +84,8 @@ export function WineClubUpsellSection() {
               </p>
             </div>
             <div className="reveal" style={{ transitionDelay: "0.3s" }}>
-              <a href={`${basePath}/#ourview`} className="btn-atb backdrop-blur-2xl backdrop-saturate-150">
+              <a href={`${basePath}/#ourview`} className="btn-cta">
                 Discover Membership
-                <span className="btn-atb-arrow">&rarr;</span>
               </a>
             </div>
           </div>

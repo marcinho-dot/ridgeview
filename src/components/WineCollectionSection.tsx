@@ -271,14 +271,13 @@ export function WineCollectionSection() {
                   {wine.slug ? (
                     <a
                       href={`${basePath}/wine/${wine.slug}`}
-                      className="btn-atb backdrop-blur-2xl backdrop-saturate-150 w-fit"
+                      className="btn-cta w-fit"
                     >
                       Shop Bottle
-                      <span className="btn-atb-arrow">&rarr;</span>
                     </a>
                   ) : (
-                    <button className="btn-ridge w-fit font-body text-white/80 hover:text-white text-[10px] uppercase tracking-[0.22em] border border-white/15 hover:border-white/40 px-6 py-3 rounded-sm transition-all duration-300">
-                      Add to Cart &nbsp;&rarr;
+                    <button className="btn-cta w-fit">
+                      Add to Cart
                     </button>
                   )}
                 </div>
@@ -415,14 +414,13 @@ export function WineCollectionSection() {
               {wine.slug ? (
                 <a
                   href={`${basePath}/wine/${wine.slug}`}
-                  className="btn-atb backdrop-blur-2xl backdrop-saturate-150"
+                  className="btn-cta"
                 >
                   Shop Bottle
-                  <span className="btn-atb-arrow">&rarr;</span>
                 </a>
               ) : (
-                <button className="btn-ridge font-body text-white/75 hover:text-white text-[10px] uppercase tracking-[0.22em] border border-white/15 hover:border-white/40 px-7 py-3 rounded-sm transition-all duration-300">
-                  Add to Cart &nbsp;&rarr;
+                <button className="btn-cta">
+                  Add to Cart
                 </button>
               )}
             </motion.div>
