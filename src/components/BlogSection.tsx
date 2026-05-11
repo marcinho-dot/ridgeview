@@ -98,12 +98,17 @@ const posts = [
 
 function AccordionPanels() {
   // Initial null → every panel collapsed (equal width). Click toggles.
-  // Hover still opens on devices that support it.
+  // Hover still opens on devices that support it; leaving the strip
+  // collapses everything back so we don't leave a panel stuck open
+  // after the cursor has moved away.
   const [active, setActive] = useState<number | null>(null);
   const canHover = useCanHover();
 
   return (
-    <div className="hidden md:flex gap-2 h-[480px] lg:h-[540px]">
+    <div
+      className="hidden md:flex gap-2 h-[480px] lg:h-[540px]"
+      onMouseLeave={canHover ? () => setActive(null) : undefined}
+    >
       {posts.map((post, i) => {
         const isActive = active === i;
 
