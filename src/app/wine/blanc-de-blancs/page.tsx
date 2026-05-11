@@ -279,7 +279,7 @@ function ProductHero() {
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={`${basePath}/products/blanc-de-blancs.webp`}
+                  src={`${basePath}/products/blanc-de-blancs.png`}
                   alt="Ridgeview Blanc de Blancs — Single-Vineyard Chardonnay, 75cl bottle"
                   className="pointer-events-auto w-auto max-w-none object-contain h-[clamp(376px,51svh,484px)] md:h-[clamp(704px,90svh,1078px)] [transform:translateX(8%)_translateY(-30px)_rotate(28deg)] md:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)] hover:[transform:translateX(8%)_translateY(-30px)_rotate(28deg)_scale(1.015)] md:hover:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)_scale(1.015)] [transition:transform_900ms_cubic-bezier(0.16,1,0.3,1),filter_900ms_cubic-bezier(0.16,1,0.3,1)] hover:[filter:drop-shadow(0_40px_80px_rgba(0,0,0,0.7))_drop-shadow(0_0_60px_rgba(200,169,110,0.12))]"
                   style={{
@@ -515,7 +515,7 @@ function AwardsSpecsSection() {
   ];
 
   const specs = [
-    { label: "Vintage", value: "Vintage · 2018" },
+    { label: "Vintage", value: "Vintage · 2020" },
     { label: "Grape", value: "100% Chardonnay" },
     { label: "Bottle Size", value: "75cl" },
     { label: "ABV", value: "12%" },
@@ -679,7 +679,7 @@ const SCHEMA_LD = {
   name: "Ridgeview Blanc de Blancs",
   description:
     "Single-vineyard vintage Chardonnay English Sparkling Wine. Brioche, white peach and toasted hazelnut over a long mineral finish, from the first vines planted on the estate in 1995.",
-  image: "https://darkslateblue-alligator-388666.hostingersite.com/ridgeview/products/blanc-de-blancs.webp",
+  image: "https://darkslateblue-alligator-388666.hostingersite.com/ridgeview/products/blanc-de-blancs.png",
   brand: { "@type": "Brand", name: "Ridgeview Wine Estate" },
   sku: "R2204",
   category: "English Sparkling Wine",
@@ -832,7 +832,7 @@ export default function BlancDeBlancsPage() {
       <StickyMobileCTA
         productName="Blanc de Blancs"
         price="£75.00 · 75cl"
-        thumbnailSrc="/products/blanc-de-blancs.webp"
+        thumbnailSrc="/products/blanc-de-blancs.png"
         triggerSelector="[data-atb-trigger]"
       />
     </main>

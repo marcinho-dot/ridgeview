@@ -778,7 +778,7 @@ const RELATED_WINES = [
     name: "Blanc de Blancs",
     style: "Single-Vineyard Chardonnay · Vintage",
     price: 75,
-    image: "/products/blanc-de-blancs.webp",
+    image: "/products/blanc-de-blancs.png",
     note: "From Ridgeview's first-planted vines, 1995. Brightness and depth.",
   },
 ];

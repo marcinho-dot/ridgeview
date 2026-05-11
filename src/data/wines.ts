@@ -18,7 +18,7 @@ export const wines: Wine[] = [
     vintage: "2020",
     tastingNotes: ["White Peach", "Orchard Blossom", "Saline Mineral"],
     price: "£40",
-    image: "/products/blanc-de-blancs.webp",
+    image: "/products/blanc-de-blancs.png",
     slug: "blanc-de-blancs",
   },
   {
@@ -80,7 +80,7 @@ export const wines: Wine[] = [
     vintage: "NV",
     tastingNotes: ["Vanilla Oak", "Golden Apple", "Toasted Brioche"],
     price: "£60",
-    image: "/products/blanc-de-blancs.webp",
+    image: "/products/blanc-de-blancs.png",
   },
   {
     id: 8,
