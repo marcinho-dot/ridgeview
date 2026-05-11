@@ -26,13 +26,17 @@ html {
   scroll-margin-top: 66px;
 }
 
-/* Sections with large internal padding need less scroll-margin
-   so the kicker sits snug below the navbar */
-#wine-collection {
-  scroll-margin-top: 2px;
-}
-#heritage {
-  scroll-margin-top: 66px;
+/* Anchor sections: scroll target lands ~80px below the viewport top
+   so the fixed navbar (mobile ~70px tall) doesn't cover the section
+   header. Tuned 2026-05-12 after a "Shop" breadcrumb click on a SKU
+   page landed users mid-card on the Wine Collection carousel instead
+   of at the section header. */
+#wine-collection,
+#heritage,
+#ourview,
+#journal,
+#footer {
+  scroll-margin-top: 80px;
 }
 
 body {
