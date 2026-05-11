@@ -224,6 +224,59 @@ body::after {
   }
 }
 
+/* ─── Showcase variants (used by /buttons page) ─────────────────────────
+   3 = .btn-fill-slide: gold fill slides in from left on hover
+   4 = .btn-underline-slide: gold underline slides in under text
+   10 = .btn-magnetic: arrow slides 6px to the right on hover */
+.btn-fill-slide {
+  position: relative;
+  isolation: isolate;
+}
+.btn-fill-slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #C8A96E;
+  transform: translateX(-101%);
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 0;
+}
+.btn-fill-slide:hover::before {
+  transform: translateX(0);
+}
+.btn-fill-slide:active {
+  transform: scale(0.98);
+}
+
+.btn-underline-slide {
+  position: relative;
+}
+.btn-underline-slide::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  background: #C8A96E;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.btn-underline-slide:hover::after {
+  transform: scaleX(1);
+}
+
+.btn-magnetic .btn-magnetic-arrow {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-magnetic:hover .btn-magnetic-arrow {
+  transform: translateX(6px);
+}
+.btn-magnetic:active {
+  transform: scale(0.98);
+}
+
 /* ─── Link hover underline slide-in ────────────────────── */
 .link-underline {
   position: relative;
