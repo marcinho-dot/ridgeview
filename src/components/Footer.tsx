@@ -1,4 +1,11 @@
+import { basePath } from "@/lib/basePath";
+
 export function Footer() {
+  // Every same-page anchor in the footer needs to resolve to the homepage,
+  // not to whatever route the footer is rendered on (SKU pages, booking, etc.).
+  // Prefixing with `${basePath}/` makes the link absolute to the homepage on
+  // every route — the anchor scroll fires once that route loads.
+  const home = `${basePath}/`;
   return (
     <footer id="footer" className="bg-[#010101] border-t border-white/10">
       {/* Responsive grid: 2 cols mobile → 3 cols tablet → 6 cols desktop */}
@@ -10,7 +17,7 @@ export function Footer() {
           </h4>
           <ul className="space-y-3">
             <li>
-              <a href="#heritage" className="link-underline font-body text-cream text-sm hover:text-white/60 transition-colors" style={{ fontWeight: 500 }}>
+              <a href={`${home}#heritage`} className="link-underline font-body text-cream text-sm hover:text-white/60 transition-colors" style={{ fontWeight: 500 }}>
                 Our Story
               </a>
             </li>
@@ -31,11 +38,11 @@ export function Footer() {
           </h4>
           <ul className="space-y-3">
             {[
-              { label: "English Sparkling Wine", href: "#wine-collection" },
-              { label: "Cases of Wine", href: "#wine-collection" },
-              { label: "Gift Sets & Collections", href: "#wine-collection" },
-              { label: "OurView Wine Club", href: "#ourview" },
-              { label: "Click & Collect", href: "#wine-collection" },
+              { label: "English Sparkling Wine", href: `${home}#wine-collection` },
+              { label: "Cases of Wine", href: `${home}#wine-collection` },
+              { label: "Gift Sets & Collections", href: `${home}#wine-collection` },
+              { label: "OurView Wine Club", href: `${home}#ourview` },
+              { label: "Click & Collect", href: `${home}#wine-collection` },
             ].map((item) => (
               <li key={item.label}>
                 <a href={item.href} className="link-underline font-body text-white/55 text-sm hover:text-[#C8A96E]/80 transition-colors duration-300" style={{ fontWeight: 300 }}>
@@ -53,11 +60,11 @@ export function Footer() {
           </h4>
           <ul className="space-y-3">
             {[
-              { label: "Vineyard Tours & Wine Tastings", href: "/booking" },
-              { label: "Wine Bar & Shop", href: "/booking" },
-              { label: "How to get to Ridgeview", href: "#footer" },
-              { label: "Nearby Accommodation", href: "#footer" },
-              { label: "Opening Times", href: "/booking" },
+              { label: "Vineyard Tours & Wine Tastings", href: `${home}booking` },
+              { label: "Wine Bar & Shop", href: `${home}booking` },
+              { label: "How to get to Ridgeview", href: `${home}#footer` },
+              { label: "Nearby Accommodation", href: `${home}#footer` },
+              { label: "Opening Times", href: `${home}booking` },
             ].map((item) => (
               <li key={item.label}>
                 <a href={item.href} className="link-underline font-body text-white/55 text-sm hover:text-[#C8A96E]/80 transition-colors duration-300" style={{ fontWeight: 300 }}>

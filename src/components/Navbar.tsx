@@ -6,9 +6,11 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { basePath } from "@/lib/basePath";
 
-function getLinks(isBookingPage: boolean) {
-  // On the booking page, anchor links must point back to the homepage
-  const anchor = (hash: string) => isBookingPage ? `${basePath}/${hash}` : hash;
+function getLinks(isOffHome: boolean) {
+  // On any non-homepage route (booking, /wine/<sku>, etc.) anchor links
+  // need to point back to the homepage explicitly — otherwise the
+  // hash resolves against the current route and silently does nothing.
+  const anchor = (hash: string) => isOffHome ? `${basePath}/${hash}` : hash;
 
   // Desktop nav: simple text links (link-underline style), no standalone CTA button.
   const desktop = [
@@ -34,10 +36,20 @@ function getLinks(isBookingPage: boolean) {
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  // True on every route except the homepage — controls whether anchor
+  // links (#wine-collection, #ourview, etc.) need the homepage prefix.
+  const [isOffHome, setIsOffHome] = useState(false);
+  // Booking page also gets the milk-glass navbar from the start.
   const [isBookingPage, setIsBookingPage] = useState(false);
 
   useEffect(() => {
-    setIsBookingPage(window.location.pathname.includes("/booking"));
+    const path = window.location.pathname;
+    // Strip a trailing slash for the comparison; basePath itself
+    // is "" in dev and "/ridgeview" in production.
+    const normalized = path.replace(/\/$/, "");
+    const home = basePath.replace(/\/$/, "");
+    setIsOffHome(normalized !== home);
+    setIsBookingPage(path.includes("/booking"));
   }, []);
 
   useEffect(() => {
@@ -51,7 +63,7 @@ export function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
-  const { desktop: desktopLinks, mobile: mobileLinks, wineClubHref } = getLinks(isBookingPage);
+  const { desktop: desktopLinks, mobile: mobileLinks, wineClubHref } = getLinks(isOffHome);
 
   // The Booking (Vineyard) page starts with the milk-glass treatment by
   // default — the aerial hero image is busy and the header would disappear
