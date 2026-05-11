@@ -231,9 +231,11 @@ function ProductHero() {
               />
 
               {/* Mobile award badges — absolute overlay, vertically stacked
-                  on the left side of the bottle wrapper. Each badge has a
-                  micro-caption underneath (matches desktop). */}
-              <div className="md:hidden absolute left-0 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-10 pointer-events-none">
+                  on the left side of the bottle wrapper. Each badge has
+                  a micro-caption (year only) underneath. Anchored 30px
+                  higher than the bottle midpoint so it sits in the upper
+                  half of the wrapper, where the eye lands first. */}
+              <div className="md:hidden absolute left-0 top-[calc(50%-30px)] -translate-y-1/2 flex flex-col gap-4 z-10 pointer-events-none">
                 <div className="flex flex-col items-center gap-1.5">
                   <motion.img
                     src={`${basePath}/images/awards/iwsc-93pts-2020.webp`}
@@ -246,7 +248,7 @@ function ProductHero() {
                     transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
                   />
                   <p className="font-body text-white/45 text-[8px] uppercase tracking-[0.28em] whitespace-nowrap">
-                    IWSC <span className="text-[#C8A96E]/70 mx-0.5">·</span> 2020
+                    2020
                   </p>
                 </div>
                 <div className="flex flex-col items-center gap-1.5">
@@ -261,7 +263,7 @@ function ProductHero() {
                     transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.62 }}
                   />
                   <p className="font-body text-white/45 text-[8px] uppercase tracking-[0.28em] whitespace-nowrap">
-                    Decanter <span className="text-[#C8A96E]/70 mx-0.5">·</span> 2018
+                    2018
                   </p>
                 </div>
               </div>
