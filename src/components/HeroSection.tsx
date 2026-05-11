@@ -78,7 +78,7 @@ export function HeroSection() {
         {/* Headline — staggered line reveal */}
         <div className="relative">
           <h1
-            className="relative font-display italic text-cream leading-[1.05] mb-8"
+            className="relative font-display italic text-cream leading-[1.05] mb-5"
             style={{
               fontSize: "clamp(38px, 6.5vw, 102px)",
               fontWeight: 400,
@@ -108,21 +108,24 @@ export function HeroSection() {
           </h1>
         </div>
 
-        {/* Proof point ticker */}
+        {/* Proof point ticker — sits in a stack with the same baseline
+            spacing rhythm as the kicker/headline (mb-5). Text bumped to
+            white/80 + larger font size so it stays legible against the
+            misty background; icon enlarged so it reads as a proper bullet. */}
         <motion.div
           className="flex items-center gap-3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2.05, duration: 1 }}
         >
-          <span className="text-[#C8A96E] flex-shrink-0 text-[8px]">◆</span>
+          <span className="text-[#C8A96E] flex-shrink-0 text-[11px]">◆</span>
           <div className="overflow-hidden" style={{ height: "1.5em" }}>
             <AnimatePresence mode="wait">
               <motion.p
                 key={proofIndex}
-                className="font-body text-white/55"
+                className="font-body text-white/80"
                 style={{
-                  fontSize: "clamp(10px, 1vw, 12px)",
+                  fontSize: "clamp(12px, 1.15vw, 14px)",
                   fontWeight: 300,
                   letterSpacing: "0.1em",
                   textShadow: "0 1px 8px rgba(0,0,0,0.95)",
@@ -141,7 +144,7 @@ export function HeroSection() {
         {/* Primary CTA — same gold-tinted high-contrast style as the SKU
             "Add to basket" button for visual consistency across the site. */}
         <motion.div
-          className="mt-6 md:mt-8"
+          className="mt-5"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2.25, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
