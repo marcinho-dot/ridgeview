@@ -224,324 +224,145 @@ body::after {
   }
 }
 
-/* ─── Showcase variants (used by /buttons page) ─────────────────────────
-   3 = .btn-fill-slide: gold fill slides in from left on hover
-   4 = .btn-underline-slide: gold underline slides in under text
-   10 = .btn-magnetic: arrow slides 6px to the right on hover */
-.btn-fill-slide {
+
+/* ─── Underline-Frame Button Family (used by /buttons showcase) ─────────
+   All variants share: transparent background, configurable border
+   (white or gold), and a gold underline that slides in on hover.
+   Add modifier classes for direction, thickness, color, etc. */
+.btn-uframe {
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  font-family: 'Raleway', system-ui, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  white-space: nowrap;
+  font-size: 10px;
+  padding: 13px 24px;
+  border-radius: 4px;
+  border: 1px solid;
+  cursor: pointer;
   isolation: isolate;
-}
-.btn-fill-slide::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: #C8A96E;
-  transform: translateX(-101%);
-  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  z-index: 0;
-}
-.btn-fill-slide:hover::before {
-  transform: translateX(0);
-}
-.btn-fill-slide:active {
-  transform: scale(0.98);
-}
-
-.btn-underline-slide {
-  position: relative;
-}
-.btn-underline-slide::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 1px;
-  width: 100%;
-  background: #C8A96E;
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-.btn-underline-slide:hover::after {
-  transform: scaleX(1);
-}
-
-.btn-magnetic .btn-magnetic-arrow {
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.btn-magnetic:hover .btn-magnetic-arrow {
-  transform: translateX(6px);
-}
-.btn-magnetic:active {
-  transform: scale(0.98);
-}
-
-/* ─── Showcase v3 variants (11–20) ──────────────────────────────────────
-   Premium UX patterns adapted for the Ridgeview CD. */
-
-/* 11 — Cinematic Diagonal Reveal */
-.btn-diag-reveal {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-.btn-diag-reveal::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 150%;
-  height: 100%;
-  background: linear-gradient(
-    115deg,
-    transparent 0%,
-    transparent 40%,
-    rgba(200, 169, 110, 0.95) 50%,
-    transparent 60%,
-    transparent 100%
-  );
-  transform: translateX(-100%);
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 0;
-  pointer-events: none;
-}
-.btn-diag-reveal:hover::before {
-  transform: translateX(50%);
-}
-.btn-diag-reveal > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* 12 — Border Draw (clockwise) */
-.btn-border-draw {
-  position: relative;
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(200, 169, 110, 0.3);
-  transition: color 0.4s ease, background 0.4s ease;
-}
-.btn-border-draw::before,
-.btn-border-draw::after {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  pointer-events: none;
-}
-.btn-border-draw::before {
-  border-top: 1px solid #C8A96E;
-  border-right: 1px solid #C8A96E;
-  width: 0;
-  height: 0;
-  transition: width 0.25s ease 0s, height 0.25s ease 0.25s;
-}
-.btn-border-draw::after {
-  border-bottom: 1px solid #C8A96E;
-  border-left: 1px solid #C8A96E;
-  width: 0;
-  height: 0;
-  top: auto;
-  bottom: -1px;
-  right: auto;
-  left: -1px;
-  transition: width 0.25s ease 0.5s, height 0.25s ease 0.75s;
-}
-.btn-border-draw:hover::before {
-  width: calc(100% + 2px);
-  height: calc(100% + 2px);
-}
-.btn-border-draw:hover::after {
-  width: calc(100% + 2px);
-  height: calc(100% + 2px);
-}
-.btn-border-draw:hover {
-  background: rgba(200, 169, 110, 0.06);
-}
-
-/* 13 — Italic Brush Underline */
-.btn-brush-underline {
-  position: relative;
-}
-.btn-brush-underline::after {
-  content: "";
-  position: absolute;
-  left: 8%;
-  right: 8%;
-  bottom: 7px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent 0%, #C8A96E 15%, #C8A96E 85%, transparent 100%);
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-.btn-brush-underline:hover::after {
-  transform: scaleX(1);
-}
-
-/* 14 — Inset Press / Depth */
-.btn-inset-press {
-  background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(0,0,0,0.5) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 6px 18px rgba(0, 0, 0, 0.45);
   transition:
-    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
     color 0.35s ease,
     border-color 0.35s ease,
-    transform 0.18s ease;
+    background 0.35s ease,
+    letter-spacing 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.btn-inset-press:hover {
-  border-color: rgba(200, 169, 110, 0.5);
-  color: #C8A96E;
-  box-shadow:
-    inset 0 2px 8px rgba(0, 0, 0, 0.6),
-    inset 0 -1px 0 rgba(200, 169, 110, 0.25),
-    0 2px 6px rgba(0, 0, 0, 0.25);
+@media (min-width: 768px) {
+  .btn-uframe {
+    font-size: 11px;
+  }
 }
-.btn-inset-press:active {
-  transform: scale(0.985);
-}
-
-/* 15 — Asymmetric Corners */
-.btn-asym-corners {
-  border-radius: 0;
-  border-top-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  border: 1px solid rgba(200, 169, 110, 0.7);
-  background: rgba(0, 0, 0, 0.55);
-  transition: border-radius 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.35s ease, color 0.35s ease;
-}
-.btn-asym-corners:hover {
-  border-top-left-radius: 0;
-  border-bottom-right-radius: 0;
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-color: #C8A96E;
-  color: #C8A96E;
-}
-
-/* 16 — Split Reveal (top + bottom halves part on hover) */
-.btn-split {
-  position: relative;
-  overflow: hidden;
-  background: transparent;
-  border: 1px solid rgba(200, 169, 110, 0.5);
-}
-.btn-split::before,
-.btn-split::after {
+.btn-uframe::after {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
-  height: 50%;
-  background: rgba(0, 0, 0, 0.8);
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 0;
-}
-.btn-split::before {
-  top: 0;
-}
-.btn-split::after {
-  bottom: 0;
-}
-.btn-split:hover::before {
-  transform: translateY(-100%);
-}
-.btn-split:hover::after {
-  transform: translateY(100%);
-}
-.btn-split > * {
-  position: relative;
-  z-index: 1;
-  mix-blend-mode: difference;
-}
-.btn-split:hover {
+  left: 14px;
+  right: 14px;
+  bottom: 7px;
+  height: 1px;
   background: #C8A96E;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    height 0.3s ease, background 0.3s ease;
+}
+.btn-uframe:hover::after {
+  transform: scaleX(1);
+}
+.btn-uframe:active {
+  transform: scale(0.98);
 }
 
-/* 17 — Letterspacing Tracker */
-.btn-tracker {
-  letter-spacing: 0.22em;
-  transition: letter-spacing 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-    color 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+/* Direction modifiers */
+.btn-uframe.from-right::after {
+  transform-origin: right center;
 }
-.btn-tracker:hover {
-  letter-spacing: 0.4em;
+.btn-uframe.from-center::after {
+  transform-origin: center center;
 }
 
-/* 18 — Diagonal Clip Wipe */
-.btn-clip-wipe {
-  position: relative;
-  isolation: isolate;
-  background: transparent;
+/* Thickness modifiers */
+.btn-uframe.thick::after {
+  height: 2px;
+  bottom: 6px;
 }
-.btn-clip-wipe::before {
+.btn-uframe.hairline::after {
+  height: 1px;
+  opacity: 0.7;
+}
+
+/* Double-line variant (second line above main one, staggered timing) */
+.btn-uframe.double::before {
   content: "";
   position: absolute;
-  inset: 0;
+  left: 14px;
+  right: 14px;
+  bottom: 11px;
+  height: 1px;
   background: #C8A96E;
-  clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
-  transition: clip-path 0.55s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 0;
-}
-.btn-clip-wipe:hover::before {
-  clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
-}
-.btn-clip-wipe > * {
-  position: relative;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.08s;
   z-index: 1;
 }
-
-/* 19 — Double Border */
-.btn-double-border {
-  position: relative;
-  border: 1px solid rgba(200, 169, 110, 0.85);
-  background: rgba(0, 0, 0, 0.55);
-  box-shadow: inset 0 0 0 4px rgba(0, 0, 0, 0.55),
-    inset 0 0 0 5px rgba(200, 169, 110, 0.45);
-  transition: box-shadow 0.4s ease, border-color 0.4s ease, color 0.4s ease;
-}
-.btn-double-border:hover {
-  border-color: #C8A96E;
-  color: #C8A96E;
-  box-shadow: inset 0 0 0 4px rgba(0, 0, 0, 0.55),
-    inset 0 0 0 5px #C8A96E;
+.btn-uframe.double:hover::before {
+  transform: scaleX(1);
 }
 
-/* 20 — Cinematic Stagger (letter-by-letter color shift on hover) */
-.btn-stagger {
-  position: relative;
-  border: 1px solid rgba(245, 240, 232, 0.5);
-  background: rgba(0, 0, 0, 0.4);
-  overflow: hidden;
-  isolation: isolate;
+/* Cream underline variant */
+.btn-uframe.uline-cream::after {
+  background: #f5f0e8;
 }
-.btn-stagger::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    ellipse 80% 200% at 50% 100%,
-    rgba(200, 169, 110, 0.45) 0%,
-    transparent 70%
-  );
-  opacity: 0;
-  transition: opacity 0.6s ease;
-  z-index: 0;
-}
-.btn-stagger:hover::before {
-  opacity: 1;
-}
-.btn-stagger > * {
-  position: relative;
-  z-index: 1;
-}
-.btn-stagger:hover {
-  border-color: #C8A96E;
+
+/* White-then-gold border flip */
+.btn-uframe.flip-border {
+  border-color: rgba(245, 240, 232, 0.7);
   color: #f5f0e8;
+}
+.btn-uframe.flip-border:hover {
+  border-color: #C8A96E;
+  color: #C8A96E;
+}
+
+/* Arrow inside btn-uframe */
+.btn-uframe .btn-uframe-arrow {
+  display: inline-block;
+  margin-left: 0.7em;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-uframe:hover .btn-uframe-arrow {
+  transform: translateX(5px);
+}
+.btn-uframe.long-arrow .btn-uframe-arrow {
+  margin-left: 0.5em;
+}
+.btn-uframe.long-arrow:hover .btn-uframe-arrow {
+  transform: translateX(10px);
+}
+
+/* Diagonal arrow ↗ */
+.btn-uframe.diag-arrow .btn-uframe-arrow {
+  transform: rotate(-45deg);
+}
+.btn-uframe.diag-arrow:hover .btn-uframe-arrow {
+  transform: rotate(-45deg) translateX(5px);
+}
+
+/* Pulse border on hover */
+@keyframes btn-uframe-pulse {
+  0%, 100% { border-color: rgba(200, 169, 110, 0.7); }
+  50% { border-color: #C8A96E; }
+}
+.btn-uframe.pulse:hover {
+  animation: btn-uframe-pulse 1.6s ease-in-out infinite;
+}
+
+/* Letter-spacing expand on hover (used in combination) */
+.btn-uframe.tracker:hover {
+  letter-spacing: 0.32em;
 }
 
 /* ─── Link hover underline slide-in ────────────────────── */

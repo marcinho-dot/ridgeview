@@ -4,337 +4,211 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
 /* ─────────────────────────────────────────────────────────────────────────
-   Button Showcase v2 — 10 CTA variants, all with a subtle 4px radius
-   (matching the existing .btn-line frame). Less rounded than v1, more
-   editorial / architectural feel.
+   Button Showcase v4 — 20 underline-frame variants.
 
-   CD colors:
-     Gold   = #C8A96E
-     Cream  = #f5f0e8
-     BG     = #010101 / #0a0a0a
+   All buttons share:
+     - Transparent background before hover
+     - White OR gold border (1px, sometimes 2px)
+     - 4px corner radius (architectural, matches .btn-line family)
+     - Gold slide-underline on hover
+
+   Variation matrix:
+     - Border: white / gold / heavy gold / hairline / flip on hover
+     - Underline direction: L→R / R→L / center-out
+     - Underline thickness: thin (1px) / thick (2px) / double-line
+     - Arrow: yes / no / diagonal ↗ / long-track
+     - Extras: letter-spacing tracker, border pulse, color flip
+
+   Patterns drawn from the ui-ux-pro-max + frontend-design skills:
+     - Micro-interactions (scale on active, easing tracked)
+     - Editorial typography rhythm (Raleway uppercase, 0.22em tracking)
+     - Touch targets ≥44px (padding 13/24 hits min height ~46px)
+     - Visible focus states inherited from a:focus default
 ───────────────────────────────────────────────────────────────────────── */
+
+const GOLD = "#C8A96E";
 
 type Variant = {
   n: number;
   name: string;
   desc: string;
-  render: () => React.ReactNode;
+  /** Tailwind classes for border + text colors (combined with .btn-uframe) */
+  base: string;
+  /** Extra .btn-uframe modifier classes */
+  mods?: string;
+  /** Optional arrow */
+  arrow?: boolean;
+  /** Border thickness override */
+  borderClass?: string;
 };
 
-const VARIANTS: Variant[] = [
+const V: Variant[] = [
   {
     n: 1,
-    name: "Edge Frame + Gold Underline (current btn-line)",
-    desc: "3-sided gold frame + persistent gold underline. Hover thickens the underline + flips top/sides to white. Reference style.",
-    render: () => (
-      <a href="#" className="btn-line backdrop-blur-md backdrop-saturate-125">
-        Explore the Collection
-      </a>
-    ),
+    name: "White Frame · Underline L→R",
+    desc: "Transparent. White border, cream text. Gold underline slides from left to right on hover. No arrow.",
+    base: "border-white/70 hover:border-white text-[#f5f0e8]",
   },
   {
     n: 2,
-    name: "Solid Gold Block",
-    desc: "Solid gold fill, near-black text. Maximum contrast. Hover lifts 1px with deeper gold shadow.",
-    render: () => (
-      <a
-        href="#"
-        className="inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] transition-all duration-300 ease-out hover:-translate-y-[1px]"
-        style={{
-          background: "#C8A96E",
-          color: "#0a0a0a",
-          boxShadow:
-            "0 4px 14px rgba(200,169,110,0.35), inset 0 1px 0 rgba(255,255,255,0.4)",
-        }}
-        onMouseEnter={(e) => {
-          (e.currentTarget as HTMLElement).style.boxShadow =
-            "0 8px 28px rgba(200,169,110,0.55), inset 0 1px 0 rgba(255,255,255,0.5)";
-        }}
-        onMouseLeave={(e) => {
-          (e.currentTarget as HTMLElement).style.boxShadow =
-            "0 4px 14px rgba(200,169,110,0.35), inset 0 1px 0 rgba(255,255,255,0.4)";
-        }}
-      >
-        Explore the Collection
-      </a>
-    ),
+    name: "Gold Frame · Underline L→R",
+    desc: "Transparent. Thin gold border, gold text. Gold underline slides from left on hover. No arrow.",
+    base: `border-[${GOLD}]/70 hover:border-[${GOLD}] text-[${GOLD}]`,
   },
   {
     n: 3,
-    name: "Dark + Sharp Gold Border (subtle)",
-    desc: "Dark fill with a thin gold border, cream text. Hover brightens border + adds soft gold glow.",
-    render: () => (
-      <a
-        href="#"
-        className="inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] border border-[#C8A96E]/65 hover:border-[#C8A96E] text-[#f5f0e8] hover:text-[#C8A96E] transition-all duration-400"
-        style={{
-          background: "rgba(0,0,0,0.55)",
-        }}
-        onMouseEnter={(e) => {
-          (e.currentTarget as HTMLElement).style.boxShadow =
-            "0 0 22px rgba(200,169,110,0.25), inset 0 0 14px rgba(200,169,110,0.06)";
-        }}
-        onMouseLeave={(e) => {
-          (e.currentTarget as HTMLElement).style.boxShadow = "none";
-        }}
-      >
-        Explore the Collection
-      </a>
-    ),
+    name: "White Frame · Underline L→R · Arrow",
+    desc: "Same as #1 with a magnetic arrow that slides 5px right on hover.",
+    base: "border-white/70 hover:border-white text-[#f5f0e8]",
+    arrow: true,
   },
   {
     n: 4,
-    name: "Solid Cream Block",
-    desc: "Solid cream fill, dark text. Hover slightly warms (cream → gold tint).",
-    render: () => (
-      <a
-        href="#"
-        className="inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] transition-all duration-400"
-        style={{
-          background: "#f5f0e8",
-          color: "#0a0a0a",
-          boxShadow:
-            "0 4px 14px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.6)",
-        }}
-        onMouseEnter={(e) => {
-          (e.currentTarget as HTMLElement).style.background = "#E5C896";
-        }}
-        onMouseLeave={(e) => {
-          (e.currentTarget as HTMLElement).style.background = "#f5f0e8";
-        }}
-      >
-        Explore the Collection
-      </a>
-    ),
+    name: "Gold Frame · Underline L→R · Arrow",
+    desc: "Same as #2 with a magnetic arrow that slides 5px right on hover.",
+    base: `border-[${GOLD}]/70 hover:border-[${GOLD}] text-[${GOLD}]`,
+    arrow: true,
   },
   {
     n: 5,
-    name: "Gold Outline → Slide Fill",
-    desc: "Gold outline. Hover: gold slides in from left, text flips to dark. Theatrical.",
-    render: () => (
-      <a
-        href="#"
-        className="btn-fill-slide inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] relative overflow-hidden transition-colors duration-500 border border-[#C8A96E] text-[#C8A96E] hover:text-[#0a0a0a]"
-      >
-        <span className="relative z-10">Explore the Collection</span>
-      </a>
-    ),
+    name: "White Frame · Underline R→L",
+    desc: "Underline slides in from the right instead of the left — quieter, more editorial.",
+    base: "border-white/70 hover:border-white text-[#f5f0e8]",
+    mods: "from-right",
   },
   {
     n: 6,
-    name: "Subtle Dark Gradient + Gold Border",
-    desc: "Gradient from near-black to deep gold tint, gold border. Editorial, restrained.",
-    render: () => (
-      <a
-        href="#"
-        className="inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] border border-[#C8A96E]/55 hover:border-[#C8A96E] text-[#C8A96E] hover:text-[#f5f0e8] transition-all duration-400"
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(200,169,110,0.10) 0%, rgba(0,0,0,0.65) 100%)",
-        }}
-      >
-        Explore the Collection
-      </a>
-    ),
+    name: "Gold Frame · Underline R→L · Arrow",
+    desc: "Right-anchored underline + arrow. The right side of the button feels active.",
+    base: `border-[${GOLD}]/70 hover:border-[${GOLD}] text-[${GOLD}]`,
+    mods: "from-right",
+    arrow: true,
   },
   {
     n: 7,
-    name: "Frame + Underline Slide (from left)",
-    desc: "Cream border 3 sides, gold underline that slides in from left under text on hover.",
-    render: () => (
-      <a
-        href="#"
-        className="btn-underline-slide inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] border border-white/55 hover:border-white text-[#f5f0e8] transition-colors duration-300 relative"
-      >
-        Explore the Collection
-      </a>
-    ),
+    name: "White Frame · Underline Center-out",
+    desc: "Underline grows from the center outward on hover — symmetrical, theatrical.",
+    base: "border-white/70 hover:border-white text-[#f5f0e8]",
+    mods: "from-center",
   },
   {
     n: 8,
-    name: "White Frame → Gold Frame",
-    desc: "Crisp white border. Hover: border + text both flip to gold + subtle background warm-up.",
-    render: () => (
-      <a
-        href="#"
-        className="inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] border border-white/75 hover:border-[#C8A96E] text-[#f5f0e8] hover:text-[#C8A96E] hover:bg-[#C8A96E]/10 transition-all duration-400"
-      >
-        Explore the Collection
-      </a>
-    ),
+    name: "Gold Frame · Underline Center-out · Arrow",
+    desc: "Center-anchored underline + arrow. Bold middle, balanced framing.",
+    base: `border-[${GOLD}]/70 hover:border-[${GOLD}] text-[${GOLD}]`,
+    mods: "from-center",
+    arrow: true,
   },
   {
     n: 9,
-    name: "Gold Glow Frame",
-    desc: "Dark fill + gold border. Hover triggers a soft gold halo around the button.",
-    render: () => (
-      <a
-        href="#"
-        className="inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] border border-[#C8A96E]/70 hover:border-[#C8A96E] text-[#f5f0e8] hover:text-[#C8A96E] transition-all duration-500"
-        style={{
-          background: "rgba(0,0,0,0.55)",
-          boxShadow: "0 0 0 rgba(200,169,110,0)",
-        }}
-        onMouseEnter={(e) => {
-          (e.currentTarget as HTMLElement).style.boxShadow =
-            "0 0 24px rgba(200,169,110,0.4), 0 0 50px rgba(200,169,110,0.18)";
-        }}
-        onMouseLeave={(e) => {
-          (e.currentTarget as HTMLElement).style.boxShadow =
-            "0 0 0 rgba(200,169,110,0)";
-        }}
-      >
-        Explore the Collection
-      </a>
-    ),
+    name: "White Frame · Thick Underline",
+    desc: "2px-thick gold underline. The hover feels more emphatic; good for primary CTAs.",
+    base: "border-white/70 hover:border-white text-[#f5f0e8]",
+    mods: "thick",
   },
   {
     n: 10,
-    name: "Frame + Magnetic Arrow",
-    desc: "Gold border, cream text + arrow. Hover: text turns gold, arrow slides 6px to the right.",
-    render: () => (
-      <a
-        href="#"
-        className="btn-magnetic inline-flex items-center gap-3 font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] border border-[#C8A96E]/70 hover:border-[#C8A96E] text-[#f5f0e8] hover:text-[#C8A96E] hover:bg-[#C8A96E]/10 transition-all duration-400"
-      >
-        <span>Explore the Collection</span>
-        <span className="btn-magnetic-arrow inline-block">&rarr;</span>
-      </a>
-    ),
+    name: "Gold Frame · Thick Underline · Arrow",
+    desc: "Heavy gold underline + arrow. Maximum hover signal while staying transparent at rest.",
+    base: `border-[${GOLD}]/70 hover:border-[${GOLD}] text-[${GOLD}]`,
+    mods: "thick",
+    arrow: true,
   },
   {
     n: 11,
-    name: "Cinematic Diagonal Reveal",
-    desc: "Gold light streak sweeps diagonally across the button on hover — like a camera flare.",
-    render: () => (
-      <a
-        href="#"
-        className="btn-diag-reveal inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] border border-[#C8A96E]/65 hover:border-[#C8A96E] text-[#f5f0e8] hover:text-[#C8A96E] transition-colors duration-400"
-        style={{ background: "rgba(0,0,0,0.5)" }}
-      >
-        <span>Explore the Collection</span>
-      </a>
-    ),
+    name: "White Frame · Double-Line Underline",
+    desc: "Two staggered gold lines slide in (1st L→R then 2nd 80ms later). Editorial flourish.",
+    base: "border-white/70 hover:border-white text-[#f5f0e8]",
+    mods: "double",
   },
   {
     n: 12,
-    name: "Border Draw (clockwise)",
-    desc: "Gold border traces itself around the button perimeter — top → right → bottom → left.",
-    render: () => (
-      <a
-        href="#"
-        className="btn-border-draw inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] text-[#f5f0e8] hover:text-[#C8A96E]"
-      >
-        Explore the Collection
-      </a>
-    ),
+    name: "Gold Frame · Double-Line · Arrow",
+    desc: "Double underline + arrow. Layered, refined — feels like a press/print headline.",
+    base: `border-[${GOLD}]/70 hover:border-[${GOLD}] text-[${GOLD}]`,
+    mods: "double",
+    arrow: true,
   },
   {
     n: 13,
-    name: "Brush Underline (italic feel)",
-    desc: "Bare text with letterspacing. Hover paints a soft gold underline across the word — editorial.",
-    render: () => (
-      <a
-        href="#"
-        className="btn-brush-underline inline-flex items-center justify-center font-body uppercase tracking-[0.28em] text-[11px] md:text-[12px] text-[#f5f0e8] hover:text-[#C8A96E] transition-colors duration-300 px-2 pb-2"
-      >
-        Explore the Collection
-      </a>
-    ),
+    name: "Hairline White · Soft Underline",
+    desc: "Lower border opacity. The button reads more like a frame than a button until hover.",
+    base: "border-white/40 hover:border-white/85 text-[#f5f0e8]",
+    mods: "hairline",
   },
   {
     n: 14,
-    name: "Inset Press (Depth)",
-    desc: "Looks like a pressed plate. Hover deepens the inset — feels tactile, gold inner edge appears.",
-    render: () => (
-      <a
-        href="#"
-        className="btn-inset-press inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] text-[#f5f0e8]"
-      >
-        Explore the Collection
-      </a>
-    ),
+    name: "Hairline Gold · Soft Underline · Arrow",
+    desc: "Whispered gold border + arrow. For secondary CTAs that should not shout.",
+    base: `border-[${GOLD}]/40 hover:border-[${GOLD}]/90 text-[${GOLD}]`,
+    mods: "hairline",
+    arrow: true,
   },
   {
     n: 15,
-    name: "Asymmetric Corners",
-    desc: "Top-left + bottom-right rounded, other corners sharp. Hover flips the rounding to the opposite diagonal.",
-    render: () => (
-      <a
-        href="#"
-        className="btn-asym-corners inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 text-[#f5f0e8]"
-      >
-        Explore the Collection
-      </a>
-    ),
+    name: "White → Gold Frame Flip",
+    desc: "Starts white. On hover the border + text both flip to gold AND the underline slides. Two-stage feedback.",
+    base: "", // .flip-border class handles colors
+    mods: "flip-border",
   },
   {
     n: 16,
-    name: "Split Reveal",
-    desc: "Top half slides up, bottom half slides down → gold layer revealed underneath. Dramatic.",
-    render: () => (
-      <a
-        href="#"
-        className="btn-split inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] text-[#f5f0e8]"
-      >
-        <span>Explore the Collection</span>
-      </a>
-    ),
+    name: "Heavy Gold Frame · Thick Underline · Arrow",
+    desc: "2px gold border + 2px gold underline + arrow. The boldest variant — primary action surface.",
+    base: `border-[${GOLD}] text-[${GOLD}]`,
+    borderClass: "border-2",
+    mods: "thick",
+    arrow: true,
   },
   {
     n: 17,
-    name: "Letterspacing Tracker",
-    desc: "Calm by default. Hover expands the letter-spacing rhythmically — text breathes outward.",
-    render: () => (
-      <a
-        href="#"
-        className="btn-tracker inline-flex items-center justify-center font-body uppercase text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] border border-[#C8A96E]/70 hover:border-[#C8A96E] text-[#f5f0e8] hover:text-[#C8A96E]"
-        style={{ background: "rgba(0,0,0,0.55)" }}
-      >
-        Explore the Collection
-      </a>
-    ),
+    name: "White Frame · Diagonal Arrow ↗",
+    desc: "Same slide underline, but the arrow points diagonally up-right (external/explore feel).",
+    base: "border-white/70 hover:border-white text-[#f5f0e8]",
+    mods: "diag-arrow",
+    arrow: true,
   },
   {
     n: 18,
-    name: "Diagonal Clip Wipe",
-    desc: "Gold layer wipes in with a diagonal cut on the right edge — couture / architectural.",
-    render: () => (
-      <a
-        href="#"
-        className="btn-clip-wipe inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] border border-[#C8A96E] text-[#C8A96E] hover:text-[#0a0a0a] transition-colors duration-500"
-      >
-        <span>Explore the Collection</span>
-      </a>
-    ),
+    name: "Gold Frame · Diagonal Arrow ↗",
+    desc: "Gold variant of the diagonal arrow — couture / brand-link aesthetic.",
+    base: `border-[${GOLD}]/70 hover:border-[${GOLD}] text-[${GOLD}]`,
+    mods: "diag-arrow",
+    arrow: true,
   },
   {
     n: 19,
-    name: "Double Border (architectural)",
-    desc: "Outer border + thin inner border ring. Hover brightens both — print-design / type-poster feel.",
-    render: () => (
-      <a
-        href="#"
-        className="btn-double-border inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-8 py-4 rounded-[4px] text-[#f5f0e8]"
-      >
-        Explore the Collection
-      </a>
-    ),
+    name: "White Frame · Long-Track Arrow",
+    desc: "Arrow slides further (10px) on hover, leaving more visual travel. Adds momentum.",
+    base: "border-white/70 hover:border-white text-[#f5f0e8]",
+    mods: "long-arrow",
+    arrow: true,
   },
   {
     n: 20,
-    name: "Cinematic Stagger Glow",
-    desc: "Calm white border. Hover blooms a warm gold gradient from below — like stage lighting rising.",
-    render: () => (
-      <a
-        href="#"
-        className="btn-stagger inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] text-[#f5f0e8] transition-colors duration-500"
-      >
-        <span>Explore the Collection</span>
-      </a>
-    ),
+    name: "Gold Frame · Tracker · Pulse · Arrow",
+    desc: "Letter-spacing expands on hover, underline slides, border pulses gently. Maximum animated polish.",
+    base: `border-[${GOLD}]/70 text-[${GOLD}]`,
+    mods: "tracker pulse",
+    arrow: true,
   },
 ];
+
+function ButtonPreview({ v }: { v: Variant }) {
+  const cls = ["btn-uframe", v.mods ?? "", v.base, v.borderClass ?? ""]
+    .filter(Boolean)
+    .join(" ");
+  return (
+    <a href="#" className={cls}>
+      <span>Explore the Collection</span>
+      {v.arrow ? (
+        <span className="btn-uframe-arrow" aria-hidden>
+          &rarr;
+        </span>
+      ) : null}
+    </a>
+  );
+}
 
 export default function ButtonShowcase() {
   return (
@@ -349,7 +223,7 @@ export default function ButtonShowcase() {
               className="font-display italic text-[#C8A96E] tracking-widest mb-4"
               style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
             >
-              [ CTA Showcase &middot; v3 &middot; 20 variants ]
+              [ CTA Showcase &middot; v4 &middot; Underline Frame Family ]
             </p>
             <h1
               className="font-display italic text-cream mb-5"
@@ -362,27 +236,26 @@ export default function ButtonShowcase() {
               Pick a button — we&rsquo;ll roll it out across the site.
             </h1>
             <p
-              className="font-body text-white/65 max-w-[680px] leading-relaxed"
+              className="font-body text-white/65 max-w-[720px] leading-relaxed"
               style={{ fontSize: "clamp(14px, 1.2vw, 16px)" }}
             >
-              Twenty CTA variants, all with the same subtle 4px corner
-              radius (matching the reference frame style — less rounded,
-              more architectural). The first ten are the original set; the
-              next ten apply premium UX patterns (cinematic reveals, border
-              draws, inset depth, asymmetric corners, split / clip / wipe
-              animations). Tell me the number and I&rsquo;ll replace every
-              CTA on the site with that style.
+              Twenty variants, one family. All transparent at rest, all with a
+              4px corner radius, all framed by a white or gold border, and all
+              animating a gold slide-underline on hover. Mixed with and
+              without arrows. Patterns from the ui-ux-pro-max +
+              frontend-design skills. Tell me the number and I&rsquo;ll
+              replace every CTA on the site with that style.
             </p>
           </div>
 
-          {/* Grid of variants */}
+          {/* Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
-            {VARIANTS.map((v) => (
+            {V.map((v) => (
               <div
                 key={v.n}
                 className="relative border border-white/[0.08] hover:border-[#C8A96E]/30 transition-colors duration-500 rounded-[4px] p-7 md:p-10 bg-[#0a0a0a]"
               >
-                {/* Number */}
+                {/* Number + Name */}
                 <div className="flex items-baseline gap-4 mb-5">
                   <span
                     className="font-display italic text-[#C8A96E] leading-none"
@@ -393,7 +266,7 @@ export default function ButtonShowcase() {
                   <h2
                     className="font-display italic text-cream"
                     style={{
-                      fontSize: "clamp(18px, 1.8vw, 22px)",
+                      fontSize: "clamp(17px, 1.7vw, 21px)",
                       fontWeight: 400,
                       lineHeight: 1.2,
                     }}
@@ -411,20 +284,20 @@ export default function ButtonShowcase() {
                 </p>
 
                 {/* Button stage */}
-                <div className="flex items-center justify-center min-h-[80px] py-6 px-4 rounded-[4px] border border-white/[0.04] bg-black/40">
-                  {v.render()}
+                <div className="flex items-center justify-center min-h-[88px] py-7 px-4 rounded-[4px] border border-white/[0.04] bg-black/40">
+                  <ButtonPreview v={v} />
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Footer note */}
+          {/* Footer */}
           <div className="mt-16 md:mt-20 pt-10 border-t border-white/[0.06] text-center">
             <p
               className="font-body text-white/45 italic"
               style={{ fontSize: "clamp(12px, 1vw, 14px)" }}
             >
-              Hover each button to see its full state. Pick by number.
+              Hover each button to see the underline animation. Pick by number.
             </p>
           </div>
         </div>
