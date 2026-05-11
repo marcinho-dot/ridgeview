@@ -1,12 +1,29 @@
 "use client";
 
-import { ReactNode } from "react";
-import { motion } from "framer-motion";
+import { ReactNode, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { BottomNav } from "@/components/BottomNav";
 import { ScrollReset } from "@/components/ScrollReset";
+import { TestimonialSection } from "@/components/sku/TestimonialSection";
+import { AwardSection } from "@/components/sku/AwardSection";
+import { StickyMobileCTA } from "@/components/sku/StickyMobileCTA";
+import { PurchaseWidget, type Variant } from "@/components/sku/PurchaseWidget";
+import { BehindTheBottleSection } from "@/components/sku/BehindTheBottleSection";
+import { WineClubUpsellSection } from "@/components/sku/WineClubUpsellSection";
+import { RelatedWinesSection } from "@/components/sku/RelatedWinesSection";
+import { FAQSection } from "@/components/sku/FAQSection";
+import { getTestimonial } from "@/data/testimonials";
 import { basePath } from "@/lib/basePath";
+
+// Blanc de Blancs bottle variants — vintage, single-vineyard Chardonnay.
+// Premium vintage tier; smaller case size (3 bottles) reflects the
+// "cellar special" positioning rather than the everyday 6-pack.
+const BLANC_DE_BLANCS_VARIANTS: Variant[] = [
+  { label: "75cl Bottle", detail: "75cl · 12% ABV · Vintage", price: 75 },
+  { label: "Magnum", detail: "1.5L · 12% ABV · Cellar size", price: 160 },
+  { label: "Case of 3", detail: "3 × 75cl · Save 10%", price: 200, badge: "Best value" },
+];
 
 // ── Animation Helpers ────────────────────────────────────────────────────────
 
@@ -42,9 +59,21 @@ function GoldDivider({ origin = "left" as "left" | "center" }) {
 // ── Hero / Product Showcase ─────────────────────────────────────────────────
 
 function ProductHero() {
-  // min-h-[100svh] on every breakpoint — hero always fills full viewport.
+  // Parallax: bottle drifts upward 80px as the hero scrolls out of view.
+  // Subtle premium effect — Apple product pages use this exact pattern.
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const bottleY = useTransform(scrollYProgress, [0, 1], [0, -80]);
+
   return (
-    <section className="relative bg-[#010101] pt-32 md:pt-36 pb-20 md:pb-28 min-h-[100svh] overflow-hidden">
+    // min-h-[100svh] on every breakpoint — hero always fills the full visible
+    // viewport (svh accounts for the iOS / Android URL bar so 100vh wouldn't
+    // overshoot on mobile). Without the constraint on desktop, shorter content
+    // would let the next section peek through at the bottom of the fold.
+    <section ref={heroRef} className="relative bg-[#010101] pt-28 md:pt-32 pb-8 md:pb-12 min-h-[100svh] overflow-hidden">
       {/* Ambient gold glow */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -54,61 +83,35 @@ function ProductHero() {
         }}
       />
 
-      <div className="relative max-w-[1400px] mx-auto px-6 md:px-16">
+      <div className="relative max-w-[1600px] mx-auto px-4 md:px-8">
         {/* Breadcrumb */}
         <FadeUp>
           <p className="font-body text-white/35 text-[10px] uppercase tracking-[0.3em] mb-10 md:mb-14">
-            <a href={`${basePath}/`} className="hover:text-[#C8A96E] transition-colors">Home</a>
+            <a href={`${basePath}/`} className="link-underline hover:text-[#C8A96E] transition-colors duration-500">Home</a>
             <span className="mx-3 text-white/20">/</span>
-            <a href={`${basePath}/#wine-collection`} className="hover:text-[#C8A96E] transition-colors">Shop</a>
+            <a href={`${basePath}/#wine-collection`} className="link-underline hover:text-[#C8A96E] transition-colors duration-500">Shop</a>
             <span className="mx-3 text-white/20">/</span>
-            <span className="text-white/55">SKU v1 · Blanc de Blancs</span>
+            <span className="text-white/55">Blanc de Blancs</span>
           </p>
         </FadeUp>
 
-        <div className="grid grid-cols-1 md:grid-cols-[45fr_55fr] gap-10 md:gap-20 items-center">
-          {/* ── Bottle ─────────────────────────────────────── */}
-          <FadeUp delay={0.05}>
-            <div className="relative flex items-center justify-center min-h-[480px] md:min-h-[640px]">
-              {/* soft halo */}
-              <div
-                className="absolute"
-                style={{
-                  width: 360,
-                  height: 360,
-                  borderRadius: "50%",
-                  background:
-                    "radial-gradient(circle, rgba(200,169,110,0.07) 0%, transparent 70%)",
-                  filter: "blur(20px)",
-                }}
-              />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={`${basePath}/products/blanc-de-blancs.webp`}
-                alt="Ridgeview Blanc de Blancs 2020 — English Sparkling Wine, 75cl bottle"
-                style={{
-                  position: "relative",
-                  height: "min(72vh, 640px)",
-                  width: "auto",
-                  objectFit: "contain",
-                  filter: "drop-shadow(0 30px 60px rgba(0,0,0,0.6))",
-                }}
-              />
-            </div>
-          </FadeUp>
-
-          {/* ── Info column ───────────────────────────────── */}
-          <div>
-            <FadeUp>
+        <div className="grid grid-cols-1 md:grid-cols-[58fr_42fr] gap-10 md:gap-12 items-start">
+          {/* ── Info column ─────────────────────────────────
+              Mobile: flex-col with explicit `order-N` so Price + CTAs
+              appear in the initial viewport (right after the subtitle/awards).
+              Desktop: `md:block` removes the flex container, source order
+              applies → Price + CTAs land back at the end as designed. */}
+          <div className="order-2 md:order-1 flex flex-col md:block">
+            <FadeUp className="order-1">
               <p
                 className="font-display italic text-[#C8A96E] tracking-widest mb-5"
                 style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
               >
-                [ Limited Edition · Vintage 2020 ]
+                [ Vintage · Single-Vineyard Chardonnay ]
               </p>
             </FadeUp>
 
-            <div className="overflow-hidden mb-5">
+            <div className="overflow-hidden mb-5 order-2">
               <motion.h1
                 className="font-display italic text-cream leading-[1.02]"
                 style={{ fontSize: "clamp(38px, 6vw, 88px)", fontWeight: 400 }}
@@ -116,66 +119,193 @@ function ProductHero() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 1.1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               >
-                Blanc de <span className="text-[#C8A96E]">Blancs</span>
+                <span className="text-[#C8A96E]">Blanc de Blancs</span>
               </motion.h1>
             </div>
 
-            <FadeUp delay={0.3}>
+            <FadeUp delay={0.3} className="order-3">
               <p
-                className="font-display italic text-white/85 mb-8"
+                className="font-display italic text-white/85 mb-3 md:mb-8"
                 style={{ fontSize: "clamp(18px, 2vw, 26px)", fontWeight: 400, lineHeight: 1.35 }}
               >
-                Served at King Charles&rsquo; first State Banquet
+                From our first-planted Chardonnay vines, 1995
               </p>
             </FadeUp>
 
-            <FadeUp delay={0.4}>
-              <div className="mb-9">
+            {/* Mobile award badges moved INTO the bottle wrapper (left-side overlay)
+                so they sit next to the bottle visually and free up vertical space
+                for the ATB button to land inside the initial viewport. */}
+
+            {/* Divider — Desktop: between subtitle and description; Mobile: between
+                Price/CTAs and the description block (pushed below the fold via order). */}
+            <FadeUp delay={0.4} className="order-6">
+              <div className="mb-6 md:mb-9">
                 <GoldDivider />
               </div>
             </FadeUp>
 
-            <FadeUp delay={0.45}>
+            <FadeUp delay={0.45} className="order-7">
               <p
                 className="font-body text-white/70 mb-10"
                 style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, lineHeight: 1.75, maxWidth: "540px" }}
               >
-                Crafted solely from the finest Chardonnay grapes from our heritage English vineyard,
-                it captures the purest expression of Ridgeview&rsquo;s Sussex terroir in one exceptional
-                vintage year. Bright orchard fruit and warm honeyed apricots lead the palate, with
-                hints of savoury coastal salinity unfolding. Layers of apple tarte tatin and spiced
-                peaches meet a luxurious mousse and a tantalising streak of acidity, delivering
-                complexity that lingers long on the finish.
+                A single-vineyard expression of 100% Chardonnay from Ridgeview&rsquo;s
+                first-planted vines, set on the South Downs chalk in 1995. Pure citrus
+                and white-flower aromatics open onto a palate of brioche, white peach
+                and toasted hazelnut, gathered around a long, mineral-driven finish
+                shaped by extended lees ageing.
               </p>
             </FadeUp>
 
-            {/* Price + CTA row */}
-            <FadeUp delay={0.55}>
-              <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-2">
-                <div>
-                  <p className="font-body text-white/35 text-[10px] uppercase tracking-[0.25em] mb-2">
-                    From
-                  </p>
-                  <p
-                    className="font-display italic text-cream"
-                    style={{ fontSize: "clamp(32px, 3.6vw, 48px)", fontWeight: 400 }}
-                  >
-                    £75.00
-                  </p>
-                  <p className="font-body text-white/45 text-[12px] mt-1">75cl bottle · 12% ABV</p>
+            {/* Purchase Widget + Award Badges row.
+                Mobile: order-5 → sits BEFORE the divider/description (visible in fold).
+                Desktop: source order applies → block is at the end as before. */}
+            <FadeUp delay={0.55} className="order-5 mb-6 md:mb-0">
+              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 md:gap-10">
+                {/* Stateful purchase block — variant + qty + free-shipping bar + ATB */}
+                <div className="flex-1 max-w-[480px]">
+                  <PurchaseWidget
+                    variants={BLANC_DE_BLANCS_VARIANTS}
+                    freeShippingThreshold={45}
+                    ctaId="hero-mobile-cta"
+                  />
                 </div>
-                <div className="flex flex-wrap items-center gap-3">
-                  <button className="btn-cta" type="button">
-                    Add to basket
-                  </button>
+
+                {/* Award Badges (Desktop only) — top-aligned next to widget */}
+                <div className="hidden md:flex items-start gap-6 pt-1" aria-label="Awards">
+                  {/* Decanter Platinum · 2023 */}
+                  <div className="flex flex-col items-center gap-2.5">
+                    <motion.img
+                      src={`${basePath}/images/awards/decanter-2023-platinum.webp`}
+                      alt="Platinum — Decanter World Wine Awards 2023"
+                      title="Decanter Platinum · 2023"
+                      className="h-[clamp(86px,7.5vw,108px)] w-auto [filter:drop-shadow(0_10px_28px_rgba(0,0,0,0.55))] hover:[filter:drop-shadow(0_14px_36px_rgba(0,0,0,0.65))_drop-shadow(0_0_24px_rgba(200,169,110,0.18))] transition-[filter] duration-500"
+                      loading="lazy"
+                      initial={{ opacity: 0, scale: 0.94, y: 8 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
+                      whileHover={{ scale: 1.04 }}
+                    />
+                    <p className="font-body text-white/50 text-[10px] uppercase tracking-[0.3em] whitespace-nowrap">
+                      Decanter <span className="text-[#C8A96E]/70 mx-1">·</span> 2023
+                    </p>
+                  </div>
+                  {/* WineGB Trophy · 2023 */}
+                  <div className="flex flex-col items-center gap-2.5">
+                    <motion.img
+                      src={`${basePath}/images/awards/winegb-2023-trophy.webp`}
+                      alt="Trophy — WineGB Awards 2023"
+                      title="WineGB Trophy · 2023"
+                      className="h-[clamp(86px,7.5vw,108px)] w-auto [filter:drop-shadow(0_10px_28px_rgba(0,0,0,0.55))] hover:[filter:drop-shadow(0_14px_36px_rgba(0,0,0,0.65))_drop-shadow(0_0_24px_rgba(200,169,110,0.18))] transition-[filter] duration-500"
+                      loading="lazy"
+                      initial={{ opacity: 0, scale: 0.94, y: 8 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1], delay: 0.74 }}
+                      whileHover={{ scale: 1.04 }}
+                    />
+                    <p className="font-body text-white/50 text-[10px] uppercase tracking-[0.3em] whitespace-nowrap">
+                      WineGB <span className="text-[#C8A96E]/70 mx-1">·</span> 2023
+                    </p>
+                  </div>
                 </div>
               </div>
-              <p className="font-body text-white/40 text-[12px] mt-4 leading-relaxed" style={{ maxWidth: "440px" }}>
-                Members save 20%. Complimentary gift box and personalised gift note with
-                free next-working-day delivery.
-              </p>
             </FadeUp>
           </div>
+
+          {/* ── Bottle + Desktop CTAs ──────────────────────── */}
+          <FadeUp delay={0.05} className="order-1 md:order-2">
+            <div
+              className="relative h-[clamp(320px,44svh,420px)] md:h-[clamp(480px,62svh,720px)]"
+              style={{ overflow: "visible" }}
+            >
+              {/* soft halo — absolute centered, no layout impact */}
+              <div
+                className="absolute top-1/2 left-1/2 pointer-events-none"
+                style={{
+                  width: "min(520px, 70vw)",
+                  height: "min(520px, 70vw)",
+                  borderRadius: "50%",
+                  background:
+                    "radial-gradient(circle, rgba(200,169,110,0.09) 0%, transparent 70%)",
+                  filter: "blur(32px)",
+                  transform: "translate(-50%, -50%)",
+                }}
+              />
+
+              {/* Mobile award badges — absolute overlay, vertically stacked
+                  on the left side of the bottle wrapper. Each badge has
+                  a micro-caption (year only) underneath. Anchored 30px
+                  higher than the bottle midpoint so it sits in the upper
+                  half of the wrapper, where the eye lands first. */}
+              <div className="md:hidden absolute left-0 top-[calc(50%-30px)] -translate-y-1/2 flex flex-col gap-4 z-10 pointer-events-none">
+                <div className="flex flex-col items-center gap-1.5">
+                  <motion.img
+                    src={`${basePath}/images/awards/decanter-2023-platinum.webp`}
+                    alt="Platinum — Decanter World Wine Awards 2023"
+                    title="Decanter Platinum · 2023"
+                    className="h-[clamp(60px,16vw,80px)] w-auto [filter:drop-shadow(0_6px_18px_rgba(0,0,0,0.55))]"
+                    loading="lazy"
+                    initial={{ opacity: 0, x: -8, scale: 0.94 }}
+                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
+                  />
+                  <p className="font-body text-white/45 text-[8px] uppercase tracking-[0.28em] whitespace-nowrap">
+                    2023
+                  </p>
+                </div>
+                <div className="flex flex-col items-center gap-1.5">
+                  <motion.img
+                    src={`${basePath}/images/awards/winegb-2023-trophy.webp`}
+                    alt="Trophy — WineGB Awards 2023"
+                    title="WineGB Trophy · 2023"
+                    className="h-[clamp(60px,16vw,80px)] w-auto [filter:drop-shadow(0_6px_18px_rgba(0,0,0,0.55))]"
+                    loading="lazy"
+                    initial={{ opacity: 0, x: -8, scale: 0.94 }}
+                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.62 }}
+                  />
+                  <p className="font-body text-white/45 text-[8px] uppercase tracking-[0.28em] whitespace-nowrap">
+                    2023
+                  </p>
+                </div>
+              </div>
+
+              {/* Bottle wrapper — absolute, doesn't dictate column height.
+                  Wrapped in motion.div so the bottle drifts upward via the
+                  scroll-driven parallax (subtle 80px range). */}
+              <motion.div
+                className="absolute inset-0 flex items-center justify-center pointer-events-none"
+                style={{ y: bottleY }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`${basePath}/products/blanc-de-blancs.webp`}
+                  alt="Ridgeview Blanc de Blancs — Single-Vineyard Chardonnay, 75cl bottle"
+                  className="pointer-events-auto w-auto max-w-none object-contain h-[clamp(376px,51svh,484px)] md:h-[clamp(704px,90svh,1078px)] [transform:translateX(8%)_translateY(-30px)_rotate(28deg)] md:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)] hover:[transform:translateX(8%)_translateY(-30px)_rotate(28deg)_scale(1.015)] md:hover:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)_scale(1.015)] [transition:transform_900ms_cubic-bezier(0.16,1,0.3,1),filter_900ms_cubic-bezier(0.16,1,0.3,1)] hover:[filter:drop-shadow(0_40px_80px_rgba(0,0,0,0.7))_drop-shadow(0_0_60px_rgba(200,169,110,0.12))]"
+                  style={{
+                    transformOrigin: "center",
+                    filter: "drop-shadow(0 30px 60px rgba(0,0,0,0.6))",
+                  }}
+                />
+              </motion.div>
+
+              {/* Quick "Add to basket" — anchored bottom-right next to the bottle
+                  on every breakpoint. Marked with data-atb-trigger so the
+                  StickyMobileCTA only appears when this AND every other ATB
+                  on the page is out of view. The widget ATB in the info
+                  column has the dynamic price (variant × quantity); this
+                  one is the quick-action visual anchor. */}
+              <div className="absolute bottom-[40px] right-0 z-10">
+                <button
+                  data-atb-trigger
+                  type="button"
+                  className="btn-cta"
+                >
+                  Add to basket
+                </button>
+              </div>
+            </div>
+          </FadeUp>
         </div>
       </div>
     </section>
@@ -185,15 +315,13 @@ function ProductHero() {
 // ── Tasting Notes & Food Pairing ────────────────────────────────────────────
 
 function TastingPairingSection() {
-  const tastingNotes = ["Honey", "Orchard Fruit", "Saline Minerality"];
+  const tastingNotes = ["Brioche & Honey", "White Peach", "Toasted Hazelnut"];
   const foodPairings = [
-    "Oysters",
-    "Lemon butter",
-    "Scallops",
-    "Monkfish in Lemon Butter",
-    "Fried Chicken with Miso Mayo",
-    "All Things Tempura",
-    "Lemon Posset",
+    "Native Oysters & Crémant Mignonette",
+    "Pan-Seared Scallops with Brown Butter",
+    "Lobster Thermidor",
+    "Aged Comté & Walnut",
+    "Vanilla Tarte Tatin",
   ];
 
   return (
@@ -215,7 +343,7 @@ function TastingPairingSection() {
                 className="font-display italic text-white leading-[1.05] mb-8"
                 style={{ fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 400 }}
               >
-                Tasting <span className="text-[#C8A96E]">Notes</span>
+                Tasting <span className="text-[#C8A96E]">Note</span>
               </h2>
             </FadeUp>
             <FadeUp delay={0.16}>
@@ -226,12 +354,12 @@ function TastingPairingSection() {
             <ul className="space-y-5">
               {tastingNotes.map((note, i) => (
                 <FadeUp key={note} delay={0.2 + i * 0.08}>
-                  <li className="flex items-baseline gap-5">
-                    <span className="font-body text-white/30 text-[11px] tracking-[0.25em]">
+                  <li className="group flex items-baseline gap-5 cursor-default">
+                    <span className="font-body text-white/30 group-hover:text-[#C8A96E]/85 text-[11px] tracking-[0.25em] transition-colors duration-500">
                       0{i + 1}
                     </span>
                     <span
-                      className="font-display italic text-white/90"
+                      className="font-display italic text-white/90 group-hover:text-cream group-hover:translate-x-1.5 transition-all duration-500 ease-out"
                       style={{ fontSize: "clamp(20px, 2vw, 28px)", fontWeight: 400 }}
                     >
                       {note}
@@ -268,9 +396,9 @@ function TastingPairingSection() {
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
               {foodPairings.map((item, i) => (
                 <FadeUp key={item} delay={0.2 + i * 0.05}>
-                  <li className="flex items-center gap-3 font-body text-white/75 text-[14px]">
-                    <span className="w-1 h-1 rounded-full bg-[#C8A96E]/55 flex-shrink-0" />
-                    {item}
+                  <li className="group flex items-center gap-3 font-body text-white/75 group-hover:text-white text-[14px] cursor-default transition-colors duration-400">
+                    <span className="w-1 h-1 rounded-full bg-[#C8A96E]/55 group-hover:bg-[#C8A96E] group-hover:w-1.5 group-hover:h-1.5 flex-shrink-0 transition-all duration-300 ease-out" />
+                    <span className="group-hover:text-white/95 transition-colors duration-400">{item}</span>
                   </li>
                 </FadeUp>
               ))}
@@ -282,47 +410,93 @@ function TastingPairingSection() {
   );
 }
 
-// ── Cellar Notes (Winemaker Quote) ──────────────────────────────────────────
+// ── Varietal (single-vineyard Chardonnay) ──────────────────────────────────
 
-function CellarNotesSection() {
+function BlendSection() {
   return (
-    <section className="bg-[#010101] border-t border-white/[0.06] relative overflow-hidden">
+    <section className="relative bg-[#010101] border-t border-white/[0.06] overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 60% 60% at 50% 50%, rgba(200,169,110,0.05) 0%, transparent 70%)",
+            "radial-gradient(ellipse 65% 55% at 50% 50%, rgba(200,169,110,0.05) 0%, transparent 70%)",
         }}
       />
-      <div className="relative max-w-[960px] mx-auto px-6 md:px-16 py-24 md:py-36 text-center">
-        <FadeUp>
-          <p
-            className="font-display italic text-[#C8A96E] tracking-widest mb-8"
-            style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
-          >
-            [ Cellar Notes ]
-          </p>
-        </FadeUp>
 
-        <FadeUp delay={0.1}>
-          <p
-            className="font-display italic text-white leading-[1.18]"
-            style={{ fontSize: "clamp(26px, 3.6vw, 48px)", fontWeight: 400 }}
-          >
-            <span className="text-[#C8A96E]/30 mr-1" style={{ fontSize: "1.5em", lineHeight: 0 }}>&ldquo;</span>
-            I think this might be my favourite vintage yet. Full of flavour and
-            complexity, refined and elegant, with lots of citrus and tropical fruit
-            notes. It&rsquo;s not showy &ndash; just super pure and well-balanced. A wine
-            that really speaks for itself.
-            <span className="text-[#C8A96E]/30 ml-1" style={{ fontSize: "1.5em", lineHeight: 0 }}>&rdquo;</span>
-          </p>
-        </FadeUp>
+      <div className="relative max-w-[1400px] mx-auto px-4 md:px-8 py-24 md:py-32">
+        <div className="text-center mb-12 md:mb-16">
+          <FadeUp>
+            <p
+              className="font-display italic text-[#C8A96E] tracking-widest mb-4"
+              style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
+            >
+              [ Varietal ]
+            </p>
+          </FadeUp>
+          <FadeUp delay={0.08}>
+            <h2
+              className="font-display italic text-white leading-[1.1] mb-5"
+              style={{ fontSize: "clamp(30px, 4vw, 56px)", fontWeight: 400 }}
+            >
+              One grape, <span className="text-[#C8A96E]">one site</span>.
+            </h2>
+          </FadeUp>
+          <FadeUp delay={0.16}>
+            <p
+              className="font-body text-white/55"
+              style={{ fontSize: "clamp(13px, 1.25vw, 15px)", maxWidth: "520px", margin: "0 auto" }}
+            >
+              A single-vineyard expression of Chardonnay grown on the
+              original 1995 plantings.
+            </p>
+          </FadeUp>
+        </div>
 
-        <FadeUp delay={0.3}>
-          <div className="mt-10 flex flex-col items-center gap-3">
-            <div style={{ width: 40, height: 1, background: "rgba(200,169,110,0.4)" }} />
-            <p className="font-body text-white/60 text-[13px] uppercase tracking-[0.3em]">
-              Head Winemaker
+        {/* Single big percentage — 100% Chardonnay, centered */}
+        <div className="flex justify-center mb-20 md:mb-24">
+          <FadeUp delay={0.28}>
+            <div className="group text-center cursor-default px-8">
+              <p
+                className="font-display italic text-cream leading-none mb-4 transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                style={{ fontSize: "clamp(80px, 12vw, 180px)", fontWeight: 400 }}
+              >
+                <span className="text-[#C8A96E] transition-[text-shadow] duration-700 ease-out group-hover:[text-shadow:0_0_40px_rgba(200,169,110,0.45)]">
+                  100
+                </span>
+                <span
+                  className="text-white/55 group-hover:text-white/80 transition-colors duration-700"
+                  style={{ fontSize: "0.42em", verticalAlign: "super", marginLeft: "0.04em" }}
+                >
+                  %
+                </span>
+              </p>
+              <p
+                className="font-body text-white/70 group-hover:text-cream uppercase tracking-[0.34em] transition-colors duration-500"
+                style={{ fontSize: "clamp(12px, 1.2vw, 14px)" }}
+              >
+                Chardonnay
+              </p>
+            </div>
+          </FadeUp>
+        </div>
+
+        <FadeUp delay={0.7}>
+          <div className="max-w-[920px] mx-auto text-center">
+            <GoldDivider origin="center" />
+            <p
+              className="font-body text-white/60 mt-10 leading-[1.85]"
+              style={{
+                fontSize: "clamp(14px, 1.35vw, 17px)",
+                fontWeight: 300,
+                textWrap: "balance",
+              }}
+            >
+              Fruit is hand-picked from a single south-facing parcel on the
+              Ditchling Common estate &mdash; the first vines planted on
+              the estate in 1995, set on shallow soils over Cretaceous
+              chalk. A cool, maritime microclimate slows ripening and
+              protects the natural acidity that gives this Blanc de
+              Blancs its long, mineral-driven finish.
             </p>
           </div>
         </FadeUp>
@@ -335,18 +509,23 @@ function CellarNotesSection() {
 
 function AwardsSpecsSection() {
   const awards = [
-    { medal: "Gold", body: "International Wine & Spirit Competition", year: "2020" },
-    { medal: "Best Global Sparkling Wine Trophy", body: "Decanter (2006 vintage)", year: "2010" },
-    { medal: "Gold Medal", body: "IWSC (2015 vintage)", year: "2020" },
+    { medal: "Platinum", body: "Decanter World Wine Awards", year: "2023" },
+    { medal: "Trophy · Best Sparkling Wine", body: "WineGB Awards", year: "2023" },
+    { medal: "Gold · 95 Points", body: "International Wine & Spirit Competition", year: "2020" },
   ];
 
   const specs = [
-    { label: "Grape Varieties", value: "Chardonnay" },
-    { label: "Vintage", value: "2020" },
+    { label: "Vintage", value: "Vintage · 2018" },
+    { label: "Grape", value: "100% Chardonnay" },
     { label: "Bottle Size", value: "75cl" },
     { label: "ABV", value: "12%" },
+    { label: "Acidity", value: "8.2 g/l" },
+    { label: "Residual Sugar", value: "6.0 g/l" },
+    { label: "pH", value: "3.05" },
+    { label: "Lees Ageing", value: "60 months" },
     { label: "Allergens", value: "Contains Sulphites" },
-    { label: "Product Code", value: "R2004" },
+    { label: "Suitable for", value: "Vegans & Vegetarians" },
+    { label: "Product Code", value: "R2204" },
   ];
 
   return (
@@ -368,7 +547,7 @@ function AwardsSpecsSection() {
                 className="font-display italic text-white leading-[1.05] mb-8"
                 style={{ fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 400 }}
               >
-                Awards &amp; <span className="text-[#C8A96E]">Accolades</span>
+                <span className="text-[#C8A96E]">Awards</span>
               </h2>
             </FadeUp>
             <FadeUp delay={0.16}>
@@ -379,20 +558,20 @@ function AwardsSpecsSection() {
             <ul className="space-y-7">
               {awards.map((a, i) => (
                 <FadeUp key={`${a.medal}-${i}`} delay={0.2 + i * 0.08}>
-                  <li className="grid grid-cols-[60px_1fr_auto] gap-4 items-baseline border-b border-white/[0.06] pb-6 last:border-0 last:pb-0">
-                    <span className="font-body text-white/30 text-[11px] tracking-[0.25em]">
+                  <li className="group grid grid-cols-[60px_1fr_auto] gap-4 items-baseline border-b border-white/[0.06] hover:border-[#C8A96E]/30 pb-6 last:border-0 last:pb-0 cursor-default transition-colors duration-500">
+                    <span className="font-body text-white/30 group-hover:text-[#C8A96E]/85 text-[11px] tracking-[0.25em] transition-colors duration-500">
                       0{i + 1}
                     </span>
-                    <div>
+                    <div className="transition-transform duration-500 ease-out group-hover:translate-x-1.5">
                       <p
                         className="font-display italic text-cream mb-1"
                         style={{ fontSize: "clamp(18px, 1.8vw, 24px)", fontWeight: 400 }}
                       >
                         {a.medal}
                       </p>
-                      <p className="font-body text-white/55 text-[13px]">{a.body}</p>
+                      <p className="font-body text-white/55 group-hover:text-white/75 text-[13px] transition-colors duration-500">{a.body}</p>
                     </div>
-                    <span className="font-body text-[#C8A96E]/80 text-[11px] tracking-[0.25em]">
+                    <span className="font-body text-[#C8A96E]/80 group-hover:text-[#C8A96E] text-[11px] tracking-[0.25em] transition-colors duration-500">
                       {a.year}
                     </span>
                   </li>
@@ -408,7 +587,7 @@ function AwardsSpecsSection() {
                 className="font-display italic text-[#C8A96E] tracking-widest mb-4"
                 style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
               >
-                [ Specifications ]
+                [ Information ]
               </p>
             </FadeUp>
             <FadeUp delay={0.08}>
@@ -416,7 +595,7 @@ function AwardsSpecsSection() {
                 className="font-display italic text-white leading-[1.05] mb-8"
                 style={{ fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 400 }}
               >
-                Technical <span className="text-[#C8A96E]">Detail</span>
+                <span className="text-[#C8A96E]">Information</span>
               </h2>
             </FadeUp>
             <FadeUp delay={0.16}>
@@ -427,11 +606,11 @@ function AwardsSpecsSection() {
             <dl className="space-y-5">
               {specs.map((s, i) => (
                 <FadeUp key={s.label} delay={0.18 + i * 0.05}>
-                  <div className="grid grid-cols-[1fr_1fr] gap-6 border-b border-white/[0.05] pb-4">
-                    <dt className="font-body text-white/40 text-[11px] uppercase tracking-[0.22em]">
+                  <div className="group grid grid-cols-[1fr_1fr] gap-6 border-b border-white/[0.05] hover:border-[#C8A96E]/30 pb-4 cursor-default transition-colors duration-500">
+                    <dt className="font-body text-white/40 group-hover:text-[#C8A96E]/85 text-[11px] uppercase tracking-[0.22em] transition-colors duration-500">
                       {s.label}
                     </dt>
-                    <dd className="font-body text-white/85 text-[14px] text-right">
+                    <dd className="font-body text-white/85 group-hover:text-cream text-[14px] text-right transition-colors duration-500">
                       {s.value}
                     </dd>
                   </div>
@@ -464,12 +643,16 @@ function ClosingCTA() {
             className="font-display italic text-cream leading-[1.05] mb-10"
             style={{ fontSize: "clamp(32px, 4.5vw, 64px)", fontWeight: 400 }}
           >
-            A vintage that <span className="text-[#C8A96E]">speaks</span> for itself.
+            A wine for the <span className="text-[#C8A96E]">cellar</span>.
           </h2>
         </FadeUp>
         <FadeUp delay={0.2}>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <button type="button" className="btn-cta">
+            <button
+              data-atb-trigger
+              type="button"
+              className="btn-cta"
+            >
               Add to basket · £75.00
             </button>
             <a
@@ -487,17 +670,171 @@ function ClosingCTA() {
 
 // ── Page ────────────────────────────────────────────────────────────────────
 
+// ── Schema.org JSON-LD ─────────────────────────────────────────────────────
+// Provides Google Rich Snippets: product, aggregate rating, individual reviews.
+// Aggregate rating reflects the press-quote scores on this page.
+const SCHEMA_LD = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "Ridgeview Blanc de Blancs",
+  description:
+    "Single-vineyard vintage Chardonnay English Sparkling Wine. Brioche, white peach and toasted hazelnut over a long mineral finish, from the first vines planted on the estate in 1995.",
+  image: "https://darkslateblue-alligator-388666.hostingersite.com/ridgeview/products/blanc-de-blancs.webp",
+  brand: { "@type": "Brand", name: "Ridgeview Wine Estate" },
+  sku: "R2204",
+  category: "English Sparkling Wine",
+  offers: {
+    "@type": "AggregateOffer",
+    priceCurrency: "GBP",
+    lowPrice: "75.00",
+    highPrice: "200.00",
+    offerCount: "3",
+    availability: "https://schema.org/InStock",
+    url: "https://darkslateblue-alligator-388666.hostingersite.com/ridgeview/wine/blanc-de-blancs/",
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    reviewCount: "3",
+    bestRating: "5",
+  },
+  award: [
+    "Platinum — Decanter World Wine Awards 2023",
+    "Trophy, Best Sparkling Wine — WineGB Awards 2023",
+    "Gold (95 Points) — International Wine & Spirit Competition 2020",
+  ],
+};
+
+const FAQ_ITEMS = [
+  {
+    question: "When will my order arrive?",
+    answer:
+      "Standard UK delivery is 2–4 working days. Order before noon for next-working-day dispatch. Free UK delivery on orders over £45.",
+  },
+  {
+    question: "How should I store Blanc de Blancs?",
+    answer:
+      "Lay bottles flat in a cool, dark place between 8–12°C. Blanc de Blancs is built for the cellar — it drinks beautifully on release but will keep developing for 8–10 years from disgorgement, deepening into richer brioche and toasted-nut notes.",
+  },
+  {
+    question: "Can I add a personalised gift note?",
+    answer:
+      "Yes — every order includes a complimentary handwritten gift note option at checkout. Add the recipient's address and we'll ship directly to them, with no prices on the packing slip.",
+  },
+  {
+    question: "Do you ship outside the UK?",
+    answer:
+      "International shipping is available to most of Europe and selected destinations. Customs and duties may apply at the destination — please contact our team for a tailored quote.",
+  },
+  {
+    question: "What if I'm not happy with the wine?",
+    answer:
+      "We stand behind every bottle. If a wine is faulty or damaged in transit, contact us within 14 days and we'll replace or refund without question.",
+  },
+];
+
+const RELATED_WINES = [
+  {
+    slug: "bloomsbury",
+    name: "Bloomsbury NV",
+    style: "House Cuvée · Non Vintage",
+    price: 34,
+    image: "/products/bloomsbury.webp",
+    note: "Bright, fresh and fruit-driven — the everyday Classic Method blend.",
+  },
+  {
+    slug: "cavendish",
+    name: "Cavendish",
+    style: "House Cuvée · Non Vintage",
+    price: 36,
+    image: "/products/cavendish.webp",
+    note: "Pinot-led blend with red apple and white pepper. Fine-boned elegance.",
+  },
+  {
+    slug: "fitzrovia",
+    name: "Fitzrovia Rosé",
+    style: "Rosé · Non Vintage",
+    price: 36,
+    image: "/products/fitzrovia-rose.webp",
+    note: "Pink-grapefruit and wild strawberry — the breezy counterpart to Blanc de Blancs.",
+  },
+];
+
 export default function BlancDeBlancsPage() {
+  const testimonial = getTestimonial("blanc-de-blancs");
+
   return (
-    <main className="bg-[#010101]">
+    <main className="bg-[#010101] pb-[80px] md:pb-0">
+      {/* Schema.org JSON-LD — Google Rich Snippets (product, aggregate rating, reviews) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA_LD) }}
+      />
+
       <Navbar />
       <ProductHero />
       <ScrollReset><TastingPairingSection /></ScrollReset>
-      <ScrollReset><CellarNotesSection /></ScrollReset>
+      <ScrollReset><BlendSection /></ScrollReset>
+
+      {/* A) Behind the Bottle — production craft pillars (Soil → Harvest →
+          Winemaking → Maturation, the chronological/causal order). */}
+      <ScrollReset>
+        <BehindTheBottleSection
+          headline={<>A wine of <span className="text-[#C8A96E]">place and patience</span>.</>}
+          intro="Blanc de Blancs is the slow expression of our oldest Chardonnay vines — single-site, single-grape, and held back on lees for five years before release."
+          pillars={[
+            { label: "Single Vineyard", detail: "Fruit from one south-facing parcel of the original 1995 plantings on Ditchling Common — no blending across sites." },
+            { label: "100% Chardonnay", detail: "An expression of one grape from one place. No Pinot Noir or Meunier to mask what the chalk and the year have to say." },
+            { label: "Méthode Traditionnelle", detail: "Secondary fermentation in bottle — the same Classic Method used in the great houses of Champagne." },
+            { label: "60 Months on Lees", detail: "Five years on the lees before disgorgement, building the brioche, hazelnut and creamy texture that define the Blanc de Blancs palate." },
+          ]}
+        />
+      </ScrollReset>
+
+      {testimonial && (
+        <ScrollReset><TestimonialSection testimonial={testimonial} /></ScrollReset>
+      )}
+
+      <ScrollReset>
+        <AwardSection
+          data={{
+            medal: "Platinum",
+            body: "Decanter World Wine Awards",
+            year: 2023,
+            tier: "Best in Show",
+            badgeSrc: "/images/awards/decanter-2023-platinum.webp",
+            description: "Awarded Platinum by the global Decanter judging panel — the top tier of recognition, placing Blanc de Blancs among the world's finest sparkling wines.",
+          }}
+        />
+      </ScrollReset>
+
       <ScrollReset><AwardsSpecsSection /></ScrollReset>
+
+      {/* C) Wine Club Upsell */}
+      <ScrollReset><WineClubUpsellSection /></ScrollReset>
+
+      {/* D) Related Wines */}
+      <ScrollReset>
+        <RelatedWinesSection wines={RELATED_WINES} />
+      </ScrollReset>
+
+      {/* N) FAQ */}
+      <ScrollReset>
+        <FAQSection items={FAQ_ITEMS} />
+      </ScrollReset>
+
       <ScrollReset><ClosingCTA /></ScrollReset>
       <Footer />
-      <BottomNav />
+      {/* Sticky mobile purchase bar (Mini-Flasche + Preis + ATB) appears only
+          when EVERY ATB on the page (hero bottle-side, widget, ClosingCTA —
+          all marked with data-atb-trigger) is out of viewport. As soon as
+          any ATB scrolls back in, the bar hides. */}
+      <StickyMobileCTA
+        productName="Blanc de Blancs"
+        price="£75.00 · 75cl"
+        thumbnailSrc="/products/blanc-de-blancs.webp"
+        triggerSelector="[data-atb-trigger]"
+      />
     </main>
   );
 }
