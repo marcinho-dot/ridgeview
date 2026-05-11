@@ -65,6 +65,14 @@ function PageHeader() {
           style={{ objectPosition: "center 50%" }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#010101]/30 via-transparent to-[#010101]/60" />
+        {/* Desktop-only: stronger dark fade across the lower 30% so the
+            kicker / headline / body copy stay legible against the bright
+            aerial drone shot (mobile already has enough contrast from
+            the portrait crop + the base gradient above). */}
+        <div
+          className="hidden sm:block absolute left-0 right-0 bottom-0 bg-gradient-to-t from-[#010101]/90 via-[#010101]/55 to-transparent"
+          style={{ height: "30%" }}
+        />
       </motion.div>
 
       <motion.div
