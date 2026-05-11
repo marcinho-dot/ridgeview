@@ -68,11 +68,14 @@ function ProductHero() {
   const bottleY = useTransform(scrollYProgress, [0, 1], [0, -80]);
 
   return (
-    // min-h-[100svh] on every breakpoint — hero always fills the full visible
-    // viewport (svh accounts for the iOS / Android URL bar so 100vh wouldn't
-    // overshoot on mobile). Without the constraint on desktop, shorter content
-    // would let the next section peek through at the bottom of the fold.
-    <section ref={heroRef} className="relative bg-[#010101] pt-28 md:pt-32 pb-8 md:pb-12 min-h-[100svh] overflow-hidden">
+    // Section sizes to its natural content height (no min-h constraint).
+    // Goal "alles fits in einen viewport und adapts" — by dropping
+    // min-h-[100svh] the hero never pads itself with empty space on
+    // tall monitors, and the next section follows immediately. Atmospheric
+    // weight is carried by the typography, the oversized bottle (90svh)
+    // and the gold accents, not by a forced viewport height. Tuned
+    // 2026-05-12.
+    <section ref={heroRef} className="relative bg-[#010101] pt-20 md:pt-24 pb-8 md:pb-12 overflow-hidden">
       {/* Ambient gold glow */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -124,7 +127,7 @@ function ProductHero() {
 
             <FadeUp delay={0.3} className="order-3">
               <p
-                className="font-display italic text-white/85 mb-3 md:mb-8"
+                className="font-display italic text-white/85 mb-3 md:mb-5"
                 style={{ fontSize: "clamp(18px, 2vw, 26px)", fontWeight: 400, lineHeight: 1.35 }}
               >
                 From our first-planted Chardonnay vines, 1995
@@ -138,14 +141,14 @@ function ProductHero() {
             {/* Divider — Desktop: between subtitle and description; Mobile: between
                 Price/CTAs and the description block (pushed below the fold via order). */}
             <FadeUp delay={0.4} className="order-6">
-              <div className="mb-6 md:mb-9">
+              <div className="mb-3 md:mb-5">
                 <GoldDivider />
               </div>
             </FadeUp>
 
             <FadeUp delay={0.45} className="order-7">
               <p
-                className="font-body text-white/70 mb-10"
+                className="font-body text-white/70 mb-4 md:mb-6"
                 style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, lineHeight: 1.75, maxWidth: "540px" }}
               >
                 A single-vineyard expression of 100% Chardonnay from Ridgeview&rsquo;s
@@ -212,7 +215,13 @@ function ProductHero() {
           </div>
 
           {/* ── Bottle + Desktop CTAs ──────────────────────── */}
-          <FadeUp delay={0.05} className="order-1 md:order-2">
+          {/* md:mt-20 drops the bottle column ~80px on desktop so the
+              foil cap sits around the H1 title baseline (instead of
+              crowding the breadcrumb/navbar). Info column stays tight
+              against the breadcrumb — the offset only applies to the
+              bottle so the two columns get an editorial "stagger".
+              Mobile keeps the bottle at the top of the stack (no mt). */}
+          <FadeUp delay={0.05} className="order-1 md:order-2 md:mt-20">
             <div
               className="relative h-[clamp(320px,44svh,420px)] md:h-[clamp(480px,62svh,720px)]"
               style={{ overflow: "visible" }}
@@ -294,7 +303,7 @@ function ProductHero() {
                   on the page is out of view. The widget ATB in the info
                   column has the dynamic price (variant × quantity); this
                   one is the quick-action visual anchor. */}
-              <div className="absolute bottom-[40px] right-0 z-10">
+              <div className="absolute bottom-2 md:bottom-[40px] right-0 z-10">
                 <button
                   data-atb-trigger
                   type="button"

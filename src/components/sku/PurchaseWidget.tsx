@@ -170,10 +170,14 @@ export function PurchaseWidget({
         </p>
       </div>
 
-      {/* ── Member Note ──────────────────────────────────────────── */}
+      {/* ── Member Note ──────────────────────────────────────────────
+          !mt-2 md:!mt-1 overrides the parent space-y-4/5 for this last
+          fine-print caption — it visually belongs as a tail to the
+          free-shipping bar above it, so 8/4px reads almost like a
+          continuation of the same block. Tuned 2026-05-12. */}
       {memberNote && (
         <p
-          className="font-body text-white/40 text-[12px] leading-relaxed"
+          className="font-body text-white/40 text-[12px] leading-relaxed !mt-2 md:!mt-0"
           style={{ maxWidth: "440px" }}
         >
           {memberNote}
