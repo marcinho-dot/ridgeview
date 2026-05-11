@@ -97,7 +97,9 @@ const posts = [
 ───────────────────────────────────────────────────────────────────────── */
 
 function AccordionPanels() {
-  const [active, setActive] = useState(0);
+  // Initial null → every panel collapsed (equal width). Click toggles.
+  // Hover still opens on devices that support it.
+  const [active, setActive] = useState<number | null>(null);
   const canHover = useCanHover();
 
   return (
@@ -116,7 +118,7 @@ function AccordionPanels() {
               ease: [0.25, 0.46, 0.45, 0.94],
             }}
             style={{ transitionDelay: `${0.05 + i * 0.10}s` }}
-            onClick={() => setActive(i)}
+            onClick={() => setActive((prev) => (prev === i ? null : i))}
             onMouseEnter={canHover ? () => setActive(i) : undefined}
           >
             {/* Image */}
@@ -276,7 +278,8 @@ function AccordionPanels() {
 ───────────────────────────────────────────────────────────────────────── */
 
 function MobileAccordion() {
-  const [active, setActive] = useState(0);
+  // Initial null → every row collapsed. Click on a header toggles open/close.
+  const [active, setActive] = useState<number | null>(null);
   const [showAll, setShowAll] = useState(false);
   const visiblePosts = showAll ? posts : posts.slice(0, 4);
 
@@ -297,7 +300,7 @@ function MobileAccordion() {
               ease: [0.25, 0.46, 0.45, 0.94],
             }}
             style={{ transitionDelay: `${0.05 + i * 0.10}s` }}
-            onClick={() => setActive(i)}
+            onClick={() => setActive((prev) => (prev === i ? null : i))}
           >
             {/* Image — always present */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -468,7 +471,7 @@ function MobileAccordion() {
       <motion.button
         className="group mt-6 w-full flex items-center gap-4 cursor-pointer"
         onClick={() => {
-          if (showAll) setActive(0);
+          if (showAll) setActive(null);
           setShowAll(!showAll);
         }}
         whileTap={{ scale: 0.98 }}
@@ -512,7 +515,7 @@ export function BlogSection() {
     <section id="journal" className="relative z-[1] bg-[#010101] py-20 md:py-28">
       <div className="max-w-[1400px] mx-auto px-6 md:px-16">
         {/* Section Header — uses .reveal (mn-fx-style: fade + 28px slide + blur 6px, 0.9s cubic-bezier(.2,.7,.2,1)) */}
-        <div className="reveal mb-12 md:mb-16">
+        <div className="reveal mb-6 md:mb-8">
           <p
             className="font-display italic text-[#C8A96E] tracking-widest mb-4"
             style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
