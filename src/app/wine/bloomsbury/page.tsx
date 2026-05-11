@@ -799,17 +799,17 @@ export default function BloomsburyPage() {
       <ScrollReset><TastingPairingSection /></ScrollReset>
       <ScrollReset><BlendSection /></ScrollReset>
 
-      {/* A) Behind the Bottle — production craft pillars (Soil → Harvest →
-          Winemaking → Maturation, the chronological/causal order). */}
+      {/* A) Behind the Bottle — production craft pillars shared across every
+          Ridgeview SKU (Soil → Harvest → Winemaking). SKU-specific details
+          like lees duration / palate notes live in the Specs section. */}
       <ScrollReset>
         <BehindTheBottleSection
           headline={<>Crafted in the <span className="text-[#C8A96E]">Classic Method</span>.</>}
-          intro="Bloomsbury reflects three decades of craftsmanship on the chalk hills of Sussex — a wine made the long way, by hand, in pursuit of the freshest expression of English fizz."
+          intro="For three decades, Ridgeview has crafted English sparkling wines the long way — by hand, on the chalk hills of Sussex, using the same Classic Method as the great houses of Champagne."
           pillars={[
             { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region — the foundation of every great sparkling wine." },
             { label: "Hand Harvest", detail: "Grapes are picked at first light and sorted by hand to keep only the most balanced bunches." },
             { label: "Méthode Traditionnelle", detail: "Secondary fermentation in bottle — the same Classic Method used in the great houses of Champagne." },
-            { label: "18 Months on Lees", detail: "Extended lees ageing builds the toasted-almond and buttery-pastry notes that define the Bloomsbury palate." },
           ]}
         />
       </ScrollReset>

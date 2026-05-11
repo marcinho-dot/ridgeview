@@ -776,17 +776,18 @@ export default function BlancDeBlancsPage() {
       <ScrollReset><TastingPairingSection /></ScrollReset>
       <ScrollReset><BlendSection /></ScrollReset>
 
-      {/* A) Behind the Bottle — production craft pillars (Soil → Harvest →
-          Winemaking → Maturation, the chronological/causal order). */}
+      {/* A) Behind the Bottle — production craft pillars shared across every
+          Ridgeview SKU (Soil → Harvest → Winemaking). SKU-specific details
+          like single-vineyard / lees duration / palate live in the Specs
+          section and the Varietal section above. */}
       <ScrollReset>
         <BehindTheBottleSection
-          headline={<>A wine of <span className="text-[#C8A96E]">place and patience</span>.</>}
-          intro="Blanc de Blancs is the slow expression of our oldest Chardonnay vines — single-site, single-grape, and held back on lees for five years before release."
+          headline={<>Crafted in the <span className="text-[#C8A96E]">Classic Method</span>.</>}
+          intro="For three decades, Ridgeview has crafted English sparkling wines the long way — by hand, on the chalk hills of Sussex, using the same Classic Method as the great houses of Champagne."
           pillars={[
-            { label: "Single Vineyard", detail: "Fruit from one south-facing parcel of the original 1995 plantings on Ditchling Common — no blending across sites." },
-            { label: "100% Chardonnay", detail: "An expression of one grape from one place. No Pinot Noir or Meunier to mask what the chalk and the year have to say." },
+            { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region — the foundation of every great sparkling wine." },
+            { label: "Hand Harvest", detail: "Grapes are picked at first light and sorted by hand to keep only the most balanced bunches." },
             { label: "Méthode Traditionnelle", detail: "Secondary fermentation in bottle — the same Classic Method used in the great houses of Champagne." },
-            { label: "60 Months on Lees", detail: "Five years on the lees before disgorgement, building the brioche, hazelnut and creamy texture that define the Blanc de Blancs palate." },
           ]}
         />
       </ScrollReset>
