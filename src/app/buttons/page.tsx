@@ -4,8 +4,9 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
 /* ─────────────────────────────────────────────────────────────────────────
-   Button Showcase — 10 CTA variants in the Ridgeview CD.
-   Pick one, then we roll it out across the site.
+   Button Showcase v2 — 10 CTA variants, all with a subtle 4px radius
+   (matching the existing .btn-line frame). Less rounded than v1, more
+   editorial / architectural feel.
 
    CD colors:
      Gold   = #C8A96E
@@ -23,23 +24,22 @@ type Variant = {
 const VARIANTS: Variant[] = [
   {
     n: 1,
-    name: "Liquid Glass (current btn-atb)",
-    desc: "Gold-tinted milk-glass with backdrop-blur. Hover deepens the gold + arrow slides.",
+    name: "Edge Frame + Gold Underline (current btn-line)",
+    desc: "3-sided gold frame + persistent gold underline. Hover thickens the underline + flips top/sides to white. Reference style.",
     render: () => (
-      <a href="#" className="btn-atb backdrop-blur-2xl backdrop-saturate-150">
-        View all Wines
-        <span className="btn-atb-arrow">&rarr;</span>
+      <a href="#" className="btn-line backdrop-blur-md backdrop-saturate-125">
+        Explore the Collection
       </a>
     ),
   },
   {
     n: 2,
-    name: "Gold Solid",
-    desc: "Solid gold fill, black text. Maximum contrast, hover lifts slightly with shadow.",
+    name: "Solid Gold Block",
+    desc: "Solid gold fill, near-black text. Maximum contrast. Hover lifts 1px with deeper gold shadow.",
     render: () => (
       <a
         href="#"
-        className="inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[6px] transition-all duration-300 ease-out hover:-translate-y-[1px]"
+        className="inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] transition-all duration-300 ease-out hover:-translate-y-[1px]"
         style={{
           background: "#C8A96E",
           color: "#0a0a0a",
@@ -55,102 +55,122 @@ const VARIANTS: Variant[] = [
             "0 4px 14px rgba(200,169,110,0.35), inset 0 1px 0 rgba(255,255,255,0.4)";
         }}
       >
-        View all Wines
+        Explore the Collection
       </a>
     ),
   },
   {
     n: 3,
-    name: "Gold Outline → Fill",
-    desc: "Transparent with gold border. Hover fills with gold from left to right, text flips to dark.",
+    name: "Dark + Sharp Gold Border (subtle)",
+    desc: "Dark fill with a thin gold border, cream text. Hover brightens border + adds soft gold glow.",
     render: () => (
       <a
         href="#"
-        className="btn-fill-slide inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] px-7 py-3.5 relative overflow-hidden transition-colors duration-500 border border-[#C8A96E] text-[#C8A96E] hover:text-[#0a0a0a] rounded-[6px]"
+        className="inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] border border-[#C8A96E]/65 hover:border-[#C8A96E] text-[#f5f0e8] hover:text-[#C8A96E] transition-all duration-400"
+        style={{
+          background: "rgba(0,0,0,0.55)",
+        }}
+        onMouseEnter={(e) => {
+          (e.currentTarget as HTMLElement).style.boxShadow =
+            "0 0 22px rgba(200,169,110,0.25), inset 0 0 14px rgba(200,169,110,0.06)";
+        }}
+        onMouseLeave={(e) => {
+          (e.currentTarget as HTMLElement).style.boxShadow = "none";
+        }}
       >
-        <span className="relative z-10">View all Wines</span>
+        Explore the Collection
       </a>
     ),
   },
   {
     n: 4,
-    name: "Cream Underline Slide",
-    desc: "No box, just cream text with a gold underline that slides in from left on hover.",
+    name: "Solid Cream Block",
+    desc: "Solid cream fill, dark text. Hover slightly warms (cream → gold tint).",
     render: () => (
       <a
         href="#"
-        className="btn-underline-slide inline-flex items-center gap-2 font-body uppercase tracking-[0.24em] text-[11px] md:text-[12px] text-[#f5f0e8] hover:text-[#C8A96E] transition-colors duration-300 relative pb-1"
+        className="inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] transition-all duration-400"
+        style={{
+          background: "#f5f0e8",
+          color: "#0a0a0a",
+          boxShadow:
+            "0 4px 14px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.6)",
+        }}
+        onMouseEnter={(e) => {
+          (e.currentTarget as HTMLElement).style.background = "#E5C896";
+        }}
+        onMouseLeave={(e) => {
+          (e.currentTarget as HTMLElement).style.background = "#f5f0e8";
+        }}
       >
-        <span>View all Wines</span>
-        <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
-          &rarr;
-        </span>
+        Explore the Collection
       </a>
     ),
   },
   {
     n: 5,
-    name: "Strong Gradient (gold→cream)",
-    desc: "Bold gradient from gold to cream, dark text. Hover shifts the gradient + brightens.",
+    name: "Gold Outline → Slide Fill",
+    desc: "Gold outline. Hover: gold slides in from left, text flips to dark. Theatrical.",
     render: () => (
       <a
         href="#"
-        className="inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[6px] transition-all duration-500 ease-out hover:brightness-110 hover:-translate-y-[1px] text-[#0a0a0a]"
-        style={{
-          background:
-            "linear-gradient(135deg, #C8A96E 0%, #E5C896 50%, #f5f0e8 100%)",
-          backgroundSize: "200% 100%",
-          backgroundPosition: "0% 50%",
-          boxShadow:
-            "0 6px 20px rgba(200,169,110,0.4), inset 0 1px 0 rgba(255,255,255,0.4)",
-        }}
-        onMouseEnter={(e) => {
-          (e.currentTarget as HTMLElement).style.backgroundPosition =
-            "100% 50%";
-        }}
-        onMouseLeave={(e) => {
-          (e.currentTarget as HTMLElement).style.backgroundPosition = "0% 50%";
-        }}
+        className="btn-fill-slide inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] relative overflow-hidden transition-colors duration-500 border border-[#C8A96E] text-[#C8A96E] hover:text-[#0a0a0a]"
       >
-        View all Wines
+        <span className="relative z-10">Explore the Collection</span>
       </a>
     ),
   },
   {
     n: 6,
-    name: "Subtle Dark Gradient",
-    desc: "Dark gradient (almost black), gold border + gold text. Hover lifts gold tone subtly.",
+    name: "Subtle Dark Gradient + Gold Border",
+    desc: "Gradient from near-black to deep gold tint, gold border. Editorial, restrained.",
     render: () => (
       <a
         href="#"
-        className="inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[6px] border border-[#C8A96E]/60 hover:border-[#C8A96E] text-[#C8A96E] hover:text-[#f5f0e8] transition-all duration-400"
+        className="inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] border border-[#C8A96E]/55 hover:border-[#C8A96E] text-[#C8A96E] hover:text-[#f5f0e8] transition-all duration-400"
         style={{
           background:
-            "linear-gradient(180deg, rgba(200,169,110,0.08) 0%, rgba(0,0,0,0.6) 100%)",
+            "linear-gradient(180deg, rgba(200,169,110,0.10) 0%, rgba(0,0,0,0.65) 100%)",
         }}
       >
-        View all Wines
+        Explore the Collection
       </a>
     ),
   },
   {
     n: 7,
-    name: "Edge Frame + Underline Slide (current btn-line)",
-    desc: "3-sided gold frame + persistent gold underline. Hover thickens the underline + flips top/sides to white.",
+    name: "Frame + Underline Slide (from left)",
+    desc: "Cream border 3 sides, gold underline that slides in from left under text on hover.",
     render: () => (
-      <a href="#" className="btn-line backdrop-blur-md backdrop-saturate-125">
-        View all Wines
+      <a
+        href="#"
+        className="btn-underline-slide inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] border border-white/55 hover:border-white text-[#f5f0e8] transition-colors duration-300 relative"
+      >
+        Explore the Collection
       </a>
     ),
   },
   {
     n: 8,
-    name: "Gold Glow Box",
-    desc: "Dark fill with gold border. Hover pulses a soft gold halo around the button.",
+    name: "White Frame → Gold Frame",
+    desc: "Crisp white border. Hover: border + text both flip to gold + subtle background warm-up.",
     render: () => (
       <a
         href="#"
-        className="inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[6px] border border-[#C8A96E]/70 hover:border-[#C8A96E] text-[#f5f0e8] hover:text-[#C8A96E] transition-all duration-500"
+        className="inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] border border-white/75 hover:border-[#C8A96E] text-[#f5f0e8] hover:text-[#C8A96E] hover:bg-[#C8A96E]/10 transition-all duration-400"
+      >
+        Explore the Collection
+      </a>
+    ),
+  },
+  {
+    n: 9,
+    name: "Gold Glow Frame",
+    desc: "Dark fill + gold border. Hover triggers a soft gold halo around the button.",
+    render: () => (
+      <a
+        href="#"
+        className="inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] border border-[#C8A96E]/70 hover:border-[#C8A96E] text-[#f5f0e8] hover:text-[#C8A96E] transition-all duration-500"
         style={{
           background: "rgba(0,0,0,0.55)",
           boxShadow: "0 0 0 rgba(200,169,110,0)",
@@ -164,33 +184,21 @@ const VARIANTS: Variant[] = [
             "0 0 0 rgba(200,169,110,0)";
         }}
       >
-        View all Wines
+        Explore the Collection
       </a>
     ),
   },
   {
-    n: 9,
-    name: "Slide-Fill (current btn-ridge)",
-    desc: "Cream/gold text on a subtle gold-tinted slide-fill on hover.",
-    render: () => (
-      <button className="btn-ridge font-body text-white/80 hover:text-white text-[10px] uppercase tracking-[0.22em] border border-[#C8A96E]/40 hover:border-[#C8A96E]/80 px-7 py-3.5 rounded-[6px] transition-all duration-300">
-        View all Wines
-      </button>
-    ),
-  },
-  {
     n: 10,
-    name: "Magnetic Arrow",
-    desc: "White border, cream text. Hover: gold-tinted background + arrow slides 8px to the right.",
+    name: "Frame + Magnetic Arrow",
+    desc: "Gold border, cream text + arrow. Hover: text turns gold, arrow slides 6px to the right.",
     render: () => (
       <a
         href="#"
-        className="btn-magnetic group inline-flex items-center gap-3 font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[6px] border border-white/70 hover:border-[#C8A96E] text-[#f5f0e8] hover:text-[#C8A96E] hover:bg-[#C8A96E]/10 transition-all duration-400"
+        className="btn-magnetic inline-flex items-center gap-3 font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] border border-[#C8A96E]/70 hover:border-[#C8A96E] text-[#f5f0e8] hover:text-[#C8A96E] hover:bg-[#C8A96E]/10 transition-all duration-400"
       >
-        <span>View all Wines</span>
-        <span className="btn-magnetic-arrow inline-block transition-transform duration-400">
-          &rarr;
-        </span>
+        <span>Explore the Collection</span>
+        <span className="btn-magnetic-arrow inline-block">&rarr;</span>
       </a>
     ),
   },
@@ -209,7 +217,7 @@ export default function ButtonShowcase() {
               className="font-display italic text-[#C8A96E] tracking-widest mb-4"
               style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
             >
-              [ CTA Showcase ]
+              [ CTA Showcase &middot; v2 ]
             </p>
             <h1
               className="font-display italic text-cream mb-5"
@@ -225,9 +233,10 @@ export default function ButtonShowcase() {
               className="font-body text-white/65 max-w-[680px] leading-relaxed"
               style={{ fontSize: "clamp(14px, 1.2vw, 16px)" }}
             >
-              Ten CTA variants in the Ridgeview CD (gold #C8A96E, cream
-              #f5f0e8, dark surfaces). Each has a distinct hover behavior.
-              Tell me the number — I&rsquo;ll replace every CTA on the site
+              Ten CTA variants, all with the same subtle 4px corner radius
+              (matching the reference frame style — less rounded, more
+              architectural). Each carries a distinct hover behavior. Tell
+              me the number and I&rsquo;ll replace every CTA on the site
               with that style.
             </p>
           </div>
@@ -237,7 +246,7 @@ export default function ButtonShowcase() {
             {VARIANTS.map((v) => (
               <div
                 key={v.n}
-                className="relative border border-white/[0.08] hover:border-[#C8A96E]/30 transition-colors duration-500 rounded-lg p-7 md:p-10 bg-[#0a0a0a]"
+                className="relative border border-white/[0.08] hover:border-[#C8A96E]/30 transition-colors duration-500 rounded-[4px] p-7 md:p-10 bg-[#0a0a0a]"
               >
                 {/* Number */}
                 <div className="flex items-baseline gap-4 mb-5">
@@ -268,7 +277,7 @@ export default function ButtonShowcase() {
                 </p>
 
                 {/* Button stage */}
-                <div className="flex items-center justify-center min-h-[80px] py-6 px-4 rounded border border-white/[0.04] bg-black/40">
+                <div className="flex items-center justify-center min-h-[80px] py-6 px-4 rounded-[4px] border border-white/[0.04] bg-black/40">
                   {v.render()}
                 </div>
               </div>
