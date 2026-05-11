@@ -84,7 +84,7 @@ function ProductHero() {
       <div className="relative max-w-[1600px] mx-auto px-4 md:px-8">
         {/* Breadcrumb */}
         <FadeUp>
-          <p className="font-body text-white/35 text-[10px] uppercase tracking-[0.3em] mb-10 md:mb-14">
+          <p className="font-body text-white/35 text-[10px] uppercase tracking-[0.3em] mb-4 md:mb-6">
             <a href={`${basePath}/`} className="link-underline hover:text-[#C8A96E] transition-colors duration-500">Home</a>
             <span className="mx-3 text-white/20">/</span>
             <a href={`${basePath}/#wine-collection`} className="link-underline hover:text-[#C8A96E] transition-colors duration-500">Shop</a>
