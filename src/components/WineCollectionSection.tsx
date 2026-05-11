@@ -457,13 +457,6 @@ export function WineCollectionSection() {
             ))}
           </div>
 
-          {/* TODO: href → /shop when shop page exists */}
-          <a
-            href="#wine-collection"
-            className="font-body text-white/50 hover:text-white text-[10px] uppercase tracking-[0.22em] border border-white/12 hover:border-white/35 px-5 py-2.5 rounded-sm transition-all duration-300"
-          >
-            View All Wines
-          </a>
         </div>
 
       </div>
