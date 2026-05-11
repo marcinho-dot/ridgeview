@@ -202,6 +202,138 @@ const VARIANTS: Variant[] = [
       </a>
     ),
   },
+  {
+    n: 11,
+    name: "Cinematic Diagonal Reveal",
+    desc: "Gold light streak sweeps diagonally across the button on hover — like a camera flare.",
+    render: () => (
+      <a
+        href="#"
+        className="btn-diag-reveal inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] border border-[#C8A96E]/65 hover:border-[#C8A96E] text-[#f5f0e8] hover:text-[#C8A96E] transition-colors duration-400"
+        style={{ background: "rgba(0,0,0,0.5)" }}
+      >
+        <span>Explore the Collection</span>
+      </a>
+    ),
+  },
+  {
+    n: 12,
+    name: "Border Draw (clockwise)",
+    desc: "Gold border traces itself around the button perimeter — top → right → bottom → left.",
+    render: () => (
+      <a
+        href="#"
+        className="btn-border-draw inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] text-[#f5f0e8] hover:text-[#C8A96E]"
+      >
+        Explore the Collection
+      </a>
+    ),
+  },
+  {
+    n: 13,
+    name: "Brush Underline (italic feel)",
+    desc: "Bare text with letterspacing. Hover paints a soft gold underline across the word — editorial.",
+    render: () => (
+      <a
+        href="#"
+        className="btn-brush-underline inline-flex items-center justify-center font-body uppercase tracking-[0.28em] text-[11px] md:text-[12px] text-[#f5f0e8] hover:text-[#C8A96E] transition-colors duration-300 px-2 pb-2"
+      >
+        Explore the Collection
+      </a>
+    ),
+  },
+  {
+    n: 14,
+    name: "Inset Press (Depth)",
+    desc: "Looks like a pressed plate. Hover deepens the inset — feels tactile, gold inner edge appears.",
+    render: () => (
+      <a
+        href="#"
+        className="btn-inset-press inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] text-[#f5f0e8]"
+      >
+        Explore the Collection
+      </a>
+    ),
+  },
+  {
+    n: 15,
+    name: "Asymmetric Corners",
+    desc: "Top-left + bottom-right rounded, other corners sharp. Hover flips the rounding to the opposite diagonal.",
+    render: () => (
+      <a
+        href="#"
+        className="btn-asym-corners inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 text-[#f5f0e8]"
+      >
+        Explore the Collection
+      </a>
+    ),
+  },
+  {
+    n: 16,
+    name: "Split Reveal",
+    desc: "Top half slides up, bottom half slides down → gold layer revealed underneath. Dramatic.",
+    render: () => (
+      <a
+        href="#"
+        className="btn-split inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] text-[#f5f0e8]"
+      >
+        <span>Explore the Collection</span>
+      </a>
+    ),
+  },
+  {
+    n: 17,
+    name: "Letterspacing Tracker",
+    desc: "Calm by default. Hover expands the letter-spacing rhythmically — text breathes outward.",
+    render: () => (
+      <a
+        href="#"
+        className="btn-tracker inline-flex items-center justify-center font-body uppercase text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] border border-[#C8A96E]/70 hover:border-[#C8A96E] text-[#f5f0e8] hover:text-[#C8A96E]"
+        style={{ background: "rgba(0,0,0,0.55)" }}
+      >
+        Explore the Collection
+      </a>
+    ),
+  },
+  {
+    n: 18,
+    name: "Diagonal Clip Wipe",
+    desc: "Gold layer wipes in with a diagonal cut on the right edge — couture / architectural.",
+    render: () => (
+      <a
+        href="#"
+        className="btn-clip-wipe inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] border border-[#C8A96E] text-[#C8A96E] hover:text-[#0a0a0a] transition-colors duration-500"
+      >
+        <span>Explore the Collection</span>
+      </a>
+    ),
+  },
+  {
+    n: 19,
+    name: "Double Border (architectural)",
+    desc: "Outer border + thin inner border ring. Hover brightens both — print-design / type-poster feel.",
+    render: () => (
+      <a
+        href="#"
+        className="btn-double-border inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-8 py-4 rounded-[4px] text-[#f5f0e8]"
+      >
+        Explore the Collection
+      </a>
+    ),
+  },
+  {
+    n: 20,
+    name: "Cinematic Stagger Glow",
+    desc: "Calm white border. Hover blooms a warm gold gradient from below — like stage lighting rising.",
+    render: () => (
+      <a
+        href="#"
+        className="btn-stagger inline-flex items-center justify-center font-body uppercase tracking-[0.22em] text-[10px] md:text-[11px] font-medium px-7 py-3.5 rounded-[4px] text-[#f5f0e8] transition-colors duration-500"
+      >
+        <span>Explore the Collection</span>
+      </a>
+    ),
+  },
 ];
 
 export default function ButtonShowcase() {
@@ -217,7 +349,7 @@ export default function ButtonShowcase() {
               className="font-display italic text-[#C8A96E] tracking-widest mb-4"
               style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
             >
-              [ CTA Showcase &middot; v2 ]
+              [ CTA Showcase &middot; v3 &middot; 20 variants ]
             </p>
             <h1
               className="font-display italic text-cream mb-5"
@@ -233,11 +365,13 @@ export default function ButtonShowcase() {
               className="font-body text-white/65 max-w-[680px] leading-relaxed"
               style={{ fontSize: "clamp(14px, 1.2vw, 16px)" }}
             >
-              Ten CTA variants, all with the same subtle 4px corner radius
-              (matching the reference frame style — less rounded, more
-              architectural). Each carries a distinct hover behavior. Tell
-              me the number and I&rsquo;ll replace every CTA on the site
-              with that style.
+              Twenty CTA variants, all with the same subtle 4px corner
+              radius (matching the reference frame style — less rounded,
+              more architectural). The first ten are the original set; the
+              next ten apply premium UX patterns (cinematic reveals, border
+              draws, inset depth, asymmetric corners, split / clip / wipe
+              animations). Tell me the number and I&rsquo;ll replace every
+              CTA on the site with that style.
             </p>
           </div>
 
