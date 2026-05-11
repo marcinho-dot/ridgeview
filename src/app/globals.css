@@ -26,17 +26,30 @@ html {
   scroll-margin-top: 66px;
 }
 
-/* Anchor sections: scroll target lands ~80px below the viewport top
-   so the fixed navbar (mobile ~70px tall) doesn't cover the section
-   header. Tuned 2026-05-12 after a "Shop" breadcrumb click on a SKU
-   page landed users mid-card on the Wine Collection carousel instead
-   of at the section header. */
+/* Anchor sections: scroll target lands just below the fixed navbar.
+   Mobile navbar ≈ 70px → 80px offset (10px breathing room).
+   Desktop navbar ≈ 95px → 110px offset (15px breathing room).
+   IMPORTANT: these IDs MUST sit on the inner header wrapper, NOT on
+   the outer <section> tag — otherwise the section's own py-* top
+   padding adds another 80–112px of empty space below the anchor
+   target and the user lands mid-content (see WineCollectionSection.tsx
+   header comment). Tuned 2026-05-12 after a "Shop" breadcrumb click
+   on a SKU page kept landing mid-carousel even with offset set. */
 #wine-collection,
 #heritage,
 #ourview,
 #journal,
 #footer {
   scroll-margin-top: 80px;
+}
+@media (min-width: 768px) {
+  #wine-collection,
+  #heritage,
+  #ourview,
+  #journal,
+  #footer {
+    scroll-margin-top: 110px;
+  }
 }
 
 body {

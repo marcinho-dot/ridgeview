@@ -81,14 +81,23 @@ export function WineCollectionSection() {
   return (
     <section
       ref={sectionRef}
-      id="wine-collection"
-      data-section="wine-collection"
-      className="bg-[#010101] py-20 md:py-28"
+      className="bg-[#010101] py-12 md:py-16"
     >
       <div className="max-w-[1400px] mx-auto px-6">
 
-        {/* ── Header row ────────────────────────────────────── */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10 md:mb-14">
+        {/* ── Header row ──────────────────────────────────────
+            The anchor target sits on this header wrapper (NOT the outer
+            <section>) so a "Shop" breadcrumb click lands exactly at the
+            section header rather than at the section's outer edge —
+            otherwise scroll-margin-top would only offset to the top of
+            the <section>'s padding, and the user would still see ~80–
+            112px of empty space + part of the carousel pushed under the
+            navbar. Tuned 2026-05-12. */}
+        <div
+          id="wine-collection"
+          data-section="wine-collection"
+          className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10 md:mb-14"
+        >
           <div>
             <motion.p
               className="font-display italic text-[#C8A96E] tracking-widest mb-3"
