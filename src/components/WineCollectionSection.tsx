@@ -83,7 +83,7 @@ export function WineCollectionSection() {
       ref={sectionRef}
       id="wine-collection"
       data-section="wine-collection"
-      className="bg-[#010101] pt-16 pb-20 md:pt-20 md:pb-28"
+      className="bg-[#010101] py-20 md:py-28"
     >
       <div className="max-w-[1400px] mx-auto px-6">
 

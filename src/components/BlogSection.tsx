@@ -509,7 +509,7 @@ function MobileAccordion() {
 
 export function BlogSection() {
   return (
-    <section id="journal" className="relative z-[1] bg-[#010101] pt-6 pb-12 md:pt-8 md:pb-16">
+    <section id="journal" className="relative z-[1] bg-[#010101] py-20 md:py-28">
       <div className="max-w-[1400px] mx-auto px-6 md:px-16">
         {/* Section Header — uses .reveal (mn-fx-style: fade + 28px slide + blur 6px, 0.9s cubic-bezier(.2,.7,.2,1)) */}
         <div className="reveal mb-12 md:mb-16">

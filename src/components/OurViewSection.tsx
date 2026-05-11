@@ -29,7 +29,7 @@ export function OurViewSection() {
       />
       <div className="absolute inset-0 bg-black/75" />
 
-      <div className="relative z-10 grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-10 md:gap-20 px-6 md:px-14 py-14 md:py-20">
+      <div className="relative z-10 grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-10 md:gap-20 px-6 md:px-14 py-20 md:py-28">
 
         {/* ── Left: Subscribe ── */}
         <motion.div
