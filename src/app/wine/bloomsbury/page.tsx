@@ -16,11 +16,11 @@ import { FAQSection } from "@/components/sku/FAQSection";
 import { getTestimonial } from "@/data/testimonials";
 import { basePath } from "@/lib/basePath";
 
-// Bloomsbury bottle variants — from Ridgeview shop (75cl, Magnum, Case of 6).
+// Bloomsbury bottle variants — synced 2026-05-11 with ridgeview.co.uk.
 const BLOOMSBURY_VARIANTS: Variant[] = [
   { label: "75cl Bottle", detail: "75cl · 12% ABV", price: 34 },
-  { label: "Magnum", detail: "1.5L · 12% ABV · Cellar size", price: 75 },
-  { label: "Case of 6", detail: "6 × 75cl · Save 12%", price: 180, badge: "Best value" },
+  { label: "Magnum", detail: "1.5L · 12% ABV · Cellar size", price: 85 },
+  { label: "Case of 6", detail: "6 × 75cl · Save 10%", price: 183.6, badge: "Best value" },
 ];
 
 // ── Animation Helpers ────────────────────────────────────────────────────────
@@ -93,7 +93,7 @@ function ProductHero() {
           </p>
         </FadeUp>
 
-        <div className="grid grid-cols-1 md:grid-cols-[58fr_42fr] gap-10 md:gap-12 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-[58fr_42fr] gap-3 md:gap-12 items-start">
           {/* ── Info column ─────────────────────────────────
               Mobile: flex-col with explicit `order-N` so Price + CTAs
               appear in the initial viewport (right after the subtitle/awards).
@@ -700,7 +700,7 @@ const SCHEMA_LD = {
     "@type": "AggregateOffer",
     priceCurrency: "GBP",
     lowPrice: "34.00",
-    highPrice: "180.00",
+    highPrice: "183.60",
     offerCount: "3",
     availability: "https://schema.org/InStock",
     url: "https://darkslateblue-alligator-388666.hostingersite.com/ridgeview/wine/bloomsbury/",
@@ -761,7 +761,7 @@ const RELATED_WINES = [
     slug: "fitzrovia",
     name: "Fitzrovia Rosé",
     style: "Rosé · Non Vintage",
-    price: 36,
+    price: 40,
     image: "/products/fitzrovia-rose.webp",
     note: "Pink-grapefruit and wild strawberry — the breezy sister to Bloomsbury.",
   },

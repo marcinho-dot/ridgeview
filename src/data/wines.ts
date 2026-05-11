@@ -17,7 +17,7 @@ export const wines: Wine[] = [
       "Purity, elegance and complexity — the beating heart of Ridgeview. Made entirely from handpicked Chardonnay on our home estate in Sussex. Gold, Wines GB Pioneer Trophy 2023.",
     vintage: "2020",
     tastingNotes: ["White Peach", "Orchard Blossom", "Saline Mineral"],
-    price: "£40",
+    price: "£75",
     image: "/products/blanc-de-blancs.png",
     slug: "blanc-de-blancs",
   },
@@ -39,7 +39,7 @@ export const wines: Wine[] = [
       "Full of sunshine and celebration, featuring wild raspberry, honeyed redcurrant and notes of summer fruit. A fresh and fruit-driven English sparkling rosé, alive with colour and character.",
     vintage: "NV",
     tastingNotes: ["Wild Raspberry", "Redcurrant", "Summer Fruit"],
-    price: "£37",
+    price: "£40",
     image: "/products/fitzrovia-rose.webp",
   },
   {
@@ -49,7 +49,7 @@ export const wines: Wine[] = [
       "Rich and expressive, led by Pinot Noir and Pinot Meunier. Structured and generous with a full-bodied style that rewards patience. The choice for those who prefer depth over delicacy.",
     vintage: "NV",
     tastingNotes: ["Red Cherry", "Cream", "Brioche"],
-    price: "£37",
+    price: "£36",
     image: "/products/cavendish.webp",
   },
   {
@@ -57,9 +57,9 @@ export const wines: Wine[] = [
     name: "Blanc de Noirs",
     description:
       "A white sparkling wine made entirely from red grapes — Pinot Noir and Pinot Meunier. Remarkable freshness and depth, structured, precise and unmistakably English.",
-    vintage: "NV",
+    vintage: "Vintage",
     tastingNotes: ["White Cherry", "Citrus Pith", "Mineral Edge"],
-    price: "£40",
+    price: "£60",
     image: "/products/cavendish.webp",
   },
   {
@@ -67,9 +67,9 @@ export const wines: Wine[] = [
     name: "Rosé de Noirs",
     description:
       "Alive with vibrant fruit flavours and a creamy palate of peach, cherry and almond. An elegant, grown-up, serious English sparkling rosé — for those who expect more from a pink wine.",
-    vintage: "NV",
+    vintage: "Vintage",
     tastingNotes: ["Peach", "Wild Cherry", "Fine Mousse"],
-    price: "£40",
+    price: "£65",
     image: "/products/fitzrovia-rose.webp",
   },
   {
@@ -77,9 +77,9 @@ export const wines: Wine[] = [
     name: "Oak Reserve",
     description:
       "A rare, late-disgorged, oak barrel-fermented English Chardonnay. Rich, complex and unlike anything else in our range — for those who know what patience in the cellar truly tastes like.",
-    vintage: "NV",
+    vintage: "Limited Edition",
     tastingNotes: ["Vanilla Oak", "Golden Apple", "Toasted Brioche"],
-    price: "£60",
+    price: "£85",
     image: "/products/blanc-de-blancs.png",
   },
   {

@@ -16,13 +16,12 @@ import { FAQSection } from "@/components/sku/FAQSection";
 import { getTestimonial } from "@/data/testimonials";
 import { basePath } from "@/lib/basePath";
 
-// Blanc de Blancs bottle variants — vintage, single-vineyard Chardonnay.
-// Premium vintage tier; smaller case size (3 bottles) reflects the
-// "cellar special" positioning rather than the everyday 6-pack.
+// Blanc de Blancs bottle variants — synced 2026-05-11 with ridgeview.co.uk.
+// 2010 Magnum is the cellar-aged release sold under this listing.
 const BLANC_DE_BLANCS_VARIANTS: Variant[] = [
   { label: "75cl Bottle", detail: "75cl · 12% ABV · Vintage", price: 75 },
-  { label: "Magnum", detail: "1.5L · 12% ABV · Cellar size", price: 160 },
-  { label: "Case of 3", detail: "3 × 75cl · Save 10%", price: 200, badge: "Best value" },
+  { label: "Magnum (2010)", detail: "1.5L · 12% ABV · Cellar-aged", price: 195 },
+  { label: "Case of 6", detail: "6 × 75cl · Save 10%", price: 405, badge: "Best value" },
 ];
 
 // ── Animation Helpers ────────────────────────────────────────────────────────
@@ -95,7 +94,7 @@ function ProductHero() {
           </p>
         </FadeUp>
 
-        <div className="grid grid-cols-1 md:grid-cols-[58fr_42fr] gap-10 md:gap-12 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-[58fr_42fr] gap-3 md:gap-12 items-start">
           {/* ── Info column ─────────────────────────────────
               Mobile: flex-col with explicit `order-N` so Price + CTAs
               appear in the initial viewport (right after the subtitle/awards).
@@ -687,7 +686,7 @@ const SCHEMA_LD = {
     "@type": "AggregateOffer",
     priceCurrency: "GBP",
     lowPrice: "75.00",
-    highPrice: "200.00",
+    highPrice: "405.00",
     offerCount: "3",
     availability: "https://schema.org/InStock",
     url: "https://darkslateblue-alligator-388666.hostingersite.com/ridgeview/wine/blanc-de-blancs/",
@@ -754,7 +753,7 @@ const RELATED_WINES = [
     slug: "fitzrovia",
     name: "Fitzrovia Rosé",
     style: "Rosé · Non Vintage",
-    price: 36,
+    price: 40,
     image: "/products/fitzrovia-rose.webp",
     note: "Pink-grapefruit and wild strawberry — the breezy counterpart to Blanc de Blancs.",
   },
