@@ -70,7 +70,7 @@ function PageHeader() {
             aerial drone shot (mobile already has enough contrast from
             the portrait crop + the base gradient above). */}
         <div
-          className="hidden sm:block absolute left-0 right-0 bottom-0 bg-gradient-to-t from-[#010101]/90 via-[#010101]/55 to-transparent"
+          className="hidden sm:block absolute left-0 right-0 bottom-0 bg-gradient-to-t from-[#010101]/97 via-[#010101]/65 to-transparent"
           style={{ height: "30%" }}
         />
         {/* Desktop-only: extra diagonal darkening anchored to the
@@ -78,7 +78,7 @@ function PageHeader() {
             bottom-left, fading diagonally toward the top-right so the
             cellar buildings on the right stay visible. */}
         <div
-          className="hidden sm:block absolute inset-0 bg-gradient-to-tr from-[#010101]/80 via-[#010101]/15 to-transparent"
+          className="hidden sm:block absolute inset-0 bg-gradient-to-tr from-[#010101]/90 via-[#010101]/22 to-transparent"
         />
       </motion.div>
 
