@@ -73,6 +73,13 @@ function PageHeader() {
           className="hidden sm:block absolute left-0 right-0 bottom-0 bg-gradient-to-t from-[#010101]/90 via-[#010101]/55 to-transparent"
           style={{ height: "30%" }}
         />
+        {/* Desktop-only: extra diagonal darkening anchored to the
+            bottom-left corner where the text block sits. Strong at the
+            bottom-left, fading diagonally toward the top-right so the
+            cellar buildings on the right stay visible. */}
+        <div
+          className="hidden sm:block absolute inset-0 bg-gradient-to-tr from-[#010101]/80 via-[#010101]/15 to-transparent"
+        />
       </motion.div>
 
       <motion.div
