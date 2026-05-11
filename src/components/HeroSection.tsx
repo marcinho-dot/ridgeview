@@ -62,7 +62,7 @@ export function HeroSection() {
           hero, comfortably clear of the navbar (mobile ~70px, desktop ~95px)
           and inside the soft dark fade. The big undimmed lower half of
           the image then carries the misty-morning atmosphere. */}
-      <div className="absolute inset-0 flex flex-col justify-start pt-[14vh] md:pt-[18vh] px-6 md:px-16 max-w-[1400px] mx-auto left-0 right-0">
+      <div className="absolute inset-0 flex flex-col justify-start pt-[calc(14vh+60px)] md:pt-[calc(18vh+60px)] px-6 md:px-16 max-w-[1400px] mx-auto left-0 right-0">
 
         {/* Kicker */}
         <motion.p
