@@ -412,20 +412,19 @@ function VisitPanels() {
         </div>
       </FadeIn>
 
-      {/* Anchor `#visit` lives on this headline block (NOT the section)
-          so /booking#visit deep-links straight to "[ Book Your
-          Experience ] / Choose your visit." — skipping the cinematic
-          banner above it. `scroll-margin-top` compensates for the
-          fixed milk-glass navbar so the kicker reads fully on land. */}
-      <div
-        id="visit"
-        className="max-w-[960px] mx-auto px-6 md:px-16 pt-10 pb-10 md:pt-16 md:pb-12 text-center"
-        style={{ scrollMarginTop: "90px" }}
-      >
+      <div className="max-w-[960px] mx-auto px-6 md:px-16 pt-10 pb-10 md:pt-16 md:pb-12 text-center">
         <FadeUp>
+          {/* Anchor `#visit` sits directly on the kicker <p> (not the
+              wrapping div) so the browser scrolls to position the
+              kicker exactly at the navbar's bottom edge — the div's
+              pt-10/16 padding above no longer adds to the landing
+              offset. `scroll-margin-top: 80px` ≈ navbar height (≈70px)
+              + a small breath, so the kicker sits cleanly under the
+              milk-glass navbar without overlap. */}
           <p
+            id="visit"
             className="font-display italic text-[#C8A96E] tracking-widest mb-5"
-            style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
+            style={{ fontSize: "clamp(13px, 1.3vw, 16px)", scrollMarginTop: "80px" }}
           >
             [ Book Your Experience ]
           </p>
