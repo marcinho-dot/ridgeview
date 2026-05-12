@@ -10,7 +10,18 @@ import { basePath } from "@/lib/basePath";
 // in wines.ts so its SKU page can be data-driven, but it is filtered
 // out here so the slider's "01 / NN" counter, dots, and rotation
 // reflect the wine range only. (2026-05-12)
-const wines = allWines.filter((w) => w.slug !== "engraved-bottle-gift");
+//
+// Carousel order: most expensive → least expensive (2026-05-12). The
+// editorial intent is to open with the flagship — Oak Reserve £85 —
+// and step down to the entry-level Still wines. Price strings are
+// parsed defensively so "£75", "£27.50", and any future "From £X"
+// formats all yield numeric values for the sort.
+const priceValue = (p: string): number =>
+  parseFloat(p.replace(/[^0-9.]/g, "")) || 0;
+
+const wines = allWines
+  .filter((w) => w.slug !== "engraved-bottle-gift")
+  .sort((a, b) => priceValue(b.price) - priceValue(a.price));
 
 // ─── Constants ────────────────────────────────────────────────
 const INTERVAL   = 12000;
