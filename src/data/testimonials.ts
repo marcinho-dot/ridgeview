@@ -48,6 +48,7 @@ export const TESTIMONIALS: Record<string, Testimonial> = {
       "It is zesty lemon that takes center stage on the slender palate. This is frothy, fresh, invigorating and dry.",
     author: "Anne Krebiehl MW",
     publication: "Wine Enthusiast",
+    url: "https://www.wineenthusiast.com/buying-guide/ridgeview-estate-nv-bloomsbury-brut-sparkling-england/",
   },
 
   fitzrovia: {
@@ -68,6 +69,7 @@ export const TESTIMONIALS: Record<string, Testimonial> = {
     publication: "Wine Enthusiast",
     score: 92,
     tier: "Excellent",
+    url: "https://www.wineenthusiast.com/buying-guide/ridgeview-estate-nv-cavendish-sparkling-england/",
   },
 
   "blanc-de-noirs": {
@@ -85,6 +87,7 @@ export const TESTIMONIALS: Record<string, Testimonial> = {
     publication: "Wine Enthusiast",
     score: 93,
     tier: "Excellent",
+    url: "https://www.wineenthusiast.com/buying-guide/ridgeview-estate-2014-blanc-de-blancs-chardonnay-england/",
   },
 
   "rose-de-noirs": {
@@ -115,6 +118,7 @@ export const TESTIMONIALS: Record<string, Testimonial> = {
       "It is zesty lemon that takes center stage on the slender palate. This is frothy, fresh, invigorating and dry.",
     author: "Anne Krebiehl MW",
     publication: "Wine Enthusiast",
+    url: "https://www.wineenthusiast.com/buying-guide/ridgeview-estate-nv-bloomsbury-brut-sparkling-england/",
   },
 
   "blanc-de-blancs-magnum": {
@@ -124,6 +128,7 @@ export const TESTIMONIALS: Record<string, Testimonial> = {
     publication: "Wine Enthusiast",
     score: 93,
     tier: "Excellent",
+    url: "https://www.wineenthusiast.com/buying-guide/ridgeview-estate-2014-blanc-de-blancs-chardonnay-england/",
   },
 
   // Still wines + Personalised Gift — keine externe Press-Review verfügbar.
