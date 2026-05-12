@@ -18,11 +18,12 @@ import { basePath } from "@/lib/basePath";
 
 // Bloomsbury bottle variants — synced 2026-05-11 with ridgeview.co.uk.
 // Bloomsbury bottle variants — synced 2026-05-11 with ridgeview.co.uk.
-// Order convention (locked 2026-05-12): expensive → cheap. variants[0]
-// (most expensive) is the default selected option; drives the H1 price.
+// Order convention (refined 2026-05-12): most expensive SINGLE bottle
+// first (drives H1 price + default selection), Case of 6 ALWAYS at
+// position 2, then remaining single bottles descending.
 const BLOOMSBURY_VARIANTS: Variant[] = [
-  { label: "Case of 6", detail: "6 × 75cl · Save 10%", price: 183.6, badge: "Best value" },
   { label: "Magnum", detail: "1.5L · 12% ABV · Cellar size", price: 85 },
+  { label: "Case of 6", detail: "6 × 75cl · Save 10%", price: 183.6, badge: "Best value" },
   { label: "75cl Bottle", detail: "75cl · 12% ABV", price: 34 },
 ];
 

@@ -18,11 +18,12 @@ import { basePath } from "@/lib/basePath";
 
 // Blanc de Blancs bottle variants — synced 2026-05-11 with ridgeview.co.uk.
 // 2010 Magnum is the cellar-aged release sold under this listing.
-// Order convention (locked 2026-05-12): expensive → cheap. variants[0]
-// (most expensive) is the default selected option; drives the H1 price.
+// Order convention (refined 2026-05-12): most expensive SINGLE bottle
+// first (drives H1 price + default selection), Case of 6 ALWAYS at
+// position 2, then remaining single bottles descending.
 const BLANC_DE_BLANCS_VARIANTS: Variant[] = [
-  { label: "Case of 6", detail: "6 × 75cl · Save 10%", price: 405, badge: "Best value" },
   { label: "Magnum (2010)", detail: "1.5L · 12% ABV · Cellar-aged", price: 195 },
+  { label: "Case of 6", detail: "6 × 75cl · Save 10%", price: 405, badge: "Best value" },
   { label: "75cl Bottle", detail: "75cl · 12% ABV · Vintage", price: 75 },
 ];
 

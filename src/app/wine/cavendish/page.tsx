@@ -20,11 +20,13 @@ import { basePath } from "@/lib/basePath";
 // The Case of 6 is sold as a separate product listing in the
 // "cases-of-wine" category (£216 list price, £194.40 with 10% off).
 // No Magnum format for Cavendish on the live shop.
-// Order convention (locked 2026-05-12): expensive → cheap. variants[0]
-// (most expensive) is the default selected option; drives the H1 price.
+// Order convention (refined 2026-05-12): most expensive SINGLE bottle
+// first (drives H1 price + default selection), Case of 6 ALWAYS at
+// position 2, then remaining single bottles descending. Cavendish
+// has no Magnum so position 1 = 75cl Bottle.
 const CAVENDISH_VARIANTS: Variant[] = [
-  { label: "Case of 6", detail: "6 × 75cl · Save 10%", price: 194.4, badge: "Best value" },
   { label: "75cl Bottle", detail: "75cl · 12% ABV · NV", price: 36 },
+  { label: "Case of 6", detail: "6 × 75cl · Save 10%", price: 194.4, badge: "Best value" },
 ];
 
 // ── Animation Helpers ────────────────────────────────────────────────────────
