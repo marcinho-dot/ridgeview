@@ -18,13 +18,15 @@ import { basePath } from "@/lib/basePath";
 
 // Bloomsbury bottle variants — synced 2026-05-11 with ridgeview.co.uk.
 // Bloomsbury bottle variants — synced 2026-05-11 with ridgeview.co.uk.
-// Order convention (refined 2026-05-12): most expensive SINGLE bottle
-// first (drives H1 price + default selection), Case of 6 ALWAYS at
-// position 2, then remaining single bottles descending.
+// Order convention (final, locked 2026-05-12):
+//   Position 1: 75cl Bottle (ALWAYS — drives H1 price + default selection,
+//                            the everyday purchase that anchors the page)
+//   Position 2: Magnum (if available — the premium upgrade)
+//   Position 3: Case of 6 (if available — the bulk / gifting option)
 const BLOOMSBURY_VARIANTS: Variant[] = [
+  { label: "75cl Bottle", detail: "75cl · 12% ABV", price: 34 },
   { label: "Magnum", detail: "1.5L · 12% ABV · Cellar size", price: 85 },
   { label: "Case of 6", detail: "6 × 75cl · Save 10%", price: 183.6, badge: "Best value" },
-  { label: "75cl Bottle", detail: "75cl · 12% ABV", price: 34 },
 ];
 
 // ── Animation Helpers ────────────────────────────────────────────────────────
