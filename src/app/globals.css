@@ -300,21 +300,51 @@ body::after {
     inset 0 1px 0 rgba(245, 240, 232, 0.10),
     0 0 22px -2px rgba(200, 169, 110, 0.16);
 }
-/* Tactile click feedback — combines three micro-effects so the press
+
+/* Gold underline confirm-tick — invisible at rest (scaleX 0), snaps
+   to full width on :active, retracts on release. Crucial click
+   feedback on touch devices where there is no :hover state. */
+.btn-cta::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 6px;
+  height: 1.5px;
+  background: #C8A96E;
+  transform: scaleX(0);
+  transform-origin: center center;
+  transition: transform 0.20s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  border-radius: 1px;
+  opacity: 0.85;
+}
+
+/* Tactile click feedback — six layered micro-effects so the press
    feels physical without ever being loud:
-   1. Scale slightly inward (0.97) — finger pressure illusion
-   2. Inset gold-tinted shadow — the surface "dips" with warm gold
-   3. Border + inset etch glow up to full gold — confirms the action */
+   1. Scale inward (0.97) — finger pressure illusion
+   2. Warm-gold tint behind text (0.18) — thumbprint glow
+   3. Border + inset etch jump to full gold — visual confirmation
+   4. Deep inset dip-shadow — the surface dents inward
+   5. Outer gold halo (32px) — light spills around the press
+   6. Underline tick snaps to full width — confirmation "click" */
 .btn-cta:active {
   transform: scale(0.97);
-  background: rgba(200, 169, 110, 0.12);
+  background: rgba(200, 169, 110, 0.18);
   border-color: #C8A96E;
   box-shadow:
-    inset 0 0 0 1px rgba(200, 169, 110, 0.50),
-    inset 0 1px 0 rgba(245, 240, 232, 0.12),
-    inset 0 1px 3px rgba(0, 0, 0, 0.20),
-    0 0 28px -2px rgba(200, 169, 110, 0.24);
+    inset 0 0 0 1px rgba(200, 169, 110, 0.55),
+    inset 0 1px 0 rgba(245, 240, 232, 0.14),
+    inset 0 1px 4px rgba(0, 0, 0, 0.25),
+    0 0 32px -2px rgba(200, 169, 110, 0.30);
 }
+.btn-cta:active::after {
+  transform: scaleX(1);
+  /* Snap-in fast (0.10s) — feels like a click; retract uses the
+     default 0.20s so the release feels gentle, not abrupt. */
+  transition-duration: 0.10s;
+}
+
 /* Keyboard accessibility — quiet gold ring without the bright
    default focus outline. */
 .btn-cta:focus-visible {
