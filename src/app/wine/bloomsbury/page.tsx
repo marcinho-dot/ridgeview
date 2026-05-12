@@ -683,12 +683,6 @@ function ClosingCTA() {
             >
               Add to basket · £34.00
             </button>
-            <a
-              href={`${basePath}/#wine-collection`}
-              className="btn-cta"
-            >
-              Explore the Collection
-            </a>
           </div>
         </FadeUp>
       </div>

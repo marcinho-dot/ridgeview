@@ -143,6 +143,19 @@ export function RelatedWinesSection({
             </motion.a>
           ))}
         </div>
+
+        {/* Section-anchoring CTA — links back to the full Wine Collection
+            on the homepage. Moved here 2026-05-12 from each SKU's ClosingCTA
+            so it lives once in the shared RelatedWinesSection and propagates
+            to every SKU page automatically. */}
+        <div
+          className="reveal mt-16 md:mt-20 flex justify-center"
+          style={{ transitionDelay: "0.55s" }}
+        >
+          <a href={`${basePath}/#wine-collection`} className="btn-cta">
+            Explore the Collection
+          </a>
+        </div>
       </div>
     </section>
   );
