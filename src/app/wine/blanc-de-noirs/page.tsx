@@ -661,8 +661,8 @@ function ClosingCTA() {
         </FadeUp>
         <FadeUp delay={0.2}>
           <div className="flex flex-wrap items-center justify-center gap-4">
+            {/* No data-atb-trigger here — duplicate CTA, not primary. */}
             <button
-              data-atb-trigger
               type="button"
               className="btn-cta"
             >
