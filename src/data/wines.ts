@@ -98,4 +98,15 @@ export const wines: Wine[] = [
     image: "/products/sparkling-red-reserve.png",
     slug: "sparkling-red-reserve",
   },
+  {
+    id: 9,
+    name: "Magnum Bloomsbury",
+    description:
+      "Majestic and celebratory — a 1.5L magnum format of our signature Bloomsbury NV. Slower magnum-format ageing carries the citrus, honey and brioche depth that won Sparkling Wine of the Year at the Sommelier Awards 2024.",
+    vintage: "NV · Magnum",
+    tastingNotes: ["Bright Citrus", "Honey & Brioche", "Biscuity Cream"],
+    price: "£85",
+    image: "/products/bloomsbury-magnum.png",
+    slug: "bloomsbury-magnum",
+  },
 ];
