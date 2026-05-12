@@ -80,7 +80,7 @@ function ProductHero() {
     // weight is carried by the typography, the oversized bottle (90svh)
     // and the gold accents, not by a forced viewport height. Tuned
     // 2026-05-12.
-    <section ref={heroRef} className="relative bg-[#010101] pt-20 md:pt-24 pb-8 md:pb-12 overflow-hidden">
+    <section ref={heroRef} className="relative bg-[#010101] pt-28 md:pt-24 pb-8 md:pb-12 overflow-hidden">
       {/* Ambient gold glow */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -118,7 +118,7 @@ function ProductHero() {
               </p>
             </FadeUp>
 
-            <div className="overflow-hidden mb-5 order-2">
+            <div className="overflow-hidden mb-2 md:mb-5 order-2">
               <motion.h1
                 className="font-display italic text-cream leading-[1.02]"
                 style={{ fontSize: "clamp(38px, 6vw, 88px)", fontWeight: 400 }}
