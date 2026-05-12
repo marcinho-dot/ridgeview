@@ -162,6 +162,22 @@ export function HeroSection() {
           <a
             href={`${basePath}/booking#visit`}
             className="btn-cta"
+            onClick={() => {
+              // Mark this navigation as coming from the homepage Hero
+              // so the booking page's floating Back-to-Top button knows
+              // to enable itself. Timestamped + one-time-use; the booking
+              // page consumes & deletes this on mount. Stale flag (>10s)
+              // is ignored, so click-but-don't-navigate edge cases don't
+              // accidentally activate the button later.
+              try {
+                sessionStorage.setItem(
+                  "rv-back-to-top-from-hero",
+                  String(Date.now()),
+                );
+              } catch {
+                /* sessionStorage unavailable (private mode etc.) — fine */
+              }
+            }}
           >
             Vineyard Booking
           </a>

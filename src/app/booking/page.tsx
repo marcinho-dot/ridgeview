@@ -557,76 +557,93 @@ function VisitPanels() {
 // Fixed-position bottom-right. On mobile sits above the BottomNav.
 
 function BackToTopFloat() {
+  // `enabled` gates everything else. It's set on mount ONLY if the user
+  // arrived via the homepage Hero "Vineyard Booking" button (which
+  // writes a timestamped sessionStorage flag right before navigation).
+  // Direct URL navigation, refresh, browser-back-into-page, or visits
+  // from other routes all leave `enabled` false → button never appears.
+  const [enabled, setEnabled] = useState(false);
+  // `show` is the position-based visibility — true when the visit
+  // section is in or above the viewport, false when it's below.
   const [show, setShow] = useState(false);
 
+  // Consume the one-time "from hero" flag on mount.
   useEffect(() => {
+    try {
+      const ts = sessionStorage.getItem("rv-back-to-top-from-hero");
+      if (ts) {
+        const age = Date.now() - parseInt(ts, 10);
+        // Fresh flag (<10s old) = real navigation from hero → enable.
+        // Stale flag = leftover from a cancelled navigation → ignore.
+        if (Number.isFinite(age) && age >= 0 && age < 10_000) {
+          setEnabled(true);
+        }
+        // One-time-use: clear so a later refresh doesn't re-trigger.
+        sessionStorage.removeItem("rv-back-to-top-from-hero");
+      }
+    } catch {
+      /* sessionStorage blocked → button stays disabled. Fine. */
+    }
+  }, []);
+
+  // Position-based visibility — runs only after enabled flips to true.
+  //
+  // Rule: button is visible whenever the visit kicker is IN or ABOVE
+  // the viewport, hidden only when it is BELOW the viewport. That way
+  // scrolling up from the footer keeps the button visible through the
+  // entire visit section, hiding only once the kicker has scrolled out
+  // the bottom of the viewport.
+  //
+  // Three event sources feed a single rAF-throttled `update()`:
+  //   1. `scroll` — catches user scrolling. Critical for the case where
+  //      the user jumps the viewport past the kicker entirely (e.g.,
+  //      `scrollTo({ behavior: 'instant' })`) — IntersectionObserver
+  //      alone doesn't fire on a jump that skips the threshold-crossing
+  //      visible state.
+  //   2. `resize` — catches viewport-height changes (rotate / window
+  //      resize) that move the "is below viewport" threshold.
+  //   3. `IntersectionObserver` — catches LAYOUT SHIFTS that move the
+  //      kicker relative to the viewport without any user scrolling
+  //      (lazy-loaded images, font swaps).
+  useEffect(() => {
+    if (!enabled) return;
+
     const visitEl = document.getElementById("visit");
     if (!visitEl) return;
 
-    // Two pieces of state driven by two listeners:
-    //   `hasReachedVisit` — true once the visit section has entered (or
-    //     scrolled past) the viewport. Driven by IntersectionObserver
-    //     so it survives lazy-image layout shifts that would otherwise
-    //     mess up scrollY-based math.
-    //   `scrollDirection` — 'down' | 'up' | 'none'. Driven by a scroll
-    //     listener. Used to hide the button when the user starts
-    //     moving back up.
-    let hasReachedVisit = false;
-    let lastY = window.scrollY;
-    let scrollDirection: "down" | "up" | "none" = "none";
     let rafScheduled = false;
 
-    const sync = () => {
-      if (!hasReachedVisit) {
-        setShow(false);
-        return;
-      }
-      // Visit reached — hide only if actively scrolling up.
-      setShow(scrollDirection !== "up");
-    };
-
-    // Track whether the visit kicker is in-or-above the viewport.
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting || entry.boundingClientRect.bottom < 0) {
-          // Visible in viewport OR scrolled above the viewport.
-          hasReachedVisit = true;
-        } else if (entry.boundingClientRect.top > 0) {
-          // Still below the viewport — user hasn't reached it yet.
-          hasReachedVisit = false;
-        }
-        sync();
-      },
-      { threshold: 0 },
-    );
-    observer.observe(visitEl);
-
-    // Scroll direction detection (rAF-throttled).
-    const detectScroll = () => {
+    const update = () => {
       rafScheduled = false;
-      const currentY = window.scrollY;
-      if (currentY > lastY + 4) {
-        scrollDirection = "down";
-        sync();
-      } else if (currentY < lastY - 4) {
-        scrollDirection = "up";
-        sync();
-      }
-      lastY = currentY;
+      const rect = visitEl.getBoundingClientRect();
+      const vpH = window.innerHeight;
+      // rect.top < vpH covers:
+      //   - kicker in viewport (0 ≤ rect.top < vpH)
+      //   - kicker above viewport (rect.top < 0, rect.bottom ≤ 0)
+      // The opposite (rect.top ≥ vpH) is "kicker fully below viewport".
+      setShow(rect.top < vpH);
     };
 
-    const onScroll = () => {
+    const schedule = () => {
       if (rafScheduled) return;
       rafScheduled = true;
-      window.requestAnimationFrame(detectScroll);
+      window.requestAnimationFrame(update);
     };
 
-    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule, { passive: true });
+    const observer = new IntersectionObserver(schedule, { threshold: 0 });
+    observer.observe(visitEl);
+
+    // Initial check (covers the post-deep-link-scroll state).
+    update();
+
     return () => {
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
       observer.disconnect();
-      window.removeEventListener("scroll", onScroll);
     };
-  }, []);
+  }, [enabled]);
 
   // Inline styles for the V4 etched-crystal look — replicated here
   // rather than via the `.btn-cta` class because `.btn-cta` declares
@@ -638,7 +655,7 @@ function BackToTopFloat() {
   // not in the class list.
   return (
     <AnimatePresence>
-      {show && (
+      {enabled && show && (
         <motion.a
           href="#top"
           aria-label="Back to top of page"
