@@ -557,122 +557,128 @@ function VisitPanels() {
 // Fixed-position bottom-right. On mobile sits above the BottomNav.
 
 function BackToTopFloat() {
-  // DEBUG 2026-05-13: starting `show` as true so we can verify the
-  // button renders and positions correctly at all. If you see a
-  // gold "↑ Back to Top" pill bottom-right on /booking, rendering
-  // is fine — bug is in the visibility logic. Once verified, this
-  // initial value reverts to `false`.
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     const visitEl = document.getElementById("visit");
     if (!visitEl) return;
 
+    // Two pieces of state driven by two listeners:
+    //   `hasReachedVisit` — true once the visit section has entered (or
+    //     scrolled past) the viewport. Driven by IntersectionObserver
+    //     so it survives lazy-image layout shifts that would otherwise
+    //     mess up scrollY-based math.
+    //   `scrollDirection` — 'down' | 'up' | 'none'. Driven by a scroll
+    //     listener. Used to hide the button when the user starts
+    //     moving back up.
+    let hasReachedVisit = false;
     let lastY = window.scrollY;
+    let scrollDirection: "down" | "up" | "none" = "none";
     let rafScheduled = false;
 
-    // `getBoundingClientRect().top + scrollY` gives the visit element's
-    // ABSOLUTE position relative to the document — robust against any
-    // positioned ancestor (like `.reveal` or `ScrollReset`'s wrapper)
-    // that would otherwise mess up `offsetTop`.
-    const getVisitDocTop = () => {
-      return visitEl.getBoundingClientRect().top + window.scrollY;
+    const sync = () => {
+      if (!hasReachedVisit) {
+        setShow(false);
+        return;
+      }
+      // Visit reached — hide only if actively scrolling up.
+      setShow(scrollDirection !== "up");
     };
 
-    const update = () => {
+    // Track whether the visit kicker is in-or-above the viewport.
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting || entry.boundingClientRect.bottom < 0) {
+          // Visible in viewport OR scrolled above the viewport.
+          hasReachedVisit = true;
+        } else if (entry.boundingClientRect.top > 0) {
+          // Still below the viewport — user hasn't reached it yet.
+          hasReachedVisit = false;
+        }
+        sync();
+      },
+      { threshold: 0 },
+    );
+    observer.observe(visitEl);
+
+    // Scroll direction detection (rAF-throttled).
+    const detectScroll = () => {
       rafScheduled = false;
       const currentY = window.scrollY;
-      const visitTop = getVisitDocTop();
-      const pastVisit = currentY >= visitTop - 200;
-      // 4px tolerance so iOS Safari rubber-band bounce doesn't flip
-      // direction on idle scrolling.
-      const scrollingUp = currentY < lastY - 4;
-      const scrollingDown = currentY > lastY + 4;
-
-      if (!pastVisit) {
-        setShow(false);
-      } else if (scrollingUp) {
-        setShow(false);
-      } else if (scrollingDown) {
-        setShow(true);
+      if (currentY > lastY + 4) {
+        scrollDirection = "down";
+        sync();
+      } else if (currentY < lastY - 4) {
+        scrollDirection = "up";
+        sync();
       }
-      // No direction → maintain current state (avoids flicker on idle).
-
       lastY = currentY;
     };
-
-    // Initial-state check: when the user lands on /booking#visit via
-    // the homepage Hero deep-link, the browser scrolls to the section
-    // BEFORE any scroll event fires inside React. Direction-based
-    // `update()` can't catch that case (no movement = no direction).
-    // We fire `checkInitialPosition` at several increasing delays so
-    // that no matter when the deep-link scroll settles (immediate,
-    // post-hydration, post-image-load), we catch it.
-    const checkInitialPosition = () => {
-      const currentY = window.scrollY;
-      const visitTop = getVisitDocTop();
-      if (currentY >= visitTop - 200) {
-        setShow(true);
-        lastY = currentY;
-      }
-    };
-    checkInitialPosition();
-    const t1 = window.setTimeout(checkInitialPosition, 100);
-    const t2 = window.setTimeout(checkInitialPosition, 500);
-    const t3 = window.setTimeout(checkInitialPosition, 1200);
 
     const onScroll = () => {
       if (rafScheduled) return;
       rafScheduled = true;
-      window.requestAnimationFrame(update);
+      window.requestAnimationFrame(detectScroll);
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
+      observer.disconnect();
       window.removeEventListener("scroll", onScroll);
-      window.clearTimeout(t1);
-      window.clearTimeout(t2);
-      window.clearTimeout(t3);
     };
   }, []);
 
-  // DEBUG 2026-05-13: render with inline styles bypassing .btn-cta
-  // entirely + log mount + always-visible. If still nothing visible,
-  // the issue is at the React/render layer (component not mounting,
-  // suppressed, etc.) not CSS.
-  if (typeof window !== "undefined") {
-    console.log("[BackToTopFloat] rendering, show =", show);
-  }
+  // Inline styles for the V4 etched-crystal look — replicated here
+  // rather than via the `.btn-cta` class because `.btn-cta` declares
+  // `position: relative` which (in this Tailwind v4 + Next.js setup)
+  // wins over Tailwind's `.fixed` utility due to CSS layer ordering.
+  // Inline styles bypass that conflict entirely. Tailwind utilities
+  // are still used for responsive offsets (md:right-8, md:bottom-8)
+  // since those don't conflict with anything when `.btn-cta` is
+  // not in the class list.
   return (
-    <a
-      href="#top"
-      aria-label="Back to top of page"
-      style={{
-        position: "fixed",
-        right: "24px",
-        bottom: "80px",
-        zIndex: 9999,
-        display: "inline-flex",
-        alignItems: "center",
-        justifyContent: "center",
-        background: "rgba(245, 240, 232, 0.06)",
-        backdropFilter: "blur(20px) saturate(160%)",
-        WebkitBackdropFilter: "blur(20px) saturate(160%)",
-        border: "1px solid rgba(200, 169, 110, 0.95)",
-        boxShadow: "0 0 24px -2px rgba(200, 169, 110, 0.35)",
-        color: "#f5f0e8",
-        fontFamily: "Raleway, system-ui, sans-serif",
-        fontSize: "11px",
-        letterSpacing: "0.22em",
-        textTransform: "uppercase",
-        padding: "13px 26px",
-        borderRadius: "4px",
-        textDecoration: "none",
-      }}
-    >
-      <span aria-hidden style={{ marginRight: "0.65em" }}>↑</span>
-      Back to Top
-    </a>
+    <AnimatePresence>
+      {show && (
+        <motion.a
+          href="#top"
+          aria-label="Back to top of page"
+          className="fixed right-6 md:right-8 bottom-20 md:bottom-8 z-50"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "rgba(245, 240, 232, 0.04)",
+            backdropFilter: "blur(20px) saturate(160%)",
+            WebkitBackdropFilter: "blur(20px) saturate(160%)",
+            border: "1px solid rgba(200, 169, 110, 0.70)",
+            boxShadow:
+              "inset 0 0 0 1px rgba(200, 169, 110, 0.18), inset 0 1px 0 rgba(245, 240, 232, 0.10), 0 0 0 1px rgba(200, 169, 110, 0.06), 0 8px 24px -4px rgba(0, 0, 0, 0.4)",
+            color: "#f5f0e8",
+            fontFamily: "'Raleway', system-ui, sans-serif",
+            fontSize: "11px",
+            fontWeight: 400,
+            letterSpacing: "0.22em",
+            textTransform: "uppercase",
+            padding: "13px 26px",
+            borderRadius: "4px",
+            textDecoration: "none",
+            whiteSpace: "nowrap",
+            cursor: "pointer",
+          }}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 12 }}
+          transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+          whileHover={{
+            background: "rgba(245, 240, 232, 0.08)",
+            borderColor: "#C8A96E",
+          }}
+        >
+          <span aria-hidden style={{ marginRight: "0.65em" }}>&uarr;</span>
+          Back to Top
+        </motion.a>
+      )}
+    </AnimatePresence>
   );
 }
 
