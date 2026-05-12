@@ -320,20 +320,19 @@ export function Navbar() {
                 ))}
               </div>
 
-              {/* Spacer — pushes the signature line to the bottom
-                  of the viewport on tall phones, while the menu
-                  itself stays anchored just under the CTA bar. */}
-              <div className="flex-1" />
-
-              {/* Bottom signature — just the estate strapline. */}
+              {/* Signature — sits DIRECTLY under the last menu item
+                  (no flex-1 spacer pushing it down). Aligned to the
+                  menu's px-8 left/right padding so it reads as a
+                  quiet outro to the list rather than a footer bar.
+                  Empty drawer space falls below it. */}
               <motion.div
-                className="border-t border-white/[0.06] px-6 py-4"
+                className="px-8 pt-6"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.28 + menuItems.length * 0.08 + 0.15, duration: 0.5 }}
               >
                 <p
-                  className="font-body text-white/30 uppercase tracking-[0.28em] text-center"
+                  className="font-body text-white/30 uppercase tracking-[0.28em]"
                   style={{ fontSize: "9px" }}
                 >
                   Sussex &middot; Est. 1995
