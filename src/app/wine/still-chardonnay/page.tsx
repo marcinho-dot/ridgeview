@@ -463,11 +463,19 @@ function AwardsSpecsSection() {
     { label: "Product Code", value: "R2321" },
   ];
 
+  // If awards is empty, render only the Specs column (centered, single-
+  // column) — no orphaned "Awards" headline above an empty list.
+  const hasAwards = awards.length > 0;
+
   return (
     <section className="bg-[#0a0a0a] border-t border-white/[0.06]">
       <div className="max-w-[1400px] mx-auto px-6 md:px-16 py-20 md:py-28">
-        <div className="grid grid-cols-1 md:grid-cols-[55fr_45fr] gap-16 md:gap-24">
-          {/* Awards */}
+        <div className={hasAwards
+          ? "grid grid-cols-1 md:grid-cols-[55fr_45fr] gap-16 md:gap-24"
+          : "max-w-[640px] mx-auto"
+        }>
+          {/* Awards — rendered only when there are awards to list */}
+          {hasAwards && (
           <div>
             <FadeUp>
               <p
@@ -514,6 +522,7 @@ function AwardsSpecsSection() {
               ))}
             </ul>
           </div>
+          )}
 
           {/* Specs */}
           <div>
