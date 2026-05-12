@@ -566,12 +566,18 @@ function BackToTopFloat() {
     let lastY = window.scrollY;
     let rafScheduled = false;
 
+    // `getBoundingClientRect().top + scrollY` gives the visit element's
+    // ABSOLUTE position relative to the document — robust against any
+    // positioned ancestor (like `.reveal` or `ScrollReset`'s wrapper)
+    // that would otherwise mess up `offsetTop`.
+    const getVisitDocTop = () => {
+      return visitEl.getBoundingClientRect().top + window.scrollY;
+    };
+
     const update = () => {
       rafScheduled = false;
       const currentY = window.scrollY;
-      // offsetTop is recomputed each tick to survive layout shifts
-      // (image lazy-loads, font swaps shrinking the page above us).
-      const visitTop = visitEl.offsetTop;
+      const visitTop = getVisitDocTop();
       const pastVisit = currentY >= visitTop - 200;
       // 4px tolerance so iOS Safari rubber-band bounce doesn't flip
       // direction on idle scrolling.
@@ -592,24 +598,23 @@ function BackToTopFloat() {
 
     // Initial-state check: when the user lands on /booking#visit via
     // the homepage Hero deep-link, the browser scrolls to the section
-    // BEFORE any scroll event fires inside React. The direction-based
+    // BEFORE any scroll event fires inside React. Direction-based
     // `update()` can't catch that case (no movement = no direction).
-    // This explicit check shows the button if we're already past the
-    // section on mount. Runs both synchronously (in case scroll
-    // happened pre-hydration) and after a short delay (in case the
-    // deep-link scroll settles asynchronously).
+    // We fire `checkInitialPosition` at several increasing delays so
+    // that no matter when the deep-link scroll settles (immediate,
+    // post-hydration, post-image-load), we catch it.
     const checkInitialPosition = () => {
       const currentY = window.scrollY;
-      const visitTop = visitEl.offsetTop;
+      const visitTop = getVisitDocTop();
       if (currentY >= visitTop - 200) {
         setShow(true);
-        lastY = currentY; // sync the baseline so subsequent updates
-                          // don't mistake the deep-link scroll for a
-                          // big downward jump.
+        lastY = currentY;
       }
     };
     checkInitialPosition();
-    const initTimeout = window.setTimeout(checkInitialPosition, 300);
+    const t1 = window.setTimeout(checkInitialPosition, 100);
+    const t2 = window.setTimeout(checkInitialPosition, 500);
+    const t3 = window.setTimeout(checkInitialPosition, 1200);
 
     const onScroll = () => {
       if (rafScheduled) return;
@@ -620,7 +625,9 @@ function BackToTopFloat() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", onScroll);
-      window.clearTimeout(initTimeout);
+      window.clearTimeout(t1);
+      window.clearTimeout(t2);
+      window.clearTimeout(t3);
     };
   }, []);
 
