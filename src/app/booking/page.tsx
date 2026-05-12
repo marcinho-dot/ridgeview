@@ -586,42 +586,60 @@ function BackToTopFloat() {
     }
   }, []);
 
-  // Position-based visibility — runs only after enabled flips to true.
+  // Position-based visibility with PERMANENT-DISARM behaviour.
   //
-  // Rule: button is visible whenever the visit kicker is IN or ABOVE
-  // the viewport, hidden only when it is BELOW the viewport. That way
-  // scrolling up from the footer keeps the button visible through the
-  // entire visit section, hiding only once the kicker has scrolled out
-  // the bottom of the viewport.
+  // Rules:
+  //   - Show whenever visit kicker is IN or ABOVE the viewport.
+  //   - Hide once kicker is BELOW the viewport (user is above visit).
+  //   - ONE-WAY: once the user has reached visit AND then scrolled
+  //     above it, the button is PERMANENTLY hidden for the rest of
+  //     the session. Scrolling back down past visit will NOT
+  //     re-show it.
+  //
+  // Why disarm: the button is a one-time courtesy for the
+  // deep-link-from-Hero user — it gives them a way back to the
+  // hero of the page they were sent into. Once they've used the
+  // page normally (scrolled back up to / past the hero), the
+  // affordance is no longer relevant.
   //
   // Three event sources feed a single rAF-throttled `update()`:
-  //   1. `scroll` — catches user scrolling. Critical for the case where
-  //      the user jumps the viewport past the kicker entirely (e.g.,
-  //      `scrollTo({ behavior: 'instant' })`) — IntersectionObserver
-  //      alone doesn't fire on a jump that skips the threshold-crossing
-  //      visible state.
-  //   2. `resize` — catches viewport-height changes (rotate / window
-  //      resize) that move the "is below viewport" threshold.
-  //   3. `IntersectionObserver` — catches LAYOUT SHIFTS that move the
-  //      kicker relative to the viewport without any user scrolling
-  //      (lazy-loaded images, font swaps).
+  //   1. `scroll` — catches user scrolling
+  //   2. `resize` — catches viewport-height changes
+  //   3. `IntersectionObserver` — catches LAYOUT SHIFTS that move
+  //      the kicker without user scrolling (lazy images / font swaps)
   useEffect(() => {
     if (!enabled) return;
 
     const visitEl = document.getElementById("visit");
     if (!visitEl) return;
 
+    let hasReachedVisit = false;
+    let permanentlyHidden = false;
     let rafScheduled = false;
 
     const update = () => {
       rafScheduled = false;
+      if (permanentlyHidden) {
+        setShow(false);
+        return;
+      }
       const rect = visitEl.getBoundingClientRect();
       const vpH = window.innerHeight;
-      // rect.top < vpH covers:
-      //   - kicker in viewport (0 ≤ rect.top < vpH)
-      //   - kicker above viewport (rect.top < 0, rect.bottom ≤ 0)
-      // The opposite (rect.top ≥ vpH) is "kicker fully below viewport".
-      setShow(rect.top < vpH);
+      const visitInOrAbove = rect.top < vpH;
+
+      if (visitInOrAbove) {
+        // Kicker visible OR scrolled past upward → user has reached it.
+        hasReachedVisit = true;
+        setShow(true);
+      } else {
+        // Kicker fully below viewport → user is above visit.
+        if (hasReachedVisit) {
+          // They reached visit earlier, now they're above → DISARM
+          // the button for the rest of the session.
+          permanentlyHidden = true;
+        }
+        setShow(false);
+      }
     };
 
     const schedule = () => {
@@ -659,11 +677,14 @@ function BackToTopFloat() {
         <motion.a
           href="#top"
           aria-label="Back to top of page"
+          title="Back to top"
           className="fixed right-6 md:right-8 bottom-20 md:bottom-8 z-50"
           style={{
             display: "inline-flex",
             alignItems: "center",
             justifyContent: "center",
+            width: "48px",
+            height: "48px",
             background: "rgba(245, 240, 232, 0.04)",
             backdropFilter: "blur(20px) saturate(160%)",
             WebkitBackdropFilter: "blur(20px) saturate(160%)",
@@ -672,14 +693,10 @@ function BackToTopFloat() {
               "inset 0 0 0 1px rgba(200, 169, 110, 0.18), inset 0 1px 0 rgba(245, 240, 232, 0.10), 0 0 0 1px rgba(200, 169, 110, 0.06), 0 8px 24px -4px rgba(0, 0, 0, 0.4)",
             color: "#f5f0e8",
             fontFamily: "'Raleway', system-ui, sans-serif",
-            fontSize: "11px",
-            fontWeight: 400,
-            letterSpacing: "0.22em",
-            textTransform: "uppercase",
-            padding: "13px 26px",
+            fontSize: "20px",
+            lineHeight: 1,
             borderRadius: "4px",
             textDecoration: "none",
-            whiteSpace: "nowrap",
             cursor: "pointer",
           }}
           initial={{ opacity: 0, y: 12 }}
@@ -691,8 +708,7 @@ function BackToTopFloat() {
             borderColor: "#C8A96E",
           }}
         >
-          <span aria-hidden style={{ marginRight: "0.65em" }}>&uarr;</span>
-          Back to Top
+          <span aria-hidden>&uarr;</span>
         </motion.a>
       )}
     </AnimatePresence>
