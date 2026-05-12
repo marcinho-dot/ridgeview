@@ -62,7 +62,8 @@ export const wines: Wine[] = [
     vintage: "Vintage",
     tastingNotes: ["White Cherry", "Citrus Pith", "Mineral Edge"],
     price: "£60",
-    image: "/products/cavendish.webp",
+    image: "/products/blanc-de-noirs.png",
+    slug: "blanc-de-noirs",
   },
   {
     id: 6,
