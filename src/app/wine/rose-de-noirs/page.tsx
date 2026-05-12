@@ -17,17 +17,16 @@ import { getTestimonial } from "@/data/testimonials";
 import { basePath } from "@/lib/basePath";
 
 // Rosé de Noirs bottle variants — synced 2026-05-12 with ridgeview.co.uk.
-// Vintage 2020 release. Case of 6 was listed at £351 (10% off £390)
-// but flagged "Out of stock" on the cases-of-wine page at sync time,
-// so it is omitted here — single-variant SKU until Case returns to
-// stock (PurchaseWidget hides the FORMAT selector when variants.length===1).
+// Vintage 2020 release. Case of 6 sold as separate listing
+// (/product/rose-de-noirs-case-of-6/) at £351 (10% off £390 list, RA410).
 // No Magnum format on the live shop.
 // Order convention (final, locked 2026-05-12):
 //   Position 1: 75cl Bottle (ALWAYS — drives H1 price + default selection)
 //   Position 2: Magnum (if available) [N/A]
-//   Position 3: Case of 6 (if available — currently OOS, re-add when restocked)
+//   Position 3: Case of 6 (if available)
 const ROSE_DE_NOIRS_VARIANTS: Variant[] = [
   { label: "75cl Bottle", detail: "75cl · 12% ABV · Vintage 2020", price: 65 },
+  { label: "Case of 6", detail: "6 × 75cl · Save 10%", price: 351, badge: "Best value" },
 ];
 
 // ── Animation Helpers ────────────────────────────────────────────────────────
@@ -678,9 +677,11 @@ const SCHEMA_LD = {
   sku: "R2006",
   category: "English Sparkling Wine",
   offers: {
-    "@type": "Offer",
+    "@type": "AggregateOffer",
     priceCurrency: "GBP",
-    price: "65.00",
+    lowPrice: "65.00",
+    highPrice: "351.00",
+    offerCount: "2",
     availability: "https://schema.org/InStock",
     url: "https://ridgeview.vercel.app/wine/rose-de-noirs/",
   },
