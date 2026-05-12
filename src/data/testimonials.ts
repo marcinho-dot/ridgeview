@@ -95,6 +95,7 @@ export const TESTIMONIALS: Record<string, Testimonial> = {
       "Tart strawberries and cream are spelled out joyously on the nose… This is utterly appealing and very, very moreish — despite all its seriousness.",
     author: "Anne Krebiehl MW",
     publication: "Wine Enthusiast",
+    url: "https://www.wineenthusiast.com/buying-guide/ridgeview-estate-2013-rose-de-noirs-sparkling-england/",
   },
 
   "oak-reserve": {
