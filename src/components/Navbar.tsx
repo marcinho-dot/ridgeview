@@ -204,40 +204,71 @@ export function Navbar() {
               }}
             />
 
-            {/* Content stack */}
+            {/* Content stack — restructured 2026-05-12 to bring the
+                action-zone (icons + Wine Club CTA) to the TOP so the
+                user lands on what they can DO immediately when the
+                drawer opens. The menu list sits tight underneath, no
+                wasted vertical padding above or below. */}
             <div className="relative z-10 flex flex-col h-full">
-              {/* Top bar — logo + close */}
+              {/* Top bar — logo + Search/Account icons + Close.
+                  The two utility icons moved up from the bottom so
+                  they're reachable next to the close affordance. */}
               <motion.div
                 className="flex items-center justify-between px-6 py-5 border-b border-white/[0.06]"
                 initial={{ y: -16, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.15, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ delay: 0.12, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               >
                 <RidgeviewBadgeLogo scrolled={false} />
-                <button
-                  aria-label="Close menu"
-                  className="text-white/50 hover:text-[#C8A96E] transition-colors p-1.5"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  <CloseIcon />
-                </button>
+                <div className="flex items-center gap-1">
+                  <button
+                    aria-label="Search"
+                    className="text-white/55 hover:text-[#C8A96E] transition-colors p-2"
+                  >
+                    <SearchIcon />
+                  </button>
+                  <button
+                    aria-label="Account"
+                    className="text-white/55 hover:text-[#C8A96E] transition-colors p-2"
+                  >
+                    <AccountIcon />
+                  </button>
+                  <button
+                    aria-label="Close menu"
+                    className="text-white/55 hover:text-[#C8A96E] transition-colors p-2 ml-1"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    <CloseIcon />
+                  </button>
+                </div>
               </motion.div>
 
-              {/* Eyebrow above menu list */}
-              <motion.p
-                className="font-display italic text-[#C8A96E]/70 tracking-widest px-8 pt-10 md:pt-12"
-                style={{ fontSize: "12px" }}
-                initial={{ opacity: 0, y: 8 }}
+              {/* Wine Club featured CTA — moved up from the bottom.
+                  This is the most important non-navigation action,
+                  now visible immediately when the drawer opens. */}
+              <motion.div
+                className="px-6 py-4 border-b border-white/[0.06]"
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.25, duration: 0.5 }}
+                transition={{ delay: 0.20, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
               >
-                [ Menu · Ridgeview Estate ]
-              </motion.p>
+                <a
+                  href={wineClubHref}
+                  onClick={() => setMenuOpen(false)}
+                  className="btn-cta"
+                  style={{ display: "flex", width: "100%", justifyContent: "center" }}
+                >
+                  Join the Wine Club
+                </a>
+              </motion.div>
 
               {/* Menu items — asymmetric, numbered, editorial TOC.
-                  Each item is a single anchor wrapping the whole row
-                  so the entire 64+px tap target is interactive. */}
-              <div className="flex-1 flex flex-col justify-center px-8 -mt-2">
+                  Sits directly under the CTA bar with a small top
+                  pad. No flex-1 / justify-center on the list (was
+                  the source of the big empty top+bottom padding) —
+                  items stack tightly and the flex-1 spacer below
+                  carries the remaining vertical space. */}
+              <div className="px-8 pt-2">
                 {menuItems.map((link, i) => (
                   <motion.a
                     key={link.label}
@@ -246,9 +277,9 @@ export function Navbar() {
                     className="group block border-b border-white/[0.07] last:border-0 active:bg-white/[0.02] transition-colors"
                     initial={{ opacity: 0, y: 22 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.32 + i * 0.08, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ delay: 0.28 + i * 0.08, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                   >
-                    <div className="flex items-center gap-5 py-5 md:py-6">
+                    <div className="flex items-center gap-5 py-5">
                       {/* Ordinal — small gold number, 01–04 */}
                       <span
                         className="font-display italic text-[#C8A96E]/65 group-hover:text-[#C8A96E] transition-colors duration-400 leading-none flex-shrink-0 self-start mt-3"
@@ -262,7 +293,7 @@ export function Navbar() {
                         <span
                           className="block font-display italic text-cream group-hover:text-white transition-colors duration-400 leading-[1.0]"
                           style={{
-                            fontSize: "clamp(34px, 9vw, 56px)",
+                            fontSize: "clamp(32px, 8vw, 52px)",
                             fontWeight: 400,
                           }}
                         >
@@ -289,46 +320,24 @@ export function Navbar() {
                 ))}
               </div>
 
-              {/* Bottom bar — Wine Club featured CTA + sub-icons +
-                  estate signature. Border-top + slight padding so
-                  the bottom anchors visually without crowding. */}
-              <motion.div
-                className="border-t border-white/[0.06] px-6 pt-6 pb-8"
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.32 + menuItems.length * 0.08 + 0.1, duration: 0.55 }}
-              >
-                <a
-                  href={wineClubHref}
-                  onClick={() => setMenuOpen(false)}
-                  className="btn-cta mb-5"
-                  style={{ display: "flex", width: "100%", justifyContent: "center" }}
-                >
-                  Join the Wine Club
-                </a>
+              {/* Spacer — pushes the signature line to the bottom
+                  of the viewport on tall phones, while the menu
+                  itself stays anchored just under the CTA bar. */}
+              <div className="flex-1" />
 
-                <div className="flex items-center justify-between">
-                  <p
-                    className="font-body text-white/30 uppercase tracking-[0.28em]"
-                    style={{ fontSize: "9px" }}
-                  >
-                    Sussex &middot; Est. 1995
-                  </p>
-                  <div className="flex items-center gap-3">
-                    <button
-                      aria-label="Search"
-                      className="text-white/40 hover:text-[#C8A96E] transition-colors p-2"
-                    >
-                      <SearchIcon />
-                    </button>
-                    <button
-                      aria-label="Account"
-                      className="text-white/40 hover:text-[#C8A96E] transition-colors p-2"
-                    >
-                      <AccountIcon />
-                    </button>
-                  </div>
-                </div>
+              {/* Bottom signature — just the estate strapline. */}
+              <motion.div
+                className="border-t border-white/[0.06] px-6 py-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.28 + menuItems.length * 0.08 + 0.15, duration: 0.5 }}
+              >
+                <p
+                  className="font-body text-white/30 uppercase tracking-[0.28em] text-center"
+                  style={{ fontSize: "9px" }}
+                >
+                  Sussex &middot; Est. 1995
+                </p>
               </motion.div>
             </div>
           </motion.div>
