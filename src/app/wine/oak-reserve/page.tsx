@@ -26,7 +26,7 @@ import { basePath } from "@/lib/basePath";
 // wine + style + cellar story than to hide the SKU entirely).
 const OAK_RESERVE_VARIANTS: Variant[] = [
   { label: "75cl Bottle", detail: "75cl · 12% ABV · Limited Edition", price: 85 },
-  { label: "Case of 6", detail: "6 × 75cl · Save 10%", price: 459, badge: "Best value" },
+  { label: "Case of 6 · 6×75cl", detail: "6 × 75cl · Save 10%", price: 459, badge: "Best value" },
 ];
 
 // ── Animation Helpers ────────────────────────────────────────────────────────

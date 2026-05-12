@@ -26,7 +26,7 @@ import { basePath } from "@/lib/basePath";
 //   Position 3: Case of 6 (if available — "Best value" badge)
 const SPARKLING_RED_VARIANTS: Variant[] = [
   { label: "75cl Bottle", detail: "75cl · 12% ABV · Limited Release", price: 55 },
-  { label: "Case of 6", detail: "6 × 75cl · Save 10%", price: 297, badge: "Best value" },
+  { label: "Case of 6 · 6×75cl", detail: "6 × 75cl · Save 10%", price: 297, badge: "Best value" },
 ];
 
 // ── Animation Helpers ────────────────────────────────────────────────────────
