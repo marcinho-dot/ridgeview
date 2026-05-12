@@ -11,15 +11,21 @@ import { basePath } from "@/lib/basePath";
  * Stacked on mobile.
  *
  * Brand-Voice compliance: only verifiable perks. The OurView club perks
- * sourced from ridgeview.co.uk/ourview/ as of Apr 2026:
+ * sourced from ridgeview.co.uk/ourview/ as of Apr 2026 + the 20% wine
+ * discount verified via every SKU-page PurchaseWidget memberNote
+ * ("20% off for members") on ridgeview.co.uk (2026-05-12):
+ * - 20% off every bottle, case and gift across the range
  * - Complimentary glass at Gingerman Group restaurants (Member + 3 guests)
  * - Complimentary glass at Royal Opera House (seasonal)
  * - 15% off Dr. Wills Natural Condiments
  * - 20% off Piglets Pantry
- * Discount on wines themselves not stated on member-perk page → omitted.
  */
 
 const PERKS = [
+  {
+    label: "20% off every wine",
+    detail: "Members save 20% on every bottle, case and gift across the Ridgeview range — applied automatically at checkout.",
+  },
   {
     label: "First access",
     detail: "Members receive priority release of new vintages and limited editions before public launch.",
