@@ -246,98 +246,14 @@ body::after {
    Transparent background, white border, cream text. On hover the
    border brightens and a gold underline slides outward from the
    center. 4px radius, no arrow. Use this for EVERY primary CTA. */
+/* ─── Primary CTA Button (.btn-cta) — Etched Crystal · Dual-Layer ─────
+   Site-wide primary action style (Add to basket, View All Wines,
+   Discover Membership, etc.). Chosen 2026-05-12 from the V1–V4
+   "Milchglas-Gold" picker as V4.
+   Look: very subtle frosted-glass surface + layered gold edge
+   (outer hairline gold + inner gold-shadow etch) = "cut crystal".
+   Cream text on dark backgrounds. */
 .btn-cta {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  background: transparent;
-  font-family: 'Raleway', system-ui, sans-serif;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-  white-space: nowrap;
-  font-size: 10px;
-  padding: 13px 24px;
-  border-radius: 4px;
-  border: 1px solid rgba(245, 240, 232, 0.7);
-  color: #f5f0e8;
-  cursor: pointer;
-  isolation: isolate;
-  /* `touch-action: manipulation` removes the 300ms tap delay on mobile,
-     so the press feedback lands instantly under the user's finger. */
-  touch-action: manipulation;
-  transition:
-    color 0.35s ease,
-    border-color 0.35s ease,
-    background 0.25s ease,
-    transform 0.18s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    box-shadow 0.18s ease;
-}
-@media (min-width: 768px) {
-  .btn-cta {
-    font-size: 11px;
-    padding: 13px 26px;
-  }
-}
-.btn-cta::after {
-  content: "";
-  position: absolute;
-  left: 14px;
-  right: 14px;
-  bottom: 7px;
-  height: 1px;
-  background: #C8A96E;
-  transform: scaleX(0);
-  transform-origin: center center;
-  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.btn-cta:hover {
-  border-color: #ffffff;
-}
-.btn-cta:hover::after {
-  transform: scaleX(1);
-}
-/* Tactile click feedback — combines four micro-effects so the press
-   feels physical without ever being loud:
-   1. Scale slightly inward (0.97) — finger pressure illusion
-   2. Inset shadow — the surface dips
-   3. Soft warm gold tint behind the text — like a thumbprint glow
-   4. Underline snaps to full width briefly — confirms the action */
-.btn-cta:active {
-  transform: scale(0.97);
-  background: rgba(200, 169, 110, 0.10);
-  border-color: #C8A96E;
-  box-shadow:
-    inset 0 1px 3px rgba(0, 0, 0, 0.35),
-    inset 0 0 0 1px rgba(200, 169, 110, 0.2);
-}
-.btn-cta:active::after {
-  transform: scaleX(1);
-  height: 2px;
-  background: #C8A96E;
-  transition: transform 0.12s ease, height 0.12s ease;
-}
-/* Keyboard accessibility — match the same tactile feedback when an
-   "Enter" press triggers :active via :focus-visible chain on some
-   browsers. Also gives focused state a quiet ring without the bright
-   default outline. */
-.btn-cta:focus-visible {
-  outline: none;
-  border-color: #C8A96E;
-  box-shadow: 0 0 0 2px rgba(200, 169, 110, 0.25);
-}
-
-/* ─── TEMPORARY · Milchglas-Gold Picker (Bloomsbury Hero, 2026-05-12) ──
-   Four "frosted-glass + gold" variants shown side-by-side on the
-   Bloomsbury hero so the user can pick one. Each pushes the gold
-   accent to a different layer of the button:
-     V1 — gold in the BORDER (lightest, refined)
-     V2 — gold in the FILL  (champagne tint already at rest)
-     V3 — gold in the TYPE  (cool milk glass, gold ink)
-     V4 — gold in the ETCH  (dual-border, "cut crystal")
-   After selection the winning variant becomes the new .btn-cta and
-   this block goes away. */
-.btn-glass {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -350,8 +266,18 @@ body::after {
   font-size: 10px;
   padding: 13px 24px;
   border-radius: 4px;
+  background: rgba(245, 240, 232, 0.04);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(200, 169, 110, 0.40);
+  color: #f5f0e8;
+  box-shadow:
+    inset 0 0 0 1px rgba(200, 169, 110, 0.10),
+    inset 0 1px 0 rgba(245, 240, 232, 0.06);
   cursor: pointer;
   isolation: isolate;
+  /* `touch-action: manipulation` removes the 300ms tap delay on mobile,
+     so the press feedback lands instantly under the user's finger. */
   touch-action: manipulation;
   transition:
     color 0.4s ease,
@@ -361,112 +287,12 @@ body::after {
     transform 0.18s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 @media (min-width: 768px) {
-  .btn-glass {
+  .btn-cta {
     font-size: 11px;
     padding: 13px 26px;
   }
 }
-
-/* V1 — Soft Frost · Gold Border. Barely-tinted milk glass with a
-   clean gold frame. Cream text reads as primary. Lightest of the
-   four, most editorial. */
-.btn-glass-v1 {
-  background: rgba(245, 240, 232, 0.06);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
-  backdrop-filter: blur(14px) saturate(140%);
-  border: 1px solid rgba(200, 169, 110, 0.55);
-  color: #f5f0e8;
-}
-.btn-glass-v1:hover {
-  background: rgba(245, 240, 232, 0.10);
-  border-color: #C8A96E;
-  box-shadow:
-    0 0 0 1px rgba(200, 169, 110, 0.20),
-    inset 0 0 24px rgba(200, 169, 110, 0.08);
-}
-.btn-glass-v1:active {
-  transform: scale(0.97);
-  background: rgba(200, 169, 110, 0.14);
-}
-
-/* V2 — Gold-Tinted Glass. Frosted glass that's already warm/gold
-   at rest. Border is cream so the gold reads in the surface, not
-   the frame. Most "champagne-glass" of the four. */
-.btn-glass-v2 {
-  background: linear-gradient(
-    135deg,
-    rgba(200, 169, 110, 0.18) 0%,
-    rgba(200, 169, 110, 0.06) 100%
-  );
-  -webkit-backdrop-filter: blur(16px) saturate(150%);
-  backdrop-filter: blur(16px) saturate(150%);
-  border: 1px solid rgba(245, 240, 232, 0.30);
-  color: #f5f0e8;
-}
-.btn-glass-v2:hover {
-  background: linear-gradient(
-    135deg,
-    rgba(200, 169, 110, 0.28) 0%,
-    rgba(200, 169, 110, 0.12) 100%
-  );
-  border-color: rgba(200, 169, 110, 0.85);
-  box-shadow:
-    0 0 0 1px rgba(200, 169, 110, 0.25),
-    inset 0 0 28px rgba(200, 169, 110, 0.12),
-    0 12px 24px -8px rgba(200, 169, 110, 0.18);
-}
-.btn-glass-v2:active {
-  transform: scale(0.97);
-}
-
-/* V3 — Milk Glass · Gold Type. Coolest variant: neutral milky-white
-   frost (no gold in the surface), gold typography. Gold sits on top
-   like ink on paper. Adds a slide-underline on hover. */
-.btn-glass-v3 {
-  background: rgba(255, 255, 255, 0.07);
-  -webkit-backdrop-filter: blur(18px) saturate(130%);
-  backdrop-filter: blur(18px) saturate(130%);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: #C8A96E;
-}
-.btn-glass-v3::after {
-  content: "";
-  position: absolute;
-  left: 14px;
-  right: 14px;
-  bottom: 7px;
-  height: 1px;
-  background: #C8A96E;
-  transform: scaleX(0);
-  transform-origin: center center;
-  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.btn-glass-v3:hover {
-  background: rgba(255, 255, 255, 0.11);
-  border-color: rgba(255, 255, 255, 0.30);
-  color: #f5f0e8;
-}
-.btn-glass-v3:hover::after {
-  transform: scaleX(1);
-}
-.btn-glass-v3:active {
-  transform: scale(0.97);
-}
-
-/* V4 — Etched Crystal · Dual-Layer. Most luxurious. Very subtle bg
-   but a layered border (outer gold + inset gold shadow) = "etched"
-   feel. Cream text. Reads like cut crystal under candlelight. */
-.btn-glass-v4 {
-  background: rgba(245, 240, 232, 0.04);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
-  backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid rgba(200, 169, 110, 0.40);
-  color: #f5f0e8;
-  box-shadow:
-    inset 0 0 0 1px rgba(200, 169, 110, 0.10),
-    inset 0 1px 0 rgba(245, 240, 232, 0.06);
-}
-.btn-glass-v4:hover {
+.btn-cta:hover {
   background: rgba(245, 240, 232, 0.08);
   border-color: rgba(200, 169, 110, 0.95);
   box-shadow:
@@ -474,8 +300,30 @@ body::after {
     inset 0 1px 0 rgba(245, 240, 232, 0.10),
     0 0 22px -2px rgba(200, 169, 110, 0.16);
 }
-.btn-glass-v4:active {
+/* Tactile click feedback — combines three micro-effects so the press
+   feels physical without ever being loud:
+   1. Scale slightly inward (0.97) — finger pressure illusion
+   2. Inset gold-tinted shadow — the surface "dips" with warm gold
+   3. Border + inset etch glow up to full gold — confirms the action */
+.btn-cta:active {
   transform: scale(0.97);
+  background: rgba(200, 169, 110, 0.12);
+  border-color: #C8A96E;
+  box-shadow:
+    inset 0 0 0 1px rgba(200, 169, 110, 0.50),
+    inset 0 1px 0 rgba(245, 240, 232, 0.12),
+    inset 0 1px 3px rgba(0, 0, 0, 0.20),
+    0 0 28px -2px rgba(200, 169, 110, 0.24);
+}
+/* Keyboard accessibility — quiet gold ring without the bright
+   default focus outline. */
+.btn-cta:focus-visible {
+  outline: none;
+  border-color: #C8A96E;
+  box-shadow:
+    inset 0 0 0 1px rgba(200, 169, 110, 0.30),
+    inset 0 1px 0 rgba(245, 240, 232, 0.10),
+    0 0 0 2px rgba(200, 169, 110, 0.25);
 }
 
 /* ─── Underline-Frame Button Family (used by /buttons showcase) ─────────

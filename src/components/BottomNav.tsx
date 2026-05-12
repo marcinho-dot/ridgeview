@@ -66,17 +66,14 @@ export function BottomNav({ hideWhileVisibleSelector }: BottomNavProps = {}) {
           exit={{ y: "100%", opacity: 0 }}
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
         >
-          <a
-            href={`${basePath}/`}
-            className="font-body text-[10px] text-white/70 uppercase tracking-[0.2em] border border-white/15 rounded-[5px] px-5 py-2.5 hover:border-white/30 hover:text-white/90 active:scale-[0.97] transition-all duration-300"
-          >
+          {/* Both links share .btn-cta (Etched Crystal · Dual-Layer)
+              so the mobile bottom nav matches every other CTA on the
+              site — backdrop-blur milk glass + layered gold edge. */}
+          <a href={`${basePath}/`} className="btn-cta">
             Home
           </a>
 
-          <a
-            href={`${basePath}/#wine-collection`}
-            className="font-body text-[10px] text-white/70 uppercase tracking-[0.2em] border border-white/15 rounded-[5px] px-5 py-2.5 hover:border-[#C8A96E]/40 hover:text-[#C8A96E]/90 active:scale-[0.97] transition-all duration-300"
-          >
+          <a href={`${basePath}/#wine-collection`} className="btn-cta">
             View All Wines
           </a>
         </motion.div>
