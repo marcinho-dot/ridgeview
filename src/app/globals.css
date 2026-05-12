@@ -269,11 +269,19 @@ body::after {
   background: rgba(245, 240, 232, 0.04);
   -webkit-backdrop-filter: blur(20px) saturate(160%);
   backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid rgba(200, 169, 110, 0.40);
+  /* Rest-state border bumped from 0.40 → 0.70 (2026-05-12) so the
+     gold edge reads clearly against #010101 / #0a0a0a / lifestyle-
+     image backgrounds without needing hover to be discoverable.
+     Inner etch + cream top-highlight strengthened to match — keeps
+     the dual-layer "cut crystal" look readable at rest, and the
+     outer hairline shadow gives the button a slight lift off the
+     surface. Hover (0.95) still steps clearly above rest. */
+  border: 1px solid rgba(200, 169, 110, 0.70);
   color: #f5f0e8;
   box-shadow:
-    inset 0 0 0 1px rgba(200, 169, 110, 0.10),
-    inset 0 1px 0 rgba(245, 240, 232, 0.06);
+    inset 0 0 0 1px rgba(200, 169, 110, 0.18),
+    inset 0 1px 0 rgba(245, 240, 232, 0.10),
+    0 0 0 1px rgba(200, 169, 110, 0.06);
   cursor: pointer;
   isolation: isolate;
   /* `touch-action: manipulation` removes the 300ms tap delay on mobile,
@@ -297,13 +305,17 @@ body::after {
     padding: 13px 26px;
   }
 }
+/* Hover bumped 2026-05-12 along with the rest-state border bump
+   (0.40→0.70). Hover now uses full-solid gold + a stronger inset
+   etch + a touch more outer halo so the rest→hover delta stays
+   clearly readable instead of feeling like it just brightens. */
 .btn-cta:hover {
   background: rgba(245, 240, 232, 0.08);
-  border-color: rgba(200, 169, 110, 0.95);
+  border-color: #C8A96E;
   box-shadow:
-    inset 0 0 0 1px rgba(200, 169, 110, 0.30),
-    inset 0 1px 0 rgba(245, 240, 232, 0.10),
-    0 0 22px -2px rgba(200, 169, 110, 0.16);
+    inset 0 0 0 1px rgba(200, 169, 110, 0.42),
+    inset 0 1px 0 rgba(245, 240, 232, 0.14),
+    0 0 24px -2px rgba(200, 169, 110, 0.20);
 }
 
 /* Tactile click feedback — five layered micro-effects on press:
