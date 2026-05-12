@@ -109,4 +109,15 @@ export const wines: Wine[] = [
     image: "/products/still-chardonnay.png",
     slug: "still-chardonnay",
   },
+  {
+    id: 10,
+    name: "Still English Rosé",
+    description:
+      "Ridgeview's debut still rosé — 100% Pinot Précoce from Suffolk and Essex partner vineyards. Light rose-petal hue with watermelon, grapefruit and summer berry aromatics, opening onto peach, cranberry and strawberries-and-cream over a crisp, creamy finish.",
+    vintage: "NV · Limited",
+    tastingNotes: ["Watermelon & Grapefruit", "Peach & Cranberry", "Strawberries & Cream"],
+    price: "£27.50",
+    image: "/products/still-english-rose.png",
+    slug: "still-english-rose",
+  },
 ];
