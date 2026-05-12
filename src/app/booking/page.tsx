@@ -590,19 +590,38 @@ function BackToTopFloat() {
       lastY = currentY;
     };
 
+    // Initial-state check: when the user lands on /booking#visit via
+    // the homepage Hero deep-link, the browser scrolls to the section
+    // BEFORE any scroll event fires inside React. The direction-based
+    // `update()` can't catch that case (no movement = no direction).
+    // This explicit check shows the button if we're already past the
+    // section on mount. Runs both synchronously (in case scroll
+    // happened pre-hydration) and after a short delay (in case the
+    // deep-link scroll settles asynchronously).
+    const checkInitialPosition = () => {
+      const currentY = window.scrollY;
+      const visitTop = visitEl.offsetTop;
+      if (currentY >= visitTop - 200) {
+        setShow(true);
+        lastY = currentY; // sync the baseline so subsequent updates
+                          // don't mistake the deep-link scroll for a
+                          // big downward jump.
+      }
+    };
+    checkInitialPosition();
+    const initTimeout = window.setTimeout(checkInitialPosition, 300);
+
     const onScroll = () => {
       if (rafScheduled) return;
       rafScheduled = true;
       window.requestAnimationFrame(update);
     };
 
-    // Initial check — covers the case where the user lands on
-    // /booking#visit via the homepage Hero deep-link and the page
-    // pre-scrolls to the section before any scroll event fires.
-    update();
-
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.clearTimeout(initTimeout);
+    };
   }, []);
 
   return (
