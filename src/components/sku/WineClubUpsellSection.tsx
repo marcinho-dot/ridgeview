@@ -17,8 +17,11 @@ import { basePath } from "@/lib/basePath";
  * - 20% off every bottle, case and gift across the range
  * - Complimentary glass at Gingerman Group restaurants (Member + 3 guests)
  * - Complimentary glass at Royal Opera House (seasonal)
- * - 15% off Dr. Wills Natural Condiments
- * - 20% off Piglets Pantry
+ * - Rotating discounts with curated Sussex partner brands (kept generic
+ *   so this stays accurate as partner brands change — at sync time the
+ *   active partners were Dr. Wills Natural Condiments + Piglets Pantry,
+ *   but Ridgeview rotates this roster, so the perk is described
+ *   abstractly rather than naming brands).
  */
 
 const PERKS = [
@@ -36,7 +39,7 @@ const PERKS = [
   },
   {
     label: "Curated Sussex partners",
-    detail: "Member-only discounts at Dr. Wills Natural Condiments and Piglets Pantry.",
+    detail: "Member-only discounts with a rotating network of hand-picked Sussex partners — local food, hospitality and lifestyle brands the estate stands behind.",
   },
   {
     label: "Cellar visits",
