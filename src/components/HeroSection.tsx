@@ -160,7 +160,7 @@ export function HeroSection() {
             Shop
           </a>
           <a
-            href={`${basePath}/#heritage`}
+            href={`${basePath}/booking#visit`}
             className="btn-cta"
           >
             Vineyard Booking

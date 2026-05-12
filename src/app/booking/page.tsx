@@ -48,7 +48,9 @@ function PageHeader() {
   const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   return (
-    <section ref={ref} className="relative h-screen w-full overflow-hidden">
+    // `id="top"` lets in-page CTAs (e.g. the Back-to-Top button inside
+    // VisitPanels) anchor reliably to the hero on this page.
+    <section id="top" ref={ref} className="relative h-screen w-full overflow-hidden">
       <motion.div style={{ y: bgY }} className="absolute inset-0">
         {/* Mobile hero — vineyard rows leading toward the South Downs (portrait-friendly crop) */}
         <img
@@ -529,6 +531,21 @@ function VisitPanels() {
         </FadeUp>
 
       </div>
+
+      {/* Back-to-Top — sits at the foot of the Visit section, sends
+          users back to the booking-page hero (`#top` on PageHeader).
+          Same .btn-cta etched-crystal style as every other CTA, with
+          an arrow-up glyph for affordance. (2026-05-12) */}
+      <FadeUp delay={0.1}>
+        <div className="max-w-[960px] mx-auto px-6 md:px-16 pt-2 pb-16 md:pb-24 text-center">
+          <a href="#top" className="btn-cta">
+            <span aria-hidden style={{ marginRight: "0.65em", display: "inline-block" }}>
+              &uarr;
+            </span>
+            Back to Top
+          </a>
+        </div>
+      </FadeUp>
     </section>
   );
 }
