@@ -111,7 +111,7 @@ function ProductHero() {
               </p>
             </FadeUp>
 
-            <div className="overflow-hidden mb-2 md:mb-5 order-2">
+            <div className="overflow-hidden pb-3 md:pb-5 mb-2 md:mb-5 order-2">
               <motion.h1
                 className="font-display italic text-cream leading-[1.02]"
                 style={{ fontSize: "clamp(38px, 6vw, 88px)", fontWeight: 400 }}
