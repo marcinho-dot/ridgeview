@@ -424,7 +424,7 @@ function VisitPanels() {
           <p
             id="visit"
             className="font-display italic text-[#C8A96E] tracking-widest mb-5"
-            style={{ fontSize: "clamp(13px, 1.3vw, 16px)", scrollMarginTop: "80px" }}
+            style={{ fontSize: "clamp(13px, 1.3vw, 16px)", scrollMarginTop: "90px" }}
           >
             [ Book Your Experience ]
           </p>
