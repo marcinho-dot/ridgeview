@@ -180,15 +180,24 @@ function ProductHero() {
 
                 {/* Award Badges (Desktop only) — top-aligned next to widget */}
                 <div className="hidden md:flex items-start gap-6 pt-1" aria-label="Awards">
-                  {/* Sommelier Awards · Sparkling Wine of the Year · 2024 —
-                      most recent + most prestigious recognition, awarded for
-                      the Magnum format but credits the wine itself. */}
-                  <div className="flex flex-col items-center justify-center gap-2.5 h-[clamp(86px,7.5vw,108px)] px-4 border border-[#C8A96E]/35 rounded-md backdrop-blur-md bg-[#C8A96E]/[0.04]">
-                    <p className="font-display italic text-cream text-[clamp(13px,1.1vw,15px)] leading-none whitespace-nowrap">
-                      Sparkling Wine
-                    </p>
-                    <p className="font-body text-white/55 text-[9px] uppercase tracking-[0.22em] whitespace-nowrap">
-                      of the Year <span className="text-[#C8A96E]/70 mx-1">·</span> Sommelier 2024
+                  {/* IWSC 93 Points · 2020 — real badge image (restored
+                      2026-05-12 after Sommelier-2024 typographic stand-in
+                      was retired; the Sommelier win is now text-only in
+                      the Awards list to avoid misleading badge imagery). */}
+                  <div className="flex flex-col items-center gap-2.5">
+                    <motion.img
+                      src={`${basePath}/images/awards/iwsc-93pts-2020.webp`}
+                      alt="IWSC 93 Points — International Wine & Spirit Competition 2020"
+                      title="IWSC 93 Points · 2020"
+                      className="h-[clamp(86px,7.5vw,108px)] w-auto [filter:drop-shadow(0_10px_28px_rgba(0,0,0,0.55))] hover:[filter:drop-shadow(0_14px_36px_rgba(0,0,0,0.65))_drop-shadow(0_0_24px_rgba(200,169,110,0.18))] transition-[filter] duration-500"
+                      loading="lazy"
+                      initial={{ opacity: 0, scale: 0.94, y: 8 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
+                      whileHover={{ scale: 1.04 }}
+                    />
+                    <p className="font-body text-white/50 text-[10px] uppercase tracking-[0.3em] whitespace-nowrap">
+                      IWSC <span className="text-[#C8A96E]/70 mx-1">·</span> 2020
                     </p>
                   </div>
                   {/* Decanter Silver · 2018 */}
@@ -245,13 +254,20 @@ function ProductHero() {
                   higher than the bottle midpoint so it sits in the upper
                   half of the wrapper, where the eye lands first. */}
               <div className="md:hidden absolute left-0 top-[calc(50%-30px)] -translate-y-1/2 flex flex-col gap-4 z-10 pointer-events-none">
-                {/* Mobile: Sommelier 2024 Sparkling Wine of the Year (typographic) */}
-                <div className="flex flex-col items-center justify-center gap-1 h-[clamp(60px,16vw,80px)] px-2.5 border border-[#C8A96E]/35 rounded-md backdrop-blur-md bg-[#C8A96E]/[0.04]">
-                  <p className="font-display italic text-cream text-[10px] leading-none">
-                    Wine of Year
-                  </p>
-                  <p className="font-body text-white/55 text-[7px] uppercase tracking-[0.2em] whitespace-nowrap">
-                    Sommelier · 2024
+                {/* Mobile: IWSC 93 Points · 2020 (restored 2026-05-12) */}
+                <div className="flex flex-col items-center gap-1.5">
+                  <motion.img
+                    src={`${basePath}/images/awards/iwsc-93pts-2020.webp`}
+                    alt="IWSC 93 Points — International Wine & Spirit Competition 2020"
+                    title="IWSC 93 Points · 2020"
+                    className="h-[clamp(60px,16vw,80px)] w-auto [filter:drop-shadow(0_6px_18px_rgba(0,0,0,0.55))]"
+                    loading="lazy"
+                    initial={{ opacity: 0, x: -8, scale: 0.94 }}
+                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
+                  />
+                  <p className="font-body text-white/45 text-[8px] uppercase tracking-[0.28em] whitespace-nowrap">
+                    2020
                   </p>
                 </div>
                 <div className="flex flex-col items-center gap-1.5">
@@ -822,15 +838,17 @@ export default function BloomsburyPage() {
       <ScrollReset>
         <AwardSection
           data={{
-            medal: "Sparkling Wine of the Year",
-            body: "Sommelier Awards",
-            year: 2024,
-            tier: "Category Winner",
-            // No Sommelier-specific badge image; iwsc-95pts-2020-gold.webp
-            // re-used as generic gold-tier visual. Text accurately credits
-            // Sommelier Awards 2024.
-            badgeSrc: "/images/awards/iwsc-95pts-2020-gold.webp",
-            description: "Crowned Sparkling Wine of the Year at the Sommelier Awards 2024 — a peer-judged recognition that also awarded the Bloomsbury Magnum format a Gold medal in the same year. The most recent of Bloomsbury's many accolades, joining Decanter Silver 2018, IWSC Silver Outstanding 2018 and Harpers Star of England 2021.",
+            medal: "Silver",
+            body: "Decanter World Wine Awards",
+            year: 2018,
+            tier: "Highly Recommended",
+            badgeSrc: "/images/awards/decanter-2018-silver.webp",
+            // Featured visual = real Decanter Silver 2018 badge (honest
+            // badge-to-award mapping). The Sommelier 2024 "Sparkling Wine
+            // of the Year" win lives in the Awards-Specs list and SCHEMA_LD
+            // below as text — no real Sommelier badge image is available
+            // and we don't fake one (brand-voice rule "nothing invented").
+            description: "Recognised by the global Decanter judging panel — among many accolades the wine has collected over the years, including Sparkling Wine of the Year and Gold at the Sommelier Awards 2024, IWSC Silver Outstanding 2018, IWSC 93 Points 2020, and Star of England at the Harpers Wine Star Awards 2021.",
           }}
         />
       </ScrollReset>

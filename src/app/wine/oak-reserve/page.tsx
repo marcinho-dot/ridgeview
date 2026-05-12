@@ -6,7 +6,6 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ScrollReset } from "@/components/ScrollReset";
 import { TestimonialSection } from "@/components/sku/TestimonialSection";
-import { AwardSection } from "@/components/sku/AwardSection";
 import { StickyMobileCTA } from "@/components/sku/StickyMobileCTA";
 import { PurchaseWidget, type Variant } from "@/components/sku/PurchaseWidget";
 import { BehindTheBottleSection } from "@/components/sku/BehindTheBottleSection";
@@ -795,19 +794,11 @@ export default function OakReservePage() {
         <ScrollReset><TestimonialSection testimonial={testimonial} /></ScrollReset>
       )}
 
-      <ScrollReset>
-        <AwardSection
-          data={{
-            medal: "Silver",
-            body: "Decanter World Wine Awards",
-            year: 2022,
-            tier: "Recommended",
-            badgeSrc: "/images/awards/decanter-2018-silver.webp",
-            description: "Awarded Silver by the global Decanter judging panel — confirming Oak Reserve as a benchmark for late-disgorged, oak-fermented English Chardonnay. A quarter-century cuvée from the original 1995 plantings.",
-          }}
-        />
-      </ScrollReset>
-
+      {/* AwardSection deliberately omitted for Oak Reserve — the Decanter
+          Silver 2022 award lacks a year-matching badge image and the brand-
+          voice rule "nothing invented" forbids re-using the 2018 silver
+          badge as a stand-in. AwardsSpecsSection below covers the award
+          via text. */}
       <ScrollReset><AwardsSpecsSection /></ScrollReset>
 
       {/* C) Wine Club Upsell */}
