@@ -178,12 +178,23 @@ function ProductHero() {
                   />
                 </div>
 
-                {/* Award Badges (Desktop only) — top-aligned next to widget */}
-                <div className="hidden md:flex items-start gap-6 pt-1" aria-label="Awards">
-                  {/* IWSC 93 Points · 2020 — real badge image (restored
-                      2026-05-12 after Sommelier-2024 typographic stand-in
-                      was retired; the Sommelier win is now text-only in
-                      the Awards list to avoid misleading badge imagery). */}
+                {/* Award Badges (Desktop) — 3-up, newest first. Mix of
+                    real image badges where year-matching imagery exists,
+                    and typographic accolade panels where it doesn't. */}
+                <div className="hidden md:flex items-start gap-5 pt-1 flex-wrap" aria-label="Awards">
+                  {/* Sommelier Awards · Sparkling Wine of the Year · 2024 —
+                      typographic panel (no Sommelier-badge image exists;
+                      panel matches the Cavendish/Fitzrovia/Sparkling Red
+                      typographic-accolade pattern). */}
+                  <div className="flex flex-col items-center justify-center gap-2.5 h-[clamp(86px,7.5vw,108px)] px-4 border border-[#C8A96E]/35 rounded-md backdrop-blur-md bg-[#C8A96E]/[0.04]">
+                    <p className="font-display italic text-cream text-[clamp(13px,1.1vw,15px)] leading-none whitespace-nowrap">
+                      Sparkling Wine
+                    </p>
+                    <p className="font-body text-white/55 text-[9px] uppercase tracking-[0.22em] whitespace-nowrap">
+                      of the Year <span className="text-[#C8A96E]/70 mx-1">·</span> Sommelier 2024
+                    </p>
+                  </div>
+                  {/* IWSC 93 Points · 2020 — real badge image */}
                   <div className="flex flex-col items-center gap-2.5">
                     <motion.img
                       src={`${basePath}/images/awards/iwsc-93pts-2020.webp`}
@@ -193,14 +204,14 @@ function ProductHero() {
                       loading="lazy"
                       initial={{ opacity: 0, scale: 0.94, y: 8 }}
                       animate={{ opacity: 1, scale: 1, y: 0 }}
-                      transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
+                      transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1], delay: 0.74 }}
                       whileHover={{ scale: 1.04 }}
                     />
                     <p className="font-body text-white/50 text-[10px] uppercase tracking-[0.3em] whitespace-nowrap">
                       IWSC <span className="text-[#C8A96E]/70 mx-1">·</span> 2020
                     </p>
                   </div>
-                  {/* Decanter Silver · 2018 */}
+                  {/* Decanter Silver · 2018 — real badge image */}
                   <div className="flex flex-col items-center gap-2.5">
                     <motion.img
                       src={`${basePath}/images/awards/decanter-2018-silver.webp`}
@@ -210,7 +221,7 @@ function ProductHero() {
                       loading="lazy"
                       initial={{ opacity: 0, scale: 0.94, y: 8 }}
                       animate={{ opacity: 1, scale: 1, y: 0 }}
-                      transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1], delay: 0.74 }}
+                      transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1], delay: 0.88 }}
                       whileHover={{ scale: 1.04 }}
                     />
                     <p className="font-body text-white/50 text-[10px] uppercase tracking-[0.3em] whitespace-nowrap">
@@ -253,14 +264,25 @@ function ProductHero() {
                   a micro-caption (year only) underneath. Anchored 30px
                   higher than the bottle midpoint so it sits in the upper
                   half of the wrapper, where the eye lands first. */}
-              <div className="md:hidden absolute left-0 top-[calc(50%-30px)] -translate-y-1/2 flex flex-col gap-4 z-10 pointer-events-none">
-                {/* Mobile: IWSC 93 Points · 2020 (restored 2026-05-12) */}
+              {/* Mobile: 3 stacked accolades — Sommelier typographic + two
+                  real image badges. Centered on midpoint to fit the bottle
+                  wrapper. */}
+              <div className="md:hidden absolute left-0 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-10 pointer-events-none">
+                {/* Sommelier 2024 — Sparkling Wine of the Year (typographic) */}
+                <div className="flex flex-col items-center justify-center gap-1 h-[clamp(54px,14vw,68px)] px-2.5 border border-[#C8A96E]/35 rounded-md backdrop-blur-md bg-[#C8A96E]/[0.04]">
+                  <p className="font-display italic text-cream text-[10px] leading-none">
+                    Wine of Year
+                  </p>
+                  <p className="font-body text-white/55 text-[7px] uppercase tracking-[0.2em] whitespace-nowrap">
+                    Sommelier · 2024
+                  </p>
+                </div>
                 <div className="flex flex-col items-center gap-1.5">
                   <motion.img
                     src={`${basePath}/images/awards/iwsc-93pts-2020.webp`}
                     alt="IWSC 93 Points — International Wine & Spirit Competition 2020"
                     title="IWSC 93 Points · 2020"
-                    className="h-[clamp(60px,16vw,80px)] w-auto [filter:drop-shadow(0_6px_18px_rgba(0,0,0,0.55))]"
+                    className="h-[clamp(54px,14vw,68px)] w-auto [filter:drop-shadow(0_6px_18px_rgba(0,0,0,0.55))]"
                     loading="lazy"
                     initial={{ opacity: 0, x: -8, scale: 0.94 }}
                     animate={{ opacity: 1, x: 0, scale: 1 }}
@@ -275,7 +297,7 @@ function ProductHero() {
                     src={`${basePath}/images/awards/decanter-2018-silver.webp`}
                     alt="Silver — Decanter World Wine Awards 2018"
                     title="Decanter Silver · 2018"
-                    className="h-[clamp(60px,16vw,80px)] w-auto [filter:drop-shadow(0_6px_18px_rgba(0,0,0,0.55))]"
+                    className="h-[clamp(54px,14vw,68px)] w-auto [filter:drop-shadow(0_6px_18px_rgba(0,0,0,0.55))]"
                     loading="lazy"
                     initial={{ opacity: 0, x: -8, scale: 0.94 }}
                     animate={{ opacity: 1, x: 0, scale: 1 }}
