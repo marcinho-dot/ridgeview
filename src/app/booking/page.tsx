@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, ReactNode } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useState, useEffect, ReactNode } from "react";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { BottomNav } from "@/components/BottomNav";
@@ -539,22 +539,91 @@ function VisitPanels() {
         </FadeUp>
 
       </div>
-
-      {/* Back-to-Top — sits at the foot of the Visit section, sends
-          users back to the booking-page hero (`#top` on PageHeader).
-          Same .btn-cta etched-crystal style as every other CTA, with
-          an arrow-up glyph for affordance. (2026-05-12) */}
-      <FadeUp delay={0.1}>
-        <div className="max-w-[960px] mx-auto px-6 md:px-16 pt-2 pb-16 md:pb-24 text-center">
-          <a href="#top" className="btn-cta">
-            <span aria-hidden style={{ marginRight: "0.65em", display: "inline-block" }}>
-              &uarr;
-            </span>
-            Back to Top
-          </a>
-        </div>
-      </FadeUp>
     </section>
+  );
+}
+
+// ── Component: Floating Back-to-Top ──────────────────────────────────────────
+// Smart UX behaviour (locked 2026-05-12):
+//   - Appears when the user reaches the Visit section (`#visit`),
+//     including via the homepage Hero deep-link `/booking#visit`.
+//   - Stays visible while the user keeps scrolling DOWN (past Visit,
+//     into Practical Info, into Footer).
+//   - Hides as soon as the user reverses direction and scrolls UP —
+//     because they're already moving toward the top naturally, the
+//     affordance is redundant and would just be visual clutter.
+//   - Hides again if the user scrolls back above the Visit section.
+//
+// Fixed-position bottom-right. On mobile sits above the BottomNav.
+
+function BackToTopFloat() {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    const visitEl = document.getElementById("visit");
+    if (!visitEl) return;
+
+    let lastY = window.scrollY;
+    let rafScheduled = false;
+
+    const update = () => {
+      rafScheduled = false;
+      const currentY = window.scrollY;
+      // offsetTop is recomputed each tick to survive layout shifts
+      // (image lazy-loads, font swaps shrinking the page above us).
+      const visitTop = visitEl.offsetTop;
+      const pastVisit = currentY >= visitTop - 200;
+      // 4px tolerance so iOS Safari rubber-band bounce doesn't flip
+      // direction on idle scrolling.
+      const scrollingUp = currentY < lastY - 4;
+      const scrollingDown = currentY > lastY + 4;
+
+      if (!pastVisit) {
+        setShow(false);
+      } else if (scrollingUp) {
+        setShow(false);
+      } else if (scrollingDown) {
+        setShow(true);
+      }
+      // No direction → maintain current state (avoids flicker on idle).
+
+      lastY = currentY;
+    };
+
+    const onScroll = () => {
+      if (rafScheduled) return;
+      rafScheduled = true;
+      window.requestAnimationFrame(update);
+    };
+
+    // Initial check — covers the case where the user lands on
+    // /booking#visit via the homepage Hero deep-link and the page
+    // pre-scrolls to the section before any scroll event fires.
+    update();
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <AnimatePresence>
+      {show && (
+        <motion.a
+          href="#top"
+          aria-label="Back to top of page"
+          className="btn-cta fixed right-6 md:right-8 bottom-20 md:bottom-8 z-40"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 12 }}
+          transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <span aria-hidden style={{ marginRight: "0.65em", display: "inline-block" }}>
+            &uarr;
+          </span>
+          Back to Top
+        </motion.a>
+      )}
+    </AnimatePresence>
   );
 }
 
@@ -700,6 +769,7 @@ export default function BookingPage() {
       </main>
       <Footer />
       <BottomNav />
+      <BackToTopFloat />
     </div>
   );
 }
