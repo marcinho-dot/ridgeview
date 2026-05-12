@@ -179,27 +179,18 @@ function ProductHero() {
                   />
                 </div>
 
-                {/* Award Badges (Desktop only) — top-aligned next to widget */}
+                {/* Award Badges (Desktop only) — top-aligned next to widget.
+                    Both typographic (no year-matching Decanter 2022 badge
+                    image available; per badge-honesty rule we omit rather
+                    than re-use a 2018 badge as stand-in). */}
                 <div className="hidden md:flex items-start gap-6 pt-1" aria-label="Awards">
-                  {/* Decanter Silver · 2022 */}
-                  <div className="flex flex-col items-center gap-2.5">
-                    <motion.img
-                      src={`${basePath}/images/awards/decanter-2018-silver.webp`}
-                      alt="Silver — Decanter World Wine Awards 2022"
-                      title="Decanter Silver · 2022"
-                      className="h-[clamp(86px,7.5vw,108px)] w-auto [filter:drop-shadow(0_10px_28px_rgba(0,0,0,0.55))] hover:[filter:drop-shadow(0_14px_36px_rgba(0,0,0,0.65))_drop-shadow(0_0_24px_rgba(200,169,110,0.18))] transition-[filter] duration-500"
-                      loading="lazy"
-                      initial={{ opacity: 0, scale: 0.94, y: 8 }}
-                      animate={{ opacity: 1, scale: 1, y: 0 }}
-                      transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
-                      whileHover={{ scale: 1.04 }}
-                    />
-                    {/* NOTE: Re-using decanter-2018-silver.webp as a stand-in
-                        for the 2022 Silver — visually identical Silver tier,
-                        just earlier year. Swap to a 2022-dated badge when
-                        Ridgeview provides one. */}
-                    <p className="font-body text-white/50 text-[10px] uppercase tracking-[0.3em] whitespace-nowrap">
-                      Decanter <span className="text-[#C8A96E]/70 mx-1">·</span> 2022
+                  {/* Decanter Silver · 2022 — typographic accolade */}
+                  <div className="flex flex-col items-center justify-center gap-2.5 h-[clamp(86px,7.5vw,108px)] px-4 border border-[#C8A96E]/35 rounded-md backdrop-blur-md bg-[#C8A96E]/[0.04]">
+                    <p className="font-display italic text-cream text-[clamp(13px,1.1vw,15px)] leading-none whitespace-nowrap">
+                      Silver
+                    </p>
+                    <p className="font-body text-white/55 text-[9px] uppercase tracking-[0.22em] whitespace-nowrap">
+                      Decanter WWA <span className="text-[#C8A96E]/70 mx-1">·</span> 2022
                     </p>
                   </div>
                   {/* "25-Year Anniversary Release" typographic accolade —
@@ -251,19 +242,13 @@ function ProductHero() {
                   higher than the bottle midpoint so it sits in the upper
                   half of the wrapper, where the eye lands first. */}
               <div className="md:hidden absolute left-0 top-[calc(50%-30px)] -translate-y-1/2 flex flex-col gap-4 z-10 pointer-events-none">
-                <div className="flex flex-col items-center gap-1.5">
-                  <motion.img
-                    src={`${basePath}/images/awards/decanter-2018-silver.webp`}
-                    alt="Silver — Decanter World Wine Awards 2022"
-                    title="Decanter Silver · 2022"
-                    className="h-[clamp(60px,16vw,80px)] w-auto [filter:drop-shadow(0_6px_18px_rgba(0,0,0,0.55))]"
-                    loading="lazy"
-                    initial={{ opacity: 0, x: -8, scale: 0.94 }}
-                    animate={{ opacity: 1, x: 0, scale: 1 }}
-                    transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
-                  />
-                  <p className="font-body text-white/45 text-[8px] uppercase tracking-[0.28em] whitespace-nowrap">
-                    2022
+                {/* Mobile: Decanter Silver 2022 — typographic */}
+                <div className="flex flex-col items-center justify-center gap-1 h-[clamp(60px,16vw,80px)] px-2.5 border border-[#C8A96E]/35 rounded-md backdrop-blur-md bg-[#C8A96E]/[0.04]">
+                  <p className="font-display italic text-cream text-[10px] leading-none">
+                    Silver
+                  </p>
+                  <p className="font-body text-white/55 text-[7px] uppercase tracking-[0.2em] whitespace-nowrap">
+                    Decanter · 2022
                   </p>
                 </div>
                 {/* 25-Year Cuvée · typographic */}

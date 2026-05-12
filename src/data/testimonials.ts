@@ -5,7 +5,7 @@
  * - Alle Quotes sind verbatim (wortwörtlich) aus den genannten Quellen übernommen.
  * - Quelle, Reviewer und Score (falls vorhanden) MÜSSEN beim Anzeigen
  *   klar gekennzeichnet sein (siehe TestimonialSection-Komponente).
- * - Keine Roberts-Family-Zitate (Brand-Voice-Vorgabe).
+ * - Keine Founder-Familienname-Zitate (Brand-Voice-Vorgabe).
  *
  * Hinzugefügt: 2026-05-09 (Recherche via WebSearch + WebFetch).
  */
