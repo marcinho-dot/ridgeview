@@ -183,15 +183,24 @@ function ProductHero() {
                     and typographic accolade panels where it doesn't. */}
                 <div className="hidden md:flex items-start gap-5 pt-1 flex-wrap" aria-label="Awards">
                   {/* Sommelier Awards · Sparkling Wine of the Year · 2024 —
-                      typographic panel (no Sommelier-badge image exists;
-                      panel matches the Cavendish/Fitzrovia/Sparkling Red
-                      typographic-accolade pattern). */}
-                  <div className="flex flex-col items-center justify-center gap-2.5 h-[clamp(86px,7.5vw,108px)] px-4 border border-[#C8A96E]/35 rounded-md backdrop-blur-md bg-[#C8A96E]/[0.04]">
-                    <p className="font-display italic text-cream text-[clamp(13px,1.1vw,15px)] leading-none whitespace-nowrap">
-                      Sparkling Wine
-                    </p>
-                    <p className="font-body text-white/55 text-[9px] uppercase tracking-[0.22em] whitespace-nowrap">
-                      of the Year <span className="text-[#C8A96E]/70 mx-1">·</span> Sommelier 2024
+                      REAL official medal image from sommelierwineawards.com,
+                      saved as sommelier-2024-sparkling-wine-of-year.webp.
+                      Replaced typographic panel 2026-05-12 once the authentic
+                      badge was located. */}
+                  <div className="flex flex-col items-center gap-2.5">
+                    <motion.img
+                      src={`${basePath}/images/awards/sommelier-2024-sparkling-wine-of-year.webp`}
+                      alt="Sparkling Wine of the Year — SWA Trophy, Sommelier Wine Awards 2024"
+                      title="Sommelier Wine Awards · Sparkling Wine of the Year · 2024"
+                      className="h-[clamp(86px,7.5vw,108px)] w-auto [filter:drop-shadow(0_10px_28px_rgba(0,0,0,0.55))] hover:[filter:drop-shadow(0_14px_36px_rgba(0,0,0,0.65))_drop-shadow(0_0_24px_rgba(200,169,110,0.18))] transition-[filter] duration-500"
+                      loading="lazy"
+                      initial={{ opacity: 0, scale: 0.94, y: 8 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
+                      whileHover={{ scale: 1.04 }}
+                    />
+                    <p className="font-body text-white/50 text-[10px] uppercase tracking-[0.3em] whitespace-nowrap">
+                      Sommelier <span className="text-[#C8A96E]/70 mx-1">·</span> 2024
                     </p>
                   </div>
                   {/* IWSC 93 Points · 2020 — real badge image */}
@@ -268,13 +277,20 @@ function ProductHero() {
                   real image badges. Centered on midpoint to fit the bottle
                   wrapper. */}
               <div className="md:hidden absolute left-0 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-10 pointer-events-none">
-                {/* Sommelier 2024 — Sparkling Wine of the Year (typographic) */}
-                <div className="flex flex-col items-center justify-center gap-1 h-[clamp(54px,14vw,68px)] px-2.5 border border-[#C8A96E]/35 rounded-md backdrop-blur-md bg-[#C8A96E]/[0.04]">
-                  <p className="font-display italic text-cream text-[10px] leading-none">
-                    Wine of Year
-                  </p>
-                  <p className="font-body text-white/55 text-[7px] uppercase tracking-[0.2em] whitespace-nowrap">
-                    Sommelier · 2024
+                {/* Sommelier 2024 — REAL Sparkling Wine of the Year badge */}
+                <div className="flex flex-col items-center gap-1.5">
+                  <motion.img
+                    src={`${basePath}/images/awards/sommelier-2024-sparkling-wine-of-year.webp`}
+                    alt="Sparkling Wine of the Year — SWA Trophy 2024"
+                    title="Sommelier Wine Awards · Sparkling Wine of the Year · 2024"
+                    className="h-[clamp(54px,14vw,68px)] w-auto [filter:drop-shadow(0_6px_18px_rgba(0,0,0,0.55))]"
+                    loading="lazy"
+                    initial={{ opacity: 0, x: -8, scale: 0.94 }}
+                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.38 }}
+                  />
+                  <p className="font-body text-white/45 text-[8px] uppercase tracking-[0.28em] whitespace-nowrap">
+                    2024
                   </p>
                 </div>
                 <div className="flex flex-col items-center gap-1.5">
