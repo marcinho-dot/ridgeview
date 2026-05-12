@@ -636,25 +636,43 @@ function BackToTopFloat() {
     };
   }, []);
 
+  // DEBUG 2026-05-13: render with inline styles bypassing .btn-cta
+  // entirely + log mount + always-visible. If still nothing visible,
+  // the issue is at the React/render layer (component not mounting,
+  // suppressed, etc.) not CSS.
+  if (typeof window !== "undefined") {
+    console.log("[BackToTopFloat] rendering, show =", show);
+  }
   return (
-    <AnimatePresence>
-      {show && (
-        <motion.a
-          href="#top"
-          aria-label="Back to top of page"
-          className="btn-cta fixed right-6 md:right-8 bottom-20 md:bottom-8 z-40"
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 12 }}
-          transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <span aria-hidden style={{ marginRight: "0.65em", display: "inline-block" }}>
-            &uarr;
-          </span>
-          Back to Top
-        </motion.a>
-      )}
-    </AnimatePresence>
+    <a
+      href="#top"
+      aria-label="Back to top of page"
+      style={{
+        position: "fixed",
+        right: "24px",
+        bottom: "80px",
+        zIndex: 9999,
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "rgba(245, 240, 232, 0.06)",
+        backdropFilter: "blur(20px) saturate(160%)",
+        WebkitBackdropFilter: "blur(20px) saturate(160%)",
+        border: "1px solid rgba(200, 169, 110, 0.95)",
+        boxShadow: "0 0 24px -2px rgba(200, 169, 110, 0.35)",
+        color: "#f5f0e8",
+        fontFamily: "Raleway, system-ui, sans-serif",
+        fontSize: "11px",
+        letterSpacing: "0.22em",
+        textTransform: "uppercase",
+        padding: "13px 26px",
+        borderRadius: "4px",
+        textDecoration: "none",
+      }}
+    >
+      <span aria-hidden style={{ marginRight: "0.65em" }}>↑</span>
+      Back to Top
+    </a>
   );
 }
 
