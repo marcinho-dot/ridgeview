@@ -557,7 +557,12 @@ function VisitPanels() {
 // Fixed-position bottom-right. On mobile sits above the BottomNav.
 
 function BackToTopFloat() {
-  const [show, setShow] = useState(false);
+  // DEBUG 2026-05-13: starting `show` as true so we can verify the
+  // button renders and positions correctly at all. If you see a
+  // gold "↑ Back to Top" pill bottom-right on /booking, rendering
+  // is fine — bug is in the visibility logic. Once verified, this
+  // initial value reverts to `false`.
+  const [show, setShow] = useState(true);
 
   useEffect(() => {
     const visitEl = document.getElementById("visit");
