@@ -279,12 +279,17 @@ body::after {
   /* `touch-action: manipulation` removes the 300ms tap delay on mobile,
      so the press feedback lands instantly under the user's finger. */
   touch-action: manipulation;
+  /* DEFAULT (= release) transition. On release the button springs back:
+     transform uses an over-shoot bezier so scale 0.95 → 1.0 briefly
+     pops to ~1.03 then settles. That spring IS the click-confirmation
+     animation. Color/box-shadow ride a normal ease so the gold
+     fades back smoothly. */
   transition:
-    color 0.4s ease,
-    border-color 0.4s ease,
-    background 0.4s ease,
-    box-shadow 0.4s ease,
-    transform 0.18s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    color 0.35s ease,
+    border-color 0.40s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 @media (min-width: 768px) {
   .btn-cta {
@@ -301,48 +306,33 @@ body::after {
     0 0 22px -2px rgba(200, 169, 110, 0.16);
 }
 
-/* Gold underline confirm-tick — invisible at rest (scaleX 0), snaps
-   to full width on :active, retracts on release. Crucial click
-   feedback on touch devices where there is no :hover state. */
-.btn-cta::after {
-  content: "";
-  position: absolute;
-  left: 14px;
-  right: 14px;
-  bottom: 6px;
-  height: 1.5px;
-  background: #C8A96E;
-  transform: scaleX(0);
-  transform-origin: center center;
-  transition: transform 0.20s cubic-bezier(0.16, 1, 0.3, 1);
-  pointer-events: none;
-  border-radius: 1px;
-  opacity: 0.85;
-}
-
-/* Tactile click feedback — six layered micro-effects so the press
-   feels physical without ever being loud:
-   1. Scale inward (0.97) — finger pressure illusion
-   2. Warm-gold tint behind text (0.18) — thumbprint glow
+/* Tactile click feedback — five layered micro-effects on press:
+   1. Scale inward (0.95) — finger pressure illusion
+   2. Warm-gold tint behind text (0.20) — thumbprint glow
    3. Border + inset etch jump to full gold — visual confirmation
    4. Deep inset dip-shadow — the surface dents inward
-   5. Outer gold halo (32px) — light spills around the press
-   6. Underline tick snaps to full width — confirmation "click" */
+   5. Outer gold halo (34px) — light spills around the press
+
+   IMPORTANT: this rule also OVERRIDES the default transition so the
+   press-in is INSTANT (0.06–0.10s), while the release uses the
+   default spring transition (0.38s overshoot bezier) — the result is
+   that letting go feels like the button "bounces back through" rest
+   and settles, which reads as a clear confirmation animation. */
 .btn-cta:active {
-  transform: scale(0.97);
-  background: rgba(200, 169, 110, 0.18);
+  transform: scale(0.95);
+  background: rgba(200, 169, 110, 0.20);
   border-color: #C8A96E;
   box-shadow:
     inset 0 0 0 1px rgba(200, 169, 110, 0.55),
     inset 0 1px 0 rgba(245, 240, 232, 0.14),
     inset 0 1px 4px rgba(0, 0, 0, 0.25),
-    0 0 32px -2px rgba(200, 169, 110, 0.30);
-}
-.btn-cta:active::after {
-  transform: scaleX(1);
-  /* Snap-in fast (0.10s) — feels like a click; retract uses the
-     default 0.20s so the release feels gentle, not abrupt. */
-  transition-duration: 0.10s;
+    0 0 34px -2px rgba(200, 169, 110, 0.32);
+  transition:
+    color 0.12s ease,
+    border-color 0.10s ease,
+    background 0.08s ease,
+    box-shadow 0.10s ease,
+    transform 0.07s ease-out;
 }
 
 /* Keyboard accessibility — quiet gold ring without the bright
