@@ -141,10 +141,14 @@ export function HeroSection() {
           </div>
         </motion.div>
 
-        {/* Primary CTA — same gold-tinted high-contrast style as the SKU
-            "Add to basket" button for visual consistency across the site. */}
+        {/* Primary CTAs — two equal-weight buttons sharing the
+            etched-crystal .btn-cta style. The labels map 1:1 onto the
+            new four-item header menu (Shop · Vineyard) so the hero
+            entry-points and the navbar tell the same story. On
+            narrow screens they wrap to a stack via flex-wrap so the
+            second button never overflows. */}
         <motion.div
-          className="mt-5"
+          className="mt-5 flex flex-wrap items-center gap-3"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2.25, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
@@ -153,7 +157,13 @@ export function HeroSection() {
             href={`${basePath}/#wine-collection`}
             className="btn-cta"
           >
-            View all Wines
+            Shop
+          </a>
+          <a
+            href={`${basePath}/#heritage`}
+            className="btn-cta"
+          >
+            Vineyard Booking
           </a>
         </motion.div>
       </div>

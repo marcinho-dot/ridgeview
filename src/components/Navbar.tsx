@@ -12,25 +12,40 @@ function getLinks(isOffHome: boolean) {
   // hash resolves against the current route and silently does nothing.
   const anchor = (hash: string) => isOffHome ? `${basePath}/${hash}` : hash;
 
-  // Desktop nav: simple text links (link-underline style), no standalone CTA button.
-  const desktop = [
-    { label: "Home", href: `${basePath}/` },
-    { label: "Vineyard Bookings", href: `${basePath}/booking` },
-    { label: "View all Wines", href: anchor("#wine-collection") },
+  // Primary menu — four items, identical structure across desktop +
+  // mobile (locked 2026-05-12). Each has a `kicker` line that only
+  // renders in the mobile drawer (editorial / magazine TOC pattern).
+  //
+  // Beyond the Bottle currently points at `#beyond-the-bottle` as a
+  // placeholder — that page is the next build (article collection
+  // pulled from the legacy site). Once /beyond-the-bottle/ exists,
+  // swap the href.
+  const items = [
+    {
+      label: "Home",
+      kicker: "Sussex estate landing",
+      href: `${basePath}/`,
+    },
+    {
+      label: "Shop",
+      kicker: "Ten award-winning wines",
+      href: anchor("#wine-collection"),
+    },
+    {
+      label: "Vineyard",
+      kicker: "Tours, tastings & private events",
+      href: `${basePath}/booking`,
+    },
+    {
+      label: "Beyond the Bottle",
+      kicker: "Articles & inspiration",
+      href: anchor("#beyond-the-bottle"),
+    },
   ];
 
   const wineClubHref = anchor("#ourview");
 
-  const mobile = [
-    { label: "Home", href: `${basePath}/` },
-    { label: "View all Wines", href: anchor("#wine-collection") },
-    { label: "Vineyard Bookings", href: `${basePath}/booking` },
-    { label: "Wine Club", href: anchor("#ourview") },
-    { label: "Our Story", href: anchor("#heritage") },
-    { label: "Contact", href: anchor("#footer") },
-  ];
-
-  return { desktop, mobile, wineClubHref };
+  return { items, wineClubHref };
 }
 
 export function Navbar() {
@@ -63,7 +78,7 @@ export function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
-  const { desktop: desktopLinks, mobile: mobileLinks, wineClubHref } = getLinks(isOffHome);
+  const { items: menuItems, wineClubHref } = getLinks(isOffHome);
 
   // The Booking (Vineyard) page starts with the milk-glass treatment by
   // default — the aerial hero image is busy and the header would disappear
@@ -80,10 +95,12 @@ export function Navbar() {
             : "py-5 md:py-6 bg-transparent"
         }`}
       >
-        {/* Left links — desktop. All entries use the same link-underline
-            text style (no standalone gold CTA). Home + Vineyard Bookings. */}
+        {/* Left links — desktop. Four-item structure (Home, Shop,
+            Vineyard, Beyond the Bottle) mirrored in the mobile drawer.
+            All entries share the same link-underline text style —
+            no standalone gold CTA. Wine Club lives on the right. */}
         <div className="hidden md:flex items-center gap-7">
-          {desktopLinks.map(({ label, href }) => (
+          {menuItems.map(({ label, href }) => (
             <a
               key={label}
               href={href}
@@ -142,60 +159,178 @@ export function Navbar() {
         </div>
       </nav>
 
-      {/* ── Mobile Fullscreen Menu ── */}
+      {/* ── Mobile Editorial Drawer ────────────────────────────────
+          Design direction (frontend-design + ui-ux-pro-max):
+          Asymmetric left-aligned magazine TOC layout. Each menu item
+          is a numbered editorial entry — gold ordinal (01–04) +
+          Cormorant italic label + small Raleway kicker + gold arrow
+          cue. The whole drawer rides on a deep-black canvas with a
+          warm gold radial glow in the upper-right and a subtle
+          grain-noise feel from the live `body::after` filter.
+          Bottom anchors a featured Wine Club CTA (.btn-cta, etched
+          crystal) plus search/account as quiet sub-icons + the
+          estate signature line.
+
+          Animation cascade: backdrop fades → top bar drops → menu
+          items stagger up from below → bottom bar settles last. */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className="fixed inset-0 z-[100] flex flex-col"
-            style={{ backgroundColor: "#080808" }}
-            initial={{ opacity: 0, clipPath: "inset(0 0 100% 0)" }}
-            animate={{ opacity: 1, clipPath: "inset(0 0 0% 0)" }}
-            exit={{ opacity: 0, clipPath: "inset(0 0 100% 0)" }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed inset-0 z-[100] flex flex-col overflow-hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
           >
-            {/* Top bar */}
-            <div className="flex items-center justify-between px-6 py-5 border-b border-white/[0.06]">
-              <RidgeviewBadgeLogo scrolled={false} />
-              <button aria-label="Close menu" className="text-white/55 hover:text-white transition-colors p-1"
-                onClick={() => setMenuOpen(false)}>
-                <CloseIcon />
-              </button>
-            </div>
+            {/* Base black canvas */}
+            <div className="absolute inset-0 bg-[#050505]" />
 
-            {/* Links */}
-            <div className="flex-1 flex flex-col items-center justify-center gap-0 px-8">
-              {mobileLinks.map((link, i) => (
-                <motion.div key={link.label} className="w-full overflow-hidden border-b border-white/[0.06] last:border-0"
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.08 + i * 0.08, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+            {/* Atmospheric gold radial — upper-right glow, evokes
+                a candlelit cellar window. Pointer-events:none so it
+                never blocks taps. */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(ellipse 65% 55% at 82% 18%, rgba(200,169,110,0.08) 0%, transparent 65%)",
+              }}
+            />
+            {/* Secondary cool radial — lower-left, very subtle */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(ellipse 55% 45% at 0% 100%, rgba(255,255,255,0.025) 0%, transparent 60%)",
+              }}
+            />
+
+            {/* Content stack */}
+            <div className="relative z-10 flex flex-col h-full">
+              {/* Top bar — logo + close */}
+              <motion.div
+                className="flex items-center justify-between px-6 py-5 border-b border-white/[0.06]"
+                initial={{ y: -16, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.15, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <RidgeviewBadgeLogo scrolled={false} />
+                <button
+                  aria-label="Close menu"
+                  className="text-white/50 hover:text-[#C8A96E] transition-colors p-1.5"
+                  onClick={() => setMenuOpen(false)}
                 >
-                  <a
-                    href={link.href}
-                    className="font-display text-white/70 hover:text-white transition-colors py-4 w-full text-center block"
-                    style={{ fontSize: "clamp(28px, 7vw, 48px)", fontStyle: "italic", fontWeight: 400, letterSpacing: "0.02em" }}
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    {link.label}
-                  </a>
-                </motion.div>
-              ))}
-            </div>
+                  <CloseIcon />
+                </button>
+              </motion.div>
 
-            {/* Bottom */}
-            <motion.div
-              className="flex items-center justify-center gap-6 pb-10 border-t border-white/[0.06] pt-6"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.55, duration: 0.4 }}
-            >
-              <button aria-label="Search" className="text-white/40 hover:text-white transition-colors p-2">
-                <SearchIcon />
-              </button>
-              <button aria-label="Account" className="text-white/40 hover:text-white transition-colors p-2">
-                <AccountIcon />
-              </button>
-            </motion.div>
+              {/* Eyebrow above menu list */}
+              <motion.p
+                className="font-display italic text-[#C8A96E]/70 tracking-widest px-8 pt-10 md:pt-12"
+                style={{ fontSize: "12px" }}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.25, duration: 0.5 }}
+              >
+                [ Menu · Ridgeview Estate ]
+              </motion.p>
+
+              {/* Menu items — asymmetric, numbered, editorial TOC.
+                  Each item is a single anchor wrapping the whole row
+                  so the entire 64+px tap target is interactive. */}
+              <div className="flex-1 flex flex-col justify-center px-8 -mt-2">
+                {menuItems.map((link, i) => (
+                  <motion.a
+                    key={link.label}
+                    href={link.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="group block border-b border-white/[0.07] last:border-0 active:bg-white/[0.02] transition-colors"
+                    initial={{ opacity: 0, y: 22 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.32 + i * 0.08, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    <div className="flex items-center gap-5 py-5 md:py-6">
+                      {/* Ordinal — small gold number, 01–04 */}
+                      <span
+                        className="font-display italic text-[#C8A96E]/65 group-hover:text-[#C8A96E] transition-colors duration-400 leading-none flex-shrink-0 self-start mt-3"
+                        style={{ fontSize: "13px", letterSpacing: "0.08em" }}
+                      >
+                        0{i + 1}
+                      </span>
+
+                      {/* Label + kicker — slides slightly right on hover */}
+                      <div className="flex-1 transition-transform duration-500 ease-out group-hover:translate-x-1.5">
+                        <span
+                          className="block font-display italic text-cream group-hover:text-white transition-colors duration-400 leading-[1.0]"
+                          style={{
+                            fontSize: "clamp(34px, 9vw, 56px)",
+                            fontWeight: 400,
+                          }}
+                        >
+                          {link.label}
+                        </span>
+                        <span
+                          className="block font-body text-white/35 group-hover:text-white/65 uppercase tracking-[0.24em] mt-2.5 transition-colors duration-400"
+                          style={{ fontSize: "10px" }}
+                        >
+                          {link.kicker}
+                        </span>
+                      </div>
+
+                      {/* Arrow cue — gold, slides right on hover */}
+                      <span
+                        aria-hidden
+                        className="text-[#C8A96E]/35 group-hover:text-[#C8A96E] flex-shrink-0 self-center transition-all duration-500 group-hover:translate-x-1.5"
+                        style={{ fontSize: "20px", lineHeight: 1 }}
+                      >
+                        &rarr;
+                      </span>
+                    </div>
+                  </motion.a>
+                ))}
+              </div>
+
+              {/* Bottom bar — Wine Club featured CTA + sub-icons +
+                  estate signature. Border-top + slight padding so
+                  the bottom anchors visually without crowding. */}
+              <motion.div
+                className="border-t border-white/[0.06] px-6 pt-6 pb-8"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.32 + menuItems.length * 0.08 + 0.1, duration: 0.55 }}
+              >
+                <a
+                  href={wineClubHref}
+                  onClick={() => setMenuOpen(false)}
+                  className="btn-cta mb-5"
+                  style={{ display: "flex", width: "100%", justifyContent: "center" }}
+                >
+                  Join the Wine Club
+                </a>
+
+                <div className="flex items-center justify-between">
+                  <p
+                    className="font-body text-white/30 uppercase tracking-[0.28em]"
+                    style={{ fontSize: "9px" }}
+                  >
+                    Sussex &middot; Est. 1995
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <button
+                      aria-label="Search"
+                      className="text-white/40 hover:text-[#C8A96E] transition-colors p-2"
+                    >
+                      <SearchIcon />
+                    </button>
+                    <button
+                      aria-label="Account"
+                      className="text-white/40 hover:text-[#C8A96E] transition-colors p-2"
+                    >
+                      <AccountIcon />
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
