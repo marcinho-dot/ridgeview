@@ -103,6 +103,7 @@ export const TESTIMONIALS: Record<string, Testimonial> = {
       "One of the most memorable and distinctive English sparkling wines to be released so far…",
     author: "John Mobbs",
     publication: "Great British Wine",
+    url: "https://www.greatbritishwine.com/articles/ridgeview-launches-oak-reserve-nv/",
   },
 
   "red-reserve": {

@@ -84,7 +84,8 @@ export const wines: Wine[] = [
     vintage: "Limited Edition",
     tastingNotes: ["Vanilla Oak", "Golden Apple", "Toasted Brioche"],
     price: "£85",
-    image: "/products/blanc-de-blancs.png",
+    image: "/products/oak-reserve.png",
+    slug: "oak-reserve",
   },
   {
     id: 8,
