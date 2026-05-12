@@ -16,14 +16,12 @@ import { FAQSection } from "@/components/sku/FAQSection";
 import { getTestimonial } from "@/data/testimonials";
 import { basePath } from "@/lib/basePath";
 
-// Bloomsbury bottle variants — synced 2026-05-11 with ridgeview.co.uk.
-// Bloomsbury bottle variants — synced 2026-05-11 with ridgeview.co.uk.
+// Cavendish bottle variants — synced 2026-05-12 with ridgeview.co.uk.
+// Sold only as single bottle at the source (no Magnum / Case listing).
 // Order convention (locked 2026-05-12): expensive → cheap. variants[0]
 // (most expensive) is the default selected option; drives the H1 price.
-const BLOOMSBURY_VARIANTS: Variant[] = [
-  { label: "Case of 6", detail: "6 × 75cl · Save 10%", price: 183.6, badge: "Best value" },
-  { label: "Magnum", detail: "1.5L · 12% ABV · Cellar size", price: 85 },
-  { label: "75cl Bottle", detail: "75cl · 12% ABV", price: 34 },
+const CAVENDISH_VARIANTS: Variant[] = [
+  { label: "75cl Bottle", detail: "75cl · 12% ABV · NV", price: 36 },
 ];
 
 // ── Animation Helpers ────────────────────────────────────────────────────────
@@ -95,7 +93,7 @@ function ProductHero() {
             <span className="mx-3 text-white/20">/</span>
             <a href={`${basePath}/#wine-collection`} className="link-underline hover:text-[#C8A96E] transition-colors duration-500">Shop</a>
             <span className="mx-3 text-white/20">/</span>
-            <span className="text-white/55">Bloomsbury</span>
+            <span className="text-white/55">Cavendish</span>
           </p>
         </FadeUp>
 
@@ -111,7 +109,7 @@ function ProductHero() {
                 className="font-display italic text-[#C8A96E] tracking-widest mb-5"
                 style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
               >
-                [ Non Vintage · House Cuvée ]
+                [ Non Vintage · Classic Cuvée ]
               </p>
             </FadeUp>
 
@@ -123,7 +121,7 @@ function ProductHero() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 1.1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               >
-                <span className="text-[#C8A96E]">Bloomsbury</span>
+                <span className="text-[#C8A96E]">Cavendish</span>
               </motion.h1>
             </div>
 
@@ -132,7 +130,7 @@ function ProductHero() {
                 className="font-display italic text-white/85 mb-3 md:mb-5"
                 style={{ fontSize: "clamp(18px, 2vw, 26px)", fontWeight: 400, lineHeight: 1.35 }}
               >
-                Official wine of the Queen&rsquo;s Diamond Jubilee
+                Our traditional Classic Method blend
               </p>
             </FadeUp>
 
@@ -153,11 +151,11 @@ function ProductHero() {
                 className="font-body text-white/70 mb-4 md:mb-6"
                 style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, lineHeight: 1.75, maxWidth: "540px" }}
               >
-                Bright, fresh and fruit-driven with vibrant citrus aromas and notes of lemon zest,
-                green apple and honey. Our bestselling blend epitomises the Classic Method English
-                style &mdash; structured and bright, with crisp green apple and citrus layered
-                with toasted almond and buttery pastry, finishing fresh and moreish with a touch
-                of saline minerality.
+                Our flagship Classic Method blend &mdash; Pinot Noir and Pinot Meunier
+                weave through Chardonnay to give depth, weight and finesse. Bright
+                red berry aromas open onto a palate of toasted almond, raspberry
+                frangipane and subtle bergamot orange, finishing with the saline
+                acidity that only Sussex chalk can deliver.
               </p>
             </FadeUp>
 
@@ -169,7 +167,7 @@ function ProductHero() {
                 {/* Stateful purchase block — variant + qty + free-shipping bar + ATB */}
                 <div className="flex-1 max-w-[480px]">
                   <PurchaseWidget
-                    variants={BLOOMSBURY_VARIANTS}
+                    variants={CAVENDISH_VARIANTS}
                     freeShippingThreshold={45}
                     ctaId="hero-mobile-cta"
                   />
@@ -177,12 +175,12 @@ function ProductHero() {
 
                 {/* Award Badges (Desktop only) — top-aligned next to widget */}
                 <div className="hidden md:flex items-start gap-6 pt-1" aria-label="Awards">
-                  {/* IWSC 93 Points · 2020 */}
+                  {/* Decanter Silver · 2017 */}
                   <div className="flex flex-col items-center gap-2.5">
                     <motion.img
-                      src={`${basePath}/images/awards/iwsc-93pts-2020.webp`}
-                      alt="IWSC 93 Points — International Wine & Spirit Competition 2020"
-                      title="IWSC 93 Points · 2020"
+                      src={`${basePath}/images/awards/decanter-2017-silver.webp`}
+                      alt="Silver — Decanter World Wine Awards 2017"
+                      title="Decanter Silver · 2017"
                       className="h-[clamp(86px,7.5vw,108px)] w-auto [filter:drop-shadow(0_10px_28px_rgba(0,0,0,0.55))] hover:[filter:drop-shadow(0_14px_36px_rgba(0,0,0,0.65))_drop-shadow(0_0_24px_rgba(200,169,110,0.18))] transition-[filter] duration-500"
                       loading="lazy"
                       initial={{ opacity: 0, scale: 0.94, y: 8 }}
@@ -191,24 +189,18 @@ function ProductHero() {
                       whileHover={{ scale: 1.04 }}
                     />
                     <p className="font-body text-white/50 text-[10px] uppercase tracking-[0.3em] whitespace-nowrap">
-                      IWSC <span className="text-[#C8A96E]/70 mx-1">·</span> 2020
+                      Decanter <span className="text-[#C8A96E]/70 mx-1">·</span> 2017
                     </p>
                   </div>
-                  {/* Decanter Silver · 2018 */}
-                  <div className="flex flex-col items-center gap-2.5">
-                    <motion.img
-                      src={`${basePath}/images/awards/decanter-2018-silver.webp`}
-                      alt="Silver — Decanter World Wine Awards 2018"
-                      title="Decanter Silver · 2018"
-                      className="h-[clamp(86px,7.5vw,108px)] w-auto [filter:drop-shadow(0_10px_28px_rgba(0,0,0,0.55))] hover:[filter:drop-shadow(0_14px_36px_rgba(0,0,0,0.65))_drop-shadow(0_0_24px_rgba(200,169,110,0.18))] transition-[filter] duration-500"
-                      loading="lazy"
-                      initial={{ opacity: 0, scale: 0.94, y: 8 }}
-                      animate={{ opacity: 1, scale: 1, y: 0 }}
-                      transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1], delay: 0.74 }}
-                      whileHover={{ scale: 1.04 }}
-                    />
-                    <p className="font-body text-white/50 text-[10px] uppercase tracking-[0.3em] whitespace-nowrap">
-                      Decanter <span className="text-[#C8A96E]/70 mx-1">·</span> 2018
+                  {/* UK Government's Most-Poured Sparkling Wine · 2024 — typographic
+                      accolade (no medal image); rendered as a gold-stroked panel to
+                      visually balance the single Decanter badge. */}
+                  <div className="flex flex-col items-center justify-center gap-2.5 h-[clamp(86px,7.5vw,108px)] px-4 border border-[#C8A96E]/35 rounded-md backdrop-blur-md bg-[#C8A96E]/[0.04]">
+                    <p className="font-display italic text-cream text-[clamp(13px,1.1vw,15px)] leading-none whitespace-nowrap">
+                      Most-Poured
+                    </p>
+                    <p className="font-body text-white/55 text-[9px] uppercase tracking-[0.22em] whitespace-nowrap">
+                      UK Government <span className="text-[#C8A96E]/70 mx-1">·</span> 2024
                     </p>
                   </div>
                 </div>
@@ -250,9 +242,9 @@ function ProductHero() {
               <div className="md:hidden absolute left-0 top-[calc(50%-30px)] -translate-y-1/2 flex flex-col gap-4 z-10 pointer-events-none">
                 <div className="flex flex-col items-center gap-1.5">
                   <motion.img
-                    src={`${basePath}/images/awards/iwsc-93pts-2020.webp`}
-                    alt="IWSC 93 Points — International Wine & Spirit Competition 2020"
-                    title="IWSC 93 Points · 2020"
+                    src={`${basePath}/images/awards/decanter-2017-silver.webp`}
+                    alt="Silver — Decanter World Wine Awards 2017"
+                    title="Decanter Silver · 2017"
                     className="h-[clamp(60px,16vw,80px)] w-auto [filter:drop-shadow(0_6px_18px_rgba(0,0,0,0.55))]"
                     loading="lazy"
                     initial={{ opacity: 0, x: -8, scale: 0.94 }}
@@ -260,22 +252,16 @@ function ProductHero() {
                     transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
                   />
                   <p className="font-body text-white/45 text-[8px] uppercase tracking-[0.28em] whitespace-nowrap">
-                    2020
+                    2017
                   </p>
                 </div>
-                <div className="flex flex-col items-center gap-1.5">
-                  <motion.img
-                    src={`${basePath}/images/awards/decanter-2018-silver.webp`}
-                    alt="Silver — Decanter World Wine Awards 2018"
-                    title="Decanter Silver · 2018"
-                    className="h-[clamp(60px,16vw,80px)] w-auto [filter:drop-shadow(0_6px_18px_rgba(0,0,0,0.55))]"
-                    loading="lazy"
-                    initial={{ opacity: 0, x: -8, scale: 0.94 }}
-                    animate={{ opacity: 1, x: 0, scale: 1 }}
-                    transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.62 }}
-                  />
-                  <p className="font-body text-white/45 text-[8px] uppercase tracking-[0.28em] whitespace-nowrap">
-                    2018
+                {/* UK Government's Most-Poured · 2024 — typographic accolade */}
+                <div className="flex flex-col items-center justify-center gap-1 h-[clamp(60px,16vw,80px)] px-2.5 border border-[#C8A96E]/35 rounded-md backdrop-blur-md bg-[#C8A96E]/[0.04]">
+                  <p className="font-display italic text-cream text-[10px] leading-none">
+                    Most-Poured
+                  </p>
+                  <p className="font-body text-white/55 text-[7px] uppercase tracking-[0.2em] whitespace-nowrap">
+                    UK Gov · 2024
                   </p>
                 </div>
               </div>
@@ -289,8 +275,8 @@ function ProductHero() {
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={`${basePath}/products/bloomsbury.png`}
-                  alt="Ridgeview Bloomsbury NV — English Sparkling Wine, 75cl bottle"
+                  src={`${basePath}/products/cavendish.png`}
+                  alt="Ridgeview Cavendish — Classic Method blend, 75cl bottle"
                   className="pointer-events-auto w-auto max-w-none object-contain h-[clamp(376px,51svh,484px)] md:h-[clamp(704px,90svh,1078px)] [transform:translateX(8%)_translateY(-30px)_rotate(28deg)] md:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)] hover:[transform:translateX(8%)_translateY(-30px)_rotate(28deg)_scale(1.015)] md:hover:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)_scale(1.015)] [transition:transform_900ms_cubic-bezier(0.16,1,0.3,1),filter_900ms_cubic-bezier(0.16,1,0.3,1)] hover:[filter:drop-shadow(0_40px_80px_rgba(0,0,0,0.7))_drop-shadow(0_0_60px_rgba(200,169,110,0.12))]"
                   style={{
                     transformOrigin: "center",
@@ -325,13 +311,13 @@ function ProductHero() {
 // ── Tasting Notes & Food Pairing ────────────────────────────────────────────
 
 function TastingPairingSection() {
-  const tastingNotes = ["Lemon Zest", "Green Apple", "Toasted Almond"];
+  const tastingNotes = ["Red Berry & Cherry", "Toasted Almond", "Brioche & Bergamot"];
   const foodPairings = [
-    "Prosciutto di Parma",
-    "Smoked Salmon & Cream Cheese Crostini",
-    "Houmous & Baba Ganoush with Crudités",
-    "Cornish Brie",
-    "Lemon Posset",
+    "Charcuterie & Aged Comté",
+    "Pan-Seared Salmon with Beurre Blanc",
+    "Roast Chicken with Tarragon",
+    "Wild Mushroom Risotto",
+    "Strawberry Pavlova",
   ];
 
   return (
@@ -420,15 +406,9 @@ function TastingPairingSection() {
   );
 }
 
-// ── Blend ───────────────────────────────────────────────────────────────────
+// ── Blend (three-grape Classic Method) ─────────────────────────────────────
 
 function BlendSection() {
-  const blend = [
-    { percent: "61", grape: "Chardonnay" },
-    { percent: "27", grape: "Pinot Noir" },
-    { percent: "12", grape: "Pinot Meunier" },
-  ];
-
   return (
     <section className="relative bg-[#010101] border-t border-white/[0.06] overflow-hidden">
       <div
@@ -446,7 +426,7 @@ function BlendSection() {
               className="font-display italic text-[#C8A96E] tracking-widest mb-4"
               style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
             >
-              [ Blend ]
+              [ Composition ]
             </p>
           </FadeUp>
           <FadeUp delay={0.08}>
@@ -454,7 +434,7 @@ function BlendSection() {
               className="font-display italic text-white leading-[1.1] mb-5"
               style={{ fontSize: "clamp(30px, 4vw, 56px)", fontWeight: 400 }}
             >
-              Fresh and <span className="text-[#C8A96E]">fruit-driven</span>.
+              Three grapes, <span className="text-[#C8A96E]">one estate</span>.
             </h2>
           </FadeUp>
           <FadeUp delay={0.16}>
@@ -462,40 +442,36 @@ function BlendSection() {
               className="font-body text-white/55"
               style={{ fontSize: "clamp(13px, 1.25vw, 15px)", maxWidth: "520px", margin: "0 auto" }}
             >
-              Epitomising the Classic Method English style.
+              A traditional Classic Method blend grown across our chalk
+              vineyards on the South Downs.
             </p>
           </FadeUp>
         </div>
 
-        {/* Big percentages — 3-column grid, vertical gold borders */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-14 md:gap-0 mb-20 md:mb-24">
-          {blend.map((b, i) => (
-            <FadeUp key={b.grape} delay={0.28 + i * 0.1}>
-              <div
-                className="group text-center md:px-8 cursor-default"
-                style={{
-                  borderLeft: i > 0 ? "1px solid rgba(200,169,110,0.16)" : "none",
-                }}
-              >
+        {/* Three-grape stack — typographic blend display
+            (no specific % numbers on the live shop; the proportions
+            are blended each year and not publicly disclosed). */}
+        <div className="flex flex-col items-center gap-6 md:gap-8 mb-20 md:mb-24">
+          {[
+            { grape: "Pinot Noir",     role: "Depth & richness" },
+            { grape: "Pinot Meunier",  role: "Fruit & complexity" },
+            { grape: "Chardonnay",     role: "Brightness & finesse" },
+          ].map((g, i) => (
+            <FadeUp key={g.grape} delay={0.28 + i * 0.12}>
+              <div className="group text-center cursor-default px-8">
                 <p
-                  className="font-display italic text-cream leading-none mb-4 transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                  style={{ fontSize: "clamp(64px, 9vw, 132px)", fontWeight: 400 }}
+                  className="font-display italic text-cream leading-none mb-2 transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  style={{ fontSize: "clamp(40px, 6vw, 88px)", fontWeight: 400 }}
                 >
                   <span className="text-[#C8A96E] transition-[text-shadow] duration-700 ease-out group-hover:[text-shadow:0_0_40px_rgba(200,169,110,0.45)]">
-                    {b.percent}
-                  </span>
-                  <span
-                    className="text-white/55 group-hover:text-white/80 transition-colors duration-700"
-                    style={{ fontSize: "0.42em", verticalAlign: "super", marginLeft: "0.04em" }}
-                  >
-                    %
+                    {g.grape}
                   </span>
                 </p>
                 <p
-                  className="font-body text-white/70 group-hover:text-cream uppercase tracking-[0.34em] transition-colors duration-500"
+                  className="font-body text-white/55 group-hover:text-cream uppercase tracking-[0.32em] transition-colors duration-500"
                   style={{ fontSize: "clamp(11px, 1.1vw, 13px)" }}
                 >
-                  {b.grape}
+                  {g.role}
                 </p>
               </div>
             </FadeUp>
@@ -503,11 +479,6 @@ function BlendSection() {
         </div>
 
         <FadeUp delay={0.7}>
-          {/* Wide column (~920px) so the 45-word paragraph fits onto three
-              lines (~15 words per line). `text-wrap: balance` then spreads
-              the words evenly so all three lines end up similar in length —
-              no widow on the last line. The GoldDivider sits in the same
-              container and inherits the new width. */}
           <div className="max-w-[920px] mx-auto text-center">
             <GoldDivider origin="center" />
             <p
@@ -518,11 +489,14 @@ function BlendSection() {
                 textWrap: "balance",
               }}
             >
-              Grapes are sourced from our original estate vines, along with carefully
-              selected partner vineyards across southern England &mdash; typically south-facing,
-              with free-draining slopes, on varied chalk, clay, gravel and sandstone soils.
-              Sites range between 10&ndash;50 metres above sea level, benefitting from a cool,
-              maritime climate.
+              All three grapes are hand-picked from our Sussex chalk
+              vineyards &mdash; the same Cretaceous seam that runs
+              beneath Champagne. Pinot Noir and Pinot Meunier carry
+              the body and red-berry depth; Chardonnay layers in the
+              freshness and finesse. Together they form Cavendish &mdash;
+              the everyday Classic Method blend, served at State
+              Banquets and named the UK Government&rsquo;s most-poured
+              sparkling wine in 2024.
             </p>
           </div>
         </FadeUp>
@@ -535,22 +509,19 @@ function BlendSection() {
 
 function AwardsSpecsSection() {
   const awards = [
-    { medal: "Silver", body: "Decanter World Wine Awards", year: "2018" },
-    { medal: "Silver Outstanding", body: "International Wine & Spirit Competition", year: "2018" },
-    { medal: "Star of England · Star Taste · Star Value", body: "Harpers Wine Star Awards", year: "2021" },
+    { medal: "Silver", body: "Decanter World Wine Awards", year: "2017" },
+    { medal: "Most-Poured Sparkling Wine", body: "UK Government Hospitality", year: "2024" },
   ];
 
   const specs = [
     { label: "Vintage", value: "Non Vintage" },
+    { label: "Blend", value: "Pinot Noir · Pinot Meunier · Chardonnay" },
+    { label: "Style", value: "Brut · Classic Method" },
     { label: "Bottle Size", value: "75cl" },
     { label: "ABV", value: "12%" },
-    { label: "Acidity", value: "7.7 g/l" },
-    { label: "Residual Sugar", value: "6.5 g/l" },
-    { label: "pH", value: "3.03" },
-    { label: "Lees Ageing", value: "18 months" },
     { label: "Allergens", value: "Contains Sulphites" },
     { label: "Suitable for", value: "Vegans & Vegetarians" },
-    { label: "Product Code", value: "R2201" },
+    { label: "Product Code", value: "R2102" },
   ];
 
   return (
@@ -668,7 +639,7 @@ function ClosingCTA() {
             className="font-display italic text-cream leading-[1.05] mb-10"
             style={{ fontSize: "clamp(32px, 4.5vw, 64px)", fontWeight: 400 }}
           >
-            A true <span className="text-[#C8A96E]">celebration</span> in a bottle.
+            A wine for every <span className="text-[#C8A96E]">occasion</span>.
           </h2>
         </FadeUp>
         <FadeUp delay={0.2}>
@@ -678,7 +649,7 @@ function ClosingCTA() {
               type="button"
               className="btn-cta"
             >
-              Add to basket · £34.00
+              Add to basket · £36.00
             </button>
             <a
               href={`${basePath}/#wine-collection`}
@@ -701,42 +672,29 @@ function ClosingCTA() {
 const SCHEMA_LD = {
   "@context": "https://schema.org",
   "@type": "Product",
-  name: "Ridgeview Bloomsbury NV",
+  name: "Ridgeview Cavendish",
   description:
-    "Bright, fresh and fruit-driven English Sparkling Wine — vibrant citrus aromas with green apple and honey. Bestselling Classic Method blend from Sussex.",
-  image: "https://darkslateblue-alligator-388666.hostingersite.com/ridgeview/products/bloomsbury.png",
+    "Classic Method English Sparkling Wine. A traditional Pinot-led blend of Pinot Noir, Pinot Meunier and Chardonnay — red berries, toasted almond and bergamot orange over a saline finish. UK Government's Most-Poured Sparkling Wine 2024.",
+  image: "https://ridgeview.vercel.app/products/cavendish.png",
   brand: { "@type": "Brand", name: "Ridgeview Wine Estate" },
-  sku: "R2201",
+  sku: "R2102",
   category: "English Sparkling Wine",
   offers: {
-    "@type": "AggregateOffer",
+    "@type": "Offer",
     priceCurrency: "GBP",
-    lowPrice: "34.00",
-    highPrice: "183.60",
-    offerCount: "3",
+    price: "36.00",
     availability: "https://schema.org/InStock",
-    url: "https://darkslateblue-alligator-388666.hostingersite.com/ridgeview/wine/bloomsbury/",
+    url: "https://ridgeview.vercel.app/wine/cavendish/",
   },
   aggregateRating: {
     "@type": "AggregateRating",
-    ratingValue: "4.7",
-    reviewCount: "3",
+    ratingValue: "4.6",
+    reviewCount: "1",
     bestRating: "5",
   },
-  review: [
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "Anne Krebiehl MW" },
-      publisher: { "@type": "Organization", name: "Wine Enthusiast" },
-      reviewBody:
-        "It is zesty lemon that takes center stage on the slender palate. This is frothy, fresh, invigorating and dry.",
-      reviewRating: { "@type": "Rating", ratingValue: "4.5", bestRating: "5" },
-    },
-  ],
   award: [
-    "Silver — Decanter World Wine Awards 2018",
-    "Silver Outstanding — International Wine & Spirit Competition 2018",
-    "Star of England, Star Taste, Star Value, Star of Sussex — Harpers Wine Star Awards 2021",
+    "Silver — Decanter World Wine Awards 2017",
+    "UK Government's Most-Poured Sparkling Wine 2024",
   ],
 };
 
@@ -747,9 +705,9 @@ const FAQ_ITEMS = [
       "Standard UK delivery is 2–4 working days. Order before noon for next-working-day dispatch. Free UK delivery on orders over £45.",
   },
   {
-    question: "How should I store Bloomsbury?",
+    question: "How should I store Cavendish?",
     answer:
-      "Lay bottles flat in a cool, dark place between 8–12°C. Bloomsbury NV drinks beautifully on release; if you wish to age, store away from light and temperature swings — it'll continue to develop richness for 3–5 years.",
+      "Lay bottles flat in a cool, dark place between 8–12°C. Cavendish is non-vintage and built for early drinking — it shows beautifully on release and is best enjoyed within 2–3 years to preserve its bright red-berry character.",
   },
   {
     question: "Can I add a personalised gift note?",
@@ -770,33 +728,33 @@ const FAQ_ITEMS = [
 
 const RELATED_WINES = [
   {
+    slug: "blanc-de-blancs",
+    name: "Blanc de Blancs",
+    style: "Vintage · Single-Vineyard Chardonnay",
+    price: 75,
+    image: "/products/blanc-de-blancs.png",
+    note: "Pure Chardonnay from the first vines planted on the estate in 1995.",
+  },
+  {
     slug: "fitzrovia",
     name: "Fitzrovia Rosé",
     style: "Rosé · Non Vintage",
     price: 40,
     image: "/products/fitzrovia-rose.webp",
-    note: "Pink-grapefruit and wild strawberry — the breezy sister to Bloomsbury.",
+    note: "Pink-grapefruit and wild strawberry — the breezy counterpart to Cavendish.",
   },
   {
-    slug: "cavendish",
-    name: "Cavendish",
+    slug: "bloomsbury",
+    name: "Bloomsbury NV",
     style: "House Cuvée · Non Vintage",
-    price: 36,
-    image: "/products/cavendish.webp",
-    note: "Pinot-led blend with red apple and white pepper. Fine-boned elegance.",
-  },
-  {
-    slug: "blanc-de-blancs",
-    name: "Blanc de Blancs",
-    style: "Single-Vineyard Chardonnay · Vintage",
-    price: 75,
-    image: "/products/blanc-de-blancs.png",
-    note: "From Ridgeview's first-planted vines, 1995. Brightness and depth.",
+    price: 34,
+    image: "/products/bloomsbury.png",
+    note: "Bright, fresh and fruit-driven — the Chardonnay-led everyday blend.",
   },
 ];
 
-export default function BloomsburyPage() {
-  const testimonial = getTestimonial("bloomsbury");
+export default function CavendishPage() {
+  const testimonial = getTestimonial("cavendish");
 
   return (
     <main className="bg-[#010101] pb-[80px] md:pb-0">
@@ -813,7 +771,8 @@ export default function BloomsburyPage() {
 
       {/* A) Behind the Bottle — production craft pillars shared across every
           Ridgeview SKU (Soil → Harvest → Winemaking). SKU-specific details
-          like lees duration / palate notes live in the Specs section. */}
+          like single-vineyard / lees duration / palate live in the Specs
+          section and the Varietal section above. */}
       <ScrollReset>
         <BehindTheBottleSection
           headline={<>Crafted in the <span className="text-[#C8A96E]">Classic Method</span>.</>}
@@ -835,10 +794,10 @@ export default function BloomsburyPage() {
           data={{
             medal: "Silver",
             body: "Decanter World Wine Awards",
-            year: 2018,
-            tier: "Highly Recommended",
-            badgeSrc: "/images/awards/decanter-2018-silver.webp",
-            description: "Recognised among the world's leading sparkling wines by the global Decanter judging panel.",
+            year: 2017,
+            tier: "Recommended",
+            badgeSrc: "/images/awards/decanter-2017-silver.webp",
+            description: "Awarded Silver by the global Decanter judging panel — confirming Cavendish as a benchmark for the Classic Method outside of Champagne. Also named the UK Government's most-poured sparkling wine in 2024.",
           }}
         />
       </ScrollReset>
@@ -865,9 +824,9 @@ export default function BloomsburyPage() {
           all marked with data-atb-trigger) is out of viewport. As soon as
           any ATB scrolls back in, the bar hides. */}
       <StickyMobileCTA
-        productName="Bloomsbury NV"
-        price="£34.00 · 75cl"
-        thumbnailSrc="/products/bloomsbury.png"
+        productName="Cavendish"
+        price="£36.00 · 75cl"
+        thumbnailSrc="/products/cavendish.png"
         triggerSelector="[data-atb-trigger]"
       />
     </main>
