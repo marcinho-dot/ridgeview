@@ -112,7 +112,7 @@ function ProductHero() {
           <div className="order-2 md:order-1 flex flex-col md:block">
             <FadeUp className="order-1">
               <p
-                className="font-display italic text-[#C8A96E] tracking-widest mb-5"
+                className="font-display italic text-[#C8A96E] tracking-widest mb-2 md:mb-5"
                 style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
               >
                 [ Non Vintage · Classic Cuvée ]
