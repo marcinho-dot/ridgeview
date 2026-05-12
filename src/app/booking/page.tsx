@@ -394,7 +394,7 @@ function HeritageDiscoverySection() {
 
 function VisitPanels() {
   return (
-    <section id="visit" className="bg-[#010101]">
+    <section className="bg-[#010101]">
 
       {/* Full-width cinematic image banner */}
       <FadeIn>
@@ -412,7 +412,16 @@ function VisitPanels() {
         </div>
       </FadeIn>
 
-      <div className="max-w-[960px] mx-auto px-6 md:px-16 pt-10 pb-10 md:pt-16 md:pb-12 text-center">
+      {/* Anchor `#visit` lives on this headline block (NOT the section)
+          so /booking#visit deep-links straight to "[ Book Your
+          Experience ] / Choose your visit." — skipping the cinematic
+          banner above it. `scroll-margin-top` compensates for the
+          fixed milk-glass navbar so the kicker reads fully on land. */}
+      <div
+        id="visit"
+        className="max-w-[960px] mx-auto px-6 md:px-16 pt-10 pb-10 md:pt-16 md:pb-12 text-center"
+        style={{ scrollMarginTop: "90px" }}
+      >
         <FadeUp>
           <p
             className="font-display italic text-[#C8A96E] tracking-widest mb-5"
