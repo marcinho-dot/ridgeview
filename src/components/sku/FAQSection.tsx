@@ -26,7 +26,9 @@ interface Props {
 }
 
 export function FAQSection({ kicker = "[ Good to know ]", headline = "Questions, answered.", items }: Props) {
-  const [openIdx, setOpenIdx] = useState<number | null>(0);
+  // All accordions closed by default — user opens any item by clicking.
+  // (Was previously `useState(0)` which auto-opened the first FAQ.)
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   return (
     <section className="relative bg-[#0a0a0a] border-t border-white/[0.06] overflow-hidden">
