@@ -120,4 +120,15 @@ export const wines: Wine[] = [
     image: "/products/still-english-rose.png",
     slug: "still-english-rose",
   },
+  {
+    id: 11,
+    name: "Engraved Bottle Gift",
+    description:
+      "Bespoke engraving on Ridgeview's award-winning sparkling wines. Choose Bloomsbury NV, Fitzrovia Rosé or Blanc de Blancs and have your message engraved on the bottle — perfect for milestones, thank-yous and corporate gestures. Made-to-order in up to 5 working days.",
+    vintage: "Bespoke Gift",
+    tastingNotes: ["Bespoke Engraving", "Three Wine Options", "Made-to-Order"],
+    price: "From £50",
+    image: "/products/engraved-bottle-gift.png",
+    slug: "engraved-bottle-gift",
+  },
 ];
