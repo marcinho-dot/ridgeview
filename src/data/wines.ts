@@ -73,7 +73,8 @@ export const wines: Wine[] = [
     vintage: "Vintage",
     tastingNotes: ["Peach", "Wild Cherry", "Fine Mousse"],
     price: "£65",
-    image: "/products/fitzrovia-rose.webp",
+    image: "/products/rose-de-noirs.png",
+    slug: "rose-de-noirs",
   },
   {
     id: 7,
