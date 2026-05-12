@@ -94,6 +94,7 @@ export const wines: Wine[] = [
     vintage: "NV",
     tastingNotes: ["Dark Cherry", "Warm Spice", "Silky Tannin"],
     price: "£55",
-    image: "/products/cavendish.webp",
+    image: "/products/sparkling-red-reserve.png",
+    slug: "sparkling-red-reserve",
   },
 ];

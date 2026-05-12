@@ -110,6 +110,8 @@ export const TESTIMONIALS: Record<string, Testimonial> = {
       "This is probably the most convincing sparkling red I've had from England so far, balancing tannin, acid and sweetness effectively.",
     author: "Tom Hewson",
     publication: "Tim Atkin English Wine Report",
+    date: "2022",
+    url: "https://timatkin.com/product/2022-england-special-report/",
   },
 
   // Magnums — same review applies to the wine inside
