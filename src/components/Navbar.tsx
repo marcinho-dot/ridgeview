@@ -332,7 +332,7 @@ export function Navbar() {
                 transition={{ delay: 0.28 + menuItems.length * 0.08 + 0.15, duration: 0.5 }}
               >
                 <p
-                  className="font-body text-white/30 uppercase tracking-[0.28em]"
+                  className="font-body text-white/30 uppercase tracking-[0.28em] text-center"
                   style={{ fontSize: "9px" }}
                 >
                   Sussex &middot; Est. 1995
