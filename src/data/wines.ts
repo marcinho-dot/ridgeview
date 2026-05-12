@@ -98,4 +98,15 @@ export const wines: Wine[] = [
     image: "/products/sparkling-red-reserve.png",
     slug: "sparkling-red-reserve",
   },
+  {
+    id: 9,
+    name: "Still Chardonnay",
+    description:
+      "Ridgeview's first-ever still wine — 100% estate-grown Chardonnay. White blossom and lychee aromatics over a palate of peach, pear and apricot, finishing silky with a hint of mineral lift.",
+    vintage: "2023",
+    tastingNotes: ["White Blossom", "Peach & Pear", "Silky Mineral"],
+    price: "£27.50",
+    image: "/products/still-chardonnay.png",
+    slug: "still-chardonnay",
+  },
 ];
