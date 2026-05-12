@@ -579,12 +579,16 @@ function BlendSection() {
 // ── Awards & Specs ──────────────────────────────────────────────────────────
 
 function AwardsSpecsSection() {
+  // Chronological, newest first. Every hero badge must appear here
+  // (audit rule locked 2026-05-12 after IWSC 93pts 2020 was found
+  // displayed in hero but missing from this list).
   const awards = [
     { medal: "Sparkling Wine of the Year", body: "Sommelier Awards", year: "2024" },
     { medal: "Gold", body: "Sommelier Awards", year: "2024" },
+    { medal: "Star of England · Star Taste · Star Value", body: "Harpers Wine Star Awards", year: "2021" },
+    { medal: "93 Points", body: "International Wine & Spirit Competition", year: "2020" },
     { medal: "Silver", body: "Decanter World Wine Awards", year: "2018" },
     { medal: "Silver Outstanding", body: "International Wine & Spirit Competition", year: "2018" },
-    { medal: "Star of England · Star Taste · Star Value", body: "Harpers Wine Star Awards", year: "2021" },
   ];
 
   const specs = [
@@ -777,9 +781,10 @@ const SCHEMA_LD = {
   award: [
     "Sparkling Wine of the Year — Sommelier Awards 2024",
     "Gold — Sommelier Awards 2024",
+    "Star of England, Star Taste, Star Value, Star of Sussex — Harpers Wine Star Awards 2021",
+    "93 Points — International Wine & Spirit Competition 2020",
     "Silver — Decanter World Wine Awards 2018",
     "Silver Outstanding — International Wine & Spirit Competition 2018",
-    "Star of England, Star Taste, Star Value, Star of Sussex — Harpers Wine Star Awards 2021",
   ],
 };
 
