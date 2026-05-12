@@ -344,20 +344,42 @@ function ProductHero() {
                 />
               </motion.div>
 
-              {/* Quick "Add to basket" — anchored bottom-right next to the bottle
-                  on every breakpoint. Marked with data-atb-trigger so the
-                  StickyMobileCTA only appears when this AND every other ATB
-                  on the page is out of view. The widget ATB in the info
-                  column has the dynamic price (variant × quantity); this
-                  one is the quick-action visual anchor. */}
-              <div className="absolute bottom-2 md:bottom-[40px] right-0 z-10">
-                <button
-                  data-atb-trigger
-                  type="button"
-                  className="btn-cta"
-                >
-                  Add to basket
-                </button>
+              {/* TEMPORARY · Milchglas-Gold Button Picker (2026-05-12) —
+                  4 variants stacked vertically at the bottom-right of the
+                  hero. Each carries `data-atb-trigger` so the
+                  StickyMobileCTA logic stays consistent across the set.
+                  Once the user picks one, this stack reverts to a single
+                  <button className="btn-cta"> and the chosen styles
+                  replace .btn-cta in globals.css.
+
+                  Variants:
+                    V1 — Soft Frost · Gold Border
+                    V2 — Gold-Tinted Glass
+                    V3 — Milk Glass · Gold Type
+                    V4 — Etched Crystal · Dual-Layer */}
+              <div className="absolute bottom-2 md:bottom-[40px] right-0 z-10 flex flex-col gap-2.5 items-end">
+                {([
+                  { v: "v1", label: "V1" },
+                  { v: "v2", label: "V2" },
+                  { v: "v3", label: "V3" },
+                  { v: "v4", label: "V4" },
+                ] as const).map(({ v, label }) => (
+                  <div key={v} className="flex items-center gap-3">
+                    <span
+                      className="font-display italic text-[#C8A96E] leading-none"
+                      style={{ fontSize: "12px", letterSpacing: "0.18em" }}
+                    >
+                      {label}
+                    </span>
+                    <button
+                      data-atb-trigger
+                      type="button"
+                      className={`btn-glass btn-glass-${v}`}
+                    >
+                      Add to basket
+                    </button>
+                  </div>
+                ))}
               </div>
             </div>
           </FadeUp>

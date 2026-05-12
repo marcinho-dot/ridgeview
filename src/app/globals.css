@@ -327,6 +327,157 @@ body::after {
   box-shadow: 0 0 0 2px rgba(200, 169, 110, 0.25);
 }
 
+/* ─── TEMPORARY · Milchglas-Gold Picker (Bloomsbury Hero, 2026-05-12) ──
+   Four "frosted-glass + gold" variants shown side-by-side on the
+   Bloomsbury hero so the user can pick one. Each pushes the gold
+   accent to a different layer of the button:
+     V1 — gold in the BORDER (lightest, refined)
+     V2 — gold in the FILL  (champagne tint already at rest)
+     V3 — gold in the TYPE  (cool milk glass, gold ink)
+     V4 — gold in the ETCH  (dual-border, "cut crystal")
+   After selection the winning variant becomes the new .btn-cta and
+   this block goes away. */
+.btn-glass {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Raleway', system-ui, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  white-space: nowrap;
+  font-size: 10px;
+  padding: 13px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  isolation: isolate;
+  touch-action: manipulation;
+  transition:
+    color 0.4s ease,
+    border-color 0.4s ease,
+    background 0.4s ease,
+    box-shadow 0.4s ease,
+    transform 0.18s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+@media (min-width: 768px) {
+  .btn-glass {
+    font-size: 11px;
+    padding: 13px 26px;
+  }
+}
+
+/* V1 — Soft Frost · Gold Border. Barely-tinted milk glass with a
+   clean gold frame. Cream text reads as primary. Lightest of the
+   four, most editorial. */
+.btn-glass-v1 {
+  background: rgba(245, 240, 232, 0.06);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgba(200, 169, 110, 0.55);
+  color: #f5f0e8;
+}
+.btn-glass-v1:hover {
+  background: rgba(245, 240, 232, 0.10);
+  border-color: #C8A96E;
+  box-shadow:
+    0 0 0 1px rgba(200, 169, 110, 0.20),
+    inset 0 0 24px rgba(200, 169, 110, 0.08);
+}
+.btn-glass-v1:active {
+  transform: scale(0.97);
+  background: rgba(200, 169, 110, 0.14);
+}
+
+/* V2 — Gold-Tinted Glass. Frosted glass that's already warm/gold
+   at rest. Border is cream so the gold reads in the surface, not
+   the frame. Most "champagne-glass" of the four. */
+.btn-glass-v2 {
+  background: linear-gradient(
+    135deg,
+    rgba(200, 169, 110, 0.18) 0%,
+    rgba(200, 169, 110, 0.06) 100%
+  );
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(16px) saturate(150%);
+  border: 1px solid rgba(245, 240, 232, 0.30);
+  color: #f5f0e8;
+}
+.btn-glass-v2:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(200, 169, 110, 0.28) 0%,
+    rgba(200, 169, 110, 0.12) 100%
+  );
+  border-color: rgba(200, 169, 110, 0.85);
+  box-shadow:
+    0 0 0 1px rgba(200, 169, 110, 0.25),
+    inset 0 0 28px rgba(200, 169, 110, 0.12),
+    0 12px 24px -8px rgba(200, 169, 110, 0.18);
+}
+.btn-glass-v2:active {
+  transform: scale(0.97);
+}
+
+/* V3 — Milk Glass · Gold Type. Coolest variant: neutral milky-white
+   frost (no gold in the surface), gold typography. Gold sits on top
+   like ink on paper. Adds a slide-underline on hover. */
+.btn-glass-v3 {
+  background: rgba(255, 255, 255, 0.07);
+  -webkit-backdrop-filter: blur(18px) saturate(130%);
+  backdrop-filter: blur(18px) saturate(130%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #C8A96E;
+}
+.btn-glass-v3::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 7px;
+  height: 1px;
+  background: #C8A96E;
+  transform: scaleX(0);
+  transform-origin: center center;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-glass-v3:hover {
+  background: rgba(255, 255, 255, 0.11);
+  border-color: rgba(255, 255, 255, 0.30);
+  color: #f5f0e8;
+}
+.btn-glass-v3:hover::after {
+  transform: scaleX(1);
+}
+.btn-glass-v3:active {
+  transform: scale(0.97);
+}
+
+/* V4 — Etched Crystal · Dual-Layer. Most luxurious. Very subtle bg
+   but a layered border (outer gold + inset gold shadow) = "etched"
+   feel. Cream text. Reads like cut crystal under candlelight. */
+.btn-glass-v4 {
+  background: rgba(245, 240, 232, 0.04);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(200, 169, 110, 0.40);
+  color: #f5f0e8;
+  box-shadow:
+    inset 0 0 0 1px rgba(200, 169, 110, 0.10),
+    inset 0 1px 0 rgba(245, 240, 232, 0.06);
+}
+.btn-glass-v4:hover {
+  background: rgba(245, 240, 232, 0.08);
+  border-color: rgba(200, 169, 110, 0.95);
+  box-shadow:
+    inset 0 0 0 1px rgba(200, 169, 110, 0.30),
+    inset 0 1px 0 rgba(245, 240, 232, 0.10),
+    0 0 22px -2px rgba(200, 169, 110, 0.16);
+}
+.btn-glass-v4:active {
+  transform: scale(0.97);
+}
+
 /* ─── Underline-Frame Button Family (used by /buttons showcase) ─────────
    All variants share: transparent background, configurable border
    (white or gold), and a gold underline that slides in on hover.
