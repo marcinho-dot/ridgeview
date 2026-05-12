@@ -2,8 +2,15 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import { wines } from "@/data/wines";
+import { wines as allWines } from "@/data/wines";
 import { basePath } from "@/lib/basePath";
+
+// The homepage Wine Collection carousel shows only actual wines.
+// The Engraved Bottle Gift is a bespoke engraving service — it lives
+// in wines.ts so its SKU page can be data-driven, but it is filtered
+// out here so the slider's "01 / NN" counter, dots, and rotation
+// reflect the wine range only. (2026-05-12)
+const wines = allWines.filter((w) => w.slug !== "engraved-bottle-gift");
 
 // ─── Constants ────────────────────────────────────────────────
 const INTERVAL   = 12000;
