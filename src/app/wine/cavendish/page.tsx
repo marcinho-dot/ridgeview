@@ -17,10 +17,13 @@ import { getTestimonial } from "@/data/testimonials";
 import { basePath } from "@/lib/basePath";
 
 // Cavendish bottle variants — synced 2026-05-12 with ridgeview.co.uk.
-// Sold only as single bottle at the source (no Magnum / Case listing).
+// The Case of 6 is sold as a separate product listing in the
+// "cases-of-wine" category (£216 list price, £194.40 with 10% off).
+// No Magnum format for Cavendish on the live shop.
 // Order convention (locked 2026-05-12): expensive → cheap. variants[0]
 // (most expensive) is the default selected option; drives the H1 price.
 const CAVENDISH_VARIANTS: Variant[] = [
+  { label: "Case of 6", detail: "6 × 75cl · Save 10%", price: 194.4, badge: "Best value" },
   { label: "75cl Bottle", detail: "75cl · 12% ABV · NV", price: 36 },
 ];
 
@@ -680,9 +683,11 @@ const SCHEMA_LD = {
   sku: "R2102",
   category: "English Sparkling Wine",
   offers: {
-    "@type": "Offer",
+    "@type": "AggregateOffer",
     priceCurrency: "GBP",
-    price: "36.00",
+    lowPrice: "36.00",
+    highPrice: "194.40",
+    offerCount: "2",
     availability: "https://schema.org/InStock",
     url: "https://ridgeview.vercel.app/wine/cavendish/",
   },
