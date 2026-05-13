@@ -479,7 +479,7 @@ export function WineCollectionSection() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
             <a href={`${basePath}/wines`} className="btn-cta">
-              View all {wines.length} Wines
+              Shop all Wines
             </a>
           </motion.div>
 
