@@ -80,6 +80,16 @@ OVERRIDES = {
     # Doc opens with "B CORP MONTH 2024 / RIDGEVIEW RECOMMENDS – B CORP BRANDS WE LOVE"
     "ridgeview-recommends-inspiring-b-corp-brands":
         "B Corp & Sustainability/B Corp Month 2024.docx",
+
+    # Fourth-round finds — lower confidence, but doc clearly maps to slug:
+    # "UNVEILING THE NEW RIDGEVIEW WINE CLUB / YOUR GATEWAY TO THE FINEST
+    # ENGLISH SPARKLING WINE" — OurView relaunch as a new hospitality experience
+    "unveiling-ridgeviews-new-hospitality-experience":
+        "Drafts - Do Not Use/Do Not Use/OurView enhanced.docx",
+    # Interview-style Q&A on Ridgeview's B Corp status and sustainability
+    # journey — fits "Sustainable wine and the future of our vines"
+    "sustainable-wine-and-the-future-of-our-vines":
+        "B Corp & Sustainability/Drinks Business Sustainability Article - Interview Answers.docx",
 }
 
 
