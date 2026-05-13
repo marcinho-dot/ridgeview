@@ -486,6 +486,22 @@ export function WineCollectionSection() {
 
         </div>
 
+        {/* ══════════════════════════════════════════════════════
+            VIEW ALL WINES — Bridges the homepage teaser carousel
+            to the full catalog page at /wines.
+        ══════════════════════════════════════════════════════ */}
+        <motion.div
+          className="mt-12 md:mt-16 flex justify-center"
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <a href={`${basePath}/wines`} className="btn-cta">
+            View all {wines.length} Wines
+          </a>
+        </motion.div>
+
       </div>
     </section>
   );
