@@ -72,18 +72,38 @@ export function OurViewSection() {
             community.
           </p>
 
-          {/* Email form */}
-          <div className="flex items-end gap-0 border-b border-white/22 w-full" style={{ maxWidth: "460px" }}>
+          {/* Email form — round arrow button replaces the chunky CTA so
+              the input row stays compact. Matches the MN newsletter form. */}
+          <div className="flex items-center gap-2 border-b border-white/22 w-full" style={{ maxWidth: "460px" }}>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your email address"
+              aria-label="Email address"
               className="flex-1 bg-transparent font-body text-cream text-sm py-3 outline-none placeholder:text-white/30 focus:placeholder:text-white/50 transition-colors"
               style={{ fontWeight: 300 }}
             />
-            <button className="btn-cta ml-4 mb-0.5">
-              Subscribe
+            <button
+              type="submit"
+              aria-label="Subscribe"
+              className="group relative w-9 h-9 rounded-full border border-[#C8A96E]/55 hover:border-[#C8A96E] flex items-center justify-center transition-all duration-300 hover:bg-[#C8A96E]/10 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C8A96E]/50"
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="text-[#C8A96E] transition-transform duration-300 group-hover:translate-x-[2px]"
+                aria-hidden
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
             </button>
           </div>
         </motion.div>
