@@ -63,11 +63,14 @@ function DesktopStrip({
 }) {
   const canHover = useCanHover();
 
+  // NOTE: NO `onMouseLeave` collapse on the strip container.
+  // The article grid sits BELOW the strip — collapsing on mouse-leave
+  // would yank the grid away as the user moves their cursor down to
+  // click an article. Active state now persists until the user
+  // explicitly clicks the active panel to close it, or clicks/hovers
+  // another panel to switch.
   return (
-    <div
-      className="hidden md:flex gap-2 h-[420px] lg:h-[460px]"
-      onMouseLeave={canHover ? () => setActive(null) : undefined}
-    >
+    <div className="hidden md:flex gap-2 h-[420px] lg:h-[460px]">
       {categories.map((cat, i) => {
         const isActive = active === cat.slug;
         const count = articlesByCategory[cat.slug].length;
