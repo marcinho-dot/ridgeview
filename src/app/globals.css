@@ -543,29 +543,47 @@ body::after {
 ::-webkit-scrollbar-track { background: #0a0a0a; }
 ::-webkit-scrollbar-thumb { background: #3a3a3a; border-radius: 2px; }
 
-/* Horizontal-row scrollbar — visible, gold-themed, draggable.
-   Used by the Beyond the Bottle category row on the homepage so the
-   user has a manual scroll affordance alongside the wheel-to-horizontal
-   conversion that fires on hover. */
+/* Horizontal-row scrollbar mechanic — mirrors the Micronutrition
+   academy-row pattern. Native browser scrollbar is hidden entirely so
+   macOS doesn't auto-hide it after a short delay; we render a custom
+   always-visible thumb (.rv-row-cbar / .rv-row-cbar-thumb) below the
+   row instead. No scroll-snap on the track so wheel-driven scrollLeft
+   updates don't fight the snap and stutter. */
 .row-scroll {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(200, 169, 110, 0.55) rgba(255, 255, 255, 0.06);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
 }
-.row-scroll::-webkit-scrollbar {
+.row-scroll::-webkit-scrollbar { display: none; width: 0; height: 0; }
+.row-scroll:active { cursor: grabbing; }
+
+.rv-row-cbar {
+  position: relative;
   height: 6px;
-  width: 6px;
-}
-.row-scroll::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 3px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
 }
-.row-scroll::-webkit-scrollbar-thumb {
-  background: rgba(200, 169, 110, 0.55);
+.rv-row-cbar-thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  min-width: 48px;
+  background: rgba(200, 169, 110, 0.65);
   border-radius: 3px;
-  transition: background-color 0.25s ease;
+  cursor: grab;
+  transition: background-color 0.18s ease;
 }
-.row-scroll::-webkit-scrollbar-thumb:hover {
-  background: rgba(200, 169, 110, 0.85);
+.rv-row-cbar-thumb:hover { background: rgba(200, 169, 110, 0.9); }
+.rv-row-cbar.is-dragging .rv-row-cbar-thumb,
+.rv-row-cbar-thumb:active {
+  cursor: grabbing;
+  background: #C8A96E;
 }
 
 /* --- Text selection --- */

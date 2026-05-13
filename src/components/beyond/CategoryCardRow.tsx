@@ -28,70 +28,150 @@ import { basePath } from "@/lib/basePath";
 
 export function CategoryCardRow() {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
+  const cbarRef = useRef<HTMLDivElement | null>(null);
+  const cthumbRef = useRef<HTMLDivElement | null>(null);
 
-  // ── Vertical-wheel → horizontal-scroll bridge ─────────────────────
+  // ── Wheel + drag + custom-scrollbar (MN academy-row mechanic) ─────
   useEffect(() => {
     const el = scrollerRef.current;
-    if (!el) return;
+    const cbar = cbarRef.current;
+    const cthumb = cthumbRef.current;
+    if (!el || !cbar || !cthumb) return;
+
+    // Disable native image drag inside the row so it doesn't fight our
+    // pointer-drag handler.
+    el.querySelectorAll("img").forEach((img) =>
+      img.setAttribute("draggable", "false"),
+    );
+
+    // ── Wheel: redirect vertical → horizontal with a 1.5× multiplier
+    //   for snappier feel. Pass through when at a boundary so the user
+    //   can keep scrolling the page.
     const onWheel = (e: WheelEvent) => {
-      // Trackpads already deliver deltaX for horizontal gestures — let
-      // them pass through. We only redirect when the dominant motion
-      // is vertical AND there is still room to scroll horizontally
-      // in that direction.
-      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
-      const maxLeft = el.scrollWidth - el.clientWidth;
+      const delta = e.deltaY !== 0 ? e.deltaY : e.deltaX;
       const atStart = el.scrollLeft <= 0;
-      const atEnd = el.scrollLeft >= maxLeft - 1;
-      const scrollingDown = e.deltaY > 0;
-      if ((scrollingDown && atEnd) || (!scrollingDown && atStart)) {
-        // Let the page take over so the user is never trapped.
+      const atEnd = el.scrollLeft >= el.scrollWidth - el.clientWidth - 1;
+      if ((atStart && delta < 0) || (atEnd && delta > 0)) return;
+      e.preventDefault();
+      el.scrollLeft += delta * 1.5;
+    };
+    el.addEventListener("wheel", onWheel, { passive: false });
+
+    // ── Pointer drag on the row itself. Ignore presses landing on a
+    //   link so card navigation still works.
+    let rowDown = false;
+    let rowStartX = 0;
+    let rowStartLeft = 0;
+    const onRowDown = (e: PointerEvent) => {
+      if (e.button !== 0) return;
+      if ((e.target as HTMLElement).closest("a, button")) return;
+      e.preventDefault();
+      rowDown = true;
+      rowStartX = e.clientX;
+      rowStartLeft = el.scrollLeft;
+    };
+    const onRowMove = (e: PointerEvent) => {
+      if (!rowDown) return;
+      el.scrollLeft = rowStartLeft - (e.clientX - rowStartX);
+    };
+    const onRowUp = () => { rowDown = false; };
+    el.addEventListener("pointerdown", onRowDown);
+    document.addEventListener("pointermove", onRowMove);
+    document.addEventListener("pointerup", onRowUp);
+    document.addEventListener("pointercancel", onRowUp);
+
+    // ── Custom scrollbar thumb sync ──────────────────────────────────
+    const cbarUpdate = () => {
+      const scrollW = el.scrollWidth;
+      const clientW = el.clientWidth;
+      if (scrollW <= clientW + 1) {
+        cbar.style.display = "none";
         return;
       }
-      e.preventDefault();
-      el.scrollLeft += e.deltaY;
+      cbar.style.display = "block";
+      const trackW = cbar.clientWidth;
+      if (trackW <= 0) return;
+      const ratio = clientW / scrollW;
+      const thumbW = Math.max(48, Math.floor(trackW * ratio));
+      const maxLeft = trackW - thumbW;
+      const scrollable = scrollW - clientW;
+      const progress = scrollable > 0
+        ? Math.max(0, Math.min(1, el.scrollLeft / scrollable))
+        : 0;
+      cthumb.style.width = thumbW + "px";
+      cthumb.style.left = Math.round(maxLeft * progress) + "px";
     };
-    // Passive: false is required so preventDefault works.
-    el.addEventListener("wheel", onWheel, { passive: false });
-    return () => el.removeEventListener("wheel", onWheel);
-  }, []);
+    el.addEventListener("scroll", cbarUpdate, { passive: true });
+    window.addEventListener("resize", cbarUpdate, { passive: true });
+    cbarUpdate();
+    // Re-sync after fonts/images settle layout
+    const t1 = setTimeout(cbarUpdate, 100);
+    const t2 = setTimeout(cbarUpdate, 600);
 
-  // ── Pointer drag-to-scroll for mouse users ────────────────────────
-  useEffect(() => {
-    const el = scrollerRef.current;
-    if (!el) return;
-    let isDown = false;
-    let startX = 0;
-    let startLeft = 0;
-    const onDown = (e: PointerEvent) => {
-      // Ignore clicks that land on a card link — those should navigate,
-      // not start a drag. The link uses pointer-events:auto, so we
-      // only start dragging when the press lands on bare row chrome.
-      if ((e.target as HTMLElement).closest("a")) return;
-      isDown = true;
-      startX = e.clientX;
-      startLeft = el.scrollLeft;
-      el.setPointerCapture(e.pointerId);
-      el.style.cursor = "grabbing";
+    // ── Drag the thumb itself
+    let thumbDragging = false;
+    let thumbStartX = 0;
+    let thumbStartScroll = 0;
+    const thumbDown = (e: PointerEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      thumbDragging = true;
+      thumbStartX = e.clientX;
+      thumbStartScroll = el.scrollLeft;
+      cbar.classList.add("is-dragging");
+      document.body.style.userSelect = "none";
     };
-    const onMove = (e: PointerEvent) => {
-      if (!isDown) return;
-      el.scrollLeft = startLeft - (e.clientX - startX);
+    const thumbMove = (e: PointerEvent) => {
+      if (!thumbDragging) return;
+      const trackW = cbar.clientWidth;
+      const thumbW = cthumb.clientWidth;
+      const maxLeft = trackW - thumbW;
+      if (maxLeft <= 0) return;
+      const dx = e.clientX - thumbStartX;
+      const scrollable = el.scrollWidth - el.clientWidth;
+      el.scrollLeft = thumbStartScroll + (dx / maxLeft) * scrollable;
     };
-    const onUp = (e: PointerEvent) => {
-      if (!isDown) return;
-      isDown = false;
-      try { el.releasePointerCapture(e.pointerId); } catch {}
-      el.style.cursor = "";
+    const thumbUp = () => {
+      if (!thumbDragging) return;
+      thumbDragging = false;
+      cbar.classList.remove("is-dragging");
+      document.body.style.userSelect = "";
     };
-    el.addEventListener("pointerdown", onDown);
-    el.addEventListener("pointermove", onMove);
-    el.addEventListener("pointerup", onUp);
-    el.addEventListener("pointercancel", onUp);
+    cthumb.addEventListener("pointerdown", thumbDown);
+    document.addEventListener("pointermove", thumbMove);
+    document.addEventListener("pointerup", thumbUp);
+    document.addEventListener("pointercancel", thumbUp);
+
+    // ── Click on bare track → jump to that position
+    const trackClick = (e: PointerEvent) => {
+      if (e.target === cthumb) return;
+      const rect = cbar.getBoundingClientRect();
+      const thumbW = cthumb.clientWidth;
+      const trackW = cbar.clientWidth;
+      const maxLeft = trackW - thumbW;
+      if (maxLeft <= 0) return;
+      const x = e.clientX - rect.left - thumbW / 2;
+      const clamped = Math.max(0, Math.min(maxLeft, x));
+      const scrollable = el.scrollWidth - el.clientWidth;
+      el.scrollLeft = (clamped / maxLeft) * scrollable;
+    };
+    cbar.addEventListener("pointerdown", trackClick);
+
     return () => {
-      el.removeEventListener("pointerdown", onDown);
-      el.removeEventListener("pointermove", onMove);
-      el.removeEventListener("pointerup", onUp);
-      el.removeEventListener("pointercancel", onUp);
+      el.removeEventListener("wheel", onWheel);
+      el.removeEventListener("pointerdown", onRowDown);
+      document.removeEventListener("pointermove", onRowMove);
+      document.removeEventListener("pointerup", onRowUp);
+      document.removeEventListener("pointercancel", onRowUp);
+      el.removeEventListener("scroll", cbarUpdate);
+      window.removeEventListener("resize", cbarUpdate);
+      cthumb.removeEventListener("pointerdown", thumbDown);
+      document.removeEventListener("pointermove", thumbMove);
+      document.removeEventListener("pointerup", thumbUp);
+      document.removeEventListener("pointercancel", thumbUp);
+      cbar.removeEventListener("pointerdown", trackClick);
+      clearTimeout(t1);
+      clearTimeout(t2);
     };
   }, []);
 
@@ -144,13 +224,14 @@ export function CategoryCardRow() {
           </motion.h2>
         </div>
 
-        {/* Horizontal-scroll row. row-scroll exposes a gold-themed
-            scrollbar; useEffect hooks above wire up wheel-to-horizontal
-            scroll and pointer-drag. */}
+        {/* Horizontal-scroll row. Native scrollbar hidden; we render a
+            custom always-visible thumb (.rv-row-cbar) below. No
+            scroll-snap so wheel-driven scrollLeft updates don't
+            stutter. */}
         <div
           ref={scrollerRef}
-          className="overflow-x-auto overflow-y-hidden row-scroll cursor-grab select-none pb-4 md:pb-6"
-          style={{ scrollSnapType: "x proximity", WebkitOverflowScrolling: "touch" }}
+          className="overflow-x-auto overflow-y-hidden row-scroll select-none"
+          style={{ WebkitOverflowScrolling: "touch" }}
         >
           <ul
             className="flex gap-4 md:gap-6 px-6 md:px-16"
@@ -162,7 +243,6 @@ export function CategoryCardRow() {
                 <motion.li
                   key={cat.slug}
                   className="flex-shrink-0 w-[78vw] sm:w-[44vw] md:w-[320px] lg:w-[340px]"
-                  style={{ scrollSnapAlign: "start" }}
                   initial={{ opacity: 0, y: 22 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
@@ -236,6 +316,15 @@ export function CategoryCardRow() {
               );
             })}
           </ul>
+        </div>
+
+        {/* Custom always-visible scrollbar. Lives below the row,
+            inside the same horizontal-padding container so it lines up
+            with the card stack. */}
+        <div className="px-6 md:px-16 mt-6 md:mt-8">
+          <div ref={cbarRef} className="rv-row-cbar">
+            <div ref={cthumbRef} className="rv-row-cbar-thumb" />
+          </div>
         </div>
 
         {/* Footer link — central, leads to the hub page (no specific anchor) */}
