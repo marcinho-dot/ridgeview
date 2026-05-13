@@ -121,7 +121,7 @@ export default function ArticleDetailPage() {
                 "radial-gradient(ellipse 65% 50% at 50% 30%, rgba(200,169,110,0.04) 0%, transparent 70%)",
             }}
           />
-          <div className="relative max-w-[960px] mx-auto px-6 md:px-12 text-center">
+          <div className="relative max-w-[1100px] mx-auto px-6 md:px-12 text-center">
             {/* Breadcrumb-style category backlink */}
             {category && (
               <motion.p
@@ -189,7 +189,7 @@ export default function ArticleDetailPage() {
 
         {/* ─── Body or Coming-Soon stub ─────────────────────────────── */}
         <section className="relative bg-[#010101]">
-          <div className="max-w-[1200px] mx-auto px-6 md:px-12 pb-16 md:pb-20">
+          <div className="max-w-[1400px] mx-auto px-6 md:px-12 pb-16 md:pb-20">
             {hasBody ? (
               <ArticleBodyRenderer blocks={article.body!} />
             ) : (

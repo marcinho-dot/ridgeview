@@ -163,7 +163,7 @@ function renderContentBlock(block: SideBySideContent, key: number) {
 
 export function ArticleBodyRenderer({ blocks }: Props) {
   return (
-    <div className="max-w-[1100px] mx-auto px-6 md:px-0">
+    <div className="max-w-[1320px] mx-auto px-6 md:px-0">
       {blocks.map((block, i) => {
         switch (block.type) {
           case "paragraph":
@@ -307,7 +307,7 @@ export function ArticleBodyRenderer({ blocks }: Props) {
             // tower above a short intro paragraph the way it did with a
             // fixed aspect ratio.
             const imgEl = (
-              <div className="relative w-full h-full min-h-[260px] md:min-h-[360px] overflow-hidden bg-[#0a0a0a] rounded-sm group">
+              <div className="relative w-full h-full min-h-[320px] md:min-h-[520px] overflow-hidden bg-[#0a0a0a] rounded-sm group">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={`${basePath}${block.image.src}`}
