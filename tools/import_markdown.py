@@ -113,21 +113,45 @@ SBS_START_RE = re.compile(r"^:::side-by-side\s+image-(left|right)\s*$")
 SBS_END_RE = re.compile(r"^:::\s*$")
 
 
-def ensure_side_by_side_hero(blocks, hero_image_path):
-    """Guarantee that every article opens with a side-by-side hero block:
-    image on the right, intro content on the left. Nothing is invented —
-    if the body already starts with a sideBySide block we leave it alone.
+def _prepend_title_heading(content, listing_title):
+    """Inject the article's wp-json listing title as a level-2 heading at
+    the top of the side-by-side content column, unless an equivalent
+    heading is already there. Per user request: the title should sit
+    above the intro paragraph in the first hero section so it's the
+    first thing readers see next to the image."""
+    if not listing_title:
+        return content
+    norm = re.sub(r"\s+", " ", listing_title).strip().lower()
+    # If first block is already a heading matching the title, leave it.
+    if content and content[0].get("type") == "heading":
+        existing = re.sub(r"\s+", " ", content[0].get("text", "")).strip().lower()
+        if existing == norm:
+            return content
+    return [{"type": "heading", "level": 2, "text": listing_title}] + content
 
-    Otherwise we scan the first few blocks for one image and at least
-    one text block (heading/paragraph), promote them into a synthetic
-    sideBySide, and leave the rest of the body in place. The image is
-    preferred from the body itself if there's one in the first three
-    blocks (e.g. a heading→image→paragraph opener); otherwise we fall
-    back to the article's existing heroImage."""
+
+def ensure_side_by_side_hero(blocks, hero_image_path, listing_title=None):
+    """Guarantee that every article opens with a side-by-side hero block:
+    image on the right, intro content on the left, with the article's
+    listing title (wp-json `title.rendered`) as the first heading in the
+    text column.
+
+    If the body already starts with a sideBySide block we keep its image
+    + content and just prepend the title heading. Otherwise we scan the
+    first few blocks for one image and at least one text block, promote
+    them into a synthetic sideBySide, and leave the rest of the body in
+    place. The image is preferred from the body itself if there's one
+    in the first three blocks; otherwise we fall back to the article's
+    existing heroImage."""
     if not blocks:
         return blocks
     if blocks[0].get("type") == "sideBySide":
-        return blocks
+        # Existing native hero — just prepend the title heading.
+        first = dict(blocks[0])
+        first["content"] = _prepend_title_heading(
+            list(first.get("content", [])), listing_title
+        )
+        return [first] + blocks[1:]
 
     rest = list(blocks)
     content = []
@@ -164,8 +188,12 @@ def ensure_side_by_side_hero(blocks, hero_image_path):
         return blocks
 
     # The synthetic hero's content column = the consumed text blocks
-    # in their original order.
-    content = [rest[i] for i in sorted(text_indices)]
+    # in their original order, with the wp-json listing title injected
+    # at the top so the article's name is the first thing the reader
+    # sees in the text column next to the image.
+    content = _prepend_title_heading(
+        [rest[i] for i in sorted(text_indices)], listing_title
+    )
     image_obj = {"src": image_block["src"], "alt": image_block.get("alt", "")}
     if image_block.get("href"):
         image_obj["href"] = image_block["href"]
@@ -598,7 +626,9 @@ def main():
         # on the article, synthesize one by pairing heroImage with the
         # first paragraph (and optional preceding heading) from the body.
         # No text is invented — we just rearrange existing pieces.
-        blocks = ensure_side_by_side_hero(blocks, a.get("heroImage"))
+        blocks = ensure_side_by_side_hero(
+            blocks, a.get("heroImage"), listing_title=a.get("title"),
+        )
         a["body"] = blocks
         by_slug[slug] = a
         updated += 1
