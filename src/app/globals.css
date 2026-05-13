@@ -543,6 +543,31 @@ body::after {
 ::-webkit-scrollbar-track { background: #0a0a0a; }
 ::-webkit-scrollbar-thumb { background: #3a3a3a; border-radius: 2px; }
 
+/* Horizontal-row scrollbar — visible, gold-themed, draggable.
+   Used by the Beyond the Bottle category row on the homepage so the
+   user has a manual scroll affordance alongside the wheel-to-horizontal
+   conversion that fires on hover. */
+.row-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(200, 169, 110, 0.55) rgba(255, 255, 255, 0.06);
+}
+.row-scroll::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+.row-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+}
+.row-scroll::-webkit-scrollbar-thumb {
+  background: rgba(200, 169, 110, 0.55);
+  border-radius: 3px;
+  transition: background-color 0.25s ease;
+}
+.row-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(200, 169, 110, 0.85);
+}
+
 /* --- Text selection --- */
 ::selection {
   background: rgba(245, 240, 232, 0.14);

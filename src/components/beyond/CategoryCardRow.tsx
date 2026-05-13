@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { categories, articles } from "@/data/articles";
 import { basePath } from "@/lib/basePath";
@@ -9,23 +10,91 @@ import { basePath } from "@/lib/basePath";
  *
  * Replaces the old per-article `BlogSection`. Each card links to
  * /beyond-the-bottle/#<category-slug> so the hub page auto-opens the
- * matching accordion on landing (handled inside BeyondHubPage's
- * useEffect).
+ * matching accordion on landing.
  *
- * Implementation notes:
- *   - Native `overflow-x-auto` + CSS scroll-snap (no carousel lib).
- *     Cards are flex-shrink-0 with explicit widths so the row width
- *     overflows and the user scrolls horizontally with touch / drag /
- *     scrollbar / shift-wheel.
- *   - On mobile, the visible card width is ~78vw so the next card
- *     "peeks" in at the right edge — signals scrollability without a
- *     swipe-hint icon.
- *   - On desktop, fixed 320px cards show ~3-4 at once on a typical
- *     1440px viewport.
- *   - Scrollbar hidden via a small utility class (still scrollable).
+ * Scroll mechanics (mirrors the Micronutrition academy row):
+ *   - Vertical wheel input is captured and converted to horizontal
+ *     scroll while the row hasn't reached its left/right boundary.
+ *     Once a boundary is hit, the wheel falls back to page-vertical
+ *     scroll so the user is never trapped.
+ *   - The native horizontal scrollbar is visible (gold-themed via
+ *     the `.row-scroll` utility in globals.css) so the user can also
+ *     grab the thumb and drag.
+ *   - Touch / trackpad horizontal swipes work natively. Pointer-based
+ *     drag-to-scroll is provided too so a desktop user with no
+ *     horizontal-scroll hardware can grab and drag the row.
+ *   - CSS scroll-snap keeps cards aligned after any of the above.
  */
 
 export function CategoryCardRow() {
+  const scrollerRef = useRef<HTMLDivElement | null>(null);
+
+  // ── Vertical-wheel → horizontal-scroll bridge ─────────────────────
+  useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const onWheel = (e: WheelEvent) => {
+      // Trackpads already deliver deltaX for horizontal gestures — let
+      // them pass through. We only redirect when the dominant motion
+      // is vertical AND there is still room to scroll horizontally
+      // in that direction.
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+      const maxLeft = el.scrollWidth - el.clientWidth;
+      const atStart = el.scrollLeft <= 0;
+      const atEnd = el.scrollLeft >= maxLeft - 1;
+      const scrollingDown = e.deltaY > 0;
+      if ((scrollingDown && atEnd) || (!scrollingDown && atStart)) {
+        // Let the page take over so the user is never trapped.
+        return;
+      }
+      e.preventDefault();
+      el.scrollLeft += e.deltaY;
+    };
+    // Passive: false is required so preventDefault works.
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => el.removeEventListener("wheel", onWheel);
+  }, []);
+
+  // ── Pointer drag-to-scroll for mouse users ────────────────────────
+  useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    let isDown = false;
+    let startX = 0;
+    let startLeft = 0;
+    const onDown = (e: PointerEvent) => {
+      // Ignore clicks that land on a card link — those should navigate,
+      // not start a drag. The link uses pointer-events:auto, so we
+      // only start dragging when the press lands on bare row chrome.
+      if ((e.target as HTMLElement).closest("a")) return;
+      isDown = true;
+      startX = e.clientX;
+      startLeft = el.scrollLeft;
+      el.setPointerCapture(e.pointerId);
+      el.style.cursor = "grabbing";
+    };
+    const onMove = (e: PointerEvent) => {
+      if (!isDown) return;
+      el.scrollLeft = startLeft - (e.clientX - startX);
+    };
+    const onUp = (e: PointerEvent) => {
+      if (!isDown) return;
+      isDown = false;
+      try { el.releasePointerCapture(e.pointerId); } catch {}
+      el.style.cursor = "";
+    };
+    el.addEventListener("pointerdown", onDown);
+    el.addEventListener("pointermove", onMove);
+    el.addEventListener("pointerup", onUp);
+    el.addEventListener("pointercancel", onUp);
+    return () => {
+      el.removeEventListener("pointerdown", onDown);
+      el.removeEventListener("pointermove", onMove);
+      el.removeEventListener("pointerup", onUp);
+      el.removeEventListener("pointercancel", onUp);
+    };
+  }, []);
+
   // Compute article counts per category for the kicker line
   const countByCategory = articles.reduce<Record<string, number>>((acc, a) => {
     acc[a.category] = (acc[a.category] || 0) + 1;
@@ -75,9 +144,12 @@ export function CategoryCardRow() {
           </motion.h2>
         </div>
 
-        {/* Horizontal-scroll row */}
+        {/* Horizontal-scroll row. row-scroll exposes a gold-themed
+            scrollbar; useEffect hooks above wire up wheel-to-horizontal
+            scroll and pointer-drag. */}
         <div
-          className="overflow-x-auto overflow-y-hidden scrollbar-hidden"
+          ref={scrollerRef}
+          className="overflow-x-auto overflow-y-hidden row-scroll cursor-grab select-none pb-4 md:pb-6"
           style={{ scrollSnapType: "x proximity", WebkitOverflowScrolling: "touch" }}
         >
           <ul
