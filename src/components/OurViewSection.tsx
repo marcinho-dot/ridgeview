@@ -64,7 +64,7 @@ export function OurViewSection() {
           />
 
           <p
-            className="font-body text-white/60 text-sm leading-relaxed mb-10"
+            className="font-body text-white/60 text-sm leading-relaxed mb-8"
             style={{ fontWeight: 300, maxWidth: "460px" }}
           >
             Become a member of OurView to enjoy exclusive access to our private
@@ -72,39 +72,62 @@ export function OurViewSection() {
             community.
           </p>
 
-          {/* Email form — round arrow button replaces the chunky CTA so
-              the input row stays compact. Matches the MN newsletter form. */}
-          <div className="flex items-center gap-2 border-b border-white/22 w-full" style={{ maxWidth: "460px" }}>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Your email address"
-              aria-label="Email address"
-              className="flex-1 bg-transparent font-body text-cream text-sm py-3 outline-none placeholder:text-white/30 focus:placeholder:text-white/50 transition-colors"
-              style={{ fontWeight: 300 }}
-            />
-            <button
-              type="submit"
-              aria-label="Subscribe"
-              className="group relative w-9 h-9 rounded-full border border-[#C8A96E]/55 hover:border-[#C8A96E] flex items-center justify-center transition-all duration-300 hover:bg-[#C8A96E]/10 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C8A96E]/50"
+          {/* Primary CTA — leads to the dedicated /wine-club/ landing
+              page where the full pricing + member benefits live. */}
+          <div className="mb-10">
+            <a href={`${basePath}/wine-club/`} className="btn-cta">
+              Discover Membership
+            </a>
+          </div>
+
+          {/* Secondary newsletter signup — separate from the membership
+              CTA. Subscribes the visitor to our Substack-style updates
+              (not a commitment). The label makes the distinction clear. */}
+          <div style={{ maxWidth: "460px" }} className="w-full">
+            <p
+              className="font-body text-white/45 uppercase tracking-[0.22em] mb-3"
+              style={{ fontSize: "10px", fontWeight: 400 }}
             >
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="text-[#C8A96E] transition-transform duration-300 group-hover:translate-x-[2px]"
-                aria-hidden
+              Stay in the loop
+            </p>
+            <div className="flex items-center gap-2 border-b border-white/22 w-full">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Your email address"
+                aria-label="Email address for newsletter"
+                className="flex-1 bg-transparent font-body text-cream text-sm py-3 outline-none placeholder:text-white/30 focus:placeholder:text-white/50 transition-colors"
+                style={{ fontWeight: 300 }}
+              />
+              <button
+                type="submit"
+                aria-label="Subscribe to newsletter"
+                className="group relative w-9 h-9 rounded-full border border-[#C8A96E]/55 hover:border-[#C8A96E] flex items-center justify-center transition-all duration-300 hover:bg-[#C8A96E]/10 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C8A96E]/50"
               >
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </button>
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-[#C8A96E] transition-transform duration-300 group-hover:translate-x-[2px]"
+                  aria-hidden
+                >
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+            <p
+              className="font-body text-white/35 mt-3"
+              style={{ fontSize: "11px", fontWeight: 300 }}
+            >
+              Cellar updates and seasonal releases. Unsubscribe anytime.
+            </p>
           </div>
         </motion.div>
 
