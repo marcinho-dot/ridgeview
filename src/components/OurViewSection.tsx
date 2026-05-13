@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 
 import { basePath } from "@/lib/basePath";
@@ -13,7 +12,6 @@ const benefits = [
 ];
 
 export function OurViewSection() {
-  const [activeBenefit, setActiveBenefit] = useState(0);
 
   return (
     <section id="ourview" className="relative overflow-hidden">
@@ -82,55 +80,48 @@ export function OurViewSection() {
           </div>
         </motion.div>
 
-        {/* ── Right: Benefits ── */}
+        {/* ── Right: Benefits ── all four equally prominent (cream +
+            arrow visible). Hover-only animation: the arrow slides
+            forward, the text shifts to the brand gold, and a thin
+            hairline draws underneath. */}
         <div className="flex flex-col justify-center gap-1">
           {benefits.map((benefit, i) => (
-            <motion.button
+            <motion.div
               key={benefit}
-              onClick={() => setActiveBenefit(i)}
-              className="flex items-center gap-4 py-3.5 text-left group"
+              className="group relative flex items-center gap-4 py-3.5 cursor-default"
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.5, margin: "0px 0px -80px 0px" }}
               transition={{ duration: 0.65, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
-              {/* Arrow indicator */}
-              <motion.span
-                className="font-body text-cream flex-shrink-0"
-                animate={{
-                  opacity: activeBenefit === i ? 1 : 0,
-                  x: activeBenefit === i ? 0 : -10,
-                }}
-                transition={{ duration: 0.25, ease: "easeOut" }}
+              {/* Arrow — always cream, slides 4px on hover */}
+              <span
+                aria-hidden
+                className="font-body text-cream flex-shrink-0 transition-transform duration-400 ease-out group-hover:translate-x-1 group-hover:text-[#C8A96E]"
                 style={{ minWidth: "24px", fontSize: "16px" }}
               >
                 →
-              </motion.span>
+              </span>
 
-              {/* Text */}
+              {/* Text — cream by default, gold on hover */}
               <span
-                className="font-display transition-all duration-300"
+                className="font-display transition-colors duration-400 text-cream group-hover:text-[#C8A96E]"
                 style={{
                   fontSize: "clamp(20px, 2.8vw, 44px)",
                   fontStyle: "italic",
                   fontWeight: 400,
-                  color: activeBenefit === i ? "#f5f0e8" : "rgba(245,240,232,0.30)",
                   letterSpacing: "0.02em",
                 }}
               >
                 {benefit}
               </span>
 
-              {/* Draw-line under active */}
-              {activeBenefit === i && (
-                <motion.div
-                  className="absolute h-px bg-white/20"
-                  layoutId="benefit-line"
-                  style={{ bottom: 0, left: "40px", right: 0 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 35 }}
-                />
-              )}
-            </motion.button>
+              {/* Hover-drawn hairline underneath */}
+              <span
+                aria-hidden
+                className="absolute bottom-0 left-10 right-0 h-px bg-[#C8A96E]/40 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"
+              />
+            </motion.div>
           ))}
         </div>
       </div>
