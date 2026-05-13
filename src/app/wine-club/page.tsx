@@ -426,6 +426,9 @@ export default function WineClubPage() {
         </ScrollReset>
 
         {/* ── Testimonials ─────────────────────────────────────────── */}
+        {/* Three verbatim quotes pulled from the live legacy
+            /wine-club-membership/ page — two member testimonials and a
+            Decanter press citation. Nothing rephrased or composited. */}
         <ScrollReset>
           <section className="relative bg-[#010101] border-t border-white/[0.06] overflow-hidden">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -436,37 +439,93 @@ export default function WineClubPage() {
               className="absolute inset-0 w-full h-full object-cover opacity-[0.18]"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-[#010101] via-black/55 to-[#010101]" />
-            <div className="relative max-w-[1100px] mx-auto px-6 md:px-16 py-24 md:py-32 text-center">
+            <div className="relative max-w-[1400px] mx-auto px-6 md:px-16 py-24 md:py-32">
               <p
-                className="font-display italic text-[#C8A96E] tracking-widest mb-8"
+                className="font-display italic text-[#C8A96E] tracking-widest mb-12 md:mb-16 text-center"
                 style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
               >
                 [ From our members ]
               </p>
-              <motion.blockquote
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                className="font-display italic text-cream leading-[1.4]"
-                style={{
-                  fontSize: "clamp(22px, 2.6vw, 34px)",
-                  fontWeight: 400,
-                  maxWidth: "900px",
-                  margin: "0 auto",
-                }}
-              >
-                &ldquo;OurView makes you feel connected to a brilliant local
-                product on our doorstep. The selections provide vintages before
-                they are available elsewhere, and the access to exclusive events
-                throughout the year is another great benefit of membership.&rdquo;
-              </motion.blockquote>
-              <p
-                className="font-body text-[#C8A96E]/85 uppercase tracking-[0.22em] mt-8"
-                style={{ fontSize: "11px" }}
-              >
-                — An OurView Member since inception
-              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
+                <motion.figure
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                  className="border-l border-[#C8A96E]/30 pl-6 md:pl-8"
+                >
+                  <blockquote
+                    className="font-display italic text-cream leading-[1.45] mb-6"
+                    style={{ fontSize: "clamp(16px, 1.5vw, 19px)", fontWeight: 400 }}
+                  >
+                    &ldquo;I have been a member of OurView since inception and
+                    what a wonderful treat it is to receive delicious Ridgeview
+                    twice a year. The selections available provide vintages
+                    before they are available elsewhere and at a discounted
+                    price. Access to exclusive events throughout the year is
+                    another great benefit of membership. OurView makes you feel
+                    connected to a brilliant local product on our doorstep that
+                    knocks the socks off anything French!&rdquo;
+                  </blockquote>
+                  <figcaption
+                    className="font-body text-[#C8A96E]/85 uppercase tracking-[0.22em]"
+                    style={{ fontSize: "10px" }}
+                  >
+                    — OurView member
+                  </figcaption>
+                </motion.figure>
+
+                <motion.figure
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  className="border-l border-[#C8A96E]/30 pl-6 md:pl-8"
+                >
+                  <blockquote
+                    className="font-display italic text-cream leading-[1.45] mb-6"
+                    style={{ fontSize: "clamp(16px, 1.5vw, 19px)", fontWeight: 400 }}
+                  >
+                    &ldquo;One of the benefits I most value being part of the
+                    OurView wine club is the access to the special archive
+                    wines not available to the general public. It is always a
+                    pleasure opening the surprise case twice a year and
+                    refilling my wine rack which is always being depleted!
+                    It&rsquo;s a pleasure to be part of a unique family run
+                    business.&rdquo;
+                  </blockquote>
+                  <figcaption
+                    className="font-body text-[#C8A96E]/85 uppercase tracking-[0.22em]"
+                    style={{ fontSize: "10px" }}
+                  >
+                    — OurView member
+                  </figcaption>
+                </motion.figure>
+
+                <motion.figure
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                  className="border-l border-[#C8A96E]/30 pl-6 md:pl-8"
+                >
+                  <blockquote
+                    className="font-display italic text-cream leading-[1.45] mb-6"
+                    style={{ fontSize: "clamp(16px, 1.5vw, 19px)", fontWeight: 400 }}
+                  >
+                    &ldquo;Ridgeview&rsquo;s OurView wine club is simple,
+                    accessible and engaging, encouraging its members to
+                    experiment, visit and generally get involved in English
+                    wine.&rdquo;
+                  </blockquote>
+                  <figcaption
+                    className="font-body text-[#C8A96E]/85 uppercase tracking-[0.22em]"
+                    style={{ fontSize: "10px" }}
+                  >
+                    — Decanter, 2023
+                  </figcaption>
+                </motion.figure>
+              </div>
             </div>
           </section>
         </ScrollReset>
