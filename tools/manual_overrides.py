@@ -18,25 +18,40 @@ ROOT = Path(__file__).parent.parent
 OUT_MD_DIR = ROOT / "content" / "articles"
 
 USB = Path("/Volumes/RIDGEVIEW/Content/Copywriting")
+USB_PARENT = Path("/Volumes/RIDGEVIEW/Content")  # for fallback search of non-Copywriting docs
 
 # slug → source-file path (relative to USB/Content/Copywriting/).
 # Resolved against the USB; if not at the exact path, we fall back to
-# recursive filename search.
+# recursive filename search anywhere under USB/Content.
 OVERRIDES = {
-    "blanc-de-noirs-2016-the-perfect-vintage":
-        "Products and Campaigns/Blanc de Noirs/Blanc de Noirs 2016 Product Copy.docx",
+    # First batch — confirmed via spot-reading
     "still-english-rose":
         "Products and Campaigns/Still Rosé/Still Rose Launch.docx",
-    "ridgeviews-red-reserve-a-new-chapter":
-        "Products and Campaigns/Wine Technical Notes/Archive/Red Reserve R.docx",
     "sparkling-wine-magnum-bloomsbury":
         "Products and Campaigns/Bloomsbury Magnum/Magnum Bloomsbury NV Copy.docx",
     "exclusive-demi-sec":
         "OurView/OurView Demi-Sec Copy Deck.docx",
     "vineyard-restaurant-the-rows-vine-returns":
         "Hospitality & Retail/Spring-Summer/2025/The Rows & Vine goes Alfresco with New Menu 2025.docx",
-    "building-the-rows-and-vine":
-        "Hospitality & Retail/Autumn-Winter/The Rows & Vine at The Winery.docx",
+
+    # Second batch — discovered by mapping non-default folders
+    # "BdN 2016 Blog" first-line matches the slug title EXACTLY
+    "blanc-de-noirs-2016-the-perfect-vintage":
+        "Products and Campaigns/Blanc de Blancs/BdB 2016/BdN 2016 Blog.docx",
+    # Long-form Christmas pairings blog — likely matches the "Standout"-titled article
+    "standout-sparkling-wine-pairings-for-christmas":
+        "Products and Campaigns/Holidays and Seasonal Celebrations/Christmas/Christmas Pairings Blog 2025.docx",
+    # "Rosé de Noirs 2020 Copy & Messaging" — RdN 2020 launch doc
+    "rose-de-noirs-revealed":
+        "Products and Campaigns/Rosé de Noirs/RdN 2020 full copy.docx",
+    # BdB 2020 blog — different file from the one already in articles.ts
+    # (inside-blanc-de-blancs-2020 used Short-Copy email/social; this is the full blog)
+    # "Blog Title: Think You Know Rosé? Think Again." — provocative rosé article
+    "english-rose-wine":
+        "Products and Campaigns/Rosé general/Think you know Rosé, Think Again.docx",
+    # First line matches the slug title verbatim
+    "ridgeview-wine-goodwood-estate":
+        "Trade sales/Goodwood Sponsorship Announcement.docx",
 }
 
 
@@ -45,9 +60,9 @@ def find_file(rel_path: str):
     direct = USB / rel_path
     if direct.exists():
         return direct
-    # Try just the filename anywhere under USB
+    # Try just the filename anywhere under USB/Content
     name = Path(rel_path).name
-    for p in USB.rglob(name):
+    for p in USB_PARENT.rglob(name):
         return p
     return None
 
