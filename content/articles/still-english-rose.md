@@ -58,5 +58,5 @@ Evoking the warmth of an English summer’s day, it pours a soft coral pink in t
 
 Dedicated to friends and family, our inaugural still wine is made for sharing food and good times together. Celebrating the everyday and the extra special, it has been crafted just for guests sharing their memorable moments with us at Ridgeview.
 
-![](/images/articles/still-english-rose/inline-6.jpg)
+![](/images/articles/still-english-rose/inline-6.webp)
 :::

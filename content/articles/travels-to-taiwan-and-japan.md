@@ -4,7 +4,7 @@ displayTitle: "Simon Roberts travels to Taiwan and Japan"
 ---
 
 :::side-by-side image-right
-![](/images/articles/travels-to-taiwan-and-japan/inline-1.jpg)
+![](/images/articles/travels-to-taiwan-and-japan/inline-1.webp)
 
 Head Winemaker, Simon Roberts, recounts his recent trip to Japan and Taiwan to share our wines with new audiences across Asia.
 :::

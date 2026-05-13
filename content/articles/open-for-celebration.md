@@ -4,7 +4,7 @@ displayTitle: "Open for Celebration"
 ---
 
 :::side-by-side image-right
-![](/images/articles/open-for-celebration/inline-1.jpg)
+![](/images/articles/open-for-celebration/inline-1.webp)
 
 Launched during English Wine Week, Drinks marketing agency YesMore has assisted Ridgeview in producing a new campaign to celebrate the gradual opening up as the UK emerges from lockdown.
 

@@ -4,7 +4,7 @@ displayTitle: "Inside Blanc de Blancs 2020"
 ---
 
 :::side-by-side image-right
-[![Ridgeview Blanc de Blancs at the beach](/images/articles/inside-blanc-de-blancs-2020/inline-1.jpg)](/wine/blanc-de-blancs/)
+[![Ridgeview Blanc de Blancs at the beach](/images/articles/inside-blanc-de-blancs-2020/inline-1.webp)](/wine/blanc-de-blancs/)
 
 Quietly confident, beautifully expressive, shaped by time – Ridgeview Blanc de Blancs 2020 is a wine of elegance, complexity, and intent. A milestone vintage released in our 30th year, it captures the essence of Ridgeview’s quality, maturity and ambition. A limited edition for those who value excellence worth waiting for. A lesson in delayed gratification – with reward in every glass.
 :::

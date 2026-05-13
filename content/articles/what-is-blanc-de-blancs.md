@@ -80,5 +80,3 @@ So if you’re looking for a wine to age gracefully over time, then Blanc de Bla
 THE ROYAL OPERA HOUSE
 
 Blanc de Blancs is best served with great company in great places and the Royal Opera House hits the high notes on both accounts. There’s nothing quite like sipping a chilled glass of Blanc de Blancs on their Piazza terrace, soaking up the sights and sounds of this iconic destination in the heart of London’s Covent Garden.
-
-![Background Lines](/images/articles/what-is-blanc-de-blancs/inline-5.jpg)

@@ -4,7 +4,7 @@ displayTitle: "Meet our Technical Winemaker, Liz Morgan"
 ---
 
 :::side-by-side image-right
-![Winemaking at Ridgeview](/images/articles/careers-in-wine-technical-winemaking/inline-1.jpg)
+![Winemaking at Ridgeview](/images/articles/careers-in-wine-technical-winemaking/inline-1.webp)
 
 Is there a more exciting place to work right now than English wine? Driven by innovation, passion and a pioneering spirit, our wines are taking the world by storm.The English wine industry is full of talented, welcoming individuals achieving incredible things through their career in wine, like our Technical Winemaker, Liz Morgan.
 

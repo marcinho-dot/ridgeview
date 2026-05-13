@@ -9,17 +9,17 @@ We are delighted to announce that we are a Certified B Corporation®, joining so
 
 Since we established our family business in 1995, sustainability has been a core part of our DNA, and we have always believed in business as a force for good. Becoming a B Corp has been a huge challenge and one of our greatest joys, that marks a new chapter in our sustainability journey.
 
-![Ridgeview Wine Estate B Corp](/images/articles/were-proud-to-be-a-b-corp/inline-1.jpg)
+![Ridgeview Wine Estate B Corp](/images/articles/were-proud-to-be-a-b-corp/inline-1.webp)
 
 ## What is a B Corp?
 
-![Ridgeview Wine Estate England B Corp](/images/articles/were-proud-to-be-a-b-corp/inline-2.jpg)
+![Ridgeview Wine Estate England B Corp](/images/articles/were-proud-to-be-a-b-corp/inline-2.webp)
 
 Being a B Corp™ is underpinned by a philosophy of balancing people, planet, and profit. We are a community of purpose-driven businesses achieving the highest standards of environmental and social practices, leading the global movement for an inclusive, equitable, and regenerative economy.
 
 ## Our Estate, Our Home
 
-![Tamara Roberts & Simon Roberts, Ridgeview Wine Estate England](/images/articles/were-proud-to-be-a-b-corp/inline-3.jpg)
+![Tamara Roberts & Simon Roberts, Ridgeview Wine Estate England](/images/articles/were-proud-to-be-a-b-corp/inline-3.webp)
 
 **What being a B Corp means to us.**
 
@@ -29,7 +29,7 @@ Like us, the B Corp movement measures success not based on profit, but through b
 
 ## B Corp™ feels like home
 
-![Ridgeview Wine Estate England B Corp](/images/articles/were-proud-to-be-a-b-corp/inline-4.jpg)
+![Ridgeview Wine Estate England B Corp](/images/articles/were-proud-to-be-a-b-corp/inline-4.webp)
 
 So becoming a B Corp feels like home, fitting perfectly with our principles of honesty, integrity, innovation and collaboration.
 

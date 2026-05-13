@@ -103,15 +103,33 @@ def download_image(url: str, slug: str, idx: int):
         return None
 
 
+def _is_real_url(v):
+    """Return True if `v` looks like a real fetchable image URL (not a
+    placeholder.svg or an inline data: URI)."""
+    if not v:
+        return False
+    if v.startswith("data:"):
+        return False
+    if "placeholder" in v:
+        return False
+    return True
+
+
 def img_real_src(img_tag):
-    """Lazy-loaded WP images put the real URL in data-src; the visible
-    src is a placeholder.svg. Fall back to data-srcset / src as needed."""
-    for attr in ("data-src", "src"):
+    """Lazy-loaded WP images put the real URL in one of several attrs
+    depending on which lazy-loader is active on the page. Different
+    Ridgeview articles use different schemes — `data-src` (default WP
+    theme), `data-lazy-src` (autoptimize/wp-rocket variant), or just
+    `src` when no lazy-loader is active. The visible `src` is often a
+    placeholder SVG (inline data: URI or .../placeholder.svg)."""
+    for attr in ("data-lazy-src", "data-src", "src"):
         v = img_tag.get(attr)
-        if v and "placeholder" not in v:
+        if _is_real_url(v):
             return v
     # If only srcset is set, pick the largest entry
-    srcset = img_tag.get("data-srcset") or img_tag.get("srcset")
+    srcset = (img_tag.get("data-lazy-srcset")
+              or img_tag.get("data-srcset")
+              or img_tag.get("srcset"))
     if srcset:
         entries = [e.strip() for e in srcset.split(",")]
         # entries like "URL 1200w" — sort by width descending
@@ -119,8 +137,10 @@ def img_real_src(img_tag):
             m = re.search(r"(\d+)w$", e)
             return int(m.group(1)) if m else 0
         entries.sort(key=width, reverse=True)
-        first = entries[0].split()[0] if entries else None
-        return first
+        for e in entries:
+            url = e.split()[0] if e else None
+            if _is_real_url(url):
+                return url
     return None
 
 

@@ -13,11 +13,11 @@ After a warm and dry start to summer in June and July, our thoughts turned to an
 
 Things are looking very positive but the next few weeks are crucial and there are no guarantees when working sustainably with the land. We remain patient, vigilant, and excited about the potential for vintage 2022 but only time will tell.
 
-![Harvest at Ridgeview Wine Estate Sussex England](/images/articles/harvest-2022-is-on-the-horizon/inline-1.jpg)
+![Harvest at Ridgeview Wine Estate Sussex England](/images/articles/harvest-2022-is-on-the-horizon/inline-1.webp)
 
 ## JOIN THE HARVEST TEAM
 
-![Harvest at Ridgeview Wine Estate Sussex England](/images/articles/harvest-2022-is-on-the-horizon/inline-2.jpg)
+![Harvest at Ridgeview Wine Estate Sussex England](/images/articles/harvest-2022-is-on-the-horizon/inline-2.webp)
 
 [JOIN OUR HARVEST TEAM](https://www.ridgeview.co.uk/about-us/join-us/)
 

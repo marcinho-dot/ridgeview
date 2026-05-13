@@ -31,7 +31,7 @@ We are on a journey, a constantly evolving pathway towards a more sustainable fu
 
 ## Our B Corp Values
 
-![Tamara Roberts Signature](/images/articles/our-impact/inline-11.jpg)
+![Tamara Roberts Signature](/images/articles/our-impact/inline-11.webp)
 
 ![](/images/articles/our-impact/inline-12.webp)
 

@@ -22,7 +22,7 @@ Looking ahead, the introduction of [B Lab’s new standards](https://www.bcorpor
 
 We’re grateful to everyone who’s part of this journey – our team, our partners and our customers – and we’re looking forward to what comes next.
 
-![](/images/articles/b-corp-impact-report-2025/inline-3.jpg)
+![](/images/articles/b-corp-impact-report-2025/inline-3.webp)
 :::
 
 ## OUR B CORP IMPACT SCORE
@@ -205,4 +205,4 @@ Ridgeview has always been about more than exceptional wine – it’s about brin
 
 We’re proud of the progress shared here but the work is ongoing. This report marks a moment in time, part of a much longer journey. We’ll continue learning, listening and making considered choices to do better for people, place and planet. We welcome any feedback, reflections or ideas on how we can do better at any stage of the winemaking journey, from grape to glass and everything in between.
 
-Email [[email protected]](/cdn-cgi/l/email-protection#9ef7f0f8f1deecf7faf9fbe8f7fbe9b0fdf1b0ebf5) to help shape what comes next.
+Email [[email protected]](/cdn-cgi/l/email-protection#cca5a2aaa38cbea5a8aba9baa5a9bbe2afa3e2b9a7) to help shape what comes next.

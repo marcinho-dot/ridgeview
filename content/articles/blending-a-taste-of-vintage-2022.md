@@ -22,5 +22,5 @@ Due to the hot, dry summer the fruit was beautifully ripe and full of very conce
 
 This year (a rare delight for a winemaker) every tank has something amazing to offer. We are making the very best of this extraordinary vintage and hope to have some wonderful wines to share with you, in time.”
 
-![](/images/articles/blending-a-taste-of-vintage-2022/inline-3.jpg)
+![](/images/articles/blending-a-taste-of-vintage-2022/inline-3.webp)
 :::

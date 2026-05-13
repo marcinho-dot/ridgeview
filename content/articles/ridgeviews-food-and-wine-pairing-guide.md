@@ -37,7 +37,7 @@ Dine at any of their five [Gingerman restaurants](https://www.gingermanrestauran
 - Our traditional blend Cavendish is a rich golden colour with exceptionally fine bubbles
 - The nose is expressive with hints of red fruits. The Pinot dominance brings depth and complexity to the palate with a long-lasting finish, whilst the Chardonnay adds finesse and freshness
 - Served at Lancaster House to the Prime Minister and UK Business Leaders
-![](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-3.jpg)
+![](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-3.webp)
 
 ## Duck | Trout | Charcuterie
 
@@ -64,6 +64,7 @@ Visit [64 Degrees](https://64degrees.co.uk/) or [Murmur](https://murmur-restaura
 - Our Fitzrovia Rosé is a delicate salmon colour with an abundance of fine bubbles
 - Chardonnay brings freshness and finesse, whilst the Pinots add the classic red fruits for which England is so acclaimed. A raspberry and redcurrant nose carries through to a fresh fruit-driven palate
 - Served to Barack Obama at Buckingham Palace State Banquet
+[![Ridgeview Fitzrovia Rose NV English sparkling wine](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-5.webp)](/wine/fitzrovia/)
 
 ## Something Sweet
 
@@ -72,7 +73,7 @@ RECIPES The simple classic, Strawberries and Cream, is a delightfully fresh and 
 Or for an even more British and delicious pairing try, [Mary Berry’s Summer Pudding](https://www.bbc.co.uk/food/recipes/summer_pudding_loaf_92270) packed full of sweet berry flavours.
 
 :::side-by-side image-right
-[![](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-5.webp)](/wine/fitzrovia/)
+[![](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-6.webp)](/wine/fitzrovia/)
 
 ## Clues from the Kitchen
 
@@ -85,19 +86,19 @@ For those of us that can only ever dream of having Kim’s culinary skills, try 
 
 ## Shop Now
 
-[![](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-6.webp)](/wine/bloomsbury/)
+[![](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-7.webp)](/wine/bloomsbury/)
 
 ### Bloomsbury NV
 
 Our bestselling fresh and fruit-forward English sparkling wine, with notes of citrus zest, pear and honey. A delightful aperitif and delicious with canapés.
 
-[![](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-7.webp)](/wine/cavendish/)
+[![](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-8.webp)](/wine/cavendish/)
 
 ### Cavendish NV
 
 Expressive red berry and almond aromas. Elegantly balanced with notes of raspberry frangipane and bergamot orange. A deliciously foodie wine.
 
-[![Ridgeview Fitzrovia Rose NV English sparkling wine](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-8.webp)](/wine/fitzrovia/)
+[![Ridgeview Fitzrovia Rose NV English sparkling wine](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-9.webp)](/wine/fitzrovia/)
 
 ### Fitzrovia Rosé NV
 
@@ -110,6 +111,7 @@ A fresh and fruit-driven English sparkling rosé. Full of sunshine and celebrati
 - The generous fruit on the nose and palate is balanced by a complex hazelnut and toasted brioche character with a gentle hint of spice.
 - The palate offers a ripe, rounded body to compliment the bright acidity and elegant mousse.
 - There is a saline minerality that lingers long on the finely-balanced finish.
+[![Blanc de Blancs Bottle with Box](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-10.webp)](/wine/blanc-de-blancs/)
 
 ## Oysters | Lemon Butter | Scallops
 
@@ -118,7 +120,7 @@ A fresh and fruit-driven English sparkling rosé. Full of sunshine and celebrati
 **RECIPES** Try Gennaro Contaldo’s [Halibut with lemon butter](https://www.bbc.co.uk/food/recipes/halibutwithlemonbutt_73188) or Rick Stein’s [Lemon sole with serrano ham, summer vegetables and pea shoots](https://www.deliciousmagazine.co.uk/recipes/lemon-sole-with-serrano-ham-summer-vegetables-and-pea-shoots/).
 
 :::side-by-side image-right
-[![](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-9.webp)](/wine/blanc-de-blancs/)
+[![](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-11.webp)](/wine/blanc-de-blancs/)
 
 ## Hints from Heritage
 
@@ -134,6 +136,7 @@ Visit [Heritage](https://heritage.restaurant/) for their latest menu and enjoy a
 - A deep golden colour with a persistent fine stream of bubbles.
 - Rich, earthy red fruit aromas are followed by a complex toasted palate.
 - The finish is long-lasting and beautifully balanced.
+[![Bottle of Blanc de Noirs Bottle and Box](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-12.webp)](/wine/blanc-de-noirs/)
 
 ## Mackerel | Duck | Mushrooms
 
@@ -144,7 +147,7 @@ Visit [Heritage](https://heritage.restaurant/) for their latest menu and enjoy a
 Or Yotam Ottolenghi’s [portobello mushroom tarts with pine nuts and parsley salsa](https://ottolenghi.co.uk/recipes/portobello-mushroom-tarts-with-pine-nut-and-parsley-salsa).
 
 :::side-by-side image-right
-![](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-10.webp)
+![](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-13.webp)
 
 ## The Chef's Verdict
 
@@ -158,13 +161,14 @@ Or Yotam Ottolenghi’s [portobello mushroom tarts with pine nuts and parsley sa
 - A Ridgeview barrel fermented sparkling wine
 - Creaminess from the oak harmonises with our normal fresh fruit style
 - Unique batch of 2,600 bottles
+[![](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-14.webp)](/wine/oak-reserve/)
 
 ## Charcuterie | Light Game
 
 SPOTLIGHT ON Charcuterie – This exceptional oak-aged sparkling wine offers a complimentary buttery texture and fresh, fruity notes to lift the rich, spicy flavours of cured meat.
 
 :::side-by-side image-right
-[![Simon Roberts Director of Winemaking at Ridgeview Oak Reserve English sparkling wine](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-11.webp)](/wine/oak-reserve/)
+[![Simon Roberts Director of Winemaking at Ridgeview Oak Reserve English sparkling wine](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-15.webp)](/wine/oak-reserve/)
 
 ## Winemaker's Hints
 
@@ -179,19 +183,19 @@ But for the ultimate culinary experience, serve it with Christmas lunch – by f
 
 ## Shop Now
 
-[![Blanc de Blancs Bottle with Box](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-12.webp)](/wine/blanc-de-blancs/)
+[![Blanc de Blancs Bottle with Box](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-16.webp)](/wine/blanc-de-blancs/)
 
 ### Blanc de Blancs
 
 Our flagship, single estate vintage wine from the finest grapes from our home vineyard. Pure, elegant and complex with hints of fresh honey, apricot and brioche.
 
-[![Bottle of Blanc de Noirs Bottle and Box](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-13.webp)](/wine/blanc-de-noirs/)
+[![Bottle of Blanc de Noirs Bottle and Box](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-17.webp)](/wine/blanc-de-noirs/)
 
 ### Blanc de Noirs
 
 Made from the finest Pinot grapes only in exceptional vintage years. Delightfully food-friendly, the palate bursts with red cherries, almonds and spice.
 
-[![](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-14.webp)](/wine/oak-reserve/)
+[![](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-18.webp)](/wine/oak-reserve/)
 
 ### Oak Reserve
 

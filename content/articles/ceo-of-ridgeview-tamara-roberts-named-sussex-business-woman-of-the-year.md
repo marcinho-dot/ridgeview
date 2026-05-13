@@ -15,7 +15,7 @@ More information on these awards can be found at: http://businesswomenexcellence
 
 ## Media requests, images and interviews
 
-These can be arranged by contacting Astrid Lewis on 07598269842 ([[email protected]](/cdn-cgi/l/email-protection#d1b0a2a5a3b8b591a2a1a3b8a5abbcb0a3bab4a5b8bfb6ffb2beffa4ba)), Elizabeth Cook ([[email protected]](/cdn-cgi/l/email-protection#2b4e4742514a494e5f436b585b59425f51464a59404e5f42454c054844055e40)) or Mardi Roberts ([[email protected]](/cdn-cgi/l/email-protection#35585447515c75475c515250435c50421b565a1b405e)). For US distribution enquiries please contact [[email protected]](/cdn-cgi/l/email-protection#c1b2a8adb7a8a081b3a8a5a6a4b7a8a4b6efa2aeefb4aa)
+These can be arranged by contacting Astrid Lewis on 07598269842 ([[email protected]](/cdn-cgi/l/email-protection#66071512140f02261516140f121c0b07140d03120f080148050948130d)), Elizabeth Cook ([[email protected]](/cdn-cgi/l/email-protection#8beee7e2f1eae9eeffe3cbf8fbf9e2fff1e6eaf9e0eeffe2e5eca5e8e4a5fee0)) or Mardi Roberts ([[email protected]](/cdn-cgi/l/email-protection#305d51425459704259545755465955471e535f1e455b)). For US distribution enquiries please contact [[email protected]](/cdn-cgi/l/email-protection#3c4f55504a555d7c4e55585b594a55594b125f53124957)
 
 ## Notes for editors: Ridgeview Wine Estate
 

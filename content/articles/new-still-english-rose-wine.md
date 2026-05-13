@@ -4,7 +4,7 @@ displayTitle: "Our Radiant Still English Rosé 2024"
 ---
 
 :::side-by-side image-right
-[![](/images/articles/new-still-english-rose-wine/inline-1.jpg)](/wine/still-english-rose/)
+[![](/images/articles/new-still-english-rose-wine/inline-1.webp)](/wine/still-english-rose/)
 
 There’s something magical about a glass of delicious rosé. Bringing sunshine in a glass, the new vintage of our sellout Still English Rosé delivers all of that magic and more. Transporting you to moments spent with friends and family in the sun, it’s everything you dream of in a glass of rosé. Crisp yet creamy, it’s as enjoyable to drink as it is to share. Now available online for the first time, and with only a limited number of bottles available, let’s dive into what makes this Still English Rosé so special.
 :::

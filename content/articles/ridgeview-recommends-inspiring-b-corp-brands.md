@@ -4,7 +4,7 @@ displayTitle: "RIDGEVIEW RECOMMENDS – Inspiring B CORP BRANDS"
 ---
 
 :::side-by-side image-right
-![Certified B Corporation - Ridgeview Wine Estate](/images/articles/ridgeview-recommends-inspiring-b-corp-brands/inline-1.jpg)
+![Certified B Corporation - Ridgeview Wine Estate](/images/articles/ridgeview-recommends-inspiring-b-corp-brands/inline-1.webp)
 
 If you’re looking to shop more sustainably and align your values with your purchases, then you’re in the right place. Finding companies that care isn’t easy, but that’s where [B Corp](https://www.bcorporation.net/en-us/certification/) comes in.
 

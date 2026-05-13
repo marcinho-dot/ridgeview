@@ -75,7 +75,7 @@ High acidity is a hallmark of Ridgeview wines and you’ll also get a strong sen
 
 When tasting wine, the only question that really matters is: Do I like it? Your subjective opinion on any wine should be your only steer on whether or not it’s one for you. Of course, you can judge a wine on its individual merits but it can be more rewarding to taste a selection and pick your own personal winner. Often trying wines in sequence is the best way to highlight their relative qualities and point you towards your preferred style. Plus, of course, there’s a lot more fun to be had in the process.
 
-![Ridgeview English sparkling wine cases](/images/articles/how-to-taste-wine/inline-6.jpg)
+![Ridgeview English sparkling wine cases](/images/articles/how-to-taste-wine/inline-6.webp)
 
 ![](/images/articles/how-to-taste-wine/inline-7.webp)
 

@@ -4,7 +4,7 @@ displayTitle: "Bigger, Bolder, Brighter - Introducing our Magnum Bloomsbury NV"
 ---
 
 :::side-by-side image-right
-[![](/images/articles/sparkling-wine-magnum-bloomsbury/inline-1.jpg)](/wine/bloomsbury/)
+[![](/images/articles/sparkling-wine-magnum-bloomsbury/inline-1.webp)](/wine/bloomsbury/)
 
 An impressive, larger-than-life expression of our signature sparkling wine, the Magnum Bloomsbury NV is crafted for those moments that deserve something special. Bursting with bright citrus, juicy white peach and creamy brioche notes, there is celebration in every bubble of our Magnum Bloomsbury NV.
 :::

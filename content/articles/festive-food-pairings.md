@@ -75,7 +75,7 @@ It only gets more dreamy served with our Red Reserve, which retains its wild, ea
 
 We hope our list has given you some food for thought… and maybe one or two wine pairings to join your Christmas traditions for years to come.Wishing you and your loved ones all the best of the festive season, from all here at Ridgeview.
 
-[![](/images/articles/festive-food-pairings/inline-6.jpg)](/wine/cavendish/)
+[![](/images/articles/festive-food-pairings/inline-6.webp)](/wine/cavendish/)
 
 ## Top picks for festive food pairing
 

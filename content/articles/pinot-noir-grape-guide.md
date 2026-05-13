@@ -4,7 +4,7 @@ displayTitle: "Grape Guide: In Praise of Pinot Noir"
 ---
 
 :::side-by-side image-right
-![A bunch of Pinot grapes on a wooden table](/images/articles/pinot-noir-grape-guide/inline-1.jpg)
+![A bunch of Pinot grapes on a wooden table](/images/articles/pinot-noir-grape-guide/inline-1.webp)
 
 In the first of our Grape Guide series, we’re getting under the skin of the wine world’s most ethereal, elusive and enigmatic variety.
 :::

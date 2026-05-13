@@ -68,5 +68,5 @@ Warmer summers have given winemakers the opportunity to refine and expand still 
 
 “I’m really happy with this wine. It’s complex yet restrained, fruit-driven with layers of stone fruits like apricot and peach. Perfect with food – from fresh seafood to game dishes – but also just to enjoy with friends. It’s everything I love about Chardonnay, and I hope it brings people together, to create memories and enjoy life’s special moments.”
 
-[![](/images/articles/still-chardonnay-from-england/inline-6.jpg)](/wine/still-chardonnay/)
+[![](/images/articles/still-chardonnay-from-england/inline-6.webp)](/wine/still-chardonnay/)
 :::

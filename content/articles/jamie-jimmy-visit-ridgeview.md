@@ -4,7 +4,7 @@ displayTitle: "Jamie & Jimmy Visit Ridgeview"
 ---
 
 :::side-by-side image-right
-![Ridgeview Wine Estate English sparkling wine Sussex England](/images/articles/jamie-jimmy-visit-ridgeview/inline-1.jpg)
+![Ridgeview Wine Estate English sparkling wine Sussex England](/images/articles/jamie-jimmy-visit-ridgeview/inline-1.webp)
 
 Jamie Oliver and his best mate Jimmy Doherty tried their hand at becoming Winemakers on a visit to Ridgeview. Filmed before the pandemic in the Summer of 2019 as a part of their Friday Night Feast program Jamie and Jamie visited us on their quest to the South Downs of Sussex to explore English sparkling wine.
 

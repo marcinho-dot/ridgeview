@@ -4,7 +4,7 @@ displayTitle: "Sustainable wine and the future of our vines"
 ---
 
 :::side-by-side image-right
-![](/images/articles/sustainable-wine-and-the-future-of-our-vines/inline-1.jpg)
+![](/images/articles/sustainable-wine-and-the-future-of-our-vines/inline-1.webp)
 
 Time ebbs and flows in a vineyard. There are many paces of life, from the patient care with which we nurture our vines through the annual cycle, to the sudden flurries of activity that punctuate the growing season. But there is also the longer story of Ridgeview, one that incorporates three decades of joyful memories, perpetual growth and hard-won lessons.
 :::

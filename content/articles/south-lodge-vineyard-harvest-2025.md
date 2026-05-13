@@ -4,7 +4,7 @@ displayTitle: "South Lodge's Maiden Vintage"
 ---
 
 :::side-by-side image-right
-![](/images/articles/south-lodge-vineyard-harvest-2025/inline-1.jpg)
+![](/images/articles/south-lodge-vineyard-harvest-2025/inline-1.webp)
 
 Clusters of grapes, now ripe for the picking, hang on the vines at [South Lodge](https://www.exclusive.co.uk/south-lodge/) – Sussex’s renowned luxury country house hotel, part of [Exclusive Collection](https://www.exclusive.co.uk/)’s award-winning family of properties. For Ridgeview and Exclusive, it’s the culmination of three years of passion since the first vines were planted. Hand-picked fruit will be pressed and blended at Ridgeview to craft Exclusive Collection’s first bespoke wine. More than a harvest, it’s a milestone celebrating the land, vision and belief that English wine belongs at the heart of world-class hospitality.
 :::

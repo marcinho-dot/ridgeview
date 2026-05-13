@@ -50,5 +50,5 @@ Their love of life and the memorable moments shared through wine are reflected i
 
 Above all, Mike’s legacy is found in the moments of joy we create together, raised in celebration with a glass of exquisite English sparkling wine.
 
-![](/images/articles/remembering-mike-roberts-the-father-of-english-wine/inline-5.jpg)
+![](/images/articles/remembering-mike-roberts-the-father-of-english-wine/inline-5.webp)
 :::

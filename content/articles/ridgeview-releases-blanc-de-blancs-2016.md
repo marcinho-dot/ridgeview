@@ -32,7 +32,7 @@ With a limited number of bottles now available, each with at least four years on
 - Full and ripe with citrus notes and tropical tones of lychee and pineapple.
 - Offering complexity and a balanced palate backed by hazelnut, toasted brioche, honey and a gentle hint of spice.
 - A rich gold colour with fine persistent bubbles and an elegant mousse.
-[![Blanc de Blancs Bottle with Box](/images/articles/ridgeview-releases-blanc-de-blancs-2016/inline-6.jpg)](/wine/blanc-de-blancs/)
+[![Blanc de Blancs Bottle with Box](/images/articles/ridgeview-releases-blanc-de-blancs-2016/inline-6.webp)](/wine/blanc-de-blancs/)
 
 :::side-by-side image-left
 [![Ridgeview Wine Estate English sparkling wine Sussex England](/images/articles/ridgeview-releases-blanc-de-blancs-2016/inline-7.webp)](/wine/blanc-de-blancs/)

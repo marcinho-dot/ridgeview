@@ -1,15 +1,15 @@
 {
-  "total_linked": 189,
+  "total_linked": 191,
   "linked_by_sku": {
     "cavendish": 15,
-    "bloomsbury": 36,
-    "blanc-de-noirs": 13,
+    "bloomsbury": 35,
+    "blanc-de-noirs": 14,
     "sparkling-red-reserve": 28,
-    "fitzrovia": 16,
+    "fitzrovia": 17,
     "blanc-de-blancs": 40,
     "rose-de-noirs": 16,
     "still-english-rose": 5,
-    "oak-reserve": 15,
+    "oak-reserve": 16,
     "still-chardonnay": 5
   },
   "no_sku_images": [
