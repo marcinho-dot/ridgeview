@@ -1,5 +1,6 @@
 ---
 slug: vineyard-sustainability-gold-award
+displayTitle: "Celebrating Gold for the Ridgeview Vineyard"
 ---
 
 :::side-by-side image-right

@@ -1,5 +1,6 @@
 ---
 slug: careers-in-wine-technical-winemaking
+displayTitle: "Meet our Technical Winemaker, Liz Morgan"
 ---
 
 :::side-by-side image-right

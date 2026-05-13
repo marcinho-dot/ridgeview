@@ -1,5 +1,6 @@
 ---
 slug: luxury-sparkling-wine-gift-guide
+displayTitle: "Luxury christmas wine gift guide"
 ---
 
 :::side-by-side image-right

@@ -1,5 +1,6 @@
 ---
 slug: ridgeviews-red-reserve-a-new-chapter
+displayTitle: "Ridgeview's Red Reserve - The Next Chapter"
 ---
 
 :::side-by-side image-right

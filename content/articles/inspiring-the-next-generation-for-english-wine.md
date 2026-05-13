@@ -1,5 +1,6 @@
 ---
 slug: inspiring-the-next-generation-for-english-wine
+displayTitle: "RIDGEVIEW’S SOCIAL SUSTAINABILITY SERIES – PART 3"
 ---
 
 ## LEADING, NURTURING AND INSPIRING

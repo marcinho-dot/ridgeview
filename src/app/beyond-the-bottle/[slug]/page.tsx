@@ -157,7 +157,7 @@ export default function ArticleDetailPage() {
               className="font-display italic text-cream leading-[1.08] mb-2"
               style={{ fontSize: "clamp(34px, 5.2vw, 72px)", fontWeight: 400 }}
             >
-              {article.title}
+              {article.displayTitle ?? article.title}
             </motion.h1>
 
             {article.excerpt && (

@@ -1,5 +1,6 @@
 ---
 slug: crowned-best-sussex-drinks-producer
+displayTitle: "Crowned Best Sussex Drinks Producer"
 ---
 
 :::side-by-side image-left

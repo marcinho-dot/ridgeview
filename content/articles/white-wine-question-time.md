@@ -1,5 +1,6 @@
 ---
 slug: white-wine-question-time
+displayTitle: "Raise a Glass to Our New Friends and Yours"
 ---
 
 :::side-by-side image-right

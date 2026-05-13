@@ -1,5 +1,6 @@
 ---
 slug: harvest-2022-is-on-the-horizon
+displayTitle: "Harvest 2022 is on the Horizon"
 ---
 
 ## HARVEST 2022

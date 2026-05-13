@@ -1,5 +1,6 @@
 ---
 slug: standout-sparkling-wine-pairings-for-christmas
+displayTitle: "Standout Sparkling Wine Pairings for Christmas"
 ---
 
 :::side-by-side image-right

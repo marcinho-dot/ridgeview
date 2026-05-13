@@ -1,5 +1,6 @@
 ---
 slug: whats-the-best-glass-for-sparkling-wine
+displayTitle: "HOW TO CHOOSE THE BEST GLASS FOR SPARKLING WINE"
 ---
 
 [![Ridgeview Blanc de Noirs with sparkling wine glass](/images/articles/whats-the-best-glass-for-sparkling-wine/inline-1.webp)](/wine/blanc-de-noirs/)

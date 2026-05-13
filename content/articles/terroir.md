@@ -1,5 +1,6 @@
 ---
 slug: terroir
+displayTitle: "The Language of Wine: Let’s Talk Terroir"
 ---
 
 :::side-by-side image-right

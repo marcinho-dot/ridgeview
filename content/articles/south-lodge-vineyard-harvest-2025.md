@@ -1,5 +1,6 @@
 ---
 slug: south-lodge-vineyard-harvest-2025
+displayTitle: "South Lodge's Maiden Vintage"
 ---
 
 :::side-by-side image-right

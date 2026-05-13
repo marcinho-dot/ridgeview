@@ -1,5 +1,6 @@
 ---
 slug: bloomsbury-wins-harpers-wine-star-of-england
+displayTitle: "BLOOMSBURY WINS HARPERS WINE STAR OF ENGLAND"
 ---
 
 Our Ridgeview Bloomsbury NV has been named the No. 1 Star of English Wine in the Harpers Wine Star Awards 2021. Bloomsbury NV also took the title of the Star of Sussex, Star Value and Star Taste, with Ridgeview Fitzrovia Rosé NV winning Star Design for its striking label.

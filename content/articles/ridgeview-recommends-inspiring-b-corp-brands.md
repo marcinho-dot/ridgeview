@@ -1,5 +1,6 @@
 ---
 slug: ridgeview-recommends-inspiring-b-corp-brands
+displayTitle: "RIDGEVIEW RECOMMENDS – Inspiring B CORP BRANDS"
 ---
 
 :::side-by-side image-right

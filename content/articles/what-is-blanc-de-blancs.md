@@ -1,5 +1,6 @@
 ---
 slug: what-is-blanc-de-blancs
+displayTitle: "BLANC DE BLANCS: 5 THINGS YOU NEED TO KNOW"
 ---
 
 If you’re a fan of sparkling wine, then chances are you’ve savoured a glass (or two…) of a **Blanc de Blancs Champagne**. But what about an English expression of this celebrated style of sparkling wine? Whilst its origins lie in the **Champagne** region, it’s no secret that England is now synonymous with some of [the best Blanc de Blancs](/wine/blanc-de-blancs/) around. So what makes an **English Blanc de Blancs** so special?

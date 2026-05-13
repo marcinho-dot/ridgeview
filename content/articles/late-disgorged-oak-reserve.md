@@ -1,5 +1,6 @@
 ---
 slug: late-disgorged-oak-reserve
+displayTitle: "Introducing Ridgeview’s Late-Disgorged Oak Reserve"
 ---
 
 ## The Oak Reserve Story

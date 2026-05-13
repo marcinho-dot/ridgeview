@@ -1,5 +1,6 @@
 ---
 slug: still-english-rose
+displayTitle: "INTRODUCING RIDGEVIEW'S STILL ENGLISH ROSÉ"
 ---
 
 :::side-by-side image-right

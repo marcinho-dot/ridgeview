@@ -1,5 +1,6 @@
 ---
 slug: ridgeview-releases-blanc-de-blancs-2016
+displayTitle: "15% off Dr. Wills Natural Condiments"
 ---
 
 :::side-by-side image-right

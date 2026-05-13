@@ -1,5 +1,6 @@
 ---
 slug: our-impact
+displayTitle: "RIDGEVIEW B CORP IMPACT REPORT 2023"
 ---
 
 ## RIDGEVIEW'S SUSTAINABILITY STORY SO FAR

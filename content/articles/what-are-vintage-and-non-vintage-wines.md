@@ -1,5 +1,6 @@
 ---
 slug: what-are-vintage-and-non-vintage-wines
+displayTitle: "The lowdown on vintage wines and non-vintage wines"
 ---
 
 We make many different styles of sparkling wine, each with its own unique Ridgeview recipe. Yet we also release our wines in ranges to make it easier for you to choose between them all.Perhaps the most useful distinction is between ourSignature non-vintage winesand ourLimited Edition vintage wines. But what do these terms mean and how do they affect what’s in the bottle?

@@ -1,5 +1,6 @@
 ---
 slug: the-magic-of-ageing-wine-magnums
+displayTitle: "The Magic of Magnums"
 ---
 
 :::side-by-side image-right

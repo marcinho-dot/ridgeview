@@ -1,5 +1,6 @@
 ---
 slug: harvest-vintage-2025
+displayTitle: "Harvest 2025: A Dream Year in the Vines"
 ---
 
 :::side-by-side image-right

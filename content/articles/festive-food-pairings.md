@@ -1,5 +1,6 @@
 ---
 slug: festive-food-pairings
+displayTitle: "Eight Festive Food Pairings to Savour this Christmas"
 ---
 
 :::side-by-side image-right

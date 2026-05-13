@@ -302,8 +302,12 @@ export function ArticleBodyRenderer({ blocks }: Props) {
           }
 
           case "sideBySide": {
+            // Image column stretches to match the height of the text column
+            // (items-stretch + h-full on the image), so the photo doesn't
+            // tower above a short intro paragraph the way it did with a
+            // fixed aspect ratio.
             const imgEl = (
-              <div className="relative aspect-[4/3] overflow-hidden bg-[#0a0a0a] rounded-sm group">
+              <div className="relative w-full h-full min-h-[260px] md:min-h-[360px] overflow-hidden bg-[#0a0a0a] rounded-sm group">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={`${basePath}${block.image.src}`}
@@ -316,7 +320,7 @@ export function ArticleBodyRenderer({ blocks }: Props) {
               <a
                 href={`${basePath}${block.image.href}`}
                 aria-label={block.image.alt || "View product"}
-                className="block"
+                className="block h-full"
               >
                 {imgEl}
               </a>
@@ -327,14 +331,18 @@ export function ArticleBodyRenderer({ blocks }: Props) {
             return (
               <div
                 key={i}
-                className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center my-14 md:my-20"
+                className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-stretch my-14 md:my-20"
               >
-                {/* Always image-on-top on mobile (DOM order); md:order
-                    swaps left/right on desktop per imageSide. */}
+                {/* Mobile: image-on-top, text-below (DOM order).
+                    Desktop: md:order flips left/right per imageSide. */}
                 <div className={imageOnLeft ? "md:order-1" : "md:order-2"}>
                   {wrappedImg}
                 </div>
-                <div className={imageOnLeft ? "md:order-2" : "md:order-1"}>
+                <div
+                  className={`flex flex-col justify-center ${
+                    imageOnLeft ? "md:order-2" : "md:order-1"
+                  }`}
+                >
                   {block.content.map((c, j) => renderContentBlock(c, j))}
                 </div>
               </div>

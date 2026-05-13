@@ -1,5 +1,6 @@
 ---
 slug: how-to-taste-wine
+displayTitle: "How to taste wine"
 ---
 
 :::side-by-side image-right

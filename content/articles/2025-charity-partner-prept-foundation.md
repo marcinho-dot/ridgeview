@@ -1,5 +1,6 @@
 ---
 slug: 2025-charity-partner-prept-foundation
+displayTitle: "Introducing Our 2025 Charity Partner: Prept Foundation"
 ---
 
 :::side-by-side image-right

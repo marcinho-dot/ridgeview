@@ -1,5 +1,6 @@
 ---
 slug: valentines-day-delicious-date-night-food-and-wine-pairings
+displayTitle: "Delicious Date Night Food Pairings"
 ---
 
 :::side-by-side image-left

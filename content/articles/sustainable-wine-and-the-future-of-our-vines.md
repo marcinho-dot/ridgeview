@@ -1,5 +1,6 @@
 ---
 slug: sustainable-wine-and-the-future-of-our-vines
+displayTitle: "Sustainable wine and the future of our vines"
 ---
 
 :::side-by-side image-right

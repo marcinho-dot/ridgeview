@@ -1,5 +1,6 @@
 ---
 slug: travels-to-taiwan-and-japan
+displayTitle: "Simon Roberts travels to Taiwan and Japan"
 ---
 
 :::side-by-side image-right

@@ -1,5 +1,6 @@
 ---
 slug: ridgefest
+displayTitle: "15% off Dr. Wills Natural Condiments"
 ---
 
 After the difficult decision to postpone RidgeFest 2021 due to the pandemic, we are delighted to be back in 2022! All the exciting details and public booking will be revealed soon, so watch this space…

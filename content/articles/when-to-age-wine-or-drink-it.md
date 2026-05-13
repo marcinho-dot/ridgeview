@@ -1,5 +1,6 @@
 ---
 slug: when-to-age-wine-or-drink-it
+displayTitle: "To have or to hold: When to age wine and when to drink it?"
 ---
 
 :::side-by-side image-right

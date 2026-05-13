@@ -1,5 +1,6 @@
 ---
 slug: ceo-of-ridgeview-tamara-roberts-named-sussex-business-woman-of-the-year
+displayTitle: "CEO of Ridgeview Tamara Roberts named Sussex Business Woman of the Year"
 ---
 
 Tamara Roberts, CEO of Ridgeview Wine Estate, was awarded Sussex Business Woman of the Year at Friday night’s ceremony for the Business Women Excellence Awards. The winery also won overall Sussex Business of the Year at the black tie gala dinner at the Hilton Metrolpole in Brighton. The awards are designed to celebrate and recognise the success of today’s very best females in business in Southern England.
@@ -14,7 +15,7 @@ More information on these awards can be found at: http://businesswomenexcellence
 
 ## Media requests, images and interviews
 
-These can be arranged by contacting Astrid Lewis on 07598269842 ([[email protected]](/cdn-cgi/l/email-protection#6b0a181f19020f2b181b19021f11060a19000e1f02050c450804451e00)), Elizabeth Cook ([[email protected]](/cdn-cgi/l/email-protection#40252c293a21222534280033303229343a2d21322b2534292e276e232f6e352b)) or Mardi Roberts ([[email protected]](/cdn-cgi/l/email-protection#d2bfb3a0b6bb92a0bbb6b5b7a4bbb7a5fcb1bdfca7b9)). For US distribution enquiries please contact [[email protected]](/cdn-cgi/l/email-protection#23504a4f554a4263514a474446554a46540d404c0d5648)
+These can be arranged by contacting Astrid Lewis on 07598269842 ([[email protected]](/cdn-cgi/l/email-protection#d1b0a2a5a3b8b591a2a1a3b8a5abbcb0a3bab4a5b8bfb6ffb2beffa4ba)), Elizabeth Cook ([[email protected]](/cdn-cgi/l/email-protection#2b4e4742514a494e5f436b585b59425f51464a59404e5f42454c054844055e40)) or Mardi Roberts ([[email protected]](/cdn-cgi/l/email-protection#35585447515c75475c515250435c50421b565a1b405e)). For US distribution enquiries please contact [[email protected]](/cdn-cgi/l/email-protection#c1b2a8adb7a8a081b3a8a5a6a4b7a8a4b6efa2aeefb4aa)
 
 ## Notes for editors: Ridgeview Wine Estate
 

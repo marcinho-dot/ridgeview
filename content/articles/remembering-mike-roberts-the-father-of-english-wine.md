@@ -1,5 +1,6 @@
 ---
 slug: remembering-mike-roberts-the-father-of-english-wine
+displayTitle: "CELEBRATING THE LEGACY OF OUR FOUNDER, MIKE ROBERTS"
 ---
 
 :::side-by-side image-right

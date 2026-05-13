@@ -1,5 +1,6 @@
 ---
 slug: international-womens-day-2024
+displayTitle: "International Women's Day 2024 - Inspiring Inclusion"
 ---
 
 :::side-by-side image-right

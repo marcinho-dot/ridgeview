@@ -1,5 +1,6 @@
 ---
 slug: open-for-celebration
+displayTitle: "Open for Celebration"
 ---
 
 :::side-by-side image-right

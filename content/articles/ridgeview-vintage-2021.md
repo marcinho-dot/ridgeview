@@ -1,5 +1,6 @@
 ---
 slug: ridgeview-vintage-2021
+displayTitle: "Ridgeview Vintage 2021"
 ---
 
 Overall the one word we would use for this year is challenging! However, this is not unexpected in cool climate viticulture and keeps us vigilant. The year began slowly with delayed budburst due to cool weather and pressure from frosts. We lit our bougie frost protection candles on four separate occasions. Despite this, we were more fortunate than our European neighbours who suffered frost after bud break, with sadly lots of damage reported. As our English viticulture growing season is a couple of weeks behind Europe, the frost damage was actually minimal to our vines.

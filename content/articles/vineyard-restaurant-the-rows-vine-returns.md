@@ -1,5 +1,6 @@
 ---
 slug: vineyard-restaurant-the-rows-vine-returns
+displayTitle: "A Taste of the Land: Alfresco Dining Returns"
 ---
 
 :::side-by-side image-right

@@ -1,5 +1,6 @@
 ---
 slug: celebrating-international-womens-day
+displayTitle: "Celebrating Women at Ridgeview"
 ---
 
 This International Women’s Day we’re shining a light on some of the incredible women we have the privilege of working with at Ridgeview. “Embracing Equity” is the theme for 2023, and when we amplify women’s voices, we’re one step closer to a diverse, equitable and inclusive world for all. Read on to discover what inspires them and their vision for a future free of bias, where difference is valued and celebrated.

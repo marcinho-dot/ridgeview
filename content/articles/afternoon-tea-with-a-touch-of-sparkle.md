@@ -1,5 +1,6 @@
 ---
 slug: afternoon-tea-with-a-touch-of-sparkle
+displayTitle: "Afternoon Tea with a Touch of Sparkle"
 ---
 
 :::side-by-side image-right

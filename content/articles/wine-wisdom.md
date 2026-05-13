@@ -1,5 +1,6 @@
 ---
 slug: wine-wisdom
+displayTitle: "Wine Wisdom"
 ---
 
 :::side-by-side image-right

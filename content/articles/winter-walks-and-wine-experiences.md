@@ -1,5 +1,6 @@
 ---
 slug: winter-walks-and-wine-experiences
+displayTitle: "Winter walks and wine experiences in Sussex"
 ---
 
 Winter is a spectacular time to be in our glorious corner of Sussex. For us, the South Downs are never more picturesque than on a crisp winter’s day, thrown into pin-sharp relief by the low, pale sun.

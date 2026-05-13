@@ -1,5 +1,6 @@
 ---
 slug: harvest-in-the-winery
+displayTitle: "Harvest in the Winery"
 ---
 
 ## A Pressing Matter

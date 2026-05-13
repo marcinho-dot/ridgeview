@@ -1,5 +1,6 @@
 ---
 slug: supporting-careers-in-wine
+displayTitle: "Nurturing the next generation in English Wine"
 ---
 
 :::side-by-side image-right

@@ -1,5 +1,6 @@
 ---
 slug: bcorp-impact-2024
+displayTitle: "B CORP IMPACT REPORT 2024"
 ---
 
 :::side-by-side image-right

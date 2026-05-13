@@ -1,5 +1,6 @@
 ---
 slug: rose-de-noirs-revealed
+displayTitle: "Inside our luxurious, limited-edition Rosé de Noirs"
 ---
 
 :::side-by-side image-right

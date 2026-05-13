@@ -397,6 +397,8 @@ def emit_article_ts(article):
     lines.append(f'    slug: "{article["slug"]}",')
     lines.append(f'    category: "{article["category"]}",')
     lines.append(f'    title: "{to_ts_string(article["title"])}",')
+    if article.get("displayTitle"):
+        lines.append(f'    displayTitle: "{to_ts_string(article["displayTitle"])}",')
     lines.append(f'    date: "{article["date"]}",')
     lines.append(f'    excerpt: "{to_ts_string(article.get("excerpt", ""))}",')
     lines.append(f'    heroImage: "{article.get("heroImage", "")}",')
@@ -494,6 +496,7 @@ def parse_article_chunk(chunk):
         "slug": field("slug"),
         "category": field("category"),
         "title": field("title"),
+        "displayTitle": field("displayTitle"),
         "date": field("date"),
         "excerpt": field("excerpt"),
         "heroImage": field("heroImage"),
@@ -578,7 +581,7 @@ def main():
         # Update any frontmatter overrides
         a = dict(by_slug[slug])  # shallow copy
         a.pop("_body_raw", None)
-        for key in ("title", "date", "excerpt"):
+        for key in ("title", "date", "excerpt", "displayTitle"):
             if key in fm and fm[key]:
                 a[key] = fm[key]
         if "category" in fm and fm["category"] in VALID_CATEGORIES:

@@ -1,5 +1,6 @@
 ---
 slug: the-ridgeview-harvest-behind-the-scenes
+displayTitle: "The Ridgeview Harvest - a glimpse behind-the-scenes"
 ---
 
 If you’ve ever found yourself wanting to know more about the world behind your glass of Ridgeview English sparkling wine – harvest holds all the clues.

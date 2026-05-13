@@ -1,5 +1,6 @@
 ---
 slug: ridgeviews-food-and-wine-pairing-guide
+displayTitle: "15% off Dr. Wills Natural Condiments"
 ---
 
 Kickstart your journey to the perfect pairing with our foodie guide. It’s packed full of recipe ideas, inspiration and insider tips from top chefs and wine experts.

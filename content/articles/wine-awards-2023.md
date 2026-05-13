@@ -1,5 +1,6 @@
 ---
 slug: wine-awards-2023
+displayTitle: "THE 2023 RESULTS ARE IN"
 ---
 
 ## RIDGEVIEW AWARDED COVETED MEDALS AT 2023 AWARDS

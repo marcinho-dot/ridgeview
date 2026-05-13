@@ -1,5 +1,6 @@
 ---
 slug: table-talk-foundation-2021-ridgeview-charity-partner
+displayTitle: "15% off Dr. Wills Natural Condiments"
 ---
 
 Ridgeview is proud to announce that our 2021 focus charity partner is Table Talk Foundation, an organisation dedicated to raising funds to support both food education for the next generation and the local hospitality industry.

@@ -1,5 +1,6 @@
 ---
 slug: pinot-noir-grape-guide
+displayTitle: "Grape Guide: In Praise of Pinot Noir"
 ---
 
 :::side-by-side image-right

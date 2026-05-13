@@ -1,5 +1,6 @@
 ---
 slug: championing-wellbeing-and-mental-health-at-work
+displayTitle: "Mental Health Matters - Championing Wellbeing at Work"
 ---
 
 :::side-by-side image-right

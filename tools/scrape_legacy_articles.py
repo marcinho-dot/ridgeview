@@ -357,8 +357,32 @@ def slug_to_url(slug: str) -> str:
     return f"https://www.ridgeview.co.uk/news/{slug}/"
 
 
-def write_markdown(slug: str, body_lines: list) -> Path:
-    md = [f"---", f"slug: {slug}", f"---", ""]
+def extract_display_title(html: str):
+    """Return the editorial H1 from the article hero, which is often a
+    stylised variant of the wp-json `title` (e.g. "ENGLISH SPARKLING
+    WINE FOR EVERY FESTIVE MOMENT" vs the listing title "Wine for the
+    Moments That Make Christmas Yours")."""
+    soup = BeautifulSoup(html, "html.parser")
+    # Prefer the H1 inside the hero-content half if present
+    hero = soup.find("div", class_=lambda c: c and "hero-content" in c)
+    if hero:
+        h1 = hero.find("h1")
+        if h1:
+            return h1.get_text(" ", strip=True)
+    # Fallback: first H1 on the page
+    h1 = soup.find("h1")
+    if h1:
+        return h1.get_text(" ", strip=True)
+    return None
+
+
+def write_markdown(slug: str, body_lines: list, display_title: str = None) -> Path:
+    md = ["---", f"slug: {slug}"]
+    if display_title:
+        # Quoted so the importer treats it as a string even with special chars
+        md.append(f'displayTitle: "{display_title}"')
+    md.append("---")
+    md.append("")
     md.extend(body_lines)
     out = OUT_MD_DIR / f"{slug}.md"
     out.write_text("\n".join(md) + "\n", encoding="utf-8")
@@ -411,7 +435,8 @@ def main():
             errors.append((slug, "empty body"))
             continue
 
-        write_markdown(slug, lines)
+        display_title = extract_display_title(html)
+        write_markdown(slug, lines, display_title=display_title)
         print(f"  ✓ {slug[:50]:50s}  →  {n_heads} headings, {n_paras} paras, {n_imgs} imgs")
         processed += 1
         time.sleep(args.sleep)

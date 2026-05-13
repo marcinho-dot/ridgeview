@@ -1,5 +1,6 @@
 ---
 slug: blending-a-taste-of-vintage-2022
+displayTitle: "Blending – A Taste of the 2022 Vintage"
 ---
 
 :::side-by-side image-right

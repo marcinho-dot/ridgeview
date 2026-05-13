@@ -1,5 +1,6 @@
 ---
 slug: how-english-sparkling-wine-is-made
+displayTitle: "How English sparkling wine is made, Bloomsbury style"
 ---
 
 It’s the perfect celebration drink. But what makes sparkling wine (specifically[English sparkling wine](https://www.ridgeview.co.uk/product-category/all-sparkling-wine/), even more specifically Ridgeview Bloomsbury NV) such a joyful companion to good times? The secret, of course, is in the sparkle.When corks pop and that luxuriant cascade of bubbles hits your glass, you can’t help but feel like you’re in a special moment. But have you ever wondered what it took to get this glass of effervescent nectar into your hand?

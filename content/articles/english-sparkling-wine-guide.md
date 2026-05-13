@@ -1,5 +1,6 @@
 ---
 slug: english-sparkling-wine-guide
+displayTitle: "The Definitive Guide to English Sparkling Wine"
 ---
 
 :::side-by-side image-left

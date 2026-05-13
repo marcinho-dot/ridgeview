@@ -1,5 +1,6 @@
 ---
 slug: white-wine-question-time-with-kate-thornton
+displayTitle: "15% off Dr. Wills Natural Condiments"
 ---
 
 ## INSIDE RIDGEVIEW - KATE INTERVIEWS THE ROBERTS FAMILY

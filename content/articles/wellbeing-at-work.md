@@ -1,5 +1,6 @@
 ---
 slug: wellbeing-at-work
+displayTitle: "RIDGEVIEW’S SOCIAL SUSTAINABILITY SERIES – PART 2"
 ---
 
 ## Wellbeing at Work

@@ -1,5 +1,6 @@
 ---
 slug: sparkling-wine-magnum-bloomsbury
+displayTitle: "Bigger, Bolder, Brighter - Introducing our Magnum Bloomsbury NV"
 ---
 
 :::side-by-side image-right

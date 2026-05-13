@@ -1,5 +1,6 @@
 ---
 slug: winter-in-the-vineyard
+displayTitle: "Winter in the Vineyard"
 ---
 
 As we settle into a new year, the exciting possibilities of fresh beginnings, change and growth are all around us. Nowhere is this felt more keenly than in the vineyard. The importance of rest, resetting and re-evaluating is key to sustainable growth. There is great wisdom in the natural world; take our vines for inspiration…

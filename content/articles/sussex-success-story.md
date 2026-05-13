@@ -1,5 +1,6 @@
 ---
 slug: sussex-success-story
+displayTitle: "Sussex Success Story"
 ---
 
 :::side-by-side image-right

@@ -1,5 +1,6 @@
 ---
 slug: ridgeview-harvest-2020
+displayTitle: "Ridgeview Harvest 2020"
 ---
 
 In such an interesting year, we are very grateful for the glorious weather in 2020. We did have some challenges with spring frosts, particularly the last late one in the middle of May, but with our usual care and attention we lit our bougies (frost protection candles) four times which saved the vineyard and no frost damage was recorded.

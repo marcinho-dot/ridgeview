@@ -1,5 +1,6 @@
 ---
 slug: diversity-and-inclusion
+displayTitle: "RIDGEVIEW’S SOCIAL SUSTAINABILITY SERIES – PART 1"
 ---
 
 ## DIVERSITY AND INCLUSION

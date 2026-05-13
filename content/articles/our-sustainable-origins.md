@@ -1,5 +1,6 @@
 ---
 slug: our-sustainable-origins
+displayTitle: "Rooted in the land – Our sustainable origins"
 ---
 
 ## Reflections from Ridgeview's Founder

@@ -1,5 +1,6 @@
 ---
 slug: blanc-de-noirs-2016-the-perfect-vintage
+displayTitle: "Blanc de Noirs 2016"
 ---
 
 :::side-by-side image-right

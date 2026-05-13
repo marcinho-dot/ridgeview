@@ -1,5 +1,6 @@
 ---
 slug: were-proud-to-be-a-b-corp
+displayTitle: "We’re Proud to be a B Corp™"
 ---
 
 ## It's official - we're a B Corp™!

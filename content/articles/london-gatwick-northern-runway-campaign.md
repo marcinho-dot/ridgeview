@@ -1,5 +1,6 @@
 ---
 slug: london-gatwick-northern-runway-campaign
+displayTitle: "Ridgeview featured in London Gatwick’s Northern Runway Campaign"
 ---
 
 ## LET'S TAKE OFF TOGETHER

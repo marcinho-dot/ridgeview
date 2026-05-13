@@ -1,5 +1,6 @@
 ---
 slug: celebration-sparkling-rose-wine
+displayTitle: "Make Summer Sparkle with our Signature Rosé"
 ---
 
 :::side-by-side image-right

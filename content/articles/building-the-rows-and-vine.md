@@ -1,5 +1,6 @@
 ---
 slug: building-the-rows-and-vine
+displayTitle: "Behind the scenes of building The Rows & Vine"
 ---
 
 Striking in its synchronicity with the natural landscape and with spectacular vineyard views, The Rows & Vine is a new, immersive hospitality experience where visitors can live and breathe the wonders of English sparkling wine in Sussex. We caught up with Matt Gayler, General Manager at Ridgeview, to take you behind the scenes on building The Rows & Vine…

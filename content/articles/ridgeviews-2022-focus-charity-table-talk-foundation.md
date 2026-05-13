@@ -1,5 +1,6 @@
 ---
 slug: ridgeviews-2022-focus-charity-table-talk-foundation
+displayTitle: "Ridgeview’s 2022 Focus Charity – Table Talk Foundation"
 ---
 
 Ridgeview are delighted to continue our charity partnership with [Table Talk Foundation](https://www.tabletalk-foundation.com/), an incredible organisation providing support to the hospitality industry and food education in Sussex. In 2022, we have renewed our pledge to donate £1 for every bottle sold.

@@ -1,5 +1,6 @@
 ---
 slug: jamie-jimmy-visit-ridgeview
+displayTitle: "Jamie & Jimmy Visit Ridgeview"
 ---
 
 :::side-by-side image-right

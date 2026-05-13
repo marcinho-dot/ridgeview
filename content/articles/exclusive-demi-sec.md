@@ -1,5 +1,6 @@
 ---
 slug: exclusive-demi-sec
+displayTitle: "Introducing the Ridgeview Demi-Sec"
 ---
 
 :::side-by-side image-right

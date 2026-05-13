@@ -1,5 +1,6 @@
 ---
 slug: new-still-english-rose-wine
+displayTitle: "Our Radiant Still English Rosé 2024"
 ---
 
 :::side-by-side image-right

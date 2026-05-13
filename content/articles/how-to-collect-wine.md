@@ -1,5 +1,6 @@
 ---
 slug: how-to-collect-wine
+displayTitle: "How to build a wine collection"
 ---
 
 :::side-by-side image-right

@@ -1,5 +1,6 @@
 ---
 slug: inside-blanc-de-blancs-2020
+displayTitle: "Inside Blanc de Blancs 2020"
 ---
 
 :::side-by-side image-right

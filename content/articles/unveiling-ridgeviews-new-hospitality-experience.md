@@ -1,5 +1,6 @@
 ---
 slug: unveiling-ridgeviews-new-hospitality-experience
+displayTitle: "Unveiling Ridgeview’s New Hospitality Experience"
 ---
 
 ## RIDGEVIEW UNVEIL PLANS FOR NEW HOSPITALITY EXPERIENCE
@@ -26,4 +27,4 @@ Andy Sturgeon Design is proud to have designed new gardens at the tasting rooms 
 
 “We have worked closely with Ridgeview and the South Downs National Park to design a garden which has biodiversity at its core. Multi-stem hawthorns and clipped domes of yew sit amongst a palette of native plants which anchor the gardens into their setting at the edge of a woodland. Closely controlled lighting systems respect the local ecology and the Dark Skies policy of the park and permeable paving and sustainable drainage solutions divert storm water away from drains.”
 
-Media requests, images and interviews can be arranged by contacting Mardi Roberts ([[email protected]](/cdn-cgi/l/email-protection#e08d81928489a0928984878596898597ce838fce958b)).
+Media requests, images and interviews can be arranged by contacting Mardi Roberts ([[email protected]](/cdn-cgi/l/email-protection#abc6cad9cfc2ebd9c2cfccceddc2cedc85c8c485dec0)).

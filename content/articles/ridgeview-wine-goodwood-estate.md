@@ -1,5 +1,6 @@
 ---
 slug: ridgeview-wine-goodwood-estate
+displayTitle: "Ridgeview Sparkles at Goodwood Estate"
 ---
 
 :::side-by-side image-right

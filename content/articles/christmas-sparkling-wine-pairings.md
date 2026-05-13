@@ -1,5 +1,6 @@
 ---
 slug: christmas-sparkling-wine-pairings
+displayTitle: "English sparkling wine for every festive moment"
 ---
 
 :::side-by-side image-right

@@ -1,5 +1,6 @@
 ---
 slug: vineyard-experiences-a-place-for-everyone
+displayTitle: "Your Guide to Visiting an English Vineyard"
 ---
 
 ## Vineyard Experiences – A Place for Everyone

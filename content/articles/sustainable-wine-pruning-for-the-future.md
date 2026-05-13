@@ -1,5 +1,6 @@
 ---
 slug: sustainable-wine-pruning-for-the-future
+displayTitle: "“Our vines are over 28 years old and they’ve played an important part in the English wine story. If we look after all the other bits and keep applying this method, there’s no reason why we can’t keep these vines going far beyond my retirement.”"
 ---
 
 It takes sustainable vines to make sustainable wines. And as a certified B Corp and founder member of Sustainable Wines of Great Britain, we’re 100% serious in our commitment to finding the most ethical and eco conscious ways to run our vineyards.

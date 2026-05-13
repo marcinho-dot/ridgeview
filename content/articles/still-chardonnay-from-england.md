@@ -1,5 +1,6 @@
 ---
 slug: still-chardonnay-from-england
+displayTitle: "Discover our Debut Still Chardonnay"
 ---
 
 :::side-by-side image-right

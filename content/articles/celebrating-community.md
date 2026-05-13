@@ -1,5 +1,6 @@
 ---
 slug: celebrating-community
+displayTitle: "RIDGEVIEW’S SOCIAL SUSTAINABILITY SERIES – PART 4"
 ---
 
 ## CELEBRATING COMMUNITY - Sustainability starts with people

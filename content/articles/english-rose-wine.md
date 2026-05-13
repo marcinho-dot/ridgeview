@@ -1,5 +1,6 @@
 ---
 slug: english-rose-wine
+displayTitle: "Think you know Rosé? Think Again."
 ---
 
 :::side-by-side image-right
