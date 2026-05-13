@@ -93,7 +93,7 @@ export function WineClubUpsellSection() {
               </p>
             </div>
             <div className="reveal" style={{ transitionDelay: "0.3s" }}>
-              <a href={`${basePath}/#ourview`} className="btn-cta">
+              <a href={`${basePath}/wine-club/`} className="btn-cta">
                 Discover Membership
               </a>
             </div>

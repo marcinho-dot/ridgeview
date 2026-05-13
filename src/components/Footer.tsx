@@ -44,7 +44,7 @@ export function Footer() {
               { label: "English Sparkling Wine", href: `${home}#wine-collection` },
               { label: "Cases of Wine", href: `${home}#wine-collection` },
               { label: "Gift Sets & Collections", href: `${home}#wine-collection` },
-              { label: "OurView Wine Club", href: `${home}#ourview` },
+              { label: "OurView Wine Club", href: `${home}wine-club/` },
               { label: "Click & Collect", href: `${home}#wine-collection` },
             ].map((item) => (
               <li key={item.label}>

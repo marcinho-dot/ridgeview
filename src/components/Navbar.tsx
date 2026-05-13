@@ -41,7 +41,7 @@ function getLinks(isOffHome: boolean) {
     },
   ];
 
-  const wineClubHref = anchor("#ourview");
+  const wineClubHref = `${basePath}/wine-club/`;
 
   return { items, wineClubHref };
 }
