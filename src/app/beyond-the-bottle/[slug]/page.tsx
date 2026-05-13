@@ -134,7 +134,7 @@ export default function ArticleDetailPage() {
               >
                 <a
                   href={`${basePath}/beyond-the-bottle/#${category.slug}`}
-                  className="hover:text-[#C8A96E] transition-colors duration-400"
+                  className="underline underline-offset-4 decoration-white/30 hover:text-[#C8A96E] hover:decoration-[#C8A96E] transition-colors duration-400"
                 >
                   Beyond the Bottle &nbsp;·&nbsp; {category.label}
                 </a>
