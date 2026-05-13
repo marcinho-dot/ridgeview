@@ -79,7 +79,7 @@ export function WineClubUpsellSection() {
                 className="font-display italic text-cream leading-[1.05] mb-6"
                 style={{ fontSize: "clamp(34px, 4.8vw, 68px)", fontWeight: 400 }}
               >
-                For those who&rsquo;d rather <span className="text-[#C8A96E]">pour by the case</span>.
+                A standing invitation to the <span className="text-[#C8A96E]">cellar</span>.
               </h2>
             </div>
             <div className="reveal" style={{ transitionDelay: "0.2s" }}>
