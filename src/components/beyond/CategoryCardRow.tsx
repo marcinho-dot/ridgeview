@@ -222,6 +222,17 @@ export function CategoryCardRow() {
           >
             Stories from the <span className="text-[#C8A96E]">estate</span>.
           </motion.h2>
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.7, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-8 md:mt-10"
+          >
+            <a href={`${basePath}/beyond-the-bottle/`} className="btn-cta">
+              All Stories beyond the Bottle
+            </a>
+          </motion.div>
         </div>
 
         {/* Horizontal-scroll row. Native scrollbar hidden; we render a
@@ -328,12 +339,6 @@ export function CategoryCardRow() {
           </div>
         </div>
 
-        {/* Footer link — central, leads to the hub page (no specific anchor) */}
-        <div className="px-6 md:px-16 mt-12 md:mt-16 flex justify-center">
-          <a href={`${basePath}/beyond-the-bottle/`} className="btn-cta">
-            Read all stories
-          </a>
-        </div>
       </div>
     </section>
   );
