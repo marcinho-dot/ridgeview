@@ -2,8 +2,14 @@
 slug: b-corp-impact-report-2025
 ---
 
+:::side-by-side image-right
+![A hand picking grapes in the vineyard with a white B Corp logo overlaid](/images/articles/b-corp-impact-report-2025/inline-1.webp)
+
+Now in our third year as a certified B Corporation, we’re proud of our progress and clear-eyed about the sustainability challenges that remain. Each year, our impact report offers a chance to reflect on the journey, share what we’ve learned and refocus on our ambition to build a more sustainable, responsible and impactful business. What follows is an honest look at our achievements, our goals and the work still to do.
+:::
+
 :::side-by-side image-left
-![Tamara Roberts, CEO Ridgeview Wine Estate Sussex England](/images/articles/b-corp-impact-report-2025/inline-1.webp)
+![Tamara Roberts, CEO Ridgeview Wine Estate Sussex England](/images/articles/b-corp-impact-report-2025/inline-2.webp)
 
 ## A LETTER FROM OUR CEO
 
@@ -15,39 +21,39 @@ Looking ahead, the introduction of [B Lab’s new standards](https://www.bcorpor
 
 We’re grateful to everyone who’s part of this journey – our team, our partners and our customers – and we’re looking forward to what comes next.
 
-![](/images/articles/b-corp-impact-report-2025/inline-2.jpg)
+![](/images/articles/b-corp-impact-report-2025/inline-3.jpg)
 :::
 
 ## OUR B CORP IMPACT SCORE
 
-![](/images/articles/b-corp-impact-report-2025/inline-3.webp)
-
 ![](/images/articles/b-corp-impact-report-2025/inline-4.webp)
+
+![](/images/articles/b-corp-impact-report-2025/inline-5.webp)
 
 ## RECENT IMPACT HIGHLIGHTS
 
 Snapshots of progress from the past year. Each show a milestone reached and positive change made, with a sense of how far we’ve come and how far we still want to go. They reflect our ongoing commitment to build a more sustainable, ethical and responsible business that makes a positive impact, for now and for the future.
 
-![New carbon tracking platform introduced](/images/articles/b-corp-impact-report-2025/inline-5.webp)
+![New carbon tracking platform introduced](/images/articles/b-corp-impact-report-2025/inline-6.webp)
 
-![](/images/articles/b-corp-impact-report-2025/inline-6.webp)
+![](/images/articles/b-corp-impact-report-2025/inline-7.webp)
 
-![Five-year Woodland Management Plan launched to support long-term ecological health.](/images/articles/b-corp-impact-report-2025/inline-7.webp)
+![Five-year Woodland Management Plan launched to support long-term ecological health.](/images/articles/b-corp-impact-report-2025/inline-8.webp)
 
-![](/images/articles/b-corp-impact-report-2025/inline-8.webp)
+![](/images/articles/b-corp-impact-report-2025/inline-9.webp)
 
-![92.5 working hours donated to local charities and environmental projects for staff volunteering.](/images/articles/b-corp-impact-report-2025/inline-9.webp)
+![92.5 working hours donated to local charities and environmental projects for staff volunteering.](/images/articles/b-corp-impact-report-2025/inline-10.webp)
 
-![Over £12,000 donated to community causes, including £10,000 to Prept supporting food education and access.](/images/articles/b-corp-impact-report-2025/inline-10.webp)
-
-![](/images/articles/b-corp-impact-report-2025/inline-11.webp)
+![Over £12,000 donated to community causes, including £10,000 to Prept supporting food education and access.](/images/articles/b-corp-impact-report-2025/inline-11.webp)
 
 ![](/images/articles/b-corp-impact-report-2025/inline-12.webp)
+
+![](/images/articles/b-corp-impact-report-2025/inline-13.webp)
 
 Strong governance underpins every decision we make, from our commitment to transparency and accountability to how we embed purpose into the fabric of our business. As a family-founded, values-led company we believe in doing things the right way – not just for short-term success, but for long-term impact.
 
 :::side-by-side image-left
-![](/images/articles/b-corp-impact-report-2025/inline-13.webp)
+![](/images/articles/b-corp-impact-report-2025/inline-14.webp)
 
 - Communicate our 2025 Impact Report clearly to stakeholders, highlighting both progress and areas for improvement.
 Communicate our 2025 Impact Report clearly to stakeholders, highlighting both progress and areas for improvement.
@@ -89,7 +95,7 @@ Upgraded from [SALSA](https://www.salsafood.co.uk/) to [BRCGS](https://www.brcgs
 Our environmental commitments stem from a deep connection to our Sussex estate in the South Downs National Park. Since planting our first vines in 1995, sustainability has been woven into our philosophy. From improving soil health to reducing impact in the winery, we continue to monitor, measure and refine our approach across our entire estate.
 
 :::side-by-side image-right
-![](/images/articles/b-corp-impact-report-2025/inline-14.webp)
+![](/images/articles/b-corp-impact-report-2025/inline-15.webp)
 
 - Reduce our environmental impact across all areas of the business, from vineyard to distribution.
 Reduce our environmental impact across all areas of the business, from vineyard to distribution.
@@ -126,7 +132,7 @@ Creating new habitats, including a dedicated pond zone
 As a family-founded business, Ridgeview has always been powered by people. We’re committed to creating a workplace where everyone feels valued, supported and able to thrive – personally and professionally. From real living wage commitment to award-winning wellbeing practices, our focus is on fairness, staff recognition and long-term career development.
 
 :::side-by-side image-right
-![](/images/articles/b-corp-impact-report-2025/inline-15.webp)
+![](/images/articles/b-corp-impact-report-2025/inline-16.webp)
 
 - Use [Great Place to Work™](https://www.greatplacetowork.co.uk/) benchmarking to continually improve people practices.
 - Maintain our [Brighton Living Wage](https://www.livingwagebrighton.co.uk/) commitment, exploring transparent wage ranges and equity analysis.
@@ -145,7 +151,7 @@ As a family-founded business, Ridgeview has always been powered by people. We’
 Ridgeview is proud to be recognised as a world-class producer of sparkling wines, and we continue to place customer experience at the heart of everything we do. From hospitality to retail, trade and beyond, we’re focused on delivering high-quality, meaningful moments – rooted in care, consistency and connection. We remain committed to building long-term partnerships with shared values at their core.
 
 :::side-by-side image-left
-![](/images/articles/b-corp-impact-report-2025/inline-16.webp)
+![](/images/articles/b-corp-impact-report-2025/inline-17.webp)
 
 - Deliver thoughtful, high-quality customer experiences.
 Deliver thoughtful, high-quality customer experiences.
@@ -167,7 +173,7 @@ Create accessible, flexible and engaging customer touchpoints across hospitality
 Ridgeview continues to build a strong, community focus – recognising that our success is deeply connected to the people and places around us. From education to charity and social impact, we believe businesses have a responsibility to contribute meaningfully to society. Community is central to how we operate, collaborate and grow.
 
 :::side-by-side image-right
-![](/images/articles/b-corp-impact-report-2025/inline-17.webp)
+![](/images/articles/b-corp-impact-report-2025/inline-18.webp)
 
 - Drive long-term community impact, with a focus on food security, inclusive education and meaningful local partnerships.
 - Empower employees to take an active role in volunteering, mentoring and external leadership.
@@ -183,7 +189,7 @@ Ridgeview continues to build a strong, community focus – recognising that our 
 :::
 
 :::side-by-side image-left
-![](/images/articles/b-corp-impact-report-2025/inline-18.webp)
+![](/images/articles/b-corp-impact-report-2025/inline-19.webp)
 
 ## A Note from the Roberts Family
 
@@ -198,4 +204,4 @@ Ridgeview has always been about more than exceptional wine – it’s about brin
 
 We’re proud of the progress shared here but the work is ongoing. This report marks a moment in time, part of a much longer journey. We’ll continue learning, listening and making considered choices to do better for people, place and planet. We welcome any feedback, reflections or ideas on how we can do better at any stage of the winemaking journey, from grape to glass and everything in between.
 
-Email [[email protected]](/cdn-cgi/l/email-protection#83eaede5ecc3f1eae7e4e6f5eae6f4ade0ecadf6e8) to help shape what comes next.
+Email [[email protected]](/cdn-cgi/l/email-protection#2f464149406f5d464b484a59464a58014c40015a44) to help shape what comes next.

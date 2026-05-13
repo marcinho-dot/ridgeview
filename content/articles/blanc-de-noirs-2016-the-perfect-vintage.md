@@ -2,8 +2,14 @@
 slug: blanc-de-noirs-2016-the-perfect-vintage
 ---
 
-:::side-by-side image-left
+:::side-by-side image-right
 [![](/images/articles/blanc-de-noirs-2016-the-perfect-vintage/inline-1.webp)](/wine/blanc-de-noirs/)
+
+A celebration of the depth and elegance of English Pinot Noir, Ridgeview’s Blanc de Noirs is crafted only in the most exceptional vintage years. Produced exclusively from hand-selected grape parcels, this vintage reflects the outstanding quality of the golden 2016 growing season. Balancing finesse with intensity, it reveals layers of complexity that unfold on the palate. A standout toast for special occasions and a gastronomic companion to memorable meals.
+:::
+
+:::side-by-side image-left
+[![](/images/articles/blanc-de-noirs-2016-the-perfect-vintage/inline-2.webp)](/wine/blanc-de-noirs/)
 
 ## Blanc de Noirs: Inside the Bottle
 
@@ -15,7 +21,7 @@ Quintessentially complex, layers of apricot, liquorice and aromatic spice unfold
 :::
 
 :::side-by-side image-right
-[![](/images/articles/blanc-de-noirs-2016-the-perfect-vintage/inline-2.webp)](/wine/blanc-de-noirs/)
+[![](/images/articles/blanc-de-noirs-2016-the-perfect-vintage/inline-3.webp)](/wine/blanc-de-noirs/)
 
 ## Culinary Adventures with Blanc de Noirs
 

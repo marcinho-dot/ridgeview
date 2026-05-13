@@ -2,8 +2,14 @@
 slug: how-to-collect-wine
 ---
 
+:::side-by-side image-right
+[![A bottle of Ridgeview's Sparkling Red Reserve horizontal in an ornamental stand, in front of bottles on a wine rack](/images/articles/how-to-collect-wine/inline-1.webp)](/wine/sparkling-red-reserve/)
+
+Building a wine collection is an ever-expanding journey of discovery and new experiences in the world of wine. From the moment you acquire your first bottle to the thrill of discovering hidden gems, each new addition tells a story of a particular time and place. Whether you’re a seasoned wine collector or interested in starting out, we’ve put together a comprehensive guide to curating a personal wine collection to bring a lifetime of enjoyment through exceptional wine.
+:::
+
 :::side-by-side image-left
-[![Ridgeview Oak Reserve, English Sparkling Wine](/images/articles/how-to-collect-wine/inline-1.webp)](/wine/oak-reserve/)
+[![Ridgeview Oak Reserve, English Sparkling Wine](/images/articles/how-to-collect-wine/inline-2.webp)](/wine/oak-reserve/)
 
 ## How do you start a wine collection?
 
@@ -27,7 +33,7 @@ So in order to kickstart yourwine collection, you will need to invest up front, 
 This isn’t to say that your entire collection is walled off for the future. A good wine cellar is a mix of premium wines to age and young wines ready to be drunk when the moment takes you.
 
 :::side-by-side image-right
-![Ridgeview Wine Estate, OurView Wine Club Members Release](/images/articles/how-to-collect-wine/inline-2.webp)
+![Ridgeview Wine Estate, OurView Wine Club Members Release](/images/articles/how-to-collect-wine/inline-3.webp)
 
 ## How to enhance your wine collection?
 
@@ -44,25 +50,25 @@ There are other great reasons for fledgling wine collectors to become Ridgeview 
 
 We also invite OurView members to exclusive tasting events, where you can sample Ridgeview wines through the ages and buy more of your favourites at the best possible price, thanks to your 20% member discount. Wine club membership unlocks a host of unique benefits – from a complimentary tour and tasting voucher for two and generous discounts from partner brands to dining discounts at our estate restaurant, The Rows & Vine .
 
-[![](/images/articles/how-to-collect-wine/inline-3.webp)](/wine/oak-reserve/)
+[![](/images/articles/how-to-collect-wine/inline-4.webp)](/wine/oak-reserve/)
 
 ## LIMITED EDITION BOTTLINGS FOR YOUR WINE COLLECTION
 
 Discover rare vintages and esoteric English sparkling wines to build your unique wine collection.
 
-[![](/images/articles/how-to-collect-wine/inline-4.webp)](/wine/oak-reserve/)
+[![](/images/articles/how-to-collect-wine/inline-5.webp)](/wine/oak-reserve/)
 
 ### Oak Reserve
 
 A limited-edition, late-disgorged bottling of oak barrel fermented Chardonnay. Captivating with aromas of citrus peel and caramelised butter, with a complex, smoky palate.
 
-[![](/images/articles/how-to-collect-wine/inline-5.webp)](/wine/sparkling-red-reserve/)
+[![](/images/articles/how-to-collect-wine/inline-6.webp)](/wine/sparkling-red-reserve/)
 
 ### Sparkling Red Reserve
 
 A love-letter to England’s finest Pinot grapes. Highly aromatic with vanilla, cherry and forest fruits, finessed by a twist of pomegranate and sweet, peppery spice.
 
-[![Ridgeview English Sparkling Wine](/images/articles/how-to-collect-wine/inline-6.webp)](/wine/blanc-de-blancs/)
+[![Ridgeview English Sparkling Wine](/images/articles/how-to-collect-wine/inline-7.webp)](/wine/blanc-de-blancs/)
 
 ### Blanc de Blancs 2010 Magnum
 

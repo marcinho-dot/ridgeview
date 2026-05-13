@@ -2,8 +2,18 @@
 slug: international-womens-day-2024
 ---
 
+:::side-by-side image-right
+![International Women's Day, Katharine Archer, Ridgeview](/images/articles/international-womens-day-2024/inline-1.webp)
+
+This International Women’s Day we caught up with Katharine Archer (Ridgeview’s Head of People and Development) to talk about the 2024 campaign theme “Inspiring Inclusion”.
+
+Women are at the heart of the [Ridgeview story.](https://www.ridgeview.co.uk/about-us/) Co-founded by Christine Roberts, we are now a third-generation family business, led by Tamara Roberts (Christine’s daughter) as CEO. As a purpose-driven [B Corp](https://www.ridgeview.co.uk/about-us/sustainable-business-practices/) business, we are always looking to grow our positive impact and promote inclusivity within our community and beyond.
+
+Shaping the future of equity and inclusion at Ridgeview, Katharine shares personal and professional insights to inspire ways to create positive change.
+:::
+
 :::side-by-side image-left
-![](/images/articles/international-womens-day-2024/inline-1.webp)
+![](/images/articles/international-womens-day-2024/inline-2.webp)
 
 ## Why is #InspiringInclusion for women important to you personally?
 
@@ -11,7 +21,7 @@ It’s crucial to me personally because it aligns with my values of fairness and
 :::
 
 :::side-by-side image-right
-![](/images/articles/international-womens-day-2024/inline-2.webp)
+![](/images/articles/international-womens-day-2024/inline-3.webp)
 
 ## What barriers have women in the workspace shared with you and how can we all do better to break these down?
 
@@ -21,7 +31,7 @@ At Ridgeview, we are very fortunate to have an inspiring female CEO (Tamara Robe
 :::
 
 :::side-by-side image-left
-![](/images/articles/international-womens-day-2024/inline-3.webp)
+![](/images/articles/international-womens-day-2024/inline-4.webp)
 
 ## What are your top tips for creating spaces where women are valued without bias?
 
@@ -31,7 +41,7 @@ Women are still predominantly the primary carer so we make sure our policies all
 :::
 
 :::side-by-side image-right
-![](/images/articles/international-womens-day-2024/inline-4.webp)
+![](/images/articles/international-womens-day-2024/inline-5.webp)
 
 ## What are your hopes for the future of diversity, equity, and inclusion both at work and beyond?
 
@@ -43,7 +53,7 @@ Inclusivity for women is not just part of our past, it’s a promise for our fut
 :::
 
 :::side-by-side image-left
-![](/images/articles/international-womens-day-2024/inline-5.webp)
+![](/images/articles/international-womens-day-2024/inline-6.webp)
 
 ## How do you foster a culture of empowerment and inclusivity at Ridgeview?
 

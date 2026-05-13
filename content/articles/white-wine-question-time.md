@@ -2,8 +2,14 @@
 slug: white-wine-question-time
 ---
 
+:::side-by-side image-right
+![Kate Thornton under Ridgeview's Motto](/images/articles/white-wine-question-time/inline-1.webp)
+
+We’ve always believed in the power of conversation and stories shared over a great glass of wine. That’s why we’ve teamed up with with Kate Thornton and her hit podcast [White Wine Question Time (WWQT)](https://podcasts.apple.com/gb/podcast/white-wine-question-time/id1447646731), celebrating connection, friendship and making the most of all life has to give. To mark the launch of our exciting new partnership, we hosted a live episode recording at Ridgeview, with two very special celebrity guests.
+:::
+
 :::side-by-side image-left
-![](/images/articles/white-wine-question-time/inline-1.webp)
+![](/images/articles/white-wine-question-time/inline-2.webp)
 
 ## LIVE EPISODE WITH MARTIN AND SHIRLIE KEMP
 
@@ -17,8 +23,6 @@ The Kemps share memories of their rise to music stardom, overcoming personal cha
 ## Memorable Moments from the Live Recording
 
 What an evening we had, hosting this special live recording at Ridgeview. It was a joy to welcome the wonderful Kate Thornton, leading the laughter and conversation, with Martin and Shirlie Kemp sharing their heartfelt stories. Thanks to all our wonderful guests who made the evening so magical. If you missed out on tickets, you can step into the spirit of connection and celebration with our photo gallery below. For news about upcoming events and so much more, [sign up to our mailing list here](https://email.ridgeview.co.uk/p/72VS-1QS/sign-up-to-our-newsletter?pfredir=1).
-
-![](/images/articles/white-wine-question-time/inline-2.webp)
 
 ![](/images/articles/white-wine-question-time/inline-3.webp)
 
@@ -47,3 +51,5 @@ What an evening we had, hosting this special live recording at Ridgeview. It was
 ![](/images/articles/white-wine-question-time/inline-15.webp)
 
 ![](/images/articles/white-wine-question-time/inline-16.webp)
+
+![](/images/articles/white-wine-question-time/inline-17.webp)

@@ -2,8 +2,18 @@
 slug: how-to-taste-wine
 ---
 
+:::side-by-side image-right
+![Ridgeview English Sparkline Wine, Signature Trio](/images/articles/how-to-taste-wine/inline-1.webp)
+
+Drinking wine and tasting wine are two very different things. Wine tasting is a tool to help you figure out what you want to drink more (or less) of in the future. So it can be useful to learn a few basic rules around how to taste wine.
+
+Clothes shopping is a good analogy.Very few of us are content to pick something out from a rack, drape it in front of us in the nearest mirror and trust that it’s going to look great on. A tasting session is the wine equivalent of a trip to the changing rooms. When you taste wines, you’re trying them on for size, checking the style and feel are just right for you.
+
+Our handy guide to tasting wine is all about finding your perfect fit. Full of insider tips and tricks, here’s what you need to know about how to taste wine…
+:::
+
 :::side-by-side image-left
-[![](/images/articles/how-to-taste-wine/inline-1.webp)](/wine/sparkling-red-reserve/)
+[![](/images/articles/how-to-taste-wine/inline-2.webp)](/wine/sparkling-red-reserve/)
 
 ## 1. Set the scene
 
@@ -17,7 +27,7 @@ Finally, if your tasting session involves more than one wine, you’ll want some
 :::
 
 :::side-by-side image-right
-[![](/images/articles/how-to-taste-wine/inline-2.webp)](/wine/sparkling-red-reserve/)
+[![](/images/articles/how-to-taste-wine/inline-3.webp)](/wine/sparkling-red-reserve/)
 
 ## 2. Observe closely
 
@@ -31,7 +41,7 @@ Note the effervescence of the bubbles too. They should form a steady stream of l
 :::
 
 :::side-by-side image-left
-![](/images/articles/how-to-taste-wine/inline-3.webp)
+![](/images/articles/how-to-taste-wine/inline-4.webp)
 
 ## 3. Take a sniff
 
@@ -45,7 +55,7 @@ Or it may be that you need to give the glass a very gentle swirl to agitate the 
 :::
 
 :::side-by-side image-right
-![](/images/articles/how-to-taste-wine/inline-4.webp)
+![](/images/articles/how-to-taste-wine/inline-5.webp)
 
 ## 4. Take a sip
 
@@ -64,9 +74,9 @@ High acidity is a hallmark of Ridgeview wines and you’ll also get a strong sen
 
 When tasting wine, the only question that really matters is: Do I like it? Your subjective opinion on any wine should be your only steer on whether or not it’s one for you. Of course, you can judge a wine on its individual merits but it can be more rewarding to taste a selection and pick your own personal winner. Often trying wines in sequence is the best way to highlight their relative qualities and point you towards your preferred style. Plus, of course, there’s a lot more fun to be had in the process.
 
-![Ridgeview English sparkling wine cases](/images/articles/how-to-taste-wine/inline-5.jpg)
+![Ridgeview English sparkling wine cases](/images/articles/how-to-taste-wine/inline-6.jpg)
 
-![](/images/articles/how-to-taste-wine/inline-6.webp)
+![](/images/articles/how-to-taste-wine/inline-7.webp)
 
 ## Tastings at Ridgeview
 
@@ -78,19 +88,19 @@ Or for the full Ridgeview experience, why not book yourself onto one of our[Tour
 
 ## Host your own Ridgeview tasting
 
-![](/images/articles/how-to-taste-wine/inline-7.webp)
+![](/images/articles/how-to-taste-wine/inline-8.webp)
 
 ### Ridgeview Mixed Case (Case of 6)
 
 A tasting journey through the elegance and versatility of English sparkling wine, featuring three bottles from our signature range and three from our limited-release vintage collection.
 
-![Ridgeview Signature mixed case English sparkling wine](/images/articles/how-to-taste-wine/inline-8.webp)
+![Ridgeview Signature mixed case English sparkling wine](/images/articles/how-to-taste-wine/inline-9.webp)
 
 ### Signature Mixed Case (Case of 6)
 
 A wonderful introduction to Ridgeview’s most popular collection, each a unique expression of our signature style. A vibrant selection of English sparkling wines, ideal for gifts or celebrations.
 
-![Ridgeview Signature Trio](/images/articles/how-to-taste-wine/inline-9.webp)
+![Ridgeview Signature Trio](/images/articles/how-to-taste-wine/inline-10.webp)
 
 ### Ridgeview Signature Trio
 

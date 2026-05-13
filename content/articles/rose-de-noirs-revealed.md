@@ -2,8 +2,14 @@
 slug: rose-de-noirs-revealed
 ---
 
+:::side-by-side image-right
+[![A hand holding a bottle of Rosé de Noirs above pink flowers outside](/images/articles/rose-de-noirs-revealed/inline-1.webp)](/wine/rose-de-noirs/)
+
+Alive with vibrant fruit flavours and a creamy palate of peach, cherry and biscuit, Ridgeview’s Rosé de Noirs is an elegant, grown-up, serious sparkling rosé. Uncover the artistry and passion behind each bottle, and explore what makes this limited-release vintage so exceptional. We’re lifting the lid on our luxurious, limited-release Rosé de Noirs.
+:::
+
 :::side-by-side image-left
-[![Two glasses of rosé with strawberries on the table and a bottle in an ice bucket in the background](/images/articles/rose-de-noirs-revealed/inline-1.webp)](/wine/rose-de-noirs/)
+[![Two glasses of rosé with strawberries on the table and a bottle in an ice bucket in the background](/images/articles/rose-de-noirs-revealed/inline-2.webp)](/wine/rose-de-noirs/)
 
 ## Rosé de Noirs: A sparkling delicacy
 
@@ -17,7 +23,7 @@ Subtle hints of orange, cranberry, and biscuit add layers of intrigue, while a s
 :::
 
 :::side-by-side image-right
-[![A bunch of Pinot grapes on a wooden table](/images/articles/rose-de-noirs-revealed/inline-2.webp)](/wine/rose-de-noirs/)
+[![A bunch of Pinot grapes on a wooden table](/images/articles/rose-de-noirs-revealed/inline-3.webp)](/wine/rose-de-noirs/)
 
 ## Our Secret Saignée Method
 
@@ -29,7 +35,7 @@ This is all about extracting that magical rosé colour and a depth of flavour fo
 :::
 
 :::side-by-side image-left
-[![](/images/articles/rose-de-noirs-revealed/inline-3.webp)](/wine/rose-de-noirs/)
+[![](/images/articles/rose-de-noirs-revealed/inline-4.webp)](/wine/rose-de-noirs/)
 
 ## Tradition, Refined
 
@@ -56,19 +62,19 @@ Richard Bamfield MW, The Finest Bubble
 
 ## Shop Rosé de Noirs
 
-[![Bottle of Rosé de Noirs and Box](/images/articles/rose-de-noirs-revealed/inline-4.webp)](/wine/rose-de-noirs/)
+[![Bottle of Rosé de Noirs and Box](/images/articles/rose-de-noirs-revealed/inline-5.webp)](/wine/rose-de-noirs/)
 
 ### Rosé de Noirs
 
 Alive with vibrant fruit flavours and a creamy palate of peach, cherry and almond. An elegant, grown-up, serious English sparkling rosé.
 
-[![](/images/articles/rose-de-noirs-revealed/inline-5.webp)](/wine/fitzrovia/)
+[![](/images/articles/rose-de-noirs-revealed/inline-6.webp)](/wine/fitzrovia/)
 
 ### Rosé Duo
 
 Two unique expressions of luxurious English sparkling rosé. Fitzrovia Rosé NV is fresh and fruit-driven, whilst our vintage Rosé de Noirs has a complex, creamy palate of peach, cherry and almond.
 
-[![Ridgeview Rose de Noir Vintage case English sparkling wine](/images/articles/rose-de-noirs-revealed/inline-6.webp)](/wine/rose-de-noirs/)
+[![Ridgeview Rose de Noir Vintage case English sparkling wine](/images/articles/rose-de-noirs-revealed/inline-7.webp)](/wine/rose-de-noirs/)
 
 ### Rosé de Noirs (Case of 6)
 
@@ -76,13 +82,13 @@ Six bottles of our saignée method sparkling rosé. Our limited-release vintage 
 
 ## Rosé de Noirs AWARDS
 
-![Champagne and Sparkling Wine World Championships 2018 Logo](/images/articles/rose-de-noirs-revealed/inline-7.webp)
+![Champagne and Sparkling Wine World Championships 2018 Logo](/images/articles/rose-de-noirs-revealed/inline-8.webp)
 
 ### GOLD
 
 Champagne and Sparkling Wine World Championships 2018
 
-![Decanter World Wine Awards 2023 Platinum Medal](/images/articles/rose-de-noirs-revealed/inline-8.webp)
+![Decanter World Wine Awards 2023 Platinum Medal](/images/articles/rose-de-noirs-revealed/inline-9.webp)
 
 ### PLATINUM
 

@@ -2,12 +2,20 @@
 slug: festive-food-pairings
 ---
 
+:::side-by-side image-right
+![Ridgeview English Sparkling Wine at Christmas](/images/articles/festive-food-pairings/inline-1.webp)
+
+The Ridgeview sparkle really comes into its own at this time of year. No Christmas party is complete without the sound of corks popping on bottles of England’s finest. But did you know that our wines are also fantastic companions to festive food?
+
+We’ve selected four wines from our range and paired them up with dishes of the season, to help you elevate this year’s festivities into foodie heaven. Some are classics and some may surprise, but one thing you can be sure about – the sparkling celebrations start here…
+:::
+
 ## CHRISTMAS CANAPÈS WITH CAVENDISH NV
 
 Cavendish is our traditional non-vintage blend with the balance, depth and structure to stand up to all sorts of bold food pairings. But there’s something to be said for keeping it simple too. Especially when keeping it simple tastes this good.
 
 :::side-by-side image-right
-[![](/images/articles/festive-food-pairings/inline-1.webp)](/wine/cavendish/)
+[![](/images/articles/festive-food-pairings/inline-2.webp)](/wine/cavendish/)
 
 A board of succulent Sussex charcuterie. A chilled bottle of Cavendish. Tuck in and savour. The red-fruit roundness of the wine mingles beautifully with the dense flavours in the meat, while the purifying acidity cleanses the palate of all that fatty richness.
 
@@ -25,7 +33,7 @@ A showpiece plant-based seasonal starter, so you can raise a glass to good healt
 Our late-disgorged Limited Edition spent five years on lees after its initial barrel fermentation. The result is an English sparkling wine unlike any other, one which adds a new dimension to pretty much everything on a Christmas dinner plate.
 
 :::side-by-side image-left
-[![Ridgeview Oak Reserve, English Sparkling Wine](/images/articles/festive-food-pairings/inline-2.webp)](/wine/oak-reserve/)
+[![Ridgeview Oak Reserve, English Sparkling Wine](/images/articles/festive-food-pairings/inline-3.webp)](/wine/oak-reserve/)
 
 Turkey or goose? We’re partial to either, largely because both are brought to new heights when served next to a bottle of Ridgeview Oak Reserve.
 
@@ -37,7 +45,7 @@ Among them are candied citrus peel, toffee, vanilla, sweet spices and caramelise
 :::
 
 :::side-by-side image-right
-[![Ridgeview Blanc de Noirs, English Sparkling Wine at Christmas](/images/articles/festive-food-pairings/inline-3.webp)](/wine/blanc-de-noirs/)
+[![Ridgeview Blanc de Noirs, English Sparkling Wine at Christmas](/images/articles/festive-food-pairings/inline-4.webp)](/wine/blanc-de-noirs/)
 
 ## Ridgeview Blanc de Noirs
 
@@ -51,7 +59,7 @@ This pairing is all about the balance between textures and flavours. Texturally,
 :::
 
 :::side-by-side image-left
-[![Ridgeview Sparkling Red Reserve at Christmas](/images/articles/festive-food-pairings/inline-4.webp)](/wine/sparkling-red-reserve/)
+[![Ridgeview Sparkling Red Reserve at Christmas](/images/articles/festive-food-pairings/inline-5.webp)](/wine/sparkling-red-reserve/)
 
 ## Ridgeview Sparkling Red Reserve
 
@@ -66,40 +74,40 @@ It only gets more dreamy served with our Red Reserve, which retains its wild, ea
 
 We hope our list has given you some food for thought… and maybe one or two wine pairings to join your Christmas traditions for years to come.Wishing you and your loved ones all the best of the festive season, from all here at Ridgeview.
 
-[![](/images/articles/festive-food-pairings/inline-5.jpg)](/wine/cavendish/)
+[![](/images/articles/festive-food-pairings/inline-6.jpg)](/wine/cavendish/)
 
 ## Top picks for festive food pairing
 
-[![](/images/articles/festive-food-pairings/inline-6.webp)](/wine/cavendish/)
+[![](/images/articles/festive-food-pairings/inline-7.webp)](/wine/cavendish/)
 
 ### Cavendish NV
 
 Expressive red berry and almond aromas. Elegantly balanced with notes of raspberry frangipane and bergamot orange. A deliciously foodie wine.
 
-[![](/images/articles/festive-food-pairings/inline-7.webp)](/wine/oak-reserve/)
+[![](/images/articles/festive-food-pairings/inline-8.webp)](/wine/oak-reserve/)
 
 ### Oak Reserve
 
 A limited-edition, late-disgorged bottling of oak barrel fermented Chardonnay. Captivating with aromas of citrus peel and caramelised butter, with a complex, smoky palate.
 
-[![Bottle of Blanc de Noirs Bottle and Box](/images/articles/festive-food-pairings/inline-8.webp)](/wine/blanc-de-noirs/)
+[![Bottle of Blanc de Noirs Bottle and Box](/images/articles/festive-food-pairings/inline-9.webp)](/wine/blanc-de-noirs/)
 
 ### Blanc de Noirs
 
 Made from the finest Pinot grapes only in exceptional vintage years. Delightfully food-friendly, the palate bursts with red cherries, almonds and spice.
 
-[![](/images/articles/festive-food-pairings/inline-9.webp)](/wine/sparkling-red-reserve/)
+[![](/images/articles/festive-food-pairings/inline-10.webp)](/wine/sparkling-red-reserve/)
 
 ### Sparkling Red Reserve
 
 A love-letter to England’s finest Pinot grapes. Highly aromatic with vanilla, cherry and forest fruits, finessed by a twist of pomegranate and sweet, peppery spice.
 
-[![Ridgeview English Sparkling Wine](/images/articles/festive-food-pairings/inline-10.webp)](/wine/blanc-de-blancs/)
+[![Ridgeview English Sparkling Wine](/images/articles/festive-food-pairings/inline-11.webp)](/wine/blanc-de-blancs/)
 
 ### Blanc de Blancs 2010 Magnum
 
 Made exclusively made from our estate’s finest Chardonnay grapes. Aged on lees for over 12 years, there are rich layers of lemon blossom, honeyed orchard fruit with spiced baked apple and biscotti.
 
-[![Ridgeview Bloomsbury NV case English sparkling wine](/images/articles/festive-food-pairings/inline-11.webp)](/wine/bloomsbury/)
+[![Ridgeview Bloomsbury NV case English sparkling wine](/images/articles/festive-food-pairings/inline-12.webp)](/wine/bloomsbury/)
 
 ### Bloomsbury NV (Case of 6)

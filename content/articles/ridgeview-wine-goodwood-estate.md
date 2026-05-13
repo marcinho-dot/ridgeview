@@ -2,8 +2,14 @@
 slug: ridgeview-wine-goodwood-estate
 ---
 
+:::side-by-side image-right
+[![](/images/articles/ridgeview-wine-goodwood-estate/inline-1.webp)](/wine/bloomsbury/)
+
+We are delighted to announce that Ridgeview has been named the official [English sparkling wine](https://www.ridgeview.co.uk/product-category/all-sparkling-wine/) supplier for the prestigious Goodwood Estate. Over the next three years, our celebrated wines—[Bloomsbury](/wine/bloomsbury/), [Fitzrovia](/wine/fitzrovia-rose/), and [Blanc de Blancs](/wine/blanc-de-blancs/)—will be served at the new Ridgeview Pavilion bar at the [Goodwood Racecourse](https://www.goodwood.com/horseracing/) and across all food and beverage menus at their estate properties.
+:::
+
 :::side-by-side image-left
-![](/images/articles/ridgeview-wine-goodwood-estate/inline-1.webp)
+![](/images/articles/ridgeview-wine-goodwood-estate/inline-2.webp)
 
 ## Goodwood Estate: A Premier Destination
 
@@ -17,7 +23,7 @@ Ridgeview’s [English sparkling wine](https://www.ridgeview.co.uk/product-categ
 :::
 
 :::side-by-side image-right
-![](/images/articles/ridgeview-wine-goodwood-estate/inline-2.webp)
+![](/images/articles/ridgeview-wine-goodwood-estate/inline-3.webp)
 
 ## Collaboration for Celebration
 
@@ -28,8 +34,6 @@ This partnership marks the beginning of an exciting new chapter for both Ridgevi
 
 ## A Glimpse of Goodwood - The Ridgeview Experience
 
-![](/images/articles/ridgeview-wine-goodwood-estate/inline-3.webp)
-
 ![](/images/articles/ridgeview-wine-goodwood-estate/inline-4.webp)
 
 ![](/images/articles/ridgeview-wine-goodwood-estate/inline-5.webp)
@@ -39,3 +43,5 @@ This partnership marks the beginning of an exciting new chapter for both Ridgevi
 ![](/images/articles/ridgeview-wine-goodwood-estate/inline-7.webp)
 
 ![](/images/articles/ridgeview-wine-goodwood-estate/inline-8.webp)
+
+![](/images/articles/ridgeview-wine-goodwood-estate/inline-9.webp)

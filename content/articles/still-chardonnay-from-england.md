@@ -2,8 +2,14 @@
 slug: still-chardonnay-from-england
 ---
 
+:::side-by-side image-right
+[![A bottle of Ridgeview's still Chardonnay with a bright blue label, on an oak barrel with Chardonnay grapes and the vineyard in the background.](/images/articles/still-chardonnay-from-england/inline-1.webp)](/wine/still-chardonnay/)
+
+We’ve always been driven by a passion for breaking new ground and our debut still Chardonnay is the perfect expression of this spirit of exploration. An invitation to experience Ridgeview in a way you’ve never tasted before, it’s designed for sharing memorable moments and delicious dishes at our restaurant, The Rows & Vine . We caught up with Head Winemaker, Simon Roberts, to explore the journey behind our new, limited-edition still Chardonnay, available both online and at the Ridgeview estate.
+:::
+
 :::side-by-side image-left
-[![A bottle with a green label with a linen background and shadows](/images/articles/still-chardonnay-from-england/inline-1.webp)](/wine/still-chardonnay/)
+[![A bottle with a green label with a linen background and shadows](/images/articles/still-chardonnay-from-england/inline-2.webp)](/wine/still-chardonnay/)
 
 ## New Horizons for English Winemaking
 
@@ -21,7 +27,7 @@ Chardonnay has always been a favourite of mine. It’s such a classic, versatile
 Simon Roberts
 
 :::side-by-side image-right
-![A bottle with a green label on a table in a restaurant with food around it](/images/articles/still-chardonnay-from-england/inline-2.webp)
+![A bottle with a green label on a table in a restaurant with food around it](/images/articles/still-chardonnay-from-england/inline-3.webp)
 
 ## Distinctively English, Uniquely Ridgeview
 
@@ -39,7 +45,7 @@ When making a still wine, it’s all about letting the fruit speak for itself. W
 Simon Roberts - Head Winemaker
 
 :::side-by-side image-left
-![Matt Strugnell, Vineyard Manager standing amongst the vines smiling](/images/articles/still-chardonnay-from-england/inline-3.webp)
+![Matt Strugnell, Vineyard Manager standing amongst the vines smiling](/images/articles/still-chardonnay-from-england/inline-4.webp)
 
 ## THE CRAFT OF STILL WINEMAKING
 
@@ -51,7 +57,7 @@ Striving for excellence from vine to glass, the Ridgeview Chardonnay draws on gr
 :::
 
 :::side-by-side image-right
-[![A bottle of Ridgeview's still Chardonnay with a bright blue label, on an oak barrel with Chardonnay grapes and the vineyard in the background.](/images/articles/still-chardonnay-from-england/inline-4.webp)](/wine/still-chardonnay/)
+[![A bottle of Ridgeview's still Chardonnay with a bright blue label, on an oak barrel with Chardonnay grapes and the vineyard in the background.](/images/articles/still-chardonnay-from-england/inline-5.webp)](/wine/still-chardonnay/)
 
 ## STILL ENGLISH WINEMAKING ON THE RISE
 
@@ -61,5 +67,5 @@ Warmer summers have given winemakers the opportunity to refine and expand still 
 
 “I’m really happy with this wine. It’s complex yet restrained, fruit-driven with layers of stone fruits like apricot and peach. Perfect with food – from fresh seafood to game dishes – but also just to enjoy with friends. It’s everything I love about Chardonnay, and I hope it brings people together, to create memories and enjoy life’s special moments.”
 
-[![](/images/articles/still-chardonnay-from-england/inline-5.jpg)](/wine/still-chardonnay/)
+[![](/images/articles/still-chardonnay-from-england/inline-6.jpg)](/wine/still-chardonnay/)
 :::

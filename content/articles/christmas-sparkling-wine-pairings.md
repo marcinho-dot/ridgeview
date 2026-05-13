@@ -2,8 +2,14 @@
 slug: christmas-sparkling-wine-pairings
 ---
 
+:::side-by-side image-right
+![](/images/articles/christmas-sparkling-wine-pairings/inline-1.webp)
+
+Christmas lives in the small, special moments – the little habits that became rituals we return to year after year: decorating the tree, presents wrapped, stockings filled and the scent of the roast in the oven. These are the moments that shape Christmas, brought to life by the wines we pour alongside them. At Ridgeview, we’ve been reflecting on our own festive traditions and the wines we share when those moments arrive.
+:::
+
 :::side-by-side image-left
-[![](/images/articles/christmas-sparkling-wine-pairings/inline-1.webp)](/wine/bloomsbury/)
+[![](/images/articles/christmas-sparkling-wine-pairings/inline-2.webp)](/wine/bloomsbury/)
 
 ## The Celebration Starter
 
@@ -21,7 +27,7 @@ And for truly special celebrations, our vintage [Magnum Blanc de Blancs 2010](/w
 :::
 
 :::side-by-side image-right
-[![](/images/articles/christmas-sparkling-wine-pairings/inline-2.webp)](/wine/cavendish/)
+[![](/images/articles/christmas-sparkling-wine-pairings/inline-3.webp)](/wine/cavendish/)
 
 ## When Canapés Call
 
@@ -35,7 +41,7 @@ Versatile and generous, Cavendish rises to every food-focused festive occasion.
 :::
 
 :::side-by-side image-left
-[![](/images/articles/christmas-sparkling-wine-pairings/inline-3.webp)](/wine/blanc-de-noirs/)
+[![](/images/articles/christmas-sparkling-wine-pairings/inline-4.webp)](/wine/blanc-de-noirs/)
 
 ## Festive Feasting & Christmas Lunch
 
@@ -51,7 +57,7 @@ Balanced, expressive and crafted with intent, Blanc de Noirs is the Ridgeview ch
 :::
 
 :::side-by-side image-right
-[![](/images/articles/christmas-sparkling-wine-pairings/inline-4.webp)](/wine/blanc-de-blancs/)
+[![](/images/articles/christmas-sparkling-wine-pairings/inline-5.webp)](/wine/blanc-de-blancs/)
 
 ## When Seafood takes Centre Stage
 
@@ -65,7 +71,7 @@ Beautifully balanced and quietly impressive, it’s the bottle to pour when seaf
 :::
 
 :::side-by-side image-left
-[![](/images/articles/christmas-sparkling-wine-pairings/inline-5.webp)](/wine/sparkling-red-reserve/)
+[![](/images/articles/christmas-sparkling-wine-pairings/inline-6.webp)](/wine/sparkling-red-reserve/)
 
 ## When the Evening Unwinds
 
@@ -85,7 +91,7 @@ Ridgeview Sparkling Rosé
 Desserts call for wines with lift and brightness – bottles that bring freshness to fruit, balance to cream and a sense of celebration to the final course. Ridgeview’s rosés both shine here, each with its own character and charm. Whether you’re sharing a showstopping pudding, assembling a late-night plate of sweet treats or simply pouring something pretty as the evening softens, Ridgeview rosé brings a joyful finish to the moments when sweetness takes centre stage.
 
 :::side-by-side image-right
-[![](/images/articles/christmas-sparkling-wine-pairings/inline-6.webp)](/wine/fitzrovia/)
+[![](/images/articles/christmas-sparkling-wine-pairings/inline-7.webp)](/wine/fitzrovia/)
 
 Ridgeview Fitzrovia NV Rosé
 

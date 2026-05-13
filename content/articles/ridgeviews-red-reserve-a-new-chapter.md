@@ -2,8 +2,14 @@
 slug: ridgeviews-red-reserve-a-new-chapter
 ---
 
+:::side-by-side image-right
+[![Ridgeview Sparkling Red Reserve in the glass](/images/articles/ridgeviews-red-reserve-a-new-chapter/inline-1.webp)](/wine/sparkling-red-reserve/)
+
+A work of art from the hand of our Head Winemaker, Simon Roberts, the Ridgeview Red Reserve made its debut in 2023. To celebrate a new limited-edition second release, we caught up with Simon to explore the inspiration and innovation behind this ground breaking English sparkling wine.
+:::
+
 :::side-by-side image-left
-[![Simon Roberts, Ridgeview Head Winemaker smiling with Red Reserve](/images/articles/ridgeviews-red-reserve-a-new-chapter/inline-1.webp)](/wine/sparkling-red-reserve/)
+[![Simon Roberts, Ridgeview Head Winemaker smiling with Red Reserve](/images/articles/ridgeviews-red-reserve-a-new-chapter/inline-2.webp)](/wine/sparkling-red-reserve/)
 
 ## THE ROOTS OF RIDGEVIEW’S RED RESERVE
 
@@ -15,7 +21,7 @@ Personal to Simon’s own family story, the [Red Reserve’s](/wine/red-reserve/
 :::
 
 :::side-by-side image-right
-[![](/images/articles/ridgeviews-red-reserve-a-new-chapter/inline-2.webp)](/wine/sparkling-red-reserve/)
+[![](/images/articles/ridgeviews-red-reserve-a-new-chapter/inline-3.webp)](/wine/sparkling-red-reserve/)
 
 ## FROM INSPIRATION TO INCEPTION
 
@@ -25,7 +31,7 @@ With the world in lockdown, Simon and his team found themselves with time to foc
 :::
 
 :::side-by-side image-left
-[![Ridgeview Sparkling Red Reserve in the glass](/images/articles/ridgeviews-red-reserve-a-new-chapter/inline-3.webp)](/wine/sparkling-red-reserve/)
+[![Ridgeview Sparkling Red Reserve in the glass](/images/articles/ridgeviews-red-reserve-a-new-chapter/inline-4.webp)](/wine/sparkling-red-reserve/)
 
 ## INSIDE THE BOTTLE
 

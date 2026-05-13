@@ -2,6 +2,12 @@
 slug: luxury-sparkling-wine-gift-guide
 ---
 
+:::side-by-side image-right
+![](/images/articles/luxury-sparkling-wine-gift-guide/inline-1.webp)
+
+The most wonderful time of the year is also one of the busiest. Tinsel to untangle, feasts to prepare, parties to plan, joy and happiness to spread… and, of course, gifts to buy. For the last of these, we can definitely play the role of Santa’s little helper. It’s always a treat to see a bottle-shaped gift under the tree with your name on the tag – and unwrapping it to find a premium English sparkling wine inside makes it all the more special. Here’s a rundown of the perfect Ridgeview gifts for loved ones, from those wine newbies to seasoned aficionados.
+:::
+
 ## Luxury Christmas wine gifts for newbies
 
 Our Signature range of sparkling wines are loved the world over, so they make a beautifully thoughtful gift for anyone just starting their wine adventure. These wines are a Great British success story – definitive proof that English sparkling wine is now the envy of every sparkling wine region, including Champagne. Why? Because they taste delicious.
@@ -14,19 +20,19 @@ Food-friendly[Cavendish NV](/wine/cavendish/)is our traditional blend, making it
 
 ## BESTELLING SPARKLING WINE GIFTS
 
-[![](/images/articles/luxury-sparkling-wine-gift-guide/inline-1.webp)](/wine/bloomsbury/)
+[![](/images/articles/luxury-sparkling-wine-gift-guide/inline-2.webp)](/wine/bloomsbury/)
 
 ### Bloomsbury NV
 
 Our bestselling fresh and fruit-forward English sparkling wine, with notes of citrus zest, pear and honey. A delightful aperitif and delicious with canapés.
 
-[![Ridgeview Fitzrovia Rose NV English sparkling wine](/images/articles/luxury-sparkling-wine-gift-guide/inline-2.webp)](/wine/fitzrovia/)
+[![Ridgeview Fitzrovia Rose NV English sparkling wine](/images/articles/luxury-sparkling-wine-gift-guide/inline-3.webp)](/wine/fitzrovia/)
 
 ### Fitzrovia Rosé NV
 
 A fresh and fruit-driven English sparkling rosé. Full of sunshine and celebration, featuring wild raspberry, honeyed redcurrant and notes of summer fruit.
 
-[![](/images/articles/luxury-sparkling-wine-gift-guide/inline-3.webp)](/wine/cavendish/)
+[![](/images/articles/luxury-sparkling-wine-gift-guide/inline-4.webp)](/wine/cavendish/)
 
 ### Cavendish NV
 
@@ -44,44 +50,44 @@ Then again, you may prefer to let us do the choosing for you. A gift membership 
 
 ## LUXURY SPARKLING WINE GIFTS
 
-[![](/images/articles/luxury-sparkling-wine-gift-guide/inline-4.webp)](/wine/oak-reserve/)
+[![](/images/articles/luxury-sparkling-wine-gift-guide/inline-5.webp)](/wine/oak-reserve/)
 
 ### Oak Reserve
 
 A limited-edition, late-disgorged bottling of oak barrel fermented Chardonnay. Captivating with aromas of citrus peel and caramelised butter, with a complex, smoky palate.
 
-[![](/images/articles/luxury-sparkling-wine-gift-guide/inline-5.webp)](/wine/sparkling-red-reserve/)
+[![](/images/articles/luxury-sparkling-wine-gift-guide/inline-6.webp)](/wine/sparkling-red-reserve/)
 
 ### Sparkling Red Reserve
 
 A love-letter to England’s finest Pinot grapes. Highly aromatic with vanilla, cherry and forest fruits, finessed by a twist of pomegranate and sweet, peppery spice.
 
-[![Blanc de Blancs Bottle with Box](/images/articles/luxury-sparkling-wine-gift-guide/inline-6.webp)](/wine/blanc-de-blancs/)
+[![Blanc de Blancs Bottle with Box](/images/articles/luxury-sparkling-wine-gift-guide/inline-7.webp)](/wine/blanc-de-blancs/)
 
 ### Blanc de Blancs
 
 Our flagship, single estate vintage wine from the finest grapes from our home vineyard. Pure, elegant and complex with hints of fresh honey, apricot and brioche.
 
-[![Gift Box Set of Bloomsbury bottle with two glasses and a bottle stopper](/images/articles/luxury-sparkling-wine-gift-guide/inline-7.webp)](/wine/bloomsbury/)
+[![Gift Box Set of Bloomsbury bottle with two glasses and a bottle stopper](/images/articles/luxury-sparkling-wine-gift-guide/inline-8.webp)](/wine/bloomsbury/)
 
 ### Wine Club Gift Membership
 
 An extraordinary gift to spark joy all year round, including a luxurious welcome gift set, two cases of wine and a host of exclusive member benefits.
 
-[![Ridgeview English Sparkling Wine](/images/articles/luxury-sparkling-wine-gift-guide/inline-8.webp)](/wine/blanc-de-blancs/)
+[![Ridgeview English Sparkling Wine](/images/articles/luxury-sparkling-wine-gift-guide/inline-9.webp)](/wine/blanc-de-blancs/)
 
 ### Blanc de Blancs 2010 Magnum
 
 Made exclusively made from our estate’s finest Chardonnay grapes. Aged on lees for over 12 years, there are rich layers of lemon blossom, honeyed orchard fruit with spiced baked apple and biscotti.
 
-[![](/images/articles/luxury-sparkling-wine-gift-guide/inline-9.webp)](/wine/bloomsbury/)
+[![](/images/articles/luxury-sparkling-wine-gift-guide/inline-10.webp)](/wine/bloomsbury/)
 
 ### Magnum Bloomsbury NV
 
 Ridgeview magnums are a rare delight. Bursting with bright citrus flavours and aromas of juicy white peach, there are hints of honey and brioche on the palate.
 
-[![Sparkling Red Reserve in glasses cheersing infront of Christmas tree](/images/articles/luxury-sparkling-wine-gift-guide/inline-10.webp)](/wine/sparkling-red-reserve/)
+[![Sparkling Red Reserve in glasses cheersing infront of Christmas tree](/images/articles/luxury-sparkling-wine-gift-guide/inline-11.webp)](/wine/sparkling-red-reserve/)
 
-![Ridgeview Wine Estate Tour and Tasting English Sparkling Wine](/images/articles/luxury-sparkling-wine-gift-guide/inline-11.webp)
+![Ridgeview Wine Estate Tour and Tasting English Sparkling Wine](/images/articles/luxury-sparkling-wine-gift-guide/inline-12.webp)
 
-![Three glasses of Ridgeview sparkling wine cheersing at the Rows and Vine](/images/articles/luxury-sparkling-wine-gift-guide/inline-12.webp)
+![Three glasses of Ridgeview sparkling wine cheersing at the Rows and Vine](/images/articles/luxury-sparkling-wine-gift-guide/inline-13.webp)

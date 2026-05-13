@@ -2,8 +2,14 @@
 slug: vineyard-sustainability-gold-award
 ---
 
+:::side-by-side image-right
+![Gold Award, Sustainable Wines of Great Britain logo on a vineyard background](/images/articles/vineyard-sustainability-gold-award/inline-1.webp)
+
+Our vines are nearly 30 years old and have played an important role in the English wine story. Protecting and preserving them is our priority. Receiving the new Gold Award from [Sustainable Wines of Great Britain](https://winegb.co.uk/our-wines/sustainable-wines-of-great-britain-certification-scheme/) (SWGB) is both rewarding and reassuring. It acknowledges our dedication to nurturing the vineyard and affirms that we are on the right path, doing the right things, with a clear road ahead for continuous improvement.
+:::
+
 :::side-by-side image-left
-![Matt Strugnell, Vineyard Manager standing amongst the vines smiling](/images/articles/vineyard-sustainability-gold-award/inline-1.webp)
+![Matt Strugnell, Vineyard Manager standing amongst the vines smiling](/images/articles/vineyard-sustainability-gold-award/inline-2.webp)
 
 ## Building a Legacy of Sustainability for English Wine
 
@@ -30,24 +36,24 @@ Reducing herbicide usage has also been a priority. Our vineyard has not been tre
 
 As we look ahead, we remain dedicated to continuous improvement, ensuring that Ridgeview remains a beacon of sustainable winemaking for generations to come.
 
-![Ridgeview harvest team member walks between rows of vines with buckets](/images/articles/vineyard-sustainability-gold-award/inline-2.webp)
+![Ridgeview harvest team member walks between rows of vines with buckets](/images/articles/vineyard-sustainability-gold-award/inline-3.webp)
 
-![](/images/articles/vineyard-sustainability-gold-award/inline-3.webp)
+![](/images/articles/vineyard-sustainability-gold-award/inline-4.webp)
 
-![Winter walks in Sussex, Ridgeview Wine Estate](/images/articles/vineyard-sustainability-gold-award/inline-4.webp)
+![Winter walks in Sussex, Ridgeview Wine Estate](/images/articles/vineyard-sustainability-gold-award/inline-5.webp)
 
-![A glass of white sparkling wine held up above the Chardonnay vineyard at Ridgeview](/images/articles/vineyard-sustainability-gold-award/inline-5.webp)
+![A glass of white sparkling wine held up above the Chardonnay vineyard at Ridgeview](/images/articles/vineyard-sustainability-gold-award/inline-6.webp)
 
-![Ridgeview Wine Estate English Sparkling Wine The Rows & Vine](/images/articles/vineyard-sustainability-gold-award/inline-6.webp)
+![Ridgeview Wine Estate English Sparkling Wine The Rows & Vine](/images/articles/vineyard-sustainability-gold-award/inline-7.webp)
 
-![](/images/articles/vineyard-sustainability-gold-award/inline-7.webp)
+![](/images/articles/vineyard-sustainability-gold-award/inline-8.webp)
 
-![Ridgeview Wine Estate Beekeeping](/images/articles/vineyard-sustainability-gold-award/inline-8.webp)
-
-![](/images/articles/vineyard-sustainability-gold-award/inline-9.webp)
+![Ridgeview Wine Estate Beekeeping](/images/articles/vineyard-sustainability-gold-award/inline-9.webp)
 
 ![](/images/articles/vineyard-sustainability-gold-award/inline-10.webp)
 
-![Ridgeview Wine Estate, Sussex Woodland](/images/articles/vineyard-sustainability-gold-award/inline-11.webp)
+![](/images/articles/vineyard-sustainability-gold-award/inline-11.webp)
 
-![](/images/articles/vineyard-sustainability-gold-award/inline-12.webp)
+![Ridgeview Wine Estate, Sussex Woodland](/images/articles/vineyard-sustainability-gold-award/inline-12.webp)
+
+![](/images/articles/vineyard-sustainability-gold-award/inline-13.webp)

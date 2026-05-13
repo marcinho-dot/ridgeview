@@ -2,7 +2,13 @@
 slug: pinot-noir-grape-guide
 ---
 
-![Harvest at Ridgeview Wine Estate English sparkling wine Sussex England](/images/articles/pinot-noir-grape-guide/inline-1.webp)
+:::side-by-side image-right
+![A bunch of Pinot grapes on a wooden table](/images/articles/pinot-noir-grape-guide/inline-1.jpg)
+
+In the first of our Grape Guide series, we’re getting under the skin of the wine world’s most ethereal, elusive and enigmatic variety.
+:::
+
+![Harvest at Ridgeview Wine Estate English sparkling wine Sussex England](/images/articles/pinot-noir-grape-guide/inline-2.webp)
 
 ## Five Pinot Noir Facts
 
@@ -13,7 +19,7 @@ slug: pinot-noir-grape-guide
 - Pinot Noir is now the second most planted grape variety in the UK, just after Chardonnay.
 
 :::side-by-side image-right
-![](/images/articles/pinot-noir-grape-guide/inline-2.webp)
+![](/images/articles/pinot-noir-grape-guide/inline-3.webp)
 
 ## Pinot Noir in the vineyard
 
@@ -23,7 +29,7 @@ Add in Pinot Noir’s susceptibility to all sorts of vineyard diseases and you m
 :::
 
 :::side-by-side image-left
-[![Ridgeview Sparkling Red Reserve](/images/articles/pinot-noir-grape-guide/inline-3.webp)](/wine/sparkling-red-reserve/)
+[![Ridgeview Sparkling Red Reserve](/images/articles/pinot-noir-grape-guide/inline-4.webp)](/wine/sparkling-red-reserve/)
 
 ## What kind of wines does Pinot Noir make?
 
@@ -51,7 +57,7 @@ This gradual ripening ensures the grapes retain acidity as they build sugars, ph
 Pinot Noir has a prominent place in Ridgeview wines and a special place in our hearts. For many years the variety has been our Head Winemaker Simon Roberts’ muse, bestriding our [Signature](https://www.ridgeview.co.uk/product-category/all-sparkling-wine/signature-wines/) and [Limited Edition](https://www.ridgeview.co.uk/product-category/all-sparkling-wine/limited-edition/) Ranges.
 
 :::side-by-side image-left
-[![](/images/articles/pinot-noir-grape-guide/inline-4.webp)](/wine/cavendish/)
+[![](/images/articles/pinot-noir-grape-guide/inline-5.webp)](/wine/cavendish/)
 
 ### [Cavendish NV](/wine/cavendish/)
 
@@ -76,37 +82,37 @@ Innovative, offbeat and beguiling, this wine is a work of art! Made from the fin
 
 ## Shop Pinot Noir at Ridgeview
 
-[![](/images/articles/pinot-noir-grape-guide/inline-5.webp)](/wine/cavendish/)
+[![](/images/articles/pinot-noir-grape-guide/inline-6.webp)](/wine/cavendish/)
 
 ### Cavendish NV
 
 Expressive red berry and almond aromas. Elegantly balanced with notes of raspberry frangipane and bergamot orange. A deliciously foodie wine.
 
-[![Ridgeview Fitzrovia Rose NV English sparkling wine](/images/articles/pinot-noir-grape-guide/inline-6.webp)](/wine/fitzrovia/)
+[![Ridgeview Fitzrovia Rose NV English sparkling wine](/images/articles/pinot-noir-grape-guide/inline-7.webp)](/wine/fitzrovia/)
 
 ### Fitzrovia Rosé NV
 
 A fresh and fruit-driven English sparkling rosé. Full of sunshine and celebration, featuring wild raspberry, honeyed redcurrant and notes of summer fruit.
 
-[![Bottle of Rosé de Noirs and Box](/images/articles/pinot-noir-grape-guide/inline-7.webp)](/wine/rose-de-noirs/)
+[![Bottle of Rosé de Noirs and Box](/images/articles/pinot-noir-grape-guide/inline-8.webp)](/wine/rose-de-noirs/)
 
 ### Rosé de Noirs
 
 Alive with vibrant fruit flavours and a creamy palate of peach, cherry and almond. An elegant, grown-up, serious English sparkling rosé.
 
-[![Bottle of Blanc de Noirs Bottle and Box](/images/articles/pinot-noir-grape-guide/inline-8.webp)](/wine/blanc-de-noirs/)
+[![Bottle of Blanc de Noirs Bottle and Box](/images/articles/pinot-noir-grape-guide/inline-9.webp)](/wine/blanc-de-noirs/)
 
 ### Blanc de Noirs
 
 Made from the finest Pinot grapes only in exceptional vintage years. Delightfully food-friendly, the palate bursts with red cherries, almonds and spice.
 
-[![](/images/articles/pinot-noir-grape-guide/inline-9.webp)](/wine/sparkling-red-reserve/)
+[![](/images/articles/pinot-noir-grape-guide/inline-10.webp)](/wine/sparkling-red-reserve/)
 
 ### Sparkling Red Reserve
 
 A love-letter to England’s finest Pinot grapes. Highly aromatic with vanilla, cherry and forest fruits, finessed by a twist of pomegranate and sweet, peppery spice.
 
-[![](/images/articles/pinot-noir-grape-guide/inline-10.webp)](/wine/fitzrovia/)
+[![](/images/articles/pinot-noir-grape-guide/inline-11.webp)](/wine/fitzrovia/)
 
 ### Rosé Duo
 

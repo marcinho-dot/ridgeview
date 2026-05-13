@@ -2,8 +2,14 @@
 slug: standout-sparkling-wine-pairings-for-christmas
 ---
 
+:::side-by-side image-right
+[![Sparkling Red Reserve in glasses cheersing infront of Christmas tree](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-1.webp)](/wine/sparkling-red-reserve/)
+
+When it comes to pairing festive foods with sparkling wine, Christmas is the ultimate time to indulge. From decadent roasts to celebratory toasts, nothing makes your celebrations shine brighter than a luxury sparkling wine. Searching for the best sparkling wine for Christmas dinner or an impressive party toast? Our guide to sensational Christmas sparkling wine pairings will bring your festive feasts and flavours to life.
+:::
+
 :::side-by-side image-left
-[![A bottle of Blanc de Noirs in the middle of a table surrounded by plates of Christmas roast dinner and christmas decorations, with a glass of sparkling wine on the table.](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-1.webp)](/wine/blanc-de-noirs/)
+[![A bottle of Blanc de Noirs in the middle of a table surrounded by plates of Christmas roast dinner and christmas decorations, with a glass of sparkling wine on the table.](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-2.webp)](/wine/blanc-de-noirs/)
 
 ## The best wine for Christmas dinner
 
@@ -13,7 +19,7 @@ It’s so complex, with a backbone of big, bold red-fruit flavours that pair to 
 :::
 
 :::side-by-side image-right
-[![Ridgeview Oak Reserve, English Sparkling Wine](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-2.webp)](/wine/oak-reserve/)
+[![Ridgeview Oak Reserve, English Sparkling Wine](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-3.webp)](/wine/oak-reserve/)
 
 ## Wonder wines for winter nibbles
 
@@ -25,7 +31,7 @@ One Christmas tradition we love is catching up with friends and family over a co
 :::
 
 :::side-by-side image-left
-[![](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-3.webp)](/wine/cavendish/)
+[![](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-4.webp)](/wine/cavendish/)
 
 ## The gourmet allrounder
 
@@ -35,7 +41,7 @@ Cavendish NV is our classic blend of Chardonnay and Pinots Noir and Meunier, cra
 :::
 
 :::side-by-side image-right
-[![](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-4.webp)](/wine/bloomsbury/)
+[![](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-5.webp)](/wine/bloomsbury/)
 
 ## Our top Christmas celebration wine
 
@@ -56,37 +62,37 @@ Whether you’re planning a showstopping feast, searching for the best sparkling
 
 Full glasses, full hearts – find your perfect sparkling wine for unforgettable festive moments this Christmas.
 
-[![Bottle of Blanc de Noirs Bottle and Box](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-5.webp)](/wine/blanc-de-noirs/)
+[![Bottle of Blanc de Noirs Bottle and Box](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-6.webp)](/wine/blanc-de-noirs/)
 
 ### Blanc de Noirs
 
 Made from the finest Pinot grapes only in exceptional vintage years. Delightfully food-friendly, the palate bursts with red cherries, almonds and spice.
 
-[![](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-6.webp)](/wine/cavendish/)
+[![](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-7.webp)](/wine/cavendish/)
 
 ### Cavendish NV
 
 Expressive red berry and almond aromas. Elegantly balanced with notes of raspberry frangipane and bergamot orange. A deliciously foodie wine.
 
-[![](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-7.webp)](/wine/sparkling-red-reserve/)
+[![](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-8.webp)](/wine/sparkling-red-reserve/)
 
 ### Sparkling Red Reserve
 
 A love-letter to England’s finest Pinot grapes. Highly aromatic with vanilla, cherry and forest fruits, finessed by a twist of pomegranate and sweet, peppery spice.
 
-[![](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-8.webp)](/wine/oak-reserve/)
+[![](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-9.webp)](/wine/oak-reserve/)
 
 ### Oak Reserve
 
 A limited-edition, late-disgorged bottling of oak barrel fermented Chardonnay. Captivating with aromas of citrus peel and caramelised butter, with a complex, smoky palate.
 
-[![](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-9.webp)](/wine/bloomsbury/)
+[![](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-10.webp)](/wine/bloomsbury/)
 
 ### Magnum Bloomsbury NV
 
 Ridgeview magnums are a rare delight. Bursting with bright citrus flavours and aromas of juicy white peach, there are hints of honey and brioche on the palate.
 
-[![](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-10.webp)](/wine/bloomsbury/)
+[![](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-11.webp)](/wine/bloomsbury/)
 
 ### Bloomsbury NV
 

@@ -2,18 +2,24 @@
 slug: afternoon-tea-with-a-touch-of-sparkle
 ---
 
+:::side-by-side image-right
+![Ridgeview sparkling afternoon tea, Frimley Hall](/images/articles/afternoon-tea-with-a-touch-of-sparkle/inline-1.webp)
+
+Is there anything more charming than a sparkling afternoon tea? Finger sandwiches, elegant white linen and tiers of cakes, afternoon tea is a beloved British tradition. Steeped in history, we have the Duchess of Bedford (Queen Victoria’s lady in waiting) to thank this ever-so English affair. As dining later in the evening became a fashionable trend, it was designed to satisfy hunger pangs during longer afternoons. Full of nostalgia, it has evolved into a deliciously decadent treat, with [English sparkling wine](https://www.ridgeview.co.uk/product-category/shop-all-english-sparkling-wine/) considered a must-have addition to the modern afternoon tea experience.
+:::
+
 ## Top spots for sparkling afternoon tea
 
 Check out our favourite spots across Sussex and Surrey to celebrate the ever-so English tradition of sparkling afternoon tea.
 
-[![Ridgeview sparkling afternoon tea (c) Brooke Lark](/images/articles/afternoon-tea-with-a-touch-of-sparkle/inline-1.webp)](/wine/cavendish/)
+![Ridgeview sparkling afternoon tea (c) Brooke Lark](/images/articles/afternoon-tea-with-a-touch-of-sparkle/inline-2.webp)
 
-[![Ridgeview sparkling afternoon tea (c) Sincerely Media](/images/articles/afternoon-tea-with-a-touch-of-sparkle/inline-2.webp)](/wine/cavendish/)
+![Ridgeview sparkling afternoon tea (c) Sincerely Media](/images/articles/afternoon-tea-with-a-touch-of-sparkle/inline-3.webp)
 
-[![Ridgeview Afternoon Tea, Pennyhill Park](/images/articles/afternoon-tea-with-a-touch-of-sparkle/inline-3.webp)](/wine/cavendish/)
+[![Ridgeview Afternoon Tea, Pennyhill Park](/images/articles/afternoon-tea-with-a-touch-of-sparkle/inline-4.webp)](/wine/cavendish/)
 
 :::side-by-side image-right
-[![The lobby at the Grand Hotel, Brighton](/images/articles/afternoon-tea-with-a-touch-of-sparkle/inline-4.webp)](/wine/cavendish/)
+[![The lobby at the Grand Hotel, Brighton](/images/articles/afternoon-tea-with-a-touch-of-sparkle/inline-5.webp)](/wine/cavendish/)
 
 ## The Grand Hotel (Brighton, East Sussex)
 
@@ -23,7 +29,7 @@ Set in their opulent Victoria Terrace and Lounge, guests are served a selection 
 :::
 
 :::side-by-side image-left
-[![Ridgeview Sparkling Afternoon Tea, South Lodge](/images/articles/afternoon-tea-with-a-touch-of-sparkle/inline-5.webp)](/wine/bloomsbury/)
+[![Ridgeview Sparkling Afternoon Tea, South Lodge](/images/articles/afternoon-tea-with-a-touch-of-sparkle/inline-6.webp)](/wine/bloomsbury/)
 
 ## South Lodge (Horsham, West Sussex)
 
@@ -33,7 +39,7 @@ Relax in the beautiful surroundings of this luxury spa hotel and experience hosp
 :::
 
 :::side-by-side image-right
-[![Ridgeview Afternoon Tea, Ockenden Manor](/images/articles/afternoon-tea-with-a-touch-of-sparkle/inline-6.webp)](/wine/bloomsbury/)
+[![Ridgeview Afternoon Tea, Ockenden Manor](/images/articles/afternoon-tea-with-a-touch-of-sparkle/inline-7.webp)](/wine/bloomsbury/)
 
 ## Ockenden Manor (Cuckfield, West Sussex)
 
@@ -43,7 +49,7 @@ Served in their charming drawing room or sun-soaked terrace, you’ll savour a s
 :::
 
 :::side-by-side image-right
-[![Ridgeview Afternoon Tea, Pennyhill Park](/images/articles/afternoon-tea-with-a-touch-of-sparkle/inline-7.webp)](/wine/bloomsbury/)
+[![Ridgeview Afternoon Tea, Pennyhill Park](/images/articles/afternoon-tea-with-a-touch-of-sparkle/inline-8.webp)](/wine/bloomsbury/)
 
 ## Pennyhill Park (Bagshot, Surrey)
 

@@ -2,8 +2,14 @@
 slug: inside-blanc-de-blancs-2020
 ---
 
+:::side-by-side image-right
+[![Ridgeview Blanc de Blancs at the beach](/images/articles/inside-blanc-de-blancs-2020/inline-1.jpg)](/wine/blanc-de-blancs/)
+
+Quietly confident, beautifully expressive, shaped by time – Ridgeview Blanc de Blancs 2020 is a wine of elegance, complexity, and intent. A milestone vintage released in our 30th year, it captures the essence of Ridgeview’s quality, maturity and ambition. A limited edition for those who value excellence worth waiting for. A lesson in delayed gratification – with reward in every glass.
+:::
+
 :::side-by-side image-left
-[![](/images/articles/inside-blanc-de-blancs-2020/inline-1.webp)](/wine/blanc-de-blancs/)
+[![](/images/articles/inside-blanc-de-blancs-2020/inline-2.webp)](/wine/blanc-de-blancs/)
 
 ## Reserved for Remarkable Vintage Years
 
@@ -23,7 +29,7 @@ Generous enough to enjoy now yet structured enough to cellar. A wine to gift, to
 Simon Roberts, Head Winemaker
 
 :::side-by-side image-right
-![](/images/articles/inside-blanc-de-blancs-2020/inline-2.webp)
+![](/images/articles/inside-blanc-de-blancs-2020/inline-3.webp)
 
 ## A Purists Dream
 
@@ -45,7 +51,7 @@ The conditions really worked in our favour. Aside from one nervous moment with a
 Matt Strugnell
 
 :::side-by-side image-left
-[![](/images/articles/inside-blanc-de-blancs-2020/inline-3.webp)](/wine/blanc-de-blancs/)
+[![](/images/articles/inside-blanc-de-blancs-2020/inline-4.webp)](/wine/blanc-de-blancs/)
 
 ## A Wine That Marks the Moment
 

@@ -2,6 +2,12 @@
 slug: sparkling-wine-magnum-bloomsbury
 ---
 
+:::side-by-side image-right
+[![](/images/articles/sparkling-wine-magnum-bloomsbury/inline-1.jpg)](/wine/bloomsbury/)
+
+An impressive, larger-than-life expression of our signature sparkling wine, the Magnum Bloomsbury NV is crafted for those moments that deserve something special. Bursting with bright citrus, juicy white peach and creamy brioche notes, there is celebration in every bubble of our Magnum Bloomsbury NV.
+:::
+
 ## BLOOMSBURY, BUT NOT AS YOU KNOW IT
 
 The ultimate choice for those seeking both size and sophistication, this is a grand and generous gesture your guests will be talking about long after the last drop. But it’s not just the grandeur of the bottle that sets this magnum apart. The larger format allows for a slower, more refined ageing – a greater complexity and depth of flavour evolves, bringing out elements that smaller bottles simply can’t achieve.
@@ -9,7 +15,7 @@ The ultimate choice for those seeking both size and sophistication, this is a gr
 So much more than a larger bottle, magnums are a canvas for developing a wine’s potential, achieving greater precision and poise. In magnum, our signature Bloomsbury blend has developed a delicate balance of mineral freshness, biscuity undertones, and a creamy mousse. Revealing new characteristics that speak to Southern England’s distinctive terroir, this is a showstopping magnum for special occasions, luxury gifting and large gatherings when you want the celebrations to flow.
 
 :::side-by-side image-left
-[![](/images/articles/sparkling-wine-magnum-bloomsbury/inline-1.webp)](/wine/bloomsbury/)
+[![](/images/articles/sparkling-wine-magnum-bloomsbury/inline-2.webp)](/wine/bloomsbury/)
 
 ## SOMMELIER’S CHOICE: SPARKLING WINE OF THE YEAR
 

@@ -3,7 +3,17 @@ slug: ridgeview-recommends-inspiring-b-corp-brands
 ---
 
 :::side-by-side image-right
-![Punchy Drinks - Sustainable B Corp Brands](/images/articles/ridgeview-recommends-inspiring-b-corp-brands/inline-1.webp)
+![Certified B Corporation - Ridgeview Wine Estate](/images/articles/ridgeview-recommends-inspiring-b-corp-brands/inline-1.jpg)
+
+If you’re looking to shop more sustainably and align your values with your purchases, then you’re in the right place. Finding companies that care isn’t easy, but that’s where [B Corp](https://www.bcorporation.net/en-us/certification/) comes in.
+
+[Certified B Corporations](/beyond-the-bottle/were-proud-to-be-a-b-corp/) meet the highest standard of social and environmental performance, scaling up their sustainable practices year on year. Globally recognised as the gold-star standard for purpose-driven brands, B Corps are your go-to for companies committed to sustainability.
+
+As a B Corp ourselves, we understand the transformative power of sustainable businesses. So, to help us all buy better, we’ve rounded up some of our favourite B Corp brands. Dive into these inspirational B Corp businesses, building a better future for all…
+:::
+
+:::side-by-side image-right
+![Punchy Drinks - Sustainable B Corp Brands](/images/articles/ridgeview-recommends-inspiring-b-corp-brands/inline-2.webp)
 
 ## Punchy Drinks
 
@@ -15,7 +25,7 @@ Punchy provide award-winning soft drinks for our [vineyard restaurant in Sussex]
 :::
 
 :::side-by-side image-left
-![Sustainable drinks - Lucky Saint Beer](/images/articles/ridgeview-recommends-inspiring-b-corp-brands/inline-2.webp)
+![Sustainable drinks - Lucky Saint Beer](/images/articles/ridgeview-recommends-inspiring-b-corp-brands/inline-3.webp)
 
 ## Lucky Saint
 
@@ -27,7 +37,7 @@ They champion mental health for the hospitality and retail industry through char
 :::
 
 :::side-by-side image-right
-![Sapling Spirits - Sustainable B Corp brands](/images/articles/ridgeview-recommends-inspiring-b-corp-brands/inline-3.webp)
+![Sapling Spirits - Sustainable B Corp brands](/images/articles/ridgeview-recommends-inspiring-b-corp-brands/inline-4.webp)
 
 ## Sapling Spirits
 
@@ -41,7 +51,7 @@ Clean, creamy and smooth, their delicious home-grown vodka and gin are leading t
 :::
 
 :::side-by-side image-left
-![Huskee Cups - Sustainable B Corp Brands](/images/articles/ridgeview-recommends-inspiring-b-corp-brands/inline-4.webp)
+![Huskee Cups - Sustainable B Corp Brands](/images/articles/ridgeview-recommends-inspiring-b-corp-brands/inline-5.webp)
 
 ## Huskee Cups
 
@@ -55,7 +65,7 @@ Produced from a byproduct of processing coffee beans, they’re beautifully desi
 :::
 
 :::side-by-side image-right
-![Inspiring B Corp Brands - Bird and Blend Tea](/images/articles/ridgeview-recommends-inspiring-b-corp-brands/inline-5.webp)
+![Inspiring B Corp Brands - Bird and Blend Tea](/images/articles/ridgeview-recommends-inspiring-b-corp-brands/inline-6.webp)
 
 ## Bird & Blend Co.
 
@@ -67,7 +77,7 @@ Served in plastic-free, compostable tea bags, they have over 100 tasty teas to c
 :::
 
 :::side-by-side image-left
-![Sustainable B Corp Brands - Raw Chocolate Company](/images/articles/ridgeview-recommends-inspiring-b-corp-brands/inline-6.webp)
+![Sustainable B Corp Brands - Raw Chocolate Company](/images/articles/ridgeview-recommends-inspiring-b-corp-brands/inline-7.webp)
 
 ## The Raw Chocolate Company
 
@@ -79,7 +89,7 @@ Their milk chocolate made with coconut blossom sugar is a delicious addition to 
 :::
 
 :::side-by-side image-right
-[![Inspiring B Corp Brands - Proper](/images/articles/ridgeview-recommends-inspiring-b-corp-brands/inline-7.webp)](/wine/bloomsbury/)
+[![Inspiring B Corp Brands - Proper](/images/articles/ridgeview-recommends-inspiring-b-corp-brands/inline-8.webp)](/wine/bloomsbury/)
 
 ## Proper
 
@@ -89,7 +99,7 @@ Here’s a little-known secret – serving popcorn with English sparkling wine i
 :::
 
 :::side-by-side image-left
-![South Lodge Exclusive Hotels © Amy Murrell](/images/articles/ridgeview-recommends-inspiring-b-corp-brands/inline-8.webp)
+![South Lodge Exclusive Hotels © Amy Murrell](/images/articles/ridgeview-recommends-inspiring-b-corp-brands/inline-9.webp)
 
 ## Exclusive Collection
 

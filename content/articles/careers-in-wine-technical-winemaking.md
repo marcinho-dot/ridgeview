@@ -2,12 +2,20 @@
 slug: careers-in-wine-technical-winemaking
 ---
 
+:::side-by-side image-right
+![Winemaking at Ridgeview](/images/articles/careers-in-wine-technical-winemaking/inline-1.jpg)
+
+Is there a more exciting place to work right now than English wine? Driven by innovation, passion and a pioneering spirit, our wines are taking the world by storm.The English wine industry is full of talented, welcoming individuals achieving incredible things through their career in wine, like our Technical Winemaker, Liz Morgan.
+
+Liz plays an essential role in our winery team, bringing state-of-the-art scientific rigour to the ancient art of winemaking. We caught up with Liz to explore how she started hercareer in wine, and what makes Ridgeview a special place to work.
+:::
+
 ## What role does lab work play in winemaking at Ridgeview?
 
 So the work we do in the lab informs many decisions made through the winemaking process. Our data is really there to deliver some precision, about our grapes, the juice that comes out of them and how it progresses through the various stages of becoming wine. It’s maybe not as visible or as cool as the head winemaker job, which comes wrapped up with the more romantic side of winemaking, but it’s a critical part of the process!
 
 :::side-by-side image-right
-![](/images/articles/careers-in-wine-technical-winemaking/inline-1.webp)
+![](/images/articles/careers-in-wine-technical-winemaking/inline-2.webp)
 
 ## Where does the technical expertise for your role come from?
 
@@ -27,7 +35,7 @@ I was working in Edinburgh for a stem cell research company, and I decided that 
 After I came back to the UK, I did a bit of research and discovered[Plumpton College](https://www.plumpton.ac.uk/courses/wine-division/)offered wine degrees. At that point I thought ‘well, I don’t have anything to lose here’. So I went through Plumpton part-time, which was when I started my first stint at Ridgeview.
 
 :::side-by-side image-left
-![](/images/articles/careers-in-wine-technical-winemaking/inline-2.webp)
+![](/images/articles/careers-in-wine-technical-winemaking/inline-3.webp)
 
 ## So you were a winemaker before you became a Technical Winemaker?
 
@@ -43,7 +51,7 @@ I originally came back as Lab Manager but soon moved to the Technical Winemaker 
 It’s important to me that the results that the lab is generating are extremely high quality and consistent. That’s the real driver behind what I do – it’s all about delivering precision to inform winemaking decisions. You need to be super organised, high attention to detail, all those things. And I guess that from my scientific past, that’s what drives me to make sure that the lab is running to the absolute best that it can.
 
 :::side-by-side image-right
-![](/images/articles/careers-in-wine-technical-winemaking/inline-3.webp)
+![](/images/articles/careers-in-wine-technical-winemaking/inline-4.webp)
 
 ## What do you enjoy most about your job?
 

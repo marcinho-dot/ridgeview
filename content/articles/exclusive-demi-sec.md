@@ -2,8 +2,14 @@
 slug: exclusive-demi-sec
 ---
 
-:::side-by-side image-left
+:::side-by-side image-right
 ![](/images/articles/exclusive-demi-sec/inline-1.webp)
+
+Borne out of the creativity and craftsmanship of our winemaking team, the Ridgeview Demi-Sec marks the dawn of an exciting chapter for OurView members. The debut release from a new series of exclusive member wines, this limited-edition bottling is the first ever Demi-Sec Ridgeview have shared. Crafted solely for wine club members and with only 500 bottles produced, this wine is designed for those who seek the unique, the innovative and the exceptional.
+:::
+
+:::side-by-side image-left
+![](/images/articles/exclusive-demi-sec/inline-2.webp)
 
 ## THE WINEMAKER’S TOUCH
 
@@ -17,7 +23,7 @@ A rare example of a handcrafted English Demi-Sec, this wine has a masterful blen
 :::
 
 :::side-by-side image-right
-![](/images/articles/exclusive-demi-sec/inline-2.webp)
+![](/images/articles/exclusive-demi-sec/inline-3.webp)
 
 ## A GLIMPSE INSIDE THE BOTTLE
 

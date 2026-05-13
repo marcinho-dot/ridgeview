@@ -2,12 +2,18 @@
 slug: 2025-charity-partner-prept-foundation
 ---
 
+:::side-by-side image-right
+![Two children cooking, the boy has a chefs hat one and they are both grinning. The Prept logo is overlaid.](/images/articles/2025-charity-partner-prept-foundation/inline-1.webp)
+
+We are delighted to introduce Prept Foundation as our official charity partner for 2025. Prept is dedicated to transforming lives through the power of food, inspiring a generation to lead happier, healthier lives. They believe food has the power to bring people together, spark change, and create opportunities. By equipping young people with culinary skills, Prept helps them build confidence, develop positive relationships with food, and gain the tools they need to navigate life.
+:::
+
 ## Meet Jess, Co Founder of Prept Foundation
 
 Watch and listen as Jess shares Prept’s mission to inspire the next generation through food, how they’re transforming lives, and the deep partnership between Prept and Ridgeview – one that has been growing since the very beginning.
 
 :::side-by-side image-left
-![A child in a farm laughing](/images/articles/2025-charity-partner-prept-foundation/inline-1.webp)
+![A child in a farm laughing](/images/articles/2025-charity-partner-prept-foundation/inline-2.webp)
 
 ## Who are Prept?
 
@@ -20,7 +26,7 @@ In all they do, Prept uplifts individuals, strengthens communities, and fosters 
 :::
 
 :::side-by-side image-right
-![Four chefs working on the pass](/images/articles/2025-charity-partner-prept-foundation/inline-2.webp)
+![Four chefs working on the pass](/images/articles/2025-charity-partner-prept-foundation/inline-3.webp)
 
 ## Prept Showcase 2025: 7 Delicious Dining Experiences
 

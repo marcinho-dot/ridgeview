@@ -2,8 +2,14 @@
 slug: supporting-careers-in-wine
 ---
 
-:::side-by-side image-left
+:::side-by-side image-right
 ![](/images/articles/supporting-careers-in-wine/inline-1.webp)
+
+At Ridgeview, we’re passionate about the future of the wine industry, and nurturing talent from all backgrounds to thrive. Our entry-level schemes are designed to provide hands-on experience, foster a supportive community, and prepare individuals for successful careers in viticulture and winemaking. We caught up with three inspiring individuals who have embarked on their career paths with us at Ridgeview.
+:::
+
+:::side-by-side image-left
+![](/images/articles/supporting-careers-in-wine/inline-2.webp)
 
 ## Owen Larder: Business Trainee
 
@@ -13,7 +19,7 @@ At Ridgeview, staff wellbeing is a priority. They recognise individual achieveme
 :::
 
 :::side-by-side image-right
-![James Tolan, Harvest Intern in the Winery](/images/articles/supporting-careers-in-wine/inline-2.webp)
+![James Tolan, Harvest Intern in the Winery](/images/articles/supporting-careers-in-wine/inline-3.webp)
 
 ## James Tolen: Harvest Intern
 
@@ -23,7 +29,7 @@ The diverse skills acquired in the cellar during harvest have instilled professi
 :::
 
 :::side-by-side image-left
-![Emily carrying buckets of grapes in the vineyard](/images/articles/supporting-careers-in-wine/inline-3.webp)
+![Emily carrying buckets of grapes in the vineyard](/images/articles/supporting-careers-in-wine/inline-4.webp)
 
 ## Emily Payne: Vineyard Apprentice
 

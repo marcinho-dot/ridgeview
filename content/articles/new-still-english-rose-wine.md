@@ -2,8 +2,14 @@
 slug: new-still-english-rose-wine
 ---
 
+:::side-by-side image-right
+[![](/images/articles/new-still-english-rose-wine/inline-1.jpg)](/wine/still-english-rose/)
+
+There’s something magical about a glass of delicious rosé. Bringing sunshine in a glass, the new vintage of our sellout Still English Rosé delivers all of that magic and more. Transporting you to moments spent with friends and family in the sun, it’s everything you dream of in a glass of rosé. Crisp yet creamy, it’s as enjoyable to drink as it is to share. Now available online for the first time, and with only a limited number of bottles available, let’s dive into what makes this Still English Rosé so special.
+:::
+
 :::side-by-side image-left
-![](/images/articles/new-still-english-rose-wine/inline-1.webp)
+![](/images/articles/new-still-english-rose-wine/inline-2.webp)
 
 ## Inside the Bottle
 
@@ -15,7 +21,7 @@ A soft, rose petal pink in the glass, it reveals a captivating nose of watermelo
 :::
 
 :::side-by-side image-right
-![](/images/articles/new-still-english-rose-wine/inline-2.webp)
+![](/images/articles/new-still-english-rose-wine/inline-3.webp)
 
 ## Your Food Friend for Life
 
@@ -27,7 +33,7 @@ Main courses and savoury dishes sing out with this wine. A beautifully grilled C
 :::
 
 :::side-by-side image-left
-[![](/images/articles/new-still-english-rose-wine/inline-3.webp)](/wine/still-english-rose/)
+[![](/images/articles/new-still-english-rose-wine/inline-4.webp)](/wine/still-english-rose/)
 
 If cheese is your love language, our Still English Rosé speaks fluently. The soft, creamy richness of baked Camembert pairs perfectly with the wine’s smooth texture, while the tangy notes of goat’s cheese enhance the rosé’s natural fruitiness.
 
@@ -41,7 +47,7 @@ For something a bit more indulgent, honey and almond biscotti or a small bowl of
 :::
 
 :::side-by-side image-right
-[![](/images/articles/new-still-english-rose-wine/inline-4.webp)](/wine/still-english-rose/)
+[![](/images/articles/new-still-english-rose-wine/inline-5.webp)](/wine/still-english-rose/)
 
 ## A Wine For Every Moment
 

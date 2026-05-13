@@ -2,14 +2,20 @@
 slug: celebration-sparkling-rose-wine
 ---
 
+:::side-by-side image-right
+[![4 glasses of Fitzrovia Rosé, English Sparkling Wine toasting together over a table of food](/images/articles/celebration-sparkling-rose-wine/inline-1.webp)](/wine/fitzrovia/)
+
+Life feels sunnier with a glass of sparkling rosé in hand. Maybe it’s the rosy glow, maybe it’s the dancing bubbles, maybe it’s the crisp summer fruit flavours. For us, more than any other wine it’s the taste of summer, which is why we’ve made July our dedicated Month of Rosé. There’s no better time to celebrate a true icon of English winemaking: the inimitable Ridgeview Fitzrovia Rosé NV.
+:::
+
 ## The Fitzrovia Sparkling Rosé Essentials
 
-[![Ridgeview Fitzrovia Rose NV English sparkling wine](/images/articles/celebration-sparkling-rose-wine/inline-1.webp)](/wine/fitzrovia/)
+[![Ridgeview Fitzrovia Rose NV English sparkling wine](/images/articles/celebration-sparkling-rose-wine/inline-2.webp)](/wine/fitzrovia/)
 
 Fitzrovia NV is our signature sparkling rosé. NV stands for non-vintage, which means we produce it every year from wines of different vintages. Like all our [NV wines](https://www.ridgeview.co.uk/product-category/all-sparkling-wine/signature-wines/), it’s made to a house style. The goal is reliably brilliant and brilliantly reliable consistency in every bottle, and Fitzrovia delivers in abundance.
 
 :::side-by-side image-left
-[![A birds eye view of Fitzrovia Rosé, English Sparkling Wine in a glass with bubbles](/images/articles/celebration-sparkling-rose-wine/inline-2.webp)](/wine/fitzrovia/)
+[![A birds eye view of Fitzrovia Rosé, English Sparkling Wine in a glass with bubbles](/images/articles/celebration-sparkling-rose-wine/inline-3.webp)](/wine/fitzrovia/)
 
 ## How do we make Fitzrovia Rosé?
 
@@ -27,7 +33,7 @@ We like to describe the appeal of Fitzrovia as timeless. As Ridgeview Winemaker 
 The timeless appeal also stems from Fitzrovia’s long and proud heritage. It’s one of the original English sparkling rosés, first made in 2002 and produced every single year since. We’ve had plenty of time to perfect the formula, and we’re sure our Fitzrovia fans will agree we have!We’re especially proud to note that those fans include the Royal Family. Queen Elizabeth II served Fitzrovia to Barack Obama at a Buckingham Palace State Banquet in 2011.
 
 :::side-by-side image-left
-[![Fitzrovia Rosé, English Sparkling Wine with a seafood platter](/images/articles/celebration-sparkling-rose-wine/inline-3.webp)](/wine/fitzrovia/)
+[![Fitzrovia Rosé, English Sparkling Wine with a seafood platter](/images/articles/celebration-sparkling-rose-wine/inline-4.webp)](/wine/fitzrovia/)
 
 ## Which foods does Fitzrovia Rosé pair with?
 
@@ -39,7 +45,7 @@ Or, to celebrate the very best of the British summer, take a chilled bottle to t
 :::
 
 :::side-by-side image-right
-[![Fitzrovia Rosé, English Sparkling Wine being poured into a glass surrounded by a table of food at our restaurant](/images/articles/celebration-sparkling-rose-wine/inline-4.webp)](/wine/fitzrovia/)
+[![Fitzrovia Rosé, English Sparkling Wine being poured into a glass surrounded by a table of food at our restaurant](/images/articles/celebration-sparkling-rose-wine/inline-5.webp)](/wine/fitzrovia/)
 
 ## Why should you choose Fitzrovia Rosé?
 

@@ -2,8 +2,14 @@
 slug: sustainable-wine-and-the-future-of-our-vines
 ---
 
+:::side-by-side image-right
+![](/images/articles/sustainable-wine-and-the-future-of-our-vines/inline-1.jpg)
+
+Time ebbs and flows in a vineyard. There are many paces of life, from the patient care with which we nurture our vines through the annual cycle, to the sudden flurries of activity that punctuate the growing season. But there is also the longer story of Ridgeview, one that incorporates three decades of joyful memories, perpetual growth and hard-won lessons.
+:::
+
 :::side-by-side image-left
-![Matt Strugnell, Vineyard Manager standing amongst the vines smiling](/images/articles/sustainable-wine-and-the-future-of-our-vines/inline-1.webp)
+![Matt Strugnell, Vineyard Manager standing amongst the vines smiling](/images/articles/sustainable-wine-and-the-future-of-our-vines/inline-2.webp)
 
 ## Our roots, our heritage, our future
 
@@ -17,7 +23,7 @@ We recently caught up with Matt Strugnell, Ridgeview’s Head of Viticulture, to
 ## “The focus is on the really long term. It’s not just looking ahead to what the vine’s going to do next year or the year after. It’s looking well beyond that.”
 
 :::side-by-side image-right
-![](/images/articles/sustainable-wine-and-the-future-of-our-vines/inline-2.webp)
+![](/images/articles/sustainable-wine-and-the-future-of-our-vines/inline-3.webp)
 
 ## Sustainable Pruning
 
@@ -29,7 +35,7 @@ So far, Matt is thrilled with the results:
 :::
 
 :::side-by-side image-left
-![Ridgeview Wine Estate, Chardonnay Vineyard](/images/articles/sustainable-wine-and-the-future-of-our-vines/inline-3.webp)
+![Ridgeview Wine Estate, Chardonnay Vineyard](/images/articles/sustainable-wine-and-the-future-of-our-vines/inline-4.webp)
 
 ## Improving soil health
 
@@ -43,7 +49,7 @@ Fortunately, the composition of our soils gives us a good medium to work with �
 :::
 
 :::side-by-side image-right
-![](/images/articles/sustainable-wine-and-the-future-of-our-vines/inline-4.webp)
+![](/images/articles/sustainable-wine-and-the-future-of-our-vines/inline-5.webp)
 
 ## Letting nature takes its course
 
@@ -57,7 +63,7 @@ These measures include mechanical[subsoiling](https://www.sciencedirect.com/topi
 ## “For me, the last three years has been a bit of a reset on viticulture in general. It could be quite easy to lose focus on remembering how to grow grapes properly. With too many interventions, some of the fundamental stuff gets a bit lost. I’m trying to keep it simple, not overcomplicate things.”
 
 :::side-by-side image-right
-![](/images/articles/sustainable-wine-and-the-future-of-our-vines/inline-5.webp)
+![](/images/articles/sustainable-wine-and-the-future-of-our-vines/inline-6.webp)
 
 ## Tradition and Technology Unite
 
@@ -69,7 +75,7 @@ But more vitally, it’s already helped to rescue our 2024 growing season by ale
 :::
 
 :::side-by-side image-left
-![Pruning the vines at Ridgeview Wine Estate English sparkling wine Sussex England](/images/articles/sustainable-wine-and-the-future-of-our-vines/inline-6.webp)
+![Pruning the vines at Ridgeview Wine Estate English sparkling wine Sussex England](/images/articles/sustainable-wine-and-the-future-of-our-vines/inline-7.webp)
 
 ## One night, during the spring...
 

@@ -2,8 +2,14 @@
 slug: english-rose-wine
 ---
 
+:::side-by-side image-right
+[![Rose De Noirs 2018 Ridgeview English sparkling wine](/images/articles/english-rose-wine/inline-1.webp)](/wine/rose-de-noirs/)
+
+Effortlessly expressive and joyfully pink, rosé has long been the go-to glass for carefree summer sips and picnic pours. But the story doesn’t end there. As styles diversify across the world, English wine is redefining what rosé can be – proving there’s far more depth to this much-loved style than its pretty pink shade. Explore four distinctive English expressions that showcase the full potential of rosé wine.
+:::
+
 :::side-by-side image-left
-[![Fitzrovia Rosé, English Sparkling Wine being poured into a glass surrounded by a table of food at our restaurant](/images/articles/english-rose-wine/inline-1.webp)](/wine/fitzrovia/)
+[![Fitzrovia Rosé, English Sparkling Wine being poured into a glass surrounded by a table of food at our restaurant](/images/articles/english-rose-wine/inline-2.webp)](/wine/fitzrovia/)
 
 ## Fitzrovia Rosé NV
 
@@ -15,7 +21,7 @@ It also holds a special place in British wine history, served by Queen Elizabeth
 :::
 
 :::side-by-side image-right
-[![](/images/articles/english-rose-wine/inline-2.webp)](/wine/rose-de-noirs/)
+[![](/images/articles/english-rose-wine/inline-3.webp)](/wine/rose-de-noirs/)
 
 ## Rosé de Noirs 2020
 
@@ -27,7 +33,7 @@ Best enjoyed with flavour-rich dishes: beetroot tartare, fragrant Thai spices, o
 :::
 
 :::side-by-side image-left
-[![](/images/articles/english-rose-wine/inline-3.webp)](/wine/still-english-rose/)
+[![](/images/articles/english-rose-wine/inline-4.webp)](/wine/still-english-rose/)
 
 ## Still English Rosé
 
@@ -41,7 +47,7 @@ Exceptionally balanced and quietly expressive, it’s made for food, for sharing
 :::
 
 :::side-by-side image-right
-[![A hand holding a bottle of Rosé de Noirs above pink flowers outside](/images/articles/english-rose-wine/inline-4.webp)](/wine/rose-de-noirs/)
+[![A hand holding a bottle of Rosé de Noirs above pink flowers outside](/images/articles/english-rose-wine/inline-5.webp)](/wine/rose-de-noirs/)
 
 ## Rosé de Noirs 2016
 

@@ -2,8 +2,14 @@
 slug: harvest-vintage-2025
 ---
 
-:::side-by-side image-left
+:::side-by-side image-right
 ![](/images/articles/harvest-vintage-2025/inline-1.webp)
+
+There’s a unique energy in the vineyard as harvest draws near. The rows are heavy with fruit, the air alive with anticipation and the team poised for the most important weeks of the year. Every season tells a different story, and 2025 is shaping up to be one we’ll remember – a vintage year of consistent sunshine, cooler nights and well-timed September rainfall.
+:::
+
+:::side-by-side image-left
+![](/images/articles/harvest-vintage-2025/inline-2.webp)
 
 ## Early Promise in the Vines
 
@@ -21,7 +27,7 @@ It’s not a huge crop but shaping up to be a well-developed one.”
 :::
 
 :::side-by-side image-right
-![](/images/articles/harvest-vintage-2025/inline-2.webp)
+![](/images/articles/harvest-vintage-2025/inline-3.webp)
 
 ## What a Difference A Year Makes
 
@@ -33,7 +39,7 @@ This season, pockets of timely rainfall have eased the dryness, allowing fruit t
 :::
 
 :::side-by-side image-left
-![Matt Strugnell, Vineyard Manager standing amongst the vines smiling](/images/articles/harvest-vintage-2025/inline-3.webp)
+![Matt Strugnell, Vineyard Manager standing amongst the vines smiling](/images/articles/harvest-vintage-2025/inline-4.webp)
 
 ## A Taste of What's to Come
 

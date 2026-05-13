@@ -1,7 +1,16 @@
 {
-  "total_linked": 2,
+  "total_linked": 188,
   "linked_by_sku": {
-    "cavendish": 2
+    "cavendish": 15,
+    "bloomsbury": 36,
+    "blanc-de-noirs": 13,
+    "sparkling-red-reserve": 28,
+    "fitzrovia": 16,
+    "blanc-de-blancs": 39,
+    "rose-de-noirs": 16,
+    "still-english-rose": 5,
+    "oak-reserve": 15,
+    "still-chardonnay": 5
   },
   "no_sku_images": [
     {
@@ -14,6 +23,12 @@
       "article": "exclusive-demi-sec",
       "alt": "",
       "src": "/images/articles/exclusive-demi-sec/inline-2.webp",
+      "reason": "Demi-Sec (OurView exclusive, no public SKU)"
+    },
+    {
+      "article": "exclusive-demi-sec",
+      "alt": "",
+      "src": "/images/articles/exclusive-demi-sec/inline-3.webp",
       "reason": "Demi-Sec (OurView exclusive, no public SKU)"
     }
   ]

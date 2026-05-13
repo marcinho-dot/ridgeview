@@ -2,8 +2,14 @@
 slug: south-lodge-vineyard-harvest-2025
 ---
 
+:::side-by-side image-right
+![](/images/articles/south-lodge-vineyard-harvest-2025/inline-1.jpg)
+
+Clusters of grapes, now ripe for the picking, hang on the vines at [South Lodge](https://www.exclusive.co.uk/south-lodge/) – Sussex’s renowned luxury country house hotel, part of [Exclusive Collection](https://www.exclusive.co.uk/)’s award-winning family of properties. For Ridgeview and Exclusive, it’s the culmination of three years of passion since the first vines were planted. Hand-picked fruit will be pressed and blended at Ridgeview to craft Exclusive Collection’s first bespoke wine. More than a harvest, it’s a milestone celebrating the land, vision and belief that English wine belongs at the heart of world-class hospitality.
+:::
+
 :::side-by-side image-left
-![](/images/articles/south-lodge-vineyard-harvest-2025/inline-1.webp)
+![](/images/articles/south-lodge-vineyard-harvest-2025/inline-2.webp)
 
 ## Visions of a Vineyard
 
@@ -15,7 +21,7 @@ That first walk across the fields set the tone: south-facing slopes, well-shaped
 :::
 
 :::side-by-side image-right
-![](/images/articles/south-lodge-vineyard-harvest-2025/inline-2.webp)
+![](/images/articles/south-lodge-vineyard-harvest-2025/inline-3.webp)
 
 ## The Long Game
 
@@ -27,7 +33,7 @@ By spring 2021 he was back, spade in hand, digging pits to see what lay beneath.
 :::
 
 :::side-by-side image-left
-![](/images/articles/south-lodge-vineyard-harvest-2025/inline-3.webp)
+![](/images/articles/south-lodge-vineyard-harvest-2025/inline-4.webp)
 
 ## Partners in Wine
 
@@ -43,7 +49,7 @@ Then comes blending – a moment of both craft and creativity. “The first time
 :::
 
 :::side-by-side image-right
-![](/images/articles/south-lodge-vineyard-harvest-2025/inline-4.webp)
+![](/images/articles/south-lodge-vineyard-harvest-2025/inline-5.webp)
 
 ## Vinotherapy: Spa Skincare Harnessed from the Vines
 
@@ -55,7 +61,7 @@ This autumn, the Pelegrims partnership expands with new treatments and products 
 :::
 
 :::side-by-side image-left
-![](/images/articles/south-lodge-vineyard-harvest-2025/inline-5.webp)
+![](/images/articles/south-lodge-vineyard-harvest-2025/inline-6.webp)
 
 ## Tears of the Vine
 
@@ -67,7 +73,7 @@ From vineyard to glass, from vine to spa, every part of the plant is celebrated 
 :::
 
 :::side-by-side image-right
-![](/images/articles/south-lodge-vineyard-harvest-2025/inline-6.webp)
+![](/images/articles/south-lodge-vineyard-harvest-2025/inline-7.webp)
 
 ## Great Wine Takes Time
 

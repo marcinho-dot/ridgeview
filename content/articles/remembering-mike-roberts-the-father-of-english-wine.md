@@ -2,8 +2,16 @@
 slug: remembering-mike-roberts-the-father-of-english-wine
 ---
 
-:::side-by-side image-left
+:::side-by-side image-right
 ![](/images/articles/remembering-mike-roberts-the-father-of-english-wine/inline-1.webp)
+
+### A VISIONARY IN ENGLISH WINE
+
+On the 10th anniversary of his passing, we’re celebrating the remarkable legacy of our founder Mike Roberts – a passionate pioneer with a daring dream. We reflect back on Mike’s bold vision – to produce sparkling wine in England that would stand shoulder to shoulder with the world’s best – and his profound impact that continues to resonate throughout the English wine industry today.
+:::
+
+:::side-by-side image-left
+![](/images/articles/remembering-mike-roberts-the-father-of-english-wine/inline-2.webp)
 
 ## A GENEROUS PIONEER WHO GUIDED THE ENGLISH WINE INDUSTRY
 
@@ -15,7 +23,7 @@ Tireless in championing English wine, Mike worked to secure global recognition a
 :::
 
 :::side-by-side image-right
-![](/images/articles/remembering-mike-roberts-the-father-of-english-wine/inline-2.webp)
+![](/images/articles/remembering-mike-roberts-the-father-of-english-wine/inline-3.webp)
 
 ## FAMILY AT THE FOREFONT
 
@@ -31,7 +39,7 @@ Today, through Chris and Mike’s children and grandchildren, family continues t
 :::
 
 :::side-by-side image-left
-![](/images/articles/remembering-mike-roberts-the-father-of-english-wine/inline-3.webp)
+![](/images/articles/remembering-mike-roberts-the-father-of-english-wine/inline-4.webp)
 
 ## A LIFE FOR CELEBRATING
 
@@ -41,5 +49,5 @@ Their love of life and the memorable moments shared through wine are reflected i
 
 Above all, Mike’s legacy is found in the moments of joy we create together, raised in celebration with a glass of exquisite English sparkling wine.
 
-![](/images/articles/remembering-mike-roberts-the-father-of-english-wine/inline-4.jpg)
+![](/images/articles/remembering-mike-roberts-the-father-of-english-wine/inline-5.jpg)
 :::

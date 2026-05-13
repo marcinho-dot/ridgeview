@@ -3,7 +3,15 @@ slug: still-english-rose
 ---
 
 :::side-by-side image-right
-[![Ridgeview English Rosé Wine held in hand amongst daisies](/images/articles/still-english-rose/inline-1.webp)](/wine/still-english-rose/)
+![Ridgeview English Rosé Wine on a table surrounded by colourful flowers on the Ridgeview Estate](/images/articles/still-english-rose/inline-1.webp)
+
+“Like summer in a glass”, the Ridgeview English Rosé marks a new chapter in our winemaking legacy. A limited-edition sibling to our [sparkling wine](https://www.ridgeview.co.uk/shop/) collection, this is the first still wine we have ever produced. Inspired by our vineyard restaurant, [The Rows & Vine](https://www.ridgeview.co.uk/visit/the-rows-vine-restaurant/), it has been crafted to complement the vibrant dishes from the season-led menu served by our Chardonnay vines.
+
+A wine for pure pleasure and food pairing delights, it is reserved exclusively for visitors to the Ridgeview estate. To mark its release, we caught up with Head Winemaker, Simon Roberts, to take a deep dive into our inaugural English Rosé.
+:::
+
+:::side-by-side image-right
+[![Ridgeview English Rosé Wine held in hand amongst daisies](/images/articles/still-english-rose/inline-2.webp)](/wine/still-english-rose/)
 
 ## RIDGEVIEW'S ENGLISH ROSÉ: THE ORIGIN STORY
 
@@ -19,7 +27,7 @@ Our still English Rosé is testament to the quality of Pinot grapes received in 
 Then in 2020, we were blessed with another exceptional year for Pinot: “The acidity, sugar levels and whole flavour profile of the grapes from Suffolk were screaming a still wine. So, when conversations around an estate-only still wine came about, it felt like a natural progression to do something new and exciting with these grapes.”
 
 :::side-by-side image-left
-[![Ridgeview English Rosé Wine bottle with 2 glasses amongst flowers in the garden at our restaurant](/images/articles/still-english-rose/inline-2.webp)](/wine/rose-de-noirs/)
+[![Ridgeview English Rosé Wine bottle with 2 glasses amongst flowers in the garden at our restaurant](/images/articles/still-english-rose/inline-3.webp)](/wine/rose-de-noirs/)
 
 ## CRAFTING THE ENGLISH ROSÉ
 
@@ -31,7 +39,7 @@ Once handpicked, a small portion of Pinot fruit was destemmed and left to sit on
 :::
 
 :::side-by-side image-right
-![Ridgeview English Rosé Wine in glasses clinking surrounded by food at Ridgeview's vineyard restaurant, The Rows & Vine](/images/articles/still-english-rose/inline-3.webp)
+![Ridgeview English Rosé Wine in glasses clinking surrounded by food at Ridgeview's vineyard restaurant, The Rows & Vine](/images/articles/still-english-rose/inline-4.webp)
 
 ## THE RISE OF ROSÉ
 
@@ -41,7 +49,7 @@ Now a wine for all seasons and all celebrations, rosé is on the rise and rightl
 :::
 
 :::side-by-side image-left
-![Ridgeview English Rosé Wine amongst flowers](/images/articles/still-english-rose/inline-4.webp)
+![Ridgeview English Rosé Wine amongst flowers](/images/articles/still-english-rose/inline-5.webp)
 
 ## THE ENGLISH ROSÉ: INSIDE THE BOTTLE
 
@@ -49,5 +57,5 @@ Evoking the warmth of an English summer’s day, it pours a soft coral pink in t
 
 Dedicated to friends and family, our inaugural still wine is made for sharing food and good times together. Celebrating the everyday and the extra special, it has been crafted just for guests sharing their memorable moments with us at Ridgeview.
 
-![](/images/articles/still-english-rose/inline-5.jpg)
+![](/images/articles/still-english-rose/inline-6.jpg)
 :::

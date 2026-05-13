@@ -177,6 +177,12 @@ def emit_image(el, slug: str, img_idx_ref: list, seen_imgs: set, out: list):
 def emit_block(el, slug: str, img_idx_ref: list, seen_imgs: set, out: list):
     """Render one HTML element (h2/h3/p/li/img/etc.) to one or more markdown lines."""
     name = el.name
+    # Skip nav/breadcrumb artefacts. The legacy hero's text-half contains
+    # an inline breadcrumb (<p class="breadcrumbs">Home | News | …</p>)
+    # that we already render in the detail page's hero area.
+    cls = " ".join(el.get("class", [])) if el.get("class") else ""
+    if "breadcrumb" in cls.lower():
+        return
     if name == "h1":
         return
     elif name == "h2":
@@ -219,17 +225,34 @@ def parse_side_by_side_module(mod, slug: str, img_idx_ref: list, seen_imgs: set)
     if len(halves) < 2:
         return None
 
+    # Restrict to DIRECT child halves so nested grid containers don't
+    # confuse us (rare, but happens on some pages).
+    direct_halves = [h for h in mod.find_all(
+        "div", class_=lambda c: c and "half-page" in c, recursive=True
+    ) if h.find_parent("div", class_=lambda c: c and "half-page" in c) is None
+       or h.find_parent("div", class_=lambda c: c and "half-page" in c)
+       not in mod.descendants]
+    if direct_halves:
+        halves = direct_halves[:2]
+
+    # Classify each half: the one(s) with <img> is the image-half; the
+    # other is the text-half. Class-based detection (`single-image`,
+    # `image-collage`, etc.) is a hint but the article hero uses neither
+    # — it just has a generic `half-page order-second` div containing
+    # the bottle photo.
     image_half = None
     text_half = None
     for h in halves:
         hclasses = " ".join(h.get("class", []))
-        if ("single-image" in hclasses or "image-collage" in hclasses
-                or "image-one" in hclasses or "image-two" in hclasses):
-            if image_half is None:
-                image_half = h
-        else:
-            if text_half is None:
-                text_half = h
+        class_says_img = (
+            "single-image" in hclasses or "image-collage" in hclasses
+            or "image-one" in hclasses or "image-two" in hclasses
+        )
+        has_img_tag = h.find("img") is not None
+        if (class_says_img or has_img_tag) and image_half is None:
+            image_half = h
+        elif text_half is None:
+            text_half = h
     if image_half is None or text_half is None:
         return None
 
@@ -277,9 +300,25 @@ def parse_article(html: str, slug: str):
     """Walk the modular-content-module blocks of an article page and emit
     markdown lines for the body. Returns the list of markdown lines."""
     soup = BeautifulSoup(html, "html.parser")
+    # Capture both "regular" modular-content-modules AND the article's hero
+    # side-by-side, which lives on an inner-container that only has the
+    # side-by-side-module class (no modular-content-module). The hero's
+    # text-half (.standfirst, in .hero-content) holds the article's intro
+    # paragraph, which we otherwise lose.
     modules = soup.find_all(
-        "div", class_=lambda c: c and "modular-content-module" in c
+        "div",
+        class_=lambda c: c and (
+            "modular-content-module" in c or "side-by-side-module" in c
+        ),
     )
+    # Dedup: if a node already has an ancestor in the list, skip it (avoids
+    # double-processing when both an outer and inner div carry the class).
+    deduped = []
+    for m in modules:
+        if any(parent in modules for parent in m.parents):
+            continue
+        deduped.append(m)
+    modules = deduped
 
     out: list = []
     img_idx_ref = [0]
@@ -287,8 +326,6 @@ def parse_article(html: str, slug: str):
 
     for mod in modules:
         classes = " ".join(mod.get("class", []))
-        if "hero-content" in classes:
-            continue
 
         # Side-by-side modules render as a fenced :::side-by-side block so
         # the renderer can do a 2-column grid (text-and-image, not stacked).
