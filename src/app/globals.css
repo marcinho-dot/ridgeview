@@ -14,6 +14,17 @@
   --foreground: #f5f0e8;
 }
 
+/* Hide scrollbars on horizontal-scroll rows (e.g. Beyond-the-Bottle
+   category card row on the homepage). Still scrollable via touch,
+   trackpad, drag, and shift+wheel — just visually clean. */
+.scrollbar-hidden {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;

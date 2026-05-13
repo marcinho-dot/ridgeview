@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { HeritageSoilSection } from "@/components/HeritageSoilSection";
-import { BlogSection } from "@/components/BlogSection";
+import { CategoryCardRow } from "@/components/beyond/CategoryCardRow";
 import { ImageRevealSection } from "@/components/ImageReveal";
 
 import { WineCollectionSection } from "@/components/WineCollectionSection";
@@ -15,7 +15,10 @@ export default function Home() {
     <main>
       <Navbar />
       <HeroSection />
-      <ScrollReset><BlogSection /></ScrollReset>
+      {/* Beyond-the-Bottle category cards — replaces the legacy
+          BlogSection. 7 horizontally-scrollable cards, each linking
+          to /beyond-the-bottle/#<category-slug>. */}
+      <ScrollReset><CategoryCardRow /></ScrollReset>
       <ScrollReset><HeritageSoilSection /></ScrollReset>
       {/* ImageRevealSection is intentionally NOT wrapped in ScrollReset —
           it uses once:false so the gallery cards re-animate every time the

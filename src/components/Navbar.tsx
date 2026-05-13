@@ -16,10 +16,8 @@ function getLinks(isOffHome: boolean) {
   // mobile (locked 2026-05-12). Each has a `kicker` line that only
   // renders in the mobile drawer (editorial / magazine TOC pattern).
   //
-  // Beyond the Bottle currently points at `#beyond-the-bottle` as a
-  // placeholder — that page is the next build (article collection
-  // pulled from the legacy site). Once /beyond-the-bottle/ exists,
-  // swap the href.
+  // Beyond the Bottle is now a real route (/beyond-the-bottle/) — the
+  // articles hub built from the legacy news. Direct nav, no anchor.
   const items = [
     {
       label: "Home",
@@ -39,7 +37,7 @@ function getLinks(isOffHome: boolean) {
     {
       label: "Beyond the Bottle",
       kicker: "Articles & inspiration",
-      href: anchor("#beyond-the-bottle"),
+      href: `${basePath}/beyond-the-bottle/`,
     },
   ];
 
