@@ -118,7 +118,7 @@ export function HeroSection() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.3, duration: 0.8 }}
         >
-          <span className="text-[#C8A96E] flex-shrink-0 text-[15px] -translate-y-[5px] md:-translate-y-[1px]">◆</span>
+          <span className="text-[#C8A96E] flex-shrink-0 text-[15px] -translate-y-[6px] md:-translate-y-[2px]">◆</span>
           <div className="overflow-hidden" style={{ height: "1.5em" }}>
             <AnimatePresence mode="wait">
               <motion.p
