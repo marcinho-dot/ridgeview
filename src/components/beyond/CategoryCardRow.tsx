@@ -197,15 +197,27 @@ export function CategoryCardRow() {
       />
 
       <div className="relative max-w-[1600px] mx-auto py-20 md:py-28">
-        {/* Header */}
-        <div className="px-6 md:px-16 mb-10 md:mb-14">
+        {/* Header — staggered entrance triggers when the section enters
+            the viewport (amount: 0.15 so it fires while the section
+            is still partly below the fold, before the user has time to
+            wonder if anything is animating). */}
+        <motion.div
+          className="px-6 md:px-16 mb-10 md:mb-14"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={{
+            hidden: {},
+            show: { transition: { staggerChildren: 0.12, delayChildren: 0.05 } },
+          }}
+        >
           <motion.p
             className="font-display italic text-[#C8A96E] tracking-widest mb-4"
             style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.6 }}
+            variants={{
+              hidden: { opacity: 0, y: 18 },
+              show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] } },
+            }}
           >
             [ Beyond the Bottle ]
           </motion.p>
@@ -215,25 +227,25 @@ export function CategoryCardRow() {
               fontSize: "clamp(34px, 5vw, 72px)",
               fontWeight: 400,
             }}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.8, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+            variants={{
+              hidden: { opacity: 0, y: 32 },
+              show: { opacity: 1, y: 0, transition: { duration: 1.0, ease: [0.16, 1, 0.3, 1] } },
+            }}
           >
             Stories from the <span className="text-[#C8A96E]">estate</span>.
           </motion.h2>
           <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.7, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
             className="mt-8 md:mt-10"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              show: { opacity: 1, y: 0, transition: { duration: 0.75, ease: [0.16, 1, 0.3, 1] } },
+            }}
           >
             <a href={`${basePath}/beyond-the-bottle/`} className="btn-cta">
               All Stories beyond the Bottle
             </a>
           </motion.div>
-        </div>
+        </motion.div>
 
         {/* Horizontal-scroll row. Native scrollbar hidden; we render a
             custom always-visible thumb (.rv-row-cbar) below. No
@@ -254,12 +266,12 @@ export function CategoryCardRow() {
                 <motion.li
                   key={cat.slug}
                   className="flex-shrink-0 w-[78vw] sm:w-[44vw] md:w-[320px] lg:w-[340px]"
-                  initial={{ opacity: 0, y: 22 }}
+                  initial={{ opacity: 0, y: 32 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
+                  viewport={{ once: true, amount: 0.1 }}
                   transition={{
-                    duration: 0.65,
-                    delay: 0.05 + i * 0.06,
+                    duration: 0.8,
+                    delay: 0.2 + i * 0.08,
                     ease: [0.16, 1, 0.3, 1],
                   }}
                 >
