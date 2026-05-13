@@ -256,8 +256,9 @@ export function CategoryCardRow() {
                     href={`${basePath}/beyond-the-bottle/#${cat.slug}`}
                     className="group block focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C8A96E]/40 rounded-sm"
                   >
-                    {/* Image stage */}
-                    <div className="relative aspect-[4/5] overflow-hidden mb-4 bg-[#0a0a0a] rounded-sm">
+                    {/* Image stage — aspect 16:15 (25% shorter than the
+                        previous 4:5 portrait) */}
+                    <div className="relative aspect-[16/15] overflow-hidden mb-4 bg-[#0a0a0a] rounded-sm">
                       {cat.image ? (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
