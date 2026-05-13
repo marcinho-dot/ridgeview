@@ -5,6 +5,10 @@ import { motion } from "framer-motion";
 
 import { basePath } from "@/lib/basePath";
 
+// Substack publication slug — swap to the real Ridgeview Substack
+// once it's set up. The embed URL is `https://<slug>.substack.com/embed`.
+const SUBSTACK_SLUG = "ridgeview";
+
 const benefits = [
   "GIFT SCHEDULING",
   "BOTTLE CUSTOMIZATION",
@@ -13,7 +17,6 @@ const benefits = [
 ];
 
 export function OurViewSection() {
-  const [email, setEmail] = useState("");
   const [activeBenefit, setActiveBenefit] = useState(0);
 
   return (
@@ -80,9 +83,11 @@ export function OurViewSection() {
             </a>
           </div>
 
-          {/* Secondary newsletter signup — separate from the membership
-              CTA. Subscribes the visitor to our Substack-style updates
-              (not a commitment). The label makes the distinction clear. */}
+          {/* Secondary newsletter signup — official Substack embed so
+              the subscription is handled end-to-end by Substack
+              (double-opt-in, confirmation email, list management).
+              The iframe is wrapped in a styled container that keeps it
+              consistent with the rest of the dark theme. */}
           <div style={{ maxWidth: "460px" }} className="w-full">
             <p
               className="font-body text-white/45 uppercase tracking-[0.22em] mb-3"
@@ -90,44 +95,22 @@ export function OurViewSection() {
             >
               Stay in the loop
             </p>
-            <div className="flex items-center gap-2 border-b border-white/22 w-full">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Your email address"
-                aria-label="Email address for newsletter"
-                className="flex-1 bg-transparent font-body text-cream text-sm py-3 outline-none placeholder:text-white/30 focus:placeholder:text-white/50 transition-colors"
-                style={{ fontWeight: 300 }}
-              />
-              <button
-                type="submit"
-                aria-label="Subscribe to newsletter"
-                className="group relative w-9 h-9 rounded-full border border-[#C8A96E]/55 hover:border-[#C8A96E] flex items-center justify-center transition-all duration-300 hover:bg-[#C8A96E]/10 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C8A96E]/50"
-              >
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-[#C8A96E] transition-transform duration-300 group-hover:translate-x-[2px]"
-                  aria-hidden
-                >
-                  <path d="M5 12h14" />
-                  <path d="m12 5 7 7-7 7" />
-                </svg>
-              </button>
-            </div>
             <p
-              className="font-body text-white/35 mt-3"
-              style={{ fontSize: "11px", fontWeight: 300 }}
+              className="font-body text-white/55 mb-4"
+              style={{ fontSize: "13px", fontWeight: 300 }}
             >
-              Cellar updates and seasonal releases. Unsubscribe anytime.
+              Cellar updates, seasonal releases and behind-the-vine notes.
             </p>
+            <div className="rounded-sm overflow-hidden border border-white/12 bg-white/[0.03] backdrop-blur-sm">
+              <iframe
+                src={`https://${SUBSTACK_SLUG}.substack.com/embed`}
+                title="Subscribe to Ridgeview on Substack"
+                width="100%"
+                height="150"
+                style={{ border: "none", background: "transparent" }}
+                loading="lazy"
+              />
+            </div>
           </div>
         </motion.div>
 
