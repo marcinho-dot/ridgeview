@@ -250,16 +250,6 @@ export default function WineClubPage() {
                 bespoke member experiences and rare-cellar access when you
                 join OurView.
               </motion.p>
-              <motion.div
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.28 }}
-                className="mt-12"
-              >
-                <a href="#join" className="btn-cta">
-                  Join the Wine Club
-                </a>
-              </motion.div>
             </div>
           </section>
         </ScrollReset>
