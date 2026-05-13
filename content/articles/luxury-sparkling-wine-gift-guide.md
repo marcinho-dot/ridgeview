@@ -20,7 +20,7 @@ Food-friendly[Cavendish NV](/wine/cavendish/)is our traditional blend, making it
 
 Our bestselling fresh and fruit-forward English sparkling wine, with notes of citrus zest, pear and honey. A delightful aperitif and delicious with canapés.
 
-![Ridgeview Fitzrovia Rose NV English sparkling wine](/images/articles/luxury-sparkling-wine-gift-guide/inline-2.webp)
+[![Ridgeview Fitzrovia Rose NV English sparkling wine](/images/articles/luxury-sparkling-wine-gift-guide/inline-2.webp)](/wine/fitzrovia/)
 
 ### Fitzrovia Rosé NV
 
@@ -56,13 +56,13 @@ A limited-edition, late-disgorged bottling of oak barrel fermented Chardonnay. C
 
 A love-letter to England’s finest Pinot grapes. Highly aromatic with vanilla, cherry and forest fruits, finessed by a twist of pomegranate and sweet, peppery spice.
 
-![Blanc de Blancs Bottle with Box](/images/articles/luxury-sparkling-wine-gift-guide/inline-6.webp)
+[![Blanc de Blancs Bottle with Box](/images/articles/luxury-sparkling-wine-gift-guide/inline-6.webp)](/wine/blanc-de-blancs/)
 
 ### Blanc de Blancs
 
 Our flagship, single estate vintage wine from the finest grapes from our home vineyard. Pure, elegant and complex with hints of fresh honey, apricot and brioche.
 
-![Gift Box Set of Bloomsbury bottle with two glasses and a bottle stopper](/images/articles/luxury-sparkling-wine-gift-guide/inline-7.webp)
+[![Gift Box Set of Bloomsbury bottle with two glasses and a bottle stopper](/images/articles/luxury-sparkling-wine-gift-guide/inline-7.webp)](/wine/bloomsbury/)
 
 ### Wine Club Gift Membership
 
@@ -80,7 +80,7 @@ Made exclusively made from our estate’s finest Chardonnay grapes. Aged on lees
 
 Ridgeview magnums are a rare delight. Bursting with bright citrus flavours and aromas of juicy white peach, there are hints of honey and brioche on the palate.
 
-![Sparkling Red Reserve in glasses cheersing infront of Christmas tree](/images/articles/luxury-sparkling-wine-gift-guide/inline-10.webp)
+[![Sparkling Red Reserve in glasses cheersing infront of Christmas tree](/images/articles/luxury-sparkling-wine-gift-guide/inline-10.webp)](/wine/sparkling-red-reserve/)
 
 ![Ridgeview Wine Estate Tour and Tasting English Sparkling Wine](/images/articles/luxury-sparkling-wine-gift-guide/inline-11.webp)
 

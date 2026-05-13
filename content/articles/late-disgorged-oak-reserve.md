@@ -8,7 +8,7 @@ First released in 2020 and hailed as a landmark English sparkling wine, the Ridg
 
 Big, bold and unashamedly oaked, this was a wine that pulled no punches. But the Oak Reserve’s journey was far from over – Simon Roberts (Head Winemaker) had much more up his sleeve. We caught up with Simon, for an insider look at the highly anticipated second release of his statement English sparkling wine, The Ridgeview Oak Reserve.
 
-![Simon Roberts, The Ridgeview Oak Reserve](/images/articles/late-disgorged-oak-reserve/inline-1.webp)
+[![Simon Roberts, The Ridgeview Oak Reserve](/images/articles/late-disgorged-oak-reserve/inline-1.webp)](/wine/oak-reserve/)
 
 ## The Evolution of the Oak Reserve
 
@@ -18,7 +18,7 @@ Following an extra three years resting on lees (and a further six months on cork
 
 This new limited-edition, late-disgorged expression retains its hallmark oak influence, but is now a far more developed and complex English Sparkling wine. “The nose is beautifully rich, with hints of candied citrus peel and caramelised butter. There’s a smoky, complex palate with notes of vanilla, mace and spiced fruit.”
 
-![The Ridgeview Oak Reserve](/images/articles/late-disgorged-oak-reserve/inline-2.webp)
+[![The Ridgeview Oak Reserve](/images/articles/late-disgorged-oak-reserve/inline-2.webp)](/wine/oak-reserve/)
 
 ## Pushing the boundaries
 

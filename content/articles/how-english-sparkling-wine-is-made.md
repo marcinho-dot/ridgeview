@@ -56,7 +56,7 @@ Even after the second fermentation, a Classic Method sparkling wine is still a l
 
 Nobody wants their Classic Method cloudy. So once autolysis is complete, we have to remove (or ‘disgorge’) those spent yeast cells (or ‘lees’) from the bottle.First we need to get them tightly packed into the bottleneck, in a plug that will effortlessly pop out once the crown cap is removed. We do this by gradually inverting the bottle from horizontal to upside down, gently shaking and twisting as we go, so that the lees slide into position. This stage is called ‘riddling’.
 
-![Ridgeview Wine Estate, Bloomsbury English Sparkling Wine](/images/articles/how-english-sparkling-wine-is-made/inline-5.webp)
+[![Ridgeview Wine Estate, Bloomsbury English Sparkling Wine](/images/articles/how-english-sparkling-wine-is-made/inline-5.webp)](/wine/bloomsbury/)
 
 ## 9. Finish with a flourish
 

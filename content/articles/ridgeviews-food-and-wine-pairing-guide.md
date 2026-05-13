@@ -6,7 +6,7 @@ Kickstart your journey to the perfect pairing with our foodie guide. It’s pack
 
 Discover a range of delicious food pairing options for each of the Ridgeview collection.
 
-![Ridgeview Fitzrovia Rose NV English sparkling wine](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-1.webp)
+[![Ridgeview Fitzrovia Rose NV English sparkling wine](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-1.webp)](/wine/fitzrovia/)
 
 ## Bloomsbury NV
 
@@ -92,7 +92,7 @@ Our bestselling fresh and fruit-forward English sparkling wine, with notes of ci
 
 Expressive red berry and almond aromas. Elegantly balanced with notes of raspberry frangipane and bergamot orange. A deliciously foodie wine.
 
-![Ridgeview Fitzrovia Rose NV English sparkling wine](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-8.webp)
+[![Ridgeview Fitzrovia Rose NV English sparkling wine](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-8.webp)](/wine/fitzrovia/)
 
 ### Fitzrovia Rosé NV
 
@@ -154,7 +154,7 @@ Or Yotam Ottolenghi’s [portobello mushroom tarts with pine nuts and parsley sa
 
 SPOTLIGHT ON Charcuterie – This exceptional oak-aged sparkling wine offers a complimentary buttery texture and fresh, fruity notes to lift the rich, spicy flavours of cured meat.
 
-![Simon Roberts Director of Winemaking at Ridgeview Oak Reserve English sparkling wine](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-11.webp)
+[![Simon Roberts Director of Winemaking at Ridgeview Oak Reserve English sparkling wine](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-11.webp)](/wine/oak-reserve/)
 
 ## Winemaker's Hints
 
@@ -168,13 +168,13 @@ But for the ultimate culinary experience, serve it with Christmas lunch – by f
 
 ## Shop Now
 
-![Blanc de Blancs Bottle with Box](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-12.webp)
+[![Blanc de Blancs Bottle with Box](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-12.webp)](/wine/blanc-de-blancs/)
 
 ### Blanc de Blancs
 
 Our flagship, single estate vintage wine from the finest grapes from our home vineyard. Pure, elegant and complex with hints of fresh honey, apricot and brioche.
 
-![Bottle of Blanc de Noirs Bottle and Box](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-13.webp)
+[![Bottle of Blanc de Noirs Bottle and Box](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-13.webp)](/wine/blanc-de-noirs/)
 
 ### Blanc de Noirs
 

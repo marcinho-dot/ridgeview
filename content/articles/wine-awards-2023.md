@@ -62,7 +62,7 @@ DECANTER
 
 A love-letter to England’s finest Pinot grapes. Highly aromatic with vanilla, cherry and forest fruits, finessed by a twist of pomegranate and sweet, peppery spice.
 
-![Bottle of Blanc de Noirs Bottle and Box](/images/articles/wine-awards-2023/inline-6.webp)
+[![Bottle of Blanc de Noirs Bottle and Box](/images/articles/wine-awards-2023/inline-6.webp)](/wine/blanc-de-noirs/)
 
 ### Blanc de Noirs
 
@@ -74,18 +74,18 @@ Made from the finest Pinot grapes only in exceptional vintage years. Delightfull
 
 Our bestselling fresh and fruit-forward English sparkling wine, with notes of citrus zest, pear and honey. A delightful aperitif and delicious with canapés.
 
-![Ridgeview Fitzrovia Rose NV English sparkling wine](/images/articles/wine-awards-2023/inline-8.webp)
+[![Ridgeview Fitzrovia Rose NV English sparkling wine](/images/articles/wine-awards-2023/inline-8.webp)](/wine/fitzrovia/)
 
 ### Fitzrovia Rosé NV
 
 A fresh and fruit-driven English sparkling rosé. Full of sunshine and celebration, featuring wild raspberry, honeyed redcurrant and notes of summer fruit.
 
-![Bottle of Rosé de Noirs and Box](/images/articles/wine-awards-2023/inline-9.webp)
+[![Bottle of Rosé de Noirs and Box](/images/articles/wine-awards-2023/inline-9.webp)](/wine/rose-de-noirs/)
 
 ### Rosé de Noirs
 
 Alive with vibrant fruit flavours and a creamy palate of peach, cherry and almond. An elegant, grown-up, serious English sparkling rosé.
 
-![Ridgeview Bloomsbury NV case English sparkling wine](/images/articles/wine-awards-2023/inline-10.webp)
+[![Ridgeview Bloomsbury NV case English sparkling wine](/images/articles/wine-awards-2023/inline-10.webp)](/wine/bloomsbury/)
 
 ### Bloomsbury NV (Case of 6)

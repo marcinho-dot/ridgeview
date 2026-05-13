@@ -2,7 +2,7 @@
 slug: whats-the-best-glass-for-sparkling-wine
 ---
 
-![Ridgeview Blanc de Noirs with sparkling wine glass](/images/articles/whats-the-best-glass-for-sparkling-wine/inline-1.webp)
+[![Ridgeview Blanc de Noirs with sparkling wine glass](/images/articles/whats-the-best-glass-for-sparkling-wine/inline-1.webp)](/wine/blanc-de-noirs/)
 
 ## SPARKLING WINE GLASS ESSENTIALS
 
@@ -24,7 +24,7 @@ Developed after extensive independent tastings at English vineyards (concluding 
 
 ## RECOMMENDED FOR YOU
 
-![The Ridgeview Gift Set Bloomsbury NV Ridgeview English Sparkling Wine](/images/articles/whats-the-best-glass-for-sparkling-wine/inline-3.webp)
+[![The Ridgeview Gift Set Bloomsbury NV Ridgeview English Sparkling Wine](/images/articles/whats-the-best-glass-for-sparkling-wine/inline-3.webp)](/wine/bloomsbury/)
 
 ### The Ridgeview Gift Set
 

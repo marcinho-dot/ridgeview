@@ -6,7 +6,7 @@ slug: wine-wisdom
 
 Dive into our wine wisdom articles designed to open your mind and your palate to the wonders of winemaking and the joy that a shared glass or two can bring.
 
-![Ridgeview Wine Estate, Bloomsbury English Sparkling Wine](/images/articles/wine-wisdom/inline-1.webp)
+[![Ridgeview Wine Estate, Bloomsbury English Sparkling Wine](/images/articles/wine-wisdom/inline-1.webp)](/wine/bloomsbury/)
 
 ![](/images/articles/wine-wisdom/inline-2.webp)
 
@@ -20,9 +20,9 @@ Dive into our wine wisdom articles designed to open your mind and your palate to
 
 ![A birds eye view of someone holding a bottle over a table](/images/articles/wine-wisdom/inline-7.webp)
 
-![Ridgeview Wine Estate, Blanc de Blancs](/images/articles/wine-wisdom/inline-8.webp)
+[![Ridgeview Wine Estate, Blanc de Blancs](/images/articles/wine-wisdom/inline-8.webp)](/wine/blanc-de-blancs/)
 
-![Rose De Noirs 2018 Ridgeview English sparkling wine](/images/articles/wine-wisdom/inline-9.webp)
+[![Rose De Noirs 2018 Ridgeview English sparkling wine](/images/articles/wine-wisdom/inline-9.webp)](/wine/rose-de-noirs/)
 
 ![A bunch of Pinot grapes on a wooden table](/images/articles/wine-wisdom/inline-10.webp)
 

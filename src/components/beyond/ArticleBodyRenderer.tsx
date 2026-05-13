@@ -55,17 +55,31 @@ export function ArticleBodyRenderer({ blocks }: Props) {
             );
           }
 
-          case "image":
+          case "image": {
+            const imgEl = (
+              <div className="relative aspect-[3/2] overflow-hidden bg-[#0a0a0a] rounded-sm group">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`${basePath}${block.src}`}
+                  alt={block.alt}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                />
+              </div>
+            );
+            const wrapped = block.href ? (
+              <a
+                href={`${basePath}${block.href}`}
+                aria-label={block.alt || "View product"}
+                className="block"
+              >
+                {imgEl}
+              </a>
+            ) : (
+              imgEl
+            );
             return (
               <figure key={i} className="my-10 md:my-12 -mx-6 md:-mx-12">
-                <div className="relative aspect-[3/2] overflow-hidden bg-[#0a0a0a] rounded-sm">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={`${basePath}${block.src}`}
-                    alt={block.alt}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                </div>
+                {wrapped}
                 {block.caption && (
                   <figcaption
                     className="font-body italic text-white/45 mt-3 text-center"
@@ -79,6 +93,7 @@ export function ArticleBodyRenderer({ blocks }: Props) {
                 )}
               </figure>
             );
+          }
 
           case "quote":
             return (

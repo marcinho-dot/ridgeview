@@ -2,7 +2,7 @@
 slug: how-to-collect-wine
 ---
 
-![Ridgeview Oak Reserve, English Sparkling Wine](/images/articles/how-to-collect-wine/inline-1.webp)
+[![Ridgeview Oak Reserve, English Sparkling Wine](/images/articles/how-to-collect-wine/inline-1.webp)](/wine/oak-reserve/)
 
 ## How do you start a wine collection?
 

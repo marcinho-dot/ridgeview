@@ -36,7 +36,7 @@ Or for a chef’s-kiss of a wine, our celebrated [Blanc de Noirs](/wine/blanc-de
 - Creamy wild mushroom risotto
 - Ham hock macaroni cheese
 
-![A bottle of Ridgeview's still Chardonnay with a bright blue label, on an oak barrel with Chardonnay grapes and the vineyard in the background.](/images/articles/valentines-day-delicious-date-night-food-and-wine-pairings/inline-4.webp)
+[![A bottle of Ridgeview's still Chardonnay with a bright blue label, on an oak barrel with Chardonnay grapes and the vineyard in the background.](/images/articles/valentines-day-delicious-date-night-food-and-wine-pairings/inline-4.webp)](/wine/still-chardonnay/)
 
 ## Still White: Elegant English Chardonnay
 

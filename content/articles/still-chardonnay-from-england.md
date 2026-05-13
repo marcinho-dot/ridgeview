@@ -50,7 +50,7 @@ Striving for excellence from vine to glass, the Ridgeview Chardonnay draws on gr
 
 “Our growers are truly part of the Ridgeview family, working closely with us to craft wines of the highest quality. Through our journey into still wine, we’ve adapted together, resulting in wines that capture the very best of what we can achieve collectively.”
 
-![A bottle of Ridgeview's still Chardonnay with a bright blue label, on an oak barrel with Chardonnay grapes and the vineyard in the background.](/images/articles/still-chardonnay-from-england/inline-7.webp)
+[![A bottle of Ridgeview's still Chardonnay with a bright blue label, on an oak barrel with Chardonnay grapes and the vineyard in the background.](/images/articles/still-chardonnay-from-england/inline-7.webp)](/wine/still-chardonnay/)
 
 ## STILL ENGLISH WINEMAKING ON THE RISE
 

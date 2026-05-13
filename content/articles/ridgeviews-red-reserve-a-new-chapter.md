@@ -2,7 +2,7 @@
 slug: ridgeviews-red-reserve-a-new-chapter
 ---
 
-![Simon Roberts, Ridgeview Head Winemaker smiling with Red Reserve](/images/articles/ridgeviews-red-reserve-a-new-chapter/inline-1.webp)
+[![Simon Roberts, Ridgeview Head Winemaker smiling with Red Reserve](/images/articles/ridgeviews-red-reserve-a-new-chapter/inline-1.webp)](/wine/sparkling-red-reserve/)
 
 ## THE ROOTS OF RIDGEVIEW’S RED RESERVE
 
@@ -20,7 +20,7 @@ There’s a particular moment that stands out for Simon, when he knew the time w
 
 With the world in lockdown, Simon and his team found themselves with time to focus on winemaking elements they’d always been longing to explore. “It was the first lockdown harvest and the world was turned upside down” as Simon recalls, “but it gave us the freedom to focus on new techniques and unexplored areas. That’s when things started to really come together for the Ridgeview Red Reserve. The Pinot fruit was just out of this world and we knew we had to create something truly memorable with it.”
 
-![Ridgeview Sparkling Red Reserve in the glass](/images/articles/ridgeviews-red-reserve-a-new-chapter/inline-3.webp)
+[![Ridgeview Sparkling Red Reserve in the glass](/images/articles/ridgeviews-red-reserve-a-new-chapter/inline-3.webp)](/wine/sparkling-red-reserve/)
 
 ## INSIDE THE BOTTLE
 

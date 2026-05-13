@@ -18,7 +18,7 @@ The basic definition ofnon-vintage wines(NVs) is sparkling wines made using grap
 
 Our library of reserve wines is a mix of previous vintages, all stored together in tank and topped up annually, in a simplified version of theSherry solera system. We can also make sparkling wines by assembling archive wines from a number of specific vintages. These are known as multi-vintage wines and are a very different proposition from NVs.
 
-![Ridgeview Wine Estate, English Sparkling Wine, Blanc de Blancs held up in front of bottles in our cellar](/images/articles/what-are-vintage-and-non-vintage-wines/inline-2.webp)
+[![Ridgeview Wine Estate, English Sparkling Wine, Blanc de Blancs held up in front of bottles in our cellar](/images/articles/what-are-vintage-and-non-vintage-wines/inline-2.webp)](/wine/blanc-de-blancs/)
 
 ## Why do we make vintage sparkling wines?
 
@@ -32,7 +32,7 @@ The entire story of the year is locked up in the grapes that come into the winer
 
 “Our Blanc de Blancs is all about the fruit profile – the style is always fruit-focused. We want this to be the main character that shines through the wine in every vintage and we basically do as little as possible to the grapes to achieve that”, says Simon.
 
-![Ridgeview Wine Estate, English Sparkling Wine, Cavendish bottle held in hands with tattoos, watches and red nail varnish](/images/articles/what-are-vintage-and-non-vintage-wines/inline-3.webp)
+[![Ridgeview Wine Estate, English Sparkling Wine, Cavendish bottle held in hands with tattoos, watches and red nail varnish](/images/articles/what-are-vintage-and-non-vintage-wines/inline-3.webp)](/wine/cavendish/)
 
 ## Why do we make non vintage wines?
 
@@ -56,7 +56,7 @@ During this time they develop the ‘autolytic’ notes which dovetail so beauti
 
 By contrast, says Simon, “NVs are a lot more accessible. They’re made to be familiar and they’re ready to drink any time.” This is partly due to shorter lees ageing – typically 18 months – resulting in a more obviously fruity style. With Cavendish NV, you can expect a real depth of red-fruit flavours, plus almond aromas and subtle spice notes.
 
-![Ridgeview Wine Estate, English Sparkling Wine Magnum Blanc de Blancs in front of our Chardonnay Vineyard and a bespoke gift box](/images/articles/what-are-vintage-and-non-vintage-wines/inline-5.webp)
+[![Ridgeview Wine Estate, English Sparkling Wine Magnum Blanc de Blancs in front of our Chardonnay Vineyard and a bespoke gift box](/images/articles/what-are-vintage-and-non-vintage-wines/inline-5.webp)](/wine/blanc-de-blancs/)
 
 ## Are vintage wines better than non vintage wines?
 
@@ -70,7 +70,7 @@ On top of this, it simply takes more time to makevintage wines, and all those ex
 
 However, in terms of craft, it’s NVs that come out on top. As Simon says, the aim withvintage winesis to let the grapes express the qualities of the year, which means less oenological tinkering. NVs, on the other hand, require more active care and attention in the winery to achieve that all-important house style.
 
-![Ridgeview Blanc de Blancs at the beach](/images/articles/what-are-vintage-and-non-vintage-wines/inline-6.webp)
+[![Ridgeview Blanc de Blancs at the beach](/images/articles/what-are-vintage-and-non-vintage-wines/inline-6.webp)](/wine/blanc-de-blancs/)
 
 ## Wines for every occasion
 

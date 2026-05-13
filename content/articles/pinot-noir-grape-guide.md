@@ -20,7 +20,7 @@ Pinot Noir is notoriously temperamental to grow. It’s the Goldilocks of grape 
 
 Add in Pinot Noir’s susceptibility to all sorts of vineyard diseases and you may think it’s a wonder that many growers bother with it at all. But you only have to try one great Pinot Noir to understand why they do. Because in the right conditions, this fickle customer is capable of oenological alchemy, creating hauntingly beautiful wines unique to the terroir in which they’re grown.
 
-![Ridgeview Sparkling Red Reserve](/images/articles/pinot-noir-grape-guide/inline-3.webp)
+[![Ridgeview Sparkling Red Reserve](/images/articles/pinot-noir-grape-guide/inline-3.webp)](/wine/sparkling-red-reserve/)
 
 ![Ridgeview Wine Estate, English Sparkling Wine bubbling in a glass](/images/articles/pinot-noir-grape-guide/inline-4.webp)
 
@@ -80,19 +80,19 @@ Innovative, offbeat and beguiling, this wine is a work of art! Made from the fin
 
 Expressive red berry and almond aromas. Elegantly balanced with notes of raspberry frangipane and bergamot orange. A deliciously foodie wine.
 
-![Ridgeview Fitzrovia Rose NV English sparkling wine](/images/articles/pinot-noir-grape-guide/inline-8.webp)
+[![Ridgeview Fitzrovia Rose NV English sparkling wine](/images/articles/pinot-noir-grape-guide/inline-8.webp)](/wine/fitzrovia/)
 
 ### Fitzrovia Rosé NV
 
 A fresh and fruit-driven English sparkling rosé. Full of sunshine and celebration, featuring wild raspberry, honeyed redcurrant and notes of summer fruit.
 
-![Bottle of Rosé de Noirs and Box](/images/articles/pinot-noir-grape-guide/inline-9.webp)
+[![Bottle of Rosé de Noirs and Box](/images/articles/pinot-noir-grape-guide/inline-9.webp)](/wine/rose-de-noirs/)
 
 ### Rosé de Noirs
 
 Alive with vibrant fruit flavours and a creamy palate of peach, cherry and almond. An elegant, grown-up, serious English sparkling rosé.
 
-![Bottle of Blanc de Noirs Bottle and Box](/images/articles/pinot-noir-grape-guide/inline-10.webp)
+[![Bottle of Blanc de Noirs Bottle and Box](/images/articles/pinot-noir-grape-guide/inline-10.webp)](/wine/blanc-de-noirs/)
 
 ### Blanc de Noirs
 

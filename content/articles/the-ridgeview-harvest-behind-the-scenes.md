@@ -18,7 +18,7 @@ Harvest both passes in a flash and lasts for an agonising eternity, balancing on
 
 It’s an intense period of collaboration between our vineyard and winemaking teams, united by one shared purpose – to produce world-class sparkling wine, working together with passion and care.
 
-![Simon Roberts Director of Winemaking at Ridgeview Oak Reserve English sparkling wine](/images/articles/the-ridgeview-harvest-behind-the-scenes/inline-2.webp)
+[![Simon Roberts Director of Winemaking at Ridgeview Oak Reserve English sparkling wine](/images/articles/the-ridgeview-harvest-behind-the-scenes/inline-2.webp)](/wine/oak-reserve/)
 
 ## The Count-Down
 

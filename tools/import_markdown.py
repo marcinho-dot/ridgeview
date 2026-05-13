@@ -98,6 +98,11 @@ def parse_frontmatter(text):
 # realistically write for an editorial article.
 
 IMG_RE = re.compile(r'!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)')
+# Linked image: [![alt](src)](href). The src/alt captures map to groups
+# 1/2; the outer href is group 3.
+LINKED_IMG_RE = re.compile(
+    r'\[!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)\]\(([^)\s]+)\)'
+)
 HEADING_RE = re.compile(r"^(#{2,3})\s+(.+)$")
 UL_RE = re.compile(r"^\s*[-*]\s+(.+)$")
 OL_RE = re.compile(r"^\s*\d+\.\s+(.+)$")
@@ -164,6 +169,18 @@ def parse_markdown_body(text, slug):
         # Horizontal rule — ignore
         if HR_RE.match(line):
             flush_all()
+            i += 1
+            continue
+
+        # Linked image: [![alt](src)](href) — check before bare image.
+        m = LINKED_IMG_RE.match(line.strip())
+        if m:
+            flush_all()
+            alt, src, href = m.group(1), m.group(2), m.group(3)
+            if not src.startswith("/") and not src.startswith("http"):
+                src = f"/images/articles/{slug}/{src}"
+            block = {"type": "image", "src": src, "alt": alt, "href": href}
+            blocks.append(block)
             i += 1
             continue
 
@@ -299,6 +316,8 @@ def emit_block_ts(block):
         ]
         if block.get("caption"):
             parts.append(f'caption: "{to_ts_string(block["caption"])}"')
+        if block.get("href"):
+            parts.append(f'href: "{to_ts_string(block["href"])}"')
         return "{ " + ", ".join(parts) + " }"
     if t == "quote":
         parts = [

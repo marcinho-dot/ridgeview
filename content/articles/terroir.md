@@ -72,7 +72,7 @@ If you’d like to see magic terroir in action at our beautiful estate vineyards
 
 ## Explore Ridgeview Wine
 
-![Blanc de Blancs Bottle with Box](/images/articles/terroir/inline-6.webp)
+[![Blanc de Blancs Bottle with Box](/images/articles/terroir/inline-6.webp)](/wine/blanc-de-blancs/)
 
 ### Blanc de Blancs
 
@@ -90,7 +90,7 @@ Our bestselling fresh and fruit-forward English sparkling wine, with notes of ci
 
 An elegant and complex trio of our finest vintage English sparkling wine. Featuring our limited-release Blanc de Blancs, Blanc de Noirs and Rosé de Noirs.
 
-![Ridgeview Fitzrovia Rose NV English sparkling wine](/images/articles/terroir/inline-9.webp)
+[![Ridgeview Fitzrovia Rose NV English sparkling wine](/images/articles/terroir/inline-9.webp)](/wine/fitzrovia/)
 
 ### Fitzrovia Rosé NV
 

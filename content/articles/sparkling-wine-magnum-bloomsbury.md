@@ -8,7 +8,7 @@ The ultimate choice for those seeking both size and sophistication, this is a gr
 
 So much more than a larger bottle, magnums are a canvas for developing a wine’s potential, achieving greater precision and poise. In magnum, our signature Bloomsbury blend has developed a delicate balance of mineral freshness, biscuity undertones, and a creamy mousse. Revealing new characteristics that speak to Southern England’s distinctive terroir, this is a showstopping magnum for special occasions, luxury gifting and large gatherings when you want the celebrations to flow.
 
-![](/images/articles/sparkling-wine-magnum-bloomsbury/inline-1.webp)
+[![](/images/articles/sparkling-wine-magnum-bloomsbury/inline-1.webp)](/wine/bloomsbury/)
 
 ## SOMMELIER’S CHOICE: SPARKLING WINE OF THE YEAR
 

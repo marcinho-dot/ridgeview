@@ -2,7 +2,7 @@
 slug: the-magic-of-ageing-wine-magnums
 ---
 
-![Ridgeview Magnum Blanc de Blancs](/images/articles/the-magic-of-ageing-wine-magnums/inline-1.webp)
+[![Ridgeview Magnum Blanc de Blancs](/images/articles/the-magic-of-ageing-wine-magnums/inline-1.webp)](/wine/blanc-de-blancs/)
 
 ## Magnum Wines and the Art of Ageing
 
@@ -36,7 +36,7 @@ To understand the beauty maturation in action, compare the tasting notes for our
 
 ![](/images/articles/the-magic-of-ageing-wine-magnums/inline-2.webp)
 
-![Ridgeview Magnum Blanc de Blancs](/images/articles/the-magic-of-ageing-wine-magnums/inline-3.webp)
+[![Ridgeview Magnum Blanc de Blancs](/images/articles/the-magic-of-ageing-wine-magnums/inline-3.webp)](/wine/blanc-de-blancs/)
 
 ## Wine magnums: A gift for the party season
 
@@ -60,19 +60,19 @@ A limited-edition, late-disgorged bottling of oak barrel fermented Chardonnay. C
 
 A love-letter to England’s finest Pinot grapes. Highly aromatic with vanilla, cherry and forest fruits, finessed by a twist of pomegranate and sweet, peppery spice.
 
-![Blanc de Blancs Bottle with Box](/images/articles/the-magic-of-ageing-wine-magnums/inline-6.webp)
+[![Blanc de Blancs Bottle with Box](/images/articles/the-magic-of-ageing-wine-magnums/inline-6.webp)](/wine/blanc-de-blancs/)
 
 ### Blanc de Blancs
 
 Our flagship, single estate vintage wine from the finest grapes from our home vineyard. Pure, elegant and complex with hints of fresh honey, apricot and brioche.
 
-![Bottle of Blanc de Noirs Bottle and Box](/images/articles/the-magic-of-ageing-wine-magnums/inline-7.webp)
+[![Bottle of Blanc de Noirs Bottle and Box](/images/articles/the-magic-of-ageing-wine-magnums/inline-7.webp)](/wine/blanc-de-noirs/)
 
 ### Blanc de Noirs
 
 Made from the finest Pinot grapes only in exceptional vintage years. Delightfully food-friendly, the palate bursts with red cherries, almonds and spice.
 
-![Bottle of Rosé de Noirs and Box](/images/articles/the-magic-of-ageing-wine-magnums/inline-8.webp)
+[![Bottle of Rosé de Noirs and Box](/images/articles/the-magic-of-ageing-wine-magnums/inline-8.webp)](/wine/rose-de-noirs/)
 
 ### Rosé de Noirs
 

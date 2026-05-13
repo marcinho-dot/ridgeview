@@ -24,7 +24,7 @@ So the ideal storage conditions are cool, dark, constant and still. Bottles shou
 
 How you store wine is often overlooked, but with just a few simple steps, you can ensure to bring out the best in your bottles. Discover how to make your wine sing out in the glass by following easy storage tips in our guide below.
 
-![Ridgeview Wine Estate, Bloomsbury English Sparkling Wine](/images/articles/when-to-age-wine-or-drink-it/inline-3.webp)
+[![Ridgeview Wine Estate, Bloomsbury English Sparkling Wine](/images/articles/when-to-age-wine-or-drink-it/inline-3.webp)](/wine/bloomsbury/)
 
 ## Rule 3: Vintage wines for vintage occasions
 

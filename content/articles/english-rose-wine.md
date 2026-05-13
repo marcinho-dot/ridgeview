@@ -2,9 +2,9 @@
 slug: english-rose-wine
 ---
 
-![Fitzrovia Rosé, English Sparkling Wine being poured into a glass surrounded by a table of food at our restaurant](/images/articles/english-rose-wine/inline-1.webp)
+[![Fitzrovia Rosé, English Sparkling Wine being poured into a glass surrounded by a table of food at our restaurant](/images/articles/english-rose-wine/inline-1.webp)](/wine/fitzrovia/)
 
-![4 glasses of Fitzrovia Rosé, English Sparkling Wine toasting together over a table of food](/images/articles/english-rose-wine/inline-2.webp)
+[![4 glasses of Fitzrovia Rosé, English Sparkling Wine toasting together over a table of food](/images/articles/english-rose-wine/inline-2.webp)](/wine/fitzrovia/)
 
 ## Fitzrovia Rosé NV
 
@@ -40,7 +40,7 @@ Rose petal pink in the glass, it opens with aromas of watermelon, peach and wild
 
 Exceptionally balanced and quietly expressive, it’s made for food, for sharing, and for those slow, sun-drenched summer moments – from grilled chicken and Provençal vegetables to ripe strawberries and soft cheese.
 
-![A hand holding a bottle of Rosé de Noirs above pink flowers outside](/images/articles/english-rose-wine/inline-7.webp)
+[![A hand holding a bottle of Rosé de Noirs above pink flowers outside](/images/articles/english-rose-wine/inline-7.webp)](/wine/rose-de-noirs/)
 
 ![Two glasses of rosé with strawberries on the table and a bottle in an ice bucket in the background](/images/articles/english-rose-wine/inline-8.webp)
 

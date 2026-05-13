@@ -50,7 +50,7 @@ Richard Bamfield MW, The Finest Bubble
 
 ## Shop Rosé de Noirs
 
-![Bottle of Rosé de Noirs and Box](/images/articles/rose-de-noirs-revealed/inline-4.webp)
+[![Bottle of Rosé de Noirs and Box](/images/articles/rose-de-noirs-revealed/inline-4.webp)](/wine/rose-de-noirs/)
 
 ### Rosé de Noirs
 

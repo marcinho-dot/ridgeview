@@ -2,7 +2,7 @@
 slug: english-sparkling-wine-guide
 ---
 
-![Ridgeview Wine Estate, Bloomsbury English Sparkling Wine](/images/articles/english-sparkling-wine-guide/inline-1.webp)
+[![Ridgeview Wine Estate, Bloomsbury English Sparkling Wine](/images/articles/english-sparkling-wine-guide/inline-1.webp)](/wine/bloomsbury/)
 
 ![Chardonnay Grapes from Ridgeview Wine Estate](/images/articles/english-sparkling-wine-guide/inline-2.webp)
 
@@ -66,9 +66,9 @@ This has led to an incredible diversity of English growing conditions, all impri
 
 ![](/images/articles/english-sparkling-wine-guide/inline-7.webp)
 
-![Ridgeview Sparkling Red Reserve](/images/articles/english-sparkling-wine-guide/inline-8.webp)
+[![Ridgeview Sparkling Red Reserve](/images/articles/english-sparkling-wine-guide/inline-8.webp)](/wine/sparkling-red-reserve/)
 
-![Ridgeview Oak Reserve English sparkling wine](/images/articles/english-sparkling-wine-guide/inline-9.webp)
+[![Ridgeview Oak Reserve English sparkling wine](/images/articles/english-sparkling-wine-guide/inline-9.webp)](/wine/oak-reserve/)
 
 ## The future of English sparkling wine
 

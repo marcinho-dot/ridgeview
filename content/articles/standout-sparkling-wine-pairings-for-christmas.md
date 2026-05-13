@@ -2,7 +2,7 @@
 slug: standout-sparkling-wine-pairings-for-christmas
 ---
 
-![A bottle of Blanc de Noirs in the middle of a table surrounded by plates of Christmas roast dinner and christmas decorations, with a glass of sparkling wine on the table.](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-1.webp)
+[![A bottle of Blanc de Noirs in the middle of a table surrounded by plates of Christmas roast dinner and christmas decorations, with a glass of sparkling wine on the table.](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-1.webp)](/wine/blanc-de-noirs/)
 
 ## The best wine for Christmas dinner
 
@@ -10,9 +10,9 @@ Whether you’re going poultry or plant-based, your Christmas Day roast will rea
 
 It’s so complex, with a backbone of big, bold red-fruit flavours that pair to perfection with Christmas roasts, brimming with trimmings. But it also has the finesse and poise to complement lighter dishes like seafood starters. Open a bottle at the start of Christmas dinner and you’ll still be finding new flavours in the glass by the time the cheese board comes round. A veritable Christmas treat.
 
-![Ridgeview Oak Reserve, English Sparkling Wine](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-2.webp)
+[![Ridgeview Oak Reserve, English Sparkling Wine](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-2.webp)](/wine/oak-reserve/)
 
-![Ridgeview Sparkling Red Reserve](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-3.webp)
+[![Ridgeview Sparkling Red Reserve](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-3.webp)](/wine/sparkling-red-reserve/)
 
 ## Wonder wines for winter nibbles
 
@@ -50,7 +50,7 @@ Whether you’re planning a showstopping feast, searching for the best sparkling
 
 Full glasses, full hearts – find your perfect sparkling wine for unforgettable festive moments this Christmas.
 
-![Bottle of Blanc de Noirs Bottle and Box](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-6.webp)
+[![Bottle of Blanc de Noirs Bottle and Box](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-6.webp)](/wine/blanc-de-noirs/)
 
 ### Blanc de Noirs
 
