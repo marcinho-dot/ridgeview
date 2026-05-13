@@ -455,9 +455,13 @@ export function WineCollectionSection() {
         </div>
 
         {/* ══════════════════════════════════════════════════════
-            CONTROLS BAR
+            CONTROLS BAR — Three-column row:
+              left  = prev | counter | next
+              CENTER = "View all 10 Wines" link to /wines catalog
+              right = pagination dots
+            justify-between distributes the three groups evenly.
         ══════════════════════════════════════════════════════ */}
-        <div className="flex items-center justify-between mt-5 gap-4">
+        <div className="flex items-center justify-between mt-5 gap-4 flex-wrap md:flex-nowrap">
           <div className="flex items-center gap-3">
             <ArrowBtn dir="prev" onClick={() => paginate(-1)} />
             <span className="font-body text-white/35 text-xs tracking-[0.2em] min-w-[38px] text-center select-none">
@@ -465,6 +469,19 @@ export function WineCollectionSection() {
             </span>
             <ArrowBtn dir="next" onClick={() => paginate(1)} />
           </div>
+
+          {/* CENTER — bridges the carousel teaser to the full /wines catalog */}
+          <motion.div
+            className="order-3 md:order-none w-full md:w-auto flex justify-center"
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <a href={`${basePath}/wines`} className="btn-cta">
+              View all {wines.length} Wines
+            </a>
+          </motion.div>
 
           <div className="flex items-center gap-1.5">
             {wines.map((_, i) => (
@@ -485,22 +502,6 @@ export function WineCollectionSection() {
           </div>
 
         </div>
-
-        {/* ══════════════════════════════════════════════════════
-            VIEW ALL WINES — Bridges the homepage teaser carousel
-            to the full catalog page at /wines.
-        ══════════════════════════════════════════════════════ */}
-        <motion.div
-          className="mt-12 md:mt-16 flex justify-center"
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <a href={`${basePath}/wines`} className="btn-cta">
-            View all {wines.length} Wines
-          </a>
-        </motion.div>
 
       </div>
     </section>
