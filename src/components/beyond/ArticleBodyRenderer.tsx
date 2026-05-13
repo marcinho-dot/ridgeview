@@ -331,7 +331,7 @@ export function ArticleBodyRenderer({ blocks }: Props) {
             return (
               <div
                 key={i}
-                className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-stretch mt-8 mb-10 first:mt-2 md:my-20 md:first:mt-0"
+                className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-stretch mt-8 mb-10 first:mt-2 md:my-20 md:first:mt-20"
               >
                 {/* Mobile: image-on-top, text-below (DOM order).
                     Desktop: md:order flips left/right per imageSide. */}
