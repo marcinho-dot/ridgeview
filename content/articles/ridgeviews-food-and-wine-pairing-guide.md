@@ -46,7 +46,8 @@ Dine at any of their five [Gingerman restaurants](https://www.gingermanrestauran
 
 Or Raymond Blanc’s Classic French recipe, [roasted duck with orange marmalade](https://www.raymondblanc.com/recipes/roast-duck-recipe/).
 
-![](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-4.webp)
+:::side-by-side image-right
+[![](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-4.webp)](/wine/cavendish/)
 
 ## Clues from the Kitchen
 
@@ -55,6 +56,7 @@ Or Raymond Blanc’s Classic French recipe, [roasted duck with orange marmalade]
 ‘You should try Cavendish NV with our Catch of the day tacos or even Grilled chilli squid with Asian salad and miso dressing at Murmur. These vibrant flavours make for a very exciting pairing.’
 
 Visit [64 Degrees](https://64degrees.co.uk/) or [Murmur](https://murmur-restaurant.co.uk/) for their latest menus and discover more ways to bring food and wine to life.
+:::
 
 ## Fitzrovia Rosé
 
@@ -68,7 +70,8 @@ RECIPES The simple classic, Strawberries and Cream, is a delightfully fresh and 
 
 Or for an even more British and delicious pairing try, [Mary Berry’s Summer Pudding](https://www.bbc.co.uk/food/recipes/summer_pudding_loaf_92270) packed full of sweet berry flavours.
 
-![](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-5.webp)
+:::side-by-side image-right
+[![](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-5.webp)](/wine/fitzrovia/)
 
 ## Clues from the Kitchen
 
@@ -77,16 +80,17 @@ Kim Ratcharoen, Senior Sous Chef at [Restaurant Gordon Ramsay](https://www.gordo
 This ‘delicious…tangy palate cleanser’ was a Mimosa-inspired lychee sorbet with hibiscus syrup and a rosé foam.
 
 For those of us that can only ever dream of having Kim’s culinary skills, try this simple [Lychee Pavlova](https://www.bbc.co.uk/food/recipes/dragon_fruit_and_lychees_83501).
+:::
 
 ## Shop Now
 
-![](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-6.webp)
+[![](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-6.webp)](/wine/bloomsbury/)
 
 ### Bloomsbury NV
 
 Our bestselling fresh and fruit-forward English sparkling wine, with notes of citrus zest, pear and honey. A delightful aperitif and delicious with canapés.
 
-![](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-7.webp)
+[![](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-7.webp)](/wine/cavendish/)
 
 ### Cavendish NV
 
@@ -112,7 +116,8 @@ A fresh and fruit-driven English sparkling rosé. Full of sunshine and celebrati
 
 **RECIPES** Try Gennaro Contaldo’s [Halibut with lemon butter](https://www.bbc.co.uk/food/recipes/halibutwithlemonbutt_73188) or Rick Stein’s [Lemon sole with serrano ham, summer vegetables and pea shoots](https://www.deliciousmagazine.co.uk/recipes/lemon-sole-with-serrano-ham-summer-vegetables-and-pea-shoots/).
 
-![](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-9.webp)
+:::side-by-side image-right
+[![](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-9.webp)](/wine/blanc-de-blancs/)
 
 ## Hints from Heritage
 
@@ -121,6 +126,7 @@ A fresh and fruit-driven English sparkling rosé. Full of sunshine and celebrati
 ‘This pairs beautifully with our Dived scallop, roasted & pickled apricot, samphire and XO sauce. Something special happens when these two things come together.’
 
 Visit [Heritage](https://heritage.restaurant/) for their latest menu and enjoy an inspiring host of modern-British food and wine matches.
+:::
 
 ## Blanc de Noir
 
@@ -136,6 +142,7 @@ Visit [Heritage](https://heritage.restaurant/) for their latest menu and enjoy a
 
 Or Yotam Ottolenghi’s [portobello mushroom tarts with pine nuts and parsley salsa](https://ottolenghi.co.uk/recipes/portobello-mushroom-tarts-with-pine-nut-and-parsley-salsa).
 
+:::side-by-side image-right
 ![](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-10.webp)
 
 ## The Chef's Verdict
@@ -143,6 +150,7 @@ Or Yotam Ottolenghi’s [portobello mushroom tarts with pine nuts and parsley sa
 ‘The red-fruit aromas of this Pinot-dominant wine matches beautifully with the rich and robust flavour of mackerel whilst the fine mousse adds a crisp finesse to the moreish oily and meaty texture.’
 
 – Head Chef, [Robert Potter](https://www.exclusive.co.uk/the-manor-house/food/bybrook/chef/), at [Exclusive Collection’s](https://www.exclusive.co.uk/) Michelin starred [Bybrook](https://www.exclusive.co.uk/the-manor-house/food/bybrook/) restaurant.
+:::
 
 ## Oak Reserve
 
@@ -154,6 +162,7 @@ Or Yotam Ottolenghi’s [portobello mushroom tarts with pine nuts and parsley sa
 
 SPOTLIGHT ON Charcuterie – This exceptional oak-aged sparkling wine offers a complimentary buttery texture and fresh, fruity notes to lift the rich, spicy flavours of cured meat.
 
+:::side-by-side image-right
 [![Simon Roberts Director of Winemaking at Ridgeview Oak Reserve English sparkling wine](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-11.webp)](/wine/oak-reserve/)
 
 ## Winemaker's Hints
@@ -165,6 +174,7 @@ For something sweet, citrus infused crème brulee is a beautiful match.
 But for the ultimate culinary experience, serve it with Christmas lunch – by far the best pairing!’
 
 – Simon Roberts, Director of Winemaking, Ridgeview
+:::
 
 ## Shop Now
 
@@ -180,7 +190,7 @@ Our flagship, single estate vintage wine from the finest grapes from our home vi
 
 Made from the finest Pinot grapes only in exceptional vintage years. Delightfully food-friendly, the palate bursts with red cherries, almonds and spice.
 
-![](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-14.webp)
+[![](/images/articles/ridgeviews-food-and-wine-pairing-guide/inline-14.webp)](/wine/oak-reserve/)
 
 ### Oak Reserve
 

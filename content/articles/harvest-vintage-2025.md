@@ -2,9 +2,8 @@
 slug: harvest-vintage-2025
 ---
 
+:::side-by-side image-left
 ![](/images/articles/harvest-vintage-2025/inline-1.webp)
-
-![](/images/articles/harvest-vintage-2025/inline-2.webp)
 
 ## Early Promise in the Vines
 
@@ -19,8 +18,10 @@ From the very first buds bursting in spring, Sussex has given us warmth and ligh
 Flowering was early, mid-June, about a week ahead of the long-term average. This sets us up for an early harvest, probably late September.
 
 It’s not a huge crop but shaping up to be a well-developed one.”
+:::
 
-![](/images/articles/harvest-vintage-2025/inline-3.webp)
+:::side-by-side image-right
+![](/images/articles/harvest-vintage-2025/inline-2.webp)
 
 ## What a Difference A Year Makes
 
@@ -29,10 +30,10 @@ The contrast with 2024 couldn’t be more striking. Last year’s relentless rai
 A little rain before harvest can help berries plump up and become juicier, without diluting flavour, if it arrives at just the right time.
 
 This season, pockets of timely rainfall have eased the dryness, allowing fruit to swell gently and develop beautifully. With cool nights holding onto freshness, the berries are tasting well – a promising sign that great wine is on its way.
+:::
 
-![Matt Strugnell, Vineyard Manager standing amongst the vines smiling](/images/articles/harvest-vintage-2025/inline-4.webp)
-
-![Ridgeview Wine Estate, Chardonnay Vines](/images/articles/harvest-vintage-2025/inline-5.webp)
+:::side-by-side image-left
+![Matt Strugnell, Vineyard Manager standing amongst the vines smiling](/images/articles/harvest-vintage-2025/inline-3.webp)
 
 ## A Taste of What's to Come
 
@@ -43,3 +44,4 @@ Harvest isn’t just about picking fruit. It’s where every bottle’s journey 
 “This could be another season that raises the bar. Each year our knowledge grows, our skills improve, and we make better wine.”
 
 With harvest just around the corner, there’s a buzz across the estate. It’s Ridgeview’s most joyful time of year – a reminder that every celebration in a glass starts here, in these vines.
+:::

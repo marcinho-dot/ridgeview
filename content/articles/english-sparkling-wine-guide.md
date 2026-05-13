@@ -2,9 +2,8 @@
 slug: english-sparkling-wine-guide
 ---
 
+:::side-by-side image-left
 [![Ridgeview Wine Estate, Bloomsbury English Sparkling Wine](/images/articles/english-sparkling-wine-guide/inline-1.webp)](/wine/bloomsbury/)
-
-![Chardonnay Grapes from Ridgeview Wine Estate](/images/articles/english-sparkling-wine-guide/inline-2.webp)
 
 ## What is English sparkling wine?
 
@@ -13,6 +12,7 @@ Put simply, English sparkling wine is our answer to Champagne. It’s made using
 The history of English sparkling wine actually stretches back farther than you may think. In its modern incarnation, it began rising to prominence in the 1990s, which is when our pioneering founder Mike Roberts planted the first vines on the Ridgeview estate.At the time, English wines were at best a novelty, at worst a bit of a laughing stock. Most vineyards were planted with obscure German grape varieties, producing searingly acidic still white wines that even wine lovers struggled to enjoy. But Mike had a big vision, built on an inkling that our growing conditions were just right for producing top-quality sparkling wines.
 
 At the time, few people believed it was possible. But the last three decades have turned that vision into a crystal-clear reality. Today, English sparkling wine is a Great British success story and an international hit, stocked in our biggest supermarkets and sipped in over 40 countries.In fact, the industry has evolved to the point where there are now government rules protecting the phrase ‘ English Sparkling Wine ’. Why does this matter? Because the defining feature of English sparkling wine is quality. And alongside English winemakers’ passion for excellence, these rules help to deliver this quality in every bottle bearing the term.
+:::
 
 ## How is English sparkling wine made?
 
@@ -22,7 +22,8 @@ The first requirement of Classic Method sparkling wines is top-quality grapes, s
 
 One of the hallmarks of English sparkling wine is a delicious array of toasty or buttered pastry flavours. These come from a special maturation period that can last as long as a decade – more evidence of the care and dedication taken to produce these wonder wines.
 
-![](/images/articles/english-sparkling-wine-guide/inline-3.webp)
+:::side-by-side image-left
+[![](/images/articles/english-sparkling-wine-guide/inline-2.webp)](/wine/blanc-de-blancs/)
 
 ## Is English sparkling wine the same as Champagne?
 
@@ -31,6 +32,7 @@ In terms of overall style and production methods, there are fundamental similari
 Due to climate change, Southern England now has the growing conditions Champagne enjoyed 40 years ago. Both regions have very similar soil structures, with Sussex and Kent lying on the same bedrock as Champagne. But crucially, our summers have hit that sweet spot of marginal warmth essential for ripening grapes slowly.Meanwhile in north-eastern France, growers are struggling with summer temperatures in excess of 40oand grapes that ripen too quickly to retain all-important acidity. As a result, in recognition of our exceptional growing conditions, renowned Champagne houses like Pommery and Taittinger now own vineyards in Southern England.
 
 It’s a well-earned compliment. Our vineyards become ever more precious as our wines gain more plaudits. And those plaudits are coming thick and fast. Not only have English sparkling wines been consistently beating Champagnes in blind tastings for the last few years, but they also regularly scoop the wine world’s most prestigious awards.In fact, as far back as 2010, Ridgeview made history when our[Blanc de Blancs](/wine/blanc-de-blancs/)was crowned Decanter’s World’s Best Sparkling Wine – a first for any English wine.
+:::
 
 ## What does English sparkling taste like?
 
@@ -40,7 +42,8 @@ Fruity freshness is the defining feature of English sparkling wines . Beyond tha
 
 For instance, some growing regions produce grapes with riper fruit flavours; others give more lean, steely, refreshing characters. The best producers tend to mix these different qualities into their blend to add complexity and balance to the final wines – try our award-winning[Blanc de Noirs](/wine/blanc-de-noirs/)to taste the heights English grapes are capable of reaching!Ageing is another big variable in how English sparkling wines taste. Some producers like to mature their wines for many years, generating more of those delicious bakery-shop flavours. Others prefer to keep the focus on fruit purity by ageing for less than a year.
 
-![](/images/articles/english-sparkling-wine-guide/inline-4.webp)
+:::side-by-side image-right
+[![](/images/articles/english-sparkling-wine-guide/inline-3.webp)](/wine/blanc-de-blancs/)
 
 ## Which grape varieties are used in English sparkling wines?
 
@@ -51,6 +54,7 @@ Chardonnay is the white grape of the trio, often said to bring elegance to the b
 [Pinot Noir](/beyond-the-bottle/pinot-noir-grape-guide/)and Pinot Meunier are both black grapes, making them the key component of rosé sparkling wines like our celebrated[Rosé de Noirs](/wine/rose-de-noir/). Nevertheless, when pressed gently to leave the colour compounds in their skins, both are also used in most white English sparkling wines.
 
 Pinot Noir’s role is to add structure, body and spicy red fruit flavours. Pinot Meunier is a soft and supple counterpart, bringing sweeter red fruits, along with the occasional floral edge.
+:::
 
 ## English sparkling wine growing regions
 
@@ -60,15 +64,14 @@ Kent and Sussex sparkling wines also derive from the same patchwork of chalk and
 
 This has led to an incredible diversity of English growing conditions, all imprinting subtly different characters on the wines they produce. Here at Ridgeview, with our unwavering focus on quality, we make the most of the possibilities on offer by working withgrape growers and partner vineyardsacross the whole of Southern England. This allows us to select only the finest grapes with the exact characteristics we want to bring to our wines.
 
-![Tinwood Wine Estate Vineyard](/images/articles/english-sparkling-wine-guide/inline-5.webp)
+[![Tinwood Wine Estate Vineyard](/images/articles/english-sparkling-wine-guide/inline-4.webp)](/wine/sparkling-red-reserve/)
 
-![](/images/articles/english-sparkling-wine-guide/inline-6.webp)
+[![](/images/articles/english-sparkling-wine-guide/inline-5.webp)](/wine/sparkling-red-reserve/)
 
-![](/images/articles/english-sparkling-wine-guide/inline-7.webp)
+[![](/images/articles/english-sparkling-wine-guide/inline-6.webp)](/wine/sparkling-red-reserve/)
 
-[![Ridgeview Sparkling Red Reserve](/images/articles/english-sparkling-wine-guide/inline-8.webp)](/wine/sparkling-red-reserve/)
-
-[![Ridgeview Oak Reserve English sparkling wine](/images/articles/english-sparkling-wine-guide/inline-9.webp)](/wine/oak-reserve/)
+:::side-by-side image-right
+[![Ridgeview Sparkling Red Reserve](/images/articles/english-sparkling-wine-guide/inline-7.webp)](/wine/sparkling-red-reserve/)
 
 ## The future of English sparkling wine
 
@@ -79,6 +82,7 @@ On the production side, yet more brilliant vineyard sites are being found, more 
 Meanwhile, quality producers are increasingly looking at English sparkling wines the right way, with respect for people and the planet. Sustainability is a growing focus. As a certified B Corp and accredited member of Sustainable Wines of Great Britain, Ridgeview is leading the way in this regard too.
 
 The rise of English sparkling wine is a story we’re immensely proud to be part of, and we’re delighted to be welcoming new converts every day. So whether you’re gifting a bottle of something special or savouring it for yourself, this is definitely the time to be getting in on the buzz surrounding English sparkling wine.
+:::
 
 ## Essential sparkling wine terms
 

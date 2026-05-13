@@ -20,6 +20,7 @@ In partnership with Plumpton, we have joined the [National Apprenticeships Schem
 
 In 2021, we launched the Ridgeview Harvest Academy to support and encourage local individuals, who were out of work, to explore a career in English wine. We were delighted to offer all interested participants paid employment at Ridgeview during our 2021 harvest, joining us as press loaders and pickers.
 
+:::side-by-side image-left
 ![Tamara Roberts, CEO Ridgeview Wine Estate, Sussex, England](/images/articles/inspiring-the-next-generation-for-english-wine/inline-5.webp)
 
 Ridgeview’s CEO, Tamara Roberts, is a member of the advisory board of [Sussex University Business School](https://www.sussex.ac.uk/business-school/about/advisory-board) and is passionate about creating opportunities for meaningful work experience, guiding and informing education strategy and strengthening connections between industry, business and students.
@@ -27,7 +28,9 @@ Ridgeview’s CEO, Tamara Roberts, is a member of the advisory board of [Sussex 
 Tamara regularly attends career events at local secondary schools, such as [Burgess Hill Academy](https://www.theburgesshillacademy.org.uk/) and [Downlands](https://www.downlands.w-sussex.sch.uk/), to inspire students to broaden their horizons and consider a career in the English Wine Industry, at a pivotal time in their lives.
 
 You can often find us as friendly faces at career events or local education initiatives. Highlights include our involvement with East Sussex County Council’s [Open Doors Project](https://www.eastsussex.gov.uk/business/support/employment-skills-training/skills-east-sussex/open-doors), enabling local school pupils to visit Ridgeview and experience the winemaking world for the first-time to shape and inspire their future.
+:::
 
+:::side-by-side image-right
 ![Mardi Roberts, Director of Communications Ridgeview Wine Estate sussex England](/images/articles/inspiring-the-next-generation-for-english-wine/inline-6.webp)
 
 Mardi Roberts, Ridgeview’s Director of Communications, is a Business Mentor for [Shoreham Academy](https://www.shoreham-academy.org/). Through innovative and inspiring work experience projects, she nurtures young people to realise and develop their skills.
@@ -35,6 +38,7 @@ Mardi Roberts, Ridgeview’s Director of Communications, is a Business Mentor fo
 Mardi’s ‘Could you be a Winemaker?’ Work Place Live event, challenges students to discover their palate through a series of blind food tastings, designed to test their ability to taste and smell. Mardi is passionate about demystifying the wine industry and encouraging young people to bring a fresh perspective to this vibrant sector.
 
 Ridgeview strongly believes in the importance of sharing our passion and expertise. The future of the English Wine Industry shines brightly and we are dedicated to inspiring the next generation. We open doors, nurture passionate people and pave the way for fresh talent who can take our vibrant sector to new and exciting heights.
+:::
 
 ## Discover More
 

@@ -12,13 +12,13 @@ Dive into our wine wisdom articles designed to open your mind and your palate to
 
 ![](/images/articles/wine-wisdom/inline-3.webp)
 
-![Ridgeview Wine Estate, English Sparkling Wine, 3 Bottles in front of racked bottles behind](/images/articles/wine-wisdom/inline-4.webp)
+[![Ridgeview Wine Estate, English Sparkling Wine, 3 Bottles in front of racked bottles behind](/images/articles/wine-wisdom/inline-4.webp)](/wine/blanc-de-blancs/)
 
-![Ridgeview Wine Estate, English Sparkling Wine in a glass](/images/articles/wine-wisdom/inline-5.webp)
+[![Ridgeview Wine Estate, English Sparkling Wine in a glass](/images/articles/wine-wisdom/inline-5.webp)](/wine/blanc-de-blancs/)
 
-![Hands holding two bottles of rosé wine over plates of food.](/images/articles/wine-wisdom/inline-6.webp)
+[![Hands holding two bottles of rosé wine over plates of food.](/images/articles/wine-wisdom/inline-6.webp)](/wine/blanc-de-blancs/)
 
-![A birds eye view of someone holding a bottle over a table](/images/articles/wine-wisdom/inline-7.webp)
+[![A birds eye view of someone holding a bottle over a table](/images/articles/wine-wisdom/inline-7.webp)](/wine/blanc-de-blancs/)
 
 [![Ridgeview Wine Estate, Blanc de Blancs](/images/articles/wine-wisdom/inline-8.webp)](/wine/blanc-de-blancs/)
 

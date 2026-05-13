@@ -2,6 +2,7 @@
 slug: exclusive-demi-sec
 ---
 
+:::side-by-side image-left
 ![](/images/articles/exclusive-demi-sec/inline-1.webp)
 
 ## THE WINEMAKER’S TOUCH
@@ -13,10 +14,10 @@ A rare example of a handcrafted English Demi-Sec, this wine has a masterful blen
 *In many ways, they’re helping shape our evolution, and we’re moving forward together – discovering, learning, and growing. The Demi-Sec is the perfect expression of this, as the first exclusive wine crafted especially for our members.”*
 
 **Simon Roberts,****Head Winemaker**
+:::
 
+:::side-by-side image-right
 ![](/images/articles/exclusive-demi-sec/inline-2.webp)
-
-![](/images/articles/exclusive-demi-sec/inline-3.webp)
 
 ## A GLIMPSE INSIDE THE BOTTLE
 
@@ -25,3 +26,4 @@ With a gentle off-dry style, it takes you beyond the familiar – an invitation 
 “I love the way it hits your palate, with ethereal flavours like caramelised peach and honeyed apricot. Sweetness enhances body and texture, bringing out toasty, stewed fruit notes that add a rich, lingering depth – flavours that can’t be found in any other style of sparkling wine.” – **Jack Mankin, Ridgeview Winemaker**
 
 A deliciously foodie wine, the balance of sweetness and acidity welcomes a world of food pairing adventures. The balance of sweetness and acidity complements spicy Asian dishes and is sublime with buttery pasties or a traditional afternoon tea. Perfect for popping open at Christmas, it shines alongside creamy blue cheeses and charcuterie platters, or served with a zesty, citrus dessert.
+:::

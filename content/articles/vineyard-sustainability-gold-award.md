@@ -2,6 +2,7 @@
 slug: vineyard-sustainability-gold-award
 ---
 
+:::side-by-side image-left
 ![Matt Strugnell, Vineyard Manager standing amongst the vines smiling](/images/articles/vineyard-sustainability-gold-award/inline-1.webp)
 
 ## Building a Legacy of Sustainability for English Wine
@@ -11,6 +12,7 @@ Established in 2020, SWGB aims to promote sustainability through a robust certif
 “Long-term. Longevity. Sustained. That’s what we’re trying to achieve. Gaining our gold SWGB certification means that we can say with authority that our vineyard is sustainable – one that will keep doing the business for many years.”
 
 Matt Strugnell, Vineyard Manager
+:::
 
 ## Sustainability in Action: Highlights from our vineyard practises
 

@@ -2,6 +2,7 @@
 slug: b-corp-impact-report-2025
 ---
 
+:::side-by-side image-left
 ![Tamara Roberts, CEO Ridgeview Wine Estate Sussex England](/images/articles/b-corp-impact-report-2025/inline-1.webp)
 
 ## A LETTER FROM OUR CEO
@@ -15,6 +16,7 @@ Looking ahead, the introduction of [B Lab’s new standards](https://www.bcorpor
 We’re grateful to everyone who’s part of this journey – our team, our partners and our customers – and we’re looking forward to what comes next.
 
 ![](/images/articles/b-corp-impact-report-2025/inline-2.jpg)
+:::
 
 ## OUR B CORP IMPACT SCORE
 
@@ -44,6 +46,7 @@ Snapshots of progress from the past year. Each show a milestone reached and posi
 
 Strong governance underpins every decision we make, from our commitment to transparency and accountability to how we embed purpose into the fabric of our business. As a family-founded, values-led company we believe in doing things the right way – not just for short-term success, but for long-term impact.
 
+:::side-by-side image-left
 ![](/images/articles/b-corp-impact-report-2025/inline-13.webp)
 
 - Communicate our 2025 Impact Report clearly to stakeholders, highlighting both progress and areas for improvement.
@@ -81,9 +84,11 @@ Digital engagement with our 2024 Impact Report rose significantly compared to 20
 
 - Upgraded from SALSA to BRCGS certification, reflecting broader improvements in governance and quality standards.
 Upgraded from [SALSA](https://www.salsafood.co.uk/) to [BRCGS](https://www.brcgs.com/) certification, reflecting broader improvements in governance and quality standards.
+:::
 
 Our environmental commitments stem from a deep connection to our Sussex estate in the South Downs National Park. Since planting our first vines in 1995, sustainability has been woven into our philosophy. From improving soil health to reducing impact in the winery, we continue to monitor, measure and refine our approach across our entire estate.
 
+:::side-by-side image-right
 ![](/images/articles/b-corp-impact-report-2025/inline-14.webp)
 
 - Reduce our environmental impact across all areas of the business, from vineyard to distribution.
@@ -116,9 +121,11 @@ Improving long-term tree health
 
 - Creating new habitats, including a dedicated pond zone
 Creating new habitats, including a dedicated pond zone
+:::
 
 As a family-founded business, Ridgeview has always been powered by people. We’re committed to creating a workplace where everyone feels valued, supported and able to thrive – personally and professionally. From real living wage commitment to award-winning wellbeing practices, our focus is on fairness, staff recognition and long-term career development.
 
+:::side-by-side image-right
 ![](/images/articles/b-corp-impact-report-2025/inline-15.webp)
 
 - Use [Great Place to Work™](https://www.greatplacetowork.co.uk/) benchmarking to continually improve people practices.
@@ -133,9 +140,11 @@ As a family-founded business, Ridgeview has always been powered by people. We’
 - Introduced Celebration Day – an inclusive extra day’s leave shaped by employee feedback.
 - Received a [Gold Wellbeing Award](https://wellbeingatwork.eastsussex.gov.uk/accredited-employers/gold-award/), one of only a handful of small organisations in East Sussex to receive this.
 - Achieved [Great Place to Work™](https://www.greatplacetowork.co.uk/) accreditation, with 89% of employees rating Ridgeview as a great place to work (vs. 54% UK average), and received multiple [Best Workplace Awards](https://www.greatplacetowork.co.uk/certified-company/1575294) in categories including Wellbeing, Development, and Women.
+:::
 
 Ridgeview is proud to be recognised as a world-class producer of sparkling wines, and we continue to place customer experience at the heart of everything we do. From hospitality to retail, trade and beyond, we’re focused on delivering high-quality, meaningful moments – rooted in care, consistency and connection. We remain committed to building long-term partnerships with shared values at their core.
 
+:::side-by-side image-left
 ![](/images/articles/b-corp-impact-report-2025/inline-16.webp)
 
 - Deliver thoughtful, high-quality customer experiences.
@@ -153,9 +162,11 @@ Create accessible, flexible and engaging customer touchpoints across hospitality
 - Launched a new wine-led tasting menu at The Rows & Vine, developed with our Director of Winemaking to complement our core range and Sussex provenance.
 - Supported customer-led giving through initiatives such as bill donations to [Prept Foundation](https://prept.foundation/), funding Farm to Fork projects in local schools.
 - Introduced a dedicated Customer Ambassador role to streamline communications and improve enquiry response times.
+:::
 
 Ridgeview continues to build a strong, community focus – recognising that our success is deeply connected to the people and places around us. From education to charity and social impact, we believe businesses have a responsibility to contribute meaningfully to society. Community is central to how we operate, collaborate and grow.
 
+:::side-by-side image-right
 ![](/images/articles/b-corp-impact-report-2025/inline-17.webp)
 
 - Drive long-term community impact, with a focus on food security, inclusive education and meaningful local partnerships.
@@ -169,7 +180,9 @@ Ridgeview continues to build a strong, community focus – recognising that our 
 - Donated 49 Tour & Tasting Experiences to support fundraising for over 45 charities.
 - Contributed over £12,000 in financial donations, including £10,000 to [Prept Foundation](https://prept.foundation/) to support community food access programmes.
 - 10 employees took on external leadership roles to help shape local and sector-wide impact.
+:::
 
+:::side-by-side image-left
 ![](/images/articles/b-corp-impact-report-2025/inline-18.webp)
 
 ## A Note from the Roberts Family
@@ -179,9 +192,10 @@ When our family planted Ridgeview’s first vines 30 years ago, producing Englis
 Becoming a B Corp has empowered us to refine how we work, lead with our values, and drive positive change for our people, our community and the land we are custodians of. It’s helped us measure what matters, challenge ourselves and build on our foundations with even greater intention.
 
 Ridgeview has always been about more than exceptional wine – it’s about bringing people together through celebration, connection and shared purpose. That’s what continues to drive us forward. We are committed to leading the way in responsible winemaking whilst staying true to the values that shaped us.
+:::
 
 ## Always Looking Forward
 
 We’re proud of the progress shared here but the work is ongoing. This report marks a moment in time, part of a much longer journey. We’ll continue learning, listening and making considered choices to do better for people, place and planet. We welcome any feedback, reflections or ideas on how we can do better at any stage of the winemaking journey, from grape to glass and everything in between.
 
-Email [[email protected]](/cdn-cgi/l/email-protection#b3daddd5dcf3c1dad7d4d6c5dad6c49dd0dc9dc6d8) to help shape what comes next.
+Email [[email protected]](/cdn-cgi/l/email-protection#83eaede5ecc3f1eae7e4e6f5eae6f4ade0ecadf6e8) to help shape what comes next.

@@ -2,9 +2,8 @@
 slug: english-rose-wine
 ---
 
+:::side-by-side image-left
 [![Fitzrovia Rosé, English Sparkling Wine being poured into a glass surrounded by a table of food at our restaurant](/images/articles/english-rose-wine/inline-1.webp)](/wine/fitzrovia/)
-
-[![4 glasses of Fitzrovia Rosé, English Sparkling Wine toasting together over a table of food](/images/articles/english-rose-wine/inline-2.webp)](/wine/fitzrovia/)
 
 ## Fitzrovia Rosé NV
 
@@ -13,10 +12,10 @@ Delighting palates since 2002, Fitzrovia NV is our signature sparkling rosé –
 A delicate cherry blossom hue and fine bubbles give way to notes of wild raspberry, redcurrant and sherbet, finishing with a soft creaminess that gently lingers. Fitzrovia’s versatility is part of its magic: it pairs effortlessly with seafood, creamy cheese or fruit-forward puddings.
 
 It also holds a special place in British wine history, served by Queen Elizabeth II to President Obama at his Buckingham Palace State Banquet.
+:::
 
-![](/images/articles/english-rose-wine/inline-3.webp)
-
-![](/images/articles/english-rose-wine/inline-4.webp)
+:::side-by-side image-right
+[![](/images/articles/english-rose-wine/inline-2.webp)](/wine/rose-de-noirs/)
 
 ## Rosé de Noirs 2020
 
@@ -25,10 +24,10 @@ One of the most hands-on wines in our cellar, this vintage rosé is meticulously
 Crafted from late-picked Pinot fruit, rested on skin and seeds, and aged for three years on lees, this vintage sparkling rosé glows with a peach-gold hue. Redcurrant and wild berries lift from the glass, leading to a layered palate of strawberry, orange peel, cranberry and biscuit. Here, structure meets softness; there’s texture, but with lift. This is a wine that doesn’t demand attention – it earns it.
 
 Best enjoyed with flavour-rich dishes: beetroot tartare, fragrant Thai spices, or smoky, flame-kissed seafood.
+:::
 
-![](/images/articles/english-rose-wine/inline-5.webp)
-
-![](/images/articles/english-rose-wine/inline-6.webp)
+:::side-by-side image-left
+[![](/images/articles/english-rose-wine/inline-3.webp)](/wine/still-english-rose/)
 
 ## Still English Rosé
 
@@ -39,10 +38,10 @@ Inspired by Provence rosé and made from Pinot Précoce (early-ripening Pinot No
 Rose petal pink in the glass, it opens with aromas of watermelon, peach and wild berries. On the palate, juicy cranberry meets a soft creaminess and bright, lifted acidity, making it endlessly pairable.
 
 Exceptionally balanced and quietly expressive, it’s made for food, for sharing, and for those slow, sun-drenched summer moments – from grilled chicken and Provençal vegetables to ripe strawberries and soft cheese.
+:::
 
-[![A hand holding a bottle of Rosé de Noirs above pink flowers outside](/images/articles/english-rose-wine/inline-7.webp)](/wine/rose-de-noirs/)
-
-![Two glasses of rosé with strawberries on the table and a bottle in an ice bucket in the background](/images/articles/english-rose-wine/inline-8.webp)
+:::side-by-side image-right
+[![A hand holding a bottle of Rosé de Noirs above pink flowers outside](/images/articles/english-rose-wine/inline-4.webp)](/wine/rose-de-noirs/)
 
 ## Rosé de Noirs 2016
 
@@ -53,3 +52,4 @@ Crafted from a blend of Pinot Noir and Pinot Meunier, it’s reached a new peak:
 Offered exclusively to estate guests and [OurView Wine Club](https://www.ridgeview.co.uk/ourview-wine-club/) members, this is a rare chance to experience how vintage English rosé can mature into something rare and remarkable.
 
 * Images may not reflect vintage
+:::

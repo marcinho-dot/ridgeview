@@ -8,6 +8,7 @@ First released in 2020 and hailed as a landmark English sparkling wine, the Ridg
 
 Big, bold and unashamedly oaked, this was a wine that pulled no punches. But the Oak Reserve’s journey was far from over – Simon Roberts (Head Winemaker) had much more up his sleeve. We caught up with Simon, for an insider look at the highly anticipated second release of his statement English sparkling wine, The Ridgeview Oak Reserve.
 
+:::side-by-side image-left
 [![Simon Roberts, The Ridgeview Oak Reserve](/images/articles/late-disgorged-oak-reserve/inline-1.webp)](/wine/oak-reserve/)
 
 ## The Evolution of the Oak Reserve
@@ -17,7 +18,9 @@ Big, bold and unashamedly oaked, this was a wine that pulled no punches. But the
 Following an extra three years resting on lees (and a further six months on cork), the wine has subtly transformed. “The oak element has really softened,” says Simon “and the Chardonnay has much more of a voice. The oak still sings out, but as part of an ensemble; it’s far more harmonised with the wine.”
 
 This new limited-edition, late-disgorged expression retains its hallmark oak influence, but is now a far more developed and complex English Sparkling wine. “The nose is beautifully rich, with hints of candied citrus peel and caramelised butter. There’s a smoky, complex palate with notes of vanilla, mace and spiced fruit.”
+:::
 
+:::side-by-side image-right
 [![The Ridgeview Oak Reserve](/images/articles/late-disgorged-oak-reserve/inline-2.webp)](/wine/oak-reserve/)
 
 ## Pushing the boundaries
@@ -25,6 +28,7 @@ This new limited-edition, late-disgorged expression retains its hallmark oak inf
 For Simon, breaking new ground and expressing his artistic influence as a winemaker is a big part of what drives him: “We have a minimal intervention ethos at Ridgeview and there is great beauty in letting the wine speak for itself. But for the Oak Reserve, there is more opportunity to leave a creative imprint and shape the character of the wine. The whole journey of the Oak Reserve is dedicated to craftsmanship. From the cooper who makes and toasts the barrels to the blending and ageing, the Oak Reserve is an artisanal wine.”
 
 Striving for excellence and a pioneering instinct has always been part of Ridgeview’s DNA. To achieve that, Simon tells us, “you have to be open to new ideas and look beyond the expected. As a family business, we have the freedom to try new things and explore different winemaking practices that aren’t necessarily used in sparkling wine. There are ideas we’ve trialled in the past that are now used as standard at Ridgeview – that’s what experimentation is all about.”
+:::
 
 ## ENGLISH SPARKLING WINE, BUT NOT AS YOU KNOW IT
 
@@ -36,7 +40,7 @@ Simon’s passion is infectious, as he shares the personal influences that have 
 
 ## Shop Ridgeview Oak Reserve
 
-![](/images/articles/late-disgorged-oak-reserve/inline-3.webp)
+[![](/images/articles/late-disgorged-oak-reserve/inline-3.webp)](/wine/oak-reserve/)
 
 ### Oak Reserve
 

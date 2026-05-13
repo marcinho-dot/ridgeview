@@ -86,31 +86,99 @@ def detect_no_sku(alt: str, src: str):
     return None
 
 
-# Match a markdown image. We do NOT re-wrap one already inside [...]( ).
-IMG_RE = re.compile(r"(?<!\[)\!\[([^\]]*)\]\(([^)]+)\)")
+# Match a markdown image (line-anchored). We do NOT re-wrap one already
+# inside [...]( ) because the line starts with `[!` not `!`.
+IMG_RE = re.compile(r"^!\[([^\]]*)\]\(([^)]+)\)\s*$")
+
+# Side-by-side fence boundaries — for context-aware detection
+SBS_START = re.compile(r"^:::side-by-side\s+image-(?:left|right)\s*$")
+SBS_END = re.compile(r"^:::\s*$")
+
+
+def find_first_wine_in_text(text: str, available_skus: set):
+    """Scan `text` chronologically (left-to-right) and return the first
+    wine name that matches an available SKU. Returns (sku, matched_pattern)
+    or (None, None). This avoids over-prioritising long patterns when an
+    earlier shorter wine name is the actual subject of the section."""
+    lower = text.lower()
+    best_pos = -1
+    best = (None, None)
+    for pattern, sku in WINE_PATTERNS:
+        if sku not in available_skus:
+            continue
+        idx = lower.find(pattern)
+        if idx == -1:
+            continue
+        if best_pos == -1 or idx < best_pos:
+            best_pos = idx
+            best = (sku, pattern)
+    return best
+
+
+def find_sku_with_context(alt: str, src: str, context: str, available_skus: set):
+    """Try alt-or-src first (highest signal). Fall back to scanning the
+    surrounding side-by-side fence context chronologically and taking the
+    first wine name found there."""
+    s, m = find_sku(alt, src, available_skus)
+    if s:
+        return s, m, "alt-or-src"
+    s, m = find_first_wine_in_text(context, available_skus)
+    if s:
+        return s, m, "context"
+    return None, None, None
+
+
+def index_sbs_fences(lines):
+    """Return a list of (start_idx, end_idx) for each :::side-by-side fence."""
+    fences = []
+    start = None
+    for i, line in enumerate(lines):
+        s = line.strip()
+        if SBS_START.match(s):
+            start = i
+        elif SBS_END.match(s) and start is not None:
+            fences.append((start, i))
+            start = None
+    return fences
+
+
+def context_for_line(lines, line_idx, sbs_ranges):
+    """Return text around line_idx — preferring the enclosing side-by-side
+    fence if there is one, otherwise the next ~10 lines as fallback."""
+    for start, end in sbs_ranges:
+        if start <= line_idx <= end:
+            return "\n".join(lines[start:end + 1])
+    return "\n".join(lines[line_idx:line_idx + 10])
 
 
 def process_file(path: Path, available_skus: set, dry_run: bool):
     text = path.read_text()
+    lines = text.split("\n")
+    sbs_ranges = index_sbs_fences(lines)
+
     linked = []
     no_sku = []
-
-    def replace(m):
+    new_lines = []
+    for i, line in enumerate(lines):
+        m = IMG_RE.match(line.strip())
+        if not m:
+            new_lines.append(line)
+            continue
         alt, src = m.group(1), m.group(2)
-        sku, matched = find_sku(alt, src, available_skus)
+        ctx = context_for_line(lines, i, sbs_ranges)
+        sku, matched, how = find_sku_with_context(alt, src, ctx, available_skus)
         if sku:
-            linked.append((alt, src, sku, matched))
-            return f"[![{alt}]({src})](/wine/{sku}/)"
-        no = detect_no_sku(alt, src)
+            linked.append((alt, src, sku, matched, how))
+            new_lines.append(f"[![{alt}]({src})](/wine/{sku}/)")
+            continue
+        no = detect_no_sku(alt, src) or detect_no_sku("", ctx)
         if no:
             no_sku.append((alt, src, no))
-        return m.group(0)
+        new_lines.append(line)
 
-    new_text = IMG_RE.sub(replace, text)
-
+    new_text = "\n".join(new_lines)
     if new_text != text and not dry_run:
         path.write_text(new_text)
-
     return linked, no_sku
 
 
@@ -136,7 +204,7 @@ def main():
         linked, no_sku = process_file(path, available_skus, args.dry_run)
         if linked:
             print(f"  ✓ {slug}: linked {len(linked)} image(s)")
-            for alt, src, sku, matched in linked:
+            for alt, src, sku, matched, how in linked:
                 by_sku[sku] = by_sku.get(sku, 0) + 1
             total_linked += len(linked)
         if no_sku:

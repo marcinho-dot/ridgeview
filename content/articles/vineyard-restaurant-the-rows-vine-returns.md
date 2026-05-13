@@ -2,6 +2,7 @@
 slug: vineyard-restaurant-the-rows-vine-returns
 ---
 
+:::side-by-side image-right
 ![](/images/articles/vineyard-restaurant-the-rows-vine-returns/inline-1.webp)
 
 ## New Dishes with Depth
@@ -11,7 +12,9 @@ As spring approaches, our estate restaurant, The Rows & Vine, is preparing to re
 This year, we’ve taken a fresh approach, focusing not only on the exceptional wines made on our Sussex estate but also on the unique characteristics of our partner vineyards across Southern England. Martin explains, “We’ve worked closely with our winemaking team to design a menu that complements the wines at every level. The process starts with the wine list—everything else is built around it.”
 
 But it’s not just about Ridgeview’s own estate. This season, we’ve expanded our focus to celebrate the diverse terroirs of our partner vineyards, weaving their unique characteristics into every dish. The result is a menu that tells a story of provenance—one that’s deeply rooted in the land, yet shaped by the subtle differences in climate and soil across the South of England.
+:::
 
+:::side-by-side image-left
 ![](/images/articles/vineyard-restaurant-the-rows-vine-returns/inline-2.webp)
 
 ## Our Wine Leads the Way
@@ -21,7 +24,9 @@ This year’s menu has been a true team effort. Martin and his team worked close
 “It’s not just about having a meal—it’s about creating an experience, with a menu that brings out the best in both the food and the wine.”
 
 New for this season, alongside our signature sharing plates, we’re introducing a paired tasting menu—an immersive journey through flavour and terroir. Each course is expertly matched with a Ridgeview wine flight, designed to reveal unexpected layers of depth and character, enhancing both the dish and the glass.
+:::
 
+:::side-by-side image-right
 ![The Rows & Vine at the Winery English sparkling wine Ridgeview Wine Estate](/images/articles/vineyard-restaurant-the-rows-vine-returns/inline-3.webp)
 
 ## A Playful, Creative Approach
@@ -31,10 +36,10 @@ As with our winemaking philosophy, this year’s menu embraces creativity and ex
 Vibrant, seasonal ingredients take centre stage, with a strong connection to the land and sea. Proximity to the coast plays a role in shaping the menu, with fresh fish featuring prominently. Balancing these flavours with produce from across the region, the menu captures a true sense of place in every dish.
 
 *Images may not reflect current menu. [Click here](https://www.ridgeview.co.uk/visit/the-rows-vine-restaurant/) to explore our current sample menus.*
+:::
 
+:::side-by-side image-left
 ![](/images/articles/vineyard-restaurant-the-rows-vine-returns/inline-4.webp)
-
-![](/images/articles/vineyard-restaurant-the-rows-vine-returns/inline-5.webp)
 
 ## An Immersive Wine Experience
 
@@ -43,3 +48,4 @@ Dining outdoors at Ridgeview is more than just a meal—it’s a sensory experie
 At the heart of it all is the wine. “Our wines are world-class, and that’s what makes the difference,” Martin says. “But it’s also about being deeply embedded in this landscape—you can taste that connection in every dish we serve.”
 
 By celebrating the exceptional grapes grown across the South of England and pairing them with the best local produce, The Rows & Vine offers an experience that reflects the true essence of the region. A celebration of the land, the people, and, most of all, the wines that bring it all to life.
+:::

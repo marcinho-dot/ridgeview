@@ -4,6 +4,7 @@ slug: celebrating-international-womens-day
 
 This International Women’s Day we’re shining a light on some of the incredible women we have the privilege of working with at Ridgeview. “Embracing Equity” is the theme for 2023, and when we amplify women’s voices, we’re one step closer to a diverse, equitable and inclusive world for all. Read on to discover what inspires them and their vision for a future free of bias, where difference is valued and celebrated.
 
+:::side-by-side image-left
 ![](/images/articles/celebrating-international-womens-day/inline-1.webp)
 
 ## Nida Khan | Digital Marketing Manager
@@ -19,7 +20,9 @@ That they lean into their passion and strengths. They focus on what they’re na
 **WHAT’S YOUR SUPERPOWER?**
 
 Choosing courage over comfort, whether that’s participating in a male dominated Dojo or tackling difficult issues that are feared or on hold. I’d say there’s never an end to practising these values.
+:::
 
+:::side-by-side image-right
 ![](/images/articles/celebrating-international-womens-day/inline-2.webp)
 
 **IF I COULD TELL MY YOUNGER SELF ONE THING, IT WOULD BE…**
@@ -31,7 +34,9 @@ Not to react to hesitation but to lean in and embrace it. Tell yourself you’re
 I’ve been very fortunate to know innovative and brave women throughout my life. Their perspective of leadership (regardless of career and personal life) has shown me the importance of finding your voice and being assertive. I’ve learnt that spending time conforming to a preconceived system that doesn’t work for me means it’s harder to create positive influence. So, I visualise a future where women are empowered to make impactful decisions for themselves, and not playing a part in ticking a ‘diversity quota’ box. I want to see women be assertive with their personal values and beliefs without having to compromise, so that they’re seen as role models and their voice is a priority.
 
 This can’t be achieved by putting men down either! My father’s approach towards raising confident and independent daughters has always made me feel empowered. I hope that through teaching self-defence with female run classes, I can inspire women and girls to be strong, fearless and independent. It is an absolute privilege to support other women to show the world who they are, unapologetically, and to have the freedom to live their life, their way.
+:::
 
+:::side-by-side image-left
 ![](/images/articles/celebrating-international-womens-day/inline-3.webp)
 
 ## Jemma Montuschi | Head of Sales and Marketing
@@ -55,7 +60,9 @@ Worry less about what people think of you and follow your dreams with confidence
 **MY VISION FOR THE FUTURE OF WOMEN IS…**
 
 For senior positions to be balanced male/female. For women to be able to return to work after having a family, without having to apologise, take a pay cut or lose their career. We are sent to school, encouraged to go to university or get a career and then asked when we are going to start a family, with little support around getting back into the workplace afterwards.
+:::
 
+:::side-by-side image-right
 ![](/images/articles/celebrating-international-womens-day/inline-4.webp)
 
 ## BECCA MACKIE | VINEYARD ASSISTANT MANAGER
@@ -79,7 +86,9 @@ Travel, travel, travel!
 **AS A WOMAN AT RIDGEVIEW…**
 
 It feels good to be supported to break into the traditionally male dominated industry of production/agriculture.
+:::
 
+:::side-by-side image-left
 ![](/images/articles/celebrating-international-womens-day/inline-5.webp)
 
 ## Karolina Niemyjska | People Administrator
@@ -99,10 +108,10 @@ You are enough.
 **MY VISION FOR THE FUTURE OF WOMEN IS…**
 
 Not having to challenge the stereotypes or prove anything. I want every person to be perceived not by our gender but as individuals.
+:::
 
+:::side-by-side image-right
 ![](/images/articles/celebrating-international-womens-day/inline-6.webp)
-
-![](/images/articles/celebrating-international-womens-day/inline-7.webp)
 
 ## LIZ MORGAN | Technical Winemaker
 
@@ -121,8 +130,10 @@ Follow what interests you the most; there are so many different careers in scien
 **IF I COULD TELL MY YOUNGER SELF ONE THING, IT WOULD BE…**
 
 Don’t be afraid to change direction if you need to, even if it feels like a leap into the unknown!
+:::
 
-![](/images/articles/celebrating-international-womens-day/inline-8.webp)
+:::side-by-side image-left
+![](/images/articles/celebrating-international-womens-day/inline-7.webp)
 
 ## Silvia Perez Del Puerto | Ecommerce Administrator
 
@@ -145,10 +156,11 @@ Everything that is happening will make you who you are and that, it’s a good t
 **WHAT’S YOUR VISION FOR THE FUTURE OF WOMEN?**
 
 We are strong and powerful and we don’t need to be labelled or compared to anything or anyone.
+:::
 
 ## FROM THE RIDGEVIEW FAMILY
 
-![Tamara Roberts & Simon Roberts, Ridgeview Wine Estate England](/images/articles/celebrating-international-womens-day/inline-9.webp)
+![Tamara Roberts & Simon Roberts, Ridgeview Wine Estate England](/images/articles/celebrating-international-womens-day/inline-8.webp)
 
 *From the very start of Ridgeview, our parents led the way, helping to empower women in the workplace.**International Women’s Day is a time to celebrate all the women in our lives, both at work and our family and friends.**Together, with awareness and action, we have the power to create an equitable future for all.*
 

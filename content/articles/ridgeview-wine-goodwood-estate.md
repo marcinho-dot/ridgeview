@@ -2,9 +2,8 @@
 slug: ridgeview-wine-goodwood-estate
 ---
 
+:::side-by-side image-left
 ![](/images/articles/ridgeview-wine-goodwood-estate/inline-1.webp)
-
-![](/images/articles/ridgeview-wine-goodwood-estate/inline-2.webp)
 
 ## Goodwood Estate: A Premier Destination
 
@@ -15,18 +14,23 @@ Ridgeview’s [English sparkling wine](https://www.ridgeview.co.uk/product-categ
 “We’re extremely excited to be working with Goodwood… Our collective focus on quality, passion, authenticity, attention to detail, and the importance of family moments and celebration, epitomise our brand ethos of ‘Life is celebrating’. This is why we see this as just the start of a long-term collaboration with the Goodwood team.”
 
 – Tamara Roberts, Ridgeview CEO
+:::
 
-![](/images/articles/ridgeview-wine-goodwood-estate/inline-3.webp)
-
-![](/images/articles/ridgeview-wine-goodwood-estate/inline-4.webp)
+:::side-by-side image-right
+![](/images/articles/ridgeview-wine-goodwood-estate/inline-2.webp)
 
 ## Collaboration for Celebration
 
 “We are delighted to partner with Ridgeview,” explains Ellie Cundy, General Manager of The Kennels and Hound Lodge – Goodwood’s private members club and luxury accommodation. “Their ethos perfectly aligns with Goodwood’s values and our passion for creating exceptional experiences…we look forward to offering our guests the exquisite taste of Ridgeview wines, enhancing the celebratory atmosphere that is at the heart of Goodwood.”
 
 This partnership marks the beginning of an exciting new chapter for both Ridgeview and the Goodwood Estate. We are delighted to bring our award-winning sparkling wines to this prestigious venue, enhancing our portfolio of incredible places where we bring celebration to life.
+:::
 
 ## A Glimpse of Goodwood - The Ridgeview Experience
+
+![](/images/articles/ridgeview-wine-goodwood-estate/inline-3.webp)
+
+![](/images/articles/ridgeview-wine-goodwood-estate/inline-4.webp)
 
 ![](/images/articles/ridgeview-wine-goodwood-estate/inline-5.webp)
 
@@ -35,7 +39,3 @@ This partnership marks the beginning of an exciting new chapter for both Ridgevi
 ![](/images/articles/ridgeview-wine-goodwood-estate/inline-7.webp)
 
 ![](/images/articles/ridgeview-wine-goodwood-estate/inline-8.webp)
-
-![](/images/articles/ridgeview-wine-goodwood-estate/inline-9.webp)
-
-![](/images/articles/ridgeview-wine-goodwood-estate/inline-10.webp)

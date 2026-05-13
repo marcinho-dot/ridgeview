@@ -108,6 +108,9 @@ UL_RE = re.compile(r"^\s*[-*]\s+(.+)$")
 OL_RE = re.compile(r"^\s*\d+\.\s+(.+)$")
 QUOTE_RE = re.compile(r"^>\s?(.*)$")
 HR_RE = re.compile(r"^[-*]{3,}\s*$")
+# Fenced side-by-side block: :::side-by-side image-{left|right} ... :::
+SBS_START_RE = re.compile(r"^:::side-by-side\s+image-(left|right)\s*$")
+SBS_END_RE = re.compile(r"^:::\s*$")
 
 
 def parse_markdown_body(text, slug):
@@ -159,6 +162,42 @@ def parse_markdown_body(text, slug):
 
     while i < len(lines):
         line = lines[i]
+
+        # Side-by-side fenced block: collect inner lines, parse recursively
+        # as a normal body, extract the (first) image as `image`, the rest
+        # goes into `content`.
+        m = SBS_START_RE.match(line.strip())
+        if m:
+            flush_all()
+            image_side = m.group(1)
+            inner = []
+            i += 1
+            while i < len(lines) and not SBS_END_RE.match(lines[i].strip()):
+                inner.append(lines[i])
+                i += 1
+            i += 1  # consume closing ::: line
+            inner_blocks = parse_markdown_body("\n".join(inner), slug)
+            image_block = None
+            content_blocks = []
+            for ib in inner_blocks:
+                if ib["type"] == "image" and image_block is None:
+                    image_block = ib
+                else:
+                    content_blocks.append(ib)
+            if image_block:
+                img_obj = {"src": image_block["src"], "alt": image_block["alt"]}
+                if image_block.get("href"):
+                    img_obj["href"] = image_block["href"]
+                blocks.append({
+                    "type": "sideBySide",
+                    "imageSide": image_side,
+                    "image": img_obj,
+                    "content": content_blocks,
+                })
+            else:
+                # No image found — degrade gracefully to inline content
+                blocks.extend(inner_blocks)
+            continue
 
         # Blank line — paragraph/list/quote terminator
         if not line.strip():
@@ -330,6 +369,20 @@ def emit_block_ts(block):
     if t == "list":
         items_ts = ", ".join(f'"{to_ts_string(i)}"' for i in block["items"])
         return f'{{ type: "list", ordered: {"true" if block["ordered"] else "false"}, items: [{items_ts}] }}'
+    if t == "sideBySide":
+        img = block["image"]
+        img_parts = [
+            f'src: "{to_ts_string(img["src"])}"',
+            f'alt: "{to_ts_string(img.get("alt", ""))}"',
+        ]
+        if img.get("href"):
+            img_parts.append(f'href: "{to_ts_string(img["href"])}"')
+        img_ts = "{ " + ", ".join(img_parts) + " }"
+        content_ts = ", ".join(emit_block_ts(c) for c in block.get("content", []))
+        return ('{ type: "sideBySide", imageSide: "'
+                + block["imageSide"]
+                + '", image: ' + img_ts
+                + ', content: [' + content_ts + '] }')
     return "{}"
 
 

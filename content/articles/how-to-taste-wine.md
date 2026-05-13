@@ -2,7 +2,8 @@
 slug: how-to-taste-wine
 ---
 
-![](/images/articles/how-to-taste-wine/inline-1.webp)
+:::side-by-side image-left
+[![](/images/articles/how-to-taste-wine/inline-1.webp)](/wine/sparkling-red-reserve/)
 
 ## 1. Set the scene
 
@@ -13,10 +14,10 @@ The right vessel makes a difference too. Flutes are your go-to when pouring spar
 Then there are preparations for the wine itself. For almost all of ourClassic MethodEnglish sparkling wine, that means chilling a bottle down to 5-7oC.The honourable exception is ourSparkling Red Reserve, which should be served at 8-10oC.
 
 Finally, if your tasting session involves more than one wine, you’ll want some palate cleansers like a glass of water and a few dry crackers.Now for the fun part – tasting the wine.
+:::
 
-![](/images/articles/how-to-taste-wine/inline-2.webp)
-
-![](/images/articles/how-to-taste-wine/inline-3.webp)
+:::side-by-side image-right
+[![](/images/articles/how-to-taste-wine/inline-2.webp)](/wine/sparkling-red-reserve/)
 
 ## 2. Observe closely
 
@@ -27,10 +28,10 @@ For Ridgeview’s style of sparkling wine, it should be clear and bright. In ter
 For whites, golden tones can tell you something about the proportion of red grapes in the blend, or perhaps about maturity, since wines tend to burnish with age.
 
 Note the effervescence of the bubbles too. They should form a steady stream of lively little pearls rising up from the base of the glass – a sure sign of quality.
+:::
 
-![](/images/articles/how-to-taste-wine/inline-4.webp)
-
-![](/images/articles/how-to-taste-wine/inline-5.webp)
+:::side-by-side image-left
+![](/images/articles/how-to-taste-wine/inline-3.webp)
 
 ## 3. Take a sniff
 
@@ -41,10 +42,10 @@ It might be worth having a few aroma categories in mind when you’re sniffing. 
 If you feel like you’re having to go hunting to detect anything at all, it may say something about the intensity of the wine.
 
 Or it may be that you need to give the glass a very gentle swirl to agitate the aromas a little more.
+:::
 
-![](/images/articles/how-to-taste-wine/inline-6.webp)
-
-![](/images/articles/how-to-taste-wine/inline-7.webp)
+:::side-by-side image-right
+![](/images/articles/how-to-taste-wine/inline-4.webp)
 
 ## 4. Take a sip
 
@@ -57,14 +58,15 @@ Does it taste the same as it smells? Has anything new arrived on the palate? How
 How a wine ‘finishes’ says a lot about its quality. The longer it lingers pleasantly on the tongue, the better. Some wines can go on an extraordinary odyssey after you’ve swallowed them, with new flavours and impressions emerging and mingling for minutes on end!
 
 High acidity is a hallmark of Ridgeview wines and you’ll also get a strong sense of this on the finish. It’s the refreshing, juicy quality of the wine and you’ll notice it if your mouth waters following the swallowing.
+:::
 
 ## 5. Compare and Contrast
 
 When tasting wine, the only question that really matters is: Do I like it? Your subjective opinion on any wine should be your only steer on whether or not it’s one for you. Of course, you can judge a wine on its individual merits but it can be more rewarding to taste a selection and pick your own personal winner. Often trying wines in sequence is the best way to highlight their relative qualities and point you towards your preferred style. Plus, of course, there’s a lot more fun to be had in the process.
 
-![Ridgeview English sparkling wine cases](/images/articles/how-to-taste-wine/inline-8.jpg)
+![Ridgeview English sparkling wine cases](/images/articles/how-to-taste-wine/inline-5.jpg)
 
-![](/images/articles/how-to-taste-wine/inline-9.webp)
+![](/images/articles/how-to-taste-wine/inline-6.webp)
 
 ## Tastings at Ridgeview
 
@@ -76,19 +78,19 @@ Or for the full Ridgeview experience, why not book yourself onto one of our[Tour
 
 ## Host your own Ridgeview tasting
 
-![](/images/articles/how-to-taste-wine/inline-10.webp)
+![](/images/articles/how-to-taste-wine/inline-7.webp)
 
 ### Ridgeview Mixed Case (Case of 6)
 
 A tasting journey through the elegance and versatility of English sparkling wine, featuring three bottles from our signature range and three from our limited-release vintage collection.
 
-![Ridgeview Signature mixed case English sparkling wine](/images/articles/how-to-taste-wine/inline-11.webp)
+![Ridgeview Signature mixed case English sparkling wine](/images/articles/how-to-taste-wine/inline-8.webp)
 
 ### Signature Mixed Case (Case of 6)
 
 A wonderful introduction to Ridgeview’s most popular collection, each a unique expression of our signature style. A vibrant selection of English sparkling wines, ideal for gifts or celebrations.
 
-![Ridgeview Signature Trio](/images/articles/how-to-taste-wine/inline-12.webp)
+![Ridgeview Signature Trio](/images/articles/how-to-taste-wine/inline-9.webp)
 
 ### Ridgeview Signature Trio
 

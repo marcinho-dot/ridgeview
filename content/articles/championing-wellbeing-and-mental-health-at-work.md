@@ -2,9 +2,8 @@
 slug: championing-wellbeing-and-mental-health-at-work
 ---
 
+:::side-by-side image-right
 ![](/images/articles/championing-wellbeing-and-mental-health-at-work/inline-1.webp)
-
-![](/images/articles/championing-wellbeing-and-mental-health-at-work/inline-2.webp)
 
 ## Simon Larder Head of Facilities and Estate
 
@@ -21,8 +20,10 @@ Start by normalising mental health conversations in meetings or casual check-ins
 By promoting an authentic, open, and supportive culture, we seek to create a space where everyone feels valued and heard.
 
 At Ridgeview, we’re committed to making mental well-being part of our everyday conversations, building resilience together as a team.
+:::
 
-![](/images/articles/championing-wellbeing-and-mental-health-at-work/inline-3.webp)
+:::side-by-side image-left
+![](/images/articles/championing-wellbeing-and-mental-health-at-work/inline-2.webp)
 
 ## Karolina Niemyjska | People & Well-being Co-ordinator
 
@@ -35,3 +36,4 @@ Simple actions can go a long way in creating a culture of care and understanding
 Our focus on small, consistent steps helps nurture a balanced environment where well-being isn’t just a benefit, but a priority. We believe that when our people feel supported, they can achieve their best, bringing greater purpose and joy to their work.
 
 Interested in joining a workplace that champions mental well-being and supports each individual? Explore [careers in wine](https://www.ridgeview.co.uk/about-us/careers/) at Ridgeview and become part of our community.
+:::

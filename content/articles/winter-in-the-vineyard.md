@@ -8,9 +8,8 @@ In winter, they are dormant and channel their resources beneath the surface. The
 
 There is a great beauty to be found in the stark landscape and dramatic skies that surround Ridgeview in January. It is a very different scene to the lush, leafy rows of burgeoning vines and ripening grapes in the summer sun. But is one that encapsulates an authentic and poetic glimpse of the seasonality and endless perseverance of the natural world that Ridgeview works in harmony with.
 
+:::side-by-side image-left
 ![](/images/articles/winter-in-the-vineyard/inline-1.webp)
-
-![Pruning the vines at Ridgeview Wine Estate English sparkling wine Sussex England](/images/articles/winter-in-the-vineyard/inline-2.webp)
 
 ## THE ART OF PRUNING
 
@@ -19,8 +18,10 @@ It is when the vines are at rest that we commence pruning – cutting them back,
 Winter gives us the most exposure and direct contact we can hope to get to the vines. It’s almost like you can see their skeleton, their core. When the vine has foliage, you can only really view how it is performing in the present. But in Winter, you can see the vine’s past and understand how to shape its future.
 
 The team began this season’s pruning in December 2025 and hope to complete this by mid-February 2026. It is both a delicate and thoughtful process but one that needs to be carried out with relative speed, before the challenges of Spring frosts arise. There are over 17,000 vines on our estate which, our small team, aim to prune at a speed of around 30 seconds per vine.
+:::
 
-![Pruning the vines at ridgeview with snips](/images/articles/winter-in-the-vineyard/inline-3.webp)
+:::side-by-side image-right
+![Pruning the vines at ridgeview with snips](/images/articles/winter-in-the-vineyard/inline-2.webp)
 
 ## PRUNING KNOWHOW
 
@@ -31,3 +32,4 @@ The natural resources of a vine is essentially a zero-sum game – there is a fi
 When the vines produce their crop, they need to be able to ripen. And for that to happen, there needs to be enough canopy, which relies on strong shoots. It’s what we call “vine balance”, creating the right shoot, to fruit to leaf ratio.
 
 This is where Ridgeview’s dedication to excellence comes in to play. We focus on achieving the optimum equilibrium between all the characteristics needed for a healthy, flourishing vineyard because the quality of our grapes at harvest is of far greater importance than the quantity that are produced.
+:::

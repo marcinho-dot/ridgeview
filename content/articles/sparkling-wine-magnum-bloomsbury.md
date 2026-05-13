@@ -8,6 +8,7 @@ The ultimate choice for those seeking both size and sophistication, this is a gr
 
 So much more than a larger bottle, magnums are a canvas for developing a wine’s potential, achieving greater precision and poise. In magnum, our signature Bloomsbury blend has developed a delicate balance of mineral freshness, biscuity undertones, and a creamy mousse. Revealing new characteristics that speak to Southern England’s distinctive terroir, this is a showstopping magnum for special occasions, luxury gifting and large gatherings when you want the celebrations to flow.
 
+:::side-by-side image-left
 [![](/images/articles/sparkling-wine-magnum-bloomsbury/inline-1.webp)](/wine/bloomsbury/)
 
 ## SOMMELIER’S CHOICE: SPARKLING WINE OF THE YEAR
@@ -19,3 +20,4 @@ Recognised for its “focused precision” and “bright fruit complexity,” th
 With its food-friendly profile, Magnum Bloomsbury NV is as versatile as it is delightful. Pair it with seafood, light poultry, or serve as an aperitif for an unforgettable start to an evening. The wine’s minerality and fresh acidity make it a brilliant companion to delicate flavours, enhancing the dining experience.
 
 Bringing a Magnum Bloomsbury NV to the party or the table is guaranteed to make a lasting impression. Handcrafted with patience and precision, popping the cork with friends and family is the perfect way to serve.
+:::

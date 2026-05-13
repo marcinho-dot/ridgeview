@@ -1,14 +1,64 @@
 "use client";
 
+import { Fragment } from "react";
 import { basePath } from "@/lib/basePath";
-import type { ArticleBlock } from "@/data/articles";
+import type { ArticleBlock, SideBySideContent } from "@/data/articles";
+
+/**
+ * Parse markdown link syntax [label](href) within plain text and emit
+ * React elements with proper <a> tags. External links (http(s)://) open
+ * in a new tab; same-origin links use basePath.
+ */
+function renderInlineLinks(text: string) {
+  const re = /\[([^\]]+)\]\(([^)\s]+)\)/g;
+  const out: (string | React.ReactNode)[] = [];
+  let lastIdx = 0;
+  let m: RegExpExecArray | null;
+  let key = 0;
+  while ((m = re.exec(text)) !== null) {
+    if (m.index > lastIdx) {
+      out.push(text.slice(lastIdx, m.index));
+    }
+    const label = m[1];
+    const href = m[2];
+    const isExternal = /^https?:\/\//.test(href);
+    out.push(
+      isExternal ? (
+        <a
+          key={key++}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#C8A96E] underline decoration-[#C8A96E]/40 underline-offset-4 hover:decoration-[#C8A96E] transition-colors"
+        >
+          {label}
+        </a>
+      ) : (
+        <a
+          key={key++}
+          href={`${basePath}${href}`}
+          className="text-[#C8A96E] underline decoration-[#C8A96E]/40 underline-offset-4 hover:decoration-[#C8A96E] transition-colors"
+        >
+          {label}
+        </a>
+      ),
+    );
+    lastIdx = m.index + m[0].length;
+  }
+  if (lastIdx < text.length) {
+    out.push(text.slice(lastIdx));
+  }
+  return out.length === 1 && typeof out[0] === "string" ? out[0] : (
+    <Fragment>{out.map((p, i) => (typeof p === "string" ? <Fragment key={i}>{p}</Fragment> : p))}</Fragment>
+  );
+}
 
 /**
  * Renders a structured ArticleBlock[] (defined in src/data/articles.ts)
  * into an editorial-luxury layout matching the Ridgeview design system.
  *
  * Supported block types:
- *   paragraph · heading · image · quote · list
+ *   paragraph · heading · image · quote · list · sideBySide
  *
  * Used on /beyond-the-bottle/<slug>/ detail pages. When an article's
  * body is empty/undefined, the parent page renders a "coming soon"
@@ -19,9 +69,101 @@ interface Props {
   blocks: ArticleBlock[];
 }
 
+/**
+ * Render one of the simple block types (paragraph/heading/list/quote)
+ * inside the text column of a side-by-side. Shared via this helper so
+ * the visual treatment matches the full-width body.
+ */
+function renderContentBlock(block: SideBySideContent, key: number) {
+  switch (block.type) {
+    case "paragraph":
+      return (
+        <p
+          key={key}
+          className="font-body text-white/75 leading-[1.85] mb-6"
+          style={{ fontSize: "clamp(15px, 1.2vw, 17px)", fontWeight: 300 }}
+        >
+          {renderInlineLinks(block.text)}
+        </p>
+      );
+    case "heading": {
+      const sizeClass =
+        block.level === 2
+          ? "text-[clamp(24px,2.6vw,36px)] mb-5 mt-2"
+          : "text-[clamp(20px,2.2vw,28px)] mb-4 mt-2";
+      const Tag = block.level === 2 ? "h2" : "h3";
+      return (
+        <Tag
+          key={key}
+          className={`font-display italic text-cream leading-[1.2] ${sizeClass}`}
+          style={{ fontWeight: 400 }}
+        >
+          {block.text}
+        </Tag>
+      );
+    }
+    case "list": {
+      const Tag = block.ordered ? "ol" : "ul";
+      return (
+        <Tag
+          key={key}
+          className={`mb-6 space-y-2 ${
+            block.ordered ? "list-decimal pl-6" : "pl-0"
+          }`}
+        >
+          {block.items.map((item, j) => (
+            <li
+              key={j}
+              className={`font-body text-white/75 leading-[1.75] ${
+                block.ordered ? "" : "flex items-start gap-3"
+              }`}
+              style={{ fontSize: "clamp(14px, 1.2vw, 16px)", fontWeight: 300 }}
+            >
+              {!block.ordered && (
+                <span
+                  aria-hidden
+                  className="text-[#C8A96E]/70 flex-shrink-0 mt-1"
+                  style={{ fontSize: "11px" }}
+                >
+                  ◆
+                </span>
+              )}
+              <span className={block.ordered ? "" : "flex-1"}>{item}</span>
+            </li>
+          ))}
+        </Tag>
+      );
+    }
+    case "quote":
+      return (
+        <blockquote
+          key={key}
+          className="relative my-6 pl-6 border-l-2 border-[#C8A96E]/40"
+        >
+          <p
+            className="font-display italic text-cream leading-[1.4]"
+            style={{ fontSize: "clamp(18px, 1.8vw, 22px)", fontWeight: 400 }}
+          >
+            &ldquo;{block.text}&rdquo;
+          </p>
+          {block.attribution && (
+            <p
+              className="font-body text-[#C8A96E]/85 uppercase tracking-[0.22em] mt-3"
+              style={{ fontSize: "10px" }}
+            >
+              — {block.attribution}
+            </p>
+          )}
+        </blockquote>
+      );
+    default:
+      return null;
+  }
+}
+
 export function ArticleBodyRenderer({ blocks }: Props) {
   return (
-    <div className="max-w-[720px] mx-auto px-6 md:px-0">
+    <div className="max-w-[1100px] mx-auto px-6 md:px-0">
       {blocks.map((block, i) => {
         switch (block.type) {
           case "paragraph":
@@ -34,7 +176,7 @@ export function ArticleBodyRenderer({ blocks }: Props) {
                   fontWeight: 300,
                 }}
               >
-                {block.text}
+                {renderInlineLinks(block.text)}
               </p>
             );
 
@@ -156,6 +298,46 @@ export function ArticleBodyRenderer({ blocks }: Props) {
                   </li>
                 ))}
               </Tag>
+            );
+          }
+
+          case "sideBySide": {
+            const imgEl = (
+              <div className="relative aspect-[4/3] overflow-hidden bg-[#0a0a0a] rounded-sm group">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`${basePath}${block.image.src}`}
+                  alt={block.image.alt}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                />
+              </div>
+            );
+            const wrappedImg = block.image.href ? (
+              <a
+                href={`${basePath}${block.image.href}`}
+                aria-label={block.image.alt || "View product"}
+                className="block"
+              >
+                {imgEl}
+              </a>
+            ) : (
+              imgEl
+            );
+            const imageOnLeft = block.imageSide === "left";
+            return (
+              <div
+                key={i}
+                className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center my-14 md:my-20"
+              >
+                {/* Always image-on-top on mobile (DOM order); md:order
+                    swaps left/right on desktop per imageSide. */}
+                <div className={imageOnLeft ? "md:order-1" : "md:order-2"}>
+                  {wrappedImg}
+                </div>
+                <div className={imageOnLeft ? "md:order-2" : "md:order-1"}>
+                  {block.content.map((c, j) => renderContentBlock(c, j))}
+                </div>
+              </div>
             );
           }
 

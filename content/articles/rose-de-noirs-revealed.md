@@ -2,7 +2,8 @@
 slug: rose-de-noirs-revealed
 ---
 
-![Two glasses of rosé with strawberries on the table and a bottle in an ice bucket in the background](/images/articles/rose-de-noirs-revealed/inline-1.webp)
+:::side-by-side image-left
+[![Two glasses of rosé with strawberries on the table and a bottle in an ice bucket in the background](/images/articles/rose-de-noirs-revealed/inline-1.webp)](/wine/rose-de-noirs/)
 
 ## Rosé de Noirs: A sparkling delicacy
 
@@ -13,8 +14,10 @@ Subtle hints of orange, cranberry, and biscuit add layers of intrigue, while a s
 *“I look for lots of black cherry, redcurrant and strawberry notes with a savouriness that comes with really ripe pinots. After three years ageing on lees, our Rosé de Noirs develops an enticing spectrum of flavour, aroma and texture. It’s a total delight to drink.”*
 
 *–***Simon Roberts, Head Winemaker**
+:::
 
-![A bunch of Pinot grapes on a wooden table](/images/articles/rose-de-noirs-revealed/inline-2.webp)
+:::side-by-side image-right
+[![A bunch of Pinot grapes on a wooden table](/images/articles/rose-de-noirs-revealed/inline-2.webp)](/wine/rose-de-noirs/)
 
 ## Our Secret Saignée Method
 
@@ -23,8 +26,10 @@ An enigmatic expression of winemaking expertise, Ridgeview Rosé de Noirs is mad
 It all starts with our ripest Pinot fruit, the last grapes that we pick during harvest. They rest in crates overnight, and the following day, before we load them into the press to sit on whole bunches, in contact with skin and seeds.
 
 This is all about extracting that magical rosé colour and a depth of flavour found only in the finest of Rosé de Noirs bottlings. Once the juice strikes a perfect balance between character and colour – we begin to press.
+:::
 
-![](/images/articles/rose-de-noirs-revealed/inline-3.webp)
+:::side-by-side image-left
+[![](/images/articles/rose-de-noirs-revealed/inline-3.webp)](/wine/rose-de-noirs/)
 
 ## Tradition, Refined
 
@@ -39,6 +44,7 @@ Considered a jewel in the crown of a winemaker’s portfolio, rosé is a window 
 Inspired by the illustrious rosé styles from around the world, Ridgeview Rosé de Noirs elegantly balances depth with delicacy. Refreshingly crisp, fragrant and fruit-driven it is a delightfully versatile English sparkling wine that delights in different ways throughout the seasons.
 
 A standout sparkling wine for summer celebrations, Rosé de Noirs brings so much to the table when it comes to cuisine. Not only delightful with dessert, there are food pairing gems to be found well beyond pudding. Culinary companions include fragrant Thai dishes, smoky barbeque flavours and a bold beetroot tartar.
+:::
 
 ## The Expert's Choice
 
@@ -56,13 +62,13 @@ Richard Bamfield MW, The Finest Bubble
 
 Alive with vibrant fruit flavours and a creamy palate of peach, cherry and almond. An elegant, grown-up, serious English sparkling rosé.
 
-![](/images/articles/rose-de-noirs-revealed/inline-5.webp)
+[![](/images/articles/rose-de-noirs-revealed/inline-5.webp)](/wine/fitzrovia/)
 
 ### Rosé Duo
 
 Two unique expressions of luxurious English sparkling rosé. Fitzrovia Rosé NV is fresh and fruit-driven, whilst our vintage Rosé de Noirs has a complex, creamy palate of peach, cherry and almond.
 
-![Ridgeview Rose de Noir Vintage case English sparkling wine](/images/articles/rose-de-noirs-revealed/inline-6.webp)
+[![Ridgeview Rose de Noir Vintage case English sparkling wine](/images/articles/rose-de-noirs-revealed/inline-6.webp)](/wine/rose-de-noirs/)
 
 ### Rosé de Noirs (Case of 6)
 

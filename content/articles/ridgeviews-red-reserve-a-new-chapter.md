@@ -2,6 +2,7 @@
 slug: ridgeviews-red-reserve-a-new-chapter
 ---
 
+:::side-by-side image-left
 [![Simon Roberts, Ridgeview Head Winemaker smiling with Red Reserve](/images/articles/ridgeviews-red-reserve-a-new-chapter/inline-1.webp)](/wine/sparkling-red-reserve/)
 
 ## THE ROOTS OF RIDGEVIEW’S RED RESERVE
@@ -11,15 +12,19 @@ Winner of Wine GB’s inaugural [Pioneer Trophy](https://winegb.co.uk/winegb-awa
 Personal to Simon’s own family story, the [Red Reserve’s](/wine/red-reserve/) roots trace back to the formative chapter of his winemaking career. Fresh from viticultural studies at [Plumpton College](https://www.plumpton.ac.uk/courses/wine-division/), Simon journeyed to Victoria, Australia to join experimental vineyard and winery, [Brown Brothers](https://www.brownbrothers.com.au/), for Harvest 1999. It was here he met Mardi (now his wife and Brand Ambassador & Director of PR at Ridgeview) who introduced him to the wonders of Australian sparkling Shiraz.
 
 “I’d never tasted a sparkling red before and just completely fell in love with it. It challenged everything I thought I knew about traditional winemaking. It lit a creative spark in me and ever since, I’ve wanted to craft an English sparkling red to captivate others in the same way.”
+:::
 
-![](/images/articles/ridgeviews-red-reserve-a-new-chapter/inline-2.webp)
+:::side-by-side image-right
+[![](/images/articles/ridgeviews-red-reserve-a-new-chapter/inline-2.webp)](/wine/sparkling-red-reserve/)
 
 ## FROM INSPIRATION TO INCEPTION
 
 There’s a particular moment that stands out for Simon, when he knew the time was right for the Red Reserve to begin: “2020 was a fantastic English summer – long, hot and dry. We were pressing Pinot Noir from a [vineyard in Suffolk](/beyond-the-bottle/our-grape-growers/) and the juice coming out the press was just incredible. We knew we had something amazing on our hands.”
 
 With the world in lockdown, Simon and his team found themselves with time to focus on winemaking elements they’d always been longing to explore. “It was the first lockdown harvest and the world was turned upside down” as Simon recalls, “but it gave us the freedom to focus on new techniques and unexplored areas. That’s when things started to really come together for the Ridgeview Red Reserve. The Pinot fruit was just out of this world and we knew we had to create something truly memorable with it.”
+:::
 
+:::side-by-side image-left
 [![Ridgeview Sparkling Red Reserve in the glass](/images/articles/ridgeviews-red-reserve-a-new-chapter/inline-3.webp)](/wine/sparkling-red-reserve/)
 
 ## INSIDE THE BOTTLE
@@ -29,3 +34,4 @@ A love-letter to England’s very best Pinot Noir grapes, the finest fruit is se
 Showcasing Ridgeview’s signature complexity, fruits of the forest run throughout this deeply layered sparkling red. Highly aromatic with wild blackberry, vanilla and cherry on the nose. “There is such an interesting streak of pomegranate on the palate” Simon notes, “and a sweet, peppery spice.” As for the finish, it’s deeply textured and long-lingering, leaving you eager to savour more.
 
 Pinot Noir is renowned for its versatility when it comes to food. The Red Reserve sits beautifully next to blue cheese, charcuterie and umami-rich Asian flavours. We asked Simon for a standout food pairing recommendation, and he didn’t hesitate: “It’s got to be a BBQ – imagine burgers, smoky flavours and marinated meats grilled over hot coals.” Add in friends and family celebrating together (plus a bit of British sunshine!) and you’ve got yourself a recipe for a fantastic time for all.
+:::

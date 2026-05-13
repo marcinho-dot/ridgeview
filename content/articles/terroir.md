@@ -2,6 +2,7 @@
 slug: terroir
 ---
 
+:::side-by-side image-right
 ![Ridgeview Wine Estate, Chardonnay Vines](/images/articles/terroir/inline-1.webp)
 
 ## What is terroir?
@@ -17,8 +18,10 @@ So what are the key components of terroir? The natural factors include:
 - **Elevation –**How far above sea level is the vineyard? Elevated sites are typically cooler, especially at night, and this has a big impact on grape-ripening.
 - **T opography –**The overall lay of the land. Is the vineyard on a slope? Which way does the slope face? Are there any hills or woods or bodies of water nearby that may affect the microclimate?
 But there is also a human hand at play, as Simon explains, “the way the fields, the soil and the farm are looked after has a massive influence. What you do and don’t put into the land, how you till it or don’t till it… all those human interventions have an impact on the land and the plants. That must be expressed in the juice.”
+:::
 
-![Ridgeview Wine Estate Chardonnay Vineyard](/images/articles/terroir/inline-2.webp)
+:::side-by-side image-left
+[![Ridgeview Wine Estate Chardonnay Vineyard](/images/articles/terroir/inline-2.webp)](/wine/blanc-de-blancs/)
 
 ## What distinguishes the Ridgeview terroir?
 
@@ -27,7 +30,9 @@ Our estate-grown grapes – and thus the Ridgeview terroir – are present in al
 First, we have an excellent microclimate. Ditchling Beacon to the south provides us with a handy weather shadow. Simon explains: “A lot of the summer weather comes from the southeast to southwest. As it comes in over the Downs, you can see it break over the Beacon. So it can be raining in Lewes or Burgess Hill but here it’s comparatively dry.”
 
 Being on a gentle slope just north of the South Downs also helps. “We don’t get all those frosts rolling down in the spring, and we’re relatively low-altitude. The top of the Chardonnay field is 70 metres, the bottom 50 metres.”
+:::
 
+:::side-by-side image-right
 ![Ridgeview Wine Estate Vineyard Terroir](/images/articles/terroir/inline-3.webp)
 
 ## What about soil?
@@ -41,10 +46,10 @@ This isn’t to say our terroir is entirely unconnected to Champagne’s. As Sim
 Simon is also certain that our sustainable approach contributes to our terroir. “From day one, we decided as a family to be responsible farmers. We are custodians of the land and everything we do has to have respect for our soil.”
 
 That responsibility steers every decision we make in the vineyard, from our early adoption of[sustainable spraying technology](https://mag.sommtv.com/2022/08/ridgeview-wine-estate/)to our recent switch to[regenerative pruning](/beyond-the-bottle/sustainable-wine-pruning-for-the-future/).
+:::
 
+:::side-by-side image-left
 ![Tinwood Wine Estate Vineyard](/images/articles/terroir/inline-4.webp)
-
-![The vines at Castle Brook Vineyard](/images/articles/terroir/inline-5.webp)
 
 ## Terroir and our partners growers
 
@@ -57,6 +62,7 @@ How do those terroir conditions affect grape characters? Here’s a snapshot fro
 *“Generally the fruit from Suffolk tends to be riper, more tropical, lots of mangoes, lychees and pineapple. Chardonnay from Kent and Essex has a zippy citrus flavour profile. Pinot Noir from Sussex and Hampshire tends to be more savoury, while you get more cherries, blackcurrants and fruits of the forest from East Anglia.”*
 
 One interesting discovery we’ve made with our growing partners is that terroir doesn’t always follow received wisdom about growing conditions.For instance,[Oncoland](/beyond-the-bottle/ridgeviews-partner-vineyards-oncoland/)in Kent supplies us with gorgeously ripe and complex Chardonnay grapes whose tropical, candied-fruit notes are quite at odds with the high altitude and flint-chalk soils of the vineyard.
+:::
 
 ## How does terroir influence our winemaking approach?
 
@@ -72,37 +78,37 @@ If you’d like to see magic terroir in action at our beautiful estate vineyards
 
 ## Explore Ridgeview Wine
 
-[![Blanc de Blancs Bottle with Box](/images/articles/terroir/inline-6.webp)](/wine/blanc-de-blancs/)
+[![Blanc de Blancs Bottle with Box](/images/articles/terroir/inline-5.webp)](/wine/blanc-de-blancs/)
 
 ### Blanc de Blancs
 
 Our flagship, single estate vintage wine from the finest grapes from our home vineyard. Pure, elegant and complex with hints of fresh honey, apricot and brioche.
 
-![](/images/articles/terroir/inline-7.webp)
+[![](/images/articles/terroir/inline-6.webp)](/wine/bloomsbury/)
 
 ### Bloomsbury NV
 
 Our bestselling fresh and fruit-forward English sparkling wine, with notes of citrus zest, pear and honey. A delightful aperitif and delicious with canapés.
 
-![Limited Edition Bottle Trio with Boxes](/images/articles/terroir/inline-8.webp)
+[![Limited Edition Bottle Trio with Boxes](/images/articles/terroir/inline-7.webp)](/wine/blanc-de-blancs/)
 
 ### Limited Release Trio
 
 An elegant and complex trio of our finest vintage English sparkling wine. Featuring our limited-release Blanc de Blancs, Blanc de Noirs and Rosé de Noirs.
 
-[![Ridgeview Fitzrovia Rose NV English sparkling wine](/images/articles/terroir/inline-9.webp)](/wine/fitzrovia/)
+[![Ridgeview Fitzrovia Rose NV English sparkling wine](/images/articles/terroir/inline-8.webp)](/wine/fitzrovia/)
 
 ### Fitzrovia Rosé NV
 
 A fresh and fruit-driven English sparkling rosé. Full of sunshine and celebration, featuring wild raspberry, honeyed redcurrant and notes of summer fruit.
 
-![Ridgeview English Sparkling Wine](/images/articles/terroir/inline-10.webp)
+[![Ridgeview English Sparkling Wine](/images/articles/terroir/inline-9.webp)](/wine/blanc-de-blancs/)
 
 ### Blanc de Blancs 2010 Magnum
 
 Made exclusively made from our estate’s finest Chardonnay grapes. Aged on lees for over 12 years, there are rich layers of lemon blossom, honeyed orchard fruit with spiced baked apple and biscotti.
 
-![](/images/articles/terroir/inline-11.webp)
+[![](/images/articles/terroir/inline-10.webp)](/wine/sparkling-red-reserve/)
 
 ### Sparkling Red Reserve
 

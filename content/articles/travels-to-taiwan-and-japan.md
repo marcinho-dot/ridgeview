@@ -2,9 +2,8 @@
 slug: travels-to-taiwan-and-japan
 ---
 
+:::side-by-side image-left
 ![](/images/articles/travels-to-taiwan-and-japan/inline-1.webp)
-
-![](/images/articles/travels-to-taiwan-and-japan/inline-2.webp)
 
 ## An inspiring journey through Japan and Taiwan
 
@@ -15,6 +14,7 @@ Touching down in Tokyo for the first stop of my tour was nothing short of a sens
 My first masterclass was a wine pairing over lunch at our distributor’s new restaurant ‘Tank to Table’ – a high-end taproom featuring locally sourced ingredients. It was a real joy to see our wines being well-received here and the subsequent days were filled with more masterclasses, trade visits and delightful dinners. Our wines were consistently praised, and each dish was expertly paired. A special thank you goes to our distributor, the Selesta team, for making me feel so welcome; it truly made the experience special.
 
 During my second week, I journeyed to Taiwan to meet our distributors at Dixit Wines who were nothing short of welcoming. Travelling the length of the island from Taipei to Kaohsiung, I was struck by the breath-taking beauty and the evident influence of both Japan and China, particularly in the delicious cuisine.
+:::
 
 Hosting a masterclass dinner at the Michelin-starred restaurant, Nid, was a highlight of the trip. A remarkable 19-course paired menu (blending French, Japanese, and Chinese cuisines) showcased the versatility of Ridgeview wines. One standout pairing was a truffle and miso broth matched with Ridgeview’s Blanc de Noirs 2014. The earthiness of the truffle complemented the richness of the Pinot Noir superbly. Taiwanese food is a mouthwatering match with Ridgeview wines – the combination of sweet, sour and fresh acidity come together in harmonious balance.
 

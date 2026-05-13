@@ -2,7 +2,8 @@
 slug: valentines-day-delicious-date-night-food-and-wine-pairings
 ---
 
-![Hands holding two bottles of rosé wine over plates of food.](/images/articles/valentines-day-delicious-date-night-food-and-wine-pairings/inline-1.webp)
+:::side-by-side image-left
+[![Hands holding two bottles of rosé wine over plates of food.](/images/articles/valentines-day-delicious-date-night-food-and-wine-pairings/inline-1.webp)](/wine/rose-de-noirs/)
 
 ## The Perfect Pink: Sparkling Rosé
 
@@ -16,10 +17,10 @@ Its creamy, soft mouthfeel and long, balanced finish make it a dream pairing for
 - Roasted beetroot and goat’s cheese tart
 - Eton mess with fresh berries
 And of course, our ever-popular [Fitzrovia Rosé](/wine/fitzrovia-rose/) remains a delightful choice, offering bright fruit character and a crisp finish that pairs beautifully with seafood or light appetisers. It’s also a perfect fruit-driven and moreish aperitif to start your evening.
+:::
 
-![](/images/articles/valentines-day-delicious-date-night-food-and-wine-pairings/inline-2.webp)
-
-![](/images/articles/valentines-day-delicious-date-night-food-and-wine-pairings/inline-3.webp)
+:::side-by-side image-right
+[![](/images/articles/valentines-day-delicious-date-night-food-and-wine-pairings/inline-2.webp)](/wine/cavendish/)
 
 ## Sparkling Whites: The Perfect Match
 
@@ -35,8 +36,10 @@ Or for a chef’s-kiss of a wine, our celebrated [Blanc de Noirs](/wine/blanc-de
 - Roast chicken with truffle mash
 - Creamy wild mushroom risotto
 - Ham hock macaroni cheese
+:::
 
-[![A bottle of Ridgeview's still Chardonnay with a bright blue label, on an oak barrel with Chardonnay grapes and the vineyard in the background.](/images/articles/valentines-day-delicious-date-night-food-and-wine-pairings/inline-4.webp)](/wine/still-chardonnay/)
+:::side-by-side image-left
+[![A bottle of Ridgeview's still Chardonnay with a bright blue label, on an oak barrel with Chardonnay grapes and the vineyard in the background.](/images/articles/valentines-day-delicious-date-night-food-and-wine-pairings/inline-3.webp)](/wine/still-chardonnay/)
 
 ## Still White: Elegant English Chardonnay
 
@@ -51,8 +54,10 @@ Made for sharing, this Chardonnay is available online and at our restaurant, [Th
 - Grilled sea bass with a lemon garlic butter
 - Creamy burrata with heirloom tomatoes
 - Buttery lobster linguine
+:::
 
-![](/images/articles/valentines-day-delicious-date-night-food-and-wine-pairings/inline-5.webp)
+:::side-by-side image-right
+[![](/images/articles/valentines-day-delicious-date-night-food-and-wine-pairings/inline-4.webp)](/wine/sparkling-red-reserve/)
 
 ## Sparkling Red Wine: Deliciously Different
 
@@ -65,3 +70,4 @@ Winner of Wine GB’s inaugural Pioneer Trophy, the Red Reserve is the perfect c
 - Charcuterie boards with blue cheese and cured meats
 - Slow-cooked short ribs with a berry glaze
 - Grilled lamb chops with rosemary and garlic
+:::

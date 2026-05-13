@@ -10,13 +10,13 @@ Congratulations to our Head Winemaker, Simon Roberts, and his talented team whos
 
 ## AND THE AWARDS GO TO...
 
-![Wine GB Trophy Award Logo](/images/articles/wine-awards-2023/inline-1.webp)
+[![Wine GB Trophy Award Logo](/images/articles/wine-awards-2023/inline-1.webp)](/wine/sparkling-red-reserve/)
 
 ### Sparkling Red Reserve
 
 WINEGB | PIONEER TROPHY
 
-![Wine GB Gold Award Logo](/images/articles/wine-awards-2023/inline-2.webp)
+[![Wine GB Gold Award Logo](/images/articles/wine-awards-2023/inline-2.webp)](/wine/sparkling-red-reserve/)
 
 ### Sparkling Red Reserve
 
@@ -30,7 +30,7 @@ WINEGB | BEST BLANC DE NOIRS
 
 WINEGB AWARDS | GOLD MEDAL
 
-![Wine GB Silver Award Logo](/images/articles/wine-awards-2023/inline-3.webp)
+[![Wine GB Silver Award Logo](/images/articles/wine-awards-2023/inline-3.webp)](/wine/bloomsbury/)
 
 ### Bloomsbury NV
 
@@ -40,7 +40,7 @@ WINEGB AWARDS | SILVER MEDAL
 
 WINEGB AWARDS | SILVER MEDAL
 
-![Decanter World Wine Awards Platinum Medal Logo](/images/articles/wine-awards-2023/inline-4.webp)
+[![Decanter World Wine Awards Platinum Medal Logo](/images/articles/wine-awards-2023/inline-4.webp)](/wine/rose-de-noirs/)
 
 ### Rosé de Noirs 2018
 
@@ -56,7 +56,7 @@ DECANTER
 
 ## SHOP OUR AWARD-WINNERS
 
-![](/images/articles/wine-awards-2023/inline-5.webp)
+[![](/images/articles/wine-awards-2023/inline-5.webp)](/wine/sparkling-red-reserve/)
 
 ### Sparkling Red Reserve
 
@@ -68,7 +68,7 @@ A love-letter to England’s finest Pinot grapes. Highly aromatic with vanilla, 
 
 Made from the finest Pinot grapes only in exceptional vintage years. Delightfully food-friendly, the palate bursts with red cherries, almonds and spice.
 
-![](/images/articles/wine-awards-2023/inline-7.webp)
+[![](/images/articles/wine-awards-2023/inline-7.webp)](/wine/bloomsbury/)
 
 ### Bloomsbury NV
 

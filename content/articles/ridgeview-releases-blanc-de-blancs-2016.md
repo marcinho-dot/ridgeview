@@ -2,6 +2,7 @@
 slug: ridgeview-releases-blanc-de-blancs-2016
 ---
 
+:::side-by-side image-right
 ![Ridgeview Chardonnay Grapes at Ridgeview Wine Estate Sussex England](/images/articles/ridgeview-releases-blanc-de-blancs-2016/inline-1.webp)
 
 ## Pure passion and distinction in a glass
@@ -13,14 +14,15 @@ Made exclusively from the finest Chardonnay grapes, grown here in our home viney
 Only ever made in exceptional years, this latest release of our flagship sparkling wine beautifully captures both the unique story of this year in our vineyard and a wealth of dedicated craftsmanship since.
 
 With a limited number of bottles now available, each with at least four years on lees to bring the full depth of complexity, it truly is an exquisite sparkling wine worthy of the greatest of celebrations.
+:::
 
 ![Simon Roberts Director of Winemaking at Ridgeview Wine Estate Sussex England](/images/articles/ridgeview-releases-blanc-de-blancs-2016/inline-2.webp)
 
-![Ridgeview Wine Estate English sparkling wine Sussex England](/images/articles/ridgeview-releases-blanc-de-blancs-2016/inline-3.webp)
+[![Ridgeview Wine Estate English sparkling wine Sussex England](/images/articles/ridgeview-releases-blanc-de-blancs-2016/inline-3.webp)](/wine/blanc-de-blancs/)
 
-![](/images/articles/ridgeview-releases-blanc-de-blancs-2016/inline-4.webp)
+[![](/images/articles/ridgeview-releases-blanc-de-blancs-2016/inline-4.webp)](/wine/blanc-de-blancs/)
 
-![](/images/articles/ridgeview-releases-blanc-de-blancs-2016/inline-5.webp)
+[![](/images/articles/ridgeview-releases-blanc-de-blancs-2016/inline-5.webp)](/wine/blanc-de-blancs/)
 
 ## Tasting Notes
 
@@ -31,7 +33,8 @@ With a limited number of bottles now available, each with at least four years on
 - A rich gold colour with fine persistent bubbles and an elegant mousse.
 [![Blanc de Blancs Bottle with Box](/images/articles/ridgeview-releases-blanc-de-blancs-2016/inline-6.jpg)](/wine/blanc-de-blancs/)
 
-![Ridgeview Wine Estate English sparkling wine Sussex England](/images/articles/ridgeview-releases-blanc-de-blancs-2016/inline-7.webp)
+:::side-by-side image-left
+[![Ridgeview Wine Estate English sparkling wine Sussex England](/images/articles/ridgeview-releases-blanc-de-blancs-2016/inline-7.webp)](/wine/blanc-de-blancs/)
 
 ## Vineyard
 
@@ -48,6 +51,7 @@ A glorious spell of warm, dry and sunny weather in September gifted superior rip
 After meticulous grape-analysis and intensive collaboration between our Vineyard Manager and Director of Winemaking, it was clear that Ridgeview’s 2016 Chardonnay grapes would be earmarked for a Blanc de Blancs of significant note.
 
 Backed by blue skies and dry weather, grapes with sugar and acidity levels that wineries dream of were hand-picked in a glorious Indian Summer.
+:::
 
 > ‘These cool climate conditions coupled with the long growing season, brings a rich complexity to our Blanc de Blancs 2016 and enabled a gentle hint of spice to flourish. With over four years on lees, the depth of these qualities has continued to build.’
 

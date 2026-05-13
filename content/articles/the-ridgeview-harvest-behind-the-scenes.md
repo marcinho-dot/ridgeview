@@ -6,6 +6,7 @@ If you’ve ever found yourself wanting to know more about the world behind your
 
 Read on to discover why, with our harvest highlights from Ridgeview’s specialist team on the ground.
 
+:::side-by-side image-right
 ![](/images/articles/the-ridgeview-harvest-behind-the-scenes/inline-1.webp)
 
 ## The Heart of Our Harvest
@@ -17,7 +18,9 @@ Nothing beats the buzz about the vineyard in the run up to the harvest period �
 Harvest both passes in a flash and lasts for an agonising eternity, balancing on a knife-edge at the mercy of the weather.
 
 It’s an intense period of collaboration between our vineyard and winemaking teams, united by one shared purpose – to produce world-class sparkling wine, working together with passion and care.
+:::
 
+:::side-by-side image-left
 [![Simon Roberts Director of Winemaking at Ridgeview Oak Reserve English sparkling wine](/images/articles/the-ridgeview-harvest-behind-the-scenes/inline-2.webp)](/wine/oak-reserve/)
 
 ## The Count-Down
@@ -27,7 +30,9 @@ The tanks are prepared, ingredients are stocked and our press-loader teams are t
 This year we are excited to have installed new oak barrels from France in the winery, toasted on the inside to enhance the delicate qualities that barrel-fermentation adds to the Ridgeview Oak Reserve.
 
 Our winery team have rehydrated the barrels after their long journey to Ridgeview, ready for their first use in 2021.
+:::
 
+:::side-by-side image-left
 ![Harvest at Ridgeview Wine Estate English sparkling wine Sussex England](/images/articles/the-ridgeview-harvest-behind-the-scenes/inline-3.webp)
 
 ## A day in the life
@@ -37,6 +42,7 @@ Harvest insights from our team who make the magic happen.
 **“At harvest there is an unwavering motivation … someone, somewhere in the future will be enjoying a glass of Ridgeview’s exceptional wine and it all starts with these grapes.”**
 
 **– Matt Strugnell, Vineyard Manager**
+:::
 
 ## SPOTLIGHT ON JACK MANKIN - NIGHT-SHIFT SUPERVISOR (WINERY)
 

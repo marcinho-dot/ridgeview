@@ -152,6 +152,127 @@ def inline_render(tag) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
+def emit_image(el, slug: str, img_idx_ref: list, seen_imgs: set, out: list):
+    """Process one <img> tag. Returns True if emitted, False if skipped."""
+    if any(p.name == "noscript" for p in el.parents):
+        return False
+    src = img_real_src(el)
+    if not src or "placeholder" in src:
+        return False
+    if "icon" in src.lower() or src.endswith(".svg"):
+        return False
+    if src in seen_imgs:
+        return False
+    seen_imgs.add(src)
+    img_idx_ref[0] += 1
+    local = download_image(src, slug, img_idx_ref[0])
+    if local:
+        alt = (el.get("alt") or "").strip()
+        out.append(f"![{alt}]({local})")
+        out.append("")
+        return True
+    return False
+
+
+def emit_block(el, slug: str, img_idx_ref: list, seen_imgs: set, out: list):
+    """Render one HTML element (h2/h3/p/li/img/etc.) to one or more markdown lines."""
+    name = el.name
+    if name == "h1":
+        return
+    elif name == "h2":
+        txt = inline_render(el)
+        if txt:
+            out.append(f"## {txt}")
+            out.append("")
+    elif name == "h3":
+        txt = inline_render(el)
+        if txt:
+            out.append(f"### {txt}")
+            out.append("")
+    elif name == "blockquote":
+        txt = inline_render(el)
+        if txt:
+            out.append(f"> {txt}")
+            out.append("")
+    elif name == "p":
+        if el.find("img"):
+            return
+        txt = inline_render(el)
+        if txt:
+            out.append(txt)
+            out.append("")
+    elif name == "li":
+        ordered = el.parent.name == "ol"
+        prefix = "1. " if ordered else "- "
+        txt = inline_render(el)
+        if txt:
+            out.append(f"{prefix}{txt}")
+    elif name == "img":
+        emit_image(el, slug, img_idx_ref, seen_imgs, out)
+
+
+def parse_side_by_side_module(mod, slug: str, img_idx_ref: list, seen_imgs: set):
+    """Render a side-by-side-module as a fenced :::side-by-side block.
+    Returns the markdown lines list, or None if the module isn't actually a
+    valid side-by-side (e.g. missing image or text half)."""
+    halves = mod.find_all("div", class_=lambda c: c and "half-page" in c)
+    if len(halves) < 2:
+        return None
+
+    image_half = None
+    text_half = None
+    for h in halves:
+        hclasses = " ".join(h.get("class", []))
+        if ("single-image" in hclasses or "image-collage" in hclasses
+                or "image-one" in hclasses or "image-two" in hclasses):
+            if image_half is None:
+                image_half = h
+        else:
+            if text_half is None:
+                text_half = h
+    if image_half is None or text_half is None:
+        return None
+
+    # imageSide is determined by which half visually comes first (order-first
+    # = left column). If image is order-first → "left", else → "right".
+    img_classes = " ".join(image_half.get("class", []))
+    image_side = "left" if "order-first" in img_classes else "right"
+
+    # Render image (only emit the first one if it's a collage)
+    img_lines: list = []
+    for img in image_half.find_all("img"):
+        before = len(img_lines)
+        emit_image(img, slug, img_idx_ref, seen_imgs, img_lines)
+        if len(img_lines) > before:
+            # Got one image — stop, side-by-side is single-image semantics
+            break
+
+    if not img_lines:
+        return None  # nothing renderable, fall back to default handling
+
+    # Render text-half content
+    text_lines: list = []
+    for el in text_half.descendants:
+        if not getattr(el, "name", None):
+            continue
+        emit_block(el, slug, img_idx_ref, seen_imgs, text_lines)
+
+    if not text_lines:
+        return None
+
+    # Compose fenced block
+    block: list = [f":::side-by-side image-{image_side}"]
+    block.extend(l for l in img_lines if l)
+    block.append("")
+    block.extend(text_lines)
+    # Strip trailing blank inside the fence
+    while block and not block[-1].strip():
+        block.pop()
+    block.append(":::")
+    block.append("")
+    return block
+
+
 def parse_article(html: str, slug: str):
     """Walk the modular-content-module blocks of an article page and emit
     markdown lines for the body. Returns the list of markdown lines."""
@@ -161,79 +282,29 @@ def parse_article(html: str, slug: str):
     )
 
     out: list = []
-    img_idx = 0
+    img_idx_ref = [0]
     seen_imgs = set()
 
     for mod in modules:
-        # Skip modules that are obviously navigation / not article content
         classes = " ".join(mod.get("class", []))
         if "hero-content" in classes:
-            # Hero blocks contain just the title and a date — already in articles.ts
             continue
 
-        # Walk every descendant of the module in document order — a single
-        # modular-content-module on this WP theme can hold multiple
-        # inner-container divs (one per "row"), so we can't restrict to
-        # just the first one.
+        # Side-by-side modules render as a fenced :::side-by-side block so
+        # the renderer can do a 2-column grid (text-and-image, not stacked).
+        if "side-by-side-module" in classes:
+            sbs = parse_side_by_side_module(mod, slug, img_idx_ref, seen_imgs)
+            if sbs:
+                out.extend(sbs)
+                continue
+            # Fall through to default if extraction failed
+
+        # Fallback: walk every descendant of the module in document order.
+        # Used for hero-text-only blocks and any non-side-by-side modules.
         for el in mod.descendants:
             if not getattr(el, "name", None):
                 continue
-            name = el.name
-            if name == "h1":
-                # Article H1 is the title — already in articles.ts. Skip.
-                continue
-            elif name == "h2":
-                txt = inline_render(el)
-                if txt:
-                    out.append(f"## {txt}")
-                    out.append("")
-            elif name == "h3":
-                txt = inline_render(el)
-                if txt:
-                    out.append(f"### {txt}")
-                    out.append("")
-            elif name == "blockquote":
-                txt = inline_render(el)
-                if txt:
-                    out.append(f"> {txt}")
-                    out.append("")
-            elif name == "p":
-                # Skip <p> that only contains an image or only whitespace
-                if el.find("img"):
-                    continue
-                txt = inline_render(el)
-                if txt:
-                    out.append(txt)
-                    out.append("")
-            elif name == "li":
-                # Parent is ul or ol
-                ordered = el.parent.name == "ol"
-                prefix = "1. " if ordered else "- "
-                txt = inline_render(el)
-                if txt:
-                    out.append(f"{prefix}{txt}")
-            elif name == "img":
-                # Skip the <noscript> fallback img — same image as the
-                # lazy-loaded one above it.
-                if any(p.name == "noscript" for p in el.parents):
-                    continue
-                src = img_real_src(el)
-                if not src or "placeholder" in src:
-                    continue
-                # Skip tiny/icon images
-                if "icon" in src.lower() or src.endswith(".svg"):
-                    continue
-                # Skip if we already emitted this URL (some modules show
-                # the same image in multiple containers)
-                if src in seen_imgs:
-                    continue
-                seen_imgs.add(src)
-                img_idx += 1
-                local = download_image(src, slug, img_idx)
-                if local:
-                    alt = (el.get("alt") or "").strip()
-                    out.append(f"![{alt}]({local})")
-                    out.append("")
+            emit_block(el, slug, img_idx_ref, seen_imgs, out)
 
         # Blank line between modules for readability
         if out and out[-1] != "":

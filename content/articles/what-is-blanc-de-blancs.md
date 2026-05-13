@@ -6,7 +6,8 @@ If you’re a fan of sparkling wine, then chances are you’ve savoured a glass 
 
 Through the lens of our global award-winning sparkling wine, here’s what you need to know about [English Blanc de Blancs](/wine/blanc-de-blancs/), Ridgeview style…
 
-![Ridgeview Wine Estate, English Sparkling Wine](/images/articles/what-is-blanc-de-blancs/inline-1.webp)
+:::side-by-side image-right
+[![Ridgeview Wine Estate, English Sparkling Wine](/images/articles/what-is-blanc-de-blancs/inline-1.webp)](/wine/blanc-de-blancs/)
 
 ## 1. What is Blanc de Blancs?
 
@@ -15,8 +16,10 @@ Born in the **Champagne** region, the term Blanc de Blancs translates as ‘whit
 This delicate style of sparkling wine is all about purity and finesse. Delicate yet refreshingly bright, Blanc de Blancs is characterised by its crisp acidity, elegant balance and a fresh, fruit-forward flavour palate.
 
 Whilst some winemakers have experimented with different white grape varieties, Ridgeview’s **English Blanc de Blancs** respects tradition, made exclusively from the finest Chardonnay fruit from our home vineyard in Sussex.
+:::
 
-![Ridgeview Wine Estate English Sparkling Wine](/images/articles/what-is-blanc-de-blancs/inline-2.webp)
+:::side-by-side image-left
+[![Ridgeview Wine Estate English Sparkling Wine](/images/articles/what-is-blanc-de-blancs/inline-2.webp)](/wine/blanc-de-blancs/)
 
 ## 2. THE PURITY OF BLANC DE BLANCS
 
@@ -25,6 +28,7 @@ Produced from selected parcels of a single grape variety, grown in a single esta
 The maturity of our heritage vines gives a unique complexity to the juice, creating a deeply layered and textured Blanc de Blancs. Our estate’s proximity to the sea, just 12 miles from the coast, brings a mouth-watering, savoury salinity to the back palate which balances beautifully with the crisp acidity associated with the world’s best Blanc de Blancs.
 
 Paying homage to our vines, our estate and our history, Ridgeview Blanc de Blanc is a pure and authentic reflection of our sense of place, our style and our story.
+:::
 
 ## 3. The Royal Blanc de Blancs Treatment
 
@@ -46,7 +50,8 @@ Alongside our signature Bloomsbury NV, Ridgeview Blanc de Blancs 2016 was served
 
 The Royal Opera House begins serving Ridgeview Blanc de Blancs, alongside Bloomsbury NV and Fitzrovia Rosé NV.
 
-![Ridgeview Wine Estate, English Sparkling Wine](/images/articles/what-is-blanc-de-blancs/inline-3.webp)
+:::side-by-side image-left
+[![Ridgeview Wine Estate, English Sparkling Wine](/images/articles/what-is-blanc-de-blancs/inline-3.webp)](/wine/blanc-de-blancs/)
 
 ## 4. PERFECT FOR PAIRING
 
@@ -55,8 +60,10 @@ Famously food-friendly, Blanc de Blancs is your dream dinner party guest. Oyster
 But for something a little more adventurous, Head Winemaker Simon Roberts, suggests Thai food or Asian flavours: the hint of spice and umami notes make this a mouth-watering match.
 
 When it comes to food pairing, Blanc de Blanc invites experimentation and creativity. *“You do you”* as they say…
+:::
 
-![Ridgeview Wine Estate, English Sparkling Wine](/images/articles/what-is-blanc-de-blancs/inline-4.webp)
+:::side-by-side image-right
+[![Ridgeview Wine Estate, English Sparkling Wine](/images/articles/what-is-blanc-de-blancs/inline-4.webp)](/wine/blanc-de-blancs/)
 
 ## 5. WORTH WAITING FOR
 
@@ -65,6 +72,7 @@ Compelling and complex, Ridgeview’s Blanc de Blancs enjoys the luxury of long 
 Beautifully expressive from the day of release, Ridgeview Blanc de Blancs will continue to develop and delight in different ways throughout its life. Further cork ageing can add a whole new dimension to the wine’s depth, complexity and flavour profile that promises to be well worth the wait.
 
 So if you’re looking for a wine to age gracefully over time, then Blanc de Blancs is hands-down the sparkling wine to go for.
+:::
 
 ## TOP SPOT TO SIP BLANC DE BLANCS
 

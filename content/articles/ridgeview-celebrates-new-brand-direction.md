@@ -6,4 +6,4 @@ slug: ridgeview-celebrates-new-brand-direction
 
 These can be arranged with Ridgeview’s Marketing and Communications Director: Mardi Roberts
 
-[[email protected]](/cdn-cgi/l/email-protection#6e030f1c0a072e1c070a090b18070b19400d01401b05) 01444 242040
+[[email protected]](/cdn-cgi/l/email-protection#04696576606d44766d606361726d61732a676b2a716f) 01444 242040

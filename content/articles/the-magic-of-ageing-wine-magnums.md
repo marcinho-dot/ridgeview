@@ -2,6 +2,7 @@
 slug: the-magic-of-ageing-wine-magnums
 ---
 
+:::side-by-side image-right
 [![Ridgeview Magnum Blanc de Blancs](/images/articles/the-magic-of-ageing-wine-magnums/inline-1.webp)](/wine/blanc-de-blancs/)
 
 ## Magnum Wines and the Art of Ageing
@@ -11,6 +12,7 @@ Popping the cork on a magnum of English sparkling wine is a surefire way to supe
 Twice the size, double the fun. For vintage English sparkling wines such as our Blanc de Blancs Magnum , that’s certainly a big part of the appeal. More glasses poured, more palates pleased, more revelry to share around. And the grandeur of the 1.5L format only adds to its unique charms.However, there is some additional winemaking alchemy taking place inside the bottle that makes a sparkling magnum such a great special-occasion wine, not to mention the perfect wine gift. And it’s all to do with how these wines mature once bottled.
 
 There are two fundamental ageing processes at play inside any bottle of[Classic Method](https://www.the-buyer.net/tasting/new-gb-classic-method-sparkling/)English sparkling wine. Both contribute to the complexity of flavours in the final wine, and both produce markedly different outcomes when they get to work inside a magnum.
+:::
 
 ## Magnum Lees ageing: The gift that keeps on giving
 
@@ -34,8 +36,9 @@ Even after over a dozen years resting quietly in our naturally cool underground 
 
 To understand the beauty maturation in action, compare the tasting notes for our 2010 Blanc de Blancs from its original release a decade ago to its release in magnum in 2023.
 
-![](/images/articles/the-magic-of-ageing-wine-magnums/inline-2.webp)
+[![](/images/articles/the-magic-of-ageing-wine-magnums/inline-2.webp)](/wine/blanc-de-blancs/)
 
+:::side-by-side image-left
 [![Ridgeview Magnum Blanc de Blancs](/images/articles/the-magic-of-ageing-wine-magnums/inline-3.webp)](/wine/blanc-de-blancs/)
 
 ## Wine magnums: A gift for the party season
@@ -45,16 +48,17 @@ Whether you’re buying for yourself or choosing the perfect gift for the Englis
 For festive giving, our magnums come presented in a luxury gift box befitting the sheer quality of the contents. And while it will be hard for anyone to resist the temptation to open it at the earliest opportunity, that slow ageing and astonishing balance mean our magnums will be box-fresh for future celebrations too.
 
 More than anything, it’s a truly special wine gift. This is a rare limited release and aged English sparkling wines of this calibre just don’t come along very often.And don’t forget you can enjoy a 20% discount on this (and all Ridgeview wines) when you join[OurView Wine Club.](https://www.ridgeview.co.uk/ourview-wine-club/)
+:::
 
 ## Shop Ridgeview Limited Edition English Sparkling Wines
 
-![](/images/articles/the-magic-of-ageing-wine-magnums/inline-4.webp)
+[![](/images/articles/the-magic-of-ageing-wine-magnums/inline-4.webp)](/wine/oak-reserve/)
 
 ### Oak Reserve
 
 A limited-edition, late-disgorged bottling of oak barrel fermented Chardonnay. Captivating with aromas of citrus peel and caramelised butter, with a complex, smoky palate.
 
-![](/images/articles/the-magic-of-ageing-wine-magnums/inline-5.webp)
+[![](/images/articles/the-magic-of-ageing-wine-magnums/inline-5.webp)](/wine/sparkling-red-reserve/)
 
 ### Sparkling Red Reserve
 
@@ -78,7 +82,7 @@ Made from the finest Pinot grapes only in exceptional vintage years. Delightfull
 
 Alive with vibrant fruit flavours and a creamy palate of peach, cherry and almond. An elegant, grown-up, serious English sparkling rosé.
 
-![Limited Edition Bottle Trio with Boxes](/images/articles/the-magic-of-ageing-wine-magnums/inline-9.webp)
+[![Limited Edition Bottle Trio with Boxes](/images/articles/the-magic-of-ageing-wine-magnums/inline-9.webp)](/wine/blanc-de-blancs/)
 
 ### Limited Release Trio
 

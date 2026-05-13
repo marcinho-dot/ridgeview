@@ -6,6 +6,7 @@ It takes sustainable vines to make sustainable wines. And as a certified B Corp 
 
 At Ridgeview, Matt Strugnell is the man in charge of that mission. A key member of the team since 2002, Matt was recently appointed Chair of the Viticulture Working Group at Wine GB. His expertise in vineyard sustainability has recently been expanded by working with Vine Master Pruner[Marco Simonit](https://simonitesirch.com/)to refine our pruning methods. We caught up with Matt to learn more about this latest step in oursustainable winejourney…
 
+:::side-by-side image-right
 ![](/images/articles/sustainable-wine-pruning-for-the-future/inline-1.webp)
 
 ## A future rooted in heritage
@@ -21,7 +22,9 @@ These are vines worth preserving. They’re some of England’s oldest and their
 There are many ways to manage a vineyard sustainably, from enhancing microbial life in the soil to protecting the natural habitat above ground. Traditionally there has been less focus on how vines can be managed to stay healthy and productive for longer. This is the big change Marco Simonit is bringing to sustainable wine growers around the world, including Ridgeview.
 
 *“I think if we carried on doing what we’d been doing in the past, maybe now we’d be replanting. It’s really difficult. I was agonising over what for the best… And then lo and behold Marco comes along.”*
+:::
 
+:::side-by-side image-left
 ![](/images/articles/sustainable-wine-pruning-for-the-future/inline-2.webp)
 
 ## The importance of pruning
@@ -35,7 +38,9 @@ Pruning is necessary to control a vine’s vigour to maximise its fruit producti
 Prune too hard and you risk killing off living parts of the trunk, restricting sap flow and inviting disease. By contrast, the Simonit method advocates pruning gently, in balance with the vine’s natural tendencies. This means respecting sap flow, reducing cutting wounds and encouraging protective wood by allowing the vine to ‘branch’ more naturally than other pruning methods advocate.
 
 *“It’s understanding how vines behave and how they respond when you prune them. They’re not like fruit trees, which you can prune quite close. With vines you need to respect the fact that they do die back and that can cause problems.”*
+:::
 
+:::side-by-side image-right
 ![Pruning the vines at ridgeview with snips](/images/articles/sustainable-wine-pruning-for-the-future/inline-3.webp)
 
 ## Follow the flow, feel the force
@@ -49,3 +54,4 @@ The method begins by literally embracing nature – placing hands on the trunk a
 These are benefits we’re looking forward to witnessing across our vineyard holdings. This includes the six hectares we’re now managing at nearby South Lodge, in partnership with Exclusive Hotels, and the site we’ve recently taken over at Ansty in West Sussex.
 
 The former – a beautiful south-facing slope, perfect for English viticulture – is newly planted, so the vines are still a few years from benefiting from gentle pruning. However our six hectares of nine-year-old Chardonnay, Pinot Noir and Meunier vines at Ansty have already fallen under the Simonit spell. Long may it continue.
+:::

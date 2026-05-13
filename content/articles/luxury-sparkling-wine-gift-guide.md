@@ -14,7 +14,7 @@ Food-friendly[Cavendish NV](/wine/cavendish/)is our traditional blend, making it
 
 ## BESTELLING SPARKLING WINE GIFTS
 
-![](/images/articles/luxury-sparkling-wine-gift-guide/inline-1.webp)
+[![](/images/articles/luxury-sparkling-wine-gift-guide/inline-1.webp)](/wine/bloomsbury/)
 
 ### Bloomsbury NV
 
@@ -26,7 +26,7 @@ Our bestselling fresh and fruit-forward English sparkling wine, with notes of ci
 
 A fresh and fruit-driven English sparkling rosé. Full of sunshine and celebration, featuring wild raspberry, honeyed redcurrant and notes of summer fruit.
 
-![](/images/articles/luxury-sparkling-wine-gift-guide/inline-3.webp)
+[![](/images/articles/luxury-sparkling-wine-gift-guide/inline-3.webp)](/wine/cavendish/)
 
 ### Cavendish NV
 
@@ -44,13 +44,13 @@ Then again, you may prefer to let us do the choosing for you. A gift membership 
 
 ## LUXURY SPARKLING WINE GIFTS
 
-![](/images/articles/luxury-sparkling-wine-gift-guide/inline-4.webp)
+[![](/images/articles/luxury-sparkling-wine-gift-guide/inline-4.webp)](/wine/oak-reserve/)
 
 ### Oak Reserve
 
 A limited-edition, late-disgorged bottling of oak barrel fermented Chardonnay. Captivating with aromas of citrus peel and caramelised butter, with a complex, smoky palate.
 
-![](/images/articles/luxury-sparkling-wine-gift-guide/inline-5.webp)
+[![](/images/articles/luxury-sparkling-wine-gift-guide/inline-5.webp)](/wine/sparkling-red-reserve/)
 
 ### Sparkling Red Reserve
 
@@ -68,13 +68,13 @@ Our flagship, single estate vintage wine from the finest grapes from our home vi
 
 An extraordinary gift to spark joy all year round, including a luxurious welcome gift set, two cases of wine and a host of exclusive member benefits.
 
-![Ridgeview English Sparkling Wine](/images/articles/luxury-sparkling-wine-gift-guide/inline-8.webp)
+[![Ridgeview English Sparkling Wine](/images/articles/luxury-sparkling-wine-gift-guide/inline-8.webp)](/wine/blanc-de-blancs/)
 
 ### Blanc de Blancs 2010 Magnum
 
 Made exclusively made from our estate’s finest Chardonnay grapes. Aged on lees for over 12 years, there are rich layers of lemon blossom, honeyed orchard fruit with spiced baked apple and biscotti.
 
-![](/images/articles/luxury-sparkling-wine-gift-guide/inline-9.webp)
+[![](/images/articles/luxury-sparkling-wine-gift-guide/inline-9.webp)](/wine/bloomsbury/)
 
 ### Magnum Bloomsbury NV
 

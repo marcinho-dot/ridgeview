@@ -10,6 +10,7 @@ As a purpose-driven, family business, we have a skyward vision to match the qual
 
 Here’s how we live that change…
 
+:::side-by-side image-right
 ![](/images/articles/celebrating-community/inline-1.webp)
 
 ## CHARITY AND COMMUNITY
@@ -21,10 +22,10 @@ We have a focus charity of the year, which for 2022 is a renewed partnership wit
 You can find out more about their inspirational food education programme for children in Sussex and support for the wider hospitality industry here.
 
 Ridgeview regularly support local and national charitable organisations and fundraising events through bottle donations, raffle prizes and hosting charity events at our estate.
+:::
 
+:::side-by-side image-left
 ![](/images/articles/celebrating-community/inline-2.webp)
-
-![](/images/articles/celebrating-community/inline-3.webp)
 
 ## OUR LOCAL COMMUNITY
 
@@ -35,8 +36,10 @@ We are delighted that our wines are awarded to players of the match to celebrate
 Ridgeview were delighted to sponsor the Sussex Community Hero Award at the Sussex Business Awards 2021.
 
 It was an honour to celebrate individuals who went above and beyond for their community during the pandemic.
+:::
 
-![Ridgeview Wine Estate English sparkling wine Sussex England](/images/articles/celebrating-community/inline-4.webp)
+:::side-by-side image-right
+![Ridgeview Wine Estate English sparkling wine Sussex England](/images/articles/celebrating-community/inline-3.webp)
 
 ## OUR TEAM IN THE COMMUNITY
 
@@ -47,19 +50,20 @@ We run a number of charitable initiatives together as a team, like our staff raf
 Our team set personal activity goals which Ridgeview rewards by donating to a monthly charity of choice when they hit their target together.
 
 It’s important to Ridgeview that we enable our team members to support charities that are personal to their own background, story and values. That’s why we offer a payroll giving scheme and will be launching Volunteering Days in 2022, providing staff with paid time off to take part in charitable activities close to their hearts.
+:::
 
 Tamara Roberts, Ridgeview’s CEO
 
 ## Discover More
 
-![Harvest at Ridgeview Wine Estate English sparkling wine Sussex England](/images/articles/celebrating-community/inline-5.webp)
+![Harvest at Ridgeview Wine Estate English sparkling wine Sussex England](/images/articles/celebrating-community/inline-4.webp)
 
 ### Wellbeing at Work
 
-![Ridgeview Wine Estate vineyards](/images/articles/celebrating-community/inline-6.webp)
+![Ridgeview Wine Estate vineyards](/images/articles/celebrating-community/inline-5.webp)
 
 ### Join Our Team
 
-![Harvest at Ridgeview Wine Estate Sussex England](/images/articles/celebrating-community/inline-7.webp)
+![Harvest at Ridgeview Wine Estate Sussex England](/images/articles/celebrating-community/inline-6.webp)
 
 ### Diversity and Inclusion

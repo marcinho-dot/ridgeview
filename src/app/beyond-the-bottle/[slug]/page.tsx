@@ -178,26 +178,14 @@ export default function ArticleDetailPage() {
           </div>
         </section>
 
-        {/* ─── Hero Image ────────────────────────────────────────────── */}
-        {article.heroImage && (
-          <section className="relative bg-[#010101]">
-            <div className="max-w-[1200px] mx-auto px-0 md:px-12 mb-10 md:mb-14">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                className="relative aspect-[16/9] overflow-hidden bg-[#0a0a0a] md:rounded-sm"
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={`${basePath}${article.heroImage}`}
-                  alt=""
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-              </motion.div>
-            </div>
-          </section>
-        )}
+        {/* Hero image used to render here in a separate full-width section,
+            but the live legacy layout puts the first image inside the
+            first body module (side-by-side with intro text). Rendering it
+            twice — once as hero, once as the first body module's image —
+            caused the duplicate-image stack on the detail page. The body
+            now opens with the proper side-by-side layout via
+            ArticleBodyRenderer; heroImage is still on the article card
+            in the listing/accordion. */}
 
         {/* ─── Body or Coming-Soon stub ─────────────────────────────── */}
         <section className="relative bg-[#010101]">

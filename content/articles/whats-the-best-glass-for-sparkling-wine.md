@@ -18,7 +18,7 @@ How we interpret wine is a sensory experience (engaging sight, smell and taste) 
 
 [Riedel Wine Glass Company](https://www.riedel.com/en-gb) (founded in 1756) were the first to recognise that the taste and aroma of wine is affected by the shape of the glass. Renowned for the creation of grape varietal-specific stemware, Riedel introduced a new specialised English sparkling wine glass in 2023 – the [Riedel Veloce](https://www.riedel.com/en-gb/shop/veloce/english-sparkling-wine-1330ESW15).
 
-![The Riedel Veloce English Sparkling Wine Glass](/images/articles/whats-the-best-glass-for-sparkling-wine/inline-2.webp)
+[![The Riedel Veloce English Sparkling Wine Glass](/images/articles/whats-the-best-glass-for-sparkling-wine/inline-2.webp)](/wine/bloomsbury/)
 
 Developed after extensive independent tastings at English vineyards (concluding at [Ridgeview’s home vineyard](https://www.ridgeview.co.uk/about-us/) in Sussex), the [Riedel Veloce English Sparkling Wine Glass](https://www.riedel.com/en-gb/shop/veloce/english-sparkling-wine-1330ESW15) design was found. Praised as the perfect glass to experience the complex characteristics of English Sparkling Wine, it is based on their classic Riesling shape, with the addition of a ‘sparkling point’ to aid the formation of the bubbles.
 
@@ -30,7 +30,7 @@ Developed after extensive independent tastings at English vineyards (concluding 
 
 A beautifully presented gift set, including your Ridgeview wine of choice, two opale wine glasses and a Ridgeview sparkling bottle stopper.
 
-![](/images/articles/whats-the-best-glass-for-sparkling-wine/inline-4.webp)
+[![](/images/articles/whats-the-best-glass-for-sparkling-wine/inline-4.webp)](/wine/bloomsbury/)
 
 ### Bloomsbury NV
 

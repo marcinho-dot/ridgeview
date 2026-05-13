@@ -6,7 +6,8 @@ It’s the perfect celebration drink. But what makes sparkling wine (specificall
 
 In many ways, it’s the intricacy and precision ofhowEnglish sparkling wineis madethat makes it so special. So we’d like to take you on a whistlestop tour of the production method for Bloomsbury NV, which is arguably the epitome of theEnglish sparkling winestyle.
 
-![Ridgeview Wine Estate, English Sparkling Wine, Chardonnay Grapes](/images/articles/how-english-sparkling-wine-is-made/inline-1.webp)
+:::side-by-side image-right
+[![Ridgeview Wine Estate, English Sparkling Wine, Chardonnay Grapes](/images/articles/how-english-sparkling-wine-is-made/inline-1.webp)](/wine/bloomsbury/)
 
 ## 1. Stick to the method
 
@@ -19,8 +20,10 @@ Elsewhere it’s called thetraditional method; here we call it classic. And sinc
 You need just the right grapes, grown just the right way, reaching just the right level of ripeness, to make Classic MethodEnglish sparkling wine.We use a blend of the three so-called Champagne varieties – Chardonnay, Pinot Noir and Pinot Meunier – to make our Bloomsbury NV. They ripen slowly in our cool climate, retaining high levels of essential acidity right through to harvest.
 
 When the time comes to pick them, we do so carefully and sustainably, by hand, so that the bunches arrive at the winery in perfect condition.
+:::
 
-![](/images/articles/how-english-sparkling-wine-is-made/inline-2.webp)
+:::side-by-side image-left
+[![](/images/articles/how-english-sparkling-wine-is-made/inline-2.webp)](/wine/bloomsbury/)
 
 ## 3. Squeeze the juice out gently
 
@@ -33,8 +36,10 @@ So we load our harvested grapes into our three presses in whole bunches and sque
 The next critical stage is the first of two fermentations.This ‘primary fermentation’ produces a series of ‘base wines’ which are quite neutral in flavour, relatively low in alcohol (about 8-10%) and very high in acidity – not something you’d want to drink with canapés!
 
 For our Bloomsbury NV, we add a carefully chosen strain of yeast to the juice and ferment in stainless steel tanks, at lowish temperatures (18-20oC) to keep the delicate fruit flavours of the grapes front and centre.
+:::
 
-![](/images/articles/how-english-sparkling-wine-is-made/inline-3.webp)
+:::side-by-side image-right
+[![](/images/articles/how-english-sparkling-wine-is-made/inline-3.webp)](/wine/bloomsbury/)
 
 ## 5. Perfect your blend
 
@@ -45,8 +50,10 @@ Each blend is an intricate recipe: Bloomsbury NV contains over 50 separate base 
 ## 6. Bring on the bubbles
 
 Once we’ve hit our formula, we blend the required amounts and proportions of base wines, bottle them with a small dose of yeast and nutrients, pop on a crown cap and let nature slowly take its course.As the yeast consumes the remaining sugar in the bottle, it releases CO2, which dissolves in the wine and lies dormant as bubbles-in-waiting.This second fermentation also adds a further 1-2% alcohol, which is why Bloomsbury clocks in at 12% ABV on release.
+:::
 
-![Ridgeview Wine Estate, English Sparkling Wine Cellar](/images/articles/how-english-sparkling-wine-is-made/inline-4.webp)
+:::side-by-side image-left
+[![Ridgeview Wine Estate, English Sparkling Wine Cellar](/images/articles/how-english-sparkling-wine-is-made/inline-4.webp)](/wine/bloomsbury/)
 
 ## 7. Get the most from the yeast
 
@@ -55,7 +62,9 @@ Even after the second fermentation, a Classic Method sparkling wine is still a l
 ## 8. Prepare yeast for evacuation
 
 Nobody wants their Classic Method cloudy. So once autolysis is complete, we have to remove (or ‘disgorge’) those spent yeast cells (or ‘lees’) from the bottle.First we need to get them tightly packed into the bottleneck, in a plug that will effortlessly pop out once the crown cap is removed. We do this by gradually inverting the bottle from horizontal to upside down, gently shaking and twisting as we go, so that the lees slide into position. This stage is called ‘riddling’.
+:::
 
+:::side-by-side image-right
 [![Ridgeview Wine Estate, Bloomsbury English Sparkling Wine](/images/articles/how-english-sparkling-wine-is-made/inline-5.webp)](/wine/bloomsbury/)
 
 ## 9. Finish with a flourish
@@ -65,3 +74,4 @@ Bottle ageing is all about time and patience. By contrast, the final stage in th
 ## 10. Time for a well-earned rest
 
 The last step is something of a shock for the wine, so it needs a little time to recover. In the case of Bloomsbury, this period of ‘ageing on cork’ lasts around six months. After that, our signatureEnglish sparkling wineis ready to be released into the world. Let the celebrations begin!
+:::

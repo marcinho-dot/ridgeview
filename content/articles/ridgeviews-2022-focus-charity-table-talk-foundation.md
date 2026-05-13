@@ -4,9 +4,8 @@ slug: ridgeviews-2022-focus-charity-table-talk-foundation
 
 Ridgeview are delighted to continue our charity partnership with [Table Talk Foundation](https://www.tabletalk-foundation.com/), an incredible organisation providing support to the hospitality industry and food education in Sussex. In 2022, we have renewed our pledge to donate £1 for every bottle sold.
 
+:::side-by-side image-right
 ![](/images/articles/ridgeviews-2022-focus-charity-table-talk-foundation/inline-1.webp)
-
-![](/images/articles/ridgeviews-2022-focus-charity-table-talk-foundation/inline-2.webp)
 
 ## For a Better Future
 
@@ -17,8 +16,10 @@ Why not bid in their upcoming [fundraising auction](https://givergy.uk/SussexSho
 Table Talk Foundation are passionate about young people’s wellbeing and enabling the next generation to positively change the course of their own future. They educate children about where our food comes from, and how to grow and cook, seasonally and sustainably. Ultimately, they instill a healthy relationship with food, with themselves and with the world around them.
 
 Ridgeview is proud to be a family business and are passionate about the health and wellbeing of the next generation. That’s why we are committed to supporting Table Talk’s tireless work, for a positive impact on the trajectory of young lives.
+:::
 
-![](/images/articles/ridgeviews-2022-focus-charity-table-talk-foundation/inline-3.webp)
+:::side-by-side image-left
+![](/images/articles/ridgeviews-2022-focus-charity-table-talk-foundation/inline-2.webp)
 
 ## Hospitality Action
 
@@ -29,3 +30,4 @@ Over the course of the pandemic Hospitality Action has helped many families put 
 There were over 660,000 UK job losses in the hospitality sector in 2020 due to COVID-19, with revenues down 40% on average. The devastating impact that the pandemic has had continues to grow and our collective support is now more vital than ever.
 
 Hospitality venues are places of celebration, connection and community; Ridgeview are committed to supporting the people and places behind these to thrive.
+:::

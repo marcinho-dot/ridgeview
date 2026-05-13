@@ -2,6 +2,7 @@
 slug: white-wine-question-time
 ---
 
+:::side-by-side image-left
 ![](/images/articles/white-wine-question-time/inline-1.webp)
 
 ## LIVE EPISODE WITH MARTIN AND SHIRLIE KEMP
@@ -11,6 +12,7 @@ To celebrate our new venture, we hosted a special WWQT live audience recording b
 This unique episode perfectly captures what our new partnership is all about: honest conversations, the joy of connection and raising a glass to the memorable moments in life.
 
 The Kemps share memories of their rise to music stardom, overcoming personal challenges and intimate insights into their family life. You can listen now on [Apple Podcasts](https://podcasts.apple.com/gb/podcast/white-wine-question-time/id1447646731), [Spotify](https://open.spotify.com/show/5TqKXb1glaCE88vEjqGAvv), or wherever you get your podcasts from.
+:::
 
 ## Memorable Moments from the Live Recording
 
