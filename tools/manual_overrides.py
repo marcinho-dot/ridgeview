@@ -52,6 +52,31 @@ OVERRIDES = {
     # First line matches the slug title verbatim
     "ridgeview-wine-goodwood-estate":
         "Trade sales/Goodwood Sponsorship Announcement.docx",
+
+    # Third batch — discovered by deep_scan_usb.py which searches *every*
+    # USB folder (including "Drafts - Do Not Use" where the FINAL versions
+    # of many published articles actually live, despite the folder name).
+    "south-lodge-vineyard-harvest-2025":
+        "Drafts - Do Not Use/Do Not Use/South Lodge Harvest Blog.docx",
+    "harvest-vintage-2025":
+        "Drafts - Do Not Use/Do Not Use/Harvest 2025 - A Dream Year in the Vines.docx",
+    "remembering-mike-roberts-the-father-of-english-wine":
+        "Drafts - Do Not Use/Do Not Use/Mike Robert's Tribute.docx",
+    "whats-the-best-glass-for-sparkling-wine":
+        "SEO/The Best Glass for Sparkling Wine.docx",
+    "championing-wellbeing-and-mental-health-at-work":
+        "Drafts - Do Not Use/Do Not Use/Mental Health Matters - Championing Wellbeing at Work.docx",
+    "new-still-english-rose-wine":
+        "Drafts - Do Not Use/Do Not Use/Still Rosé 2024 Blog.docx",
+    # Replaces the bad draft-with-placeholders we quarantined earlier
+    "ridgeviews-red-reserve-a-new-chapter":
+        "Drafts - Do Not Use/Do Not Use/Sparkling Red Reserve Second Release WriteUp.docx",
+    "travels-to-taiwan-and-japan":
+        "Drafts - Do Not Use/Do Not Use/Simon's Trip to Japan and Taiwan 2024.docx",
+    "our-impact":
+        "Drafts - Do Not Use/Do Not Use/Ridgeview 2023 Impact Report - Comms Planning.docx",
+    "afternoon-tea-with-a-touch-of-sparkle":
+        "Trade sales/Sparkling Afternoon Tea.docx",
 }
 
 
