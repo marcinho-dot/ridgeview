@@ -35,8 +35,10 @@ export function HeritageSoilSection() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent sm:from-black/82 sm:via-black/35 sm:to-transparent" />
           </div>
 
-          {/* Content overlay — bottom-aligned on all breakpoints */}
-          <div className="absolute inset-0 flex flex-col justify-end px-8 md:px-16 lg:px-24 pb-10 sm:pb-12 md:pb-16">
+          {/* Content overlay — bottom-aligned, content constrained to the
+              same 1600px width as the Beyond the Bottle row above. */}
+          <div className="absolute inset-0 flex flex-col justify-end pb-10 sm:pb-12 md:pb-16">
+            <div className="w-full max-w-[1600px] mx-auto px-6 md:px-16">
             {/* Kicker */}
             <motion.p
               className="font-display italic text-[#C8A96E] tracking-widest mb-4"
@@ -104,6 +106,7 @@ export function HeritageSoilSection() {
                 Discover the Vineyard
               </Link>
             </motion.div>
+            </div>
           </div>
         </div>
       </div>

@@ -101,7 +101,7 @@ export function WineCollectionSection() {
       ref={sectionRef}
       className="bg-[#010101] py-12 md:py-16"
     >
-      <div className="max-w-[1400px] mx-auto px-6">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-16">
 
         {/* ── Header row ──────────────────────────────────────
             The anchor target sits on this header wrapper (NOT the outer
