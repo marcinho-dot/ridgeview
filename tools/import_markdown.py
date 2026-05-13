@@ -113,6 +113,75 @@ SBS_START_RE = re.compile(r"^:::side-by-side\s+image-(left|right)\s*$")
 SBS_END_RE = re.compile(r"^:::\s*$")
 
 
+def ensure_side_by_side_hero(blocks, hero_image_path):
+    """Guarantee that every article opens with a side-by-side hero block:
+    image on the right, intro content on the left. Nothing is invented —
+    if the body already starts with a sideBySide block we leave it alone.
+
+    Otherwise we scan the first few blocks for one image and at least
+    one text block (heading/paragraph), promote them into a synthetic
+    sideBySide, and leave the rest of the body in place. The image is
+    preferred from the body itself if there's one in the first three
+    blocks (e.g. a heading→image→paragraph opener); otherwise we fall
+    back to the article's existing heroImage."""
+    if not blocks:
+        return blocks
+    if blocks[0].get("type") == "sideBySide":
+        return blocks
+
+    rest = list(blocks)
+    content = []
+    body_image = None
+    body_image_idx = None
+
+    # Inspect up to the first 3 blocks at the top of the body.
+    look_ahead = min(3, len(rest))
+    text_indices = []
+    for i in range(look_ahead):
+        b = rest[i]
+        t = b.get("type")
+        if t == "image" and body_image is None:
+            body_image = b
+            body_image_idx = i
+        elif t in ("heading", "paragraph"):
+            text_indices.append(i)
+        else:
+            # Stop scanning at the first unrelated block (quote/list/sideBySide)
+            break
+
+    if not text_indices:
+        # No text block to pair an image with — keep body as-is.
+        return blocks
+
+    # Use the body image if we found one; otherwise fall back to heroImage.
+    if body_image is not None:
+        image_block = body_image
+        consumed = set(text_indices) | {body_image_idx}
+    elif hero_image_path:
+        image_block = {"type": "image", "src": hero_image_path, "alt": ""}
+        consumed = set(text_indices)
+    else:
+        return blocks
+
+    # The synthetic hero's content column = the consumed text blocks
+    # in their original order.
+    content = [rest[i] for i in sorted(text_indices)]
+    image_obj = {"src": image_block["src"], "alt": image_block.get("alt", "")}
+    if image_block.get("href"):
+        image_obj["href"] = image_block["href"]
+
+    synthetic = {
+        "type": "sideBySide",
+        "imageSide": "right",
+        "image": image_obj,
+        "content": content,
+    }
+
+    # Build the new body: synthetic hero + the leftover blocks.
+    remaining = [b for i, b in enumerate(rest) if i not in consumed]
+    return [synthetic] + remaining
+
+
 def parse_markdown_body(text, slug):
     """Walk the body line-by-line and emit ArticleBlock dicts."""
     lines = text.split("\n")
@@ -521,6 +590,12 @@ def main():
 
         # Parse body markdown
         blocks = parse_markdown_body(body_text, slug)
+        # Ensure every article opens with a side-by-side hero: if the
+        # body doesn't already start with one and we have a heroImage
+        # on the article, synthesize one by pairing heroImage with the
+        # first paragraph (and optional preceding heading) from the body.
+        # No text is invented — we just rearrange existing pieces.
+        blocks = ensure_side_by_side_hero(blocks, a.get("heroImage"))
         a["body"] = blocks
         by_slug[slug] = a
         updated += 1
