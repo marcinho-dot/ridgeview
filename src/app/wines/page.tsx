@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { BottomNav } from "@/components/BottomNav";
 import { ScrollReset } from "@/components/ScrollReset";
 import { wines as allWines } from "@/data/wines";
 import { basePath } from "@/lib/basePath";
@@ -244,7 +243,12 @@ export default function WinesPage() {
         <ScrollReset><GiftCTA /></ScrollReset>
       </main>
       <Footer />
-      <BottomNav />
+      {/* No <BottomNav /> on /wines — the catalog cards themselves
+          are the primary navigation on this page; a sticky bottom
+          bar would just add mobile clutter without a relevant
+          destination (Home is one tap away in the hamburger menu,
+          and "View All Wines" pointing back at the page the user
+          is already on is tautological). */}
     </div>
   );
 }
