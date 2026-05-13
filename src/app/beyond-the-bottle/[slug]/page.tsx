@@ -112,7 +112,7 @@ export default function ArticleDetailPage() {
 
       <main>
         {/* ─── Article Hero ──────────────────────────────────────────── */}
-        <section className="relative bg-[#010101] overflow-hidden pt-28 md:pt-32 pb-10 md:pb-14">
+        <section className="relative bg-[#010101] overflow-hidden pt-28 md:pt-32 pb-0">
           <div
             aria-hidden
             className="absolute inset-0 pointer-events-none"
