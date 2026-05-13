@@ -1,45 +1,25 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { BottomNav } from "@/components/BottomNav";
-import { ArticleAccordion } from "@/components/beyond/ArticleAccordion";
-import { categories, articles, type CategorySlug } from "@/data/articles";
+import { CategoryAccordion } from "@/components/beyond/CategoryAccordion";
+import { articles } from "@/data/articles";
 
 /**
- * Beyond the Bottle — articles hub page.
+ * Beyond the Bottle — articles hub.
  *
- * Renders all 7 category accordions in a single-open arrangement.
- * Deep-link support: arriving via /beyond-the-bottle/#wines (e.g. from
- * the homepage CategoryCardRow) opens that accordion on mount and
- * smooth-scrolls to it. Navigating directly to /beyond-the-bottle/ with
- * no hash → all accordions closed.
+ * Renders the BlogSection-style interactive category accordion:
+ *   - Desktop: horizontal flex-panel strip (7 panels), active one
+ *     expands and reveals the category article-grid below the strip.
+ *   - Mobile: vertical accordion rows, each row's expansion shows
+ *     the article cards inline.
+ *
+ * Deep-link support is handled inside `CategoryAccordion` — arriving
+ * via /beyond-the-bottle/#wines auto-activates that panel and
+ * smooth-scrolls to it.
  */
-
-// Group articles by category once at module level. Newest first inside
-// each bucket so the most recent stories land at the top of every
-// open accordion.
-const articlesByCategory = (() => {
-  const grouped: Record<CategorySlug, typeof articles> = {
-    wines: [],
-    vineyard: [],
-    entertaining: [],
-    knowledge: [],
-    experiences: [],
-    sustainability: [],
-    "estate-life": [],
-  };
-  for (const article of articles) {
-    grouped[article.category].push(article);
-  }
-  // Sort each bucket newest first
-  for (const key of Object.keys(grouped) as CategorySlug[]) {
-    grouped[key].sort((a, b) => (a.date < b.date ? 1 : -1));
-  }
-  return grouped;
-})();
 
 function PageHero() {
   return (
@@ -91,41 +71,6 @@ function PageHero() {
 }
 
 export default function BeyondHubPage() {
-  // Single-open accordion state. `null` = all closed.
-  const [openCategory, setOpenCategory] = useState<CategorySlug | null>(null);
-
-  // Hash → auto-open + smooth-scroll. Handles:
-  //   (1) Mount with a hash in the URL (deep-link from homepage card,
-  //       browser refresh on /beyond-the-bottle/#wines, etc.)
-  //   (2) In-page hash changes (clicking a #-link without a page
-  //       reload — e.g. the user already on /beyond-the-bottle/
-  //       clicks a CategoryCardRow link from the homepage open in
-  //       another tab / back-button history).
-  useEffect(() => {
-    const openFromHash = () => {
-      const hash = window.location.hash.replace(/^#/, "");
-      if (!hash) return;
-      const match = categories.find((c) => c.slug === hash);
-      if (!match) return;
-      setOpenCategory(match.slug);
-      // Slight delay so the accordion exists in the DOM after the
-      // re-render and the smooth-scroll lands on its expanded
-      // final position.
-      window.setTimeout(() => {
-        const el = document.getElementById(match.slug);
-        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 200);
-    };
-
-    openFromHash();
-    window.addEventListener("hashchange", openFromHash);
-    return () => window.removeEventListener("hashchange", openFromHash);
-  }, []);
-
-  const toggle = (slug: CategorySlug) => {
-    setOpenCategory((current) => (current === slug ? null : slug));
-  };
-
   return (
     <div className="bg-[#010101] min-h-screen">
       {/* Noise overlay — matches /booking and /wines for visual continuity */}
@@ -143,18 +88,9 @@ export default function BeyondHubPage() {
       <main>
         <PageHero />
 
-        {/* Accordions */}
         <section className="relative bg-[#010101] border-t border-white/[0.06]">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-16 py-6 md:py-10">
-            {categories.map((cat) => (
-              <ArticleAccordion
-                key={cat.slug}
-                category={cat}
-                articles={articlesByCategory[cat.slug]}
-                isOpen={openCategory === cat.slug}
-                onToggle={() => toggle(cat.slug)}
-              />
-            ))}
+          <div className="max-w-[1400px] mx-auto px-6 md:px-16 py-12 md:py-16">
+            <CategoryAccordion />
           </div>
         </section>
       </main>
