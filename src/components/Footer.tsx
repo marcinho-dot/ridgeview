@@ -8,8 +8,11 @@ export function Footer() {
   const home = `${basePath}/`;
   return (
     <footer id="footer" className="bg-[#010101] border-t border-white/10">
-      {/* Responsive grid: 2 cols mobile → 3 cols tablet → 6 cols desktop */}
-      <div className="px-6 md:px-14 pt-10 md:pt-14 pb-8 md:pb-10 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-8 md:gap-8">
+      {/* Responsive grid: 2 cols mobile → 3 cols tablet → 6 cols desktop.
+          Content constrained to the same 1600px container the BtB row /
+          Heritage / OurView sections use, so the footer aligns with the
+          homepage rhythm. */}
+      <div className="max-w-[1600px] mx-auto px-6 md:px-16 pt-10 md:pt-14 pb-8 md:pb-10 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-8 md:gap-8">
         {/* ABOUT */}
         <div>
           <h4 className="font-body text-cream text-xs uppercase tracking-[0.2em] mb-5" style={{ fontWeight: 500 }}>
@@ -163,8 +166,9 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Bottom bar */}
-      <div className="border-t border-white/10 px-6 md:px-14 py-4 md:py-5 flex flex-col md:flex-row items-center gap-3 md:gap-0 md:justify-between">
+      {/* Bottom bar — same 1600px constraint as the top grid */}
+      <div className="border-t border-white/10">
+        <div className="max-w-[1600px] mx-auto px-6 md:px-16 py-4 md:py-5 flex flex-col md:flex-row items-center gap-3 md:gap-0 md:justify-between">
         <p className="font-body text-white/40 text-xs" style={{ fontWeight: 300 }}>
           © Ridgeview 2026
         </p>
@@ -175,6 +179,7 @@ export function Footer() {
           <a href="#" className="link-underline font-body text-white/40 text-xs hover:text-white/60 transition-colors" style={{ fontWeight: 300 }}>
             Sitemap
           </a>
+        </div>
         </div>
       </div>
     </footer>
