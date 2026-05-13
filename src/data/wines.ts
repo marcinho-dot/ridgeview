@@ -7,6 +7,13 @@ export interface Wine {
   price: string;
   image: string;
   slug?: string;
+  /** Routes that should not resolve to /wine/<slug> (e.g. the OurView
+   *  Wine Club entry, which has its own dedicated /wine-club/ landing
+   *  page). Falls back to /wine/<slug> when absent. */
+  customUrl?: string;
+  /** Visually flags this entry as a membership rather than a bottle.
+   *  Lets the listing / carousel render an alternate badge or copy. */
+  kind?: "wine" | "membership";
 }
 
 export const wines: Wine[] = [
@@ -130,5 +137,18 @@ export const wines: Wine[] = [
     price: "From £50",
     image: "/products/engraved-bottle-gift.png",
     slug: "engraved-bottle-gift",
+  },
+  {
+    id: 12,
+    name: "OurView Wine Club",
+    description:
+      "An annual membership built around two curated 6-bottle cases a year, rare cellar access, member-only events and 20% off Ridgeview wines all year round. Welcome gift set delivered within two weeks of joining.",
+    vintage: "Annual Membership",
+    tastingNotes: ["12 Bottles a Year", "Rare Cellar Access", "Member Events"],
+    price: "From £580/year",
+    image: "/products/bloomsbury.png",
+    slug: "wine-club",
+    customUrl: "/wine-club/",
+    kind: "membership",
   },
 ];

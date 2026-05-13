@@ -16,7 +16,14 @@ const priceValue = (p: string): number =>
 
 const wines = allWines
   .filter((w) => w.slug !== "engraved-bottle-gift")
-  .sort((a, b) => priceValue(b.price) - priceValue(a.price));
+  .sort((a, b) => {
+    // Membership entries (the OurView Wine Club) always come last —
+    // they aren't bottles, so they shouldn't intrude on the price-
+    // descending bottle ranking.
+    if (a.kind === "membership" && b.kind !== "membership") return 1;
+    if (b.kind === "membership" && a.kind !== "membership") return -1;
+    return priceValue(b.price) - priceValue(a.price);
+  });
 
 // ── Section: Page Hero ──────────────────────────────────────────────────────
 
@@ -94,7 +101,9 @@ function WineGrid() {
               className="group"
             >
               <a
-                href={wine.slug ? `${basePath}/wine/${wine.slug}` : "#"}
+                href={wine.customUrl
+                  ? `${basePath}${wine.customUrl}`
+                  : wine.slug ? `${basePath}/wine/${wine.slug}` : "#"}
                 className="block text-center focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C8A96E]/40 rounded-sm"
               >
                 {/* Bottle stage — dark frame + gold radial atmosphere */}

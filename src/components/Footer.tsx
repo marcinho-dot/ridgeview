@@ -1,5 +1,11 @@
 import { basePath } from "@/lib/basePath";
 
+// Substack publication slug — swap to the real Ridgeview Substack
+// publication once it's set up. The newsletter form below POSTs to
+// `https://<slug>.substack.com/api/v1/free?nojs=true` which is the
+// public no-JS subscribe endpoint.
+const SUBSTACK_SLUG = "ridgeview";
+
 export function Footer() {
   // Every same-page anchor in the footer needs to resolve to the homepage,
   // not to whatever route the footer is rendered on (SKU pages, booking, etc.).
@@ -8,6 +14,74 @@ export function Footer() {
   const home = `${basePath}/`;
   return (
     <footer id="footer" className="bg-[#010101] border-t border-white/10">
+      {/* ── Stay-in-the-loop strip — Substack newsletter signup ──────
+          Sits above the link grid so it reads as a deliberate
+          editorial gesture rather than buried in a column. Two-column
+          on desktop (intro copy left, form right), stacks on mobile. */}
+      <div className="max-w-[1600px] mx-auto px-6 md:px-16 pt-14 md:pt-16 pb-10 md:pb-14 border-b border-white/[0.06]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-end">
+          <div>
+            <p
+              className="font-display italic text-[#C8A96E] tracking-widest mb-3"
+              style={{ fontSize: "clamp(12px, 1.2vw, 14px)" }}
+            >
+              [ Stay in the loop ]
+            </p>
+            <h3
+              className="font-display italic text-cream leading-[1.1] mb-3"
+              style={{ fontSize: "clamp(22px, 2.4vw, 32px)", fontWeight: 400 }}
+            >
+              Cellar updates &amp; seasonal releases.
+            </h3>
+            <p
+              className="font-body text-white/55"
+              style={{ fontSize: "13px", fontWeight: 300, maxWidth: "480px" }}
+            >
+              Behind-the-vine notes, harvest dispatches and member
+              experiences direct from the estate. Unsubscribe anytime.
+            </p>
+          </div>
+          <form
+            action={`https://${SUBSTACK_SLUG}.substack.com/api/v1/free?nojs=true`}
+            method="post"
+            target="_blank"
+            className="flex items-center gap-2 border-b border-white/22 w-full"
+            style={{ maxWidth: "460px" }}
+          >
+            <input
+              type="email"
+              name="email"
+              placeholder="Your email address"
+              aria-label="Email address for newsletter"
+              required
+              className="flex-1 bg-transparent font-body text-cream text-sm py-3 outline-none placeholder:text-white/30 focus:placeholder:text-white/50 transition-colors"
+              style={{ fontWeight: 300 }}
+            />
+            <button
+              type="submit"
+              aria-label="Subscribe to newsletter"
+              className="group relative w-9 h-9 rounded-full border border-[#C8A96E]/55 hover:border-[#C8A96E] flex items-center justify-center transition-all duration-300 hover:bg-[#C8A96E]/10 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C8A96E]/50"
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="text-[#C8A96E] transition-transform duration-300 group-hover:translate-x-[2px]"
+                aria-hidden
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+
       {/* Responsive grid: 2 cols mobile → 3 cols tablet → 6 cols desktop.
           Content constrained to the same 1600px container the BtB row /
           Heritage / OurView sections use, so the footer aligns with the

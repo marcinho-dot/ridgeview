@@ -5,10 +5,6 @@ import { motion } from "framer-motion";
 
 import { basePath } from "@/lib/basePath";
 
-// Substack publication slug — swap to the real Ridgeview Substack
-// once it's set up. The embed URL is `https://<slug>.substack.com/embed`.
-const SUBSTACK_SLUG = "ridgeview";
-
 const benefits = [
   "GIFT SCHEDULING",
   "BOTTLE CUSTOMIZATION",
@@ -17,7 +13,6 @@ const benefits = [
 ];
 
 export function OurViewSection() {
-  const [email, setEmail] = useState("");
   const [activeBenefit, setActiveBenefit] = useState(0);
 
   return (
@@ -77,69 +72,13 @@ export function OurViewSection() {
           </p>
 
           {/* Primary CTA — leads to the dedicated /wine-club/ landing
-              page where the full pricing + member benefits live. */}
-          <div className="mb-10">
+              page where the full pricing + member benefits live. The
+              newsletter signup that used to sit below this has moved to
+              the Footer ("Stay in the loop" column). */}
+          <div>
             <a href={`${basePath}/wine-club/`} className="btn-cta">
               Discover Membership
             </a>
-          </div>
-
-          {/* Secondary newsletter signup — styled to match the rest of
-              the dark editorial theme. Posts to the Substack publication
-              endpoint so subscribers land in the real list, without the
-              white-bordered Substack iframe's visual clash. */}
-          <div style={{ maxWidth: "460px" }} className="w-full">
-            <p
-              className="font-body text-white/45 uppercase tracking-[0.22em] mb-3"
-              style={{ fontSize: "10px", fontWeight: 400 }}
-            >
-              Stay in the loop
-            </p>
-            <form
-              action={`https://${SUBSTACK_SLUG}.substack.com/api/v1/free?nojs=true`}
-              method="post"
-              target="_blank"
-              className="flex items-center gap-2 border-b border-white/22 w-full"
-            >
-              <input
-                type="email"
-                name="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Your email address"
-                aria-label="Email address for newsletter"
-                required
-                className="flex-1 bg-transparent font-body text-cream text-sm py-3 outline-none placeholder:text-white/30 focus:placeholder:text-white/50 transition-colors"
-                style={{ fontWeight: 300 }}
-              />
-              <button
-                type="submit"
-                aria-label="Subscribe to newsletter"
-                className="group relative w-9 h-9 rounded-full border border-[#C8A96E]/55 hover:border-[#C8A96E] flex items-center justify-center transition-all duration-300 hover:bg-[#C8A96E]/10 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C8A96E]/50"
-              >
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-[#C8A96E] transition-transform duration-300 group-hover:translate-x-[2px]"
-                  aria-hidden
-                >
-                  <path d="M5 12h14" />
-                  <path d="m12 5 7 7-7 7" />
-                </svg>
-              </button>
-            </form>
-            <p
-              className="font-body text-white/35 mt-3"
-              style={{ fontSize: "11px", fontWeight: 300 }}
-            >
-              Cellar updates and seasonal releases. Unsubscribe anytime.
-            </p>
           </div>
         </motion.div>
 

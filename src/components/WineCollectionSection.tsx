@@ -21,7 +21,13 @@ const priceValue = (p: string): number =>
 
 const wines = allWines
   .filter((w) => w.slug !== "engraved-bottle-gift")
-  .sort((a, b) => priceValue(b.price) - priceValue(a.price));
+  .sort((a, b) => {
+    // Membership entries (OurView Wine Club) always last — they aren't
+    // bottles and shouldn't intrude on the price-descending ranking.
+    if (a.kind === "membership" && b.kind !== "membership") return 1;
+    if (b.kind === "membership" && a.kind !== "membership") return -1;
+    return priceValue(b.price) - priceValue(a.price);
+  });
 
 // ─── Constants ────────────────────────────────────────────────
 const INTERVAL   = 12000;
@@ -227,10 +233,12 @@ export function WineCollectionSection() {
                         border: "1px solid rgba(255,255,255,0.08)",
                         background: "rgba(255,255,255,0.02)",
                       }} />
-                      {wine.slug ? (
+                      {wine.slug || wine.customUrl ? (
                         <a
-                          href={`${basePath}/wine/${wine.slug}`}
-                          aria-label={`Shop ${wine.name}`}
+                          href={wine.customUrl
+                            ? `${basePath}${wine.customUrl}`
+                            : `${basePath}/wine/${wine.slug}`}
+                          aria-label={wine.kind === "membership" ? `Discover ${wine.name}` : `Shop ${wine.name}`}
                           className="absolute inset-0 block group cursor-pointer"
                         >
                           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -295,12 +303,14 @@ export function WineCollectionSection() {
                       ))}
                     </ul>
                   </div>
-                  {wine.slug ? (
+                  {wine.slug || wine.customUrl ? (
                     <a
-                      href={`${basePath}/wine/${wine.slug}`}
+                      href={wine.customUrl
+                        ? `${basePath}${wine.customUrl}`
+                        : `${basePath}/wine/${wine.slug}`}
                       className="btn-cta w-fit"
                     >
-                      Shop Bottle
+                      {wine.kind === "membership" ? "Discover Membership" : "Shop Bottle"}
                     </a>
                   ) : (
                     <button className="btn-cta w-fit">
