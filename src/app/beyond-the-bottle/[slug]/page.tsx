@@ -122,7 +122,8 @@ export default function ArticleDetailPage() {
             }}
           />
           <div className="relative max-w-[1100px] mx-auto px-6 md:px-12 text-center">
-            {/* Breadcrumb-style category backlink */}
+            {/* Breadcrumb-style category backlink — mirrors the legacy
+                site's "Home | News | <listing title>" pattern. */}
             {category && (
               <motion.p
                 initial={{ opacity: 0, y: 8 }}
@@ -137,6 +138,8 @@ export default function ArticleDetailPage() {
                 >
                   Beyond the Bottle &nbsp;·&nbsp; {category.label}
                 </a>
+                <span className="text-white/35">&nbsp;·&nbsp;</span>
+                <span className="text-white/70">{article.title}</span>
               </motion.p>
             )}
 
