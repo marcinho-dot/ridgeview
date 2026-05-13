@@ -77,6 +77,9 @@ OVERRIDES = {
         "Drafts - Do Not Use/Do Not Use/Ridgeview 2023 Impact Report - Comms Planning.docx",
     "afternoon-tea-with-a-touch-of-sparkle":
         "Trade sales/Sparkling Afternoon Tea.docx",
+    # Doc opens with "B CORP MONTH 2024 / RIDGEVIEW RECOMMENDS – B CORP BRANDS WE LOVE"
+    "ridgeview-recommends-inspiring-b-corp-brands":
+        "B Corp & Sustainability/B Corp Month 2024.docx",
 }
 
 
