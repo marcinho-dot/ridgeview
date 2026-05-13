@@ -2,66 +2,86 @@
 slug: standout-sparkling-wine-pairings-for-christmas
 ---
 
-Christmas lives in the small, special moments – the little habits that turn into rituals we return to year after year: decorating the tree, presents wrapped, stockings filled and the first warm scent of the roast in the oven. These are the moments that shape our Christmas experience, each one brought to life by the wines poured alongside them. At Ridgeview, we’ve been reflecting on our own festive traditions and the wines we share when those moments arrive.
+![A bottle of Blanc de Noirs in the middle of a table surrounded by plates of Christmas roast dinner and christmas decorations, with a glass of sparkling wine on the table.](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-1.webp)
 
-The Celebration Starter: A Crowd-Pleasing Aperitif
+## The best wine for Christmas dinner
 
-Bloomsbury NV
+Whether you’re going poultry or plant-based, your Christmas Day roast will reach new heights served with a new Ridgeview wine we’re very excited about. Fresh from the cellar, our[2016 Blanc de Noirs](/wine/blanc-de-noirs/)is a phenomenal showcase of a golden vintage for English Pinot Noir.
 
-When the festivities begin, Bloomsbury NV is the bottle to reach for. Fresh, fruit driven and effortlessly crowd pleasing, it brings brightness and lift to the start of every gathering – whether you’re hosting Christmas Eve drinks, welcoming friends for a party or raising the first toast on New Year’s Eve. Its citrus freshness and fruit-driven palate make it beautifully suited to smoked salmon, canapés and appetisers that open a festive evening. Elegant and easy to enjoy, it sets the tone for the celebration ahead.
+It’s so complex, with a backbone of big, bold red-fruit flavours that pair to perfection with Christmas roasts, brimming with trimmings. But it also has the finesse and poise to complement lighter dishes like seafood starters. Open a bottle at the start of Christmas dinner and you’ll still be finding new flavours in the glass by the time the cheese board comes round. A veritable Christmas treat.
 
-Showstopping Magnums
+![Ridgeview Oak Reserve, English Sparkling Wine](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-2.webp)
 
-For larger gatherings, magnums offer an impressive welcome with an added sense of occasion. Ridgeview’s Magnum Bloomsbury NV brings greater depth than its well-loved bottle format. With slower ageing there are layered fruit, biscuity complexity and a beautifully creamy mousse that make it an impressive centrepiece for parties and a naturally generous aperitif to pour for a crowd.
+![Ridgeview Sparkling Red Reserve](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-3.webp)
 
-And for truly special celebrations, Magnum Blanc de Blancs brings an elevated refinement. Aged for over a decade, it offers richness, precision and a long, pure finish – a striking choice for New Year’s Eve, gifting or those once-a-year moments that call for something exceptional.
+## Wonder wines for winter nibbles
 
-When Canapés Call: A Generous, Versatile Sparkling
+One Christmas tradition we love is catching up with friends and family over a cosy evening by the fire, complete with nibbles and wine. A smorgasbord of Sussex cheese and charcuterie is our go-to, paired with a bottle of our Sparkling Red Reserve or Oak Reserve. These pioneering wines are real conversation pieces, lovingly made in small batches to turn heads, delight palates and make fireside festive foods sing.
 
-Ridgeview Cavendish NV
+[Sparkling Red Reserve](/wine/red-reserve/)pours like a glimmering glass of rubies and tastes of pomegranate, forest fruits and sweet peppery spice. It’s a spectacular alternative to port with cheese, particularly of the blue variety.
 
-Winter hosting is defined by warmth and flavour, and few things set the tone better than a table of thoughtfully served canapés. Mushroom tartlets, salmon pâté, smoked trout or richly seasoned small bites all bring their own character, and Cavendish NV accentuates them beautifully. Depth and finesse shape this wine. Its red-berry brightness, subtle toasted-almond notes and gentle richness give it the adaptability hosts rely on. The Pinots add structure and complexity; the Chardonnay brings freshness and finesse, and together they deliver balance that complements both delicate and bold winter flavours. Versatile and generous, Cavendish rises to every food-focused festive occasion.
+[Oak Reserve](/wine/oak-reserve/)is a decadent wine, showcasing all the virtues of its extended oak aging. Packed with spiced fruit, vanilla and opulent buttery notes, it marries up beautifully with charcuterie, sweet treats and finger foods like caramelised onion tartlets.
 
-Christmas Feasting: A Sparkling Wine with Presence
+![](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-4.webp)
 
-Ridgeview Blanc de Noirs
+## The gourmet allrounder
 
-Christmas lunch deserves a sparkling wine with real presence, and for our winemaking team, Blanc de Noirs is the bottle they would never be without when roast dinner is calling. Its depth, structure and subtle Pinot spice make it an exceptional match for the flavours that define the festive table. From crispy roast potatoes to herb-seasoned stuffing, caramelised vegetables, cranberry brightness and the savoury richness of roasted meats or vegetarian centrepieces, this wine has the weight and complexity to meet every element head on.
+The golden rule for matchingfestive foods with sparkling wine? Load up on[Ridgeview Cavendish NV](/wine/cavendish/). For us, it’s the ultimate foodie wine, with the balance and abundance of rich, round fruit flavours to go bold or traditional with your food pairings.
 
-Red-fruit purity, warm spice and a gentle, pastry-like richness give Blanc de Noirs its signature character, allowing it to stand up to bold flavours while maintaining remarkable finesse. The result is a sparkling that doesn’t just accompany Christmas lunch – it transforms it, becoming part of the feast itself.
+Cavendish NV is our classic blend of Chardonnay and Pinots Noir and Meunier, crafted to be as versatile as it is delicious. We love it with smoked and cured meats, fish dishes and earthy plant-based ingredients like beetroot or mushrooms. So it’s equally at home on the festive dinner table or served with canapes and party foods. A must for every Christmas wine rack.
 
-Balanced, expressive and crafted with intent, Blanc de Noirs is the Ridgeview choice for the heart of the day.
+![](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-5.webp)
 
-When Seafood Takes Centre Stage
+## Our top Christmas celebration wine
 
-Seafood has a quiet but impressive place on British festive tables. From retro prawn cocktails to seared scallops, a creamy fish pie or the traditional seafood supper on Christmas Eve, these lighter dishes call for a sparkling wine with clarity and finesse. Ridgeview’s limited-release Blanc de Blancs calls out beautifully.
+The party season demands party wines, and nothing says celebration quite like a magnum. Not only is the large-format bottle great for sharing around a throng of guests, but very often the wine inside is a rare delight in itself.
 
-Crafted from 100% Chardonnay from our heritage vineyard on our home Sussex estate, this limited-release vintage offers bright orchard fruit, warm apricot notes and a fine, persistent freshness. A touch of savoury salinity mirrors coastal flavours, while its clean, long finish keeps every mouthful lifted. Refined and expressive, it enhances the delicate sweetness of prawns, the richness of smoked salmon and the subtle depth of scallops with ease.
+Our Limited Edition[Magnum Bloomsbury NV](/wine/magnum-bloomsbury/)is certainly no exception. A larger-than-life expression of our signature sparkling wine, it was so well received at the 2024 Sommelier Wine Awards that it came home with the Sparkling Wine of the Year trophy.
 
-Beautifully balanced and quietly impressive, it’s the bottle to pour when seafood takes centre stage in your festive celebrations.
+Bursting with bright citrus, juicy white peach and creamy brioche notes, there is celebration in every bubble of our Magnum Bloomsbury NV. Guaranteed to add a memorable touch of sparkle to your festive celebrations.
 
-When the Evening Unwinds: Cheese, Charcuterie and Nibbles
+## TOP PICKS FOR FESTIVE FOODIE WINES
 
-Ridgeview Sparkling Red Reserve
+Browse our handpicked selection of Christmas celebration companions, designed to complement every festive moment.
 
-Cosy winter evenings invite a slower, more relaxed kind of celebration – the kind built around grazing, light bites and the quiet pleasure of picking at nibbles while the night draws in. Sparkling Red Reserve is made for these moments. Highly aromatic with wild blackberry, cherry and hints of vanilla, it carries a deep forest-fruit character and bright, sweet spice that complement a wide range of winter favourites.
+From wines that dazzle with seasonal spreads to those perfect for raising a toast, our winemakers have put together this collection to celebrate the flavours, foods and fun of the season.
 
-It pairs beautifully with creamy Brie and blue cheeses, with enough richness to stand up to aged Cheddar, Stilton and nutty alpine styles. Its dark-fruit depth also works effortlessly with charcuterie, smoked or peppered meats and glazed nuts. And for fans of the nation’s favourite – M&S picky bits – it’s exceptional with Brie & Cranberry Tartlets, Chicken Tikka Masala Mini Naan Bites or Pad Thai Vegetable Spring Rolls.
+Whether you’re planning a showstopping feast, searching for the best sparkling wine for Christmas dinner, or hosting a lively party with friends, these sparkling wines are here to make every moment shine.
 
-Layered, expressive and quietly indulgent, Sparkling Red Reserve turns a simple evening spread into something memorable without overpowering it.
+Full glasses, full hearts – find your perfect sparkling wine for unforgettable festive moments this Christmas.
 
-When It’s Time for Something Sweet
+![Bottle of Blanc de Noirs Bottle and Box](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-6.webp)
 
-Ridgeview Rosé
+### Blanc de Noirs
 
-Desserts call for wines with lift and brightness – bottles that bring freshness to fruit, balance to cream and a sense of celebration to the final course. Ridgeview’s rosés both shine here, each with its own character and charm.
+Made from the finest Pinot grapes only in exceptional vintage years. Delightfully food-friendly, the palate bursts with red cherries, almonds and spice.
 
-Fitzrovia Rosé NV
+![](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-7.webp)
 
-Fitz is all about pure, joyful fruit. Delicate in colour with a fine, lively mousse, it offers notes of wild raspberry, cherry blossom and honeyed redcurrant. The palate is bright and spring fresh, filled with sherbet-like energy and balanced by a soft, creamy finish. It’s a perfect match for berry-led desserts from pavlova to fruit tarts or a berry coulis and is especially good with an Eton Mess. Light, refreshing and quietly playful, Fitzrovia Rosé lifts the sweetness of a pudding without weighing it down.
+### Cavendish NV
 
-Ridgeview Rosé de Noirs
+Expressive red berry and almond aromas. Elegantly balanced with notes of raspberry frangipane and bergamot orange. A deliciously foodie wine.
 
-For something more refined, Rosé de Noirs brings depth and elegance. A peach-gold hue with expressive aromas of redcurrant, summer berries and honey, it delivers vivid flavours of strawberry and cherry, with hints of orange, cranberry and delicate biscuit. Its rounded mouthfeel and long, poised finish make it a striking match for richer fruit desserts – trifle, berry crumble, poached pears or anything with bright red fruit at its heart. Made in extremely small quantities from our finest Pinot grapes, it’s a sophisticated way to finish a festive meal, offering structure and finesse where sweetness meets complexity.
+![](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-8.webp)
 
-Whether you’re sharing a showstopping pudding, assembling a late-night plate of sweet treats or simply pouring something pretty as the evening softens, Ridgeview rosé is a natural partner. Charming, expressive and quietly celebratory, it brings a joyful finish to the moments when sweetness takes centre stage.
+### Sparkling Red Reserve
+
+A love-letter to England’s finest Pinot grapes. Highly aromatic with vanilla, cherry and forest fruits, finessed by a twist of pomegranate and sweet, peppery spice.
+
+![](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-9.webp)
+
+### Oak Reserve
+
+A limited-edition, late-disgorged bottling of oak barrel fermented Chardonnay. Captivating with aromas of citrus peel and caramelised butter, with a complex, smoky palate.
+
+![](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-10.webp)
+
+### Magnum Bloomsbury NV
+
+Ridgeview magnums are a rare delight. Bursting with bright citrus flavours and aromas of juicy white peach, there are hints of honey and brioche on the palate.
+
+![](/images/articles/standout-sparkling-wine-pairings-for-christmas/inline-11.webp)
+
+### Bloomsbury NV
+
+Our bestselling fresh and fruit-forward English sparkling wine, with notes of citrus zest, pear and honey. A delightful aperitif and delicious with canapés.

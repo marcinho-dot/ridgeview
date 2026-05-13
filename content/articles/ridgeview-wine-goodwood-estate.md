@@ -2,26 +2,40 @@
 slug: ridgeview-wine-goodwood-estate
 ---
 
-We are delighted to announce that Ridgeview has been named the official English Sparkling Wine Supplier for the prestigious Goodwood Estate. Over the next three years, our celebrated wines—Bloomsbury, Fitzrovia, and Blanc de Blancs—will be served at the Ridgeview Pavilion and across all food and beverage menus at Goodwood Estate properties.
+![](/images/articles/ridgeview-wine-goodwood-estate/inline-1.webp)
 
-Goodwood Estate: A Premier Destination
+![](/images/articles/ridgeview-wine-goodwood-estate/inline-2.webp)
 
-Set in 11,000 acres of stunning countryside, the Goodwood Estate is globally renowned for its flagship events and exceptional hospitality. Located in the heart of West Sussex, near the historic town of Chichester, Goodwood is home to iconic events like the Festival of Speed, Goodwood Revival, and a host of other exhilarating sporting events and luxury experiences.
+## Goodwood Estate: A Premier Destination
 
-Ridgeview wines will make their debut at the Qatar Goodwood Festival from 30 July to 3 August 2024, and will be available throughout the year at Goodwood House, The Goodwood Hotel, Goodwood Cottages, Hound Lodge, Goodwood Aerodrome, The Kennels, and Goodwood Racecourse.
+Set in 11,000 acres of stunning countryside, the Goodwood Estate is globally renowned for its flagship events and exceptional hospitality. Located in the heart of West Sussex, near the historic town of Chichester, Goodwood is home to iconic events, exhilarating sporting occasions and luxury experiences.
 
-Collaboration for Celebration
+Ridgeview’s [English sparkling wine](https://www.ridgeview.co.uk/product-category/all-sparkling-wine/) made their debut at the [Qatar Goodwood Festival](https://www.goodwood.com/horseracing/qatar-goodwood-festival/) from 30 July to 3 August 2024. It is now available throughout the year at the new Ridgeview Pavilion Bar at the Goodwood Racecourse and across all menus at their esteemed estate properties.
 
-Tamara Roberts, Ridgeview CEO, shared her excitement about the collaboration:
+“We’re extremely excited to be working with Goodwood… Our collective focus on quality, passion, authenticity, attention to detail, and the importance of family moments and celebration, epitomise our brand ethos of ‘Life is celebrating’. This is why we see this as just the start of a long-term collaboration with the Goodwood team.”
 
-“We’re all extremely excited to be working with Goodwood. Even from the initial discussions, we could see how well our brands aligned with one another. Our collective focus on quality, passion, authenticity, attention to detail, and the importance of family moments and celebration, epitomise our brand ethos of ‘Life is celebrating’. This is why we see this as just the start of a long-term collaboration with the Goodwood team.”
+– Tamara Roberts, Ridgeview CEO
 
-Exceptional Experiences
+![](/images/articles/ridgeview-wine-goodwood-estate/inline-3.webp)
 
-Ellie Cundy, General Manager of The Kennels and Hound Lodge at Goodwood, echoed this enthusiasm: “We are delighted to partner with Ridgeview… Their ethos perfectly aligns with Goodwood's values and our passion for creating exceptional experiences. This partnership is a natural fit and we look forward to offering our guests the exquisite taste of Ridgeview wines, enhancing the celebratory atmosphere that is at the heart of Goodwood.”
+![](/images/articles/ridgeview-wine-goodwood-estate/inline-4.webp)
 
-Martin McGowan, Ridgeview Trade Sales Director, emphasised the opportunity this partnership presents:“Goodwood presents a brilliant opportunity for us to showcase our wines as part of all the amazing guest experiences within the Goodwood Estate and across a broad range of celebratory moments… We can’t wait to ensure all that we do with Goodwood creates lasting and enjoyable experiences for its guests in the years to come.”
+## Collaboration for Celebration
 
-A Future of Celebrations Together
+“We are delighted to partner with Ridgeview,” explains Ellie Cundy, General Manager of The Kennels and Hound Lodge – Goodwood’s private members club and luxury accommodation. “Their ethos perfectly aligns with Goodwood’s values and our passion for creating exceptional experiences…we look forward to offering our guests the exquisite taste of Ridgeview wines, enhancing the celebratory atmosphere that is at the heart of Goodwood.”
 
-This partnership marks the beginning of an exciting chapter for Ridgeview and Goodwood Estate. We are honoured to bring our award-winning sparkling wines to another prestigious venue, adding to our portfolio of incredible locations. Here’s to the start of an exceptional journey with Goodwood Estate, creating unique experiences that bring celebration to life.
+This partnership marks the beginning of an exciting new chapter for both Ridgeview and the Goodwood Estate. We are delighted to bring our award-winning sparkling wines to this prestigious venue, enhancing our portfolio of incredible places where we bring celebration to life.
+
+## A Glimpse of Goodwood - The Ridgeview Experience
+
+![](/images/articles/ridgeview-wine-goodwood-estate/inline-5.webp)
+
+![](/images/articles/ridgeview-wine-goodwood-estate/inline-6.webp)
+
+![](/images/articles/ridgeview-wine-goodwood-estate/inline-7.webp)
+
+![](/images/articles/ridgeview-wine-goodwood-estate/inline-8.webp)
+
+![](/images/articles/ridgeview-wine-goodwood-estate/inline-9.webp)
+
+![](/images/articles/ridgeview-wine-goodwood-estate/inline-10.webp)

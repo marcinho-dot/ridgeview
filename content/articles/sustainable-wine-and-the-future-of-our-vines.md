@@ -2,51 +2,72 @@
 slug: sustainable-wine-and-the-future-of-our-vines
 ---
 
-Becoming a B Corp was a natural evolution for Ridgeview. Sustainability has always been part of our DNA - rooted in the values of our founders and their respect for people and place. We’ve always believed that business can and should be a force for good. During lockdown our CEO, Tamara Roberts, had time to think and research certifications that best suited the Ridgeview philosophy. What we liked and respected about B Corp was the 360 view of sustainability - looking at it across every area of the business, not just environmental impact. It’s a globally recognised standard that’s gaining real momentum, and it just made sense for who we are and what we stand for.
+![Matt Strugnell, Vineyard Manager standing amongst the vines smiling](/images/articles/sustainable-wine-and-the-future-of-our-vines/inline-1.webp)
 
-As for Sussex, it plays a huge role. The region isn’t just beautiful and ideal for growing grapes; it’s a community that thrives on collaboration and innovation. The supportive local ecosystem, with its blend of agricultural heritage and progressive thinking, made it the perfect place to grow as a B Corp winery.
+## Our roots, our heritage, our future
 
-- According to the 2025 Impact Report, Ridgeview achieved an impact score of 92.9 similar to the 2022 score listed in an earlier db story), with a stated goal of 100%. (goal is 100+ points not 100%) Generally, have you noticed a change in overall attitude at Ridgeview since achieving B Corp certification?
+As proud custodians of our beautiful Sussex estate, we feel a deep duty to preserve our land for generations to come. Embeddingsustainable vineyardpractices to protect the long-term health of our vines is a vital part of that.
 
-From the start, we saw B Corp as an opportunity to embed change across the whole business and bring the entire team on the journey. We set up cross-functional subcommittees so that everyone could contribute, even in areas outside their day-to-day roles.
+Our estate vines include some of the UK’s oldest: each of them is a little piece of English winemaking history. They are our pride and joy as well as our livelihood, and we diligently apply the latest viticultural techniques to keep them healthy and productive for the years and decades ahead.
 
-What’s been most rewarding is seeing how proud the team is to be part of a company making a positive impact. The values have always been there, but B Corp gave us a shared language and purpose. It’s helped connect people to something bigger than themselves, beyond just making world-class sparkling wine. And having a tangible impact score gives us a clear sense of progress, with the 100-point goal inspiring us to keep pushing forward.
+We recently caught up with Matt Strugnell, Ridgeview’s Head of Viticulture, to talk vineyard sustainability. A viticultural expert and a mentor to many,his eyes were, as ever, on the distant horizon as well as the thriving vines in front of him. Long-term planning informs every intervention he and the vineyard team are making, many of which are now bearing fruit.
 
-Specifically, any insights you care to share about the current score vs. stated score? (Note: Could you also please help explain the second set of percentages for each category in the 2025 report?: viz., Governance (16.3/19.4=84%), People (27/37.2=72.6%), People (27/37.2=72.6%), Community (23.3/34.8=67.5%), Customers (3.5/5=70%)).
+## “The focus is on the really long term. It’s not just looking ahead to what the vine’s going to do next year or the year after. It’s looking well beyond that.”
 
-We’re proud of our current score - it shows we’re making consistent progress, holding steady with our 2022 impact while growing as a business. The target of 100+ points is aspirational and reflects our commitment to continuous improvement, not perfection.
+![](/images/articles/sustainable-wine-and-the-future-of-our-vines/inline-2.webp)
 
-As for the category percentages, they represent how close we are to B Lab’s “best practice” benchmarks. For example, in Governance, we’ve scored 16.3 out of a possible 19.4 points which translates to 84%. That tells us we’re strong in ethical leadership. Each percentage helps us identify where we shine and where we can dig deeper, like improving customer impact or deepening our community partnerships. It’s a valuable tool for focus and reflection.
+## Sustainable Pruning
 
-Ridgeview boasts an impressive array of initiatives under each category, including a Customer Service Academy, newly onboarded Data Protection Officer, "Menopause Friendly" accreditation, and community mentorship and volunteering. Do you have any particular programs that surprise, delight, or excite you most?
+Above ground, we’re continuing to employ the[sustainable vineyard pruning](/beyond-the-bottle/sustainable-wine-pruning-for-the-future/) method that is transforming the longevity of our heritage vineyard.Pioneered by Italian viticulturist[Marco Simonit](https://simonitesirchacademy.com/en/?gad_source=1&gclid=CjwKCAjwnei0BhB-EiwAA2xuBm9EcPfuCE-K22gTHCbZagV8ytA-9g8wOz4JF5xZCLMATW9xFsvSfhoCslgQAvD_BwE), these techniques reduce the stress on the vines when we prune them by reconnecting them with their natural growing patterns.
 
-There are so many! But one that really excites us is the Customer Service Academy. It’s not just about great hospitality - it’s about empowering our team with the knowledge and confidence to represent Ridgeview’s values at every touchpoint.
+So far, Matt is thrilled with the results:
 
-And our community mentorship programme is a real highlight - we’re investing in future talent right here in Sussex. We were also recently certified as a Great Place to Work as well as receiving a Gold award from East Sussex County council for Wellbeing at Work. You can find out more about our culture here.
+“Basically what we’re doing is building up the layering of healthy wood year on year. It mimics what the vines want to do but in a controlled way, and they’re responding really well. The longer we do it, the more healthy wood is produced and the stronger the vines get. It’s not a quick fix but in time I’m hoping we’ll start to see an increase in vigour and then from that, more production. We’re giving them a new lease of life.”
 
-Given the current headwinds in the wine industry, any notably challenging categories/initiatives for you?
+![Ridgeview Wine Estate, Chardonnay Vineyard](/images/articles/sustainable-wine-and-the-future-of-our-vines/inline-3.webp)
 
-The wine industry is facing challenges - from climate change to evolving consumer habits. Balancing environmental responsibility with business resilience is an ongoing focus. We’ve had to look closely at packaging, supply chains and energy use, all while continuing to deliver the quality our customers expect. It’s a complex puzzle, but our B Corp framework keeps us accountable and forward-thinking in finding solutions. We are also proud to be founder members of Sustainable Wines of Great Britain - working together as an industry to lead positive, measurable change across the English wine landscape.
+## Improving soil health
 
-- Conversely, the report also notes Ridgeview's leadership and support of other B Corps, including listing other B Corp wines on your Rows & Vine restaurant beverage menu. Have you seen a change in attitude from other wineries considering the B Corp certification? Any advice you'd offer them?
+A healthysustainable vineyardis rooted in healthy sustainable soils. Given the age of our vines and our commitment to taking the best care of our land, this is another long-term measure Matt is paying particularly close attention to. He talks of “setting a roadmap” for our soil, with the goal of increasing vine longevity and vigour, as well as fruit quality.
 
-Absolutely - we’re seeing growing interest and curiosity across the industry, which is so encouraging. Since our B Corp certification, two other English wineries have followed suit, and several more are exploring the path. It’s brilliant to see that momentum building and encourage every business to consider joining B Corp if they can. It offers a robust framework for best business practice and opens the door to a global community of like-minded, purpose-led businesses.
+“We keep working with Marco to get the top part of the vines sorted, and now the focus is very much on soil health. Something that became apparent last year is: where we’ve got better soil in patches of the vineyard, there’s a real difference in the canopy, the colour of the leaves. Also less disease pressure. The vines were a lot healthier.”
 
-At The Rows & Vine, our estate restaurant, we proudly list other B Corp products and regularly partner with other B Corps from different industries to champion the movement, amplify its impact and show what’s possible when value-led businesses come together.
+Fortunately, the composition of our soils gives us a good medium to work with – perhaps the best, according to a recent conversation Matt had with Professor Alain Deloir from L’Institut Agro in Montpelier.
 
-Our advice to others? Don’t wait until everything is “perfect.” Start the journey. The certification process itself is incredibly valuable - it helps you see your business through a new lens, and there’s a wonderfully supportive community to learn from along the way.
+“We got chatting about soil types when we were guest speakers at a pruning festival in Tuscany. Alain is probably*the*world expert on vine physiology and he said that, if you know what you’re doing with it, clay can be a fantastic growing medium for vines.”
 
-B Corp isn’t a badge - it’s a mindset. It’s in our vineyard practices, our management decisions, and our daily working life. We believe in building a legacy that goes beyond the bottle, and we’re grateful for the opportunity to lead by example in the wine world and beyond.
+![](/images/articles/sustainable-wine-and-the-future-of-our-vines/inline-4.webp)
 
-- Anything else I haven't asked you that you think is important for readers of db to know about Ridgeview's B Corp certification?
+![](/images/articles/sustainable-wine-and-the-future-of-our-vines/inline-5.webp)
 
-Another standout example is Ridgeview’s mentorship and volunteering initiatives within the local community. We have deep community roots and connections to Sussex and we believe in giving back—not just through donations, but through time, expertise and meaningful connection. By mentoring young people and emerging industry talent we are helping build the industry’s next generation of positive changemakers - a great example of what B Corp is all about: using business as a force for good, right where it matters most.
+## Letting nature takes its course
 
-Other Useful Links:
+Nevertheless, the composition of clay means it takes a lot of work to create those conditions. The particles in clay soils are small and tightly packed, which means it can easily become compacted and waterlogged. Taking measures to loosen the texture, oxygenate the soil, allow good drainage and encourage fine root generation is essential.
 
-- Sustainable & Ethical Business Practises: https://www.ridgeview.co.uk/about-us/sustainable-business-practices/
-- Our B Corp Impact Report 2024: https://www.ridgeview.co.uk/news/bcorp-impact-2024/
-- Blog: Rooted in the land – Our Sustainable Origins: https://www.ridgeview.co.uk/news/our-sustainable-origins/
-- Blog: Sustainable Wine – Pruning for the Future: https://www.ridgeview.co.uk/news/sustainable-wine-pruning-for-the-future/
-- Blog: Ridgeview Recommends – Inspiring B Corp Brands: https://www.ridgeview.co.uk/news/sustainable-wine-pruning-for-the-future/
-- Blog: Celebrating our Sustainability Gold Award: https://www.ridgeview.co.uk/news/vineyard-sustainability-gold-award/
+These measures include mechanical[subsoiling](https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/subsoiling)and growing grass or cover crops around the vines to reduce compaction below the surface. The latter explains Matt’s current approach.
+
+“What I’m doing at the moment is kind of letting nature take its course on the vineyard floor. And then strimming the vegetation we’ve introduced in the rows – all that organic matter will help to get more oxygen into the soil. It’s good for carbon sequestration too, so sustainable in different ways.”
+
+## “For me, the last three years has been a bit of a reset on viticulture in general. It could be quite easy to lose focus on remembering how to grow grapes properly. With too many interventions, some of the fundamental stuff gets a bit lost. I’m trying to keep it simple, not overcomplicate things.”
+
+![](/images/articles/sustainable-wine-and-the-future-of-our-vines/inline-6.webp)
+
+## Tradition and Technology Unite
+
+Another way we’re planning for the future is by learning more about the unique growing conditions around the Ridgeview estate. Happily, there is some incredible emerging technology to aid us here. This year we’ve been part of an exciting new project using cutting-edge weather tech to guard against frost damage.
+
+The system involves installing sensors around a network of vineyards to monitor temperatures and provide hyper-localised forecasts. It’s given us an incredibly detailed temperature map across our vineyard, meaning vital new insights into our terroir.
+
+But more vitally, it’s already helped to rescue our 2024 growing season by alerting Matt to an unexpected frosty night earlier this year.
+
+![Pruning the vines at Ridgeview Wine Estate English sparkling wine Sussex England](/images/articles/sustainable-wine-and-the-future-of-our-vines/inline-7.webp)
+
+## One night, during the spring...
+
+“…we had a shock frost. I was at a pub quiz at the time, but luckily I was driving. I logged into the dashboard to check the temperature at half time and it looked pretty much the same as the previous night. Then we got to the end of the quiz, I checked again and it had gone from 7-8 degrees to about 2. I thought ‘Right, I’m going to work!’
+
+“I had two other guys available, so the three of us came in and got candles going. It’s a good job we did: at one point the weather station outside the vineyard was reading -3, and that would have caused quite a lot of damage.”
+
+For Matt, that timely victory in the vineyard more than made up for not winning the quiz. For us, it’s a great example of how emerging technology can dovetail with ancient viticultural practices to promotevineyard sustainability.
+
+Experimenting to conserve: it’s a philosophy guided by our core values of innovation and heritage, and aligning with our proudly-held[B Corp](/beyond-the-bottle/were-proud-to-be-a-b-corp/)certification and gold award from Sustainable Wines of Great Britain . Long may it continue.

@@ -2,60 +2,82 @@
 slug: rose-de-noirs-revealed
 ---
 
-## Bottle Back Label
+![Two glasses of rosé with strawberries on the table and a bottle in an ice bucket in the background](/images/articles/rose-de-noirs-revealed/inline-1.webp)
 
-A vibrant rich pink hue. Cherry blossom notes sit alongside red berry and honey aromas. An expressive palate of summer fruits, layered with rich complexities of biscuits and almonds. Creamy, soft mouthfeel with full texture and a long-balanced finish. Pair with wild strawberries, salmon and canapés.
+## Rosé de Noirs: A sparkling delicacy
 
-## Tech Sheet Tasting Note
+A celebration of fruit flavours and finesse, Ridgeview’s Rosé de Noirs radiates with a vibrant peach-gold hue. Fragrant notes of redcurrant, summer berries, and honey entice the senses, leading to a palate bursting with bright strawberries and cherries.
 
-A peach-gold hue with fragrant aromas of redcurrant, summer berries and honey. Expressive and vibrant, the palate brings bright strawberries and cherries, layered with hints of orange, cranberry and biscuit. A soft, creamy texture and rounded mouthfeel give way to an elegant, long-lingering finish.
+Subtle hints of orange, cranberry, and biscuit add layers of intrigue, while a soft, creamy texture and rounded mouthfeel create a beautifully balanced finish that lingers long after each sip.
 
-## Valentines Day Messaging
+*“I look for lots of black cherry, redcurrant and strawberry notes with a savouriness that comes with really ripe pinots. After three years ageing on lees, our Rosé de Noirs develops an enticing spectrum of flavour, aroma and texture. It’s a total delight to drink.”*
 
-Adapted from new blog (Valentine’s Day: Delicious Date Night Food Pairings): www.ridgeview.co.uk/news/valentines-day-delicious-date-night-food-and-wine-pairings/
+*–***Simon Roberts, Head Winemaker**
 
-The pop of a cork and the gentle clink of glasses—nothing sets the scene for Valentine’s Day quite like an exceptional sparkling wine. Whether it’s a romantic dinner or a celebration with friends, serve a showstopping centrepiece with our new, vintage Rosé de Noirs 2020. With its vibrant pink hue and fragrant notes of cherry blossom, red berries, and honey, it bursts with expressive summer fruit flavours layered with rich complexities of biscuit and almond.
+![A bunch of Pinot grapes on a wooden table](/images/articles/rose-de-noirs-revealed/inline-2.webp)
 
-Its creamy, soft mouthfeel and long, balanced finish make it a dream pairing for bold, robust dishes like Asian-inspired flavours, roasted root vegetables and creamy, fruit-driven desserts.
+## Our Secret Saignée Method
 
-Pairing suggestions:
+An enigmatic expression of winemaking expertise, Ridgeview Rosé de Noirs is made using our Head Winemaker’s unique interpretation of the traditional saignée method (meaning ‘to bleed’).
 
-Thai-style prawns with chilli and lime
+It all starts with our ripest Pinot fruit, the last grapes that we pick during harvest. They rest in crates overnight, and the following day, before we load them into the press to sit on whole bunches, in contact with skin and seeds.
 
-Roasted beetroot and goat’s cheese tart
+This is all about extracting that magical rosé colour and a depth of flavour found only in the finest of Rosé de Noirs bottlings. Once the juice strikes a perfect balance between character and colour – we begin to press.
 
-Eton mess with fresh berries
+![](/images/articles/rose-de-noirs-revealed/inline-3.webp)
 
-## Blog
+## Tradition, Refined
 
-Extracted from blog: https://www.ridgeview.co.uk/news/rose-de-noirs-revealed/
+Historically, the saignée method leaves the grapes to sit for far longer, but we extract juice just as the fermentation begins. This is what sets Ridgeview’s Rosé de Noirs apart; it produces a far fresher, lighter and elegant sparkling rosé that dances on the palate. Each limited edition release is treated as a delicacy at Ridgeview and produced only in the very best vintage years.
 
-Title: Inside our luxurious, limited-edition Rosé de Noirs
+## ‘A WINEMAKER’S WINE’
 
-Alive with vibrant fruit flavours and a creamy palate of peach, cherry and biscuit, Ridgeview’s Rosé de Noirs is an elegant, grown-up, serious sparkling rosé. Uncover the artistry and passion behind each bottle, and explore what makes this limited-release vintage so exceptional. We’re lifting the lid on our luxurious, limited-release Rosé de Noirs.
+Considered a jewel in the crown of a winemaker’s portfolio, rosé is a window into the quality and character of the craftsman.
 
-Rosé de Noirs: A sparkling delicacyA celebration of fruit flavours and finesse, Ridgeview’s Rosé de Noirs radiates with a vibrant peach-gold hue. Fragrant notes of redcurrant, summer berries, and honey entice the senses, leading to a palate bursting with bright strawberries and cherries. Subtle hints of orange, cranberry, and biscuit add layers of intrigue, while a soft, creamy texture and rounded mouthfeel create a beautifully balanced finish that lingers long after each sip.
+*“Rosé de Noirs is a joy to make. As a winemaker, you have so much artistic influence on the end result. The decisions you make at each stage of the journey define the wine’s character and it takes many years of experience to master the art.”*
 
-“I look for lots of black cherry, redcurrant and strawberry notes with a savouriness that comes with really ripe pinots. After three years ageing on lees, our Rosé de Noirs develops an enticing spectrum of flavour, aroma, and texture. It’s a total delight to drink.” – Simon Roberts, Head Winemaker
+Inspired by the illustrious rosé styles from around the world, Ridgeview Rosé de Noirs elegantly balances depth with delicacy. Refreshingly crisp, fragrant and fruit-driven it is a delightfully versatile English sparkling wine that delights in different ways throughout the seasons.
 
-Our Secret Saignée MethodAn enigmatic expression of winemaking expertise, Ridgeview Rosé de Noirs is made using our Head Winemaker’s unique interpretation of the traditional saignée method (meaning ‘to bleed’). It all starts with our ripest Pinot fruit, the last grapes that we pick during harvest. They rest in crates overnight, and the following day, before we load them into the press to sit on whole bunches, in contact with skin and seeds. This is all about extracting that magical rosé colour and a depth of flavour found only in the finest of Rosé de Noirs bottlings.
+A standout sparkling wine for summer celebrations, Rosé de Noirs brings so much to the table when it comes to cuisine. Not only delightful with dessert, there are food pairing gems to be found well beyond pudding. Culinary companions include fragrant Thai dishes, smoky barbeque flavours and a bold beetroot tartar.
 
-Tradition, RefinedHistorically, the saignée method leaves the grapes to sit for far longer, but we extract juice just as the fermentation begins. This is what sets Ridgeview’s Rosé de Noirs apart; it produces a far fresher, lighter, and elegant sparkling rosé that dances on the palate. Each limited-edition release is treated as a delicacy at Ridgeview and produced only in the very best vintage years.
+## The Expert's Choice
 
-‘A WINEMAKER’S WINE’Considered a jewel in the crown of a winemaker’s portfolio, rosé is a window into the quality and character of the craftsman.
+> “Ridgeview set a pretty high bar for quality English sparkling wine…defined by finesse and elegance and that’s what you find in their Rosé de Noirs…”
 
-“Rosé de Noirs is a joy to make. As a winemaker, you have so much artistic influence on the end result. The decisions you make at each stage of the journey define the wine’s character and it takes many years of experience to master the art.”
+“Ridgeview set a pretty high bar for quality English sparkling wine…defined by finesse and elegance and that’s what you find in their Rosé de Noirs…”
 
-Inspired by the illustrious rosé styles from around the world, Ridgeview Rosé de Noirs elegantly balances depth with delicacy. Refreshingly crisp, fragrant and fruit-driven, it is a delightfully versatile English sparkling wine that delights in different ways throughout the seasons.
+Richard Bamfield MW, The Finest Bubble
 
-Culinary CompanionsA standout sparkling wine for summer celebrations, Rosé de Noirs brings so much to the table when it comes to cuisine. Not only delightful with dessert, there are food pairing gems to be found well beyond pudding. Culinary companions include fragrant Thai dishes, smoky barbeque flavours, and a bold beetroot tartar.
+## Shop Rosé de Noirs
 
-## Product Page:
+![Bottle of Rosé de Noirs and Box](/images/articles/rose-de-noirs-revealed/inline-4.webp)
 
-Section 1: A peach-gold hue with fragrant aromas of redcurrant, summer berries and honey. Expressive and vibrant, the palate brings bright strawberries and cherries, layered with hints of orange, cranberry and biscuit. A soft, creamy texture and rounded mouthfeel give way to an elegant, long-lingering finish.
+### Rosé de Noirs
 
-Section 2: Showcasing our finest Pinot grapes from one exceptional vintage year, our Rosé de Noirs is made using our unique interpretation of the traditional saignée method (drawing colour at the initial pressing stage). Made in extremely small quantities, this limited-release sparkling rosé comes in a matching gift box.
+Alive with vibrant fruit flavours and a creamy palate of peach, cherry and almond. An elegant, grown-up, serious English sparkling rosé.
 
-“I look for lots of black cherry, redcurrant and strawberry notes with a savouriness that comes with really ripe pinots. After three years ageing on lees, our Rosé de Noirs develops an enticing spectrum of flavour, aroma, and texture. It’s a total delight to drink.” – Simon Roberts, Head Winemaker
+![](/images/articles/rose-de-noirs-revealed/inline-5.webp)
 
-Discover more about our award-winning Rosé de Noirs here.
+### Rosé Duo
+
+Two unique expressions of luxurious English sparkling rosé. Fitzrovia Rosé NV is fresh and fruit-driven, whilst our vintage Rosé de Noirs has a complex, creamy palate of peach, cherry and almond.
+
+![Ridgeview Rose de Noir Vintage case English sparkling wine](/images/articles/rose-de-noirs-revealed/inline-6.webp)
+
+### Rosé de Noirs (Case of 6)
+
+Six bottles of our saignée method sparkling rosé. Our limited-release vintage Rosé de Noirs bursts with vibrant fruit flavours and a creamy palate of peach, cherry and almond.
+
+## Rosé de Noirs AWARDS
+
+![Champagne and Sparkling Wine World Championships 2018 Logo](/images/articles/rose-de-noirs-revealed/inline-7.webp)
+
+### GOLD
+
+Champagne and Sparkling Wine World Championships 2018
+
+![Decanter World Wine Awards 2023 Platinum Medal](/images/articles/rose-de-noirs-revealed/inline-8.webp)
+
+### PLATINUM
+
+Decanter World Wine Awards 2023

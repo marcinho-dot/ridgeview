@@ -2,28 +2,36 @@
 slug: our-impact
 ---
 
-Topline:
+## RIDGEVIEW'S SUSTAINABILITY STORY SO FAR
 
-- First impact report published, marking one year since B Corp accreditation.
-- Ambitious goals for the future, targeting a B Corp score of over 100 points by 2025 and carbon neutrality by 2030.
+We are on a journey, a constantly evolving pathway towards a more sustainable future that balances people, planet and profit. In September 2023, we celebrated our first year as a certified B Corporation and have made significant sustainability strides since accreditation. But our work is not (nor will it ever be) complete. Our 2023 B Corp Impact Report serves as a benchmark from which we will continue to move the dial and we remain committed to advance our sustainability efforts, year on year.
 
-Key 2023 Highlights:
+![](/images/articles/our-impact/inline-1.webp)
 
-- New winery expansion has increased cellar capacity to 1 million bottles. The project has seen significant investment in new winemaking equipment eliminating up to 5 tonnes of hazardous waste
-- 100 tonnes of carbon was sequestered across our estate, making us carbon negative across Scope 1 and 2 emissions
-- New grape picking bins have cut transport emissions by 7 tonnes CO2e
-- Donated over £17k to Table Talk charity, supporting Sussex food education in Sussex
-- Opened a new onsite restaurant, The Rows & Vine, built using sustainable design principles and set within a biodiversity-rich garden of native plants.
-- Awarded Gold for Green South Downs Sustainability Certification
-- Awarded Employer of the Year in the Gatwick Diamond Business Awards 2023
-- Winner of Decanter’s UK Winery Wine Club of the year 2023
+## RECENT IMPACT HIGHLIGHTS
 
-Quotes from Tam:
+![Certified B Corporation](/images/articles/our-impact/inline-2.webp)
 
-“B Corp is not about words, it’s about actions and lots of them – small steps of continuous improvement across all impact areas. While challenging conditions continue to influence the global wine market, we have maintained our long-term perspective, investing £4.8 million in new facilities over the last year, providing capacity to increase production by more than 100% over the next five years. We are resolute that growth must not come at the expense of our ethics as a business for good, not just profit. We have put a line in the sand from which we will continuously improve, targeting a B Corp score of over 100 points in 2025 and carbon neutrality by 2030.”
+![£17k donated to charity](/images/articles/our-impact/inline-3.webp)
 
-“We want to be a true industry leader, sharing our knowledge and practices, as we have since we started Ridgeview in 1995. Only by working together will we have any chance of changing the world – and preserving it for generations to come.”
+![50% of our workforce identify as women](/images/articles/our-impact/inline-4.webp)
 
-Tamara Roberts
+![100 tonnes of CO2 sequestered](/images/articles/our-impact/inline-5.webp)
 
-CEO Ridgeview
+![Biobubble naturally treats all waste water](/images/articles/our-impact/inline-6.webp)
+
+![100 new solar panels installed](/images/articles/our-impact/inline-7.webp)
+
+![5 tonnes of Winery Waste Eliminated](/images/articles/our-impact/inline-8.webp)
+
+![We pledge to be carbon neutral by 2030](/images/articles/our-impact/inline-9.webp)
+
+![](/images/articles/our-impact/inline-10.webp)
+
+## Our B Corp Values
+
+![Tamara Roberts Signature](/images/articles/our-impact/inline-11.jpg)
+
+![](/images/articles/our-impact/inline-12.webp)
+
+Thanks to [Impact Focus](https://impactfocus.co/) and [Add Tonic](https://www.addtonic.com/) for bringing our 2023 B Corp Impact Report to life.
