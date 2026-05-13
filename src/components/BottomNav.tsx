@@ -74,7 +74,7 @@ export function BottomNav({ hideWhileVisibleSelector }: BottomNavProps = {}) {
           </a>
 
           <a href={`${basePath}/#wine-collection`} className="btn-cta">
-            View All Wines
+            Shop all Wines
           </a>
         </motion.div>
       )}
