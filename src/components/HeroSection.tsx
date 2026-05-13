@@ -112,14 +112,32 @@ export function HeroSection() {
             spacing rhythm as the kicker/headline (mb-5). Text bumped to
             white/80 + larger font size so it stays legible against the
             misty background; icon enlarged so it reads as a proper bullet. */}
+        {/* `items-start` so the diamond glyph anchors to the FIRST line
+            of the proof-point text, not the vertical centre of the
+            (potentially wrapping) content. Container height accommodates
+            two lines on mobile (where the longest proof points wrap)
+            and one line on desktop (plenty of horizontal room). */}
         <motion.div
-          className="flex items-center gap-3"
+          className="flex items-start gap-3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.3, duration: 0.8 }}
         >
-          <span className="text-[#C8A96E] flex-shrink-0 text-[18px] -translate-y-[7px] md:-translate-y-[3px]">◆</span>
-          <div className="overflow-hidden" style={{ height: "1.5em" }}>
+          {/* Inline SVG diamond — perfect geometric control over size +
+              alignment. mt offsets shift the glyph's geometric centre
+              down to sit on the text's x-height middle for the first
+              line (mobile 12px font / desktop 14px font). */}
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 12 12"
+            aria-hidden
+            className="flex-shrink-0 mt-[3px] md:mt-[5px]"
+            style={{ filter: "drop-shadow(0 1px 4px rgba(0,0,0,0.8))" }}
+          >
+            <path d="M6 0 L12 6 L6 12 L0 6 Z" fill="#C8A96E" />
+          </svg>
+          <div className="overflow-hidden h-[36px] md:h-[20px]">
             <AnimatePresence mode="wait">
               <motion.p
                 key={proofIndex}
@@ -128,6 +146,7 @@ export function HeroSection() {
                   fontSize: "clamp(12px, 1.15vw, 14px)",
                   fontWeight: 300,
                   letterSpacing: "0.1em",
+                  lineHeight: 1.4,
                   textShadow: "0 1px 8px rgba(0,0,0,0.95)",
                 }}
                 initial={{ y: "110%", opacity: 0 }}
