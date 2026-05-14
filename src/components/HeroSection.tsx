@@ -30,18 +30,18 @@ export function HeroSection() {
     // of the image is just decorative).
     <section className="relative h-screen w-full overflow-hidden">
 
-      {/* Background image — misty autumn morning at Ridgeview vineyard, Sussex.
-          Source is now 2560×1440 (16:9), which matches the aspect of most
-          desktop viewports — object-cover lands edge-to-edge with no
-          visible crop on landscape screens. On mobile (portrait) the
-          cover still crops left/right; the key motif (vineyard path,
-          trees, light beam) is centered so the crop is graceful. */}
+      {/* Background image — vineyard hero at Ridgeview, Sussex.
+          Source is 2560×1440 (16:9). object-cover lands edge-to-edge with
+          no crop on 16:9 desktop viewports; on shorter / portrait viewports
+          (16:10 macs, mobile) it crops the BOTTOM only — objectPosition
+          "center top" anchors the upper half of the image so sky, horizon
+          and the headline-overlay zone are always preserved. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={`${basePath}/images/hero-bg-v2.jpg`}
-        alt="Misty autumn morning at Ridgeview vineyard, Sussex"
+        src={`${basePath}/images/vineyardhero.jpg`}
+        alt="Sunlight breaking through mist over the Ridgeview vineyard, Sussex"
         className="absolute inset-0 w-full h-full object-cover"
-        style={{ objectPosition: "center 50%" }}
+        style={{ objectPosition: "center top" }}
       />
 
       {/* Three-layer overlay stack (mobile + desktop):
