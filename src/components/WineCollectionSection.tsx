@@ -20,7 +20,12 @@ const priceValue = (p: string): number =>
   parseFloat(p.replace(/[^0-9.]/g, "")) || 0;
 
 const wines = allWines
-  .filter((w) => w.slug !== "engraved-bottle-gift")
+  // Homepage carousel shows actual bottles only. The OurView Wine
+  // Club membership entry still lives in wines.ts (so it appears on
+  // the /wines/ listing) but doesn't belong in this bottle-focused
+  // carousel. The engraved-bottle-gift is also a gift product, not a
+  // wine.
+  .filter((w) => w.slug !== "engraved-bottle-gift" && w.kind !== "membership")
   .sort((a, b) => {
     // Membership entries (OurView Wine Club) always last — they aren't
     // bottles and shouldn't intrude on the price-descending ranking.
