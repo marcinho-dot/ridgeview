@@ -84,21 +84,34 @@ function PageHero() {
 
 function WineLegend() {
   return (
-    <section className="relative bg-[#010101] border-t border-white/[0.06]">
-      <div className="max-w-[1400px] mx-auto px-2 md:px-16 pt-8 md:pt-12 pb-2 md:pb-6">
-        {/* Kicker — discreet label so the strip doesn't read as random thumbs */}
+    <section className="relative bg-[#010101] border-t border-white/[0.06] overflow-hidden">
+      {/* Soft gold radial wash anchoring the bottle row — gives the
+          editorial poster a quiet stage instead of a flat dark band. */}
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 70% 60% at 50% 40%, rgba(200,169,110,0.045) 0%, transparent 70%)",
+        }}
+      />
+
+      <div className="relative max-w-[1500px] mx-auto px-2 md:px-12 pt-8 md:pt-10 pb-2 md:pb-8">
         <p
-          className="font-body text-white/40 uppercase tracking-[0.28em] text-center mb-6 md:mb-8 px-4"
+          className="font-body text-white/40 uppercase tracking-[0.28em] text-center mb-6 md:mb-7 px-4"
           style={{ fontSize: "11px" }}
         >
           Jump to a bottle
         </p>
 
-        {/* Mobile: horizontal scroll-snap strip. Desktop: 5-column grid
-            so 11 bottles lay out as 5 + 5 + 1 (with the final row item
-            justified centre via justify-items-center on the grid). */}
+        {/* Mobile: horizontal scroll-snap thumb strip (compact, swipe-find).
+            Desktop: editorial 5-column poster grid with sizable plates —
+            each bottle gets a portrait-frame stage + display-italic name
+            + gold italic price + bottle-size hairline label. Sized so the
+            full 2-row grid sits inside one ~800px viewport (below the
+            page hero + the kicker) without scrolling. */}
         <ul
-          className="flex md:grid md:grid-cols-5 md:justify-items-center gap-4 md:gap-y-10 md:gap-x-7 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none px-4 md:px-0 pb-3 md:pb-0
+          className="flex md:grid md:grid-cols-5 md:justify-items-center gap-4 md:gap-x-5 md:gap-y-2 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none px-4 md:px-0 pb-3 md:pb-0
                      [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
         >
           {wines.map((wine) => {
@@ -106,21 +119,25 @@ function WineLegend() {
             return (
               <li
                 key={wine.id}
-                className="flex-shrink-0 snap-start"
+                className="flex-shrink-0 snap-start w-full"
                 style={{ scrollSnapAlign: "start" }}
               >
                 <a
                   href={`#${anchor}`}
                   aria-label={`Jump to ${wine.name}`}
-                  className="group flex flex-col items-center w-[88px] md:w-[96px] focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C8A96E]/40 rounded-sm"
+                  className="group relative flex flex-col items-center w-[88px] md:w-full focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C8A96E]/40 rounded-sm"
                 >
-                  {/* Mini bottle stage */}
-                  <div className="relative w-full aspect-square bg-[#0a0a0a] rounded-sm overflow-hidden">
+                  {/* Bottle stage — square thumb on mobile, taller portrait
+                      plate on desktop so the bottle reads as a poster
+                      figure not a thumbnail. */}
+                  <div className="relative w-full aspect-square md:aspect-[5/6] bg-[#0a0a0a] rounded-sm overflow-hidden">
+                    {/* Concentrated gold halo behind the bottle */}
                     <div
+                      aria-hidden
                       className="absolute inset-0 pointer-events-none"
                       style={{
                         background:
-                          "radial-gradient(ellipse 70% 60% at 50% 70%, rgba(200,169,110,0.07) 0%, transparent 70%)",
+                          "radial-gradient(ellipse 70% 55% at 50% 70%, rgba(200,169,110,0.10) 0%, transparent 65%)",
                       }}
                     />
                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -128,29 +145,33 @@ function WineLegend() {
                       src={`${basePath}${wine.image}`}
                       alt=""
                       aria-hidden
-                      className="absolute inset-0 w-full h-full object-contain p-2.5 transition-transform duration-500 ease-out group-hover:scale-[1.07] [filter:drop-shadow(0_6px_10px_rgba(0,0,0,0.55))]"
+                      className="absolute inset-0 w-full h-full object-contain p-2.5 md:p-5 transition-transform duration-700 ease-out group-hover:scale-[1.06] [filter:drop-shadow(0_8px_14px_rgba(0,0,0,0.6))]"
+                    />
+                    {/* Inset hairline — gold on hover. Read as a vitrine
+                        frame around the bottle. */}
+                    <div
+                      aria-hidden
+                      className="absolute inset-0 pointer-events-none rounded-sm ring-1 ring-inset ring-white/[0.04] group-hover:ring-[#C8A96E]/40 transition-colors duration-500"
                     />
                   </div>
 
-                  {/* Name — kept tight, two-line max; hover surfaces gold */}
+                  {/* Editorial caption block — display italic name + gold
+                      italic price + uppercase volume hairline. */}
                   <span
-                    className="font-body text-white/55 group-hover:text-[#C8A96E] uppercase tracking-[0.16em] mt-2.5 text-center leading-[1.35] transition-colors duration-300"
-                    style={{ fontSize: "9.5px", letterSpacing: "0.14em" }}
+                    className="font-display italic text-white/80 group-hover:text-cream mt-3 md:mt-4 text-center leading-[1.15] transition-colors duration-400"
+                    style={{ fontSize: "clamp(11px, 1.1vw, 16px)", fontWeight: 400 }}
                   >
                     {wine.name}
                   </span>
-
-                  {/* Price · bottle size — small editorial line so the
-                      legend doubles as a quick price-comparison glance. */}
                   <span
-                    className="font-display italic text-[#C8A96E]/85 mt-1 text-center leading-none"
-                    style={{ fontSize: "11px", letterSpacing: "0.02em" }}
+                    className="font-display italic text-[#C8A96E] mt-1 md:mt-2 text-center leading-none"
+                    style={{ fontSize: "clamp(11px, 1vw, 14px)" }}
                   >
                     {wine.price}
                   </span>
                   <span
-                    className="font-body text-white/35 mt-0.5 text-center uppercase tracking-[0.2em] leading-none"
-                    style={{ fontSize: "8.5px" }}
+                    className="font-body text-white/35 mt-1 text-center uppercase leading-none"
+                    style={{ fontSize: "8.5px", letterSpacing: "0.28em" }}
                   >
                     {wine.bottleSize ?? "75cl"}
                   </span>
