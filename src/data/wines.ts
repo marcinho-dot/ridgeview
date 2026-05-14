@@ -66,7 +66,7 @@ export const wines: Wine[] = [
     name: "Blanc de Noirs",
     description:
       "A white sparkling wine made entirely from red grapes — Pinot Noir and Pinot Meunier. Remarkable freshness and depth, structured, precise and unmistakably English.",
-    vintage: "Vintage",
+    vintage: "2016",
     tastingNotes: ["White Cherry", "Citrus Pith", "Mineral Edge"],
     price: "£60",
     image: "/products/blanc-de-noirs.png",
@@ -77,7 +77,7 @@ export const wines: Wine[] = [
     name: "Rosé de Noirs",
     description:
       "Alive with vibrant fruit flavours and a creamy palate of peach, cherry and almond. An elegant, grown-up, serious English sparkling rosé — for those who expect more from a pink wine.",
-    vintage: "Vintage",
+    vintage: "2020",
     tastingNotes: ["Peach", "Wild Cherry", "Fine Mousse"],
     price: "£65",
     image: "/products/rose-de-noirs.png",
@@ -88,7 +88,7 @@ export const wines: Wine[] = [
     name: "Oak Reserve",
     description:
       "A rare, late-disgorged, oak barrel-fermented English Chardonnay. Rich, complex and unlike anything else in our range — for those who know what patience in the cellar truly tastes like.",
-    vintage: "Limited Edition",
+    vintage: "Late-Disgorged",
     tastingNotes: ["Vanilla Oak", "Golden Apple", "Toasted Brioche"],
     price: "£85",
     image: "/products/oak-reserve.png",
@@ -99,7 +99,7 @@ export const wines: Wine[] = [
     name: "Sparkling Red Reserve",
     description:
       "A rare and remarkable English sparkling red — bold, expressive and unlike anything else in our range. The adventurous spirit of Ridgeview, and the extraordinary potential of English viticulture.",
-    vintage: "NV",
+    vintage: "Multi-Vintage Blend",
     tastingNotes: ["Dark Cherry", "Warm Spice", "Silky Tannin"],
     price: "£55",
     image: "/products/sparkling-red-reserve.png",
@@ -121,7 +121,7 @@ export const wines: Wine[] = [
     name: "Still English Rosé",
     description:
       "Ridgeview's debut still rosé — 100% Pinot Précoce from Suffolk and Essex partner vineyards. Light rose-petal hue with watermelon, grapefruit and summer berry aromatics, opening onto peach, cranberry and strawberries-and-cream over a crisp, creamy finish.",
-    vintage: "NV · Limited",
+    vintage: "2024 · Limited",
     tastingNotes: ["Watermelon & Grapefruit", "Peach & Cranberry", "Strawberries & Cream"],
     price: "£27.50",
     image: "/products/still-english-rose.png",
