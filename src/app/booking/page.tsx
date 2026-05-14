@@ -8,6 +8,7 @@ import { BottomNav } from "@/components/BottomNav";
 import { RecognitionSection } from "@/components/RecognitionSection";
 import { EstatePeopleSection } from "@/components/EstatePeopleSection";
 import { ScrollReset } from "@/components/ScrollReset";
+import { ScrollRotateReveal } from "@/components/ScrollRotateReveal";
 import { BehindTheBottleSection } from "@/components/sku/BehindTheBottleSection";
 import { basePath } from "@/lib/basePath";
 
@@ -141,21 +142,17 @@ function HeritageTerroirSection() {
         {/* Gold tint */}
         <div className="absolute inset-0" style={{ background: "linear-gradient(160deg, rgba(200,169,110,0.06), rgba(200,169,110,0.02))" }} />
         {/* Darken for readability */}
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/60" />
         {/* Top blend into previous section */}
         <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#010101] to-transparent" />
         {/* Bottom blend into next section */}
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#010101] to-transparent" />
       </div>
 
-      {/* ── Content — 2-column on desktop, stacked on mobile ── */}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-16 py-20 md:py-44">
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-center">
-
-          {/* ── Left: Kicker + Headline + Body ── */}
-          <div>
-            {/* Kicker */}
+      {/* ── ScrollRotateReveal — vertical title above 3D-rotating card ── */}
+      <ScrollRotateReveal
+        titleComponent={
+          <div className="relative z-10 px-6 md:px-16">
             <FadeUp>
               <p
                 className="font-display italic text-[#C8A96E] mb-5 tracking-widest"
@@ -165,98 +162,101 @@ function HeritageTerroirSection() {
               </p>
             </FadeUp>
 
-            {/* Headline */}
-            <div className="mb-6 md:mb-8">
-              <FadeUp delay={0.1}>
-                <h2
-                  className="font-display italic text-white leading-[1.05]"
-                  style={{ fontSize: "clamp(32px, 5vw, 72px)", fontWeight: 400, textShadow: "0 2px 20px rgba(0,0,0,0.6)" }}
-                >
-                  Two countries.
-                </h2>
-              </FadeUp>
-              <FadeUp delay={0.18}>
-                <h2
-                  className="font-display italic text-white leading-[1.05]"
-                  style={{ fontSize: "clamp(32px, 5vw, 72px)", fontWeight: 400, textShadow: "0 2px 20px rgba(0,0,0,0.6)" }}
-                >
-                  One <span className="text-[#C8A96E]">ancient</span> seabed.
-                </h2>
-              </FadeUp>
-              <FadeUp delay={0.26}>
-                <h2
-                  className="font-display italic text-white leading-[1.05]"
-                  style={{ fontSize: "clamp(32px, 5vw, 72px)", fontWeight: 400, textShadow: "0 2px 20px rgba(0,0,0,0.6)" }}
-                >
-                  One <span className="text-[#C8A96E]">tradition.</span>
-                </h2>
-              </FadeUp>
-            </div>
-
-            {/* Body */}
-            <FadeUp delay={0.35}>
-              <p
-                className="font-body text-white/70 leading-relaxed"
-                style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, maxWidth: "520px", textShadow: "0 1px 8px rgba(0,0,0,0.7)" }}
+            <FadeUp delay={0.1}>
+              <h2
+                className="font-display italic text-white leading-[1.05]"
+                style={{ fontSize: "clamp(32px, 5vw, 72px)", fontWeight: 400, textShadow: "0 2px 20px rgba(0,0,0,0.6)" }}
               >
-                It began with a belief: that the chalk soils beneath the South Downs
-                — mirroring the geology of Champagne — could produce world-class
-                sparkling wine. In 1995, Ridgeview planted its first vines.
-              </p>
+                Two countries.
+              </h2>
+            </FadeUp>
+            <FadeUp delay={0.18}>
+              <h2
+                className="font-display italic text-white leading-[1.05]"
+                style={{ fontSize: "clamp(32px, 5vw, 72px)", fontWeight: 400, textShadow: "0 2px 20px rgba(0,0,0,0.6)" }}
+              >
+                One <span className="text-[#C8A96E]">ancient</span> seabed.
+              </h2>
+            </FadeUp>
+            <FadeUp delay={0.26}>
+              <h2
+                className="font-display italic text-white leading-[1.05]"
+                style={{ fontSize: "clamp(32px, 5vw, 72px)", fontWeight: 400, textShadow: "0 2px 20px rgba(0,0,0,0.6)" }}
+              >
+                One <span className="text-[#C8A96E]">tradition.</span>
+              </h2>
             </FadeUp>
           </div>
-
-          {/* ── Right: Chalk soil card with grape labels ── */}
-          <div className="flex flex-col justify-center">
-            {/* Placeholder card — clean milk-glass surface, awaiting a real
-                Sussex chalk-soil photograph. */}
-            <FadeUp delay={0.4}>
-              <div
-                className="relative overflow-hidden rounded-sm mb-6 border border-white/[0.10] bg-white/[0.06] backdrop-blur-md backdrop-saturate-150"
-                style={{ height: "clamp(180px, 24vw, 280px)" }}
-              >
-                {/* Grape labels anchor the bottom edge */}
-                <div className="absolute bottom-5 left-5 right-5 flex gap-5">
-                  {["Chardonnay", "Pinot Noir", "Pinot Meunier"].map((grape) => (
-                    <p
-                      key={grape}
-                      className="font-display italic text-[#C8A96E]"
-                      style={{
-                        fontSize: "clamp(12px, 1.2vw, 15px)",
-                        letterSpacing: "0.06em",
-                        textShadow: "0 1px 8px rgba(0,0,0,0.7)",
-                      }}
-                    >
-                      {grape}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            </FadeUp>
-
-            {/* Gold divider */}
-            <motion.div
-              className="mb-6"
-              style={{ height: "1px", background: "rgba(200,169,110,0.2)", transformOrigin: "left" }}
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.1, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-            />
-
-            {/* Grape varieties text */}
-            <FadeUp delay={0.5}>
-              <p
-                className="font-body text-white/70 leading-relaxed"
-                style={{ fontSize: "clamp(13px, 1.25vw, 15px)", fontWeight: 300, textShadow: "0 1px 8px rgba(0,0,0,0.7)" }}
-              >
-                Chardonnay, Pinot Noir, and Pinot Meunier — the same varieties
-                that define Champagne — rooted in Sussex chalk.
-              </p>
-            </FadeUp>
+        }
+      >
+        {/* Card content — chalk-soil vineyard image with editorial overlays */}
+        <div className="relative h-full w-full overflow-hidden rounded-sm">
+          <img
+            src={`${basePath}/images/estate-vineyard.jpg`}
+            alt="Vineyard rows on Sussex chalk soils at Ridgeview"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          {/* Soft inner shading for legibility */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-black/40" />
+          {/* Editorial overlay caption (top-left) */}
+          <div className="absolute top-5 left-5 md:top-8 md:left-10">
+            <p
+              className="font-display italic text-[#C8A96E] tracking-widest"
+              style={{ fontSize: "clamp(11px, 1vw, 13px)", textShadow: "0 1px 12px rgba(0,0,0,0.8)" }}
+            >
+              [ Chalk · Ancient Seabed ]
+            </p>
           </div>
-
+          {/* Grape labels (bottom strip) */}
+          <div className="absolute bottom-5 left-5 right-5 md:bottom-8 md:left-10 md:right-10 flex flex-wrap gap-5">
+            {["Chardonnay", "Pinot Noir", "Pinot Meunier"].map((grape) => (
+              <p
+                key={grape}
+                className="font-display italic text-[#C8A96E]"
+                style={{
+                  fontSize: "clamp(12px, 1.2vw, 15px)",
+                  letterSpacing: "0.06em",
+                  textShadow: "0 1px 8px rgba(0,0,0,0.7)",
+                }}
+              >
+                {grape}
+              </p>
+            ))}
+          </div>
         </div>
+      </ScrollRotateReveal>
+
+      {/* ── Post-card footer — body paragraph + divider + varieties paragraph ── */}
+      <div className="relative z-10 max-w-[760px] mx-auto px-6 md:px-16 pb-20 md:pb-32 -mt-32 md:-mt-44 text-center">
+        <FadeUp delay={0.35}>
+          <p
+            className="font-body text-white/70 leading-relaxed mb-8 mx-auto"
+            style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, maxWidth: "560px", textShadow: "0 1px 8px rgba(0,0,0,0.7)" }}
+          >
+            It began with a belief: that the chalk soils beneath the South Downs
+            — mirroring the geology of Champagne — could produce world-class
+            sparkling wine. In 1995, Ridgeview planted its first vines.
+          </p>
+        </FadeUp>
+
+        <motion.div
+          className="mb-8 mx-auto"
+          style={{ height: "1px", background: "rgba(200,169,110,0.2)", transformOrigin: "center", maxWidth: "260px" }}
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.1, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
+        />
+
+        <FadeUp delay={0.5}>
+          <p
+            className="font-body text-white/70 leading-relaxed mx-auto"
+            style={{ fontSize: "clamp(13px, 1.25vw, 15px)", fontWeight: 300, maxWidth: "520px", textShadow: "0 1px 8px rgba(0,0,0,0.7)" }}
+          >
+            Chardonnay, Pinot Noir, and Pinot Meunier — the same varieties
+            that define Champagne — rooted in Sussex chalk.
+          </p>
+        </FadeUp>
       </div>
     </section>
   );
