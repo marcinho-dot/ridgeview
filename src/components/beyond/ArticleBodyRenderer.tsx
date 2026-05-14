@@ -156,6 +156,42 @@ function renderContentBlock(block: SideBySideContent, key: number) {
           )}
         </blockquote>
       );
+    case "image": {
+      const imgEl = (
+        <div className="relative aspect-[3/2] overflow-hidden bg-[#0a0a0a] rounded-sm group">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`${basePath}${block.src}`}
+            alt={block.alt}
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+          />
+        </div>
+      );
+      const wrapped = block.href ? (
+        <a
+          href={`${basePath}${block.href}`}
+          aria-label={block.alt || "View product"}
+          className="block"
+        >
+          {imgEl}
+        </a>
+      ) : (
+        imgEl
+      );
+      return (
+        <figure key={key} className="my-6">
+          {wrapped}
+          {block.caption && (
+            <figcaption
+              className="font-body italic text-white/45 mt-3 text-center"
+              style={{ fontSize: "clamp(12px, 1vw, 14px)", fontWeight: 300 }}
+            >
+              {block.caption}
+            </figcaption>
+          )}
+        </figure>
+      );
+    }
     default:
       return null;
   }

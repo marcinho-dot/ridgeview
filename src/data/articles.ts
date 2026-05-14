@@ -26,7 +26,8 @@ export type SideBySideContent =
   | { type: "paragraph"; text: string }
   | { type: "heading"; level: 2 | 3; text: string }
   | { type: "list"; ordered: boolean; items: string[] }
-  | { type: "quote"; text: string; attribution?: string };
+  | { type: "quote"; text: string; attribution?: string }
+  | { type: "image"; src: string; alt: string; caption?: string; href?: string };
 
 export type ArticleBlock =
   | { type: "paragraph"; text: string }
