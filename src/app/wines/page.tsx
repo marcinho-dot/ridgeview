@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -44,7 +44,7 @@ function PageHero() {
           className="font-display italic text-[#C8A96E] tracking-widest mb-5"
           style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
         >
-          [ The Collection ]
+          [ The Collection · {wines.length} {wines.length === 1 ? "wine" : "wines"} ]
         </motion.p>
 
         <motion.h1
@@ -54,7 +54,7 @@ function PageHero() {
           className="font-display italic text-cream leading-[1.06] mb-6"
           style={{ fontSize: "clamp(38px, 6vw, 88px)", fontWeight: 400 }}
         >
-          Ten wines from <span className="text-[#C8A96E]">Sussex chalk</span>.
+          {wines.length} wines from <span className="text-[#C8A96E]">Sussex chalk</span>.
         </motion.h1>
 
         <motion.p
@@ -342,17 +342,32 @@ function WineLegend() {
 // ── Section: Wine Grid ──────────────────────────────────────────────────────
 
 function WineGrid() {
+  // Track the URL hash so the matching grid card gets a gold ring —
+  // signals to the user "this is the wine you jumped to from the
+  // legend strip above". Reads on mount AND on every hashchange so
+  // repeated clicks in the legend re-highlight cleanly.
+  const [activeSlug, setActiveSlug] = useState<string>("");
+  useEffect(() => {
+    const read = () => setActiveSlug(window.location.hash.replace(/^#/, ""));
+    read();
+    window.addEventListener("hashchange", read);
+    return () => window.removeEventListener("hashchange", read);
+  }, []);
+
   return (
     <section className="relative bg-[#010101] border-t border-white/[0.06]">
       <div className="max-w-[1400px] mx-auto px-6 md:px-16 py-14 md:py-20">
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 md:gap-x-10 gap-y-14 md:gap-y-20">
-          {wines.map((wine, i) => (
+          {wines.map((wine, i) => {
+            const anchorId = wine.slug ?? `wine-${wine.id}`;
+            const isActive = activeSlug === anchorId;
+            return (
             <motion.li
               key={wine.id}
               // Anchor target for the WineLegend strip above.
               // scroll-mt clears the fixed navbar (~95px desktop / ~70px mobile)
               // so the card lands fully visible, not tucked under the nav.
-              id={wine.slug ?? `wine-${wine.id}`}
+              id={anchorId}
               style={{ scrollMarginTop: "100px" }}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -364,7 +379,11 @@ function WineGrid() {
                 delay: 0.05 + (i % 3) * 0.08,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="group"
+              className={`group relative rounded-sm transition-all duration-500 ${
+                isActive
+                  ? "ring-1 ring-[#C8A96E]/55 shadow-[0_0_42px_-8px_rgba(200,169,110,0.35)] bg-[rgba(200,169,110,0.03)] p-4 md:p-5 -m-4 md:-m-5"
+                  : "p-0"
+              }`}
             >
               <a
                 href={wine.customUrl
@@ -425,7 +444,8 @@ function WineGrid() {
                 </p>
               </a>
             </motion.li>
-          ))}
+            );
+          })}
         </ul>
       </div>
     </section>
