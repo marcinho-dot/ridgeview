@@ -15,15 +15,12 @@ const priceValue = (p: string): number =>
   parseFloat(p.replace(/[^0-9.]/g, "")) || 0;
 
 const wines = allWines
-  .filter((w) => w.slug !== "engraved-bottle-gift")
-  .sort((a, b) => {
-    // Membership entries (the OurView Wine Club) always come last —
-    // they aren't bottles, so they shouldn't intrude on the price-
-    // descending bottle ranking.
-    if (a.kind === "membership" && b.kind !== "membership") return 1;
-    if (b.kind === "membership" && a.kind !== "membership") return -1;
-    return priceValue(b.price) - priceValue(a.price);
-  });
+  // Bottle-focused listing — exclude the gift product and the OurView
+  // Wine Club membership entry. (Club still lives in wines.ts so its
+  // existence is single-source; CTAs across the site link to it via
+  // its customUrl. It just doesn't belong in this bottle grid.)
+  .filter((w) => w.slug !== "engraved-bottle-gift" && w.kind !== "membership")
+  .sort((a, b) => priceValue(b.price) - priceValue(a.price));
 
 // ── Section: Page Hero ──────────────────────────────────────────────────────
 
@@ -141,6 +138,21 @@ function WineLegend() {
                     style={{ fontSize: "9.5px", letterSpacing: "0.14em" }}
                   >
                     {wine.name}
+                  </span>
+
+                  {/* Price · bottle size — small editorial line so the
+                      legend doubles as a quick price-comparison glance. */}
+                  <span
+                    className="font-display italic text-[#C8A96E]/85 mt-1 text-center leading-none"
+                    style={{ fontSize: "11px", letterSpacing: "0.02em" }}
+                  >
+                    {wine.price}
+                  </span>
+                  <span
+                    className="font-body text-white/35 mt-0.5 text-center uppercase tracking-[0.2em] leading-none"
+                    style={{ fontSize: "8.5px" }}
+                  >
+                    {wine.bottleSize ?? "75cl"}
                   </span>
                 </a>
               </li>

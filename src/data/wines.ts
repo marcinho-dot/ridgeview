@@ -6,6 +6,11 @@ export interface Wine {
   tastingNotes: string[];
   price: string;
   image: string;
+  /** Standard bottle volume for the listing's default SKU
+   *  (all current Ridgeview wines ship in 75cl as the default bottle;
+   *  magnums live as variants on the individual SKU page).
+   *  Optional — defaults to "75cl" at the call site. */
+  bottleSize?: string;
   slug?: string;
   /** Routes that should not resolve to /wine/<slug> (e.g. the OurView
    *  Wine Club entry, which has its own dedicated /wine-club/ landing
