@@ -434,7 +434,7 @@ function WineGrid() {
 
                 {/* Price */}
                 <p
-                  className="font-body text-white/55 group-hover:text-white/80 tracking-wider transition-colors duration-400"
+                  className="font-body text-white/55 group-hover:text-white/80 tracking-wider transition-colors duration-400 mb-5"
                   style={{
                     fontSize: "clamp(13px, 1.2vw, 15px)",
                     fontWeight: 300,
@@ -442,6 +442,33 @@ function WineGrid() {
                 >
                   {wine.price}
                 </p>
+
+                {/* Trailer — tasting notes as pill chips, same compact
+                    treatment as the homepage carousel's mobile view */}
+                <div className="flex flex-wrap justify-center gap-1.5 mb-6">
+                  {wine.tastingNotes.map((note) => (
+                    <span
+                      key={note}
+                      className="font-body text-white/55 group-hover:text-white/75 text-[11px] border border-white/[0.08] group-hover:border-[#C8A96E]/25 px-3 py-1 rounded-full transition-colors duration-400"
+                    >
+                      {note}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Shop Bottle — no border, elegant gold underline
+                    appears on hover, slides from left like a magazine
+                    accent line. */}
+                <span
+                  className="inline-flex font-body text-cream uppercase tracking-[0.22em] pb-1 relative"
+                  style={{ fontSize: "11px", fontWeight: 400 }}
+                >
+                  {wine.kind === "membership" ? "Discover Membership" : "Shop Bottle"}
+                  <span
+                    aria-hidden
+                    className="absolute left-0 right-0 bottom-0 h-px bg-[#C8A96E] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"
+                  />
+                </span>
               </a>
             </motion.li>
             );
