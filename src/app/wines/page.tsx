@@ -97,9 +97,11 @@ function WineLegend() {
           Jump to a bottle
         </p>
 
-        {/* Horizontal scroll strip — snap-x on mobile, flex-wrap centered on desktop */}
+        {/* Mobile: horizontal scroll-snap strip. Desktop: 5-column grid
+            so 11 bottles lay out as 5 + 5 + 1 (with the final row item
+            justified centre via justify-items-center on the grid). */}
         <ul
-          className="flex md:flex-wrap md:justify-center gap-4 md:gap-7 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none px-4 md:px-0 pb-3 md:pb-0
+          className="flex md:grid md:grid-cols-5 md:justify-items-center gap-4 md:gap-y-10 md:gap-x-7 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none px-4 md:px-0 pb-3 md:pb-0
                      [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
         >
           {wines.map((wine) => {
