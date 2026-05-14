@@ -78,6 +78,78 @@ function PageHero() {
   );
 }
 
+// ── Section: Wine Legend ────────────────────────────────────────────────────
+// Compact anchor-strip under the hero: one mini-bottle per wine. Click jumps
+// to the full card in the grid below. Solves the "10 wines = lots of scrolling"
+// UX problem — gives users a one-glance overview + a direct route to whichever
+// bottle they came for. On mobile the strip scrolls horizontally with snap;
+// desktop wraps to a single (or two-line on narrow viewports) row.
+
+function WineLegend() {
+  return (
+    <section className="relative bg-[#010101] border-t border-white/[0.06]">
+      <div className="max-w-[1400px] mx-auto px-2 md:px-16 pt-8 md:pt-12 pb-2 md:pb-6">
+        {/* Kicker — discreet label so the strip doesn't read as random thumbs */}
+        <p
+          className="font-body text-white/40 uppercase tracking-[0.28em] text-center mb-6 md:mb-8 px-4"
+          style={{ fontSize: "11px" }}
+        >
+          Jump to a bottle
+        </p>
+
+        {/* Horizontal scroll strip — snap-x on mobile, flex-wrap centered on desktop */}
+        <ul
+          className="flex md:flex-wrap md:justify-center gap-4 md:gap-7 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none px-4 md:px-0 pb-3 md:pb-0
+                     [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+        >
+          {wines.map((wine) => {
+            const anchor = wine.slug ?? `wine-${wine.id}`;
+            return (
+              <li
+                key={wine.id}
+                className="flex-shrink-0 snap-start"
+                style={{ scrollSnapAlign: "start" }}
+              >
+                <a
+                  href={`#${anchor}`}
+                  aria-label={`Jump to ${wine.name}`}
+                  className="group flex flex-col items-center w-[88px] md:w-[96px] focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C8A96E]/40 rounded-sm"
+                >
+                  {/* Mini bottle stage */}
+                  <div className="relative w-full aspect-square bg-[#0a0a0a] rounded-sm overflow-hidden">
+                    <div
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        background:
+                          "radial-gradient(ellipse 70% 60% at 50% 70%, rgba(200,169,110,0.07) 0%, transparent 70%)",
+                      }}
+                    />
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`${basePath}${wine.image}`}
+                      alt=""
+                      aria-hidden
+                      className="absolute inset-0 w-full h-full object-contain p-2.5 transition-transform duration-500 ease-out group-hover:scale-[1.07] [filter:drop-shadow(0_6px_10px_rgba(0,0,0,0.55))]"
+                    />
+                  </div>
+
+                  {/* Name — kept tight, two-line max; hover surfaces gold */}
+                  <span
+                    className="font-body text-white/55 group-hover:text-[#C8A96E] uppercase tracking-[0.16em] mt-2.5 text-center leading-[1.35] transition-colors duration-300"
+                    style={{ fontSize: "9.5px", letterSpacing: "0.14em" }}
+                  >
+                    {wine.name}
+                  </span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
 // ── Section: Wine Grid ──────────────────────────────────────────────────────
 
 function WineGrid() {
@@ -88,6 +160,11 @@ function WineGrid() {
           {wines.map((wine, i) => (
             <motion.li
               key={wine.id}
+              // Anchor target for the WineLegend strip above.
+              // scroll-mt clears the fixed navbar (~95px desktop / ~70px mobile)
+              // so the card lands fully visible, not tucked under the nav.
+              id={wine.slug ?? `wine-${wine.id}`}
+              style={{ scrollMarginTop: "100px" }}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
@@ -248,6 +325,7 @@ export default function WinesPage() {
       <Navbar />
       <main>
         <PageHero />
+        <WineLegend />
         <ScrollReset><WineGrid /></ScrollReset>
         <ScrollReset><GiftCTA /></ScrollReset>
       </main>
