@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -83,6 +84,146 @@ function PageHero() {
 // desktop wraps to a single (or two-line on narrow viewports) row.
 
 function WineLegend() {
+  const scrollerRef = useRef<HTMLDivElement | null>(null);
+  const cbarRef = useRef<HTMLDivElement | null>(null);
+  const cthumbRef = useRef<HTMLDivElement | null>(null);
+
+  // Wheel + drag + custom scrollbar — mirrors the Beyond-the-Bottle
+  // homepage row mechanic so the bottle poster scrolls horizontally
+  // on desktop with the same affordances (vertical wheel → horizontal
+  // scroll, pointer drag, draggable thumb under the row).
+  useEffect(() => {
+    const el = scrollerRef.current;
+    const cbar = cbarRef.current;
+    const cthumb = cthumbRef.current;
+    if (!el || !cbar || !cthumb) return;
+
+    el.querySelectorAll("img").forEach((img) =>
+      img.setAttribute("draggable", "false"),
+    );
+
+    const onWheel = (e: WheelEvent) => {
+      const delta = e.deltaY !== 0 ? e.deltaY : e.deltaX;
+      const atStart = el.scrollLeft <= 0;
+      const atEnd = el.scrollLeft >= el.scrollWidth - el.clientWidth - 1;
+      if ((atStart && delta < 0) || (atEnd && delta > 0)) return;
+      e.preventDefault();
+      el.scrollLeft += delta * 1.5;
+    };
+    el.addEventListener("wheel", onWheel, { passive: false });
+
+    let rowDown = false;
+    let rowStartX = 0;
+    let rowStartLeft = 0;
+    const onRowDown = (e: PointerEvent) => {
+      if (e.button !== 0) return;
+      if ((e.target as HTMLElement).closest("a, button")) return;
+      e.preventDefault();
+      rowDown = true;
+      rowStartX = e.clientX;
+      rowStartLeft = el.scrollLeft;
+    };
+    const onRowMove = (e: PointerEvent) => {
+      if (!rowDown) return;
+      el.scrollLeft = rowStartLeft - (e.clientX - rowStartX);
+    };
+    const onRowUp = () => { rowDown = false; };
+    el.addEventListener("pointerdown", onRowDown);
+    document.addEventListener("pointermove", onRowMove);
+    document.addEventListener("pointerup", onRowUp);
+    document.addEventListener("pointercancel", onRowUp);
+
+    const cbarUpdate = () => {
+      const scrollW = el.scrollWidth;
+      const clientW = el.clientWidth;
+      if (scrollW <= clientW + 1) {
+        cbar.style.display = "none";
+        return;
+      }
+      cbar.style.display = "block";
+      const trackW = cbar.clientWidth;
+      if (trackW <= 0) return;
+      const ratio = clientW / scrollW;
+      const thumbW = Math.max(48, Math.floor(trackW * ratio));
+      const maxLeft = trackW - thumbW;
+      const scrollable = scrollW - clientW;
+      const progress = scrollable > 0
+        ? Math.max(0, Math.min(1, el.scrollLeft / scrollable))
+        : 0;
+      cthumb.style.width = thumbW + "px";
+      cthumb.style.left = Math.round(maxLeft * progress) + "px";
+    };
+    el.addEventListener("scroll", cbarUpdate, { passive: true });
+    window.addEventListener("resize", cbarUpdate, { passive: true });
+    cbarUpdate();
+    const t1 = setTimeout(cbarUpdate, 100);
+    const t2 = setTimeout(cbarUpdate, 600);
+
+    let thumbDragging = false;
+    let thumbStartX = 0;
+    let thumbStartScroll = 0;
+    const thumbDown = (e: PointerEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      thumbDragging = true;
+      thumbStartX = e.clientX;
+      thumbStartScroll = el.scrollLeft;
+      cbar.classList.add("is-dragging");
+      document.body.style.userSelect = "none";
+    };
+    const thumbMove = (e: PointerEvent) => {
+      if (!thumbDragging) return;
+      const trackW = cbar.clientWidth;
+      const thumbW = cthumb.clientWidth;
+      const maxLeft = trackW - thumbW;
+      if (maxLeft <= 0) return;
+      const dx = e.clientX - thumbStartX;
+      const scrollable = el.scrollWidth - el.clientWidth;
+      el.scrollLeft = thumbStartScroll + (dx / maxLeft) * scrollable;
+    };
+    const thumbUp = () => {
+      if (!thumbDragging) return;
+      thumbDragging = false;
+      cbar.classList.remove("is-dragging");
+      document.body.style.userSelect = "";
+    };
+    cthumb.addEventListener("pointerdown", thumbDown);
+    document.addEventListener("pointermove", thumbMove);
+    document.addEventListener("pointerup", thumbUp);
+    document.addEventListener("pointercancel", thumbUp);
+
+    const trackClick = (e: PointerEvent) => {
+      if (e.target === cthumb) return;
+      const rect = cbar.getBoundingClientRect();
+      const thumbW = cthumb.clientWidth;
+      const trackW = cbar.clientWidth;
+      const maxLeft = trackW - thumbW;
+      if (maxLeft <= 0) return;
+      const x = e.clientX - rect.left - thumbW / 2;
+      const clamped = Math.max(0, Math.min(maxLeft, x));
+      const scrollable = el.scrollWidth - el.clientWidth;
+      el.scrollLeft = (clamped / maxLeft) * scrollable;
+    };
+    cbar.addEventListener("pointerdown", trackClick);
+
+    return () => {
+      el.removeEventListener("wheel", onWheel);
+      el.removeEventListener("pointerdown", onRowDown);
+      document.removeEventListener("pointermove", onRowMove);
+      document.removeEventListener("pointerup", onRowUp);
+      document.removeEventListener("pointercancel", onRowUp);
+      el.removeEventListener("scroll", cbarUpdate);
+      window.removeEventListener("resize", cbarUpdate);
+      cthumb.removeEventListener("pointerdown", thumbDown);
+      document.removeEventListener("pointermove", thumbMove);
+      document.removeEventListener("pointerup", thumbUp);
+      document.removeEventListener("pointercancel", thumbUp);
+      cbar.removeEventListener("pointerdown", trackClick);
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, []);
+
   return (
     <section className="relative bg-[#010101] border-t border-white/[0.06] overflow-hidden">
       {/* Soft gold radial wash anchoring the bottle row — gives the
@@ -104,28 +245,32 @@ function WineLegend() {
           Jump to a bottle
         </p>
 
-        {/* Mobile: horizontal scroll-snap thumb strip (compact, swipe-find).
-            Desktop: editorial 5-column poster grid with sizable plates —
-            each bottle gets a portrait-frame stage + display-italic name
-            + gold italic price + bottle-size hairline label. Sized so the
-            full 2-row grid sits inside one ~800px viewport (below the
-            page hero + the kicker) without scrolling. */}
+        {/* Horizontal scroll-snap strip on every breakpoint. Mobile
+            keeps the 88px swipe thumbs; desktop scales up to wide
+            editorial plates (~220px each) so 5-6 are visible at a time
+            and the rest pull in with the wheel→horizontal mechanic and
+            the gold custom scrollbar below. */}
+        <div
+          ref={scrollerRef}
+          className="overflow-x-auto overflow-y-hidden row-scroll select-none"
+          style={{ WebkitOverflowScrolling: "touch" }}
+        >
         <ul
-          className="flex md:grid md:grid-cols-5 md:justify-items-center gap-4 md:gap-x-5 md:gap-y-2 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none px-4 md:px-0 pb-3 md:pb-0
-                     [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+          className="flex gap-4 md:gap-6 snap-x snap-mandatory md:snap-proximity px-4 md:px-0 pb-3 md:pb-0"
+          style={{ paddingRight: "max(1rem, 4vw)" }}
         >
           {wines.map((wine) => {
             const anchor = wine.slug ?? `wine-${wine.id}`;
             return (
               <li
                 key={wine.id}
-                className="flex-shrink-0 snap-start w-full"
+                className="flex-shrink-0 snap-start"
                 style={{ scrollSnapAlign: "start" }}
               >
                 <a
                   href={`#${anchor}`}
                   aria-label={`Jump to ${wine.name}`}
-                  className="group relative flex flex-col items-center w-[88px] md:w-full focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C8A96E]/40 rounded-sm"
+                  className="group relative flex flex-col items-center w-[88px] md:w-[220px] lg:w-[240px] focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C8A96E]/40 rounded-sm"
                 >
                   {/* Bottle stage — square thumb on mobile, taller portrait
                       plate on desktop so the bottle reads as a poster
@@ -180,6 +325,15 @@ function WineLegend() {
             );
           })}
         </ul>
+        </div>
+
+        {/* Custom always-visible gold scrollbar — same mechanic as the
+            Beyond-the-Bottle row on the homepage. */}
+        <div className="hidden md:block mt-6 px-2">
+          <div ref={cbarRef} className="rv-row-cbar">
+            <div ref={cthumbRef} className="rv-row-cbar-thumb" />
+          </div>
+        </div>
       </div>
     </section>
   );
