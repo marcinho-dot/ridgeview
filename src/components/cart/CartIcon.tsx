@@ -31,16 +31,17 @@ export function CartIcon({
       aria-hidden
       {...rest}
     >
-      {/* Handle / hoop arc — stroke kept slim (was 8, retuned 2026-05-15
-          to 5) so the bottle neck + grape cluster silhouettes still read
-          as separate shapes at navbar render size. With strokeWidth 8 on
-          a 30-36 px icon, the handle's 2.4 px stroke merged with the
-          bottle's narrow neck (~1.2 px) into a single white blob. */}
+      {/* Handle / hoop arc — strokeWidth 8 is the reference value (the
+          original gemini-svg.svg uses 8 verbatim). Earlier we tried 5
+          to fight the bottle/grape overlap at small render sizes, but
+          the user prefers the original proportions — so we restore 8
+          and instead size the icon big enough (60 px in navbar) that
+          handle + bottle + grapes all read as distinct shapes. */}
       <path
         d="M 22 50 C 22 5 78 5 78 50"
         fill="none"
         stroke="currentColor"
-        strokeWidth={5}
+        strokeWidth={8}
         strokeLinecap="round"
       />
 

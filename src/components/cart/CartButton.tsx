@@ -43,11 +43,11 @@ export function CartButton({ className = "" }: CartButtonProps) {
       aria-label={`Open cart — ${count} item${count === 1 ? "" : "s"}`}
       className={`relative p-1 transition-colors duration-300 hover:text-[#C8A96E] focus-visible:outline-none focus-visible:text-[#C8A96E] ${className}`}
     >
-      <CartIcon size={44} />
+      <CartIcon size={60} />
       {count > 0 && (
         <span
           aria-hidden
-          className={`absolute -top-1 -right-1.5 flex items-center justify-center min-w-[13px] h-[13px] px-[3px] rounded-full bg-[#C8A96E] text-[#010101] font-body text-[8px] font-medium leading-none ring-1 ring-[#010101] tabular-nums transition-transform duration-300 ${
+          className={`absolute top-0 right-0 flex items-center justify-center min-w-[16px] h-[16px] px-[4px] rounded-full bg-[#C8A96E] text-[#010101] font-body text-[9px] font-medium leading-none ring-1 ring-[#010101] tabular-nums transition-transform duration-300 ${
             pulse ? "scale-110" : "scale-100"
           }`}
         >
