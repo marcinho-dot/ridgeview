@@ -26,7 +26,7 @@ export interface Testimonial {
    * Wird unter dem Score gerendert um den Punkt-Wert in Kontext zu setzen.
    *
    * Wine Enthusiast Skala:
-   *   98–100 Classic · 94–97 Superb · 90–93 Excellent · 87–89 Very Good
+   *   98–100 Top-Tier · 94–97 Superb · 90–93 Excellent · 87–89 Very Good
    * Decanter Skala:
    *   95–100 Outstanding · 90–94 Highly Recommended · 86–89 Recommended
    */

@@ -695,7 +695,7 @@ const RELATED_WINES = [
   {
     slug: "cavendish",
     name: "Cavendish NV",
-    style: "Classic Cuvée · Non Vintage",
+    style: "House Cuvée · Non Vintage",
     price: 36,
     image: "/products/cavendish.png",
     note: "Pinot-led NV blend — red berries and toasted almond.",

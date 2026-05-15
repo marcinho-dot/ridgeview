@@ -733,7 +733,7 @@ const RELATED_WINES = [
     style: "Vintage · 100% Pinot Cuvée",
     price: 60,
     image: "/products/blanc-de-noirs.png",
-    note: "Same red grapes vinified white — the classical counterpart to this sparkling red.",
+    note: "Same red grapes vinified white — the still counterpart to this sparkling red.",
   },
   {
     slug: "rose-de-noirs",
@@ -746,7 +746,7 @@ const RELATED_WINES = [
   {
     slug: "cavendish",
     name: "Cavendish NV",
-    style: "Classic Cuvée · Non Vintage",
+    style: "House Cuvée · Non Vintage",
     price: 36,
     image: "/products/cavendish.png",
     note: "Pinot-led everyday blend — the gentle, white-sparkling sibling.",

@@ -68,7 +68,7 @@ function PageHero() {
             maxWidth: "560px",
           }}
         >
-          Three decades of English sparkling and still wines, classic-method
+          Three decades of English sparkling and still wines, Méthode Traditionnelle
           and hand-harvested at our estate on Ditchling Common.
         </motion.p>
       </div>
