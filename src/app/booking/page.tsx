@@ -677,7 +677,7 @@ function BackToTopFloat() {
           href="#top"
           aria-label="Back to top of page"
           title="Back to top"
-          className="fixed right-6 md:right-8 bottom-20 md:bottom-8 z-50"
+          className="fixed right-6 md:right-8 bottom-20 md:bottom-16 z-50"
           style={{
             display: "inline-flex",
             alignItems: "center",
