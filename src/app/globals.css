@@ -372,9 +372,12 @@ body::after {
 /* ─── Jelly Button — Kickflip ───────────────────────────────────────────
    Two-state CTA driven from `JellyButtonKickflip.tsx`:
 
-     1) HOVER  — shadow + border swell only; NO transform / NO Y or
-                 Z motion. The pill stays exactly on its horizontal
-                 page line so the layout never shifts.
+     1) HOVER  — gold metaballs fill the pill (via the inner
+                 <canvas> + blur+contrast goo trick, same as the
+                 Canvas-2D Vineyard button) AND the pill pops
+                 forward in Z (translateZ +12px) for a 3D-elevation
+                 feel. NO Y motion — the bounding box stays
+                 exactly on the horizontal page line.
      2) CLICK  — JS rAF loop writes inline `transform` per frame: a
                  1080° rotateX around the pill's long axis with a
                  small Z pop at the apex. No Y motion during the
@@ -382,13 +385,19 @@ body::after {
                  line. ~1100 ms total. Navigation runs after the
                  flip completes.
 
-   The pill inherits `.btn-cta` for the resting look. The `::before`
-   back-layer (180°-rotated underside, 18px back in Z) + per-element
-   `backface-visibility: hidden` together fake 3D thickness so the
-   mid-flip frame doesn't show mirrored front-face text.
+   Layer stack (front to back, before any rotation):
+     • `.rv-kickflip-label`    — text, z=0.5px, above the canvas
+     • `.rv-kickflip-pill__canvas` — gold metaballs, z=0
+     • `.btn-cta` background   — frosted glass surface, z=0
+     • `.rv-kickflip-pill::before` — back-layer (underside), z=-18px,
+                                     rotated 180° around X so it
+                                     reads right-side-up when the
+                                     pill flips 180°
 
    `prefers-reduced-motion: reduce` is handled inside the React
-   component — flip is skipped, navigation happens immediately. */
+   component — flip is skipped, navigation happens immediately. The
+   canvas hover effect still works (it's a gentle goo, not strong
+   motion). */
 .rv-kickflip-stage {
   display: inline-block;
   perspective: 600px;
@@ -417,19 +426,20 @@ body::after {
     background 0.35s ease;
   will-change: transform;
 }
-/* Hover state — purely shadow + border feedback, NO transform on
-   the pill itself so its bounding box stays on the same horizontal
-   page line (per user direction 2026-05-15). The richer shadow
-   stack still reads as "this is interactive" without moving the
-   pill. The `:not(.--active)` guard prevents this rule from
-   stepping on the JS-driven click flip while it's in flight. */
+/* Hover state — the pill rises in Z (forward toward the camera) but
+   makes NO Y motion: its bounding box stays on the same horizontal
+   page line. `--rv-kickflip-hover-z` is set inline by the React
+   component (default 12px) so we keep the value in one place.
+   The `:not(.--active)` guard prevents this hover transform from
+   fighting the JS-driven click flip while it's in flight. */
 .rv-kickflip-pill:hover:not(.rv-kickflip-pill--active) {
+  transform: translateZ(var(--rv-kickflip-hover-z, 12px));
   box-shadow:
     inset 0 0 0 1px rgba(200, 169, 110, 0.42),
     inset 0 1px 0 rgba(245, 240, 232, 0.14),
     0 0 28px -2px rgba(200, 169, 110, 0.32),
-    0 12px 24px -8px rgba(0, 0, 0, 0.55),
-    0 8px 14px -6px rgba(200, 169, 110, 0.26);
+    0 16px 28px -10px rgba(0, 0, 0, 0.65),
+    0 10px 16px -6px rgba(200, 169, 110, 0.28);
 }
 /* While the JS-driven flip is in flight: keep the lifted shadow
    stack visible so the depth doesn't disappear mid-rotation. The
@@ -444,6 +454,21 @@ body::after {
     0 22px 32px -12px rgba(0, 0, 0, 0.75),
     0 12px 18px -8px rgba(200, 169, 110, 0.26);
 }
+/* Hover-fill canvas — sits between the ::before back-layer and the
+   crisp label. Gold metaballs are drawn here by the rAF loop in
+   JellyButtonKickflip.tsx. Inherits the pill's border-radius so the
+   gold liquid is clipped to the pill shape. Positioned at z=0 so
+   the click flip's rotation carries the canvas with the pill. */
+.rv-kickflip-pill__canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
 .rv-kickflip-label {
   position: relative;
   display: inline-flex;
@@ -453,7 +478,12 @@ body::after {
      mirrored at 180°). The back face is the `::before` layer. */
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  transform: translateZ(0.1px); /* nudge in front of the back layer */
+  /* Nudge slightly forward of the canvas (z=0) so the text stays on
+     top of the gold metaballs. */
+  transform: translateZ(0.5px);
+  /* Sit above the canvas in stacking order so the label remains
+     crisp over the gold metaballs. */
+  z-index: 2;
 }
 
 /* Back-layer — fakes the pill's underside so the rotation shows
