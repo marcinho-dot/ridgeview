@@ -43,7 +43,7 @@ export function CartButton({ className = "" }: CartButtonProps) {
       aria-label={`Open cart — ${count} item${count === 1 ? "" : "s"}`}
       className={`relative p-1 transition-colors duration-300 hover:text-[#C8A96E] focus-visible:outline-none focus-visible:text-[#C8A96E] ${className}`}
     >
-      <CartIcon size={36} />
+      <CartIcon size={44} />
       {count > 0 && (
         <span
           aria-hidden
