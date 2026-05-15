@@ -701,7 +701,7 @@ const RELATED_WINES = [
     style: "House Cuvée · Sparkling Wine of the Year 2024",
     price: 34,
     image: "/products/bloomsbury.png",
-    note: "The bestselling méthode champenoise blend — Sommelier Awards 2024 Wine of the Year.",
+    note: "The bestselling Méthode Traditionnelle blend — Sommelier Awards 2024 Wine of the Year.",
   },
   {
     slug: "fitzrovia",
@@ -748,12 +748,12 @@ export default function EngravedBottleGiftPage() {
           section and the Varietal section above. */}
       <ScrollReset>
         <BehindTheBottleSection
-          headline={<>Crafted in the <span className="text-[#C8A96E]">méthode champenoise</span>.</>}
-          intro="For three decades, Ridgeview has crafted English sparkling wines the long way — by hand, on the chalk hills of Sussex, using the same méthode champenoise as the great houses of Champagne."
+          headline={<>Crafted in the <span className="text-[#C8A96E]">Méthode Traditionnelle</span>.</>}
+          intro="For three decades, Ridgeview has crafted English sparkling wines the long way — by hand, on the chalk hills of Sussex, using the same Méthode Traditionnelle as the great houses of Champagne."
           pillars={[
             { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region — the foundation of every great sparkling wine." },
             { label: "Hand Harvest", detail: "Grapes are picked at first light and sorted by hand to keep only the most balanced bunches." },
-            { label: "Méthode Traditionnelle", detail: "Secondary fermentation in bottle — the same méthode champenoise used in the great houses of Champagne." },
+            { label: "Méthode Traditionnelle", detail: "Secondary fermentation in bottle — as practised in the great houses of Champagne." },
           ]}
         />
       </ScrollReset>

@@ -307,7 +307,7 @@ function ProductHero() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={`${basePath}/products/fitzrovia.png`}
-                  alt="Ridgeview Fitzrovia Rosé — méthode champenoise sparkling rosé, 75cl bottle"
+                  alt="Ridgeview Fitzrovia Rosé — Méthode Traditionnelle sparkling rosé, 75cl bottle"
                   className="pointer-events-auto w-auto max-w-none object-contain h-[clamp(376px,51svh,484px)] md:h-[clamp(704px,90svh,1078px)] [transform:translateX(8%)_translateY(-30px)_rotate(28deg)] md:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)] hover:[transform:translateX(8%)_translateY(-30px)_rotate(28deg)_scale(1.015)] md:hover:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)_scale(1.015)] [transition:transform_900ms_cubic-bezier(0.16,1,0.3,1),filter_900ms_cubic-bezier(0.16,1,0.3,1)] hover:[filter:drop-shadow(0_40px_80px_rgba(0,0,0,0.7))_drop-shadow(0_0_60px_rgba(200,169,110,0.12))]"
                   style={{
                     transformOrigin: "center",
@@ -476,7 +476,7 @@ function BlendSection() {
               className="font-body text-white/55"
               style={{ fontSize: "clamp(13px, 1.25vw, 15px)", maxWidth: "520px", margin: "0 auto" }}
             >
-              A méthode champenoise sparkling rosé from the same chalk vineyards
+              A Méthode Traditionnelle sparkling rosé from the same chalk vineyards
               that make our white cuvées.
             </p>
           </FadeUp>
@@ -550,7 +550,7 @@ function AwardsSpecsSection() {
   const specs = [
     { label: "Vintage", value: "Non Vintage" },
     { label: "Blend", value: "Chardonnay · Pinot Noir · Pinot Meunier" },
-    { label: "Style", value: "Brut Rosé · méthode champenoise" },
+    { label: "Style", value: "Brut Rosé · Méthode Traditionnelle" },
     { label: "Bottle Size", value: "75cl" },
     { label: "ABV", value: "12%" },
     { label: "Allergens", value: "Contains Sulphites" },
@@ -709,7 +709,7 @@ const SCHEMA_LD = {
   "@type": "Product",
   name: "Ridgeview Fitzrovia Rosé",
   description:
-    "méthode champenoise English sparkling rosé. A delicate cherry-blossom hue, wild raspberry and honeyed redcurrant aromatics, a spring-fresh palate of sherbet and summer fruit balanced by a creamy long finish. Decanter Silver 2018, IWSC Silver 2020, Harpers ★★★★★ 2021.",
+    "Méthode Traditionnelle English sparkling rosé. A delicate cherry-blossom hue, wild raspberry and honeyed redcurrant aromatics, a spring-fresh palate of sherbet and summer fruit balanced by a creamy long finish. Decanter Silver 2018, IWSC Silver 2020, Harpers ★★★★★ 2021.",
   image: "https://ridgeview.vercel.app/products/fitzrovia.png",
   brand: { "@type": "Brand", name: "Ridgeview Wine Estate" },
   sku: "R2203",
@@ -813,12 +813,12 @@ export default function FitzroviaPage() {
           section and the Varietal section above. */}
       <ScrollReset>
         <BehindTheBottleSection
-          headline={<>Crafted in the <span className="text-[#C8A96E]">méthode champenoise</span>.</>}
-          intro="For three decades, Ridgeview has crafted English sparkling wines the long way — by hand, on the chalk hills of Sussex, using the same méthode champenoise as the great houses of Champagne."
+          headline={<>Crafted in the <span className="text-[#C8A96E]">Méthode Traditionnelle</span>.</>}
+          intro="For three decades, Ridgeview has crafted English sparkling wines the long way — by hand, on the chalk hills of Sussex, using the same Méthode Traditionnelle as the great houses of Champagne."
           pillars={[
             { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region — the foundation of every great sparkling wine." },
             { label: "Hand Harvest", detail: "Grapes are picked at first light and sorted by hand to keep only the most balanced bunches." },
-            { label: "Méthode Traditionnelle", detail: "Secondary fermentation in bottle — the same méthode champenoise used in the great houses of Champagne." },
+            { label: "Méthode Traditionnelle", detail: "Secondary fermentation in bottle — as practised in the great houses of Champagne." },
           ]}
         />
       </ScrollReset>
@@ -835,7 +835,7 @@ export default function FitzroviaPage() {
             year: 2018,
             tier: "Recommended",
             badgeSrc: "/images/awards/decanter-2018-silver.webp",
-            description: "Awarded Silver by the global Decanter judging panel — a benchmark méthode champenoise sparkling rosé. Fitzrovia has also collected Silver at IWSC & IWC 2020 and a Star Design ★★★★★ from Harpers Wine Star Awards 2021.",
+            description: "Awarded Silver by the global Decanter judging panel — a benchmark Méthode Traditionnelle sparkling rosé. Fitzrovia has also collected Silver at IWSC & IWC 2020 and a Star Design ★★★★★ from Harpers Wine Star Awards 2021.",
           }}
         />
       </ScrollReset>

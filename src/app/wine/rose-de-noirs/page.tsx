@@ -671,7 +671,7 @@ const SCHEMA_LD = {
   "@type": "Product",
   name: "Ridgeview Rosé de Noirs 2020",
   description:
-    "Vintage 2020 méthode champenoise English sparkling rosé. Peach-gold hue with wild strawberry, cherry and almond-biscuit notes over a soft, creamy finish. Platinum at the Decanter World Wine Awards 2023.",
+    "Vintage 2020 Méthode Traditionnelle English sparkling rosé. Peach-gold hue with wild strawberry, cherry and almond-biscuit notes over a soft, creamy finish. Platinum at the Decanter World Wine Awards 2023.",
   image: "https://ridgeview.vercel.app/products/rose-de-noirs.png",
   brand: { "@type": "Brand", name: "Ridgeview Wine Estate" },
   sku: "R2006",
@@ -773,12 +773,12 @@ export default function RoseDeNoirsPage() {
           section and the Varietal section above. */}
       <ScrollReset>
         <BehindTheBottleSection
-          headline={<>Crafted in the <span className="text-[#C8A96E]">méthode champenoise</span>.</>}
-          intro="For three decades, Ridgeview has crafted English sparkling wines the long way — by hand, on the chalk hills of Sussex, using the same méthode champenoise as the great houses of Champagne."
+          headline={<>Crafted in the <span className="text-[#C8A96E]">Méthode Traditionnelle</span>.</>}
+          intro="For three decades, Ridgeview has crafted English sparkling wines the long way — by hand, on the chalk hills of Sussex, using the same Méthode Traditionnelle as the great houses of Champagne."
           pillars={[
             { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region — the foundation of every great sparkling wine." },
             { label: "Hand Harvest", detail: "Grapes are picked at first light and sorted by hand to keep only the most balanced bunches." },
-            { label: "Méthode Traditionnelle", detail: "Secondary fermentation in bottle — the same méthode champenoise used in the great houses of Champagne." },
+            { label: "Méthode Traditionnelle", detail: "Secondary fermentation in bottle — as practised in the great houses of Champagne." },
           ]}
         />
       </ScrollReset>
