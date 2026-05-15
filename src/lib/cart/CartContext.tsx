@@ -41,7 +41,11 @@ import {
 } from "./types";
 
 const STORAGE_KEY = "ridgeview-cart-v1";
-const FREE_DELIVERY_PENCE = 10_000; // £100
+// Free delivery threshold synced with the PurchaseWidget default
+// (free UK next-day on orders over £45 received before 12 pm on a
+// working day). Changing it: also update the SKU PurchaseWidget
+// default + the drawer policy text.
+const FREE_DELIVERY_PENCE = 4_500; // £45
 const RECENTLY_ADDED_MS = 1200;
 
 const CartContext = createContext<CartContextValue | null>(null);

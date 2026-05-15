@@ -34,7 +34,6 @@ export function CartDrawer() {
     count,
     subtotalPence,
     subtotalLabel,
-    netLabel,
     vatLabel,
     vatRateLabel,
     freeDeliveryThresholdPence,
@@ -199,66 +198,90 @@ export function CartDrawer() {
             {/* ── Footer ───────────────────────────────────────── */}
             {items.length > 0 && (
               <footer className="border-t border-white/[0.08] px-6 md:px-8 py-5 md:py-6 bg-[#0a0a0a]">
-                {/* Net + VAT breakdown — UK retail prices are gross
-                    (VAT-inclusive), so the unit prices already
-                    contain the 20 % VAT. We split it for the
-                    customer here so business buyers can read off
-                    what they could reclaim. */}
-                <div
-                  className="space-y-1.5 mb-3 pb-3 border-b border-white/[0.06]"
-                  aria-label="Tax breakdown"
-                >
-                  <div className="flex items-baseline justify-between">
-                    <p
-                      className="font-body font-light text-white/55 uppercase tracking-[0.22em]"
-                      style={{ fontSize: "clamp(9px, 0.85vw, 10px)" }}
-                    >
-                      Net (ex-VAT)
-                    </p>
-                    <p
-                      className="font-body font-light text-white/65 tabular-nums"
-                      style={{ fontSize: "clamp(12px, 1.05vw, 14px)" }}
-                    >
-                      {netLabel}
-                    </p>
-                  </div>
-                  <div className="flex items-baseline justify-between">
-                    <p
-                      className="font-body font-light text-white/55 uppercase tracking-[0.22em]"
-                      style={{ fontSize: "clamp(9px, 0.85vw, 10px)" }}
-                    >
-                      VAT · {vatRateLabel}
-                    </p>
-                    <p
-                      className="font-body font-light text-white/65 tabular-nums"
-                      style={{ fontSize: "clamp(12px, 1.05vw, 14px)" }}
-                    >
-                      {vatLabel}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-baseline justify-between mb-1">
+                {/* Subtotal — gross sum of all lines */}
+                <div className="flex items-baseline justify-between pb-3 border-b border-white/[0.06]">
                   <p
-                    className="font-body font-light text-cream uppercase tracking-[0.22em]"
+                    className="font-body font-light text-white/65 uppercase tracking-[0.22em]"
                     style={{ fontSize: "clamp(10px, 0.9vw, 11px)" }}
                   >
-                    Total
+                    Subtotal
                   </p>
                   <p
-                    className="font-display italic text-cream tabular-nums"
-                    style={{ fontSize: "clamp(20px, 2vw, 26px)" }}
+                    className="font-body font-light text-cream tabular-nums"
+                    style={{ fontSize: "clamp(14px, 1.2vw, 16px)" }}
                   >
                     {subtotalLabel}
                   </p>
                 </div>
-                <p
-                  className="font-body font-light text-white/40 mb-5"
-                  style={{ fontSize: "clamp(10px, 0.9vw, 11px)" }}
-                >
-                  Includes UK VAT at {vatRateLabel}. Shipping
-                  calculated at checkout.
-                </p>
+
+                {/* Shipment — policy text. Two-column row mirrors
+                    the order-summary convention on UK luxury wine
+                    shops. Free UK next-day from £45; full options
+                    surfaced at checkout. */}
+                <div className="flex gap-4 md:gap-6 py-3 border-b border-white/[0.06]">
+                  <div className="shrink-0">
+                    <p
+                      className="font-body font-light text-white/65 uppercase tracking-[0.22em]"
+                      style={{ fontSize: "clamp(10px, 0.9vw, 11px)" }}
+                    >
+                      Shipment
+                    </p>
+                  </div>
+                  <div className="flex-1 text-right">
+                    <p
+                      className="font-body font-light text-white/65 leading-snug"
+                      style={{ fontSize: "clamp(11px, 1vw, 13px)" }}
+                    >
+                      {qualifiesForFreeDelivery ? (
+                        <>
+                          <span className="text-[#C8A96E]">
+                            Free UK next-working-day delivery
+                          </span>{" "}
+                          unlocked (orders placed before 12 pm
+                          on a working day).
+                        </>
+                      ) : (
+                        <>
+                          Free UK next-working-day delivery on
+                          orders over £45 (received before 12 pm
+                          on a working day).
+                        </>
+                      )}
+                    </p>
+                    <p
+                      className="mt-2 font-body font-light text-white/40"
+                      style={{ fontSize: "clamp(10px, 0.9vw, 11px)" }}
+                    >
+                      Shipping options updated at checkout.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Total — gross with VAT shown inline as the
+                    parenthetical "(includes £X 20 % VAT)" so the
+                    headline number stays the price the customer pays. */}
+                <div className="flex items-baseline justify-between pt-4 mb-5">
+                  <p
+                    className="font-body font-light text-cream uppercase tracking-[0.22em]"
+                    style={{ fontSize: "clamp(11px, 1vw, 13px)" }}
+                  >
+                    Total
+                  </p>
+                  <div className="text-right">
+                    <p
+                      className="font-display italic text-cream tabular-nums leading-none"
+                      style={{ fontSize: "clamp(22px, 2.2vw, 28px)" }}
+                    >
+                      {subtotalLabel}
+                    </p>
+                    <p
+                      className="mt-1 font-body font-light text-white/45 tabular-nums"
+                      style={{ fontSize: "clamp(10px, 0.9vw, 11px)" }}
+                    >
+                      (includes {vatLabel} {vatRateLabel} VAT)
+                    </p>
+                  </div>
+                </div>
 
                 {/* Primary CTA — placeholder until a payment backend
                     (Stripe / Shopify / etc.) is wired up. Reaching
