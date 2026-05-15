@@ -418,7 +418,10 @@ body::after {
 /* While the kickflip is mid-flight, swap the shadow stack to the
    "lifted" version so the elevation feels real throughout the spin. */
 .rv-kickflip-pill--active {
-  animation: rv-kickflip 0.85s cubic-bezier(0.5, 0.05, 0.3, 1) forwards;
+  /* 1.3s gives ~0.43s per full rotation across the triple flip —
+     fast enough to feel snappy, slow enough that each rotation is
+     visible. */
+  animation: rv-kickflip 1.3s cubic-bezier(0.5, 0.05, 0.3, 1) forwards;
   box-shadow:
     inset 0 0 0 1px rgba(200, 169, 110, 0.42),
     inset 0 1px 0 rgba(245, 240, 232, 0.14),
@@ -458,39 +461,25 @@ body::after {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
-/* Top-rim cream highlight — fakes a thin specular reflection along
-   the front-face top edge so the pill reads as a 3D object catching
-   ambient light. Most visible during the 0-90° and 270-360° phases
-   when the rim is angled toward the camera. */
-.rv-kickflip-pill .rv-kickflip-label::after {
-  content: "";
-  position: absolute;
-  left: 10%;
-  right: 10%;
-  top: -11px; /* sits just above the label baseline, near pill rim */
-  height: 1px;
-  border-radius: 999px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(245, 240, 232, 0.45) 50%,
-    transparent 100%
-  );
-  pointer-events: none;
-}
-
-/* The kickflip keyframe — single 360° rotation around X with the
-   pill lifted at the apex (50%) and settled back at end. The lift
-   curve is symmetric so the pill returns to its starting Y/Z. */
+/* The triple kickflip keyframe — pill rotates 1080° (three full
+   360° revolutions) around its long X-axis while airborne. The
+   lift profile peaks at the middle (50%) and is symmetric so the
+   pill lands cleanly back at its starting Y/Z. */
 @keyframes rv-kickflip {
   0% {
     transform: translate3d(0, 0, 0) rotateX(0deg);
   }
+  25% {
+    transform: translate3d(0, -18px, 44px) rotateX(270deg);
+  }
   50% {
-    transform: translate3d(0, -16px, 40px) rotateX(180deg);
+    transform: translate3d(0, -24px, 52px) rotateX(540deg);
+  }
+  75% {
+    transform: translate3d(0, -18px, 44px) rotateX(810deg);
   }
   100% {
-    transform: translate3d(0, 0, 0) rotateX(360deg);
+    transform: translate3d(0, 0, 0) rotateX(1080deg);
   }
 }
 
