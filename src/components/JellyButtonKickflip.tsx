@@ -49,11 +49,11 @@ const FLIP_Z_PEAK = 36;
 /** Hover translateZ (px) — the depth "rise" toward the camera.
  *  Combined with `--rv-kickflip-hover-scale` it gives a visible
  *  forward-pop on hover without any Y motion. */
-const HOVER_Z = 60;
-/** Hover scale multiplier — pairs with the Z pop to guarantee the
- *  rise is visually obvious (translateZ alone at perspective 600
- *  yields only ~2% projected scale, which most users miss). */
-const HOVER_SCALE = 1.06;
+const HOVER_Z = 28;
+/** Hover scale multiplier — pairs with the Z pop. Tuned 2026-05-15
+ *  to read clearly without overshooting the Vineyard Booking
+ *  button's size (the unhovered baseline). */
+const HOVER_SCALE = 1.025;
 /** Lerp factor for the cursor-following metaballs (0..1). */
 const HOVER_LERP = 0.22;
 
