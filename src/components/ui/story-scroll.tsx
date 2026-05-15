@@ -55,7 +55,10 @@ export const FlowSection: React.FC<FlowSectionProps> = ({
     <div
       data-flow-inner
       className={cx(
-        "flow-art-container relative flex min-h-screen w-full flex-col justify-between gap-6 px-[4vw] pt-[clamp(2rem,8vw,4vw)] pb-[4vw]",
+        "flow-art-container relative flex min-h-screen w-full flex-col justify-start gap-6 px-[4vw]",
+        // pt clears the 80 px fixed navbar (clamp 96-144px);
+        // pb clears the ~80 px mobile-only BottomNav bar.
+        "pt-[clamp(6rem,10vw,9rem)] pb-[clamp(5.5rem,6vw,7rem)]",
         "will-change-transform",
       )}
       style={{ transformOrigin: "bottom left", ...style }}

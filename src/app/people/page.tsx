@@ -13,6 +13,9 @@
  *   02 · The Winemaker    — Simon Roberts (head winemaker)
  *   03 · The Founder      — Mike Roberts (in memoriam)
  *
+ * Reading order inside each chapter (top → bottom):
+ *   kicker → divider → headline → divider → body → divider → images
+ *
  * Editorial copy is brand-voice-clean (verifiable facts only,
  * pulled from the migrated "Remembering Mike Roberts" tribute
  * article in `content/articles/`).
@@ -62,16 +65,20 @@ export default function PeoplePage() {
 
           <hr className="my-[2vw] border-none border-t border-[#C8A96E]/30" />
 
-          {/* 3-photo grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
-              <img
-                src={`${basePath}/images/people/people-team.jpg`}
-                alt="A Ridgeview team member walking through the vineyard during harvest"
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
+          <p
+            className="max-w-[60ch] font-body font-light text-white/70 leading-relaxed"
+            style={{ fontSize: "clamp(15px, 1.4vw, 18px)" }}
+          >
+            A dedicated team of viticulturists, winemakers, and hospitality
+            professionals — working together to shape the future of English
+            sparkling wine. Across the vineyard, the cellar, and the
+            restaurant, every hand plays a part.
+          </p>
+
+          <hr className="my-[2vw] border-none border-t border-[#C8A96E]/30" />
+
+          {/* 2-photo grid (first image removed per user direction) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
             <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
               <img
                 src={`${basePath}/images/people/people-harvest-walk.jpg`}
@@ -89,18 +96,6 @@ export default function PeoplePage() {
               />
             </div>
           </div>
-
-          <hr className="my-[2vw] border-none border-t border-[#C8A96E]/30" />
-
-          <p
-            className="mt-auto max-w-[60ch] font-body font-light text-white/70 leading-relaxed"
-            style={{ fontSize: "clamp(15px, 1.4vw, 18px)" }}
-          >
-            A dedicated team of viticulturists, winemakers, and hospitality
-            professionals — working together to shape the future of English
-            sparkling wine. Across the vineyard, the cellar, and the
-            restaurant, every hand plays a part.
-          </p>
         </FlowSection>
 
         {/* ───────── 02 · The Winemaker · Simon Roberts ──────────── */}
@@ -144,6 +139,20 @@ export default function PeoplePage() {
 
           <hr className="my-[2vw] border-none border-t border-[#C8A96E]/30" />
 
+          <p
+            className="max-w-[60ch] font-body font-light text-white/70 leading-relaxed"
+            style={{ fontSize: "clamp(15px, 1.4vw, 18px)" }}
+          >
+            Head Winemaker at Ridgeview and son of founder Mike Roberts.
+            Simon carries the{" "}
+            <span className="text-[#C8A96E]">Classic Method</span> forward on
+            Sussex chalk — every cuvée passes through his hands from press to
+            dégorgement, guided by the same conviction his father planted in
+            1995.
+          </p>
+
+          <hr className="my-[2vw] border-none border-t border-[#C8A96E]/30" />
+
           {/* 2-photo grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
             <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
@@ -163,20 +172,6 @@ export default function PeoplePage() {
               />
             </div>
           </div>
-
-          <hr className="my-[2vw] border-none border-t border-[#C8A96E]/30" />
-
-          <p
-            className="mt-auto max-w-[60ch] font-body font-light text-white/70 leading-relaxed"
-            style={{ fontSize: "clamp(15px, 1.4vw, 18px)" }}
-          >
-            Head Winemaker at Ridgeview and son of founder Mike Roberts.
-            Simon carries the{" "}
-            <span className="text-[#C8A96E]">Classic Method</span> forward on
-            Sussex chalk — every cuvée passes through his hands from press to
-            dégorgement, guided by the same conviction his father planted in
-            1995.
-          </p>
         </FlowSection>
 
         {/* ───────── 03 · The Founder · Mike Roberts (In Memoriam) ── */}
@@ -220,6 +215,21 @@ export default function PeoplePage() {
 
           <hr className="my-[2vw] border-none border-t border-[#C8A96E]/40" />
 
+          <p
+            className="max-w-[60ch] font-body font-light text-white/75 leading-relaxed"
+            style={{ fontSize: "clamp(15px, 1.4vw, 18px)" }}
+          >
+            Co-founded Ridgeview with his wife Chris in{" "}
+            <span className="text-[#C8A96E]">1995</span>, planting the first
+            vines when few in England dared. Awarded an{" "}
+            <span className="text-[#C8A96E]">MBE</span> in 2011 for his
+            services to the English wine industry. His guiding motto —
+            &ldquo;life is for celebrating&rdquo; — still shapes every bottle
+            Ridgeview makes today.
+          </p>
+
+          <hr className="my-[2vw] border-none border-t border-[#C8A96E]/40" />
+
           {/* 3-photo grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
             <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
@@ -247,21 +257,6 @@ export default function PeoplePage() {
               />
             </div>
           </div>
-
-          <hr className="my-[2vw] border-none border-t border-[#C8A96E]/40" />
-
-          <p
-            className="mt-auto max-w-[60ch] font-body font-light text-white/75 leading-relaxed"
-            style={{ fontSize: "clamp(15px, 1.4vw, 18px)" }}
-          >
-            Co-founded Ridgeview with his wife Chris in{" "}
-            <span className="text-[#C8A96E]">1995</span>, planting the first
-            vines when few in England dared. Awarded an{" "}
-            <span className="text-[#C8A96E]">MBE</span> in 2011 for his
-            services to the English wine industry. His guiding motto —
-            &ldquo;life is for celebrating&rdquo; — still shapes every bottle
-            Ridgeview makes today.
-          </p>
         </FlowSection>
       </FlowArt>
 
