@@ -34,6 +34,9 @@ export function CartDrawer() {
     count,
     subtotalPence,
     subtotalLabel,
+    netLabel,
+    vatLabel,
+    vatRateLabel,
     freeDeliveryThresholdPence,
     qualifiesForFreeDelivery,
     isDrawerOpen,
@@ -196,12 +199,51 @@ export function CartDrawer() {
             {/* ── Footer ───────────────────────────────────────── */}
             {items.length > 0 && (
               <footer className="border-t border-white/[0.08] px-6 md:px-8 py-5 md:py-6 bg-[#0a0a0a]">
+                {/* Net + VAT breakdown — UK retail prices are gross
+                    (VAT-inclusive), so the unit prices already
+                    contain the 20 % VAT. We split it for the
+                    customer here so business buyers can read off
+                    what they could reclaim. */}
+                <div
+                  className="space-y-1.5 mb-3 pb-3 border-b border-white/[0.06]"
+                  aria-label="Tax breakdown"
+                >
+                  <div className="flex items-baseline justify-between">
+                    <p
+                      className="font-body font-light text-white/55 uppercase tracking-[0.22em]"
+                      style={{ fontSize: "clamp(9px, 0.85vw, 10px)" }}
+                    >
+                      Net (ex-VAT)
+                    </p>
+                    <p
+                      className="font-body font-light text-white/65 tabular-nums"
+                      style={{ fontSize: "clamp(12px, 1.05vw, 14px)" }}
+                    >
+                      {netLabel}
+                    </p>
+                  </div>
+                  <div className="flex items-baseline justify-between">
+                    <p
+                      className="font-body font-light text-white/55 uppercase tracking-[0.22em]"
+                      style={{ fontSize: "clamp(9px, 0.85vw, 10px)" }}
+                    >
+                      VAT · {vatRateLabel}
+                    </p>
+                    <p
+                      className="font-body font-light text-white/65 tabular-nums"
+                      style={{ fontSize: "clamp(12px, 1.05vw, 14px)" }}
+                    >
+                      {vatLabel}
+                    </p>
+                  </div>
+                </div>
+
                 <div className="flex items-baseline justify-between mb-1">
                   <p
-                    className="font-body font-light text-white/60 uppercase tracking-[0.22em]"
+                    className="font-body font-light text-cream uppercase tracking-[0.22em]"
                     style={{ fontSize: "clamp(10px, 0.9vw, 11px)" }}
                   >
-                    Subtotal
+                    Total
                   </p>
                   <p
                     className="font-display italic text-cream tabular-nums"
@@ -214,7 +256,8 @@ export function CartDrawer() {
                   className="font-body font-light text-white/40 mb-5"
                   style={{ fontSize: "clamp(10px, 0.9vw, 11px)" }}
                 >
-                  Prices include UK VAT. Shipping calculated at checkout.
+                  Includes UK VAT at {vatRateLabel}. Shipping
+                  calculated at checkout.
                 </p>
 
                 {/* Primary CTA — placeholder until a payment backend

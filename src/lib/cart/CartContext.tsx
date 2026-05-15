@@ -36,6 +36,8 @@ import {
   CartItem,
   formatPence,
   lineId,
+  UK_VAT_RATE,
+  vatBreakdown,
 } from "./types";
 
 const STORAGE_KEY = "ridgeview-cart-v1";
@@ -176,11 +178,20 @@ export function CartProvider({ children }: { children: ReactNode }) {
       (sum, x) => sum + x.unitPricePence * x.quantity,
       0,
     );
+    // Wine prices in `wines.ts` are gross (VAT-inclusive), so we
+    // back-compute the net + VAT split here for display.
+    const { netPence, vatPence } = vatBreakdown(subtotalPence);
+    const vatRatePct = Math.round(UK_VAT_RATE * 100);
     return {
       items,
       count,
       subtotalPence,
       subtotalLabel: formatPence(subtotalPence),
+      netPence,
+      netLabel: formatPence(netPence),
+      vatPence,
+      vatLabel: formatPence(vatPence),
+      vatRateLabel: `${vatRatePct}%`,
       freeDeliveryThresholdPence: FREE_DELIVERY_PENCE,
       qualifiesForFreeDelivery: subtotalPence >= FREE_DELIVERY_PENCE,
       add,

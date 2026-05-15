@@ -51,10 +51,23 @@ export interface CartContextValue {
   items: CartItem[];
   /** Sum of quantities across all lines — used by the navbar badge. */
   count: number;
-  /** Subtotal in pence (still pre-shipping, pre-discount). */
+  /** Gross subtotal in pence (includes VAT, pre-shipping). The
+   *  unit prices in `wines.ts` are UK-retail-style gross prices —
+   *  VAT is already baked in. */
   subtotalPence: number;
-  /** Subtotal formatted for display — e.g. "£234.00". */
+  /** Gross subtotal formatted for display — e.g. "£234.00". */
   subtotalLabel: string;
+  /** Net portion (ex-VAT) of the subtotal, in pence. */
+  netPence: number;
+  /** Net subtotal formatted — e.g. "£195.00". */
+  netLabel: string;
+  /** VAT portion of the subtotal, in pence. UK rate is 20 % on
+   *  alcohol → VAT = gross × (rate / (1 + rate)) = gross / 6. */
+  vatPence: number;
+  /** VAT formatted — e.g. "£39.00". */
+  vatLabel: string;
+  /** Display percentage for the VAT line — "20%" today. */
+  vatRateLabel: string;
   /** Free-delivery threshold (pence). Cart UI surfaces the gap if
    *  the basket sits below this. Default: 10 000 (£100). */
   freeDeliveryThresholdPence: number;
@@ -109,4 +122,22 @@ export function formatPence(pence: number): string {
   const pounds = pence / 100;
   if (Number.isInteger(pounds)) return `£${pounds}`;
   return `£${pounds.toFixed(2)}`;
+}
+
+/** UK standard VAT rate on wine + sparkling wine (since 2011). */
+export const UK_VAT_RATE = 0.2;
+
+/** Split a gross (VAT-inclusive) pence amount into net + VAT pence.
+ *  Math is exact at integer pence — `net + vat === gross`. UK retail
+ *  pricing is gross-inclusive, so the unit prices already contain
+ *  the VAT; this function just exposes the split for display. */
+export function vatBreakdown(grossPence: number): {
+  netPence: number;
+  vatPence: number;
+} {
+  // gross = net × (1 + r)  →  vat = gross × r / (1 + r)
+  // For r = 0.20 that's gross / 6 — clean, round-to-nearest pence.
+  const vatPence = Math.round(grossPence * UK_VAT_RATE / (1 + UK_VAT_RATE));
+  const netPence = grossPence - vatPence;
+  return { netPence, vatPence };
 }
