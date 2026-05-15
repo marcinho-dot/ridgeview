@@ -682,8 +682,12 @@ function BackToTopFloat() {
             display: "inline-flex",
             alignItems: "center",
             justifyContent: "center",
-            width: "48px",
-            height: "48px",
+            // 40 px square — matches the computed height of a `.btn-cta`
+            // (font-size 10-11 px · padding 13 px vertical = ~40 px),
+            // so the floating arrow visually aligns with the "Reserve a
+            // Table" CTA when both are on screen.
+            width: "40px",
+            height: "40px",
             background: "rgba(245, 240, 232, 0.04)",
             backdropFilter: "blur(20px) saturate(160%)",
             WebkitBackdropFilter: "blur(20px) saturate(160%)",
