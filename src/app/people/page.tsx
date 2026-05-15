@@ -75,25 +75,30 @@ export default function PeoplePage() {
             restaurant, every hand plays a part.
           </p>
 
-          <hr className="my-[0.4vw] border-none border-t border-[#C8A96E]/30" />
+          {/* mt-auto pushes the HR + image grid to the bottom of the
+              viewport-tall section so there's no empty band below the
+              images (the section is min-h-screen). */}
+          <div className="mt-auto">
+            <hr className="my-[0.4vw] border-none border-t border-[#C8A96E]/30" />
 
-          {/* 2-photo grid (first image removed per user direction) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
-              <img
-                src={`${basePath}/images/people/people-harvest-walk.jpg`}
-                alt="Walking the harvest at Ridgeview"
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
-              <img
-                src={`${basePath}/images/people/people-harvest-54.jpg`}
-                alt="Harvest at Ridgeview — picking by hand"
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-              />
+            {/* 2-photo grid (first image removed per user direction) */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
+                <img
+                  src={`${basePath}/images/people/people-harvest-walk.jpg`}
+                  alt="Walking the harvest at Ridgeview"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
+                <img
+                  src={`${basePath}/images/people/people-harvest-54.jpg`}
+                  alt="Harvest at Ridgeview — picking by hand"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
         </FlowSection>
@@ -151,25 +156,29 @@ export default function PeoplePage() {
             1995.
           </p>
 
-          <hr className="my-[0.4vw] border-none border-t border-[#C8A96E]/30" />
+          {/* mt-auto pushes the HR + image grid to the bottom of the
+              viewport-tall section. */}
+          <div className="mt-auto">
+            <hr className="my-[0.4vw] border-none border-t border-[#C8A96E]/30" />
 
-          {/* 2-photo grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
-              <img
-                src={`${basePath}/images/people/simon-barrels.jpg`}
-                alt="Simon Roberts among the oak barrels at Ridgeview's cellar"
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
-              <img
-                src={`${basePath}/images/people/simon-tasting.jpg`}
-                alt="Simon Roberts tank-tasting at Ridgeview"
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-              />
+            {/* 2-photo grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
+                <img
+                  src={`${basePath}/images/people/simon-barrels.jpg`}
+                  alt="Simon Roberts among the oak barrels at Ridgeview's cellar"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
+                <img
+                  src={`${basePath}/images/people/simon-tasting.jpg`}
+                  alt="Simon Roberts tank-tasting at Ridgeview"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
         </FlowSection>
@@ -188,7 +197,7 @@ export default function PeoplePage() {
           >
             03 — The Founder · In Memoriam
           </p>
-          <hr className="my-[2vw] border-none border-t border-[#C8A96E]/40" />
+          <hr className="my-[0.4vw] border-none border-t border-[#C8A96E]/40" />
 
           <div>
             <h2
@@ -209,17 +218,17 @@ export default function PeoplePage() {
                 letterSpacing: "0.3em",
               }}
             >
-              Co-Founder · MBE
+              Founder · Member of the Order of the British Empire
             </p>
           </div>
 
-          <hr className="my-[2vw] border-none border-t border-[#C8A96E]/40" />
+          <hr className="my-[0.4vw] border-none border-t border-[#C8A96E]/40" />
 
           <p
             className="max-w-[60ch] font-body font-light text-white/75 leading-relaxed"
             style={{ fontSize: "clamp(15px, 1.4vw, 18px)" }}
           >
-            Co-founded Ridgeview with his wife Chris in{" "}
+            Founded Ridgeview in{" "}
             <span className="text-[#C8A96E]">1995</span>, planting the first
             vines when few in England dared. Awarded an{" "}
             <span className="text-[#C8A96E]">MBE</span> in 2011 for his
@@ -228,10 +237,13 @@ export default function PeoplePage() {
             Ridgeview makes today.
           </p>
 
-          <hr className="my-[2vw] border-none border-t border-[#C8A96E]/40" />
+          {/* mt-auto pushes the HR + image grid to the bottom of the
+              viewport-tall section. */}
+          <div className="mt-auto">
+            <hr className="my-[0.4vw] border-none border-t border-[#C8A96E]/40" />
 
-          {/* 3-photo grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
+            {/* 3-photo grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
             <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
               <img
                 src={`${basePath}/images/people/mike-hero.png`}
@@ -279,6 +291,7 @@ export default function PeoplePage() {
                   Mike Roberts
                 </p>
               </div>
+            </div>
             </div>
           </div>
         </FlowSection>

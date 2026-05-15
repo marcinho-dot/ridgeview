@@ -40,7 +40,7 @@ function getLinks(isOffHome: boolean) {
       href: `${basePath}/beyond-the-bottle/`,
     },
     {
-      label: "People",
+      label: "About",
       kicker: "The team, the winemaker, the founder",
       href: `${basePath}/people/`,
     },
