@@ -369,140 +369,140 @@ body::after {
     0 0 0 2px rgba(200, 169, 110, 0.25);
 }
 
-/* ─── Jelly Button — 3D Lift + Tilt ─────────────────────────────────────
-   Inspired by the Software-Mansion TypeGPU jelly-slider demo. We can't
-   do real WebGPU SDF raymarching, but the visible *button* behaviour
-   (pill lifts off the surface + tilts in 3D toward the cursor) is
-   reproducible with CSS 3D transforms.
+/* ─── Jelly Button — Kickflip ───────────────────────────────────────────
+   Pill rises off the surface and rotates a full 360° around its
+   horizontal long axis on each hover — visual identical to a
+   skateboard kickflip.
 
-   The `stage` wrapper supplies the perspective so child rotateX/Y
-   create real depth. The `pill` extends .btn-cta — keeps the
-   frosted-glass + gold-border resting look and the spring-back
-   :active press feedback. Two pill variants share the same CSS:
+   Why CSS, not WebGPU: the linked Software-Mansion TypeGPU source
+   is a deformable Bezier-track slider, not a flippable button. A
+   faithful WebGPU port would give a different widget and excludes
+   the ~10-15% of UK mobile traffic still on pre-WebGPU iOS. CSS 3D
+   transforms reproduce the kickflip behaviour pixel-faithfully and
+   run on every browser since Safari 9 / Chrome 36.
 
-     .rv-jelly3d-pill           → pure CSS transitions (variant A)
-     .rv-jelly3d-pill--spring   → JS rAF spring physics (variant B)
+   The stage wrapper supplies `perspective` so the rotateX has real
+   depth. The pill inherits `.btn-cta` for the resting look (frosted
+   glass + gold etched border + spring-back :active). The `::before`
+   back-layer + `::after` top-rim highlight give the pill faked
+   thickness so it reads as a 3D object during the rotation.
 
-   Only the transition timing differs — the spring variant uses a
-   transparent transition (instant DOM update each frame). */
-.rv-jelly3d-stage {
+   Animation is triggered by adding the `--active` modifier class
+   from React (toggled on mouseenter, cleared on `animationend`).
+   This is cleaner than a `:hover` keyframe because re-entry mid-
+   flight can't cut the rotation short. */
+.rv-kickflip-stage {
   display: inline-block;
-  perspective: 380px;
-  /* Closer perspective = more dramatic foreshortening when the pill
-     tilts. 380px is tight enough to feel "completely 3D" at the
-     22-34° tilt range used by the pill variants. */
+  perspective: 600px;
+  /* Slightly looser perspective than the earlier tilt variant —
+     the kickflip rotates through a full 360°, and tight perspective
+     warps too aggressively at 90°/270° (the pill edges-on phase). */
 }
-.rv-jelly3d-pill {
+.rv-kickflip-pill {
   position: relative;
-  /* Front face = the existing `.btn-cta` look. We inherit all of:
-     frosted-glass surface, gold etched border, spring-back :active.
-     We only add the 3D transform + drop shadow + transition that
-     animates the lift / tilt. */
   transform-style: preserve-3d;
-  /* Spring-back overshoot easing — same curve used elsewhere in the
-     site for confirmation feedback. The instant on the way down,
-     overshoot on the way back up, gives the elastic "jelly" feel. */
-  transition:
-    transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
-    box-shadow 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
-    color 0.35s ease,
-    border-color 0.40s ease,
-    background 0.35s ease;
-  /* Resting drop-shadow — soft, low; suggests the pill is sitting
-     on a surface. Becomes the lifted shadow on hover. */
+  /* Resting drop-shadow — pill sits on the surface. */
   box-shadow:
     inset 0 0 0 1px rgba(200, 169, 110, 0.18),
     inset 0 1px 0 rgba(245, 240, 232, 0.10),
     0 0 0 1px rgba(200, 169, 110, 0.06),
     0 6px 12px -4px rgba(0, 0, 0, 0.55);
-}
-.rv-jelly3d-pill:hover {
-  /* Override `.btn-cta:hover` with the lifted-pill shadow stack —
-     bigger, more diffuse, suggests the pill has risen off the
-     surface. Border + bg still come from `.btn-cta:hover`. */
-  box-shadow:
-    inset 0 0 0 1px rgba(200, 169, 110, 0.42),
-    inset 0 1px 0 rgba(245, 240, 232, 0.14),
-    0 0 24px -2px rgba(200, 169, 110, 0.25),
-    0 24px 32px -10px rgba(0, 0, 0, 0.75),
-    0 12px 18px -6px rgba(200, 169, 110, 0.22);
-}
-/* JS-spring variant disables the CSS transition on transform — each
-   frame the rAF loop writes the next interpolated value directly.
-   `box-shadow` keeps its CSS transition so the hover-lift shadow
-   still eases in/out smoothly. */
-.rv-jelly3d-pill--spring {
   transition:
     box-shadow 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
     color 0.35s ease,
     border-color 0.40s ease,
     background 0.35s ease;
+  /* Slight isolation so the 3D children stay composited together. */
+  will-change: transform;
 }
-.rv-jelly3d-label {
+/* While the kickflip is mid-flight, swap the shadow stack to the
+   "lifted" version so the elevation feels real throughout the spin. */
+.rv-kickflip-pill--active {
+  animation: rv-kickflip 0.85s cubic-bezier(0.5, 0.05, 0.3, 1) forwards;
+  box-shadow:
+    inset 0 0 0 1px rgba(200, 169, 110, 0.42),
+    inset 0 1px 0 rgba(245, 240, 232, 0.14),
+    0 0 28px -2px rgba(200, 169, 110, 0.30),
+    0 28px 40px -12px rgba(0, 0, 0, 0.80),
+    0 14px 22px -8px rgba(200, 169, 110, 0.26);
+}
+.rv-kickflip-label {
   position: relative;
   display: inline-flex;
   align-items: center;
-  /* Keep the label on its own composite layer so the 3D rotation
-     stays crisp instead of being raster-bilinear-blurred. */
-  transform: translateZ(0);
+  /* Backface-visibility hidden on the label so the upside-down half
+     of the rotation hides the text (which would otherwise render
+     mirrored at 180°). The back face is the `::before` layer. */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0.1px); /* nudge in front of the back layer */
 }
 
-/* ─── Pill thickness (::before back-layer) ──────────────────────────────
-   The front face of the pill is flat — when it rotates in 3D you'd
-   normally see no thickness because a single CSS plane has zero depth.
-   We fake the depth by stamping a copy of the pill OUTLINE 14px
-   behind it via translateZ(-14px). When the pill tilts (rotateX/Y),
-   the back layer peeks out at the bottom / sides, creating the
-   visual illusion of a thick pill. The back layer is darker than
-   the front + dimmed slightly so it reads as the underside of the
-   pill in shadow, not a duplicate. */
-.rv-jelly3d-pill::before {
+/* Back-layer — fakes the pill's underside so the rotation shows
+   a sensible "back" face instead of a hollow mirrored front. */
+.rv-kickflip-pill::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  /* Sits behind the front face — when the pill tilts forward/sideways
-     this back face becomes visible at the bottom/back edges.
-     -20px gives a clearly visible "side wall" when the pill is
-     tilted 25-30°. */
-  transform: translateZ(-20px);
-  background: rgba(15, 13, 10, 0.92);
+  /* Sits behind the front face by 18px and is rotated 180° around
+     the X axis so during the rotation midpoint it faces the camera
+     right-side-up (instead of upside-down). */
+  transform: translateZ(-18px) rotateX(180deg);
+  background: rgba(15, 13, 10, 0.94);
   border: 1px solid rgba(200, 169, 110, 0.35);
   box-shadow:
     inset 0 0 0 1px rgba(200, 169, 110, 0.10),
     inset 0 -2px 12px rgba(0, 0, 0, 0.6);
   pointer-events: none;
-  /* Same easing as the pill itself so the back layer drifts in
-     sync — no Z-fighting jitter during the lift transition. */
-  transition: background 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
-/* Top-edge highlight on the front face — fakes a thin specular
-   reflection along the upper rim of the pill, selling the idea
-   that it's a 3D object catching ambient light. Visible mainly
-   during the rotation when the rim is angled toward the camera. */
-.rv-jelly3d-pill::after {
+/* Top-rim cream highlight — fakes a thin specular reflection along
+   the front-face top edge so the pill reads as a 3D object catching
+   ambient light. Most visible during the 0-90° and 270-360° phases
+   when the rim is angled toward the camera. */
+.rv-kickflip-pill .rv-kickflip-label::after {
   content: "";
   position: absolute;
-  left: 8%;
-  right: 8%;
-  top: 1px;
+  left: 10%;
+  right: 10%;
+  top: -11px; /* sits just above the label baseline, near pill rim */
   height: 1px;
   border-radius: 999px;
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(245, 240, 232, 0.35) 50%,
+    rgba(245, 240, 232, 0.45) 50%,
     transparent 100%
   );
   pointer-events: none;
-  /* Sits on the front face (translateZ 0 by default) — moves with
-     the pill's rotation so the highlight rotates with the rim. */
 }
-.rv-jelly3d-pill:hover::before {
-  /* On lift, the back face tints warmer (gold-tinged) so the
-     rotated edges feel like they're catching reflected gold from
-     the front face. */
-  background: rgba(40, 28, 18, 0.92);
+
+/* The kickflip keyframe — single 360° rotation around X with the
+   pill lifted at the apex (50%) and settled back at end. The lift
+   curve is symmetric so the pill returns to its starting Y/Z. */
+@keyframes rv-kickflip {
+  0% {
+    transform: translate3d(0, 0, 0) rotateX(0deg);
+  }
+  50% {
+    transform: translate3d(0, -16px, 40px) rotateX(180deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotateX(360deg);
+  }
+}
+
+/* ─── Accessibility / Fallback ──────────────────────────────────────────
+   When the user has `prefers-reduced-motion: reduce` set (system-wide
+   accessibility preference), suppress the keyframe entirely. The pill
+   then behaves as a plain `.btn-cta` — still clickable, still styled
+   identically at rest, no rotation. */
+@media (prefers-reduced-motion: reduce) {
+  .rv-kickflip-pill--active {
+    animation: none;
+  }
 }
 
 /* ─── Underline-Frame Button Family (used by /buttons showcase) ─────────

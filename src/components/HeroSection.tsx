@@ -3,8 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { basePath } from "@/lib/basePath";
-import { JellyButtonCss } from "@/components/JellyButtonCss";
-import { JellyButtonCanvas } from "@/components/JellyButtonCanvas";
+import { JellyButtonKickflip } from "@/components/JellyButtonKickflip";
 
 const proofPoints = [
   "Official wine · Queen's Diamond Jubilee",
@@ -168,23 +167,24 @@ export function HeroSection() {
             entry-points and the navbar tell the same story. On
             narrow screens they wrap to a stack via flex-wrap so the
             second button never overflows. */}
-        {/* Hero CTAs — jelly-button experiment (2026-05-15):
-            Shop uses the SVG-goo variant, Vineyard Booking uses the
-            Canvas-2D-metaballs variant, so both effects are visible
-            side-by-side for A/B comparison. Both share `.btn-cta` for
-            the resting frosted-glass + gold border look + spring-back
-            press feedback. */}
+        {/* Hero CTAs (2026-05-15 — kickflip test):
+            Shop = JellyButtonKickflip (3D pill that lifts + does a
+              360° rotateX flip on each hover, ~800ms, CSS keyframes).
+            Vineyard Booking = plain `.btn-cta`. Doubles as the
+              fallback look — exactly what users see when
+              `prefers-reduced-motion: reduce` is on or 3D transforms
+              aren't supported. */}
         <motion.div
           className="mt-5 flex flex-wrap items-start gap-3"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          {/* Variant A — CSS-transition 3D lift+tilt */}
+          {/* Variant A — kickflip 3D */}
           <div className="flex flex-col items-center gap-1.5">
-            <JellyButtonCss href={`${basePath}/#wine-collection`}>
+            <JellyButtonKickflip href={`${basePath}/#wine-collection`}>
               Shop
-            </JellyButtonCss>
+            </JellyButtonKickflip>
             <span
               aria-hidden
               className="font-body text-white/40 uppercase"
@@ -194,13 +194,14 @@ export function HeroSection() {
                 letterSpacing: "0.3em",
               }}
             >
-              CSS 3D
+              Kickflip 3D
             </span>
           </div>
-          {/* Variant B — JS spring-physics 3D lift+tilt */}
+          {/* Variant B — plain .btn-cta (also the reduced-motion fallback) */}
           <div className="flex flex-col items-center gap-1.5">
-            <JellyButtonCanvas
+            <a
               href={`${basePath}/booking#visit`}
+              className="btn-cta"
               onClick={() => {
                 // Mark this navigation as coming from the homepage Hero
                 // so the booking page's floating Back-to-Top button knows
@@ -219,7 +220,7 @@ export function HeroSection() {
               }}
             >
               Vineyard Booking
-            </JellyButtonCanvas>
+            </a>
             <span
               aria-hidden
               className="font-body text-white/40 uppercase"
@@ -229,7 +230,7 @@ export function HeroSection() {
                 letterSpacing: "0.3em",
               }}
             >
-              Spring 3D
+              Plain (Fallback)
             </span>
           </div>
         </motion.div>
