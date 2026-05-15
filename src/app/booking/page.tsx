@@ -207,54 +207,53 @@ function HeritageTerroirSection() {
               [ Chalk · Ancient Seabed ]
             </p>
           </div>
-          {/* Grape labels (bottom strip) */}
-          <div className="absolute bottom-5 left-5 right-5 md:bottom-8 md:left-10 md:right-10 flex flex-wrap gap-5">
-            {["Chardonnay", "Pinot Noir", "Pinot Meunier"].map((grape) => (
-              <p
-                key={grape}
-                className="font-display italic text-[#C8A96E]"
-                style={{
-                  fontSize: "clamp(12px, 1.2vw, 15px)",
-                  letterSpacing: "0.06em",
-                  textShadow: "0 1px 8px rgba(0,0,0,0.7)",
-                }}
-              >
-                {grape}
-              </p>
-            ))}
+          {/* Grape labels + supporting caption (bottom strip).
+              Caption moved onto the card from the post-card footer
+              so it sits visually attached to the grape names that
+              it explains. */}
+          <div className="absolute bottom-5 left-5 right-5 md:bottom-8 md:left-10 md:right-10">
+            <div className="flex flex-wrap gap-5">
+              {["Chardonnay", "Pinot Noir", "Pinot Meunier"].map((grape) => (
+                <p
+                  key={grape}
+                  className="font-display italic text-[#C8A96E]"
+                  style={{
+                    fontSize: "clamp(12px, 1.2vw, 15px)",
+                    letterSpacing: "0.06em",
+                    textShadow: "0 1px 8px rgba(0,0,0,0.7)",
+                  }}
+                >
+                  {grape}
+                </p>
+              ))}
+            </div>
+            <p
+              className="font-body text-white/85 leading-snug mt-3 md:mt-4 max-w-[460px]"
+              style={{
+                fontSize: "clamp(11px, 1vw, 13px)",
+                fontWeight: 300,
+                textShadow: "0 1px 10px rgba(0,0,0,0.85)",
+              }}
+            >
+              The same varieties that define Champagne — rooted in Sussex
+              chalk.
+            </p>
           </div>
         </div>
       </ScrollRotateReveal>
 
-      {/* ── Post-card footer — body paragraph + divider + varieties paragraph ── */}
+      {/* ── Post-card footer — the chalk-origin body paragraph.
+          The grape-varieties caption that used to sit here now lives
+          on the card itself (right under the grape labels). */}
       <div className="relative z-10 max-w-[760px] mx-auto px-6 md:px-16 pb-20 md:pb-32 -mt-32 md:-mt-44 text-center">
         <FadeUp delay={0.35}>
           <p
-            className="font-body text-white/70 leading-relaxed mb-8 mx-auto"
+            className="font-body text-white/70 leading-relaxed mx-auto"
             style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, maxWidth: "560px", textShadow: "0 1px 8px rgba(0,0,0,0.7)" }}
           >
             It began with a belief: that the chalk soils beneath the South Downs
             — mirroring the geology of Champagne — could produce world-class
             sparkling wine. In 1995, Ridgeview planted its first vines.
-          </p>
-        </FadeUp>
-
-        <motion.div
-          className="mb-8 mx-auto"
-          style={{ height: "1px", background: "rgba(200,169,110,0.2)", transformOrigin: "center", maxWidth: "260px" }}
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.1, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-        />
-
-        <FadeUp delay={0.5}>
-          <p
-            className="font-body text-white/70 leading-relaxed mx-auto"
-            style={{ fontSize: "clamp(13px, 1.25vw, 15px)", fontWeight: 300, maxWidth: "520px", textShadow: "0 1px 8px rgba(0,0,0,0.7)" }}
-          >
-            Chardonnay, Pinot Noir, and Pinot Meunier — the same varieties
-            that define Champagne — rooted in Sussex chalk.
           </p>
         </FadeUp>
       </div>
