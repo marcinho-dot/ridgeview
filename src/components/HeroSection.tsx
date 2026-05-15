@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { basePath } from "@/lib/basePath";
-import { JellyButtonKickflip } from "@/components/JellyButtonKickflip";
+import { JellyButtonCanvas } from "@/components/JellyButtonCanvas";
 
 const proofPoints = [
   "Official wine · Queen's Diamond Jubilee",
@@ -167,20 +167,20 @@ export function HeroSection() {
             entry-points and the navbar tell the same story. On
             narrow screens they wrap to a stack via flex-wrap so the
             second button never overflows. */}
-        {/* Hero CTAs — both buttons now use the same JellyButtonKickflip
-            (gold-metaball hover + triple-kickflip click). Experimental
-            comparison labels removed 2026-05-15 once the effect was
-            settled. */}
+        {/* Hero CTAs — both buttons use the Canvas 2D gold-metaball
+            effect (reverted from the kickflip variant 2026-05-15 per
+            user direction). The kickflip implementation lives in
+            src/components/_archive/jelly-3d-tilt/ for future use. */}
         <motion.div
           className="mt-5 flex flex-wrap items-center gap-3"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <JellyButtonKickflip href={`${basePath}/#wine-collection`}>
+          <JellyButtonCanvas href={`${basePath}/#wine-collection`}>
             Shop
-          </JellyButtonKickflip>
-          <JellyButtonKickflip
+          </JellyButtonCanvas>
+          <JellyButtonCanvas
             href={`${basePath}/booking#visit`}
             onClick={() => {
               // Mark this navigation as coming from the homepage Hero
@@ -200,7 +200,7 @@ export function HeroSection() {
             }}
           >
             Vineyard Booking
-          </JellyButtonKickflip>
+          </JellyButtonCanvas>
         </motion.div>
       </div>
 
