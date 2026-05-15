@@ -109,7 +109,7 @@ export function Navbar() {
             <a
               key={label}
               href={href}
-              className="link-underline font-body text-white/75 text-[11px] tracking-[0.2em] uppercase hover:text-[#C8A96E] transition-colors duration-300"
+              className="relative top-[2px] link-underline font-body text-white/75 text-[11px] tracking-[0.2em] uppercase hover:text-[#C8A96E] transition-colors duration-300"
             >
               {label}
             </a>
