@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { basePath } from "@/lib/basePath";
 import { JellyButtonKickflip } from "@/components/JellyButtonKickflip";
-import { JellyButtonCanvas } from "@/components/JellyButtonCanvas";
 
 const proofPoints = [
   "Official wine · Queen's Diamond Jubilee",
@@ -168,72 +167,40 @@ export function HeroSection() {
             entry-points and the navbar tell the same story. On
             narrow screens they wrap to a stack via flex-wrap so the
             second button never overflows. */}
-        {/* Hero CTAs (2026-05-15 — kickflip test):
-            Shop = JellyButtonKickflip (3D pill that lifts + does a
-              360° rotateX flip on each hover, ~800ms, CSS keyframes).
-            Vineyard Booking = plain `.btn-cta`. Doubles as the
-              fallback look — exactly what users see when
-              `prefers-reduced-motion: reduce` is on or 3D transforms
-              aren't supported. */}
+        {/* Hero CTAs — both buttons now use the same JellyButtonKickflip
+            (gold-metaball hover + triple-kickflip click). Experimental
+            comparison labels removed 2026-05-15 once the effect was
+            settled. */}
         <motion.div
-          className="mt-5 flex flex-wrap items-start gap-3"
+          className="mt-5 flex flex-wrap items-center gap-3"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          {/* Variant A — kickflip 3D */}
-          <div className="flex flex-col items-center gap-1.5">
-            <JellyButtonKickflip href={`${basePath}/#wine-collection`}>
-              Shop
-            </JellyButtonKickflip>
-            <span
-              aria-hidden
-              className="font-body text-white/40 uppercase"
-              style={{
-                fontSize: "10px",
-                fontWeight: 300,
-                letterSpacing: "0.3em",
-              }}
-            >
-              Kickflip 3D
-            </span>
-          </div>
-          {/* Variant B — Canvas 2D gold-metaballs (restored from archive
-              per user request, 2026-05-15). */}
-          <div className="flex flex-col items-center gap-1.5">
-            <JellyButtonCanvas
-              href={`${basePath}/booking#visit`}
-              onClick={() => {
-                // Mark this navigation as coming from the homepage Hero
-                // so the booking page's floating Back-to-Top button knows
-                // to enable itself. Timestamped + one-time-use; the booking
-                // page consumes & deletes this on mount. Stale flag (>10s)
-                // is ignored, so click-but-don't-navigate edge cases don't
-                // accidentally activate the button later.
-                try {
-                  sessionStorage.setItem(
-                    "rv-back-to-top-from-hero",
-                    String(Date.now()),
-                  );
-                } catch {
-                  /* sessionStorage unavailable (private mode etc.) — fine */
-                }
-              }}
-            >
-              Vineyard Booking
-            </JellyButtonCanvas>
-            <span
-              aria-hidden
-              className="font-body text-white/40 uppercase"
-              style={{
-                fontSize: "10px",
-                fontWeight: 300,
-                letterSpacing: "0.3em",
-              }}
-            >
-              Canvas 2D
-            </span>
-          </div>
+          <JellyButtonKickflip href={`${basePath}/#wine-collection`}>
+            Shop
+          </JellyButtonKickflip>
+          <JellyButtonKickflip
+            href={`${basePath}/booking#visit`}
+            onClick={() => {
+              // Mark this navigation as coming from the homepage Hero
+              // so the booking page's floating Back-to-Top button knows
+              // to enable itself. Timestamped + one-time-use; the booking
+              // page consumes & deletes this on mount. Stale flag (>10s)
+              // is ignored, so click-but-don't-navigate edge cases don't
+              // accidentally activate the button later.
+              try {
+                sessionStorage.setItem(
+                  "rv-back-to-top-from-hero",
+                  String(Date.now()),
+                );
+              } catch {
+                /* sessionStorage unavailable (private mode etc.) — fine */
+              }
+            }}
+          >
+            Vineyard Booking
+          </JellyButtonKickflip>
         </motion.div>
       </div>
 
