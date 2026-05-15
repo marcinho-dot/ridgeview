@@ -73,10 +73,13 @@ export default function PeoplePage() {
             restaurant, every hand plays a part.
           </p>
 
-          {/* mt-auto pushes the HR + image grid to the bottom of the
-              viewport-tall section so there's no empty band below the
-              images (the section is min-h-screen). */}
-          <div className="mt-auto">
+          {/* HR + image grid flow directly after the body paragraph
+              with the FlowSection's gap-3 (12 px) spacing. Previously
+              wrapped in mt-auto to pin to the section bottom, but that
+              opened a large empty band between text and images — user
+              prefers the compact stack with the empty band below the
+              images instead (2026-05-15). */}
+          <div>
             <hr className="my-[0.4vw] border-none border-t border-[#C8A96E]/30" />
 
             {/* 2-photo grid (first image removed per user direction) */}
@@ -152,9 +155,11 @@ export default function PeoplePage() {
             1995.
           </p>
 
-          {/* mt-auto pushes the HR + image grid to the bottom of the
-              viewport-tall section. */}
-          <div className="mt-auto">
+          {/* HR + image grid flow directly after the body paragraph
+              with the FlowSection's gap-3 (12 px) spacing — compact
+              stack at the top, empty band below the images instead
+              (2026-05-15 user direction). */}
+          <div>
             <hr className="my-[0.4vw] border-none border-t border-[#C8A96E]/30" />
 
             {/* 2-photo grid */}
@@ -237,9 +242,11 @@ export default function PeoplePage() {
             Ridgeview makes today.
           </p>
 
-          {/* mt-auto pushes the HR + image grid to the bottom of the
-              viewport-tall section. */}
-          <div className="mt-auto">
+          {/* HR + image grid flow directly after the body paragraph
+              with the FlowSection's gap-3 (12 px) spacing — compact
+              stack at the top, empty band below the images instead
+              (2026-05-15 user direction). */}
+          <div>
             <hr className="my-[0.4vw] border-none border-t border-[#C8A96E]/40" />
 
             {/* 3-photo grid */}
