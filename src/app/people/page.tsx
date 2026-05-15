@@ -41,13 +41,13 @@ export default function PeoplePage() {
           <p
             className="font-display italic text-[#C8A96E] uppercase"
             style={{
-              fontSize: "clamp(11px, 1vw, 13px)",
+              fontSize: "clamp(13px, 1.2vw, 15px)",
               letterSpacing: "0.25em",
             }}
           >
-            01 — The People
+            The People
           </p>
-          <hr className="my-[0.4vw] border-none border-t border-[#C8A96E]/30" />
+          <hr className="my-[0.15vw] border-none border-t border-[#C8A96E]/30" />
 
           <div>
             <h1
@@ -109,13 +109,13 @@ export default function PeoplePage() {
           <p
             className="font-display italic text-[#C8A96E] uppercase"
             style={{
-              fontSize: "clamp(11px, 1vw, 13px)",
+              fontSize: "clamp(13px, 1.2vw, 15px)",
               letterSpacing: "0.25em",
             }}
           >
-            02 — The Winemaker
+            The Winemaker
           </p>
-          <hr className="my-[0.4vw] border-none border-t border-[#C8A96E]/30" />
+          <hr className="my-[0.15vw] border-none border-t border-[#C8A96E]/30" />
 
           <div>
             <h2
@@ -134,7 +134,7 @@ export default function PeoplePage() {
                 letterSpacing: "0.3em",
               }}
             >
-              Head Winemaker · Second Generation
+              Head Winemaker
             </p>
           </div>
 
@@ -146,7 +146,7 @@ export default function PeoplePage() {
           >
             Head Winemaker at Ridgeview and son of founder Mike Roberts.
             Simon carries the{" "}
-            <span className="text-[#C8A96E]">Classic Method</span> forward on
+            <span className="text-[#C8A96E]">Traditional Method</span> forward on
             Sussex chalk — every cuvée passes through his hands from press to
             dégorgement, guided by the same conviction his father planted in
             1995.
@@ -187,13 +187,13 @@ export default function PeoplePage() {
           <p
             className="font-display italic text-[#C8A96E] uppercase"
             style={{
-              fontSize: "clamp(11px, 1vw, 13px)",
+              fontSize: "clamp(13px, 1.2vw, 15px)",
               letterSpacing: "0.25em",
             }}
           >
-            03 — The Founder
+            The Founder
           </p>
-          <hr className="my-[0.4vw] border-none border-t border-[#C8A96E]/40" />
+          <hr className="my-[0.15vw] border-none border-t border-[#C8A96E]/40" />
 
           <div>
             <h2
