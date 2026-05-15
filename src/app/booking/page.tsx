@@ -573,10 +573,13 @@ function BackToTopFloat() {
   const [show, setShow] = useState(false);
   // Dynamic `bottom: Npx` value. Computed at runtime by measuring the
   // visit-section CTA marked with `data-back-to-top-anchor` and
-  // aligning the arrow's centre with the CTA's centre. Falls back to
-  // a sensible default when the CTA isn't in the viewport. See the
-  // "Position alignment" useEffect below for the actual math.
-  const [bottomPx, setBottomPx] = useState<number>(80);
+  // aligning the arrow's centre with the CTA's centre.
+  //
+  // Initial value is `null` — the arrow is NOT rendered until this
+  // has been set to a real measured value. That way we never paint a
+  // fallback position first and then jump to the measured one (the
+  // "vertical zucken" the user kept seeing).
+  const [bottomPx, setBottomPx] = useState<number | null>(null);
 
   // Consume the one-time "from hero" flag on mount.
   useEffect(() => {
@@ -674,59 +677,49 @@ function BackToTopFloat() {
     };
   }, [enabled]);
 
-  // ── Position alignment (one-shot, then locked) ───────────────────────
-  // Set the arrow's vertical position ONCE — at the moment the
-  // visit-section CTA (marked with `data-back-to-top-anchor`) first
-  // enters the viewport — and then freeze it. After that, the arrow
-  // stays put no matter how the user scrolls; it does NOT track the
-  // CTA as the CTA scrolls past.
+  // ── Position alignment (one-shot, then frozen) ───────────────────────
+  // Measure the visit-section CTA's vertical position ONCE — the first
+  // moment the CTA is intersecting the viewport — set the arrow's
+  // bottom from that measurement, and never touch it again on scroll.
+  // The arrow stays exactly where it was first painted; it does NOT
+  // track the CTA when the user scrolls down into other sections.
   //
-  // Why one-shot: the previous always-tracking version made the arrow
-  // visibly drift upward with the CTA as the user scrolled into the
-  // Practical Information section, which felt like the arrow was
-  // "following" the user instead of marking a fixed return point.
+  // We use an IntersectionObserver instead of a scroll listener so we
+  // get a guaranteed callback the moment the CTA enters the viewport
+  // — including the initial paint, where the observer fires once
+  // synchronously with the current intersection state. No polling,
+  // no rAF throttling needed.
   //
-  // Why measured rather than a static `bottom: Npx`: the CTA's actual
-  // position in the viewport at the moment the user lands at #visit
-  // depends on viewport height, browser chrome, and how the panels'
-  // min-height responds to the viewport. Measuring side-steps that
-  // estimation problem entirely.
+  // The arrow is NOT rendered until `bottomPx` is non-null (see the
+  // conditional in the return below). That eliminates the previous
+  // "paint at fallback then jump to measured" flicker — there's
+  // simply nothing on screen until we have the right value.
   //
-  // Re-locks on resize (the layout changed → the locked value would be
-  // wrong on the new viewport, so we let the next CTA-in-view event
-  // re-set it).
+  // Re-measures on resize (the layout changed → the previously-locked
+  // bottom would be wrong on the new viewport).
   useEffect(() => {
     if (!enabled) return;
 
-    const ARROW_HEIGHT = 40; // matches the inline style width/height below.
-    let locked = false;
+    const cta = document.querySelector<HTMLElement>(
+      "[data-back-to-top-anchor]",
+    );
+    if (!cta) return;
 
-    const calculate = () => {
-      const isMobile = window.innerWidth < 768;
-      const fallback = isMobile ? 80 : 32;
-      const minBottom = isMobile ? 80 : 16;
+    let measured = false;
 
-      const cta = document.querySelector<HTMLElement>(
-        "[data-back-to-top-anchor]",
-      );
-      if (!cta) {
-        if (!locked) setBottomPx(fallback);
-        return;
-      }
-
+    const measure = () => {
+      if (measured) return;
       const rect = cta.getBoundingClientRect();
       const vh = window.innerHeight;
-      const inViewport = rect.bottom > 0 && rect.top < vh;
+      // Must be actually in the viewport for the measurement to be
+      // meaningful; offscreen rects would give us a nonsense bottom.
+      if (rect.bottom <= 0 || rect.top >= vh) return;
 
-      if (!inViewport) {
-        // CTA not yet visible (or already scrolled past). Keep the
-        // currently-locked value if we have one; otherwise the
-        // fallback bottom-corner position.
-        if (!locked) setBottomPx(fallback);
-        return;
-      }
+      const ARROW_HEIGHT = 40;
+      const isMobile = window.innerWidth < 768;
+      const minBottom = isMobile ? 80 : 16; // mobile keeps BottomNav clearance.
 
-      // CTA is on screen → measure and lock the position.
+      // Align centres: arrow centre = CTA centre.
       const ctaCenter = (rect.top + rect.bottom) / 2;
       const computedBottom = vh - ctaCenter - ARROW_HEIGHT / 2;
       const clamped = Math.max(
@@ -734,39 +727,34 @@ function BackToTopFloat() {
         Math.min(vh - ARROW_HEIGHT - 16, computedBottom),
       );
       setBottomPx(clamped);
-      locked = true;
+      measured = true;
     };
 
-    // First attempt on mount. May fail (CTA not in viewport yet) — the
-    // scroll listener below will keep trying until it succeeds.
-    calculate();
+    // IntersectionObserver fires once synchronously after observe()
+    // with the current state, so this covers BOTH "CTA already in
+    // viewport at mount" and "CTA enters viewport after the
+    // smooth-scroll-to-#visit completes".
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting && !measured) measure();
+      },
+      { threshold: 0 },
+    );
+    observer.observe(cta);
 
-    // Scroll listener: only runs `calculate` while we're NOT locked. As
-    // soon as the CTA scrolls into view, position gets set and the
-    // listener becomes a no-op for the rest of the session (until
-    // resize unlocks it).
-    let rafId = 0;
-    const onScroll = () => {
-      if (locked) return;
-      if (rafId) return;
-      rafId = window.requestAnimationFrame(() => {
-        rafId = 0;
-        calculate();
-      });
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-
-    // Resize: layout changed, the locked value would be wrong on the
-    // new viewport. Unlock so the next CTA-in-view tick re-positions.
+    // Resize: the locked value is wrong on a new viewport, so reset
+    // and re-measure. The observer will refire and call measure()
+    // again because the CTA's intersection state hasn't changed
+    // (it's still in viewport), so we trigger it manually here.
     const onResize = () => {
-      locked = false;
-      calculate();
+      measured = false;
+      setBottomPx(null); // hide briefly while we re-measure
+      measure();
     };
     window.addEventListener("resize", onResize);
 
     return () => {
-      if (rafId) window.cancelAnimationFrame(rafId);
-      window.removeEventListener("scroll", onScroll);
+      observer.disconnect();
       window.removeEventListener("resize", onResize);
     };
   }, [enabled]);
@@ -780,7 +768,7 @@ function BackToTopFloat() {
   // via the inline `style` from the useEffect above.
   return (
     <AnimatePresence>
-      {enabled && show && (
+      {enabled && show && bottomPx !== null && (
         <motion.a
           href="#top"
           aria-label="Back to top of page"
@@ -790,10 +778,10 @@ function BackToTopFloat() {
             display: "inline-flex",
             alignItems: "center",
             justifyContent: "center",
-            // `bottom` is dynamic — see the "Position alignment"
-            // useEffect above. The arrow's centre stays locked to the
-            // visit-section CTA's centre while the CTA is in the
-            // viewport; falls back to a near-bottom corner otherwise.
+            // `bottom` is set once at mount via the measurement effect
+            // above (matching the visit-section CTA's vertical
+            // centre), then frozen — the arrow does NOT track the CTA
+            // as the user scrolls. Re-measures only on resize.
             bottom: `${bottomPx}px`,
             // 40 px square — matches the computed height of a `.btn-cta`
             // (font-size 10-11 px · padding 13 px vertical = ~40 px),
