@@ -18,7 +18,7 @@ export function CartEmpty() {
   return (
     <div className="flex flex-col items-center justify-center text-center px-6 py-16 md:py-24">
       <div className="text-[#C8A96E]/40 mb-6">
-        <CartIcon size={64} strokeWidth={1.2} />
+        <CartIcon size={64} />
       </div>
       <p
         className="font-display italic text-cream mb-3"
