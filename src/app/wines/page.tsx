@@ -575,7 +575,7 @@ function BackToTop() {
       type="button"
       onClick={onClick}
       aria-label="Back to top"
-      className={`fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full border border-[#C8A96E]/60 bg-[rgba(245,240,232,0.04)] text-cream backdrop-blur-md backdrop-saturate-150 transition-all duration-400 hover:border-[#C8A96E] hover:bg-[rgba(200,169,110,0.10)] hover:shadow-[0_0_24px_-2px_rgba(200,169,110,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C8A96E]/30 ${
+      className={`fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-sm border border-[#C8A96E]/60 bg-[rgba(245,240,232,0.04)] text-cream backdrop-blur-md backdrop-saturate-150 transition-all duration-400 hover:border-[#C8A96E] hover:bg-[rgba(200,169,110,0.10)] hover:shadow-[0_0_24px_-2px_rgba(200,169,110,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C8A96E]/30 ${
         visible
           ? "opacity-100 translate-y-0 pointer-events-auto"
           : "opacity-0 translate-y-3 pointer-events-none"
