@@ -53,13 +53,11 @@ export default function PeoplePage() {
             <h1
               className="font-display italic font-normal text-cream"
               style={{
-                fontSize: "clamp(2.75rem, 8vw, 8rem)",
-                lineHeight: 0.95,
+                fontSize: "clamp(2.5rem, 7.5vw, 7.5rem)",
+                lineHeight: 1.02,
               }}
             >
-              Tended
-              <br />
-              by hand.
+              Tended by hand.
             </h1>
           </div>
 
@@ -123,16 +121,14 @@ export default function PeoplePage() {
             <h2
               className="font-display italic font-normal text-cream"
               style={{
-                fontSize: "clamp(2.75rem, 8vw, 8rem)",
-                lineHeight: 0.95,
+                fontSize: "clamp(2.5rem, 7.5vw, 7.5rem)",
+                lineHeight: 1.02,
               }}
             >
-              Simon
-              <br />
-              Roberts.
+              Simon Roberts.
             </h2>
             <p
-              className="mt-4 font-body font-light text-white/55 uppercase"
+              className="mt-2 md:mt-3 font-body font-light text-white/55 uppercase"
               style={{
                 fontSize: "clamp(11px, 1vw, 12px)",
                 letterSpacing: "0.3em",
@@ -195,7 +191,7 @@ export default function PeoplePage() {
               letterSpacing: "0.25em",
             }}
           >
-            03 — The Founder · In Memoriam
+            03 — The Founder
           </p>
           <hr className="my-[0.4vw] border-none border-t border-[#C8A96E]/40" />
 
@@ -203,16 +199,20 @@ export default function PeoplePage() {
             <h2
               className="font-display italic font-normal text-cream"
               style={{
-                fontSize: "clamp(2.75rem, 8vw, 8rem)",
-                lineHeight: 0.95,
+                fontSize: "clamp(2.5rem, 7.5vw, 7.5rem)",
+                lineHeight: 1.02,
               }}
             >
-              Mike
-              <br />
-              Roberts.
+              Mike Roberts.
             </h2>
             <p
-              className="mt-4 font-body font-light text-[#C8A96E]/85 uppercase"
+              className="mt-2 font-display italic text-[#C8A96E]"
+              style={{ fontSize: "clamp(13px, 1.2vw, 16px)" }}
+            >
+              In Memoriam
+            </p>
+            <p
+              className="mt-2 md:mt-3 font-body font-light text-white/55 uppercase"
               style={{
                 fontSize: "clamp(11px, 1vw, 12px)",
                 letterSpacing: "0.3em",
