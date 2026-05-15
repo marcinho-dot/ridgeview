@@ -541,6 +541,73 @@ function GiftCTA() {
   );
 }
 
+// ── Section: Back-to-Top floating arrow ────────────────────────────────────
+// Appears once the user has scrolled past the hero (typical use: they
+// clicked a mini-bottle in the legend, the page anchor-scrolled them
+// down to a wine card, and now they want to return to the hero to pick
+// another bottle). Fixed bottom-right; smooth-scroll to top on click;
+// auto-hides when back at the top. Honors prefers-reduced-motion.
+
+function BackToTop() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    // Threshold ≈ "past the hero" — 70 % of viewport height covers the
+    // hero section + mini-bottle legend on all common viewports.
+    const onScroll = () => {
+      setVisible(window.scrollY > window.innerHeight * 0.7);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const onClick = () => {
+    const reduce =
+      typeof window !== "undefined" &&
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+  };
+
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label="Back to top"
+      className={`fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full border border-[#C8A96E]/60 bg-[rgba(245,240,232,0.04)] text-cream backdrop-blur-md backdrop-saturate-150 transition-all duration-400 hover:border-[#C8A96E] hover:bg-[rgba(200,169,110,0.10)] hover:shadow-[0_0_24px_-2px_rgba(200,169,110,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C8A96E]/30 ${
+        visible
+          ? "opacity-100 translate-y-0 pointer-events-auto"
+          : "opacity-0 translate-y-3 pointer-events-none"
+      }`}
+      style={{
+        transition:
+          "opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease",
+      }}
+    >
+      {/* Up arrow — simple inline SVG, gold-on-glass aesthetic.
+          Cream stroke matches the cream text used elsewhere on
+          floating chrome (Navbar logo, etc.). */}
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden
+      >
+        <path
+          d="M10 16V4M10 4L4 10M10 4L16 10"
+          stroke="currentColor"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </button>
+  );
+}
+
 // ── Page ────────────────────────────────────────────────────────────────────
 
 export default function WinesPage() {
@@ -565,6 +632,7 @@ export default function WinesPage() {
         <ScrollReset><WineGrid /></ScrollReset>
         <ScrollReset><GiftCTA /></ScrollReset>
       </main>
+      <BackToTop />
       <Footer />
       {/* No <BottomNav /> on /wines — the catalog cards themselves
           are the primary navigation on this page; a sticky bottom

@@ -87,7 +87,7 @@ function Card({
         boxShadow:
           "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
       }}
-      className={`${cardMaxWidth} -mt-12 mx-auto ${cardHeight} w-full border border-[#C8A96E]/20 p-2 md:p-4 bg-[#0d0d0d] rounded-sm`}
+      className={`${cardMaxWidth} -mt-24 md:-mt-12 mx-auto ${cardHeight} w-full border border-[#C8A96E]/20 p-2 md:p-4 bg-[#0d0d0d] rounded-sm`}
     >
       <div className="h-full w-full overflow-hidden rounded-sm bg-[#080808]">
         {children}

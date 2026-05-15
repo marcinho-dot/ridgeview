@@ -179,10 +179,12 @@ function ProductHero() {
                   />
                 </div>
 
-                {/* Award Badges (Desktop only) — top-aligned next to widget.
-                    Both typographic (no year-matching Decanter 2022 badge
-                    image available; per badge-honesty rule we omit rather
-                    than re-use a 2018 badge as stand-in). */}
+                {/* Award Badge (Desktop only) — single typographic
+                    badge matching the single award in the AwardsSpecs
+                    section below. The earlier "25-Year Cuvée" box was
+                    a descriptor, not an award, and read confusingly
+                    as a second medal — removed 2026-05-15 per user
+                    direction. */}
                 <div className="hidden md:flex items-start gap-6 pt-1" aria-label="Awards">
                   {/* Decanter Silver · 2022 — typographic accolade */}
                   <div className="flex flex-col items-center justify-center gap-2.5 h-[clamp(86px,7.5vw,108px)] px-4 border border-[#C8A96E]/35 rounded-md backdrop-blur-md bg-[#C8A96E]/[0.04]">
@@ -191,18 +193,6 @@ function ProductHero() {
                     </p>
                     <p className="font-body text-white/55 text-[9px] uppercase tracking-[0.22em] whitespace-nowrap">
                       Decanter WWA <span className="text-[#C8A96E]/70 mx-1">·</span> 2022
-                    </p>
-                  </div>
-                  {/* "25-Year Anniversary Release" typographic accolade —
-                      authentic descriptor (Oak Reserve was crafted to mark
-                      Ridgeview's quarter-century in 2020), not a fabricated
-                      second medal. */}
-                  <div className="flex flex-col items-center justify-center gap-2.5 h-[clamp(86px,7.5vw,108px)] px-4 border border-[#C8A96E]/35 rounded-md backdrop-blur-md bg-[#C8A96E]/[0.04]">
-                    <p className="font-display italic text-cream text-[clamp(13px,1.1vw,15px)] leading-none whitespace-nowrap">
-                      25-Year Cuvée
-                    </p>
-                    <p className="font-body text-white/55 text-[9px] uppercase tracking-[0.22em] whitespace-nowrap">
-                      Late Disgorged <span className="text-[#C8A96E]/70 mx-1">·</span> 1995–2020
                     </p>
                   </div>
                 </div>
@@ -251,15 +241,8 @@ function ProductHero() {
                     Decanter · 2022
                   </p>
                 </div>
-                {/* 25-Year Cuvée · typographic */}
-                <div className="flex flex-col items-center justify-center gap-1 h-[clamp(60px,16vw,80px)] px-2.5 border border-[#C8A96E]/35 rounded-md backdrop-blur-md bg-[#C8A96E]/[0.04]">
-                  <p className="font-display italic text-cream text-[10px] leading-none">
-                    25 Years
-                  </p>
-                  <p className="font-body text-white/55 text-[7px] uppercase tracking-[0.2em] whitespace-nowrap">
-                    1995–2020
-                  </p>
-                </div>
+                {/* "25 Years" descriptor removed 2026-05-15 — same
+                    reasoning as the desktop block above. */}
               </div>
 
               {/* Bottle wrapper — absolute, doesn't dictate column height.
