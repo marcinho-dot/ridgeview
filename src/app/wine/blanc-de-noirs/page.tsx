@@ -215,6 +215,18 @@ function ProductHero() {
                       CSWWC <span className="text-[#C8A96E]/70 mx-1">·</span> 2018
                     </p>
                   </div>
+                  {/* Glass of Bubbly Gold · 2018 — typographic accolade
+                      (no medal image available). Added 2026-05-15 so
+                      the hero shows the same 3 awards as the
+                      AwardsSpecsSection below. */}
+                  <div className="flex flex-col items-center justify-center gap-2.5 h-[clamp(86px,7.5vw,108px)] px-4 border border-[#C8A96E]/35 rounded-md backdrop-blur-md bg-[#C8A96E]/[0.04]">
+                    <p className="font-display italic text-cream text-[clamp(13px,1.1vw,15px)] leading-none whitespace-nowrap">
+                      Gold
+                    </p>
+                    <p className="font-body text-white/55 text-[9px] uppercase tracking-[0.22em] whitespace-nowrap">
+                      Glass of Bubbly <span className="text-[#C8A96E]/70 mx-1">·</span> 2018
+                    </p>
+                  </div>
                 </div>
               </div>
             </FadeUp>
@@ -280,6 +292,17 @@ function ProductHero() {
                   />
                   <p className="font-body text-white/45 text-[8px] uppercase tracking-[0.28em] whitespace-nowrap">
                     2018
+                  </p>
+                </div>
+                {/* Glass of Bubbly Gold · 2018 — typographic accolade.
+                    Added 2026-05-15 to match the 3 awards in the
+                    AwardsSpecsSection. */}
+                <div className="flex flex-col items-center justify-center gap-1 h-[clamp(60px,16vw,80px)] px-2.5 border border-[#C8A96E]/35 rounded-md backdrop-blur-md bg-[#C8A96E]/[0.04]">
+                  <p className="font-display italic text-cream text-[10px] leading-none">
+                    Gold
+                  </p>
+                  <p className="font-body text-white/55 text-[7px] uppercase tracking-[0.2em] whitespace-nowrap">
+                    Glass of Bubbly · 2018
                   </p>
                 </div>
               </div>

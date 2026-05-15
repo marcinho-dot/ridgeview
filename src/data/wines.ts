@@ -28,7 +28,7 @@ export const wines: Wine[] = [
     description:
       "Purity, elegance and complexity — the beating heart of Ridgeview. Made entirely from handpicked Chardonnay on our home estate in Sussex. Gold, Wines GB Pioneer Trophy 2023.",
     vintage: "2020",
-    tastingNotes: ["White Peach", "Orchard Blossom", "Saline Mineral"],
+    tastingNotes: ["Brioche & Honey", "White Peach", "Toasted Hazelnut"],
     price: "£75",
     image: "/products/blanc-de-blancs.png",
     slug: "blanc-de-blancs",
@@ -50,7 +50,7 @@ export const wines: Wine[] = [
     description:
       "Full of sunshine and celebration, featuring wild raspberry, honeyed redcurrant and notes of summer fruit. A fresh and fruit-driven English sparkling rosé, alive with colour and character.",
     vintage: "NV",
-    tastingNotes: ["Wild Raspberry", "Redcurrant", "Summer Fruit"],
+    tastingNotes: ["Wild Raspberry & Redcurrant", "Sherbet Citrus", "Cream & Summer Fruit"],
     price: "£40",
     image: "/products/fitzrovia.png",
     slug: "fitzrovia",
@@ -61,7 +61,7 @@ export const wines: Wine[] = [
     description:
       "Rich and expressive, led by Pinot Noir and Pinot Meunier. Structured and generous with a full-bodied style that rewards patience. The choice for those who prefer depth over delicacy.",
     vintage: "NV",
-    tastingNotes: ["Red Cherry", "Cream", "Brioche"],
+    tastingNotes: ["Red Berry & Cherry", "Toasted Almond", "Brioche & Bergamot"],
     price: "£36",
     image: "/products/cavendish.png",
     slug: "cavendish",
@@ -72,7 +72,7 @@ export const wines: Wine[] = [
     description:
       "A white sparkling wine made entirely from red grapes — Pinot Noir and Pinot Meunier. Remarkable freshness and depth, structured, precise and unmistakably English.",
     vintage: "2016",
-    tastingNotes: ["White Cherry", "Citrus Pith", "Mineral Edge"],
+    tastingNotes: ["White Cherry & Red Fruit", "Sweet Spice", "Toasted Hazelnut"],
     price: "£60",
     image: "/products/blanc-de-noirs.png",
     slug: "blanc-de-noirs",
@@ -83,7 +83,7 @@ export const wines: Wine[] = [
     description:
       "Alive with vibrant fruit flavours and a creamy palate of peach, cherry and almond. An elegant, grown-up, serious English sparkling rosé — for those who expect more from a pink wine.",
     vintage: "2020",
-    tastingNotes: ["Peach", "Wild Cherry", "Fine Mousse"],
+    tastingNotes: ["Wild Strawberry & Cherry", "Honey & Cranberry", "Almond Biscuit"],
     price: "£65",
     image: "/products/rose-de-noirs.png",
     slug: "rose-de-noirs",
@@ -94,7 +94,7 @@ export const wines: Wine[] = [
     description:
       "A rare, late-disgorged, oak barrel-fermented English Chardonnay. Rich, complex and unlike anything else in our range — for those who know what patience in the cellar truly tastes like.",
     vintage: "Late-Disgorged",
-    tastingNotes: ["Vanilla Oak", "Golden Apple", "Toasted Brioche"],
+    tastingNotes: ["Vanilla Oak & Caramelised Butter", "Candied Citrus & Mace", "Toasted Brioche"],
     price: "£85",
     image: "/products/oak-reserve.png",
     slug: "oak-reserve",
@@ -105,7 +105,7 @@ export const wines: Wine[] = [
     description:
       "A rare and remarkable English sparkling red — bold, expressive and unlike anything else in our range. The adventurous spirit of Ridgeview, and the extraordinary potential of English viticulture.",
     vintage: "Multi-Vintage Blend",
-    tastingNotes: ["Dark Cherry", "Warm Spice", "Silky Tannin"],
+    tastingNotes: ["Wild Blackberry & Cherry", "Pomegranate & Sweet Spice", "Silky Tannin"],
     price: "£55",
     image: "/products/sparkling-red-reserve.png",
     slug: "sparkling-red-reserve",
@@ -116,7 +116,7 @@ export const wines: Wine[] = [
     description:
       "Ridgeview's first-ever still wine — 100% estate-grown Chardonnay. White blossom and lychee aromatics over a palate of peach, pear and apricot, finishing silky with a hint of mineral lift.",
     vintage: "2023",
-    tastingNotes: ["White Blossom", "Peach & Pear", "Silky Mineral"],
+    tastingNotes: ["White Blossom & Lychee", "Peach, Pear & Apricot", "Silky Mineral"],
     price: "£27.50",
     image: "/products/still-chardonnay.png",
     slug: "still-chardonnay",

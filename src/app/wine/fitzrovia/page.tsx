@@ -197,9 +197,20 @@ function ProductHero() {
                       Decanter <span className="text-[#C8A96E]/70 mx-1">·</span> 2018
                     </p>
                   </div>
+                  {/* IWSC & IWC Silver · 2020 — typographic accolade
+                      (no medal image available). Added 2026-05-15 so
+                      the hero shows the same 3 awards as the
+                      AwardSection below. */}
+                  <div className="flex flex-col items-center justify-center gap-2.5 h-[clamp(86px,7.5vw,108px)] px-4 border border-[#C8A96E]/35 rounded-md backdrop-blur-md bg-[#C8A96E]/[0.04]">
+                    <p className="font-display italic text-cream text-[clamp(13px,1.1vw,15px)] leading-none whitespace-nowrap">
+                      Silver
+                    </p>
+                    <p className="font-body text-white/55 text-[9px] uppercase tracking-[0.22em] whitespace-nowrap">
+                      IWSC <span className="text-[#C8A96E]/70 mx-1">·</span> 2020
+                    </p>
+                  </div>
                   {/* Harpers Wine Star Awards · Star Design + 5 Stars · 2021 —
-                      typographic accolade (no medal image); rendered as a
-                      gold-stroked panel to balance the single Decanter badge. */}
+                      typographic accolade. */}
                   <div className="flex flex-col items-center justify-center gap-2.5 h-[clamp(86px,7.5vw,108px)] px-4 border border-[#C8A96E]/35 rounded-md backdrop-blur-md bg-[#C8A96E]/[0.04]">
                     <p className="font-display italic text-cream text-[clamp(15px,1.2vw,17px)] leading-none tracking-[0.08em] whitespace-nowrap">
                       ★★★★★
@@ -258,6 +269,16 @@ function ProductHero() {
                   />
                   <p className="font-body text-white/45 text-[8px] uppercase tracking-[0.28em] whitespace-nowrap">
                     2018
+                  </p>
+                </div>
+                {/* IWSC Silver · 2020 — typographic accolade.
+                    Added 2026-05-15 to match the 3 awards in AwardSection. */}
+                <div className="flex flex-col items-center justify-center gap-1 h-[clamp(60px,16vw,80px)] px-2.5 border border-[#C8A96E]/35 rounded-md backdrop-blur-md bg-[#C8A96E]/[0.04]">
+                  <p className="font-display italic text-cream text-[10px] leading-none">
+                    Silver
+                  </p>
+                  <p className="font-body text-white/55 text-[7px] uppercase tracking-[0.2em] whitespace-nowrap">
+                    IWSC · 2020
                   </p>
                 </div>
                 {/* Harpers ★★★★★ · 2021 — typographic accolade */}

@@ -198,17 +198,11 @@ function ProductHero() {
                       WineGB <span className="text-[#C8A96E]/70 mx-1">·</span> 2023
                     </p>
                   </div>
-                  {/* Limited Release / 100% Pinot Noir — typographic descriptor
-                      (no second award; honest accolade emphasising the wine's
-                      unique positioning rather than fabricating a second medal). */}
-                  <div className="flex flex-col items-center justify-center gap-2.5 h-[clamp(86px,7.5vw,108px)] px-4 border border-[#C8A96E]/35 rounded-md backdrop-blur-md bg-[#C8A96E]/[0.04]">
-                    <p className="font-display italic text-cream text-[clamp(13px,1.1vw,15px)] leading-none whitespace-nowrap">
-                      Pioneer Trophy
-                    </p>
-                    <p className="font-body text-white/55 text-[9px] uppercase tracking-[0.22em] whitespace-nowrap">
-                      Category Winner <span className="text-[#C8A96E]/70 mx-1">·</span> 2023
-                    </p>
-                  </div>
+                  {/* Duplicate "Pioneer Trophy" typographic descriptor
+                      removed 2026-05-15 — it restated the same award
+                      shown in the medal badge above, and made the
+                      hero look like 2 awards vs. the single award in
+                      the AwardSection below. */}
                 </div>
               </div>
             </FadeUp>
@@ -261,15 +255,8 @@ function ProductHero() {
                     2023
                   </p>
                 </div>
-                {/* Pioneer Trophy · 2023 — typographic */}
-                <div className="flex flex-col items-center justify-center gap-1 h-[clamp(60px,16vw,80px)] px-2.5 border border-[#C8A96E]/35 rounded-md backdrop-blur-md bg-[#C8A96E]/[0.04]">
-                  <p className="font-display italic text-cream text-[10px] leading-none">
-                    Pioneer
-                  </p>
-                  <p className="font-body text-white/55 text-[7px] uppercase tracking-[0.2em] whitespace-nowrap">
-                    WineGB · 2023
-                  </p>
-                </div>
+                {/* Mobile Pioneer Trophy descriptor removed 2026-05-15
+                    (same reason as desktop). */}
               </div>
 
               {/* Bottle wrapper — absolute, doesn't dictate column height.

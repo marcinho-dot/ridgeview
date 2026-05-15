@@ -582,13 +582,16 @@ function AwardsSpecsSection() {
   // Chronological, newest first. Every hero badge must appear here
   // (audit rule locked 2026-05-12 after IWSC 93pts 2020 was found
   // displayed in hero but missing from this list).
+  // Trimmed from 6 to 3 entries on 2026-05-15 so the section matches
+  // the 3 badges shown in the hero. Removed: the duplicate Gold/
+  // Sommelier 2024 (rolled into the "Sparkling Wine of the Year"
+  // line, same competition), the Harpers Star of England 2021,
+  // and the older IWSC Silver Outstanding 2018 (the 93-Points
+  // IWSC 2020 already represents this competition's recognition).
   const awards = [
     { medal: "Sparkling Wine of the Year", body: "Sommelier Awards", year: "2024" },
-    { medal: "Gold", body: "Sommelier Awards", year: "2024" },
-    { medal: "Star of England · Star Taste · Star Value", body: "Harpers Wine Star Awards", year: "2021" },
     { medal: "93 Points", body: "International Wine & Spirit Competition", year: "2020" },
     { medal: "Silver", body: "Decanter World Wine Awards", year: "2018" },
-    { medal: "Silver Outstanding", body: "International Wine & Spirit Competition", year: "2018" },
   ];
 
   const specs = [
