@@ -147,40 +147,10 @@ export function CartDrawer() {
               </button>
             </header>
 
-            {/* ── Free-delivery progress (only shown when basket isn't empty) ── */}
-            {items.length > 0 && (
-              <div className="px-6 md:px-8 pt-4 pb-2 border-b border-white/[0.06]">
-                <p
-                  className="font-body font-light text-white/60 mb-2"
-                  style={{ fontSize: "clamp(11px, 1vw, 12px)" }}
-                >
-                  {qualifiesForFreeDelivery ? (
-                    <>
-                      <span className="text-[#C8A96E]">
-                        Free UK delivery
-                      </span>{" "}
-                      unlocked.
-                    </>
-                  ) : (
-                    <>
-                      Add{" "}
-                      <span className="text-[#C8A96E]">
-                        {formatPence(remainingToFreeDelivery)}
-                      </span>{" "}
-                      more for free UK delivery.
-                    </>
-                  )}
-                </p>
-                <div className="relative h-[2px] w-full bg-white/[0.08] overflow-hidden rounded-full">
-                  <motion.div
-                    className="absolute inset-y-0 left-0 bg-[#C8A96E]"
-                    initial={{ width: 0 }}
-                    animate={{ width: `${progressPct}%` }}
-                    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  />
-                </div>
-              </div>
-            )}
+            {/* Free-delivery progress used to live here as a
+                standalone block — moved 2026-05-15 into the footer's
+                Shipment section so the same info isn't duplicated
+                top + bottom. */}
 
             {/* ── Items / Empty ────────────────────────────────── */}
             <div className="flex-1 overflow-y-auto px-6 md:px-8">
@@ -214,45 +184,82 @@ export function CartDrawer() {
                   </p>
                 </div>
 
-                {/* Shipment — policy text. Two-column row mirrors
-                    the order-summary convention on UK luxury wine
-                    shops. Free UK next-day from £45; full options
-                    surfaced at checkout. */}
-                <div className="flex gap-4 md:gap-6 py-3 border-b border-white/[0.06]">
-                  <div className="shrink-0">
-                    <p
-                      className="font-body font-light text-white/65 uppercase tracking-[0.22em]"
-                      style={{ fontSize: "clamp(10px, 0.9vw, 11px)" }}
-                    >
-                      Shipment
-                    </p>
+                {/* Shipment — policy text + free-delivery progress bar.
+                    Two-column row mirrors the order-summary convention
+                    on UK luxury wine shops. Below the policy line: a
+                    hair-line progress bar with a status caption
+                    ("X to free delivery" / "Free delivery unlocked"). */}
+                <div className="py-3 border-b border-white/[0.06]">
+                  <div className="flex gap-4 md:gap-6">
+                    <div className="shrink-0">
+                      <p
+                        className="font-body font-light text-white/65 uppercase tracking-[0.22em]"
+                        style={{ fontSize: "clamp(10px, 0.9vw, 11px)" }}
+                      >
+                        Shipment
+                      </p>
+                    </div>
+                    <div className="flex-1 text-right">
+                      <p
+                        className="font-body font-light text-white/65 leading-snug"
+                        style={{ fontSize: "clamp(11px, 1vw, 13px)" }}
+                      >
+                        {qualifiesForFreeDelivery ? (
+                          <>
+                            <span className="text-[#C8A96E]">
+                              Free UK next-working-day delivery
+                            </span>{" "}
+                            unlocked (orders placed before 12 pm
+                            on a working day).
+                          </>
+                        ) : (
+                          <>
+                            Free UK next-working-day delivery on
+                            orders over £45 (received before 12 pm
+                            on a working day).
+                          </>
+                        )}
+                      </p>
+                      <p
+                        className="mt-2 font-body font-light text-white/40"
+                        style={{ fontSize: "clamp(10px, 0.9vw, 11px)" }}
+                      >
+                        Shipping options updated at checkout.
+                      </p>
+                    </div>
                   </div>
-                  <div className="flex-1 text-right">
+
+                  {/* Progress bar + tight caption — sits flush across
+                      the full Shipment row, gives the customer a quick
+                      visual cue of how close they are to the £45
+                      free-delivery threshold without the duplicated
+                      banner that used to live at the top of the
+                      drawer. */}
+                  <div className="mt-3">
+                    <div className="relative h-[2px] w-full bg-white/[0.08] overflow-hidden rounded-full">
+                      <motion.div
+                        className="absolute inset-y-0 left-0 bg-[#C8A96E]"
+                        initial={{ width: 0 }}
+                        animate={{ width: `${progressPct}%` }}
+                        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                      />
+                    </div>
                     <p
-                      className="font-body font-light text-white/65 leading-snug"
-                      style={{ fontSize: "clamp(11px, 1vw, 13px)" }}
+                      className="mt-1.5 font-body font-light text-white/55 text-right"
+                      style={{ fontSize: "clamp(10px, 0.9vw, 11px)" }}
                     >
                       {qualifiesForFreeDelivery ? (
-                        <>
-                          <span className="text-[#C8A96E]">
-                            Free UK next-working-day delivery
-                          </span>{" "}
-                          unlocked (orders placed before 12 pm
-                          on a working day).
-                        </>
+                        <span className="text-[#C8A96E]">
+                          Free UK delivery unlocked.
+                        </span>
                       ) : (
                         <>
-                          Free UK next-working-day delivery on
-                          orders over £45 (received before 12 pm
-                          on a working day).
+                          <span className="text-[#C8A96E]">
+                            {formatPence(remainingToFreeDelivery)}
+                          </span>{" "}
+                          to free UK delivery.
                         </>
                       )}
-                    </p>
-                    <p
-                      className="mt-2 font-body font-light text-white/40"
-                      style={{ fontSize: "clamp(10px, 0.9vw, 11px)" }}
-                    >
-                      Shipping options updated at checkout.
                     </p>
                   </div>
                 </div>
