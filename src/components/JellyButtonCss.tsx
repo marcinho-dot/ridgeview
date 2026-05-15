@@ -37,11 +37,11 @@ interface JellyButtonCssProps {
  *  button. Higher = more dramatic flip; lower = more reserved.
  *  Tuned to feel like the Instagram video without overshooting the
  *  scholarly Ridgeview voice. */
-const MAX_TILT = 22;
+const MAX_TILT = 30;
 /** How much the button rises (px) on hover — the "lift". */
-const LIFT_Y = 8;
+const LIFT_Y = 10;
 /** How much it pops toward the camera (px) on hover. */
-const LIFT_Z = 36;
+const LIFT_Z = 48;
 
 export function JellyButtonCss({ href, children, onClick }: JellyButtonCssProps) {
   const ref = useRef<HTMLAnchorElement>(null);

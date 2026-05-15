@@ -33,11 +33,11 @@ interface JellyButtonCanvasProps {
 }
 
 /** Max tilt angle (deg) when the cursor is at the extreme edge. */
-const MAX_TILT = 26;
+const MAX_TILT = 34;
 /** How much the button rises (px) on hover. */
-const LIFT_Y = 10;
+const LIFT_Y = 12;
 /** How much it pops toward the camera (px). */
-const LIFT_Z = 44;
+const LIFT_Z = 56;
 /** Lerp factor — 0..1, how fast the live values close on the target.
  *  Lower = more inertia / overshoot. 0.18 ≈ 5–6 frames to 70% close. */
 const LERP = 0.18;
