@@ -173,6 +173,10 @@ function ProductHero() {
                 {/* Stateful purchase block — variant + qty + free-shipping bar + ATB */}
                 <div className="flex-1 max-w-[480px]">
                   <PurchaseWidget
+                    slug="cavendish"
+                    productName={"Cavendish"}
+                    vintage={"NV"}
+                    image="/products/cavendish.png"
                     variants={CAVENDISH_VARIANTS}
                     freeShippingThreshold={45}
                     ctaId="hero-mobile-cta"
@@ -829,6 +833,11 @@ export default function CavendishPage() {
         productName="Cavendish"
         price="£36.00 · 75cl"
         thumbnailSrc="/products/cavendish.png"
+        slug="cavendish"
+        vintage={"NV"}
+        defaultVariantId="75cl"
+        defaultVariantLabel="75cl Bottle"
+        defaultUnitPricePence={3600}
         triggerSelector="[data-atb-trigger]"
       />
     </main>

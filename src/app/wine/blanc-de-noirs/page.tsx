@@ -173,6 +173,10 @@ function ProductHero() {
                 {/* Stateful purchase block — variant + qty + free-shipping bar + ATB */}
                 <div className="flex-1 max-w-[480px]">
                   <PurchaseWidget
+                    slug="blanc-de-noirs"
+                    productName={"Blanc de Noirs"}
+                    vintage={"2016"}
+                    image="/products/blanc-de-noirs.png"
                     variants={BLANC_DE_NOIRS_VARIANTS}
                     freeShippingThreshold={45}
                     ctaId="hero-mobile-cta"
@@ -864,6 +868,11 @@ export default function BlancDeNoirsPage() {
         productName="Blanc de Noirs"
         price="£60.00 · 75cl"
         thumbnailSrc="/products/blanc-de-noirs.png"
+        slug="blanc-de-noirs"
+        vintage={"2016"}
+        defaultVariantId="75cl"
+        defaultVariantLabel="75cl Bottle"
+        defaultUnitPricePence={6000}
         triggerSelector="[data-atb-trigger]"
       />
     </main>

@@ -3,6 +3,7 @@
 import { RefObject, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { basePath } from "@/lib/basePath";
+import { useCart } from "@/lib/cart/CartContext";
 
 /**
  * StickyMobileCTA — Mobile-only sticky bottom bar mit "Add to basket" CTA.
@@ -12,6 +13,12 @@ import { basePath } from "@/lib/basePath";
  * - Ersetzt auf SKU-Pages die generische BottomNav, weil hier die wichtigste
  *   mobile Aktion "Add to basket" sein soll, nicht "Home / View All Wines".
  * - Slide-up Animation analog zur BottomNav.
+ *
+ * Cart-Integration (2026-05-15): the ATB on this sticky bar is a
+ * *quick add* — it adds 1× the default variant (75cl Bottle, since
+ * variants are ordered with 75cl at position 0) to the cart and
+ * auto-opens the drawer. Users wanting Magnum or Case of 6 scroll
+ * up to the full PurchaseWidget to select.
  */
 
 interface Props {
@@ -19,6 +26,13 @@ interface Props {
   price: string;
   /** Pfad zum Flaschen-Thumbnail, RELATIV zu /public/, ohne basePath. */
   thumbnailSrc: string;
+  /** Wine slug + vintage for cart line identity. */
+  slug: string;
+  vintage: string;
+  /** Default variant for the quick-add — typically the 75cl bottle. */
+  defaultVariantId: string;
+  defaultVariantLabel: string;
+  defaultUnitPricePence: number;
   /**
    * Trigger — entweder ein Ref auf EIN spezifisches Element ODER eine
    * DOM-id (kein "#"-Präfix) für SINGLE-element observation, ODER
@@ -40,12 +54,18 @@ export function StickyMobileCTA({
   productName,
   price,
   thumbnailSrc,
+  slug,
+  vintage,
+  defaultVariantId,
+  defaultVariantLabel,
+  defaultUnitPricePence,
   triggerRef,
   triggerId,
   triggerSelector,
   onAddToBasket,
   backHref,
 }: Props) {
+  const { add, openDrawer } = useCart();
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -124,10 +144,25 @@ export function StickyMobileCTA({
           )}
 
           {/* Primary CTA — Add to basket (shared .btn-cta so every CTA on
-              the site is visually identical) */}
+              the site is visually identical). Quick-adds 1× the
+              default variant + opens the drawer. */}
           <button
             type="button"
-            onClick={onAddToBasket}
+            onClick={() => {
+              add({
+                slug,
+                name: productName,
+                vintage,
+                variantId: defaultVariantId,
+                variantLabel: defaultVariantLabel,
+                unitPricePence: defaultUnitPricePence,
+                priceLabel: price,
+                image: thumbnailSrc,
+                quantity: 1,
+              });
+              openDrawer();
+              onAddToBasket?.();
+            }}
             className="btn-cta shrink-0"
           >
             Add to basket

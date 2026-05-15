@@ -165,6 +165,10 @@ function ProductHero() {
                 {/* Stateful purchase block — variant + qty + free-shipping bar + ATB */}
                 <div className="flex-1 max-w-[480px]">
                   <PurchaseWidget
+                    slug="still-chardonnay"
+                    productName={"Still Chardonnay"}
+                    vintage={"2023"}
+                    image="/products/still-chardonnay.png"
                     variants={STILL_CHARDONNAY_VARIANTS}
                     freeShippingThreshold={45}
                     ctaId="hero-mobile-cta"
@@ -753,6 +757,11 @@ export default function StillChardonnayPage() {
         productName="Still Chardonnay"
         price="£27.50 · 75cl"
         thumbnailSrc="/products/still-chardonnay.png"
+        slug="still-chardonnay"
+        vintage={"2023"}
+        defaultVariantId="75cl"
+        defaultVariantLabel="75cl Bottle"
+        defaultUnitPricePence={2750}
         triggerSelector="[data-atb-trigger]"
       />
     </main>

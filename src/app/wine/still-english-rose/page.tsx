@@ -168,6 +168,10 @@ function ProductHero() {
                 {/* Stateful purchase block — variant + qty + free-shipping bar + ATB */}
                 <div className="flex-1 max-w-[480px]">
                   <PurchaseWidget
+                    slug="still-english-rose"
+                    productName={"Still English Rosé"}
+                    vintage={"2024 · Limited"}
+                    image="/products/still-english-rose.png"
                     variants={STILL_ENGLISH_ROSE_VARIANTS}
                     freeShippingThreshold={45}
                     ctaId="hero-mobile-cta"
@@ -758,6 +762,11 @@ export default function StillEnglishRosePage() {
         productName="Still English Rosé"
         price="£27.50 · 75cl"
         thumbnailSrc="/products/still-english-rose.png"
+        slug="still-english-rose"
+        vintage={"2024 · Limited"}
+        defaultVariantId="75cl"
+        defaultVariantLabel="75cl Bottle"
+        defaultUnitPricePence={2750}
         triggerSelector="[data-atb-trigger]"
       />
     </main>

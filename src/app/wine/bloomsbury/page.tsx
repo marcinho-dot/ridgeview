@@ -172,6 +172,10 @@ function ProductHero() {
                 {/* Stateful purchase block — variant + qty + free-shipping bar + ATB */}
                 <div className="flex-1 max-w-[480px]">
                   <PurchaseWidget
+                    slug="bloomsbury"
+                    productName={"Bloomsbury"}
+                    vintage={"NV"}
+                    image="/products/bloomsbury.png"
                     variants={BLOOMSBURY_VARIANTS}
                     freeShippingThreshold={45}
                     ctaId="hero-mobile-cta"
@@ -924,6 +928,11 @@ export default function BloomsburyPage() {
         productName="Bloomsbury NV"
         price="£34.00 · 75cl"
         thumbnailSrc="/products/bloomsbury.png"
+        slug="bloomsbury"
+        vintage={"NV"}
+        defaultVariantId="75cl"
+        defaultVariantLabel="75cl Bottle"
+        defaultUnitPricePence={3400}
         triggerSelector="[data-atb-trigger]"
       />
     </main>

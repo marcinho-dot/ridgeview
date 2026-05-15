@@ -172,6 +172,10 @@ function ProductHero() {
                 {/* Stateful purchase block — variant + qty + free-shipping bar + ATB */}
                 <div className="flex-1 max-w-[480px]">
                   <PurchaseWidget
+                    slug="fitzrovia"
+                    productName={"Fitzrovia Rosé"}
+                    vintage={"NV"}
+                    image="/products/fitzrovia.png"
                     variants={FITZROVIA_VARIANTS}
                     freeShippingThreshold={45}
                     ctaId="hero-mobile-cta"
@@ -850,6 +854,11 @@ export default function FitzroviaPage() {
         productName="Fitzrovia Rosé"
         price="£40.00 · 75cl"
         thumbnailSrc="/products/fitzrovia.png"
+        slug="fitzrovia"
+        vintage={"NV"}
+        defaultVariantId="75cl"
+        defaultVariantLabel="75cl Bottle"
+        defaultUnitPricePence={4000}
         triggerSelector="[data-atb-trigger]"
       />
     </main>

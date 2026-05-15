@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { basePath } from "@/lib/basePath";
+import { CartButton } from "@/components/cart/CartButton";
 
 function getLinks(isOffHome: boolean) {
   // On any non-homepage route (booking, /wine/<sku>, etc.) anchor links
@@ -132,6 +133,10 @@ export function Navbar() {
           <button aria-label="Account" className="hidden md:flex text-white/65 hover:text-[#C8A96E] transition-colors duration-300 p-1">
             <AccountIcon />
           </button>
+          {/* Cart — visible on BOTH mobile and desktop (unlike search
+              / account which are desktop-only) because it's primary
+              shopping UX. Inherits white/65 from the parent. */}
+          <CartButton className="text-white/65" />
           <a
             href={wineClubHref}
             className="hidden md:flex link-underline font-body text-white/75 text-[11px] tracking-[0.2em] uppercase hover:text-[#C8A96E] transition-colors duration-300"

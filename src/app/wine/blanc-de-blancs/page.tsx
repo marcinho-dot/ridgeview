@@ -172,6 +172,10 @@ function ProductHero() {
                 {/* Stateful purchase block — variant + qty + free-shipping bar + ATB */}
                 <div className="flex-1 max-w-[480px]">
                   <PurchaseWidget
+                    slug="blanc-de-blancs"
+                    productName={"Blanc de Blancs"}
+                    vintage={"2020"}
+                    image="/products/blanc-de-blancs.png"
                     variants={BLANC_DE_BLANCS_VARIANTS}
                     freeShippingThreshold={45}
                     ctaId="hero-mobile-cta"
@@ -881,6 +885,11 @@ export default function BlancDeBlancsPage() {
         productName="Blanc de Blancs"
         price="£75.00 · 75cl"
         thumbnailSrc="/products/blanc-de-blancs.png"
+        slug="blanc-de-blancs"
+        vintage={"2020"}
+        defaultVariantId="75cl"
+        defaultVariantLabel="75cl Bottle"
+        defaultUnitPricePence={7500}
         triggerSelector="[data-atb-trigger]"
       />
     </main>

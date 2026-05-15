@@ -173,6 +173,10 @@ function ProductHero() {
                 {/* Stateful purchase block — variant + qty + free-shipping bar + ATB */}
                 <div className="flex-1 max-w-[480px]">
                   <PurchaseWidget
+                    slug="oak-reserve"
+                    productName={"Oak Reserve"}
+                    vintage={"Late-Disgorged"}
+                    image="/products/oak-reserve.png"
                     variants={OAK_RESERVE_VARIANTS}
                     freeShippingThreshold={45}
                     ctaId="hero-mobile-cta"
@@ -792,6 +796,11 @@ export default function OakReservePage() {
         productName="Oak Reserve"
         price="£85.00 · 75cl"
         thumbnailSrc="/products/oak-reserve.png"
+        slug="oak-reserve"
+        vintage={"Late-Disgorged"}
+        defaultVariantId="75cl"
+        defaultVariantLabel="75cl Bottle"
+        defaultUnitPricePence={8500}
         triggerSelector="[data-atb-trigger]"
       />
     </main>

@@ -180,6 +180,10 @@ function ProductHero() {
                 {/* Stateful purchase block — variant + qty + free-shipping bar + ATB */}
                 <div className="flex-1 max-w-[480px]">
                   <PurchaseWidget
+                    slug="engraved-bottle-gift"
+                    productName={"Engraved Bottle Gift"}
+                    vintage={"Bespoke Gift"}
+                    image="/products/engraved-bottle-gift.png"
                     variants={ENGRAVED_BOTTLE_VARIANTS}
                     freeShippingThreshold={45}
                     ctaId="hero-mobile-cta"
@@ -782,6 +786,11 @@ export default function EngravedBottleGiftPage() {
         productName="Engraved Bottle Gift"
         price="From £50.00 · 75cl"
         thumbnailSrc="/products/engraved-bottle-gift.png"
+        slug="engraved-bottle-gift"
+        vintage={"Bespoke Gift"}
+        defaultVariantId="75cl"
+        defaultVariantLabel="75cl Bottle"
+        defaultUnitPricePence={5000}
         triggerSelector="[data-atb-trigger]"
       />
     </main>

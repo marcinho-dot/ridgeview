@@ -173,6 +173,10 @@ function ProductHero() {
                 {/* Stateful purchase block — variant + qty + free-shipping bar + ATB */}
                 <div className="flex-1 max-w-[480px]">
                   <PurchaseWidget
+                    slug="sparkling-red-reserve"
+                    productName={"Sparkling Red Reserve"}
+                    vintage={"Multi-Vintage Blend"}
+                    image="/products/sparkling-red-reserve.png"
                     variants={SPARKLING_RED_VARIANTS}
                     freeShippingThreshold={45}
                     ctaId="hero-mobile-cta"
@@ -813,6 +817,11 @@ export default function SparklingRedReservePage() {
         productName="Sparkling Red Reserve"
         price="£55.00 · 75cl"
         thumbnailSrc="/products/sparkling-red-reserve.png"
+        slug="sparkling-red-reserve"
+        vintage={"Multi-Vintage Blend"}
+        defaultVariantId="75cl"
+        defaultVariantLabel="75cl Bottle"
+        defaultUnitPricePence={5500}
         triggerSelector="[data-atb-trigger]"
       />
     </main>

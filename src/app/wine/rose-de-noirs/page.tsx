@@ -173,6 +173,10 @@ function ProductHero() {
                 {/* Stateful purchase block — variant + qty + free-shipping bar + ATB */}
                 <div className="flex-1 max-w-[480px]">
                   <PurchaseWidget
+                    slug="rose-de-noirs"
+                    productName={"Rosé de Noirs"}
+                    vintage={"2020"}
+                    image="/products/rose-de-noirs.png"
                     variants={ROSE_DE_NOIRS_VARIANTS}
                     freeShippingThreshold={45}
                     ctaId="hero-mobile-cta"
@@ -810,6 +814,11 @@ export default function RoseDeNoirsPage() {
         productName="Rosé de Noirs"
         price="£65.00 · 75cl"
         thumbnailSrc="/products/rose-de-noirs.png"
+        slug="rose-de-noirs"
+        vintage={"2020"}
+        defaultVariantId="75cl"
+        defaultVariantLabel="75cl Bottle"
+        defaultUnitPricePence={6500}
         triggerSelector="[data-atb-trigger]"
       />
     </main>

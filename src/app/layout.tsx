@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { RevealInit } from "@/components/RevealInit";
+import { CartProvider } from "@/lib/cart/CartContext";
+import { CartDrawer } from "@/components/cart/CartDrawer";
 
 export const metadata: Metadata = {
   title: "Ridgeview Wine Estate — English Sparkling Wine",
@@ -24,9 +26,12 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
-        <RevealInit />
-        <ScrollProgress />
-        {children}
+        <CartProvider>
+          <RevealInit />
+          <ScrollProgress />
+          {children}
+          <CartDrawer />
+        </CartProvider>
       </body>
     </html>
   );

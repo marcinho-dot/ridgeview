@@ -2,11 +2,17 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useCart } from "@/lib/cart/CartContext";
 
 /**
  * PurchaseWidget — composable purchase block for SKU pages.
  * Bundles: Variant-Selector + Quantity-Selector + Free-Shipping-Bar + ATB Button.
- * Pure client-side UI (no cart integration yet) — the ATB just signals interest.
+ *
+ * The ATB button dispatches to the global cart (CartContext) using
+ * the (slug, variantId) merge key — same wine + same variant
+ * increments the existing line; magnums/cases stay as separate
+ * lines. After dispatch the cart drawer auto-opens so the user
+ * gets visual confirmation.
  */
 
 export interface Variant {
@@ -18,6 +24,10 @@ export interface Variant {
   price: number;
   /** Optional savings badge e.g. "Save 15%" */
   badge?: string;
+  /** Stable id for cart merging. Defaults to a slug of `label` —
+   *  e.g. "75cl Bottle" → "75cl-bottle". Set explicitly for the
+   *  3 canonical variants: "75cl", "magnum", "case6". */
+  variantId?: string;
 }
 
 interface Props {
@@ -28,28 +38,67 @@ interface Props {
   memberNote?: string;
   /** id on the ATB-button for the StickyMobileCTA IntersectionObserver. */
   ctaId?: string;
-  /** Optional callback invoked with the current selection on ATB-click. */
+  /** Wine identity — required for cart line items. */
+  slug: string;
+  productName: string;
+  vintage: string;
+  /** Bottle thumbnail path (will be served via basePath at render). */
+  image: string;
+  /** Optional callback fired AFTER the cart add (e.g. for analytics). */
   onAddToBasket?: (selection: { variant: Variant; quantity: number; total: number }) => void;
 }
 
 const formatGBP = (n: number) =>
   new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", minimumFractionDigits: 2 }).format(n);
 
+/** Slugify a variant label when the SKU page didn't set an explicit
+ *  variantId — "75cl Bottle" → "75cl-bottle". Keeps cart lines stable
+ *  across re-renders. */
+function variantIdFor(v: Variant, fallbackIdx: number): string {
+  if (v.variantId) return v.variantId;
+  const slug = v.label
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+  return slug || `variant-${fallbackIdx}`;
+}
+
 export function PurchaseWidget({
   variants,
   freeShippingThreshold = 45,
   memberNote = "20% off for members. Add a free personalised gift note at checkout.",
   ctaId,
+  slug,
+  productName,
+  vintage,
+  image,
   onAddToBasket,
 }: Props) {
   const [variantIdx, setVariantIdx] = useState(0);
   const [quantity, setQuantity] = useState(1);
+  const { add, openDrawer } = useCart();
 
   const variant = variants[variantIdx];
   const total = variant.price * quantity;
   const remaining = Math.max(0, freeShippingThreshold - total);
   const freeShippingMet = remaining === 0;
   const progressPct = Math.min(100, (total / freeShippingThreshold) * 100);
+
+  const handleAdd = () => {
+    add({
+      slug,
+      name: productName,
+      vintage,
+      variantId: variantIdFor(variant, variantIdx),
+      variantLabel: variant.label,
+      unitPricePence: Math.round(variant.price * 100),
+      priceLabel: formatGBP(variant.price),
+      image,
+      quantity,
+    });
+    openDrawer();
+    onAddToBasket?.({ variant, quantity, total });
+  };
 
   return (
     <div className="space-y-4 md:space-y-5">
@@ -130,12 +179,13 @@ export function PurchaseWidget({
           </button>
         </div>
 
-        {/* ATB Button — data-atb-trigger ties into the StickyMobileCTA observer */}
+        {/* ATB Button — data-atb-trigger ties into the StickyMobileCTA
+            observer. Dispatches to the cart + auto-opens the drawer. */}
         <button
           id={ctaId}
           data-atb-trigger
           type="button"
-          onClick={() => onAddToBasket?.({ variant, quantity, total })}
+          onClick={handleAdd}
           className="btn-cta"
         >
           Add to basket · {formatGBP(total)}
