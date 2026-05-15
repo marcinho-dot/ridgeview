@@ -793,11 +793,11 @@ export default function CavendishPage() {
       <ScrollReset>
         <BehindTheBottleSection
           headline={<>Crafted in the <span className="text-[#C8A96E]">Méthode Traditionnelle</span>.</>}
-          intro="For three decades, Ridgeview has crafted English sparkling wines the long way — by hand, on the chalk hills of Sussex, using the same Méthode Traditionnelle as the great houses of Champagne."
+          intro="For three decades, Ridgeview has crafted English sparkling wines the long way — by hand, on the chalk hills of Sussex, using the same Traditional Method as the great houses of Champagne."
           pillars={[
             { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region — the foundation of every great sparkling wine." },
             { label: "Hand Harvest", detail: "Grapes are picked at first light and sorted by hand to keep only the most balanced bunches." },
-            { label: "Méthode Traditionnelle", detail: "Secondary fermentation in bottle — as practised in the great houses of Champagne." },
+            { label: "Méthode Traditionnelle", detail: "An English invention — coal-fired bottles, cork seal, deliberate secondary fermentation. The Champenois first dismissed the bubbles as ‘the devil’s wine’." },
           ]}
         />
       </ScrollReset>
