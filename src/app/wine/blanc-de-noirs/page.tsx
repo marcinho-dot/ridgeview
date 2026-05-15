@@ -9,6 +9,7 @@ import { TestimonialSection } from "@/components/sku/TestimonialSection";
 import { AwardSection } from "@/components/sku/AwardSection";
 import { StickyMobileCTA } from "@/components/sku/StickyMobileCTA";
 import { PurchaseWidget, type Variant } from "@/components/sku/PurchaseWidget";
+import { QuickAddButton } from "@/components/cart/QuickAddButton";
 import { BehindTheBottleSection } from "@/components/sku/BehindTheBottleSection";
 import { WineClubUpsellSection } from "@/components/sku/WineClubUpsellSection";
 import { RelatedWinesSection } from "@/components/sku/RelatedWinesSection";
@@ -337,13 +338,16 @@ function ProductHero() {
                   column has the dynamic price (variant × quantity); this
                   one is the quick-action visual anchor. */}
               <div className="absolute bottom-2 md:bottom-[40px] right-0 z-10">
-                <button
-                  data-atb-trigger
-                  type="button"
-                  className="btn-cta"
-                >
-                  Add to basket
-                </button>
+                <QuickAddButton
+                  slug="blanc-de-noirs"
+                  productName={"Blanc de Noirs"}
+                  vintage={"2016"}
+                  image="/products/blanc-de-noirs.png"
+                  defaultVariantId="75cl"
+                  defaultVariantLabel="75cl Bottle"
+                  defaultUnitPricePence={6000}
+                  defaultPriceLabel="£60"
+                />
               </div>
             </div>
           </FadeUp>
@@ -689,12 +693,19 @@ function ClosingCTA() {
         <FadeUp delay={0.2}>
           <div className="flex flex-wrap items-center justify-center gap-4">
             {/* No data-atb-trigger here — duplicate CTA, not primary. */}
-            <button
-              type="button"
-              className="btn-cta"
+            <QuickAddButton
+              slug="blanc-de-noirs"
+              productName={"Blanc de Noirs"}
+              vintage={"2016"}
+              image="/products/blanc-de-noirs.png"
+              defaultVariantId="75cl"
+              defaultVariantLabel="75cl Bottle"
+              defaultUnitPricePence={6000}
+              defaultPriceLabel="£60"
+              triggerForSticky={false}
             >
-              Add to basket · £60.00
-            </button>
+              Add to basket · £60
+            </QuickAddButton>
           </div>
         </FadeUp>
       </div>

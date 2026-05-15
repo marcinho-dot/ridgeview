@@ -69,7 +69,8 @@ export interface CartContextValue {
   /** Display percentage for the VAT line — "20%" today. */
   vatRateLabel: string;
   /** Free-delivery threshold (pence). Cart UI surfaces the gap if
-   *  the basket sits below this. Default: 10 000 (£100). */
+   *  the basket sits below this. Default: 4 500 (£45) — matches
+   *  the PurchaseWidget's `freeShippingThreshold` default. */
   freeDeliveryThresholdPence: number;
   /** Whether the basket has crossed the free-delivery line. */
   qualifiesForFreeDelivery: boolean;

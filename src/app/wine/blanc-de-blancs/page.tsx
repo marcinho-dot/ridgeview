@@ -9,6 +9,7 @@ import { TestimonialSection } from "@/components/sku/TestimonialSection";
 import { AwardSection } from "@/components/sku/AwardSection";
 import { StickyMobileCTA } from "@/components/sku/StickyMobileCTA";
 import { PurchaseWidget, type Variant } from "@/components/sku/PurchaseWidget";
+import { QuickAddButton } from "@/components/cart/QuickAddButton";
 import { BehindTheBottleSection } from "@/components/sku/BehindTheBottleSection";
 import { WineClubUpsellSection } from "@/components/sku/WineClubUpsellSection";
 import { RelatedWinesSection } from "@/components/sku/RelatedWinesSection";
@@ -351,13 +352,16 @@ function ProductHero() {
                   column has the dynamic price (variant × quantity); this
                   one is the quick-action visual anchor. */}
               <div className="absolute bottom-2 md:bottom-[40px] right-0 z-10">
-                <button
-                  data-atb-trigger
-                  type="button"
-                  className="btn-cta"
-                >
-                  Add to basket
-                </button>
+                <QuickAddButton
+                  slug="blanc-de-blancs"
+                  productName={"Blanc de Blancs"}
+                  vintage={"2020"}
+                  image="/products/blanc-de-blancs.png"
+                  defaultVariantId="75cl"
+                  defaultVariantLabel="75cl Bottle"
+                  defaultUnitPricePence={7500}
+                  defaultPriceLabel="£75"
+                />
               </div>
             </div>
           </FadeUp>
@@ -706,12 +710,19 @@ function ClosingCTA() {
             {/* No data-atb-trigger here — this is a duplicate CTA, not the
                 primary purchase action. StickyMobileCTA should stay visible
                 when ClosingCTA enters the viewport. */}
-            <button
-              type="button"
-              className="btn-cta"
+            <QuickAddButton
+              slug="blanc-de-blancs"
+              productName={"Blanc de Blancs"}
+              vintage={"2020"}
+              image="/products/blanc-de-blancs.png"
+              defaultVariantId="75cl"
+              defaultVariantLabel="75cl Bottle"
+              defaultUnitPricePence={7500}
+              defaultPriceLabel="£75"
+              triggerForSticky={false}
             >
-              Add to basket · £75.00
-            </button>
+              Add to basket · £75
+            </QuickAddButton>
           </div>
         </FadeUp>
       </div>

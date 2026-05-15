@@ -8,6 +8,7 @@ import { ScrollReset } from "@/components/ScrollReset";
 import { TestimonialSection } from "@/components/sku/TestimonialSection";
 import { StickyMobileCTA } from "@/components/sku/StickyMobileCTA";
 import { PurchaseWidget, type Variant } from "@/components/sku/PurchaseWidget";
+import { QuickAddButton } from "@/components/cart/QuickAddButton";
 import { BehindTheBottleSection } from "@/components/sku/BehindTheBottleSection";
 import { WineClubUpsellSection } from "@/components/sku/WineClubUpsellSection";
 import { RelatedWinesSection } from "@/components/sku/RelatedWinesSection";
@@ -275,13 +276,16 @@ function ProductHero() {
                   column has the dynamic price (variant × quantity); this
                   one is the quick-action visual anchor. */}
               <div className="absolute bottom-2 md:bottom-[40px] right-0 z-10">
-                <button
-                  data-atb-trigger
-                  type="button"
-                  className="btn-cta"
-                >
-                  Add to basket
-                </button>
+                <QuickAddButton
+                  slug="oak-reserve"
+                  productName={"Oak Reserve"}
+                  vintage={"Late-Disgorged"}
+                  image="/products/oak-reserve.png"
+                  defaultVariantId="75cl"
+                  defaultVariantLabel="75cl Bottle"
+                  defaultUnitPricePence={8500}
+                  defaultPriceLabel="£85"
+                />
               </div>
             </div>
           </FadeUp>
@@ -625,12 +629,19 @@ function ClosingCTA() {
         <FadeUp delay={0.2}>
           <div className="flex flex-wrap items-center justify-center gap-4">
             {/* No data-atb-trigger here — duplicate CTA, not primary. */}
-            <button
-              type="button"
-              className="btn-cta"
+            <QuickAddButton
+              slug="oak-reserve"
+              productName={"Oak Reserve"}
+              vintage={"Late-Disgorged"}
+              image="/products/oak-reserve.png"
+              defaultVariantId="75cl"
+              defaultVariantLabel="75cl Bottle"
+              defaultUnitPricePence={8500}
+              defaultPriceLabel="£85"
+              triggerForSticky={false}
             >
-              Add to basket · £85.00
-            </button>
+              Add to basket · £85
+            </QuickAddButton>
           </div>
         </FadeUp>
       </div>

@@ -8,6 +8,7 @@ import { ScrollReset } from "@/components/ScrollReset";
 import { TestimonialSection } from "@/components/sku/TestimonialSection";
 import { StickyMobileCTA } from "@/components/sku/StickyMobileCTA";
 import { PurchaseWidget, type Variant } from "@/components/sku/PurchaseWidget";
+import { QuickAddButton } from "@/components/cart/QuickAddButton";
 import { BehindTheBottleSection } from "@/components/sku/BehindTheBottleSection";
 import { WineClubUpsellSection } from "@/components/sku/WineClubUpsellSection";
 import { RelatedWinesSection } from "@/components/sku/RelatedWinesSection";
@@ -245,13 +246,16 @@ function ProductHero() {
                   column has the dynamic price (variant × quantity); this
                   one is the quick-action visual anchor. */}
               <div className="absolute bottom-2 md:bottom-[40px] right-0 z-10">
-                <button
-                  data-atb-trigger
-                  type="button"
-                  className="btn-cta"
-                >
-                  Add to basket
-                </button>
+                <QuickAddButton
+                  slug="still-english-rose"
+                  productName={"Still English Rosé"}
+                  vintage={"2024 · Limited"}
+                  image="/products/still-english-rose.png"
+                  defaultVariantId="75cl"
+                  defaultVariantLabel="75cl Bottle"
+                  defaultUnitPricePence={2750}
+                  defaultPriceLabel="£27.50"
+                />
               </div>
             </div>
           </FadeUp>
@@ -604,12 +608,19 @@ function ClosingCTA() {
             {/* No data-atb-trigger here — this is a duplicate CTA, not the
                 primary purchase action. StickyMobileCTA should stay visible
                 when ClosingCTA enters the viewport. */}
-            <button
-              type="button"
-              className="btn-cta"
+            <QuickAddButton
+              slug="still-english-rose"
+              productName={"Still English Rosé"}
+              vintage={"2024 · Limited"}
+              image="/products/still-english-rose.png"
+              defaultVariantId="75cl"
+              defaultVariantLabel="75cl Bottle"
+              defaultUnitPricePence={2750}
+              defaultPriceLabel="£27.50"
+              triggerForSticky={false}
             >
               Add to basket · £27.50
-            </button>
+            </QuickAddButton>
           </div>
         </FadeUp>
       </div>
