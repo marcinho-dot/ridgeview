@@ -39,6 +39,11 @@ function getLinks(isOffHome: boolean) {
       kicker: "Articles & inspiration",
       href: `${basePath}/beyond-the-bottle/`,
     },
+    {
+      label: "People",
+      kicker: "The team, the winemaker, the founder",
+      href: `${basePath}/people/`,
+    },
   ];
 
   const wineClubHref = `${basePath}/wine-club/`;
@@ -93,8 +98,9 @@ export function Navbar() {
             : "py-5 md:py-6 bg-transparent"
         }`}
       >
-        {/* Left links — desktop. Four-item structure (Home, Shop,
-            Vineyard, Beyond the Bottle) mirrored in the mobile drawer.
+        {/* Left links — desktop. Five-item structure (Home, Shop,
+            Vineyard, Beyond the Bottle, People) mirrored in the
+            mobile drawer.
             All entries share the same link-underline text style —
             no standalone gold CTA. Wine Club lives on the right. */}
         <div className="hidden md:flex items-center gap-7">
