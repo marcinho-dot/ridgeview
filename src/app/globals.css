@@ -372,14 +372,15 @@ body::after {
 /* ─── Jelly Button — Kickflip ───────────────────────────────────────────
    Two-state CTA driven from `JellyButtonKickflip.tsx`:
 
-     1) HOVER  — pill lifts straight up via CSS (translateY −8px),
-                 shadow swells. No flip on hover.
+     1) HOVER  — shadow + border swell only; NO transform / NO Y or
+                 Z motion. The pill stays exactly on its horizontal
+                 page line so the layout never shifts.
      2) CLICK  — JS rAF loop writes inline `transform` per frame: a
                  1080° rotateX around the pill's long axis with a
-                 small Z pop at the apex. NO Y motion during the
-                 flip — pill stays on its horizontal page line so
-                 surrounding layout doesn't shift. ~700 ms total.
-                 Navigation runs after the flip completes.
+                 small Z pop at the apex. No Y motion during the
+                 flip either — pill stays on its horizontal page
+                 line. ~1100 ms total. Navigation runs after the
+                 flip completes.
 
    The pill inherits `.btn-cta` for the resting look. The `::before`
    back-layer (180°-rotated underside, 18px back in Z) + per-element
@@ -416,18 +417,19 @@ body::after {
     background 0.35s ease;
   will-change: transform;
 }
-/* Hover state — pill lifts straight up via CSS (no flip). The
-   `:not(.--active)` guard makes sure this hover transform doesn't
-   fight the JS-driven click flip if the cursor is still on the
-   button while the flip is in flight. */
+/* Hover state — purely shadow + border feedback, NO transform on
+   the pill itself so its bounding box stays on the same horizontal
+   page line (per user direction 2026-05-15). The richer shadow
+   stack still reads as "this is interactive" without moving the
+   pill. The `:not(.--active)` guard prevents this rule from
+   stepping on the JS-driven click flip while it's in flight. */
 .rv-kickflip-pill:hover:not(.rv-kickflip-pill--active) {
-  transform: translateY(-8px);
   box-shadow:
     inset 0 0 0 1px rgba(200, 169, 110, 0.42),
     inset 0 1px 0 rgba(245, 240, 232, 0.14),
-    0 0 24px -2px rgba(200, 169, 110, 0.25),
-    0 18px 28px -10px rgba(0, 0, 0, 0.70),
-    0 10px 16px -6px rgba(200, 169, 110, 0.22);
+    0 0 28px -2px rgba(200, 169, 110, 0.32),
+    0 12px 24px -8px rgba(0, 0, 0, 0.55),
+    0 8px 14px -6px rgba(200, 169, 110, 0.26);
 }
 /* While the JS-driven flip is in flight: keep the lifted shadow
    stack visible so the depth doesn't disappear mid-rotation. The

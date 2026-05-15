@@ -29,9 +29,9 @@ interface JellyButtonKickflipProps {
   onClick?: () => void;
 }
 
-/** Total flip duration in ms. ~700 = ~233 ms per full rotation across
- *  the triple flip — snappy but each rotation is still readable. */
-const FLIP_DURATION_MS = 700;
+/** Total flip duration in ms. 1100 = ~367 ms per full rotation across
+ *  the triple flip — slow enough to clearly see each revolution. */
+const FLIP_DURATION_MS = 1100;
 /** Number of full rotations. 3 = triple kickflip. */
 const FLIP_TURNS = 3;
 /** Peak Z translation (px) at the apex of the flip — small enough to
