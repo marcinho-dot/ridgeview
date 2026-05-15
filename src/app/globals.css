@@ -370,27 +370,24 @@ body::after {
 }
 
 /* ─── Jelly Button — Kickflip ───────────────────────────────────────────
-   Pill rises off the surface and rotates a full 360° around its
-   horizontal long axis on each hover — visual identical to a
-   skateboard kickflip.
+   Two-state CTA driven from `JellyButtonKickflip.tsx`:
 
-   Why CSS, not WebGPU: the linked Software-Mansion TypeGPU source
-   is a deformable Bezier-track slider, not a flippable button. A
-   faithful WebGPU port would give a different widget and excludes
-   the ~10-15% of UK mobile traffic still on pre-WebGPU iOS. CSS 3D
-   transforms reproduce the kickflip behaviour pixel-faithfully and
-   run on every browser since Safari 9 / Chrome 36.
+     1) HOVER  — pill lifts straight up via CSS (translateY −8px),
+                 shadow swells. No flip on hover.
+     2) CLICK  — JS rAF loop writes inline `transform` per frame: a
+                 1080° rotateX around the pill's long axis with a
+                 small Z pop at the apex. NO Y motion during the
+                 flip — pill stays on its horizontal page line so
+                 surrounding layout doesn't shift. ~700 ms total.
+                 Navigation runs after the flip completes.
 
-   The stage wrapper supplies `perspective` so the rotateX has real
-   depth. The pill inherits `.btn-cta` for the resting look (frosted
-   glass + gold etched border + spring-back :active). The `::before`
-   back-layer + `::after` top-rim highlight give the pill faked
-   thickness so it reads as a 3D object during the rotation.
+   The pill inherits `.btn-cta` for the resting look. The `::before`
+   back-layer (180°-rotated underside, 18px back in Z) + per-element
+   `backface-visibility: hidden` together fake 3D thickness so the
+   mid-flip frame doesn't show mirrored front-face text.
 
-   Animation is triggered by adding the `--active` modifier class
-   from React (toggled on mouseenter, cleared on `animationend`).
-   This is cleaner than a `:hover` keyframe because re-entry mid-
-   flight can't cut the rotation short. */
+   `prefers-reduced-motion: reduce` is handled inside the React
+   component — flip is skipped, navigation happens immediately. */
 .rv-kickflip-stage {
   display: inline-block;
   perspective: 600px;
@@ -407,27 +404,43 @@ body::after {
     inset 0 1px 0 rgba(245, 240, 232, 0.10),
     0 0 0 1px rgba(200, 169, 110, 0.06),
     0 6px 12px -4px rgba(0, 0, 0, 0.55);
+  /* `transform` transitions are now used by the hover-lift only —
+     the click flip is driven per-frame from JS (the React component
+     temporarily sets `style.transition = 'none'` while it owns the
+     transform). */
   transition:
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
     box-shadow 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
     color 0.35s ease,
     border-color 0.40s ease,
     background 0.35s ease;
-  /* Slight isolation so the 3D children stay composited together. */
   will-change: transform;
 }
-/* While the kickflip is mid-flight, swap the shadow stack to the
-   "lifted" version so the elevation feels real throughout the spin. */
+/* Hover state — pill lifts straight up via CSS (no flip). The
+   `:not(.--active)` guard makes sure this hover transform doesn't
+   fight the JS-driven click flip if the cursor is still on the
+   button while the flip is in flight. */
+.rv-kickflip-pill:hover:not(.rv-kickflip-pill--active) {
+  transform: translateY(-8px);
+  box-shadow:
+    inset 0 0 0 1px rgba(200, 169, 110, 0.42),
+    inset 0 1px 0 rgba(245, 240, 232, 0.14),
+    0 0 24px -2px rgba(200, 169, 110, 0.25),
+    0 18px 28px -10px rgba(0, 0, 0, 0.70),
+    0 10px 16px -6px rgba(200, 169, 110, 0.22);
+}
+/* While the JS-driven flip is in flight: keep the lifted shadow
+   stack visible so the depth doesn't disappear mid-rotation. The
+   transform itself is set inline by the rAF loop in
+   JellyButtonKickflip.tsx (and stays on the horizontal page line —
+   no Y motion during the flip per user direction). */
 .rv-kickflip-pill--active {
-  /* 1.3s gives ~0.43s per full rotation across the triple flip —
-     fast enough to feel snappy, slow enough that each rotation is
-     visible. */
-  animation: rv-kickflip 1.3s cubic-bezier(0.5, 0.05, 0.3, 1) forwards;
   box-shadow:
     inset 0 0 0 1px rgba(200, 169, 110, 0.42),
     inset 0 1px 0 rgba(245, 240, 232, 0.14),
     0 0 28px -2px rgba(200, 169, 110, 0.30),
-    0 28px 40px -12px rgba(0, 0, 0, 0.80),
-    0 14px 22px -8px rgba(200, 169, 110, 0.26);
+    0 22px 32px -12px rgba(0, 0, 0, 0.75),
+    0 12px 18px -8px rgba(200, 169, 110, 0.26);
 }
 .rv-kickflip-label {
   position: relative;
@@ -461,38 +474,10 @@ body::after {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
-/* The triple kickflip keyframe — pill rotates 1080° (three full
-   360° revolutions) around its long X-axis while airborne. The
-   lift profile peaks at the middle (50%) and is symmetric so the
-   pill lands cleanly back at its starting Y/Z. */
-@keyframes rv-kickflip {
-  0% {
-    transform: translate3d(0, 0, 0) rotateX(0deg);
-  }
-  25% {
-    transform: translate3d(0, -18px, 44px) rotateX(270deg);
-  }
-  50% {
-    transform: translate3d(0, -24px, 52px) rotateX(540deg);
-  }
-  75% {
-    transform: translate3d(0, -18px, 44px) rotateX(810deg);
-  }
-  100% {
-    transform: translate3d(0, 0, 0) rotateX(1080deg);
-  }
-}
-
-/* ─── Accessibility / Fallback ──────────────────────────────────────────
-   When the user has `prefers-reduced-motion: reduce` set (system-wide
-   accessibility preference), suppress the keyframe entirely. The pill
-   then behaves as a plain `.btn-cta` — still clickable, still styled
-   identically at rest, no rotation. */
-@media (prefers-reduced-motion: reduce) {
-  .rv-kickflip-pill--active {
-    animation: none;
-  }
-}
+/* (Triple-kickflip animation is now driven per-frame from JS in
+   `JellyButtonKickflip.tsx` — no CSS @keyframes here.
+   `prefers-reduced-motion: reduce` is also handled there: the flip
+   is skipped and navigation happens immediately on click.) */
 
 /* ─── Jelly Button (Canvas 2D metaballs) ────────────────────────────────
    Stacks on top of `.btn-cta` (preserves frosted-glass + gold border +

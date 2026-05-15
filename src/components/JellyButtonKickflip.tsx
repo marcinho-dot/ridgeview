@@ -1,31 +1,27 @@
 "use client";
 
 /**
- * JellyButtonKickflip — single-shot 3D kickflip on hover.
+ * JellyButtonKickflip — click-triggered 3D triple kickflip.
  *
- * Behaviour (matches the TypeGPU jelly-slider reference video):
- *   1. On `mouseenter`, the pill rises off the surface (translateY)
- *      and rotates a full 360° around its long horizontal axis
- *      (rotateX) — visually identical to a skateboard kickflip.
- *   2. The flip is one-shot, ~800 ms, then the pill settles back at
- *      rest. Hovering again replays the flip.
- *   3. The flip is driven by a CSS `@keyframes` animation (defined in
- *      `globals.css`) toggled via a `.rv-kickflip-pill--active` class
- *      so re-entry mid-animation doesn't cut the rotation short — the
- *      class is cleared on `animationend`.
- *
- * Why CSS, not WebGPU: the TypeGPU jelly-slider source is a deformable
- * Bezier-track slider, *not* a kickflipping button. A faithful port
- * would give a different widget (and require WebGPU, which ~10–15% of
- * UK mobile users still don't have). CSS 3D transforms reproduce the
- * visible kickflip behaviour pixel-faithfully and run everywhere.
- *
- * Accessibility: respects `prefers-reduced-motion` — when the user has
- * that preference enabled, the keyframe animation is suppressed and
- * the button stays at rest (still clickable, still styled the same).
+ * Behaviour (2026-05-15 rev):
+ *   - Hover only LIFTS the pill (translateY upward via CSS, no flip).
+ *   - Click triggers the kickflip: pill rotates 1080° around its long
+ *     X-axis while STAYING on the horizontal page line (no Y motion;
+ *     a small Z pop adds depth toward the camera at the apex).
+ *   - The flip is JS-rAF driven so we can:
+ *       a) clear the inline transform cleanly at the end (no backward
+ *          interpolation through 540° on transition cleanup),
+ *       b) sequence navigation right after the flip completes,
+ *       c) match exactly the duration the visual demands.
+ *   - On click navigation: link default is prevented, flip plays,
+ *     then `window.location.href` is set on completion. Hash-anchor
+ *     hrefs (`/#wine-collection`) update via hash-change (no reload);
+ *     full-page hrefs trigger a normal navigation.
+ *   - `prefers-reduced-motion: reduce`: flip is skipped entirely and
+ *     navigation happens immediately, just like a plain `.btn-cta`.
  */
 
-import { ReactNode, useState } from "react";
+import { MouseEvent, ReactNode, useRef } from "react";
 
 interface JellyButtonKickflipProps {
   href: string;
@@ -33,30 +29,100 @@ interface JellyButtonKickflipProps {
   onClick?: () => void;
 }
 
+/** Total flip duration in ms. ~700 = ~233 ms per full rotation across
+ *  the triple flip — snappy but each rotation is still readable. */
+const FLIP_DURATION_MS = 700;
+/** Number of full rotations. 3 = triple kickflip. */
+const FLIP_TURNS = 3;
+/** Peak Z translation (px) at the apex of the flip — small enough to
+ *  read as "depth pop" without breaking the horizontal-line rule. */
+const FLIP_Z_PEAK = 36;
+
+/** Cubic ease-in-out (Material-ish). Used over the flip duration so
+ *  the rotation accelerates into the middle and decelerates out. */
+function easeInOutCubic(t: number): number {
+  return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+}
+
 export function JellyButtonKickflip({
   href,
   children,
   onClick,
 }: JellyButtonKickflipProps) {
-  /** True while the kickflip animation is running. Toggled on by
-   *  mouse-enter (only when the flip isn't already in flight) and off
-   *  on `animationend`. Letting the animation complete before the next
-   *  trigger avoids jarring mid-rotation restarts. */
-  const [flipping, setFlipping] = useState(false);
+  const anchorRef = useRef<HTMLAnchorElement>(null);
+  /** Guard against re-triggering the flip while one is in flight. */
+  const flippingRef = useRef(false);
+
+  /** Runs the JS-driven rAF animation. Resolves once the pill has
+   *  fully settled back to its resting state (transform cleared). */
+  const playFlip = (onComplete: () => void) => {
+    const el = anchorRef.current;
+    if (!el || flippingRef.current) return;
+    flippingRef.current = true;
+    el.classList.add("rv-kickflip-pill--active");
+    // Suspend the CSS transition so the per-frame inline transform
+    // updates aren't smoothed by it (the easing is in our rAF loop).
+    el.style.transition = "none";
+
+    let start: number | null = null;
+    const tick = (t: number) => {
+      if (start === null) start = t;
+      const progress = Math.min((t - start) / FLIP_DURATION_MS, 1);
+      const eased = easeInOutCubic(progress);
+      const angle = eased * 360 * FLIP_TURNS;
+      // Z follows a half-sine — 0 at start/end, peaks mid-flip.
+      const z = Math.sin(progress * Math.PI) * FLIP_Z_PEAK;
+      el.style.transform = `translateZ(${z}px) rotateX(${angle}deg)`;
+
+      if (progress < 1) {
+        requestAnimationFrame(tick);
+      } else {
+        // Tidy up: clear inline transform + transition so the CSS
+        // hover/rest rules take over again. Removing the `--active`
+        // class on the same tick avoids transition-driven backward
+        // interpolation through 540° (which would visually rewind
+        // the rotation).
+        el.style.transform = "";
+        el.style.transition = "";
+        el.classList.remove("rv-kickflip-pill--active");
+        flippingRef.current = false;
+        onComplete();
+      }
+    };
+    requestAnimationFrame(tick);
+  };
+
+  const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    if (flippingRef.current) return;
+
+    // Honour the user's reduced-motion preference — skip the flip
+    // entirely and navigate immediately. The pill still works.
+    const reduce =
+      typeof window !== "undefined" &&
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const navigate = () => {
+      if (onClick) onClick();
+      // Set href via window.location so hash-anchor hrefs work too.
+      window.location.href = href;
+    };
+
+    if (reduce) {
+      navigate();
+      return;
+    }
+    playFlip(navigate);
+  };
 
   return (
     <span className="rv-kickflip-stage">
       <a
+        ref={anchorRef}
         href={href}
-        onClick={onClick}
-        onMouseEnter={() => {
-          if (!flipping) setFlipping(true);
-        }}
-        onAnimationEnd={() => setFlipping(false)}
-        className={
-          "btn-cta rv-kickflip-pill" +
-          (flipping ? " rv-kickflip-pill--active" : "")
-        }
+        onClick={handleClick}
+        className="btn-cta rv-kickflip-pill"
       >
         <span className="rv-kickflip-label">{children}</span>
       </a>
