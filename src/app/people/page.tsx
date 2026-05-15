@@ -47,7 +47,7 @@ export default function PeoplePage() {
           >
             01 — The People
           </p>
-          <hr className="my-[2vw] border-none border-t border-[#C8A96E]/30" />
+          <hr className="my-[0.4vw] border-none border-t border-[#C8A96E]/30" />
 
           <div>
             <h1
@@ -63,7 +63,7 @@ export default function PeoplePage() {
             </h1>
           </div>
 
-          <hr className="my-[2vw] border-none border-t border-[#C8A96E]/30" />
+          <hr className="my-[0.4vw] border-none border-t border-[#C8A96E]/30" />
 
           <p
             className="max-w-[60ch] font-body font-light text-white/70 leading-relaxed"
@@ -75,7 +75,7 @@ export default function PeoplePage() {
             restaurant, every hand plays a part.
           </p>
 
-          <hr className="my-[2vw] border-none border-t border-[#C8A96E]/30" />
+          <hr className="my-[0.4vw] border-none border-t border-[#C8A96E]/30" />
 
           {/* 2-photo grid (first image removed per user direction) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
@@ -112,7 +112,7 @@ export default function PeoplePage() {
           >
             02 — The Winemaker
           </p>
-          <hr className="my-[2vw] border-none border-t border-[#C8A96E]/30" />
+          <hr className="my-[0.4vw] border-none border-t border-[#C8A96E]/30" />
 
           <div>
             <h2
@@ -137,7 +137,7 @@ export default function PeoplePage() {
             </p>
           </div>
 
-          <hr className="my-[2vw] border-none border-t border-[#C8A96E]/30" />
+          <hr className="my-[0.4vw] border-none border-t border-[#C8A96E]/30" />
 
           <p
             className="max-w-[60ch] font-body font-light text-white/70 leading-relaxed"
@@ -151,7 +151,7 @@ export default function PeoplePage() {
             1995.
           </p>
 
-          <hr className="my-[2vw] border-none border-t border-[#C8A96E]/30" />
+          <hr className="my-[0.4vw] border-none border-t border-[#C8A96E]/30" />
 
           {/* 2-photo grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
@@ -255,6 +255,30 @@ export default function PeoplePage() {
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
               />
+              {/* "life is for celebrating" — Mike Roberts's guiding
+                  motto, also Ridgeview's house motto. Sits as a
+                  typographic lock-up at the bottom of his last
+                  portrait. Gradient softens the photo behind so the
+                  cream italic stays readable on any image content. */}
+              <div className="absolute inset-x-0 bottom-0 px-5 pb-5 pt-12 md:px-7 md:pb-7 md:pt-16 bg-gradient-to-t from-black/92 via-black/55 to-transparent">
+                <p
+                  className="font-display italic text-cream text-center leading-tight"
+                  style={{ fontSize: "clamp(15px, 1.9vw, 24px)" }}
+                >
+                  &ldquo;life is for{" "}
+                  <span className="text-[#C8A96E]">celebrating</span>
+                  &rdquo;
+                </p>
+                <p
+                  className="mt-2 font-body font-light text-white/55 uppercase text-center"
+                  style={{
+                    fontSize: "clamp(9px, 0.85vw, 11px)",
+                    letterSpacing: "0.3em",
+                  }}
+                >
+                  Mike Roberts
+                </p>
+              </div>
             </div>
           </div>
         </FlowSection>

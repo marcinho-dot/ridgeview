@@ -55,9 +55,12 @@ export const FlowSection: React.FC<FlowSectionProps> = ({
     <div
       data-flow-inner
       className={cx(
-        "flow-art-container relative flex min-h-screen w-full flex-col justify-start gap-6 px-[4vw]",
+        "flow-art-container relative flex min-h-screen w-full flex-col justify-start gap-3 px-[4vw]",
         // pt clears the 80 px fixed navbar (clamp 96-144px);
         // pb clears the ~80 px mobile-only BottomNav bar.
+        // gap-3 (12 px) is the BASE row spacing — callers can tighten
+        // further via inline `style={{ gap: '8px' }}` on a wrapper if
+        // they need a compact top-stack (kicker→headline→body).
         "pt-[clamp(6rem,10vw,9rem)] pb-[clamp(5.5rem,6vw,7rem)]",
         "will-change-transform",
       )}
