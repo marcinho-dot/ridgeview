@@ -415,7 +415,8 @@ body::after {
      drop shadow that suggests the pill is hovering above the
      vineyard background. Everything below this comment overrides
      the parent `.btn-cta` resting styles. */
-  border-radius: 9999px;
+  /* border-radius inherits 4px from `.btn-cta` — keep the site-wide
+     button corner radius for consistency (no full-capsule pill). */
   padding: 16px 32px;
   /* Keep .btn-cta's cream-tint at 0.04 + 160% saturate so the pill
      stays in the Ridgeview CD (dark frosted glass with gold) — we
