@@ -1,0 +1,72 @@
+/* ─── Jelly Button (CSS / SVG goo) ──────────────────────────────────────
+   Stacks on top of `.btn-cta` (preserves frosted-glass + gold border +
+   spring-back press feedback). Adds a goo-filtered gold blob layer that
+   follows the cursor with elastic transitions. The SVG filter is
+   provided by <RvGooDefs /> (mounted once in layout.tsx) under the id
+   `#rv-goo-filter`. */
+.rv-jelly-css {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.rv-jelly-css__goo {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  /* Goo filter fuses overlapping blobs into a single morphing shape. */
+  filter: url(#rv-goo-filter);
+}
+.rv-jelly-css__blob {
+  position: absolute;
+  width: 80%;
+  aspect-ratio: 1;
+  background: #C8A96E;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform, left, top;
+  transition:
+    transform 0.42s cubic-bezier(0.34, 1.56, 0.64, 1),
+    left 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+    top 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+/* Trailer blob lags slightly behind the main blob — when the cursor
+   moves quickly, this creates a goo-fused "tail" that drags after the
+   main blob, selling the liquid feel. */
+.rv-jelly-css__blob--trail {
+  width: 55%;
+  transition:
+    transform 0.62s cubic-bezier(0.34, 1.56, 0.64, 1),
+    left 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+    top 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.rv-jelly-css__label {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ─── Jelly Button (Canvas 2D metaballs) ────────────────────────────────
+   Same stack-on-top-of-.btn-cta pattern. The animated blobs are drawn
+   on a <canvas> using `ctx.filter = "blur(...) contrast(...)"` for the
+   goo effect — same merge trick as SVG goo, with the benefit of JS
+   spring-lerp on blob position (more "viscous" feel). */
+.rv-jelly-canvas {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.rv-jelly-canvas__canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+.rv-jelly-canvas__label {
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+}
