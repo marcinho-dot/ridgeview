@@ -135,11 +135,11 @@ export function Navbar() {
           </button>
           {/* Cart — visible on BOTH mobile and desktop (unlike search
               / account which are desktop-only) because it's primary
-              shopping UX. Full-white (not /65 like the neighbouring
-              icons) so the hand-drawn basket-with-bottle-and-grapes
-              detail reads crisply at navbar render size; the count
-              badge already singles this icon out as "special". */}
-          <CartButton className="text-white" />
+              shopping UX. Inherits the same text-white/65 as the
+              neighbouring Search / Account icons so the navbar row
+              reads as one cohesive cluster — the count badge already
+              flags this icon as the "interactive" one. */}
+          <CartButton className="text-white/65" />
           <a
             href={wineClubHref}
             className="hidden md:flex relative top-[2px] link-underline font-body text-white/75 text-[11px] tracking-[0.2em] uppercase hover:text-[#C8A96E] transition-colors duration-300"
