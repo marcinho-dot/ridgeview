@@ -674,28 +674,35 @@ function BackToTopFloat() {
     };
   }, [enabled]);
 
-  // ── Position alignment ───────────────────────────────────────────────
-  // Dynamically position the arrow so its vertical centre matches the
-  // visit-section CTA (marked with `data-back-to-top-anchor`).
+  // ── Position alignment (one-shot, then locked) ───────────────────────
+  // Set the arrow's vertical position ONCE — at the moment the
+  // visit-section CTA (marked with `data-back-to-top-anchor`) first
+  // enters the viewport — and then freeze it. After that, the arrow
+  // stays put no matter how the user scrolls; it does NOT track the
+  // CTA as the CTA scrolls past.
   //
-  // Why JS rather than a static `bottom: Npx`: the CTA's position in
-  // the viewport depends on viewport height, browser chrome, scroll
-  // position, and how the panels' min-height responds to the viewport
-  // — any single hard-coded value only aligns at one specific
-  // viewport size and breaks elsewhere. Measuring the actual rect at
-  // runtime side-steps that entire estimation problem.
+  // Why one-shot: the previous always-tracking version made the arrow
+  // visibly drift upward with the CTA as the user scrolled into the
+  // Practical Information section, which felt like the arrow was
+  // "following" the user instead of marking a fixed return point.
   //
-  // When the CTA is OUT of the viewport (user scrolled past, CTA
-  // above the fold), fall back to a sensible default near the bottom
-  // corner so the arrow still has a stable resting position.
+  // Why measured rather than a static `bottom: Npx`: the CTA's actual
+  // position in the viewport at the moment the user lands at #visit
+  // depends on viewport height, browser chrome, and how the panels'
+  // min-height responds to the viewport. Measuring side-steps that
+  // estimation problem entirely.
+  //
+  // Re-locks on resize (the layout changed → the locked value would be
+  // wrong on the new viewport, so we let the next CTA-in-view event
+  // re-set it).
   useEffect(() => {
     if (!enabled) return;
 
     const ARROW_HEIGHT = 40; // matches the inline style width/height below.
+    let locked = false;
 
-    const update = () => {
+    const calculate = () => {
       const isMobile = window.innerWidth < 768;
-      // Default fallback positions. Mobile keeps BottomNav clearance.
       const fallback = isMobile ? 80 : 32;
       const minBottom = isMobile ? 80 : 16;
 
@@ -703,53 +710,64 @@ function BackToTopFloat() {
         "[data-back-to-top-anchor]",
       );
       if (!cta) {
-        setBottomPx(fallback);
+        if (!locked) setBottomPx(fallback);
         return;
       }
 
       const rect = cta.getBoundingClientRect();
       const vh = window.innerHeight;
-
-      // CTA not in viewport at all → use fallback bottom-corner position.
       const inViewport = rect.bottom > 0 && rect.top < vh;
+
       if (!inViewport) {
-        setBottomPx(fallback);
+        // CTA not yet visible (or already scrolled past). Keep the
+        // currently-locked value if we have one; otherwise the
+        // fallback bottom-corner position.
+        if (!locked) setBottomPx(fallback);
         return;
       }
 
-      // CTA centre Y from viewport top.
+      // CTA is on screen → measure and lock the position.
       const ctaCenter = (rect.top + rect.bottom) / 2;
-      // Arrow positioned with `bottom: X px` → its centre sits at
-      // (vh - X - ARROW_HEIGHT/2) from viewport top. Set equal to
-      // ctaCenter and solve for X:
       const computedBottom = vh - ctaCenter - ARROW_HEIGHT / 2;
-
-      // Clamp so the arrow never escapes the viewport.
       const clamped = Math.max(
         minBottom,
         Math.min(vh - ARROW_HEIGHT - 16, computedBottom),
       );
       setBottomPx(clamped);
+      locked = true;
     };
 
-    // rAF-throttle scroll/resize callbacks so we don't thrash on
-    // every event (scroll can fire 100s of times per second).
+    // First attempt on mount. May fail (CTA not in viewport yet) — the
+    // scroll listener below will keep trying until it succeeds.
+    calculate();
+
+    // Scroll listener: only runs `calculate` while we're NOT locked. As
+    // soon as the CTA scrolls into view, position gets set and the
+    // listener becomes a no-op for the rest of the session (until
+    // resize unlocks it).
     let rafId = 0;
-    const onChange = () => {
+    const onScroll = () => {
+      if (locked) return;
       if (rafId) return;
       rafId = window.requestAnimationFrame(() => {
         rafId = 0;
-        update();
+        calculate();
       });
     };
+    window.addEventListener("scroll", onScroll, { passive: true });
 
-    update();
-    window.addEventListener("scroll", onChange, { passive: true });
-    window.addEventListener("resize", onChange);
+    // Resize: layout changed, the locked value would be wrong on the
+    // new viewport. Unlock so the next CTA-in-view tick re-positions.
+    const onResize = () => {
+      locked = false;
+      calculate();
+    };
+    window.addEventListener("resize", onResize);
+
     return () => {
       if (rafId) window.cancelAnimationFrame(rafId);
-      window.removeEventListener("scroll", onChange);
-      window.removeEventListener("resize", onChange);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
     };
   }, [enabled]);
 
