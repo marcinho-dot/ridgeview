@@ -33,6 +33,14 @@ export function CartIcon({
       aria-hidden
       {...rest}
     >
+      {/* Visible content spans y=20-94 in viewBox coords — 20 units of
+          empty padding at the top, only 6 at the bottom. Without
+          correction, the basket renders ~2 px below the flex parent's
+          centre line, throwing it off vertical alignment with the
+          neighbouring "Menu" / hamburger group. Shift everything up
+          by 7 viewBox units so the visible silhouette is centred in
+          the 100×100 box. */}
+      <g transform="translate(0 -7)">
       {/* Handle / hoop arc — drawn first so bottle + grapes sit on top.
           Slimmer stroke (4) than before; the bottle is now upright and
           its neck sits in plane with the handle peak, so they no longer
@@ -109,6 +117,7 @@ export function CartIcon({
           tapers visually (trapezoidal silhouette). */}
       <rect x="26" y="83" width="20" height="11" rx="3" fill="currentColor" stroke="none" />
       <rect x="54" y="83" width="20" height="11" rx="3" fill="currentColor" stroke="none" />
+      </g>
     </svg>
   );
 }
