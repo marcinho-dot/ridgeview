@@ -494,6 +494,34 @@ body::after {
   }
 }
 
+/* ─── Jelly Button (Canvas 2D metaballs) ────────────────────────────────
+   Stacks on top of `.btn-cta` (preserves frosted-glass + gold border +
+   spring-back press feedback). A <canvas> behind the label renders two
+   gold metaballs that follow the cursor with JS spring-lerp; a
+   blur+contrast canvas filter fuses them into a single morphing blob,
+   then a source-in composite re-tints the result with Ridgeview gold.
+   Restored from src/components/_archive/jelly-2d-gold-fill/ for the
+   Vineyard Booking CTA (2026-05-15). */
+.rv-jelly-canvas {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.rv-jelly-canvas__canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+.rv-jelly-canvas__label {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+}
+
 /* ─── Underline-Frame Button Family (used by /buttons showcase) ─────────
    All variants share: transparent background, configurable border
    (white or gold), and a gold underline that slides in on hover.

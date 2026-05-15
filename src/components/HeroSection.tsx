@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { basePath } from "@/lib/basePath";
 import { JellyButtonKickflip } from "@/components/JellyButtonKickflip";
+import { JellyButtonCanvas } from "@/components/JellyButtonCanvas";
 
 const proofPoints = [
   "Official wine · Queen's Diamond Jubilee",
@@ -197,11 +198,11 @@ export function HeroSection() {
               Kickflip 3D
             </span>
           </div>
-          {/* Variant B — plain .btn-cta (also the reduced-motion fallback) */}
+          {/* Variant B — Canvas 2D gold-metaballs (restored from archive
+              per user request, 2026-05-15). */}
           <div className="flex flex-col items-center gap-1.5">
-            <a
+            <JellyButtonCanvas
               href={`${basePath}/booking#visit`}
-              className="btn-cta"
               onClick={() => {
                 // Mark this navigation as coming from the homepage Hero
                 // so the booking page's floating Back-to-Top button knows
@@ -220,7 +221,7 @@ export function HeroSection() {
               }}
             >
               Vineyard Booking
-            </a>
+            </JellyButtonCanvas>
             <span
               aria-hidden
               className="font-body text-white/40 uppercase"
@@ -230,7 +231,7 @@ export function HeroSection() {
                 letterSpacing: "0.3em",
               }}
             >
-              Plain (Fallback)
+              Canvas 2D
             </span>
           </div>
         </motion.div>
