@@ -245,7 +245,7 @@ function HeritageTerroirSection() {
       {/* ── Post-card footer — the chalk-origin body paragraph.
           The grape-varieties caption that used to sit here now lives
           on the card itself (right under the grape labels). */}
-      <div className="relative z-10 max-w-[760px] mx-auto px-6 md:px-16 pb-20 md:pb-32 -mt-32 md:-mt-44 text-center">
+      <div className="relative z-10 max-w-[760px] mx-auto px-6 md:px-16 pb-20 md:pb-32 -mt-56 md:-mt-72 text-center">
         <FadeUp delay={0.35}>
           <p
             className="font-body text-white/70 leading-relaxed mx-auto"
