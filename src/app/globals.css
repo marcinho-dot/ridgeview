@@ -417,23 +417,25 @@ body::after {
      the parent `.btn-cta` resting styles. */
   border-radius: 9999px;
   padding: 16px 32px;
-  /* Slightly more cream tint comes through the glass than the
-     site-wide .btn-cta default (0.04) — the pill reads as a real
-     glassy capsule sitting on top of the dark hero photo. */
-  background: rgba(245, 240, 232, 0.07);
-  backdrop-filter: blur(28px) saturate(170%);
-  -webkit-backdrop-filter: blur(28px) saturate(170%);
+  /* Keep .btn-cta's cream-tint at 0.04 + 160% saturate so the pill
+     stays in the Ridgeview CD (dark frosted glass with gold) — we
+     borrow only the SHAPE and SHADOW from the reference screenshot,
+     not its bright white/blue/red palette. */
+  background: rgba(245, 240, 232, 0.04);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
   /* Softer gold edge — the design wants "glass with a hint of
      gold", not the etched-crystal heavy gold rim of .btn-cta. */
   border: 1px solid rgba(200, 169, 110, 0.45);
   /* Floating drop-shadow at rest: big, soft, slightly forward —
      suggests the capsule is hovering just above the surface.
-     Plus inset top-bright + bottom-dark for the glass-shading
-     trick that sells the 3D capsule shape. */
+     Inset gold-etch + a subtle cream top highlight + dark bottom
+     give the 3D capsule shading WITHOUT lifting the body so bright
+     that it reads as white. */
   box-shadow:
-    inset 0 0 0 1px rgba(200, 169, 110, 0.15),
-    inset 0 1px 0 rgba(245, 240, 232, 0.20),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.22),
+    inset 0 0 0 1px rgba(200, 169, 110, 0.16),
+    inset 0 1px 0 rgba(245, 240, 232, 0.12),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.24),
     0 16px 36px -10px rgba(0, 0, 0, 0.60),
     0 6px 14px -6px rgba(0, 0, 0, 0.40);
   transition:
@@ -469,12 +471,14 @@ body::after {
   transform:
     translateZ(var(--rv-kickflip-hover-z, 60px))
     scale(var(--rv-kickflip-hover-scale, 1.06));
-  /* Keep the resting glass shading (inset top-bright + bottom-dark)
-     and layer the gold hover glow + bigger drop shadow on top. */
+  /* Keep the resting glass shading (subtle cream top highlight +
+     dark bottom) and layer the gold hover glow + bigger drop
+     shadow on top. Cream highlight kept low (0.18) so the pill
+     stays in CD — no bright milky-white tip. */
   box-shadow:
     inset 0 0 0 1px rgba(200, 169, 110, 0.40),
-    inset 0 1px 0 rgba(245, 240, 232, 0.30),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.20),
+    inset 0 1px 0 rgba(245, 240, 232, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.22),
     0 0 36px -2px rgba(200, 169, 110, 0.30),
     0 24px 44px -12px rgba(0, 0, 0, 0.70),
     0 12px 22px -8px rgba(200, 169, 110, 0.26);
