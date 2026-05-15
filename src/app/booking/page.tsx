@@ -479,7 +479,13 @@ function VisitPanels() {
               >
                 1.5 hrs · Fri–Sun
               </p>
-              <a href="#" className="btn-cta">
+              {/* `data-back-to-top-anchor` marks this CTA as the
+                  vertical reference for the floating BackToTopFloat —
+                  the arrow measures this element's position at runtime
+                  and aligns its centre with it. Picking the Vineyard
+                  Tour CTA (LEFT panel) is arbitrary since both visit
+                  CTAs share the same baseline; either would do. */}
+              <a href="#" className="btn-cta" data-back-to-top-anchor>
                 Book a Vineyard Tour
               </a>
             </div>
@@ -565,6 +571,12 @@ function BackToTopFloat() {
   // `show` is the position-based visibility — true when the visit
   // section is in or above the viewport, false when it's below.
   const [show, setShow] = useState(false);
+  // Dynamic `bottom: Npx` value. Computed at runtime by measuring the
+  // visit-section CTA marked with `data-back-to-top-anchor` and
+  // aligning the arrow's centre with the CTA's centre. Falls back to
+  // a sensible default when the CTA isn't in the viewport. See the
+  // "Position alignment" useEffect below for the actual math.
+  const [bottomPx, setBottomPx] = useState<number>(80);
 
   // Consume the one-time "from hero" flag on mount.
   useEffect(() => {
@@ -662,14 +674,92 @@ function BackToTopFloat() {
     };
   }, [enabled]);
 
+  // ── Position alignment ───────────────────────────────────────────────
+  // Dynamically position the arrow so its vertical centre matches the
+  // visit-section CTA (marked with `data-back-to-top-anchor`).
+  //
+  // Why JS rather than a static `bottom: Npx`: the CTA's position in
+  // the viewport depends on viewport height, browser chrome, scroll
+  // position, and how the panels' min-height responds to the viewport
+  // — any single hard-coded value only aligns at one specific
+  // viewport size and breaks elsewhere. Measuring the actual rect at
+  // runtime side-steps that entire estimation problem.
+  //
+  // When the CTA is OUT of the viewport (user scrolled past, CTA
+  // above the fold), fall back to a sensible default near the bottom
+  // corner so the arrow still has a stable resting position.
+  useEffect(() => {
+    if (!enabled) return;
+
+    const ARROW_HEIGHT = 40; // matches the inline style width/height below.
+
+    const update = () => {
+      const isMobile = window.innerWidth < 768;
+      // Default fallback positions. Mobile keeps BottomNav clearance.
+      const fallback = isMobile ? 80 : 32;
+      const minBottom = isMobile ? 80 : 16;
+
+      const cta = document.querySelector<HTMLElement>(
+        "[data-back-to-top-anchor]",
+      );
+      if (!cta) {
+        setBottomPx(fallback);
+        return;
+      }
+
+      const rect = cta.getBoundingClientRect();
+      const vh = window.innerHeight;
+
+      // CTA not in viewport at all → use fallback bottom-corner position.
+      const inViewport = rect.bottom > 0 && rect.top < vh;
+      if (!inViewport) {
+        setBottomPx(fallback);
+        return;
+      }
+
+      // CTA centre Y from viewport top.
+      const ctaCenter = (rect.top + rect.bottom) / 2;
+      // Arrow positioned with `bottom: X px` → its centre sits at
+      // (vh - X - ARROW_HEIGHT/2) from viewport top. Set equal to
+      // ctaCenter and solve for X:
+      const computedBottom = vh - ctaCenter - ARROW_HEIGHT / 2;
+
+      // Clamp so the arrow never escapes the viewport.
+      const clamped = Math.max(
+        minBottom,
+        Math.min(vh - ARROW_HEIGHT - 16, computedBottom),
+      );
+      setBottomPx(clamped);
+    };
+
+    // rAF-throttle scroll/resize callbacks so we don't thrash on
+    // every event (scroll can fire 100s of times per second).
+    let rafId = 0;
+    const onChange = () => {
+      if (rafId) return;
+      rafId = window.requestAnimationFrame(() => {
+        rafId = 0;
+        update();
+      });
+    };
+
+    update();
+    window.addEventListener("scroll", onChange, { passive: true });
+    window.addEventListener("resize", onChange);
+    return () => {
+      if (rafId) window.cancelAnimationFrame(rafId);
+      window.removeEventListener("scroll", onChange);
+      window.removeEventListener("resize", onChange);
+    };
+  }, [enabled]);
+
   // Inline styles for the V4 etched-crystal look — replicated here
   // rather than via the `.btn-cta` class because `.btn-cta` declares
   // `position: relative` which (in this Tailwind v4 + Next.js setup)
   // wins over Tailwind's `.fixed` utility due to CSS layer ordering.
   // Inline styles bypass that conflict entirely. Tailwind utilities
-  // are still used for responsive offsets (md:right-8, md:bottom-8)
-  // since those don't conflict with anything when `.btn-cta` is
-  // not in the class list.
+  // are still used for the right offset; `bottom` is set dynamically
+  // via the inline `style` from the useEffect above.
   return (
     <AnimatePresence>
       {enabled && show && (
@@ -677,11 +767,16 @@ function BackToTopFloat() {
           href="#top"
           aria-label="Back to top of page"
           title="Back to top"
-          className="fixed right-6 md:right-8 bottom-20 md:bottom-32 z-50"
+          className="fixed right-6 md:right-8 z-50"
           style={{
             display: "inline-flex",
             alignItems: "center",
             justifyContent: "center",
+            // `bottom` is dynamic — see the "Position alignment"
+            // useEffect above. The arrow's centre stays locked to the
+            // visit-section CTA's centre while the CTA is in the
+            // viewport; falls back to a near-bottom corner otherwise.
+            bottom: `${bottomPx}px`,
             // 40 px square — matches the computed height of a `.btn-cta`
             // (font-size 10-11 px · padding 13 px vertical = ~40 px),
             // so the floating arrow visually aligns with the "Reserve a
