@@ -711,9 +711,12 @@ function BackToTopFloat() {
       if (measured) return;
       const rect = cta.getBoundingClientRect();
       const vh = window.innerHeight;
-      // Must be actually in the viewport for the measurement to be
-      // meaningful; offscreen rects would give us a nonsense bottom.
-      if (rect.bottom <= 0 || rect.top >= vh) return;
+      // The CTA must be FULLY inside the viewport — not just barely
+      // intersecting. The previous "any intersection" check captured
+      // the moment the CTA first peeked in from the bottom, when its
+      // centre was still below the fold. The resulting bottom was
+      // negative, got clamped to minBottom (16 px), and locked there.
+      if (rect.top < 0 || rect.bottom > vh) return;
 
       const ARROW_HEIGHT = 40;
       const isMobile = window.innerWidth < 768;
@@ -730,15 +733,20 @@ function BackToTopFloat() {
       measured = true;
     };
 
-    // IntersectionObserver fires once synchronously after observe()
-    // with the current state, so this covers BOTH "CTA already in
-    // viewport at mount" and "CTA enters viewport after the
-    // smooth-scroll-to-#visit completes".
+    // Multi-threshold IntersectionObserver: fires every time the CTA's
+    // intersection ratio crosses 0.25 / 0.5 / 0.75 / 1.0. By the time
+    // we hit 1.0, the CTA is fully inside the viewport — that's the
+    // first scroll moment where measure() actually has a usable rect.
+    // Single-threshold-0 wouldn't work here: it only fires twice (on
+    // enter and on exit) and the enter-fire happens at the worst
+    // possible moment (barely visible, centre below the fold).
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0]?.isIntersecting && !measured) measure();
+        if (!measured && (entries[0]?.intersectionRatio ?? 0) >= 1) {
+          measure();
+        }
       },
-      { threshold: 0 },
+      { threshold: [0, 0.25, 0.5, 0.75, 1] },
     );
     observer.observe(cta);
 
