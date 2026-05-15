@@ -426,14 +426,26 @@ body::after {
     background 0.35s ease;
   will-change: transform;
 }
-/* Hover state — the pill rises in Z (forward toward the camera) but
-   makes NO Y motion: its bounding box stays on the same horizontal
-   page line. `--rv-kickflip-hover-z` is set inline by the React
-   component (default 12px) so we keep the value in one place.
+/* Hover state — the pill rises forward toward the camera (translateZ)
+   AND scales slightly (scale). The scale is what gives the visible
+   "rise" — translateZ alone at perspective 600 yields ~2 % projected
+   scale, which most users miss. Combined, the pill grows ~6 % on
+   hover, clearly readable.
+
+   Crucially: NO translateY → bounding box stays on the same
+   horizontal page line.
+
+   Both values are exposed as CSS custom properties set inline by
+   the React component (defaults shown):
+     --rv-kickflip-hover-z      60px
+     --rv-kickflip-hover-scale  1.06
+
    The `:not(.--active)` guard prevents this hover transform from
    fighting the JS-driven click flip while it's in flight. */
 .rv-kickflip-pill:hover:not(.rv-kickflip-pill--active) {
-  transform: translateZ(var(--rv-kickflip-hover-z, 12px));
+  transform:
+    translateZ(var(--rv-kickflip-hover-z, 60px))
+    scale(var(--rv-kickflip-hover-scale, 1.06));
   box-shadow:
     inset 0 0 0 1px rgba(200, 169, 110, 0.42),
     inset 0 1px 0 rgba(245, 240, 232, 0.14),

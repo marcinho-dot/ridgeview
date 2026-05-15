@@ -46,8 +46,14 @@ const FLIP_DURATION_MS = 1100;
 const FLIP_TURNS = 3;
 /** Peak translateZ at the apex of the click flip (px). */
 const FLIP_Z_PEAK = 36;
-/** Hover translateZ — the "rise" with no Y motion. */
-const HOVER_Z = 12;
+/** Hover translateZ (px) — the depth "rise" toward the camera.
+ *  Combined with `--rv-kickflip-hover-scale` it gives a visible
+ *  forward-pop on hover without any Y motion. */
+const HOVER_Z = 60;
+/** Hover scale multiplier — pairs with the Z pop to guarantee the
+ *  rise is visually obvious (translateZ alone at perspective 600
+ *  yields only ~2% projected scale, which most users miss). */
+const HOVER_SCALE = 1.06;
 /** Lerp factor for the cursor-following metaballs (0..1). */
 const HOVER_LERP = 0.22;
 
@@ -263,7 +269,10 @@ export function JellyButtonKickflip({
         onMouseMove={(e) => updateMouse(e, true)}
         onMouseLeave={(e) => updateMouse(e, false)}
         className="btn-cta rv-kickflip-pill"
-        style={{ ["--rv-kickflip-hover-z" as string]: `${HOVER_Z}px` }}
+        style={{
+          ["--rv-kickflip-hover-z" as string]: `${HOVER_Z}px`,
+          ["--rv-kickflip-hover-scale" as string]: `${HOVER_SCALE}`,
+        }}
       >
         <canvas
           ref={canvasRef}
