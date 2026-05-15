@@ -47,7 +47,7 @@ export function CartButton({ className = "" }: CartButtonProps) {
       {count > 0 && (
         <span
           aria-hidden
-          className={`absolute top-1 right-1 flex items-center justify-center min-w-[14px] h-[14px] px-[3px] rounded-full bg-[#C8A96E] text-[#010101] font-body text-[8px] font-medium leading-none ring-1 ring-[#010101] tabular-nums transition-transform duration-300 ${
+          className={`absolute top-0 right-0 flex items-center justify-center min-w-[14px] h-[14px] px-[3px] rounded-full bg-[#C8A96E] text-[#010101] font-body text-[8px] font-medium leading-none ring-1 ring-[#010101] tabular-nums transition-transform duration-300 ${
             pulse ? "scale-110" : "scale-100"
           }`}
         >
