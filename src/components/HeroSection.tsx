@@ -175,35 +175,63 @@ export function HeroSection() {
             the resting frosted-glass + gold border look + spring-back
             press feedback. */}
         <motion.div
-          className="mt-5 flex flex-wrap items-center gap-3"
+          className="mt-5 flex flex-wrap items-start gap-3"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <JellyButtonCss href={`${basePath}/#wine-collection`}>
-            Shop
-          </JellyButtonCss>
-          <JellyButtonCanvas
-            href={`${basePath}/booking#visit`}
-            onClick={() => {
-              // Mark this navigation as coming from the homepage Hero
-              // so the booking page's floating Back-to-Top button knows
-              // to enable itself. Timestamped + one-time-use; the booking
-              // page consumes & deletes this on mount. Stale flag (>10s)
-              // is ignored, so click-but-don't-navigate edge cases don't
-              // accidentally activate the button later.
-              try {
-                sessionStorage.setItem(
-                  "rv-back-to-top-from-hero",
-                  String(Date.now()),
-                );
-              } catch {
-                /* sessionStorage unavailable (private mode etc.) — fine */
-              }
-            }}
-          >
-            Vineyard Booking
-          </JellyButtonCanvas>
+          {/* Variant A — SVG goo filter */}
+          <div className="flex flex-col items-center gap-1.5">
+            <JellyButtonCss href={`${basePath}/#wine-collection`}>
+              Shop
+            </JellyButtonCss>
+            <span
+              aria-hidden
+              className="font-body text-white/40 uppercase"
+              style={{
+                fontSize: "10px",
+                fontWeight: 300,
+                letterSpacing: "0.3em",
+              }}
+            >
+              CSS / SVG
+            </span>
+          </div>
+          {/* Variant B — Canvas 2D metaballs */}
+          <div className="flex flex-col items-center gap-1.5">
+            <JellyButtonCanvas
+              href={`${basePath}/booking#visit`}
+              onClick={() => {
+                // Mark this navigation as coming from the homepage Hero
+                // so the booking page's floating Back-to-Top button knows
+                // to enable itself. Timestamped + one-time-use; the booking
+                // page consumes & deletes this on mount. Stale flag (>10s)
+                // is ignored, so click-but-don't-navigate edge cases don't
+                // accidentally activate the button later.
+                try {
+                  sessionStorage.setItem(
+                    "rv-back-to-top-from-hero",
+                    String(Date.now()),
+                  );
+                } catch {
+                  /* sessionStorage unavailable (private mode etc.) — fine */
+                }
+              }}
+            >
+              Vineyard Booking
+            </JellyButtonCanvas>
+            <span
+              aria-hidden
+              className="font-body text-white/40 uppercase"
+              style={{
+                fontSize: "10px",
+                fontWeight: 300,
+                letterSpacing: "0.3em",
+              }}
+            >
+              Canvas 2D
+            </span>
+          </div>
         </motion.div>
       </div>
 
