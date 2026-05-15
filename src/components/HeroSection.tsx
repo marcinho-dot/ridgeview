@@ -3,6 +3,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { basePath } from "@/lib/basePath";
+import { JellyButtonCss } from "@/components/JellyButtonCss";
+import { JellyButtonCanvas } from "@/components/JellyButtonCanvas";
 
 const proofPoints = [
   "Official wine · Queen's Diamond Jubilee",
@@ -166,21 +168,23 @@ export function HeroSection() {
             entry-points and the navbar tell the same story. On
             narrow screens they wrap to a stack via flex-wrap so the
             second button never overflows. */}
+        {/* Hero CTAs — jelly-button experiment (2026-05-15):
+            Shop uses the SVG-goo variant, Vineyard Booking uses the
+            Canvas-2D-metaballs variant, so both effects are visible
+            side-by-side for A/B comparison. Both share `.btn-cta` for
+            the resting frosted-glass + gold border look + spring-back
+            press feedback. */}
         <motion.div
           className="mt-5 flex flex-wrap items-center gap-3"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <a
-            href={`${basePath}/#wine-collection`}
-            className="btn-cta"
-          >
+          <JellyButtonCss href={`${basePath}/#wine-collection`}>
             Shop
-          </a>
-          <a
+          </JellyButtonCss>
+          <JellyButtonCanvas
             href={`${basePath}/booking#visit`}
-            className="btn-cta"
             onClick={() => {
               // Mark this navigation as coming from the homepage Hero
               // so the booking page's floating Back-to-Top button knows
@@ -199,7 +203,7 @@ export function HeroSection() {
             }}
           >
             Vineyard Booking
-          </a>
+          </JellyButtonCanvas>
         </motion.div>
       </div>
 

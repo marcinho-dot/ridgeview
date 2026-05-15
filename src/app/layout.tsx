@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { RevealInit } from "@/components/RevealInit";
+import { RvGooDefs } from "@/components/RvGooDefs";
 
 export const metadata: Metadata = {
   title: "Ridgeview Wine Estate — English Sparkling Wine",
@@ -26,6 +27,7 @@ export default function RootLayout({
       <body className="antialiased">
         <RevealInit />
         <ScrollProgress />
+        <RvGooDefs />
         {children}
       </body>
     </html>
