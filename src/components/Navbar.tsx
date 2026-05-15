@@ -142,7 +142,7 @@ export function Navbar() {
           <CartButton className="text-white" />
           <a
             href={wineClubHref}
-            className="hidden md:flex link-underline font-body text-white/75 text-[11px] tracking-[0.2em] uppercase hover:text-[#C8A96E] transition-colors duration-300"
+            className="hidden md:flex relative top-[2px] link-underline font-body text-white/75 text-[11px] tracking-[0.2em] uppercase hover:text-[#C8A96E] transition-colors duration-300"
           >
             Wine Club
           </a>
