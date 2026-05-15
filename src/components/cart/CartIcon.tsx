@@ -1,15 +1,18 @@
 /**
- * CartIcon — woven basket with a grape cluster sitting in it.
+ * CartIcon — woven basket with a bottle + grape cluster sitting in it.
  *
- * Custom SVG built from scratch in the Lucide line-icon style:
- *   - 24×24 viewBox, no fill, `currentColor` stroke
- *   - 1.5 px stroke with round caps + joins
- *   - Reads clearly down to 18 px (navbar size)
+ * Hand-designed mark provided by the user (2026-05-15). 100×100
+ * viewBox; all strokes / fills use `currentColor` so the icon
+ * inherits the Navbar's themed colour (white/65 → gold on hover).
  *
- * Why a custom mark: Lucide ships a `Grape` and a `ShoppingBasket`
- * icon separately, but neither captures Ridgeview's "estate-grown
- * grapes in a wine-country wicker basket" association. Combined
- * mark says "wine cart" in one glance.
+ * Composition (back to front):
+ *   1. Curved bottle handle / hoop arching over the basket top.
+ *   2. Wine bottle tilted -15°, leaning into the basket.
+ *   3. Grape cluster with a small stem, sitting on the basket's
+ *      right rim.
+ *   4. Basket rim — flat rounded bar across the middle.
+ *   5. Three horizontal rows of weave rectangles forming the
+ *      trapezoidal body, narrowing toward the base.
  */
 
 import { SVGProps } from "react";
@@ -22,42 +25,72 @@ export function CartIcon({
     <svg
       width={size}
       height={size}
-      viewBox="0 0 24 24"
+      viewBox="0 0 100 100"
       fill="none"
       stroke="currentColor"
-      strokeWidth={1.5}
-      strokeLinecap="round"
-      strokeLinejoin="round"
       aria-hidden
       {...rest}
     >
-      {/* Tiny stem + leaf at the very top of the cluster */}
-      <path d="M13 4 L 14 2.8" />
-      <path d="M14.2 2.5 C 15.2 2.2, 16 2.6, 15.6 3.6 C 15.2 4.1, 14.5 4.1, 14 3.9" />
+      {/* Handle / hoop arc */}
+      <path
+        d="M 22 50 C 22 5 78 5 78 50"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={8}
+        strokeLinecap="round"
+      />
 
-      {/* Grape cluster — 6 circles in an inverted-triangle pyramid */}
-      <circle cx="9.5" cy="5" r="1.1" />
-      <circle cx="12" cy="5" r="1.1" />
-      <circle cx="14.5" cy="5" r="1.1" />
-      <circle cx="10.75" cy="7" r="1.1" />
-      <circle cx="13.25" cy="7" r="1.1" />
-      <circle cx="12" cy="9" r="1.1" />
+      {/* Wine bottle (tilted -15° in the basket) */}
+      <g transform="rotate(-15 35 45)">
+        <path
+          d="M 26 55 L 26 30 C 26 23 30 20 30 14 L 30 8 C 30 6 32 5 34 5 C 36 5 38 6 38 8 L 38 14 C 38 20 42 23 42 30 L 42 55 Z"
+          fill="currentColor"
+          stroke="none"
+        />
+      </g>
 
-      {/* Basket rim — flat top edge with subtle ellipse cap */}
-      <path d="M3.5 11.5 Q 12 12.8, 20.5 11.5" />
-      <path d="M3.5 11.5 L 20.5 11.5" />
+      {/* Grape cluster stem */}
+      <path
+        d="M 66 30 Q 70 24 78 26"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={3}
+        strokeLinecap="round"
+      />
+      {/* Grape cluster (8 berries) */}
+      <circle cx="62" cy="35" r="5" fill="currentColor" stroke="none" />
+      <circle cx="72" cy="36" r="5" fill="currentColor" stroke="none" />
+      <circle cx="58" cy="44" r="5" fill="currentColor" stroke="none" />
+      <circle cx="68" cy="45" r="5" fill="currentColor" stroke="none" />
+      <circle cx="76" cy="42" r="5" fill="currentColor" stroke="none" />
+      <circle cx="63" cy="52" r="5" fill="currentColor" stroke="none" />
+      <circle cx="72" cy="51" r="5" fill="currentColor" stroke="none" />
+      <circle cx="68" cy="58" r="5" fill="currentColor" stroke="none" />
 
-      {/* Basket body — trapezoidal, narrowing toward the base */}
-      <path d="M3.5 11.5 L 5.7 21 L 18.3 21 L 20.5 11.5" />
+      {/* Basket rim */}
+      <rect
+        x="12"
+        y="48"
+        width="76"
+        height="10"
+        rx="5"
+        fill="currentColor"
+        stroke="none"
+      />
 
-      {/* Weave — three vertical staves angled with the basket walls */}
-      <path d="M7.5 11.7 L 8 21" />
-      <path d="M12 11.7 L 12 21" />
-      <path d="M16.5 11.7 L 16 21" />
+      {/* Basket weave — row 1 (3 staves) */}
+      <rect x="18" y="62" width="18" height="9" rx="3" fill="currentColor" stroke="none" />
+      <rect x="41" y="62" width="18" height="9" rx="3" fill="currentColor" stroke="none" />
+      <rect x="64" y="62" width="18" height="9" rx="3" fill="currentColor" stroke="none" />
 
-      {/* Weave — two horizontal bands that follow the trapezoidal curve */}
-      <path d="M4.8 14.8 Q 12 16, 19.2 14.8" />
-      <path d="M5.4 18 Q 12 19.1, 18.6 18" />
+      {/* Basket weave — row 2 (3 staves, slightly narrower / offset) */}
+      <rect x="25" y="75" width="14" height="8" rx="3" fill="currentColor" stroke="none" />
+      <rect x="43" y="75" width="14" height="8" rx="3" fill="currentColor" stroke="none" />
+      <rect x="61" y="75" width="14" height="8" rx="3" fill="currentColor" stroke="none" />
+
+      {/* Basket weave — row 3 (2 staves at the base) */}
+      <rect x="34" y="87" width="14" height="7" rx="3" fill="currentColor" stroke="none" />
+      <rect x="52" y="87" width="14" height="7" rx="3" fill="currentColor" stroke="none" />
     </svg>
   );
 }

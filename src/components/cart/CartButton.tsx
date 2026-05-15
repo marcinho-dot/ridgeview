@@ -47,8 +47,8 @@ export function CartButton({ className = "" }: CartButtonProps) {
       {count > 0 && (
         <span
           aria-hidden
-          className={`absolute -top-0.5 -right-0.5 flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full bg-[#C8A96E] text-[#010101] font-body text-[10px] font-medium leading-none ring-1 ring-[#010101] transition-transform duration-300 ${
-            pulse ? "scale-125" : "scale-100"
+          className={`absolute -top-1 -right-1.5 flex items-center justify-center min-w-[13px] h-[13px] px-[3px] rounded-full bg-[#C8A96E] text-[#010101] font-body text-[8px] font-medium leading-none ring-1 ring-[#010101] tabular-nums transition-transform duration-300 ${
+            pulse ? "scale-110" : "scale-100"
           }`}
         >
           {count > 99 ? "99+" : count}
