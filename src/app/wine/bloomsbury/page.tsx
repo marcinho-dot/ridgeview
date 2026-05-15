@@ -158,7 +158,7 @@ function ProductHero() {
                 style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, lineHeight: 1.75, maxWidth: "540px" }}
               >
                 Bright, fresh and fruit-driven with vibrant citrus aromas and notes of lemon zest,
-                green apple and honey. Our bestselling blend epitomises the Classic Method English
+                green apple and honey. Our bestselling blend epitomises the méthode champenoise English
                 style &mdash; structured and bright, with crisp green apple and citrus layered
                 with toasted almond and buttery pastry, finishing fresh and moreish with a touch
                 of saline minerality.
@@ -515,7 +515,7 @@ function BlendSection() {
               className="font-body text-white/55"
               style={{ fontSize: "clamp(13px, 1.25vw, 15px)", maxWidth: "520px", margin: "0 auto" }}
             >
-              Epitomising the Classic Method English style.
+              Epitomising the méthode champenoise English style.
             </p>
           </FadeUp>
         </div>
@@ -766,7 +766,7 @@ const SCHEMA_LD = {
   "@type": "Product",
   name: "Ridgeview Bloomsbury NV",
   description:
-    "Bright, fresh and fruit-driven English Sparkling Wine — vibrant citrus aromas with green apple and honey. Bestselling Classic Method blend from Sussex.",
+    "Bright, fresh and fruit-driven English Sparkling Wine — vibrant citrus aromas with green apple and honey. Bestselling méthode champenoise blend from Sussex.",
   image: "https://darkslateblue-alligator-388666.hostingersite.com/ridgeview/products/bloomsbury.png",
   brand: { "@type": "Brand", name: "Ridgeview Wine Estate" },
   sku: "R2201",
@@ -882,12 +882,12 @@ export default function BloomsburyPage() {
           like lees duration / palate notes live in the Specs section. */}
       <ScrollReset>
         <BehindTheBottleSection
-          headline={<>Crafted in the <span className="text-[#C8A96E]">Classic Method</span>.</>}
-          intro="For three decades, Ridgeview has crafted English sparkling wines the long way — by hand, on the chalk hills of Sussex, using the same Classic Method as the great houses of Champagne."
+          headline={<>Crafted in the <span className="text-[#C8A96E]">méthode champenoise</span>.</>}
+          intro="For three decades, Ridgeview has crafted English sparkling wines the long way — by hand, on the chalk hills of Sussex, using the same méthode champenoise as the great houses of Champagne."
           pillars={[
             { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region — the foundation of every great sparkling wine." },
             { label: "Hand Harvest", detail: "Grapes are picked at first light and sorted by hand to keep only the most balanced bunches." },
-            { label: "Méthode Traditionnelle", detail: "Secondary fermentation in bottle — the same Classic Method used in the great houses of Champagne." },
+            { label: "Méthode Traditionnelle", detail: "Secondary fermentation in bottle — the same méthode champenoise used in the great houses of Champagne." },
           ]}
         />
       </ScrollReset>

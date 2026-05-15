@@ -149,7 +149,7 @@ export default function PeoplePage() {
           >
             Head Winemaker at Ridgeview and son of founder Mike Roberts.
             Simon carries the{" "}
-            <span className="text-[#C8A96E]">Traditional Method</span> forward on
+            <span className="text-[#C8A96E]">méthode champenoise</span> forward on
             Sussex chalk — every cuvée passes through his hands from press to
             dégorgement, guided by the same conviction his father planted in
             1995.

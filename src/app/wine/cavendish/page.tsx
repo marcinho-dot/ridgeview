@@ -137,7 +137,7 @@ function ProductHero() {
                 className="font-display italic text-white/85 mb-3 md:mb-5"
                 style={{ fontSize: "clamp(18px, 2vw, 26px)", fontWeight: 400, lineHeight: 1.35 }}
               >
-                Our traditional Classic Method blend
+                Our méthode champenoise blend
               </p>
             </FadeUp>
 
@@ -158,7 +158,7 @@ function ProductHero() {
                 className="font-body text-white/70 mb-4 md:mb-6"
                 style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, lineHeight: 1.75, maxWidth: "540px" }}
               >
-                Our flagship Classic Method blend &mdash; Pinot Noir and Pinot Meunier
+                Our flagship méthode champenoise blend &mdash; Pinot Noir and Pinot Meunier
                 weave through Chardonnay to give depth, weight and finesse. Bright
                 red berry aromas open onto a palate of toasted almond, raspberry
                 frangipane and subtle bergamot orange, finishing with the saline
@@ -287,7 +287,7 @@ function ProductHero() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={`${basePath}/products/cavendish.png`}
-                  alt="Ridgeview Cavendish — Classic Method blend, 75cl bottle"
+                  alt="Ridgeview Cavendish — méthode champenoise blend, 75cl bottle"
                   className="pointer-events-auto w-auto max-w-none object-contain h-[clamp(376px,51svh,484px)] md:h-[clamp(704px,90svh,1078px)] [transform:translateX(8%)_translateY(-30px)_rotate(28deg)] md:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)] hover:[transform:translateX(8%)_translateY(-30px)_rotate(28deg)_scale(1.015)] md:hover:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)_scale(1.015)] [transition:transform_900ms_cubic-bezier(0.16,1,0.3,1),filter_900ms_cubic-bezier(0.16,1,0.3,1)] hover:[filter:drop-shadow(0_40px_80px_rgba(0,0,0,0.7))_drop-shadow(0_0_60px_rgba(200,169,110,0.12))]"
                   style={{
                     transformOrigin: "center",
@@ -420,7 +420,7 @@ function TastingPairingSection() {
   );
 }
 
-// ── Blend (three-grape Classic Method) ─────────────────────────────────────
+// ── Blend (three-grape méthode champenoise) ─────────────────────────────────────
 
 function BlendSection() {
   return (
@@ -456,7 +456,7 @@ function BlendSection() {
               className="font-body text-white/55"
               style={{ fontSize: "clamp(13px, 1.25vw, 15px)", maxWidth: "520px", margin: "0 auto" }}
             >
-              A traditional Classic Method blend grown across our chalk
+              A méthode champenoise blend grown across our chalk
               vineyards on the South Downs.
             </p>
           </FadeUp>
@@ -508,7 +508,7 @@ function BlendSection() {
               beneath Champagne. Pinot Noir and Pinot Meunier carry
               the body and red-berry depth; Chardonnay layers in the
               freshness and finesse. Together they form Cavendish &mdash;
-              the everyday Classic Method blend, served at State
+              the everyday méthode champenoise blend, served at State
               Banquets and named the UK Government&rsquo;s most-poured
               sparkling wine in 2024.
             </p>
@@ -530,7 +530,7 @@ function AwardsSpecsSection() {
   const specs = [
     { label: "Vintage", value: "Non Vintage" },
     { label: "Blend", value: "Pinot Noir · Pinot Meunier · Chardonnay" },
-    { label: "Style", value: "Brut · Classic Method" },
+    { label: "Style", value: "Brut · méthode champenoise" },
     { label: "Bottle Size", value: "75cl" },
     { label: "ABV", value: "12%" },
     { label: "Allergens", value: "Contains Sulphites" },
@@ -689,7 +689,7 @@ const SCHEMA_LD = {
   "@type": "Product",
   name: "Ridgeview Cavendish",
   description:
-    "Classic Method English Sparkling Wine. A traditional Pinot-led blend of Pinot Noir, Pinot Meunier and Chardonnay — red berries, toasted almond and bergamot orange over a saline finish. UK Government's Most-Poured Sparkling Wine 2024.",
+    "méthode champenoise English Sparkling Wine. A traditional Pinot-led blend of Pinot Noir, Pinot Meunier and Chardonnay — red berries, toasted almond and bergamot orange over a saline finish. UK Government's Most-Poured Sparkling Wine 2024.",
   image: "https://ridgeview.vercel.app/products/cavendish.png",
   brand: { "@type": "Brand", name: "Ridgeview Wine Estate" },
   sku: "R2102",
@@ -792,12 +792,12 @@ export default function CavendishPage() {
           section and the Varietal section above. */}
       <ScrollReset>
         <BehindTheBottleSection
-          headline={<>Crafted in the <span className="text-[#C8A96E]">Classic Method</span>.</>}
-          intro="For three decades, Ridgeview has crafted English sparkling wines the long way — by hand, on the chalk hills of Sussex, using the same Classic Method as the great houses of Champagne."
+          headline={<>Crafted in the <span className="text-[#C8A96E]">méthode champenoise</span>.</>}
+          intro="For three decades, Ridgeview has crafted English sparkling wines the long way — by hand, on the chalk hills of Sussex, using the same méthode champenoise as the great houses of Champagne."
           pillars={[
             { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region — the foundation of every great sparkling wine." },
             { label: "Hand Harvest", detail: "Grapes are picked at first light and sorted by hand to keep only the most balanced bunches." },
-            { label: "Méthode Traditionnelle", detail: "Secondary fermentation in bottle — the same Classic Method used in the great houses of Champagne." },
+            { label: "Méthode Traditionnelle", detail: "Secondary fermentation in bottle — the same méthode champenoise used in the great houses of Champagne." },
           ]}
         />
       </ScrollReset>
@@ -814,7 +814,7 @@ export default function CavendishPage() {
             year: 2017,
             tier: "Recommended",
             badgeSrc: "/images/awards/decanter-2017-silver.webp",
-            description: "Awarded Silver by the global Decanter judging panel — confirming Cavendish as a benchmark for the Classic Method outside of Champagne. Also named the UK Government's most-poured sparkling wine in 2024.",
+            description: "Awarded Silver by the global Decanter judging panel — confirming Cavendish as a benchmark for the méthode champenoise outside of Champagne. Also named the UK Government's most-poured sparkling wine in 2024.",
           }}
         />
       </ScrollReset>

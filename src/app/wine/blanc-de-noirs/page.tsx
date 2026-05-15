@@ -491,7 +491,7 @@ function BlendSection() {
               className="font-body text-white/55"
               style={{ fontSize: "clamp(13px, 1.25vw, 15px)", maxWidth: "520px", margin: "0 auto" }}
             >
-              The Pinots, vinified white. A vintage Classic Method
+              The Pinots, vinified white. A vintage méthode champenoise
               cuvée from our Sussex chalk vineyards.
             </p>
           </FadeUp>
@@ -564,7 +564,7 @@ function AwardsSpecsSection() {
   const specs = [
     { label: "Vintage", value: "Vintage · 2016" },
     { label: "Blend", value: "Pinot Noir · Pinot Meunier" },
-    { label: "Style", value: "Brut · Classic Method" },
+    { label: "Style", value: "Brut · méthode champenoise" },
     { label: "Bottle Size", value: "75cl" },
     { label: "ABV", value: "12%" },
     { label: "Allergens", value: "Contains Sulphites" },
@@ -723,7 +723,7 @@ const SCHEMA_LD = {
   "@type": "Product",
   name: "Ridgeview Blanc de Noirs 2016",
   description:
-    "Vintage 2016 Classic Method English Sparkling Wine made entirely from red grapes (Pinot Noir + Pinot Meunier). White cherry, sweet spice and toasted hazelnut over a structured, mineral-driven finish. WineGB Best Blanc de Noirs 2023.",
+    "Vintage 2016 méthode champenoise English Sparkling Wine made entirely from red grapes (Pinot Noir + Pinot Meunier). White cherry, sweet spice and toasted hazelnut over a structured, mineral-driven finish. WineGB Best Blanc de Noirs 2023.",
   image: "https://ridgeview.vercel.app/products/blanc-de-noirs.png",
   brand: { "@type": "Brand", name: "Ridgeview Wine Estate" },
   sku: "R1605",
@@ -827,12 +827,12 @@ export default function BlancDeNoirsPage() {
           section and the Varietal section above. */}
       <ScrollReset>
         <BehindTheBottleSection
-          headline={<>Crafted in the <span className="text-[#C8A96E]">Classic Method</span>.</>}
-          intro="For three decades, Ridgeview has crafted English sparkling wines the long way — by hand, on the chalk hills of Sussex, using the same Classic Method as the great houses of Champagne."
+          headline={<>Crafted in the <span className="text-[#C8A96E]">méthode champenoise</span>.</>}
+          intro="For three decades, Ridgeview has crafted English sparkling wines the long way — by hand, on the chalk hills of Sussex, using the same méthode champenoise as the great houses of Champagne."
           pillars={[
             { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region — the foundation of every great sparkling wine." },
             { label: "Hand Harvest", detail: "Grapes are picked at first light and sorted by hand to keep only the most balanced bunches." },
-            { label: "Méthode Traditionnelle", detail: "Secondary fermentation in bottle — the same Classic Method used in the great houses of Champagne." },
+            { label: "Méthode Traditionnelle", detail: "Secondary fermentation in bottle — the same méthode champenoise used in the great houses of Champagne." },
           ]}
         />
       </ScrollReset>
