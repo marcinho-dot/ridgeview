@@ -180,7 +180,7 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          {/* Variant A — SVG goo filter */}
+          {/* Variant A — CSS-transition 3D lift+tilt */}
           <div className="flex flex-col items-center gap-1.5">
             <JellyButtonCss href={`${basePath}/#wine-collection`}>
               Shop
@@ -194,10 +194,10 @@ export function HeroSection() {
                 letterSpacing: "0.3em",
               }}
             >
-              CSS / SVG
+              CSS 3D
             </span>
           </div>
-          {/* Variant B — Canvas 2D metaballs */}
+          {/* Variant B — JS spring-physics 3D lift+tilt */}
           <div className="flex flex-col items-center gap-1.5">
             <JellyButtonCanvas
               href={`${basePath}/booking#visit`}
@@ -229,7 +229,7 @@ export function HeroSection() {
                 letterSpacing: "0.3em",
               }}
             >
-              Canvas 2D
+              Spring 3D
             </span>
           </div>
         </motion.div>

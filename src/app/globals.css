@@ -369,78 +369,116 @@ body::after {
     0 0 0 2px rgba(200, 169, 110, 0.25);
 }
 
-/* ─── Jelly Button (CSS / SVG goo) ──────────────────────────────────────
-   Stacks on top of `.btn-cta` (preserves frosted-glass + gold border +
-   spring-back press feedback). Adds a goo-filtered gold blob layer that
-   follows the cursor with elastic transitions. The SVG filter is
-   provided by <RvGooDefs /> (mounted once in layout.tsx) under the id
-   `#rv-goo-filter`. */
-.rv-jelly-css {
+/* ─── Jelly Button — 3D Lift + Tilt ─────────────────────────────────────
+   Inspired by the Software-Mansion TypeGPU jelly-slider demo. We can't
+   do real WebGPU SDF raymarching, but the visible *button* behaviour
+   (pill lifts off the surface + tilts in 3D toward the cursor) is
+   reproducible with CSS 3D transforms.
+
+   The `stage` wrapper supplies the perspective so child rotateX/Y
+   create real depth. The `pill` extends .btn-cta — keeps the
+   frosted-glass + gold-border resting look and the spring-back
+   :active press feedback. Two pill variants share the same CSS:
+
+     .rv-jelly3d-pill           → pure CSS transitions (variant A)
+     .rv-jelly3d-pill--spring   → JS rAF spring physics (variant B)
+
+   Only the transition timing differs — the spring variant uses a
+   transparent transition (instant DOM update each frame). */
+.rv-jelly3d-stage {
+  display: inline-block;
+  perspective: 480px;
+  /* Closer perspective = more dramatic foreshortening when the pill
+     tilts. The stage itself sits in the regular document flow with
+     the same vertical rhythm as the original `.btn-cta` would have. */
+}
+.rv-jelly3d-pill {
   position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-.rv-jelly-css__goo {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  /* Goo filter fuses overlapping blobs into a single morphing shape. */
-  filter: url(#rv-goo-filter);
-}
-.rv-jelly-css__blob {
-  position: absolute;
-  width: 80%;
-  aspect-ratio: 1;
-  background: #C8A96E;
-  border-radius: 50%;
-  pointer-events: none;
-  will-change: transform, left, top;
+  /* Front face = the existing `.btn-cta` look. We inherit all of:
+     frosted-glass surface, gold etched border, spring-back :active.
+     We only add the 3D transform + drop shadow + transition that
+     animates the lift / tilt. */
+  transform-style: preserve-3d;
+  /* Spring-back overshoot easing — same curve used elsewhere in the
+     site for confirmation feedback. The instant on the way down,
+     overshoot on the way back up, gives the elastic "jelly" feel. */
   transition:
-    transform 0.42s cubic-bezier(0.34, 1.56, 0.64, 1),
-    left 0.18s cubic-bezier(0.16, 1, 0.3, 1),
-    top 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+    color 0.35s ease,
+    border-color 0.40s ease,
+    background 0.35s ease;
+  /* Resting drop-shadow — soft, low; suggests the pill is sitting
+     on a surface. Becomes the lifted shadow on hover. */
+  box-shadow:
+    inset 0 0 0 1px rgba(200, 169, 110, 0.18),
+    inset 0 1px 0 rgba(245, 240, 232, 0.10),
+    0 0 0 1px rgba(200, 169, 110, 0.06),
+    0 6px 12px -4px rgba(0, 0, 0, 0.55);
 }
-/* Trailer blob lags slightly behind the main blob — when the cursor
-   moves quickly, this creates a goo-fused "tail" that drags after the
-   main blob, selling the liquid feel. */
-.rv-jelly-css__blob--trail {
-  width: 55%;
+.rv-jelly3d-pill:hover {
+  /* Override `.btn-cta:hover` with the lifted-pill shadow stack —
+     bigger, more diffuse, suggests the pill has risen off the
+     surface. Border + bg still come from `.btn-cta:hover`. */
+  box-shadow:
+    inset 0 0 0 1px rgba(200, 169, 110, 0.42),
+    inset 0 1px 0 rgba(245, 240, 232, 0.14),
+    0 0 24px -2px rgba(200, 169, 110, 0.25),
+    0 24px 32px -10px rgba(0, 0, 0, 0.75),
+    0 12px 18px -6px rgba(200, 169, 110, 0.22);
+}
+/* JS-spring variant disables the CSS transition on transform — each
+   frame the rAF loop writes the next interpolated value directly.
+   `box-shadow` keeps its CSS transition so the hover-lift shadow
+   still eases in/out smoothly. */
+.rv-jelly3d-pill--spring {
   transition:
-    transform 0.62s cubic-bezier(0.34, 1.56, 0.64, 1),
-    left 0.32s cubic-bezier(0.16, 1, 0.3, 1),
-    top 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+    color 0.35s ease,
+    border-color 0.40s ease,
+    background 0.35s ease;
 }
-.rv-jelly-css__label {
+.rv-jelly3d-label {
   position: relative;
-  z-index: 2;
   display: inline-flex;
   align-items: center;
+  /* Keep the label on its own composite layer so the 3D rotation
+     stays crisp instead of being raster-bilinear-blurred. */
+  transform: translateZ(0);
 }
 
-/* ─── Jelly Button (Canvas 2D metaballs) ────────────────────────────────
-   Same stack-on-top-of-.btn-cta pattern. The animated blobs are drawn
-   on a <canvas> using `ctx.filter = "blur(...) contrast(...)"` for the
-   goo effect — same merge trick as SVG goo, with the benefit of JS
-   spring-lerp on blob position (more "viscous" feel). */
-.rv-jelly-canvas {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-.rv-jelly-canvas__canvas {
+/* ─── Pill thickness (::before back-layer) ──────────────────────────────
+   The front face of the pill is flat — when it rotates in 3D you'd
+   normally see no thickness because a single CSS plane has zero depth.
+   We fake the depth by stamping a copy of the pill OUTLINE 14px
+   behind it via translateZ(-14px). When the pill tilts (rotateX/Y),
+   the back layer peeks out at the bottom / sides, creating the
+   visual illusion of a thick pill. The back layer is darker than
+   the front + dimmed slightly so it reads as the underside of the
+   pill in shadow, not a duplicate. */
+.rv-jelly3d-pill::before {
+  content: "";
   position: absolute;
   inset: 0;
+  border-radius: inherit;
+  /* Sits behind the front face — when the pill tilts forward/sideways
+     this back face becomes visible at the bottom/back edges. */
+  transform: translateZ(-14px);
+  background: rgba(15, 13, 10, 0.85);
+  border: 1px solid rgba(200, 169, 110, 0.35);
+  box-shadow:
+    inset 0 0 0 1px rgba(200, 169, 110, 0.10),
+    inset 0 -2px 8px rgba(0, 0, 0, 0.5);
   pointer-events: none;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
+  /* Same easing as the pill itself so the back layer drifts in
+     sync — no Z-fighting jitter during the lift transition. */
+  transition: background 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-.rv-jelly-canvas__label {
-  position: relative;
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
+.rv-jelly3d-pill:hover::before {
+  /* On lift, the back face tints warmer (gold-tinged) so the
+     rotated edges feel like they're catching reflected gold from
+     the front face. */
+  background: rgba(40, 28, 18, 0.92);
 }
 
 /* ─── Underline-Frame Button Family (used by /buttons showcase) ─────────
