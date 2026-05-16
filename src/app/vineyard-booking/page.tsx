@@ -212,28 +212,62 @@ function HeritageRevealStack() {
           className="absolute inset-0 w-full h-full object-cover"
           style={{ scale: imageScale, y: imageY }}
         />
-        {/* Readability gradients */}
+        {/* Readability layers — strengthened 2026-05-16 for legibility
+            against the bright sky / lit vineyard rows of the panorama.
+            Strategy: full-frame base darken + stronger top/bottom
+            gradients + localized radial halos behind the kicker and
+            grape-name block. Each layer is pointer-events-none so it
+            never blocks interaction. */}
+
+        {/* Base darken — 18% black across the entire image so highlights
+            never blow out the gold/cream text */}
         <div
-          className="absolute inset-x-0 top-0 h-1/3 pointer-events-none"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 100%)",
-          }}
+          className="absolute inset-0 pointer-events-none bg-black/[0.18]"
         />
+
+        {/* Top readability gradient — taller (45%) + darker (0.78) */}
         <div
-          className="absolute inset-x-0 bottom-0 h-1/2 pointer-events-none"
+          className="absolute inset-x-0 top-0 h-[45%] pointer-events-none"
           style={{
             background:
-              "linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%)",
+              "linear-gradient(to bottom, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.15) 60%, rgba(0,0,0,0) 100%)",
           }}
         />
 
-        {/* TOP: Chalk kicker */}
+        {/* Bottom readability gradient — taller (60%) + darker (0.85) */}
+        <div
+          className="absolute inset-x-0 bottom-0 h-[60%] pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.20) 65%, rgba(0,0,0,0) 100%)",
+          }}
+        />
+
+        {/* Localized halo behind the TOP kicker — focused dark ellipse */}
+        <div
+          className="absolute inset-x-0 top-0 h-[28vh] pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse 55% 80% at 50% 50%, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 75%)",
+          }}
+        />
+
+        {/* Localized halo behind the BOTTOM block — focused dark ellipse */}
+        <div
+          className="absolute inset-x-0 bottom-0 h-[42vh] pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse 65% 75% at 50% 55%, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 75%)",
+          }}
+        />
+
+        {/* TOP: Chalk kicker — multi-layer shadow (tight inner + soft halo) */}
         <motion.p
           className="absolute top-[12vh] left-0 right-0 font-display italic text-[#C8A96E] tracking-widest text-center px-6"
           style={{
             fontSize: "clamp(15px, 1.6vw, 22px)",
-            textShadow: "0 1px 14px rgba(0,0,0,0.85)",
+            textShadow:
+              "0 2px 6px rgba(0,0,0,0.95), 0 4px 22px rgba(0,0,0,0.85), 0 0 60px rgba(0,0,0,0.5)",
             y: topY,
             opacity: topOpacity,
           }}
@@ -255,7 +289,8 @@ function HeritageRevealStack() {
                   fontSize: "clamp(32px, 4.5vw, 64px)",
                   letterSpacing: "0.04em",
                   lineHeight: 1.1,
-                  textShadow: "0 2px 18px rgba(0,0,0,0.9)",
+                  textShadow:
+                    "0 3px 8px rgba(0,0,0,0.98), 0 6px 28px rgba(0,0,0,0.9), 0 0 80px rgba(0,0,0,0.6)",
                 }}
               >
                 {grape}
@@ -263,12 +298,13 @@ function HeritageRevealStack() {
             ))}
           </div>
           <p
-            className="font-body text-white/90 leading-snug mx-auto"
+            className="font-body text-white leading-snug mx-auto"
             style={{
               fontSize: "clamp(18px, 1.8vw, 26px)",
               fontWeight: 300,
               maxWidth: "680px",
-              textShadow: "0 1px 16px rgba(0,0,0,0.9)",
+              textShadow:
+                "0 2px 8px rgba(0,0,0,0.95), 0 4px 24px rgba(0,0,0,0.85), 0 0 60px rgba(0,0,0,0.55)",
             }}
           >
             The same varieties that define Champagne — rooted in Sussex chalk.
