@@ -1,7 +1,7 @@
 "use client";
 
 import { ReactNode, useRef, useState } from "react";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ScrollReset } from "@/components/ScrollReset";
@@ -9,6 +9,7 @@ import { TestimonialSection } from "@/components/sku/TestimonialSection";
 import { AwardSection } from "@/components/sku/AwardSection";
 import { StickyMobileCTA } from "@/components/sku/StickyMobileCTA";
 import { PurchaseWidget, type Variant } from "@/components/sku/PurchaseWidget";
+import { BottleStage } from "@/components/sku/BottleStage";
 import { QuickAddButton } from "@/components/cart/QuickAddButton";
 import { BehindTheBottleSection } from "@/components/sku/BehindTheBottleSection";
 import { WineClubUpsellSection } from "@/components/sku/WineClubUpsellSection";
@@ -315,23 +316,7 @@ function ProductHero() {
               >
                 {/* Bottle keyed on heroBottleSrc → AnimatePresence crossfades
                     on Case-of-6 / format change (see PurchaseWidget below). */}
-                <AnimatePresence mode="wait">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <motion.img
-                    key={heroBottleSrc}
-                    src={`${basePath}${heroBottleSrc}`}
-                    alt={heroBottleAlt}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                    className="pointer-events-auto w-auto max-w-none object-contain h-[clamp(376px,51svh,484px)] md:h-[clamp(704px,90svh,1078px)] [transform:translateX(8%)_translateY(-30px)_rotate(28deg)] md:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)] hover:[transform:translateX(8%)_translateY(-30px)_rotate(28deg)_scale(1.015)] md:hover:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)_scale(1.015)] [transition:transform_900ms_cubic-bezier(0.16,1,0.3,1),filter_900ms_cubic-bezier(0.16,1,0.3,1)] hover:[filter:drop-shadow(0_40px_80px_rgba(0,0,0,0.7))_drop-shadow(0_0_60px_rgba(200,169,110,0.12))]"
-                    style={{
-                      transformOrigin: "center",
-                      filter: "drop-shadow(0 30px 60px rgba(0,0,0,0.6))",
-                    }}
-                  />
-                </AnimatePresence>
+                <BottleStage src={heroBottleSrc} alt={heroBottleAlt} />
               </motion.div>
 
               {/* Quick "Add to basket" — anchored bottom-right next to the bottle
