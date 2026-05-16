@@ -125,7 +125,12 @@ export function Navbar() {
           </Link>
         </div>
 
-        {/* Right: icons + hamburger */}
+        {/* Right: icons + hamburger
+            Order (left → right): Search · Account · Wine Club · MENU
+            (mobile-only) · Cart. Cart sits at the FAR RIGHT of the
+            cluster (after the hamburger on mobile, after Wine Club on
+            desktop) per user direction 2026-05-16 — keeps the basket
+            icon as the visual terminus of the row on every viewport. */}
         <div className="flex items-center gap-4 md:gap-5">
           <button aria-label="Search" className="hidden md:flex text-white/65 hover:text-[#C8A96E] transition-colors duration-300 p-1">
             <SearchIcon />
@@ -133,13 +138,6 @@ export function Navbar() {
           <button aria-label="Account" className="hidden md:flex text-white/65 hover:text-[#C8A96E] transition-colors duration-300 p-1">
             <AccountIcon />
           </button>
-          {/* Cart — visible on BOTH mobile and desktop (unlike search
-              / account which are desktop-only) because it's primary
-              shopping UX. Inherits the same text-white/65 as the
-              neighbouring Search / Account icons so the navbar row
-              reads as one cohesive cluster — the count badge already
-              flags this icon as the "interactive" one. */}
-          <CartButton className="text-white/65" />
           <a
             href={wineClubHref}
             className="hidden md:flex relative top-[2px] link-underline font-body text-white/75 text-[11px] tracking-[0.2em] uppercase hover:text-[#C8A96E] transition-colors duration-300"
@@ -168,6 +166,16 @@ export function Navbar() {
                 transition={{ duration: 0.3, ease: "easeInOut" }} />
             </div>
           </button>
+
+          {/* Cart — visible on BOTH mobile and desktop (unlike search
+              / account which are desktop-only) because it's primary
+              shopping UX. Inherits the same text-white/65 as the
+              neighbouring Search / Account icons so the navbar row
+              reads as one cohesive cluster — the count badge already
+              flags this icon as the "interactive" one. Positioned at
+              the FAR RIGHT after the hamburger so the basket reads as
+              the natural terminus of the action row. */}
+          <CartButton className="text-white/65" />
         </div>
       </nav>
 
