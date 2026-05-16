@@ -127,14 +127,13 @@ function PageHeader() {
 // ── Section: Heritage Part 1 — Terroir ──────────────────────────────────────
 
 function HeritageTerroirSection() {
-  // Composition (locked 2026-05-16):
-  //   Pure typography only — kicker → 3-line headline → body
-  //   paragraph. The chalk-vineyard image card (HeritageChalkImageCard
-  //   below) lives as its own section so the panorama gets its own
-  //   editorial moment without crowding the typographic statement.
+  // Sticky-card layer of the 4-card heritage stack. Pure typography —
+  // kicker → 3-line headline → body. Pinned at top while user scrolls
+  // through the page; the next card (HeritageChalkImageCard) rises
+  // from below to cover it.
   return (
-    <section className="relative overflow-hidden bg-[#010101] py-28 md:py-40">
-      <div className="relative z-10 max-w-[920px] mx-auto px-6 md:px-16 text-center">
+    <section className="relative overflow-hidden bg-[#010101] py-20 md:py-28 min-h-screen flex items-center">
+      <div className="relative z-10 max-w-[920px] mx-auto px-6 md:px-16 text-center w-full">
         <FadeUp>
           <p
             className="font-display italic text-[#C8A96E] mb-6 tracking-widest"
@@ -193,9 +192,14 @@ function HeritageTerroirSection() {
 // with `min-h-screen` so it owns one slot in the sticky deck.
 
 function HeritageChalkImageCard() {
+  // Sticky-card layer of the 4-card heritage stack. Tight top padding
+  // (py-6 md:py-10) so the image sits close to the headline of the
+  // previous card visually — the panorama is the visual payoff to
+  // the "Two countries / One ancient seabed" statement. Inner content
+  // centered in viewport so the panorama is the focal element.
   return (
-    <section className="relative overflow-hidden bg-[#010101] py-20 md:py-28">
-      <div className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10">
+    <section className="relative overflow-hidden bg-[#010101] py-6 md:py-10 min-h-screen flex items-center">
+      <div className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10 w-full">
         <FadeUp>
           <div
             className="relative w-full overflow-hidden rounded-sm border border-[#C8A96E]/20"
@@ -978,31 +982,44 @@ export default function BookingPage() {
       <main>
         <PageHeader />
         <ScrollReset><EstatePeopleSection /></ScrollReset>
-        {/* Heritage trio — Terroir Statement → Chalk Vineyard Image →
-            Behind the Bottle (Méthode Traditionnelle) → Heritage
-            Discovery (Merret quote). All four are normal-flow
-            sections: each fills as much vertical space as its content
-            needs, scrolls naturally like a normal page, and the next
-            section follows below. The sticky-stack experiment was
-            reverted (2026-05-16) — sticky positioning pins the
-            element so its content can't scroll inside the sticky
-            window, which made the bottom of any section taller than
-            the viewport invisible. Normal scroll always shows the
-            full section before moving on. */}
-        <ScrollReset><HeritageTerroirSection /></ScrollReset>
-        <ScrollReset><HeritageChalkImageCard /></ScrollReset>
-        <ScrollReset>
-          <BehindTheBottleSection
-            headline={<>Crafted in the <span className="text-[#C8A96E]">Méthode Traditionnelle</span>.</>}
-            intro="For three decades, Ridgeview has crafted English sparkling wines the long way — by hand, on the chalk hills of Sussex, using the same Traditional Method as the great houses of Champagne."
-            pillars={[
-              { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region — the foundation of every great sparkling wine." },
-              { label: "Hand Harvest", detail: "Grapes are picked at first light and sorted by hand to keep only the most balanced bunches." },
-              { label: "Méthode Traditionnelle", detail: "An English invention — coal-fired bottles strong enough to hold the bubbles, the cork to seal them in, deliberate secondary fermentation." },
-            ]}
-          />
-        </ScrollReset>
-        <ScrollReset><HeritageDiscoverySection /></ScrollReset>
+        {/* ── Heritage Sticky Stack ──
+            4 sticky cards stacked deck-of-cards style. Each card has
+            `sticky top-0 min-h-screen` and an opaque bg so as the
+            user scrolls, the next card rises from below and covers
+            the previous one. Each inner section uses
+            `min-h-screen flex items-center` + compact spacing so its
+            content fits inside one viewport (the user's previous
+            request — sections too tall for one viewport had their
+            bottoms hidden behind the next card; viewport-fitting
+            cards solve this).
+
+            Order: Terroir Statement → Chalk Image → Behind the Bottle
+            (compact) → Discovery. */}
+        <div className="relative">
+          <div className="sticky top-0 min-h-screen bg-[#010101]">
+            <ScrollReset><HeritageTerroirSection /></ScrollReset>
+          </div>
+          <div className="sticky top-0 min-h-screen bg-[#010101]">
+            <ScrollReset><HeritageChalkImageCard /></ScrollReset>
+          </div>
+          <div className="sticky top-0 min-h-screen bg-[#0a0a0a]">
+            <ScrollReset>
+              <BehindTheBottleSection
+                compact
+                headline={<>Crafted in the <span className="text-[#C8A96E]">Méthode Traditionnelle</span>.</>}
+                intro="For three decades, Ridgeview has crafted English sparkling wines the long way — by hand, on the chalk hills of Sussex, using the same Traditional Method as the great houses of Champagne."
+                pillars={[
+                  { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region — the foundation of every great sparkling wine." },
+                  { label: "Hand Harvest", detail: "Grapes are picked at first light and sorted by hand to keep only the most balanced bunches." },
+                  { label: "Méthode Traditionnelle", detail: "An English invention — coal-fired bottles strong enough to hold the bubbles, the cork to seal them in, deliberate secondary fermentation." },
+                ]}
+              />
+            </ScrollReset>
+          </div>
+          <div className="sticky top-0 min-h-screen bg-[#010101]">
+            <ScrollReset><HeritageDiscoverySection /></ScrollReset>
+          </div>
+        </div>
         <ScrollReset><RecognitionSection /></ScrollReset>
         <ScrollReset><VisitPanels /></ScrollReset>
         <ScrollReset><PracticalInfo /></ScrollReset>
