@@ -136,7 +136,7 @@ function ProductHero() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 1.1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               >
-                <span className="text-[#C8A96E]">Sparkling Red</span>
+                <span className="text-[#C8A96E]">Sparkling Red Reserve</span>
               </motion.h1>
             </div>
 
