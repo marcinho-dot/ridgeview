@@ -989,15 +989,18 @@ export default function BookingPage() {
         {/* Terroir Statement — normal-flow editorial intro, NOT
             part of the sticky stack (per user direction). */}
         <ScrollReset><HeritageTerroirSection /></ScrollReset>
-        {/* ── Heritage Sticky Stack (3 cards) ──
-            Chalk Image → Behind the Bottle (compact) → Discovery.
-            Each card is `sticky top-0 min-h-screen` with an opaque
-            bg so as the user scrolls, the next card rises from
-            below and covers the previous one. */}
+        {/* Chalk Image — normal-flow too. With sticky positioning
+            the next card would rise from below and progressively
+            cover the image's bottom half during the transition;
+            normal flow lets the panorama scroll fully through the
+            viewport before Behind the Bottle starts sticking. */}
+        <ScrollReset><HeritageChalkImageCard /></ScrollReset>
+        {/* ── Heritage Sticky Stack (2 cards) ──
+            Behind the Bottle (compact) → Discovery. The
+            deck-of-cards behaviour kicks in here: as the user
+            scrolls, Discovery rises from below and covers
+            Behind the Bottle. */}
         <div className="relative">
-          <div className="sticky top-0 min-h-screen bg-[#010101]">
-            <ScrollReset><HeritageChalkImageCard /></ScrollReset>
-          </div>
           <div className="sticky top-0 min-h-screen bg-[#0a0a0a]">
             <ScrollReset>
               <BehindTheBottleSection
