@@ -201,7 +201,7 @@ function HeritageChalkImageCard() {
   // above it; the user had to scroll way past the previous headline
   // before the image was visible.
   return (
-    <section className="relative overflow-hidden bg-[#010101] pt-3 md:pt-6 pb-6 md:pb-10 min-h-screen flex items-start">
+    <section className="relative overflow-hidden bg-[#010101] pt-3 md:pt-6 pb-2 md:pb-4 min-h-screen flex items-start">
       <div className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10 w-full">
         <FadeUp>
           <div
