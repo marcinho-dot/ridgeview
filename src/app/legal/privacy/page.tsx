@@ -259,13 +259,6 @@ export default function PrivacyPage() {
         directly (e.g. by email or a prominent notice on the site).
       </p>
 
-      <div className="legal-callout">
-        <p className="legal-meta">
-          <strong>Note for review.</strong> Our ICO data-controller
-          registration number and the named payment processor / email
-          provider will be added here once finalised by our board.
-        </p>
-      </div>
     </LegalLayout>
   );
 }

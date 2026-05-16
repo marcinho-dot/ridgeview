@@ -167,16 +167,6 @@ export default function TermsPage() {
         <a href={`mailto:${COMPANY.contact.email}`}>{COMPANY.contact.email}</a>{" "}
         or by post to {COMPANY.legalName}, {formatAddress()}.
       </p>
-
-      <div className="legal-callout">
-        <p className="legal-meta">
-          <strong>Note for review.</strong> Specific VAT registration,
-          AWRS (Alcohol Wholesaler Registration Scheme) and ICO numbers
-          are pending board confirmation and will be added here and on
-          the <a href="/legal/company">Company Information page</a> once
-          received.
-        </p>
-      </div>
     </LegalLayout>
   );
 }

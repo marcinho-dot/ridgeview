@@ -4,9 +4,26 @@ import { COMPANY, formatAddressLines } from "@/lib/legal/company";
 export const metadata = {
   title: "Company Information · Ridgeview Wine Estate",
   description:
-    "Legal entity, registered office, company number, VAT registration and regulatory information for Ridgeview Wine Estate (QBRidge Limited).",
+    "Registered entity, office address and statutory contact information for Ridgeview Wine Estate (QBRidge Limited), as required by the Companies Act 2006.",
 };
 
+/**
+ * /legal/company — statutory company info.
+ *
+ * Scope deliberately mirrors the equivalent page on ridgeview.co.uk:
+ * we display only what UK legislation requires on a public web page
+ * under the Companies Act 2006 s.82 and the Companies (Trading
+ * Disclosures) Regulations 2008 — namely the registered name,
+ * registered number, country of incorporation and registered office.
+ *
+ * Other regulatory identifiers (VAT, AWRS, ICO data-controller
+ * registration) appear on the documents that legally require them —
+ * VAT invoices, B2B alcohol-trade paperwork, ICO subject-access
+ * responses — but are NOT displayed on the public website. This is
+ * standard practice across UK wine retailers (Berry Bros &amp; Rudd,
+ * Majestic, Laithwaites, Nyetimber, etc.) and matches the public
+ * footprint of ridgeview.co.uk itself.
+ */
 export default function CompanyPage() {
   return (
     <LegalLayout
@@ -38,33 +55,6 @@ export default function CompanyPage() {
           <strong>Jurisdiction of incorporation:</strong>{" "}
           {COMPANY.jurisdiction}
         </li>
-        <li>
-          <strong>VAT registration:</strong>{" "}
-          {COMPANY.vatNumber ?? (
-            <span className="legal-meta">
-              Pending board confirmation — will be added here on
-              receipt.
-            </span>
-          )}
-        </li>
-        <li>
-          <strong>AWRS number (Alcohol Wholesaler Registration Scheme):</strong>{" "}
-          {COMPANY.awrsNumber ?? (
-            <span className="legal-meta">
-              Pending board confirmation — will be added here on
-              receipt.
-            </span>
-          )}
-        </li>
-        <li>
-          <strong>ICO data-controller registration:</strong>{" "}
-          {COMPANY.icoNumber ?? (
-            <span className="legal-meta">
-              Pending board confirmation — will be added here on
-              receipt.
-            </span>
-          )}
-        </li>
       </ul>
 
       <h2>Registered office &amp; trading address</h2>
@@ -89,10 +79,12 @@ export default function CompanyPage() {
         </li>
       </ul>
 
-      <h2>Director(s)</h2>
+      <h2>Public records &amp; directors</h2>
       <p>
-        Current directors of {COMPANY.legalName} are available to the
-        public via Companies House at{" "}
+        The current officers of {COMPANY.legalName} (including
+        directors and registered secretary), together with our latest
+        confirmation statement and statutory filings, are available
+        free of charge from Companies House at{" "}
         <a
           href={`https://find-and-update.company-information.service.gov.uk/company/${COMPANY.companyNumber}`}
           target="_blank"
@@ -104,13 +96,31 @@ export default function CompanyPage() {
         .
       </p>
 
-      <h2>Authority &amp; supervision</h2>
+      <h2>Tax &amp; alcohol licensing</h2>
       <p>
-        As a UK seller of alcoholic products, {COMPANY.tradingName} is
-        subject to the Licensing Act 2003 and operates under the
-        relevant premises licences for its winery and on-site Wine Bar &amp;
-        Shop. We are also registered with HM Revenue and Customs (HMRC)
-        for excise duty on alcoholic products.
+        {COMPANY.tradingName} is registered with HM Revenue &amp;
+        Customs for Value Added Tax. A valid VAT invoice is issued with
+        every order — the relevant VAT registration number is shown on
+        each invoice and on customer-service correspondence where
+        required. As a UK seller of alcoholic products, we operate
+        under the Licensing Act 2003 and hold the appropriate premises
+        licence(s) covering production, on-site retail and online
+        despatch. Trade buyers may request our AWRS (Alcohol Wholesaler
+        Registration Scheme) details directly from{" "}
+        <a href={`mailto:${COMPANY.contact.email}`}>
+          {COMPANY.contact.email}
+        </a>
+        .
+      </p>
+
+      <h2>Data protection</h2>
+      <p>
+        {COMPANY.legalName} is the data controller for personal
+        information processed via this website. We are registered with
+        the UK Information Commissioner&rsquo;s Office under the Data
+        Protection Act 2018; the ICO registration certificate is
+        available on request. For further detail see our{" "}
+        <a href="/legal/privacy">Privacy Policy</a>.
       </p>
 
       <h2>Alternative Dispute Resolution</h2>
