@@ -76,13 +76,16 @@ function ParallaxRow({
     // sections). The parallax animation still completes naturally
     // as the user scrolls past the row.
     <div ref={ref} className="py-16 md:py-24">
-      {/* INNER row: on mobile flex-col with the image at its
-          natural aspect ratio. On desktop flex-row with
-          `items-stretch` so the image column stretches to MATCH
-          the text column's natural height (per user direction:
-          image should track text height on desktop). */}
+      {/* INNER row: flex-col on mobile, flex-row on desktop with
+          items-CENTER so the row stays vertically centered if the
+          text column is taller or shorter than the image. The
+          previous items-stretch approach made the image track the
+          text column's height — which produced different image
+          dimensions between Row 1 and Row 2 because the body copy
+          lengths differ. Now both images use the SAME aspect ratio
+          on all viewports, ensuring identical width AND height. */}
       <div
-        className={`w-full flex flex-col items-center gap-10 md:gap-16 lg:gap-20 md:items-stretch ${
+        className={`w-full flex flex-col items-center gap-10 md:gap-16 lg:gap-20 md:items-center ${
           reverse ? "md:flex-row-reverse" : "md:flex-row"
         }`}
       >
@@ -125,15 +128,14 @@ function ParallaxRow({
           ))}
         </motion.div>
 
-        {/* Image column — mobile keeps its aspect ratio and a
-            420px cap so it doesn't dominate small screens. Desktop
-            drops both the aspect constraint AND the width cap so
-            the image fills its flex column (matches the page-
-            header content width). Stretches to text-column height
-            via items-stretch on the parent. */}
+        {/* Image column — aspect ratio is enforced on BOTH mobile
+            AND desktop (no more `md:aspect-auto` override) so the
+            two images across rows have identical dimensions. Width
+            comes from `md:flex-1` (equal share with the text
+            column), height comes from the aspect ratio. */}
         <motion.div
           style={{ opacity: imageOpacity, clipPath: imageClip }}
-          className={`group relative overflow-hidden rounded-sm w-full max-w-[420px] md:max-w-none mx-auto md:mx-0 md:flex-1 ${imageAspect} md:aspect-auto`}
+          className={`group relative overflow-hidden rounded-sm w-full max-w-[420px] md:max-w-none mx-auto md:mx-0 md:flex-1 ${imageAspect}`}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
