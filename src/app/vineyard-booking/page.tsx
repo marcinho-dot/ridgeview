@@ -86,7 +86,7 @@ function PageHeader() {
 
       <motion.div
         style={{ opacity }}
-        className="relative z-10 h-full flex flex-col justify-end max-w-[1400px] mx-auto px-6 md:px-16 pb-1 md:pb-9"
+        className="relative z-10 h-full flex flex-col justify-end max-w-[1400px] mx-auto px-6 md:px-16 pb-8 md:pb-9"
       >
         <motion.p
           initial={{ opacity: 0, y: 16 }}
