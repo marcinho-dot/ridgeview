@@ -233,119 +233,149 @@ function HeritageTerroirSection() {
 // ── Section: Heritage Part 2 — Merret Quote ─────────────────────────────────
 
 function HeritageDiscoverySection() {
+  // Refactored 2026-05-16: text moved from a right-hand column ONTO
+  // the quote.png image as a full-bleed cinematic overlay (user
+  // direction). Same editorial copy, same FadeUp timings —
+  // composition is now a single layered scene:
+  //   1. Full-bleed quote.png as section background (golden-hour
+  //      wine glass against the vineyard)
+  //   2. Layered dark overlays + left-weighted gradient so the text
+  //      side stays readable while the right side of the image
+  //      breathes
+  //   3. Top + bottom #010101 blend gradients so the section reads
+  //      as part of the page rhythm, not as a hard cut-in
+  //   4. Editorial gold corner accents at the section's outer
+  //      corners (kept from the old image-frame treatment)
+  //   5. Text stack (intro · pull-quote · attribution · body ·
+  //      gold divider) anchored left, vertically centered, with
+  //      drop-shadow on every text element for guaranteed contrast
+  //      on any image area
   return (
-    <section className="bg-[#010101] relative overflow-hidden">
+    <section className="relative overflow-hidden bg-[#010101] min-h-[88vh] md:min-h-[92vh]">
 
-      <div className="max-w-[1400px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_1px_1fr] min-h-[75vh]">
+      {/* ── Full-bleed background image + readability layers ── */}
+      <div className="absolute inset-0">
+        <img
+          src={`${basePath}/images/quote.png`}
+          alt="Wine glass raised against Ridgeview vineyard at golden hour"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: "center 40%" }}
+        />
+        {/* Base darken — keep the image visible but mute it */}
+        <div className="absolute inset-0 bg-black/55" />
+        {/* Left-weighted gradient — text sits on the darker left half */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(100deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.55) 38%, rgba(0,0,0,0.25) 70%, rgba(0,0,0,0.15) 100%)",
+          }}
+        />
+        {/* Top + bottom page-blend gradients */}
+        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#010101] to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#010101] to-transparent" />
+      </div>
 
-          {/* Left — quote.png image with editorial frame */}
-          <FadeIn>
-            <div className="relative p-4 md:p-8 lg:p-12 flex items-center justify-center">
-              <div className="group relative w-full overflow-hidden rounded-sm" style={{ aspectRatio: "3/4", maxHeight: "680px" }}>
-                <img
-                  src={`${basePath}/images/quote.png`}
-                  alt="Wine glass raised against Ridgeview vineyard at golden hour"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.03]"
-                  style={{ objectPosition: "center 40%" }}
-                />
-                <div className="absolute inset-0 bg-black/15" />
-                <div className="absolute inset-0 border border-white/[0.06] rounded-sm" />
+      {/* Editorial gold corner accents — frame the whole section */}
+      <div className="absolute top-6 left-6 md:top-10 md:left-10 w-7 h-7 border-t border-l border-[#C8A96E]/25 z-10 pointer-events-none" />
+      <div className="absolute bottom-6 right-6 md:bottom-10 md:right-10 w-7 h-7 border-b border-r border-[#C8A96E]/25 z-10 pointer-events-none" />
 
-                {/* Editorial corner accents */}
-                <div className="absolute top-3 left-3 w-6 h-6 border-t border-l border-[#C8A96E]/20" />
-                <div className="absolute bottom-3 right-3 w-6 h-6 border-b border-r border-[#C8A96E]/20" />
-              </div>
+      {/* ── Text overlay ── */}
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32 min-h-[88vh] md:min-h-[92vh] flex items-center">
+        <div className="max-w-[640px]">
+
+          <FadeUp delay={0.1}>
+            <p
+              className="font-body text-white/75 leading-relaxed mb-10"
+              style={{
+                fontSize: "clamp(14px, 1.35vw, 16px)",
+                fontWeight: 300,
+                maxWidth: "520px",
+                textShadow: "0 2px 14px rgba(0,0,0,0.85)",
+              }}
+            >
+              Before Dom Pérignon began his experiments in Épernay, an English
+              scientist documented the method that makes wine sparkle.
+            </p>
+          </FadeUp>
+
+          {/* Pull-quote — large decorative open-quote sits behind the text */}
+          <FadeUp delay={0.2} duration={1.1}>
+            <div className="relative mb-8">
+              <span
+                className="absolute font-display italic text-[#C8A96E] select-none pointer-events-none"
+                style={{
+                  fontSize: "clamp(100px, 16vw, 200px)",
+                  lineHeight: 1,
+                  top: "-0.35em",
+                  left: "-0.08em",
+                  opacity: 0.18,
+                  textShadow: "0 2px 24px rgba(0,0,0,0.6)",
+                }}
+              >
+                &ldquo;
+              </span>
+              <blockquote
+                className="font-display italic text-cream relative z-10"
+                style={{
+                  fontSize: "clamp(24px, 3.2vw, 48px)",
+                  fontWeight: 400,
+                  lineHeight: 1.2,
+                  textShadow: "0 2px 20px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.5)",
+                }}
+              >
+                Our wine coopers of latter times use vast quantities of sugar and
+                molasses to all sorts of wines to make the drink brisk and sparkling
+                —{" "}<span className="text-[#C8A96E]">and to give them spirit.</span>
+              </blockquote>
             </div>
-          </FadeIn>
+          </FadeUp>
 
-          {/* Center — vertical gold divider (desktop only) */}
+          <FadeUp delay={0.4}>
+            <p
+              className="font-body text-white/55 tracking-[0.2em] uppercase mb-10"
+              style={{
+                fontSize: "clamp(9px, 0.9vw, 11px)",
+                fontWeight: 400,
+                textShadow: "0 1px 8px rgba(0,0,0,0.7)",
+              }}
+            >
+              — Christopher Merret · Royal Society · London, 1662
+            </p>
+          </FadeUp>
+
+          <FadeUp delay={0.5}>
+            <p
+              className="font-body text-white/70 leading-relaxed mb-10"
+              style={{
+                fontSize: "clamp(13px, 1.3vw, 15px)",
+                fontWeight: 300,
+                maxWidth: "520px",
+                textShadow: "0 2px 14px rgba(0,0,0,0.85)",
+              }}
+            >
+              The English invented secondary fermentation. The coal-fired glass bottle
+              strong enough to contain it. The use of cork to seal it. The Champenois
+              called the bubbles &lsquo;the devil&apos;s wine&rsquo; and spent decades
+              trying to remove them.
+            </p>
+          </FadeUp>
+
+          {/* Gold divider — anchored left, brighter than the off-image
+              version because the photo behind would otherwise eat it. */}
           <motion.div
-            className="hidden md:block self-stretch"
             style={{
-              background: "linear-gradient(to bottom, transparent 10%, rgba(200,169,110,0.15) 30%, rgba(200,169,110,0.15) 70%, transparent 90%)",
-              transformOrigin: "top",
+              height: "1px",
+              background: "rgba(200,169,110,0.45)",
+              maxWidth: "320px",
+              transformOrigin: "left",
+              boxShadow: "0 0 8px rgba(200,169,110,0.25)",
             }}
-            initial={{ scaleY: 0 }}
-            whileInView={{ scaleY: 1 }}
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1.4, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 1.1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
           />
-
-          {/* Right — quote and context */}
-          <div className="relative flex flex-col justify-center px-8 md:px-12 lg:px-16 py-16 md:py-24">
-
-            <FadeUp delay={0.1}>
-              <p
-                className="font-body text-white/50 leading-relaxed mb-10 relative z-10"
-                style={{ fontSize: "clamp(14px, 1.35vw, 16px)", fontWeight: 300, maxWidth: "520px" }}
-              >
-                Before Dom Pérignon began his experiments in Épernay, an English
-                scientist documented the method that makes wine sparkle.
-              </p>
-            </FadeUp>
-
-            {/* Pull-quote */}
-            <FadeUp delay={0.2} duration={1.1}>
-              <div className="relative mb-8">
-                <span
-                  className="absolute font-display italic text-[#C8A96E] select-none pointer-events-none"
-                  style={{
-                    fontSize: "clamp(100px, 16vw, 200px)",
-                    lineHeight: 1,
-                    top: "-0.35em",
-                    left: "-0.08em",
-                    opacity: 0.08,
-                  }}
-                >
-                  &ldquo;
-                </span>
-                <blockquote
-                  className="font-display italic text-white relative z-10"
-                  style={{
-                    fontSize: "clamp(24px, 3.2vw, 48px)",
-                    fontWeight: 400,
-                    lineHeight: 1.2,
-                  }}
-                >
-                  Our wine coopers of latter times use vast quantities of sugar and
-                  molasses to all sorts of wines to make the drink brisk and sparkling
-                  —{" "}<span className="text-[#C8A96E]">and to give them spirit.</span>
-                </blockquote>
-              </div>
-            </FadeUp>
-
-            <FadeUp delay={0.4}>
-              <p
-                className="font-body text-white/30 tracking-[0.2em] uppercase mb-8 relative z-10"
-                style={{ fontSize: "clamp(9px, 0.9vw, 11px)", fontWeight: 300 }}
-              >
-                — Christopher Merret · Royal Society · London, 1662
-              </p>
-            </FadeUp>
-
-            <FadeUp delay={0.5}>
-              <p
-                className="font-body text-white/45 leading-relaxed mb-10 relative z-10"
-                style={{ fontSize: "clamp(13px, 1.3vw, 15px)", fontWeight: 300, maxWidth: "520px" }}
-              >
-                The English invented secondary fermentation. The coal-fired glass bottle
-                strong enough to contain it. The use of cork to seal it. The Champenois
-                called the bubbles &lsquo;the devil&apos;s wine&rsquo; and spent decades
-                trying to remove them.
-              </p>
-            </FadeUp>
-
-            {/* Gold divider */}
-            <motion.div
-              className="relative z-10"
-              style={{ height: "1px", background: "rgba(200,169,110,0.15)", maxWidth: "400px", transformOrigin: "left" }}
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            />
-          </div>
         </div>
       </div>
     </section>
