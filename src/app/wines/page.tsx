@@ -54,7 +54,7 @@ function PageHero() {
           className="font-display italic text-cream leading-[1.06] mb-6"
           style={{ fontSize: "clamp(38px, 6vw, 88px)", fontWeight: 400 }}
         >
-          {wines.length} sparkling wines from <span className="text-[#C8A96E]">Sussex chalk</span>.
+          Sparkling wines from <span className="text-[#C8A96E]">Sussex chalk</span>.
         </motion.h1>
 
         <motion.p
@@ -238,12 +238,9 @@ function WineLegend() {
       />
 
       <div className="relative max-w-[1500px] mx-auto px-2 md:px-12 pt-8 md:pt-10 pb-2 md:pb-8">
-        <p
-          className="font-body text-white/40 uppercase tracking-[0.28em] text-center mb-6 md:mb-7 px-4"
-          style={{ fontSize: "11px" }}
-        >
-          Jump to a bottle
-        </p>
+        {/* "Jump to a bottle" label removed 2026-05-17 — the mini-
+            bottle strip is self-explanatory and the explicit label
+            felt redundant above it. */}
 
         {/* Horizontal scroll-snap strip on every breakpoint. Mobile
             keeps the 88px swipe thumbs; desktop scales up to wide
