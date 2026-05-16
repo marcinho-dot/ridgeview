@@ -215,19 +215,30 @@ function HeritageChalkImageCard() {
     offset: ["start end", "end start"],
   });
 
-  const imageScale = useTransform(scrollYProgress, [0, 0.6], [1.22, 1]);
+  // Zoom-out finishes BY THE TIME the image is fully visible
+  // (progress ~0.36 = when the section's top reaches viewport top
+  // and sticky engages). Means the camera-pulling-back motion runs
+  // during the entry, not after — so the user sees the zoom WHILE
+  // the image is appearing, not once it's already settled. Range
+  // also bumped to 1.4 → 1 for a more visible effect.
+  const imageScale = useTransform(scrollYProgress, [0, 0.4], [1.4, 1]);
 
-  const topY = useTransform(scrollYProgress, [0, 1], [40, -80]);
+  const topY = useTransform(scrollYProgress, [0, 1], ["50vh", "-50vh"]);
   const topOpacity = useTransform(
     scrollYProgress,
     [0, 0.2, 0.85, 1],
     [0, 1, 1, 0],
   );
 
-  const bottomY = useTransform(scrollYProgress, [0, 1], [80, -60]);
+  // Bottom text block now traverses the ENTIRE image — enters
+  // ~80vh below where it sits at rest, exits ~80vh above. Lets
+  // the text "scroll past the camera" along the full panorama
+  // (user direction: bottom texts should scroll across the whole
+  // image, not just settle in place).
+  const bottomY = useTransform(scrollYProgress, [0, 1], ["80vh", "-80vh"]);
   const bottomOpacity = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.85, 1],
+    [0, 0.25, 0.85, 1],
     [0, 1, 1, 0],
   );
 
@@ -265,7 +276,7 @@ function HeritageChalkImageCard() {
         <motion.p
           className="absolute top-[12vh] left-0 right-0 font-display italic text-[#C8A96E] tracking-widest text-center"
           style={{
-            fontSize: "clamp(12px, 1.2vw, 16px)",
+            fontSize: "clamp(15px, 1.6vw, 22px)",
             textShadow: "0 1px 14px rgba(0,0,0,0.85)",
             y: topY,
             opacity: topOpacity,
@@ -279,15 +290,16 @@ function HeritageChalkImageCard() {
           className="absolute inset-x-0 bottom-[14vh] px-6 md:px-10 text-center"
           style={{ y: bottomY, opacity: bottomOpacity }}
         >
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mb-5 md:mb-6">
+          <div className="flex flex-wrap justify-center gap-x-10 gap-y-4 mb-7 md:mb-9">
             {["Chardonnay", "Pinot Noir", "Pinot Meunier"].map((grape) => (
               <p
                 key={grape}
                 className="font-display italic text-[#C8A96E]"
                 style={{
-                  fontSize: "clamp(18px, 2vw, 28px)",
-                  letterSpacing: "0.06em",
-                  textShadow: "0 1px 12px rgba(0,0,0,0.85)",
+                  fontSize: "clamp(32px, 4.5vw, 64px)",
+                  letterSpacing: "0.04em",
+                  lineHeight: 1.1,
+                  textShadow: "0 2px 18px rgba(0,0,0,0.9)",
                 }}
               >
                 {grape}
@@ -297,10 +309,10 @@ function HeritageChalkImageCard() {
           <p
             className="font-body text-white/90 leading-snug mx-auto"
             style={{
-              fontSize: "clamp(14px, 1.3vw, 17px)",
+              fontSize: "clamp(18px, 1.8vw, 26px)",
               fontWeight: 300,
-              maxWidth: "520px",
-              textShadow: "0 1px 14px rgba(0,0,0,0.9)",
+              maxWidth: "680px",
+              textShadow: "0 1px 16px rgba(0,0,0,0.9)",
             }}
           >
             The same varieties that define Champagne — rooted in Sussex chalk.
