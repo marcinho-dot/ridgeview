@@ -29,7 +29,7 @@ import { basePath } from "@/lib/basePath";
 //   Position 3: Case of 6 (if available — the bulk / gifting option)
 const CAVENDISH_VARIANTS: Variant[] = [
   { label: "75cl Bottle", detail: "75cl · 12% ABV · NV", price: 36, image: "/products/cavendish.png" },
-  { label: "Case of 6 · 6×75cl", detail: "6 × 75cl · Save 10%", price: 194.4, badge: "Best value", image: "/products/cavendish-case.png" },
+  { label: "Case of 6 · 6×75cl", detail: "6 × 75cl · Save 10%", price: 194.4, originalPrice: 216, badge: "Best value", image: "/products/cavendish-case.png" },
 ];
 
 // ── Animation Helpers ────────────────────────────────────────────────────────

@@ -34,6 +34,14 @@ export interface Variant {
    *  bottle when the Magnum variant is clicked). Falls back to
    *  the page's default 75cl bottle image when undefined. */
   image?: string;
+  /** Optional pre-discount price (GBP). Set on bundle variants that
+   *  ship at a saving — typically a Case of 6 (= 6× single-bottle
+   *  list price). When present, the widget renders a strikethrough
+   *  next to the actual price so the saving is visually concrete:
+   *  "£183.60  ~~£204.00~~". The "Save 10%" badge on the variant
+   *  detail line then has a £-amount the eye can anchor to. Leave
+   *  undefined for full-price variants (75cl, magnums). */
+  originalPrice?: number;
 }
 
 interface Props {
@@ -167,12 +175,23 @@ export function PurchaseWidget({
 
       {/* ── Price + Detail ──────────────────────────────────────── */}
       <div>
-        <p
-          className="font-display italic text-cream"
-          style={{ fontSize: "clamp(32px, 3.6vw, 48px)", fontWeight: 400 }}
-        >
-          {formatGBP(total)}
-        </p>
+        <div className="flex items-baseline gap-3 flex-wrap">
+          <p
+            className="font-display italic text-cream"
+            style={{ fontSize: "clamp(32px, 3.6vw, 48px)", fontWeight: 400 }}
+          >
+            {formatGBP(total)}
+          </p>
+          {variant.originalPrice && variant.originalPrice > variant.price && (
+            <p
+              className="font-body text-white/40 line-through tabular-nums"
+              style={{ fontSize: "clamp(16px, 1.7vw, 20px)", fontWeight: 400 }}
+              aria-label="Original price"
+            >
+              {formatGBP(variant.originalPrice * quantity)}
+            </p>
+          )}
+        </div>
         <p className="font-body text-white/45 text-[12px] mt-1">{variant.detail}</p>
       </div>
 

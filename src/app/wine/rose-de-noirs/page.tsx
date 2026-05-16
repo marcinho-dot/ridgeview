@@ -28,7 +28,7 @@ import { basePath } from "@/lib/basePath";
 //   Position 3: Case of 6 (if available)
 const ROSE_DE_NOIRS_VARIANTS: Variant[] = [
   { label: "75cl Bottle", detail: "75cl · 12% ABV · Vintage 2020", price: 65, image: "/products/rose-de-noirs.png" },
-  { label: "Case of 6 · 6×75cl", detail: "6 × 75cl · Save 10%", price: 351, badge: "Best value", image: "/products/rose-de-noirs-case.png" },
+  { label: "Case of 6 · 6×75cl", detail: "6 × 75cl · Save 10%", price: 351, originalPrice: 390, badge: "Best value", image: "/products/rose-de-noirs-case.png" },
 ];
 
 // ── Animation Helpers ────────────────────────────────────────────────────────

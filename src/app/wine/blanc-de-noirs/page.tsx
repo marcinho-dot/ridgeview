@@ -29,7 +29,7 @@ import { basePath } from "@/lib/basePath";
 //   Position 3: Case of 6 (if available — the bulk / gifting option)
 const BLANC_DE_NOIRS_VARIANTS: Variant[] = [
   { label: "75cl Bottle", detail: "75cl · 12% ABV · Vintage 2016", price: 60, image: "/products/blanc-de-noirs.png" },
-  { label: "Case of 6 · 6×75cl", detail: "6 × 75cl · Save 10%", price: 324, badge: "Best value", image: "/products/blanc-de-noirs-case.png" },
+  { label: "Case of 6 · 6×75cl", detail: "6 × 75cl · Save 10%", price: 324, originalPrice: 360, badge: "Best value", image: "/products/blanc-de-noirs-case.png" },
 ];
 
 // ── Animation Helpers ────────────────────────────────────────────────────────

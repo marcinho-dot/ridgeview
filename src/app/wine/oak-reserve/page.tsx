@@ -27,7 +27,7 @@ import { basePath } from "@/lib/basePath";
 // wine + style + cellar story than to hide the SKU entirely).
 const OAK_RESERVE_VARIANTS: Variant[] = [
   { label: "75cl Bottle", detail: "75cl · 12% ABV · Limited Edition", price: 85, image: "/products/oak-reserve.png" },
-  { label: "Case of 6 · 6×75cl", detail: "6 × 75cl · Save 10%", price: 459, badge: "Best value", image: "/products/oak-reserve-case.png" },
+  { label: "Case of 6 · 6×75cl", detail: "6 × 75cl · Save 10%", price: 459, originalPrice: 510, badge: "Best value" /* no case shot yet — UK site reuses the Red Reserve image which is wrong for white Chardonnay; falls back to 75cl until we generate / source a real Oak Reserve case PNG */ },
 ];
 
 // ── Animation Helpers ────────────────────────────────────────────────────────
