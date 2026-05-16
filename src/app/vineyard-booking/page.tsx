@@ -183,17 +183,21 @@ function HeritageRevealStack() {
   const imageY = useTransform(scrollYProgress, [0.26, 1.0], ["0vh", "-13vh"]);
 
   // BOTTOM block (kicker + grape names + Champagne caption) — the
-  // kicker [ Chalk · Ancient Seabed ] now lives INSIDE this block as
-  // its first child, sitting directly above the grape names rather
-  // than at the top of the image. The whole composition reads as a
-  // single editorial unit and shares one motion envelope:
+  // kicker [ Chalk · Ancient Seabed ] lives INSIDE this block as its
+  // first child. The whole composition reads as a single editorial
+  // unit and shares one motion envelope:
   //
-  //   y       — continuous linear drift +35vh → -30vh across the
-  //             visibility window. Scroll-tracking motion alive
-  //             throughout.
+  //   y       — CONTINUOUS linear drift +30vh → -90vh across the
+  //             visibility window. Total travel: 120vh — the block
+  //             scrolls nearly across the entire image, entering
+  //             from below the frame and exiting above the top.
   //   opacity — early gentle fade-in (0.25 → 0.38) · long plateau
   //             (0.38 → 0.85) · soft late fade-out (0.85 → 0.97).
-  const bottomY = useTransform(scrollYProgress, [0.25, 0.97], ["35vh", "-30vh"]);
+  //
+  // Visible travel during the opacity-1 plateau is ~80vh — the text
+  // clearly traverses the panorama from lower-third to upper-third
+  // instead of just settling in place.
+  const bottomY = useTransform(scrollYProgress, [0.25, 0.97], ["30vh", "-90vh"]);
   const bottomOpacity = useTransform(
     scrollYProgress,
     [0.25, 0.38, 0.85, 0.97],
