@@ -42,6 +42,11 @@ export interface Variant {
    *  detail line then has a £-amount the eye can anchor to. Leave
    *  undefined for full-price variants (75cl, magnums). */
   originalPrice?: number;
+  /** Mark the variant as out of stock. The ATB button switches to a
+   *  disabled "Out of Stock" state, the free-shipping bar hides,
+   *  and the cart dispatch is short-circuited. Format selector
+   *  stays interactive so the user can flip to other variants. */
+  outOfStock?: boolean;
 }
 
 interface Props {
@@ -116,8 +121,10 @@ export function PurchaseWidget({
   const remaining = Math.max(0, freeShippingThreshold - total);
   const freeShippingMet = remaining === 0;
   const progressPct = Math.min(100, (total / freeShippingThreshold) * 100);
+  const isOOS = !!variant.outOfStock;
 
   const handleAdd = () => {
+    if (isOOS) return;
     add({
       slug,
       name: productName,
@@ -224,20 +231,27 @@ export function PurchaseWidget({
         </div>
 
         {/* ATB Button — data-atb-trigger ties into the StickyMobileCTA
-            observer. Dispatches to the cart + auto-opens the drawer. */}
+            observer. Dispatches to the cart + auto-opens the drawer.
+            When the active variant is out of stock the button is
+            disabled, label switches to "Out of Stock", and the cart
+            dispatch short-circuits. */}
         <button
           id={ctaId}
           data-atb-trigger
           type="button"
           onClick={handleAdd}
-          className="btn-cta"
+          disabled={isOOS}
+          aria-disabled={isOOS}
+          className={`btn-cta ${isOOS ? "opacity-60 cursor-not-allowed" : ""}`}
         >
-          Add to basket · {formatGBP(total)}
+          {isOOS ? "Out of Stock" : `Add to basket · ${formatGBP(total)}`}
         </button>
       </div>
 
-      {/* ── Free Shipping Bar ────────────────────────────────────── */}
-      <div aria-live="polite" className="space-y-1.5">
+      {/* ── Free Shipping Bar ──────────────────────────────────────
+          Hidden when the active variant is out of stock — no point
+          dangling a free-shipping promise on an un-buyable item. */}
+      <div aria-live="polite" className={`space-y-1.5 ${isOOS ? "hidden" : ""}`}>
         <div className="relative h-[3px] rounded-full overflow-hidden bg-white/[0.08]">
           <motion.div
             className={`absolute inset-y-0 left-0 rounded-full ${

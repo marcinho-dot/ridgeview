@@ -294,7 +294,7 @@ function ProductHero() {
               {/* Mobile: 3 stacked accolades — Sommelier typographic + two
                   real image badges. Centered on midpoint to fit the bottle
                   wrapper. */}
-              <div className="md:hidden absolute left-0 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-10 pointer-events-none">
+              <div className="md:hidden absolute left-0 bottom-2 flex flex-col gap-3 z-10 pointer-events-none">
                 {/* Sommelier 2024 — REAL Sparkling Wine of the Year badge */}
                 <div className="flex flex-col items-center gap-1.5">
                   <motion.img

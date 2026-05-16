@@ -288,7 +288,7 @@ function ProductHero() {
               {/* Mobile: 3 stacked badges, slightly smaller to fit the
                   bottle wrapper height. Centered on the badge mid-point so
                   all three sit in the upper half of the wrapper. */}
-              <div className="md:hidden absolute left-0 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-10 pointer-events-none">
+              <div className="md:hidden absolute left-0 bottom-2 flex flex-col gap-3 z-10 pointer-events-none">
                 <div className="flex flex-col items-center gap-1.5">
                   <motion.img
                     src={`${basePath}/images/awards/decanter-2023-platinum.webp`}

@@ -48,6 +48,10 @@ interface Props {
   onAddToBasket?: () => void;
   /** Optional: Link für den "Back to Shop"-Sekundär-CTA. */
   backHref?: string;
+  /** Mark the default variant as out of stock — sticky ATB switches
+   *  to a disabled "Out of Stock" state, mirroring the PurchaseWidget /
+   *  QuickAddButton behaviour for fully unavailable SKUs. */
+  outOfStock?: boolean;
 }
 
 export function StickyMobileCTA({
@@ -64,6 +68,7 @@ export function StickyMobileCTA({
   triggerSelector,
   onAddToBasket,
   backHref,
+  outOfStock = false,
 }: Props) {
   const { add, openDrawer } = useCart();
   const [show, setShow] = useState(false);
@@ -149,6 +154,7 @@ export function StickyMobileCTA({
           <button
             type="button"
             onClick={() => {
+              if (outOfStock) return;
               add({
                 slug,
                 name: productName,
@@ -163,9 +169,11 @@ export function StickyMobileCTA({
               openDrawer();
               onAddToBasket?.();
             }}
-            className="btn-cta shrink-0"
+            disabled={outOfStock}
+            aria-disabled={outOfStock}
+            className={`btn-cta shrink-0 ${outOfStock ? "opacity-60 cursor-not-allowed" : ""}`}
           >
-            Add to basket
+            {outOfStock ? "Out of Stock" : "Add to basket"}
           </button>
         </motion.div>
       )}

@@ -255,7 +255,7 @@ function ProductHero() {
                   a micro-caption (year only) underneath. Anchored 30px
                   higher than the bottle midpoint so it sits in the upper
                   half of the wrapper, where the eye lands first. */}
-              <div className="md:hidden absolute left-0 top-[calc(50%-30px)] -translate-y-1/2 flex flex-col gap-4 z-10 pointer-events-none">
+              <div className="md:hidden absolute left-0 bottom-2 flex flex-col gap-3 z-10 pointer-events-none">
                 <div className="flex flex-col items-center gap-1.5">
                   <motion.img
                     src={`${basePath}/images/awards/winegb-2023-trophy.webp`}

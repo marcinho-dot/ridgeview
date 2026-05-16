@@ -47,6 +47,11 @@ interface QuickAddButtonProps {
   triggerForSticky?: boolean;
   /** Tailwind / arbitrary classes — passed through to the button. */
   className?: string;
+  /** Mark the default variant as out of stock. Button becomes
+   *  disabled, label switches to "Out of Stock", and the cart
+   *  dispatch short-circuits. Pass-through of the same flag set
+   *  on the PurchaseWidget Variant. */
+  outOfStock?: boolean;
 }
 
 export function QuickAddButton({
@@ -61,6 +66,7 @@ export function QuickAddButton({
   children = "Add to basket",
   triggerForSticky = true,
   className = "btn-cta",
+  outOfStock = false,
 }: QuickAddButtonProps) {
   const { add, openDrawer } = useCart();
 
@@ -69,6 +75,7 @@ export function QuickAddButton({
       type="button"
       {...(triggerForSticky ? { "data-atb-trigger": "" } : {})}
       onClick={() => {
+        if (outOfStock) return;
         add({
           slug,
           name: productName,
@@ -82,9 +89,11 @@ export function QuickAddButton({
         });
         openDrawer();
       }}
-      className={className}
+      disabled={outOfStock}
+      aria-disabled={outOfStock}
+      className={`${className} ${outOfStock ? "opacity-60 cursor-not-allowed" : ""}`}
     >
-      {children}
+      {outOfStock ? "Out of Stock" : children}
     </button>
   );
 }

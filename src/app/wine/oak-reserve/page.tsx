@@ -26,8 +26,12 @@ import { basePath } from "@/lib/basePath";
 // Release inherently has long OOS windows; better UX to show the
 // wine + style + cellar story than to hide the SKU entirely).
 const OAK_RESERVE_VARIANTS: Variant[] = [
-  { label: "75cl Bottle", detail: "75cl · 12% ABV · Limited Edition", price: 85, image: "/products/oak-reserve.png" },
-  { label: "Case of 6 · 6×75cl", detail: "6 × 75cl · Save 10%", price: 459, originalPrice: 510, badge: "Best value" /* no case shot yet — UK site reuses the Red Reserve image which is wrong for white Chardonnay; falls back to 75cl until we generate / source a real Oak Reserve case PNG */ },
+  // Both formats Out of Stock on ridgeview.co.uk as of 2026-05-16 sync.
+  // Per the founder's call (2026-05-16): leave the product page live —
+  // the wine + story + cellar context still inform; ATB buttons just
+  // surface the OOS state instead of letting customers add to basket.
+  { label: "75cl Bottle", detail: "75cl · 12% ABV · Limited Edition", price: 85, image: "/products/oak-reserve.png", outOfStock: true },
+  { label: "Case of 6 · 6×75cl", detail: "6 × 75cl · Save 10%", price: 459, originalPrice: 510, badge: "Best value", outOfStock: true /* no case shot yet — UK site reuses the Red Reserve image which is wrong for white Chardonnay; falls back to 75cl until we generate / source a real Oak Reserve case PNG */ },
 ];
 
 // ── Animation Helpers ────────────────────────────────────────────────────────
@@ -246,7 +250,7 @@ function ProductHero() {
                   a micro-caption (year only) underneath. Anchored 30px
                   higher than the bottle midpoint so it sits in the upper
                   half of the wrapper, where the eye lands first. */}
-              <div className="md:hidden absolute left-0 top-[calc(50%-30px)] -translate-y-1/2 flex flex-col gap-4 z-10 pointer-events-none">
+              <div className="md:hidden absolute left-0 bottom-2 flex flex-col gap-3 z-10 pointer-events-none">
                 {/* Mobile: Decanter Silver 2022 — typographic */}
                 <div className="flex flex-col items-center justify-center gap-1 h-[clamp(60px,16vw,80px)] px-2.5 border border-[#C8A96E]/35 rounded-md backdrop-blur-md bg-[#C8A96E]/[0.04]">
                   <p className="font-display italic text-cream text-[10px] leading-none">
@@ -288,6 +292,7 @@ function ProductHero() {
                   defaultVariantLabel="75cl Bottle"
                   defaultUnitPricePence={8500}
                   defaultPriceLabel="£85"
+                  outOfStock
                 />
               </div>
             </div>
@@ -642,6 +647,7 @@ function ClosingCTA() {
               defaultUnitPricePence={8500}
               defaultPriceLabel="£85"
               triggerForSticky={false}
+              outOfStock
             >
               Add to basket · £85
             </QuickAddButton>
@@ -816,6 +822,7 @@ export default function OakReservePage() {
         defaultVariantLabel="75cl Bottle"
         defaultUnitPricePence={8500}
         triggerSelector="[data-atb-trigger]"
+        outOfStock
       />
     </main>
   );
