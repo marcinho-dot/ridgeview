@@ -191,16 +191,18 @@ function HeritageRevealStack() {
   //             visibility window. Total travel: 120vh — the block
   //             scrolls nearly across the entire image, entering
   //             from below the frame and exiting above the top.
-  //   opacity — early gentle fade-in (0.25 → 0.38) · long plateau
-  //             (0.38 → 0.85) · soft late fade-out (0.85 → 0.97).
+  //   opacity — early fade-in (0.25 → 0.38) · plateau (0.38 → 0.7) ·
+  //             LONG GRADUAL fade-out (0.7 → 0.97).
   //
-  // Visible travel during the opacity-1 plateau is ~80vh — the text
-  // clearly traverses the panorama from lower-third to upper-third
-  // instead of just settling in place.
+  // The fade-out now starts at p=0.7 (block in middle of frame, fully
+  // visible) and runs gradually all the way to p=0.97 (block above
+  // frame). So the user actually SEES the text gently dimming as it
+  // drifts upward across the upper half of the image — a "leichten
+  // fade-out" that matches the long scroll travel.
   const bottomY = useTransform(scrollYProgress, [0.25, 0.97], ["30vh", "-90vh"]);
   const bottomOpacity = useTransform(
     scrollYProgress,
-    [0.25, 0.38, 0.85, 0.97],
+    [0.25, 0.38, 0.7, 0.97],
     [0, 1, 1, 0],
   );
 
@@ -267,23 +269,24 @@ function HeritageRevealStack() {
             [ Chalk · Ancient Seabed ]
           </p>
 
-          <div className="flex flex-wrap justify-center gap-x-10 gap-y-4 mb-7 md:mb-9">
-            {["Chardonnay", "Pinot Noir", "Pinot Meunier"].map((grape) => (
-              <p
-                key={grape}
-                className="font-display italic text-[#C8A96E]"
-                style={{
-                  fontSize: "clamp(32px, 4.5vw, 64px)",
-                  letterSpacing: "0.04em",
-                  lineHeight: 1.1,
-                  textShadow:
-                    "0 3px 8px rgba(0,0,0,0.98), 0 6px 28px rgba(0,0,0,0.9), 0 0 80px rgba(0,0,0,0.6)",
-                }}
-              >
-                {grape}
-              </p>
-            ))}
-          </div>
+          {/* Grape varieties — single line with brand "·" middle-dot
+              separator (Ridgeview CD pattern, same as the kicker
+              "[ Chalk · Ancient Seabed ]"). Non-breaking space inside
+              "Pinot Noir" + "Pinot Meunier" so those two-word names
+              never wrap mid-name; line-breaks happen only at the
+              breakable spaces around the dots. */}
+          <p
+            className="font-display italic text-[#C8A96E] mb-7 md:mb-9"
+            style={{
+              fontSize: "clamp(32px, 4.5vw, 64px)",
+              letterSpacing: "0.04em",
+              lineHeight: 1.1,
+              textShadow:
+                "0 3px 8px rgba(0,0,0,0.98), 0 6px 28px rgba(0,0,0,0.9), 0 0 80px rgba(0,0,0,0.6)",
+            }}
+          >
+            Chardonnay · Pinot{" "}Noir · Pinot{" "}Meunier
+          </p>
           <p
             className="font-body text-white leading-snug mx-auto"
             style={{
