@@ -62,7 +62,7 @@ export function SubstackForm({ className = "" }: Props) {
       </div>
       <input
         type="email"
-        placeholder="Your email for our Substack"
+        placeholder="Your email for our Substack newsletter"
         required
         className="flex-1 bg-transparent border-0 px-3 py-3.5 font-body text-white/95 text-[13px] tracking-wide placeholder:text-white/55 focus:outline-none"
         style={{ fontWeight: 300 }}

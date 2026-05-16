@@ -36,9 +36,9 @@ export function Footer() {
               className="font-body text-white/55"
               style={{ fontSize: "13px", fontWeight: 300, maxWidth: "480px" }}
             >
-              Subscribe to our Substack for harvest dispatches, cellar updates
-              and member-only releases &mdash; direct from Ridgeview.
-              Unsubscribe anytime.
+              Subscribe to our Substack newsletter for harvest dispatches,
+              cellar updates and member-only releases &mdash; direct from
+              Ridgeview. Unsubscribe anytime.
             </p>
           </div>
           <div className="w-full" style={{ maxWidth: "460px" }}>
