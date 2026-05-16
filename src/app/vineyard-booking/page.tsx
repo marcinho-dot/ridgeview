@@ -178,40 +178,30 @@ function HeritageRevealStack() {
   const imageScale = useTransform(scrollYProgress, [0.4, 1.0], [1.55, 1.28]);
   const imageY = useTransform(scrollYProgress, [0.4, 1.0], ["0vh", "-13vh"]);
 
-  // TOP kicker [ Chalk · Ancient Seabed ] — rises in from below,
-  // settles at rest, holds for a LONG visibility plateau, drifts
-  // very subtly upward during the late + soft fade-out.
+  // TOP kicker [ Chalk · Ancient Seabed ]
+  //   - y: CONTINUOUS linear drift from +25vh → -25vh across the
+  //     entire visibility window (0.50 → 0.97). No stops, no holds —
+  //     the scroll-driven motion is always alive.
+  //   - opacity: gradual fade-in (0.50 → 0.65) · long plateau
+  //     (0.65 → 0.85) · soft late fade-out (0.85 → 0.97).
   //
-  //   Phase A · 0.50 → 0.65  Drift in from y=20vh to rest (y=0)
-  //                          + GRADUAL fade-in (0→1 across 15% of
-  //                          progress — much more subtle than before)
-  //   Phase B · 0.65 → 0.85  HOLD at rest position (~20% of progress)
-  //   Phase C · 0.85 → 0.97  Gentle drift up to y=-12vh while fading
-  //
-  // Fade-in widened from 0.05 → 0.15 of progress so the kicker
-  // "appears" rather than "pops in". y and opacity now share the
-  // same keyframes so the kicker reaches rest position exactly when
-  // it reaches full opacity.
-  const topY = useTransform(
-    scrollYProgress,
-    [0.5, 0.65, 0.85, 0.97],
-    ["20vh", "0vh", "0vh", "-12vh"],
-  );
+  // The y and opacity are deliberately DECOUPLED: y travels at a
+  // constant pace so the user feels the scroll-tracking motion the
+  // whole time, while opacity does its own thing (slow appear, long
+  // hold, soft disappear). Earlier we had y held at rest during the
+  // opacity plateau — which made the kicker feel "stuck" and blocked
+  // the scroll-effect feeling.
+  const topY = useTransform(scrollYProgress, [0.5, 0.97], ["25vh", "-25vh"]);
   const topOpacity = useTransform(
     scrollYProgress,
     [0.5, 0.65, 0.85, 0.97],
     [0, 1, 1, 0],
   );
 
-  // BOTTOM block (grape names + Champagne caption) — same shape as
-  // the kicker: in → hold → subtle drift + fade. Starts slightly
-  // lower (y=30vh) so it feels like it's rising up from below the
-  // frame as the chalk image settles.
-  const bottomY = useTransform(
-    scrollYProgress,
-    [0.5, 0.6, 0.85, 0.97],
-    ["30vh", "0vh", "0vh", "-12vh"],
-  );
+  // BOTTOM block (grape names + Champagne caption) — same pattern:
+  // continuous y drift + decoupled opacity envelope. Slightly wider
+  // y range (+35 → -30) because the block has more vertical mass.
+  const bottomY = useTransform(scrollYProgress, [0.5, 0.97], ["35vh", "-30vh"]);
   const bottomOpacity = useTransform(
     scrollYProgress,
     [0.5, 0.58, 0.85, 0.97],
