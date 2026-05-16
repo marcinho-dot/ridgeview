@@ -32,11 +32,10 @@ export default function CompanyPage() {
       lastUpdated="2026-05-16"
     >
       <p>
-        Statutory and contact information for the business behind{" "}
-        <a href="https://www.ridgeview.co.uk">ridgeview.co.uk</a>, as
-        required by the Companies Act 2006, the Electronic Commerce (EC
-        Directive) Regulations 2002, and applicable consumer-protection
-        legislation.
+        Statutory and contact information for the business behind this
+        website, as required by the Companies Act 2006, the Electronic
+        Commerce (EC Directive) Regulations 2002, and applicable
+        consumer-protection legislation.
       </p>
 
       <h2>Registered entity</h2>

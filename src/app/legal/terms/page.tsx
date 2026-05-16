@@ -4,7 +4,7 @@ import { COMPANY, formatAddress } from "@/lib/legal/company";
 export const metadata = {
   title: "Terms & Conditions · Ridgeview Wine Estate",
   description:
-    "Terms governing your use of ridgeview.co.uk and orders placed with Ridgeview Wine Estate (QBRidge Limited), Sussex.",
+    "Terms governing your use of this website and orders placed with Ridgeview Wine Estate (QBRidge Limited), Sussex.",
 };
 
 export default function TermsPage() {
@@ -15,10 +15,10 @@ export default function TermsPage() {
       lastUpdated="2026-05-16"
     >
       <p>
-        These Terms &amp; Conditions (&ldquo;Terms&rdquo;) govern your use of{" "}
-        <a href="https://www.ridgeview.co.uk">ridgeview.co.uk</a> and any
-        order you place with us. By placing an order, you confirm that you
-        are at least 18 years of age and accept these Terms in full.
+        These Terms &amp; Conditions (&ldquo;Terms&rdquo;) govern your use of
+        this website and any order you place with us. By placing an order,
+        you confirm that you are at least 18 years of age and accept these
+        Terms in full.
       </p>
 
       <h2>1. Who we are</h2>

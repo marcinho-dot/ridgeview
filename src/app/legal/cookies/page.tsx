@@ -4,7 +4,7 @@ import { COMPANY } from "@/lib/legal/company";
 export const metadata = {
   title: "Cookie Policy · Ridgeview Wine Estate",
   description:
-    "How Ridgeview Wine Estate uses cookies and similar technologies on ridgeview.co.uk, in compliance with PECR and UK GDPR.",
+    "How Ridgeview Wine Estate uses cookies and similar technologies on this website, in compliance with PECR and UK GDPR.",
 };
 
 export default function CookiesPage() {

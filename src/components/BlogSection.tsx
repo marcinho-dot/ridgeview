@@ -34,7 +34,7 @@ const posts = [
     excerpt:
       "Clusters of grapes, now ripe for the picking, hang on the vines at South Lodge \u2013 Sussex\u2019s renowned luxury country house hotel.",
     image: `${basePath}/images/blog/south-lodge.jpg`,
-    href: "https://www.ridgeview.co.uk/news/south-lodge-vineyard-harvest-2025/",
+    href: `${basePath}/beyond-the-bottle/south-lodge-vineyard-harvest-2025/`,
   },
   {
     category: "Sustainability",
@@ -43,7 +43,7 @@ const posts = [
     excerpt:
       "Now in our third year as a certified B Corporation, we\u2019re proud of our progress and clear-eyed about the sustainability challenges that remain.",
     image: `${basePath}/images/blog/b-corp-2025.jpg`,
-    href: "https://www.ridgeview.co.uk/news/b-corp-impact-report-2025/",
+    href: `${basePath}/beyond-the-bottle/b-corp-impact-report-2025/`,
   },
   {
     category: "Vineyard",
@@ -52,7 +52,7 @@ const posts = [
     excerpt:
       "There\u2019s a unique energy in the vineyard as harvest draws near. The rows are heavy with fruit, the air alive with anticipation.",
     image: `${basePath}/images/blog/harvest-2025.jpg`,
-    href: "https://www.ridgeview.co.uk/news/harvest-vintage-2025/",
+    href: `${basePath}/beyond-the-bottle/harvest-vintage-2025/`,
   },
   {
     category: "Experiences",
@@ -61,7 +61,7 @@ const posts = [
     excerpt:
       "World-class wine experiences are now much closer to home. England\u2019s thriving wine scene is full of beautiful vineyards, award-winning wines, and welcoming experiences.",
     image: `${basePath}/images/blog/visiting-vineyard.jpg`,
-    href: "https://www.ridgeview.co.uk/news/vineyard-experiences-a-place-for-everyone/",
+    href: `${basePath}/beyond-the-bottle/vineyard-experiences-a-place-for-everyone/`,
   },
   {
     category: "Knowledge",
@@ -70,7 +70,7 @@ const posts = [
     excerpt:
       "Whether you\u2019re just getting started on your wine journey or looking to learn more, our engaging wine guides are designed to deepen your personal wine wisdom.",
     image: `${basePath}/images/blog/wine-wisdom.jpg`,
-    href: "https://www.ridgeview.co.uk/news/wine-wisdom/",
+    href: `${basePath}/beyond-the-bottle/wine-wisdom/`,
   },
   {
     category: "Entertaining",
@@ -79,7 +79,7 @@ const posts = [
     excerpt:
       "Christmas lives in the small, special moments \u2013 the little habits that became rituals we return to year after year.",
     image: `${basePath}/images/blog/christmas-pairings.jpg`,
-    href: "https://www.ridgeview.co.uk/news/christmas-sparkling-wine-pairings/",
+    href: `${basePath}/beyond-the-bottle/christmas-sparkling-wine-pairings/`,
   },
   {
     category: "Estate Life",
@@ -88,7 +88,7 @@ const posts = [
     excerpt:
       "As we settle into a new year, the exciting possibilities of fresh beginnings, change and growth are all around us. Nowhere is this felt more keenly than in the vineyard.",
     image: `${basePath}/images/blog/winter-vineyard.jpg`,
-    href: "https://www.ridgeview.co.uk/news/winter-in-the-vineyard/",
+    href: `${basePath}/beyond-the-bottle/winter-in-the-vineyard/`,
   },
 ];
 
