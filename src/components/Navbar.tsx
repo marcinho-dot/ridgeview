@@ -7,18 +7,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { basePath } from "@/lib/basePath";
 import { CartButton } from "@/components/cart/CartButton";
 
-function getLinks(isOffHome: boolean) {
-  // On any non-homepage route (booking, /wine/<sku>, etc.) anchor links
-  // need to point back to the homepage explicitly — otherwise the
-  // hash resolves against the current route and silently does nothing.
-  const anchor = (hash: string) => isOffHome ? `${basePath}/${hash}` : hash;
-
-  // Primary menu — four items, identical structure across desktop +
-  // mobile (locked 2026-05-12). Each has a `kicker` line that only
+function getLinks() {
+  // Primary menu — five items, identical structure across desktop +
+  // mobile (locked 2026-05-16). Each has a `kicker` line that only
   // renders in the mobile drawer (editorial / magazine TOC pattern).
   //
-  // Beyond the Bottle is now a real route (/beyond-the-bottle/) — the
-  // articles hub built from the legacy news. Direct nav, no anchor.
+  // All items are now direct routes (no homepage-anchor links left
+  // after Shop was switched from `#wine-collection` to `/wines`),
+  // so the previous `anchor(hash, isOffHome)` helper has been
+  // removed. Re-add if a future menu item needs a homepage anchor.
   const items = [
     {
       label: "Home",
@@ -26,9 +23,9 @@ function getLinks(isOffHome: boolean) {
       href: `${basePath}/`,
     },
     {
-      label: "Shop",
+      label: "Shop all Wines",
       kicker: "Ten award-winning sparkling wines",
-      href: anchor("#wine-collection"),
+      href: `${basePath}/wines`,
     },
     {
       label: "Vineyard",
@@ -55,19 +52,11 @@ function getLinks(isOffHome: boolean) {
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  // True on every route except the homepage — controls whether anchor
-  // links (#wine-collection, #ourview, etc.) need the homepage prefix.
-  const [isOffHome, setIsOffHome] = useState(false);
   // Booking page also gets the milk-glass navbar from the start.
   const [isBookingPage, setIsBookingPage] = useState(false);
 
   useEffect(() => {
     const path = window.location.pathname;
-    // Strip a trailing slash for the comparison; basePath itself
-    // is "" in dev and "/ridgeview" in production.
-    const normalized = path.replace(/\/$/, "");
-    const home = basePath.replace(/\/$/, "");
-    setIsOffHome(normalized !== home);
     setIsBookingPage(path.includes("/vineyard-booking"));
   }, []);
 
@@ -82,7 +71,7 @@ export function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
-  const { items: menuItems, wineClubHref } = getLinks(isOffHome);
+  const { items: menuItems, wineClubHref } = getLinks();
 
   // The Booking (Vineyard) page starts with the milk-glass treatment by
   // default — the aerial hero image is busy and the header would disappear
