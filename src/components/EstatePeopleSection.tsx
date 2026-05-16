@@ -170,7 +170,7 @@ export function EstatePeopleSection() {
           ]}
           imageSrc="/images/estate-vineyard.jpg"
           imageAlt="Ridgeview vineyard with the South Downs ridge in the distance"
-          imageAspect="aspect-[4/3]"
+          imageAspect="aspect-[4/5]"
           reverse
         />
 
@@ -189,7 +189,7 @@ export function EstatePeopleSection() {
           ]}
           imageSrc="/images/harvest-walk.jpg"
           imageAlt="Ridgeview team member walking through the vineyard during harvest, carrying picking buckets"
-          imageAspect="aspect-[3/4]"
+          imageAspect="aspect-[4/5]"
         />
 
       </div>
