@@ -153,38 +153,46 @@ function HeritageRevealStack() {
     offset: ["start start", "end end"],
   });
 
-  // Terroir text — pinned via sticky, slid up via transform.
-  // 0 → 0.35: y goes 0vh → -100vh (Terroir leaves viewport upward)
-  const terroirY = useTransform(scrollYProgress, [0, 0.35], ["0vh", "-100vh"]);
-  // Fade out near the end of the slide so the cross-over to the
-  // image feels clean rather than a hard cut.
+  // Section is 500vh tall → sticky range = 400vh (4 viewports of
+  // scrolling where Terroir + Chalk image are pinned). This gives:
+  //   Phase A · Terroir slides out      0 → 0.12 ( ~48vh of scroll)
+  //   Phase B · Bottom text traverses   0.12 → 0.82 (~280vh)
+  //                                     [image fully pinned, texts
+  //                                      scroll across the whole panorama]
+  //   Phase C · Hold + clean exit       0.82 → 1.00 ( ~72vh)
+  //                                     [image alone, no texts]
+  //
+  // The long Phase B + C is what the user asked for: image stays
+  // visually FIXED in the viewport for a sustained moment after
+  // Terroir is gone — not a brief peek before the next section.
+
+  // Terroir: slide out fast, then stay off
+  const terroirY = useTransform(scrollYProgress, [0, 0.12], ["0vh", "-100vh"]);
   const terroirOpacity = useTransform(
     scrollYProgress,
-    [0, 0.25, 0.35],
+    [0, 0.09, 0.12],
     [1, 1, 0],
   );
 
-  // Image scale — slight zoom-out across the FULL reveal so the
-  // camera-pulling-back motion runs both during the Terroir slide
-  // AND afterwards. Subtle (1.2 → 1.0) — the section is dramatic
-  // enough already.
-  const imageScale = useTransform(scrollYProgress, [0, 0.7], [1.2, 1]);
+  // Image: very subtle zoom-out across the full pin
+  const imageScale = useTransform(scrollYProgress, [0, 0.8], [1.18, 1]);
 
-  // On-image kicker (top) — fades in AFTER Terroir is gone
-  // (progress > 0.35), drifts upward through the scroll runway.
-  const topY = useTransform(scrollYProgress, [0.35, 1], ["20vh", "-25vh"]);
+  // TOP kicker — enters with the image, drifts up across the whole
+  // image (~95vh travel), exits at the top.
+  const topY = useTransform(scrollYProgress, [0.12, 0.82], ["55vh", "-40vh"]);
   const topOpacity = useTransform(
     scrollYProgress,
-    [0.35, 0.5, 0.85, 1],
+    [0.12, 0.22, 0.74, 0.82],
     [0, 1, 1, 0],
   );
 
-  // On-image bottom block (grape names + Champagne caption) —
-  // rises from below the viewport, drifts up past natural position.
-  const bottomY = useTransform(scrollYProgress, [0.35, 1], ["35vh", "-40vh"]);
+  // BOTTOM block (grape names + Champagne caption) — enters from
+  // below the viewport, drifts up across the entire image (~125vh
+  // travel), exits at the top.
+  const bottomY = useTransform(scrollYProgress, [0.12, 0.82], ["65vh", "-60vh"]);
   const bottomOpacity = useTransform(
     scrollYProgress,
-    [0.35, 0.55, 0.85, 1],
+    [0.12, 0.26, 0.74, 0.82],
     [0, 1, 1, 0],
   );
 
@@ -192,7 +200,7 @@ function HeritageRevealStack() {
     <section
       ref={ref}
       className="relative bg-[#010101] overflow-hidden"
-      style={{ height: "250vh" }}
+      style={{ height: "500vh" }}
     >
       {/* ── LAYER 0 (behind) — Chalk image, sticky-pinned ── */}
       <div className="absolute inset-0 z-0">
