@@ -276,17 +276,9 @@ function HeritageDiscoverySection() {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#010101] to-transparent" />
       </div>
 
-      {/* ── Text overlay ──
-          Gold corner accents now bracket the TEXT block (not the
-          full section) — at the section's outer edges they read
-          as orphaned decoration; bracketing the editorial column
-          turns them into an intentional frame for the quote. */}
+      {/* ── Text overlay ── */}
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32 min-h-[88vh] md:min-h-[92vh] flex items-center">
-        <div className="relative max-w-[640px]">
-          {/* Top-left gold accent — opens the editorial frame */}
-          <div className="absolute -top-4 -left-3 md:-top-5 md:-left-4 w-7 h-7 border-t border-l border-[#C8A96E]/35 pointer-events-none" />
-          {/* Bottom-right gold accent — closes the frame after the divider */}
-          <div className="absolute -bottom-4 -right-3 md:-bottom-5 md:-right-4 w-7 h-7 border-b border-r border-[#C8A96E]/35 pointer-events-none" />
+        <div className="max-w-[640px]">
 
           <FadeUp delay={0.1}>
             <p
