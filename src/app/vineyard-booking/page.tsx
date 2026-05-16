@@ -182,27 +182,17 @@ function HeritageRevealStack() {
   const imageScale = useTransform(scrollYProgress, [0.26, 1.0], [1.55, 1.28]);
   const imageY = useTransform(scrollYProgress, [0.26, 1.0], ["0vh", "-13vh"]);
 
-  // TOP kicker [ Chalk · Ancient Seabed ]
-  //   - y: CONTINUOUS linear drift from +25vh → -25vh across the
-  //     visibility window. Scroll-driven motion is always alive.
-  //   - opacity: starts fading in MUCH earlier (~50% earlier) so
-  //     the kicker is already fading in WHILE Terroir is still
-  //     scrolling off, instead of waiting until Terroir is gone.
+  // BOTTOM block (kicker + grape names + Champagne caption) — the
+  // kicker [ Chalk · Ancient Seabed ] now lives INSIDE this block as
+  // its first child, sitting directly above the grape names rather
+  // than at the top of the image. The whole composition reads as a
+  // single editorial unit and shares one motion envelope:
   //
-  // y and opacity are deliberately DECOUPLED — y at constant pace,
-  // opacity has its own envelope (early gentle fade-in, long plateau,
-  // soft late fade-out).
-  const topY = useTransform(scrollYProgress, [0.28, 0.97], ["25vh", "-25vh"]);
-  const topOpacity = useTransform(
-    scrollYProgress,
-    [0.28, 0.42, 0.85, 0.97],
-    [0, 1, 1, 0],
-  );
-
-  // BOTTOM block (grape names + Champagne caption) — same pattern,
-  // fade-in starts even earlier than the kicker because the block
-  // sits at the bottom of the frame and becomes naturally exposed
-  // by the receding Terroir sooner (around progress 0.37).
+  //   y       — continuous linear drift +35vh → -30vh across the
+  //             visibility window. Scroll-tracking motion alive
+  //             throughout.
+  //   opacity — early gentle fade-in (0.25 → 0.38) · long plateau
+  //             (0.38 → 0.85) · soft late fade-out (0.85 → 0.97).
   const bottomY = useTransform(scrollYProgress, [0.25, 0.97], ["35vh", "-30vh"]);
   const bottomOpacity = useTransform(
     scrollYProgress,
@@ -253,29 +243,26 @@ function HeritageRevealStack() {
           }}
         />
 
-        {/* TOP: Chalk kicker — multi-layer shadow (tight inner + soft halo).
-            Bumped 2026-05-16: bigger type (22-32px from 15-22px), and
-            starts 120px lower than the previous `top-[12vh]` rest
-            position (more breathing room below the navbar). */}
-        <motion.p
-          className="absolute left-0 right-0 font-display italic text-[#C8A96E] tracking-widest text-center px-6"
-          style={{
-            top: "calc(12vh + 120px)",
-            fontSize: "clamp(22px, 2.4vw, 32px)",
-            textShadow:
-              "0 2px 6px rgba(0,0,0,0.95), 0 4px 22px rgba(0,0,0,0.85), 0 0 60px rgba(0,0,0,0.5)",
-            y: topY,
-            opacity: topOpacity,
-          }}
-        >
-          [ Chalk · Ancient Seabed ]
-        </motion.p>
-
-        {/* BOTTOM: Grape varieties + Champagne caption */}
+        {/* BOTTOM: Kicker + Grape varieties + Champagne caption.
+            The [ Chalk · Ancient Seabed ] kicker now sits directly
+            above the grape names as part of the same editorial unit,
+            sharing the same y + opacity animation. */}
         <motion.div
           className="absolute inset-x-0 bottom-[14vh] px-6 md:px-10 text-center"
           style={{ y: bottomY, opacity: bottomOpacity }}
         >
+          {/* Kicker — sits directly above the grape names */}
+          <p
+            className="font-display italic text-[#C8A96E] tracking-widest mb-4 md:mb-5"
+            style={{
+              fontSize: "clamp(15px, 1.6vw, 22px)",
+              textShadow:
+                "0 2px 6px rgba(0,0,0,0.95), 0 4px 22px rgba(0,0,0,0.85), 0 0 60px rgba(0,0,0,0.5)",
+            }}
+          >
+            [ Chalk · Ancient Seabed ]
+          </p>
+
           <div className="flex flex-wrap justify-center gap-x-10 gap-y-4 mb-7 md:mb-9">
             {["Chardonnay", "Pinot Noir", "Pinot Meunier"].map((grape) => (
               <p
