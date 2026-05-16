@@ -71,17 +71,18 @@ function ParallaxRow({
   );
 
   return (
-    // OUTER stage: min-h-screen gives the parallax effect scroll
-    // room. items-center vertically centers the inner row inside
-    // that stage.
-    <div ref={ref} className="min-h-screen flex items-center py-20 md:py-28">
+    // OUTER row stage. Padding only — no `min-h-screen` (it was
+    // creating a 100vh empty band between The Estate and The People
+    // sections). The parallax animation still completes naturally
+    // as the user scrolls past the row.
+    <div ref={ref} className="py-16 md:py-24">
       {/* INNER row: on mobile flex-col with the image at its
           natural aspect ratio. On desktop flex-row with
           `items-stretch` so the image column stretches to MATCH
           the text column's natural height (per user direction:
           image should track text height on desktop). */}
       <div
-        className={`w-full flex flex-col items-center gap-10 md:gap-20 lg:gap-28 md:items-stretch ${
+        className={`w-full flex flex-col items-center gap-10 md:gap-16 lg:gap-20 md:items-stretch ${
           reverse ? "md:flex-row-reverse" : "md:flex-row"
         }`}
       >
@@ -124,12 +125,15 @@ function ParallaxRow({
           ))}
         </motion.div>
 
-        {/* Image column — mobile keeps its aspect ratio; desktop
-            drops it and stretches to the text height (items-stretch
-            on parent + md:aspect-auto here) */}
+        {/* Image column — mobile keeps its aspect ratio and a
+            420px cap so it doesn't dominate small screens. Desktop
+            drops both the aspect constraint AND the width cap so
+            the image fills its flex column (matches the page-
+            header content width). Stretches to text-column height
+            via items-stretch on the parent. */}
         <motion.div
           style={{ opacity: imageOpacity, clipPath: imageClip }}
-          className={`group relative overflow-hidden rounded-sm w-full max-w-[420px] md:max-w-[520px] mx-auto md:mx-0 md:flex-1 ${imageAspect} md:aspect-auto`}
+          className={`group relative overflow-hidden rounded-sm w-full max-w-[420px] md:max-w-none mx-auto md:mx-0 md:flex-1 ${imageAspect} md:aspect-auto`}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
