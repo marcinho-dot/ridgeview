@@ -8,7 +8,6 @@ import { BottomNav } from "@/components/BottomNav";
 import { RecognitionSection } from "@/components/RecognitionSection";
 import { EstatePeopleSection } from "@/components/EstatePeopleSection";
 import { ScrollReset } from "@/components/ScrollReset";
-import { ScrollRotateReveal } from "@/components/ScrollRotateReveal";
 import { BehindTheBottleSection } from "@/components/sku/BehindTheBottleSection";
 import { basePath } from "@/lib/basePath";
 
@@ -128,128 +127,98 @@ function PageHeader() {
 // ── Section: Heritage Part 1 — Terroir ──────────────────────────────────────
 
 function HeritageTerroirSection() {
+  // Pure-typography pass (locked 2026-05-16, per user direction):
+  // the 21st.dev ScrollRotateReveal 3D-rotating card and its
+  // estate-vineyard.jpg + the terroir-hero.jpg backdrop were all
+  // removed. Editorial copy is verbatim from the previous version —
+  // kicker, 3-line headline, chalk sub-kicker, grape varieties,
+  // Champagne caption, body paragraph — now stacked as a centered
+  // vertical text composition against the bare #010101 surface.
   return (
-    <section className="relative overflow-hidden bg-[#010101]">
-
-      {/* ── Background image — fixed, covers entire section ── */}
-      <div className="absolute inset-0">
-        <img
-          src={`${basePath}/images/terroir-hero.jpg`}
-          alt="Ridgeview vineyard rows stretching toward the South Downs"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "center 35%" }}
-        />
-        {/* Gold tint */}
-        <div className="absolute inset-0" style={{ background: "linear-gradient(160deg, rgba(200,169,110,0.06), rgba(200,169,110,0.02))" }} />
-        {/* Darken for readability */}
-        <div className="absolute inset-0 bg-black/60" />
-        {/* Top blend into previous section */}
-        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#010101] to-transparent" />
-        {/* Bottom blend into next section */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#010101] to-transparent" />
-      </div>
-
-      {/* ── ScrollRotateReveal — vertical title above 3D-rotating card ── */}
-      <ScrollRotateReveal
-        titleComponent={
-          <div className="relative z-10 px-6 md:px-16">
-            <FadeUp>
-              <p
-                className="font-display italic text-[#C8A96E] mb-5 tracking-widest"
-                style={{ fontSize: "clamp(13px, 1.3vw, 16px)", textShadow: "0 1px 12px rgba(0,0,0,0.8)" }}
-              >
-                [ Ditchling Common · East Sussex ]
-              </p>
-            </FadeUp>
-
-            <FadeUp delay={0.1}>
-              <h2
-                className="font-display italic text-white leading-[1.05]"
-                style={{ fontSize: "clamp(32px, 5vw, 72px)", fontWeight: 400, textShadow: "0 2px 20px rgba(0,0,0,0.6)" }}
-              >
-                Two countries.
-              </h2>
-            </FadeUp>
-            <FadeUp delay={0.18}>
-              <h2
-                className="font-display italic text-white leading-[1.05]"
-                style={{ fontSize: "clamp(32px, 5vw, 72px)", fontWeight: 400, textShadow: "0 2px 20px rgba(0,0,0,0.6)" }}
-              >
-                One <span className="text-[#C8A96E]">ancient</span> seabed.
-              </h2>
-            </FadeUp>
-            <FadeUp delay={0.26}>
-              <h2
-                className="font-display italic text-white leading-[1.05]"
-                style={{ fontSize: "clamp(32px, 5vw, 72px)", fontWeight: 400, textShadow: "0 2px 20px rgba(0,0,0,0.6)" }}
-              >
-                One <span className="text-[#C8A96E]">tradition.</span>
-              </h2>
-            </FadeUp>
-          </div>
-        }
-      >
-        {/* Card content — chalk-soil vineyard image with editorial overlays */}
-        <div className="relative h-full w-full overflow-hidden rounded-sm">
-          <img
-            src={`${basePath}/images/estate-vineyard.jpg`}
-            alt="Vineyard rows on Sussex chalk soils at Ridgeview"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          {/* Soft inner shading for legibility */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-black/40" />
-          {/* Editorial overlay caption (top-left) */}
-          <div className="absolute top-5 left-5 md:top-8 md:left-10">
-            <p
-              className="font-display italic text-[#C8A96E] tracking-widest"
-              style={{ fontSize: "clamp(11px, 1vw, 13px)", textShadow: "0 1px 12px rgba(0,0,0,0.8)" }}
-            >
-              [ Chalk · Ancient Seabed ]
-            </p>
-          </div>
-          {/* Grape labels + supporting caption (bottom strip).
-              Caption moved onto the card from the post-card footer
-              so it sits visually attached to the grape names that
-              it explains. */}
-          <div className="absolute bottom-5 left-5 right-5 md:bottom-8 md:left-10 md:right-10">
-            <div className="flex flex-wrap gap-5">
-              {["Chardonnay", "Pinot Noir", "Pinot Meunier"].map((grape) => (
-                <p
-                  key={grape}
-                  className="font-display italic text-[#C8A96E]"
-                  style={{
-                    fontSize: "clamp(12px, 1.2vw, 15px)",
-                    letterSpacing: "0.06em",
-                    textShadow: "0 1px 8px rgba(0,0,0,0.7)",
-                  }}
-                >
-                  {grape}
-                </p>
-              ))}
-            </div>
-            <p
-              className="font-body text-white/85 leading-snug mt-3 md:mt-4 max-w-[460px]"
-              style={{
-                fontSize: "clamp(11px, 1vw, 13px)",
-                fontWeight: 300,
-                textShadow: "0 1px 10px rgba(0,0,0,0.85)",
-              }}
-            >
-              The same varieties that define Champagne — rooted in Sussex
-              chalk.
-            </p>
-          </div>
-        </div>
-      </ScrollRotateReveal>
-
-      {/* ── Post-card footer — the chalk-origin body paragraph.
-          The grape-varieties caption that used to sit here now lives
-          on the card itself (right under the grape labels). */}
-      <div className="relative z-10 max-w-[760px] mx-auto px-6 md:px-16 pb-20 md:pb-32 -mt-56 md:-mt-72 text-center">
-        <FadeUp delay={0.35}>
+    <section className="relative overflow-hidden bg-[#010101] py-28 md:py-40">
+      <div className="relative z-10 max-w-[920px] mx-auto px-6 md:px-16 text-center">
+        <FadeUp>
           <p
-            className="font-body text-white/70 leading-relaxed mx-auto"
-            style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, maxWidth: "560px", textShadow: "0 1px 8px rgba(0,0,0,0.7)" }}
+            className="font-display italic text-[#C8A96E] mb-6 tracking-widest"
+            style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
+          >
+            [ Ditchling Common · East Sussex ]
+          </p>
+        </FadeUp>
+
+        <FadeUp delay={0.1}>
+          <h2
+            className="font-display italic text-white leading-[1.05]"
+            style={{ fontSize: "clamp(32px, 5vw, 72px)", fontWeight: 400 }}
+          >
+            Two countries.
+          </h2>
+        </FadeUp>
+        <FadeUp delay={0.18}>
+          <h2
+            className="font-display italic text-white leading-[1.05]"
+            style={{ fontSize: "clamp(32px, 5vw, 72px)", fontWeight: 400 }}
+          >
+            One <span className="text-[#C8A96E]">ancient</span> seabed.
+          </h2>
+        </FadeUp>
+        <FadeUp delay={0.26}>
+          <h2
+            className="font-display italic text-white leading-[1.05]"
+            style={{ fontSize: "clamp(32px, 5vw, 72px)", fontWeight: 400 }}
+          >
+            One <span className="text-[#C8A96E]">tradition.</span>
+          </h2>
+        </FadeUp>
+
+        {/* Chalk sub-kicker + grape varieties + caption.
+            Previously anchored inside the rotating image card;
+            now floats below the headline as a centered typographic
+            block, separated by a generous vertical gap. */}
+        <FadeUp delay={0.4}>
+          <p
+            className="font-display italic text-[#C8A96E] tracking-widest mt-14 md:mt-20 mb-6"
+            style={{ fontSize: "clamp(11px, 1vw, 13px)" }}
+          >
+            [ Chalk · Ancient Seabed ]
+          </p>
+        </FadeUp>
+
+        <FadeUp delay={0.46}>
+          <div className="flex flex-wrap justify-center gap-x-7 gap-y-2 mb-4">
+            {["Chardonnay", "Pinot Noir", "Pinot Meunier"].map((grape) => (
+              <p
+                key={grape}
+                className="font-display italic text-[#C8A96E]"
+                style={{
+                  fontSize: "clamp(14px, 1.3vw, 17px)",
+                  letterSpacing: "0.06em",
+                }}
+              >
+                {grape}
+              </p>
+            ))}
+          </div>
+        </FadeUp>
+
+        <FadeUp delay={0.52}>
+          <p
+            className="font-body text-white/65 leading-snug mx-auto"
+            style={{
+              fontSize: "clamp(12px, 1.1vw, 14px)",
+              fontWeight: 300,
+              maxWidth: "460px",
+            }}
+          >
+            The same varieties that define Champagne — rooted in Sussex chalk.
+          </p>
+        </FadeUp>
+
+        {/* Body paragraph that previously sat below the rotating card. */}
+        <FadeUp delay={0.6}>
+          <p
+            className="font-body text-white/70 leading-relaxed mx-auto mt-16 md:mt-24"
+            style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, maxWidth: "560px" }}
           >
             It began with a belief: that the chalk soils beneath the South Downs
             — mirroring the geology of Champagne — could produce world-class
