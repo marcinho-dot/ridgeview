@@ -115,11 +115,11 @@ export function Footer() {
           </h4>
           <ul className="space-y-3">
             {[
-              { label: "English Sparkling Wine", href: `${home}#wine-collection` },
-              { label: "Cases of Wine", href: `${home}#wine-collection` },
-              { label: "Gift Sets & Collections", href: `${home}#wine-collection` },
+              { label: "English Sparkling Wine", href: `${home}wines` },
+              { label: "Cases of Wine", href: `${home}wines` },
+              { label: "Gift Sets & Collections", href: `${home}wines` },
               { label: "OurView Wine Club", href: `${home}wine-club/` },
-              { label: "Click & Collect", href: `${home}#wine-collection` },
+              { label: "Click & Collect", href: `${home}wines` },
             ].map((item) => (
               <li key={item.label}>
                 <a href={item.href} className="link-underline font-body text-white/55 text-sm hover:text-[#C8A96E]/80 transition-colors duration-300" style={{ fontWeight: 300 }}>

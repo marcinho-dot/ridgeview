@@ -152,7 +152,7 @@ export function RelatedWinesSection({
           className="reveal mt-16 md:mt-20 flex justify-center"
           style={{ transitionDelay: "0.55s" }}
         >
-          <a href={`${basePath}/#wine-collection`} className="btn-cta">
+          <a href={`${basePath}/wines`} className="btn-cta">
             Explore the Collection
           </a>
         </div>
