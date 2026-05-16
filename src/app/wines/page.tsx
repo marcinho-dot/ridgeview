@@ -257,7 +257,6 @@ function WineLegend() {
           style={{ paddingRight: "max(1rem, 4vw)" }}
         >
           {wines.map((wine) => {
-            const anchor = wine.slug ?? `wine-${wine.id}`;
             return (
               <li
                 key={wine.id}
@@ -265,8 +264,14 @@ function WineLegend() {
                 style={{ scrollSnapAlign: "start" }}
               >
                 <a
-                  href={`#${anchor}`}
-                  aria-label={`Jump to ${wine.name}`}
+                  href={
+                    wine.customUrl
+                      ? `${basePath}${wine.customUrl}`
+                      : wine.slug
+                        ? `${basePath}/wine/${wine.slug}`
+                        : "#"
+                  }
+                  aria-label={`Open ${wine.name}`}
                   className="group relative flex flex-col items-center w-[88px] md:w-[220px] lg:w-[240px] focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C8A96E]/40 rounded-sm"
                 >
                   {/* Bottle stage — square thumb on mobile, taller portrait
@@ -476,6 +481,67 @@ function WineGrid() {
   );
 }
 
+// ── Section: View Switch ────────────────────────────────────────────────────
+// Small UX gimmick (added 2026-05-17): pill-toggle between the
+// compact horizontal bottle-row and the editorial card grid. Two
+// modes are mutually exclusive — only one renders at a time so the
+// page reads as a single deliberate composition rather than a
+// scroll-down catalog.
+
+function ViewSwitch({
+  view,
+  onChange,
+}: {
+  view: "row" | "grid";
+  onChange: (v: "row" | "grid") => void;
+}) {
+  const baseBtn =
+    "px-5 py-2 rounded-full font-body uppercase transition-all duration-300";
+  const labelStyle = {
+    fontSize: "11px",
+    letterSpacing: "0.22em",
+    fontWeight: 400,
+  } as const;
+  return (
+    <section className="relative bg-[#010101] pt-2 md:pt-4 pb-6 md:pb-8">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-16 flex justify-center">
+        <div
+          role="group"
+          aria-label="Catalog view"
+          className="inline-flex items-center gap-1 border border-white/20 rounded-full p-1 bg-white/[0.03] backdrop-blur-sm"
+        >
+          <button
+            type="button"
+            onClick={() => onChange("row")}
+            aria-pressed={view === "row"}
+            className={`${baseBtn} ${
+              view === "row"
+                ? "bg-[#C8A96E]/15 text-cream"
+                : "text-white/55 hover:text-white/85"
+            }`}
+            style={labelStyle}
+          >
+            Row
+          </button>
+          <button
+            type="button"
+            onClick={() => onChange("grid")}
+            aria-pressed={view === "grid"}
+            className={`${baseBtn} ${
+              view === "grid"
+                ? "bg-[#C8A96E]/15 text-cream"
+                : "text-white/55 hover:text-white/85"
+            }`}
+            style={labelStyle}
+          >
+            Cards
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ── Section: Bespoke Gifting CTA ────────────────────────────────────────────
 // Engraved Bottle Gift is intentionally excluded from the wine grid (it's a
 // service, not a wine). This section keeps it discoverable without diluting
@@ -608,6 +674,11 @@ function BackToTop() {
 // ── Page ────────────────────────────────────────────────────────────────────
 
 export default function WinesPage() {
+  // View mode: "row" = compact horizontal bottle strip (default),
+  // "grid" = editorial card grid. Mutually exclusive — toggled via
+  // the ViewSwitch pill above the gallery.
+  const [view, setView] = useState<"row" | "grid">("row");
+
   return (
     <div className="bg-[#010101] min-h-screen">
       {/* Grain noise overlay — same value used on /vineyard-booking for visual
@@ -625,8 +696,12 @@ export default function WinesPage() {
       <Navbar />
       <main>
         <PageHero />
-        <WineLegend />
-        <ScrollReset><WineGrid /></ScrollReset>
+        <ViewSwitch view={view} onChange={setView} />
+        {view === "row" ? (
+          <WineLegend />
+        ) : (
+          <ScrollReset><WineGrid /></ScrollReset>
+        )}
         <ScrollReset><GiftCTA /></ScrollReset>
       </main>
       <BackToTop />
