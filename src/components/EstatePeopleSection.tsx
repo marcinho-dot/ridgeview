@@ -77,15 +77,12 @@ function ParallaxRow({
     // as the user scrolls past the row.
     <div ref={ref} className="py-16 md:py-24">
       {/* INNER row: flex-col on mobile, flex-row on desktop with
-          items-CENTER so the row stays vertically centered if the
-          text column is taller or shorter than the image. The
-          previous items-stretch approach made the image track the
-          text column's height — which produced different image
-          dimensions between Row 1 and Row 2 because the body copy
-          lengths differ. Now both images use the SAME aspect ratio
-          on all viewports, ensuring identical width AND height. */}
+          items-STRETCH so the image column matches the text column's
+          height (per-row alignment). The aspect ratio applies on
+          mobile (flex-col, no stretch context) but is dropped on
+          desktop so the image can fill the text-driven height. */}
       <div
-        className={`w-full flex flex-col items-center gap-10 md:gap-16 lg:gap-20 md:items-center ${
+        className={`w-full flex flex-col items-center gap-10 md:gap-16 lg:gap-20 md:items-stretch ${
           reverse ? "md:flex-row-reverse" : "md:flex-row"
         }`}
       >
@@ -128,14 +125,14 @@ function ParallaxRow({
           ))}
         </motion.div>
 
-        {/* Image column — aspect ratio is enforced on BOTH mobile
-            AND desktop (no more `md:aspect-auto` override) so the
-            two images across rows have identical dimensions. Width
-            comes from `md:flex-1` (equal share with the text
-            column), height comes from the aspect ratio. */}
+        {/* Image column — aspect ratio applies on mobile (when
+            flex-col, with a 420px width cap). On desktop, both the
+            aspect ratio AND the width cap are dropped (md:aspect-auto
+            + md:max-w-none) so the image stretches to match the text
+            column's height via items-stretch on the parent. */}
         <motion.div
           style={{ opacity: imageOpacity, clipPath: imageClip }}
-          className={`group relative overflow-hidden rounded-sm w-full max-w-[420px] md:max-w-none mx-auto md:mx-0 md:flex-1 ${imageAspect}`}
+          className={`group relative overflow-hidden rounded-sm w-full max-w-[420px] md:max-w-none mx-auto md:mx-0 md:flex-1 ${imageAspect} md:aspect-auto`}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
