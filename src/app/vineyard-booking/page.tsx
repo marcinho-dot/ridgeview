@@ -212,52 +212,32 @@ function HeritageRevealStack() {
           className="absolute inset-0 w-full h-full object-cover"
           style={{ scale: imageScale, y: imageY }}
         />
-        {/* Readability layers — strengthened 2026-05-16 for legibility
-            against the bright sky / lit vineyard rows of the panorama.
-            Strategy: full-frame base darken + stronger top/bottom
-            gradients + localized radial halos behind the kicker and
-            grape-name block. Each layer is pointer-events-none so it
-            never blocks interaction. */}
+        {/* Readability layers — refined 2026-05-16 after the radial
+            halos were rendering as visible dark "blobs" rather than
+            blending smoothly. Stripped back to just two soft linear
+            gradients (top + bottom) plus a subtle base darken. The
+            text legibility now comes from multi-layer text-shadows
+            on the on-image texts themselves, not from heavy halos. */}
 
-        {/* Base darken — 18% black across the entire image so highlights
-            never blow out the gold/cream text */}
-        <div
-          className="absolute inset-0 pointer-events-none bg-black/[0.18]"
-        />
+        {/* Base darken — 12% black across the entire image so the
+            brightest highlights never fight with gold/cream text */}
+        <div className="absolute inset-0 pointer-events-none bg-black/[0.12]" />
 
-        {/* Top readability gradient — taller (45%) + darker (0.78) */}
+        {/* Top readability gradient — smooth fade, no hard color stops */}
         <div
-          className="absolute inset-x-0 top-0 h-[45%] pointer-events-none"
+          className="absolute inset-x-0 top-0 h-[40%] pointer-events-none"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.15) 60%, rgba(0,0,0,0) 100%)",
+              "linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%)",
           }}
         />
 
-        {/* Bottom readability gradient — taller (60%) + darker (0.85) */}
+        {/* Bottom readability gradient — smooth fade, no hard color stops */}
         <div
-          className="absolute inset-x-0 bottom-0 h-[60%] pointer-events-none"
+          className="absolute inset-x-0 bottom-0 h-[55%] pointer-events-none"
           style={{
             background:
-              "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.20) 65%, rgba(0,0,0,0) 100%)",
-          }}
-        />
-
-        {/* Localized halo behind the TOP kicker — focused dark ellipse */}
-        <div
-          className="absolute inset-x-0 top-0 h-[28vh] pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse 55% 80% at 50% 50%, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 75%)",
-          }}
-        />
-
-        {/* Localized halo behind the BOTTOM block — focused dark ellipse */}
-        <div
-          className="absolute inset-x-0 bottom-0 h-[42vh] pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse 65% 75% at 50% 55%, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 75%)",
+              "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 100%)",
           }}
         />
 
