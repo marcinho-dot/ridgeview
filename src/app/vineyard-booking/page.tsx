@@ -124,134 +124,77 @@ function PageHeader() {
   );
 }
 
-// ── Section: Heritage Part 1 — Terroir ──────────────────────────────────────
+// ── Section: Heritage Reveal Stack ──────────────────────────────────────────
+// Apple "Powerful connections"-style LAYERED REVEAL (cf.
+// apple.com/mac-studio). The chalk vineyard image acts as a FIXED
+// background frame; the Terroir text overlay sits ON TOP of it and
+// scrolls upward NATURALLY (no transform animation, just normal-flow
+// scroll). As Terroir rises off the viewport top, the pinned chalk
+// image is revealed beneath it like a curtain being drawn upward.
+//
+// Layout (single 300vh container):
+//   ┌─ section ref={ref} h-[300vh] bg-#010101 ──────────────────┐
+//   │   z-0  CHALK IMAGE  (sticky top-0 h-screen, pinned)       │
+//   │        - motion.img with scale + translateY animations    │
+//   │        - readability gradients top + bottom               │
+//   │        - on-image kicker + grape names (fade in AFTER     │
+//   │          Terroir clears)                                  │
+//   │                                                            │
+//   │   z-10 TERROIR TEXT (-mt-[100vh] min-h-screen, solid bg)  │
+//   │        - overlaps chalk's sticky pin via -mt              │
+//   │        - normal-flow scroll, no transform                 │
+//   │        - covers chalk initially, reveals it as it scrolls │
+//   │          off the top of the viewport                      │
+//   └────────────────────────────────────────────────────────────┘
+//
+// Scroll choreography (useScroll offset "start end"→"end start",
+// 400vh total range across the section's life):
+//   progress 0.00 — section just enters viewport from below
+//   progress 0.25 — sticky engages (section_top reaches viewport top);
+//                   Terroir covers the full viewport
+//   progress 0.50 — Terroir fully scrolled off the top;
+//                   chalk image fully revealed at viewport [0, 100vh]
+//   progress 0.75 — sticky range ends; chalk starts to release upward
+//   progress 1.00 — chalk fully off the top of the viewport
 
-function HeritageTerroirSection() {
-  // Normal-flow editorial header for the sticky-stack trio below
-  // (Chalk Image / Behind the Bottle / Discovery). The Terroir
-  // statement reads first as a pure typographic intro at its own
-  // natural height — no sticky pinning, no `min-h-screen`. The
-  // 3-card sticky deck starts AFTER this section.
-  return (
-    <section className="relative overflow-hidden bg-[#010101] py-24 md:py-32">
-      <div className="relative z-10 max-w-[920px] mx-auto px-6 md:px-16 text-center w-full">
-        <FadeUp>
-          <p
-            className="font-display italic text-[#C8A96E] mb-6 tracking-widest"
-            style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
-          >
-            [ Ditchling Common · East Sussex ]
-          </p>
-        </FadeUp>
-
-        <FadeUp delay={0.1}>
-          <h2
-            className="font-display italic text-white leading-[1.05]"
-            style={{ fontSize: "clamp(32px, 5vw, 72px)", fontWeight: 400 }}
-          >
-            Two countries.
-          </h2>
-        </FadeUp>
-        <FadeUp delay={0.18}>
-          <h2
-            className="font-display italic text-white leading-[1.05]"
-            style={{ fontSize: "clamp(32px, 5vw, 72px)", fontWeight: 400 }}
-          >
-            One <span className="text-[#C8A96E]">ancient</span> seabed.
-          </h2>
-        </FadeUp>
-        <FadeUp delay={0.26}>
-          <h2
-            className="font-display italic text-white leading-[1.05]"
-            style={{ fontSize: "clamp(32px, 5vw, 72px)", fontWeight: 400 }}
-          >
-            One <span className="text-[#C8A96E]">tradition.</span>
-          </h2>
-        </FadeUp>
-
-        <FadeUp delay={0.4}>
-          <p
-            className="font-body text-white/70 leading-relaxed mx-auto mt-12 md:mt-16"
-            style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, maxWidth: "560px" }}
-          >
-            It began with a belief: that the chalk soils beneath the South Downs
-            — mirroring the geology of Champagne — could produce world-class
-            sparkling wine. In 1995, Ridgeview planted its first vines.
-          </p>
-        </FadeUp>
-      </div>
-    </section>
-  );
-}
-
-// ── Section: Heritage Part 1.5 — Chalk vineyard image card ──────────────────
-// Lives as its own sticky card so the 16:9 panorama gets a full
-// viewport of attention before the next card slides over it. The
-// kicker pins to the top of the image, the grape varieties +
-// Champagne caption pin to the bottom — same composition as the
-// previous in-Terroir version, just hoisted into a dedicated section
-// with `min-h-screen` so it owns one slot in the sticky deck.
-
-function HeritageChalkImageCard() {
-  // Apple-style scroll-pinned full-bleed reveal (cf. apple.com/mac-studio
-  // "Powerful connections" section). Pattern:
-  //
-  //   - Outer wrapper is taller than the viewport (175vh) so the
-  //     sticky inner stays pinned for ~75vh of scroll.
-  //   - Inner is `sticky top-0 h-screen overflow-hidden` — the
-  //     panorama fills the viewport edge-to-edge.
-  //   - Image starts at scale 1.22 (zoomed in) and zooms OUT to 1.0
-  //     across the first 60% of scroll progress — Apple's "camera
-  //     pulling back" feel.
-  //   - Top kicker drifts up + fades in then out.
-  //   - Bottom grape-varieties + Champagne caption rises from below
-  //     and drifts up past natural position as the user keeps scrolling.
-  //
-  // No padding / aspect-ratio container anymore — image is true
-  // full-bleed (covers the entire viewport during the sticky window).
+function HeritageRevealStack() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
 
-  // COMBINED IMAGE MOTION — runs across the FULL visibility window
-  // (progress 0 → 1: from when the image's top first peeks in at
-  // the viewport bottom, until its bottom edge leaves at the top).
+  // CHALK IMAGE motion — concentrated in the user-visible portion of
+  // chalk's life (progress 0.4 → 1.0) so the zoom + pan actually
+  // happens AFTER Terroir has begun revealing the image. The CSS
+  // scale > 1 makes the image larger than the 100vh frame; the
+  // sticky parent's overflow-hidden clips the excess; the translateY
+  // moves the image upward within that overflow envelope.
   //
-  //   1. scale  1.55 → 1.28   (camera pulls back — continuous zoom-out)
-  //   2. y      0vh → -13vh   (image translates upward — "camera tilts
-  //                            down", revealing progressively lower
-  //                            portions of the panorama)
-  //
-  // The image is rendered with `absolute inset-0 w-full h-full
-  // object-cover` and CSS scale > 1, so it overflows the 100vh frame.
-  // The parent sticky div has `overflow-hidden` to clip the excess.
-  // At scale 1.28 the image overflows the frame by 28vh (14vh top +
-  // 14vh bottom), so a 13vh upward pan stays safely inside that
-  // overflow envelope — no bg leak at any progress.
-  //
-  // Apple's Mac Studio "Powerful connections" pattern: zoom + tilt
-  // simultaneously, both alive the whole time the image is on screen.
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1.55, 1.28]);
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0vh", "-13vh"]);
+  // Scale ends at 1.28 (not 1.0) so the image still overflows the
+  // frame by 28vh at progress 1.0 — leaves ±14vh of safe headroom
+  // for the 13vh upward pan to translate within without leaking
+  // background through.
+  const imageScale = useTransform(scrollYProgress, [0.4, 1.0], [1.55, 1.28]);
+  const imageY = useTransform(scrollYProgress, [0.4, 1.0], ["0vh", "-13vh"]);
 
-  const topY = useTransform(scrollYProgress, [0, 1], ["50vh", "-50vh"]);
+  // TOP kicker [ Chalk · Ancient Seabed ] — appears as soon as
+  // Terroir has fully cleared (progress 0.5), drifts upward through
+  // the image, fades out before chalk releases.
+  const topY = useTransform(scrollYProgress, [0.5, 0.75], ["40vh", "-40vh"]);
   const topOpacity = useTransform(
     scrollYProgress,
-    [0, 0.2, 0.85, 1],
+    [0.5, 0.55, 0.7, 0.75],
     [0, 1, 1, 0],
   );
 
-  // Bottom text block now traverses the ENTIRE image — enters
-  // ~80vh below where it sits at rest, exits ~80vh above. Lets
-  // the text "scroll past the camera" along the full panorama
-  // (user direction: bottom texts should scroll across the whole
-  // image, not just settle in place).
-  const bottomY = useTransform(scrollYProgress, [0, 1], ["80vh", "-80vh"]);
+  // BOTTOM block (grape names + Champagne caption) — rises from
+  // below the visible frame, passes through its rest position at
+  // the visibility midpoint, exits upward.
+  const bottomY = useTransform(scrollYProgress, [0.5, 0.75], ["55vh", "-40vh"]);
   const bottomOpacity = useTransform(
     scrollYProgress,
-    [0, 0.25, 0.85, 1],
+    [0.5, 0.58, 0.7, 0.75],
     [0, 1, 1, 0],
   );
 
@@ -259,10 +202,10 @@ function HeritageChalkImageCard() {
     <section
       ref={ref}
       className="relative bg-[#010101]"
-      style={{ height: "175vh" }}
+      style={{ height: "300vh" }}
     >
-      <div className="sticky top-0 h-screen overflow-hidden">
-        {/* Full-bleed image — zoom-out + upward pan running together */}
+      {/* ── LAYER 0 (BEHIND) — Chalk image sticky-pinned for 200vh ── */}
+      <div className="sticky top-0 h-screen overflow-hidden z-0 bg-[#010101]">
         <motion.img
           src={`${basePath}/images/terroir-vineyard.jpg`}
           alt="Vineyard rows on the chalk soils of Ditchling Common, East Sussex"
@@ -285,9 +228,9 @@ function HeritageChalkImageCard() {
           }}
         />
 
-        {/* TOP: Chalk kicker — drifts up + fades */}
+        {/* TOP: Chalk kicker */}
         <motion.p
-          className="absolute top-[12vh] left-0 right-0 font-display italic text-[#C8A96E] tracking-widest text-center"
+          className="absolute top-[12vh] left-0 right-0 font-display italic text-[#C8A96E] tracking-widest text-center px-6"
           style={{
             fontSize: "clamp(15px, 1.6vw, 22px)",
             textShadow: "0 1px 14px rgba(0,0,0,0.85)",
@@ -298,7 +241,7 @@ function HeritageChalkImageCard() {
           [ Chalk · Ancient Seabed ]
         </motion.p>
 
-        {/* BOTTOM: Grape varieties + Champagne caption — rises + drifts up */}
+        {/* BOTTOM: Grape varieties + Champagne caption */}
         <motion.div
           className="absolute inset-x-0 bottom-[14vh] px-6 md:px-10 text-center"
           style={{ y: bottomY, opacity: bottomOpacity }}
@@ -331,6 +274,64 @@ function HeritageChalkImageCard() {
             The same varieties that define Champagne — rooted in Sussex chalk.
           </p>
         </motion.div>
+      </div>
+
+      {/* ── LAYER 10 (ON TOP) — Terroir text overlay ── */}
+      {/* The chalk above takes 100vh in normal flow (its h-screen
+          sticky div); -mt-[100vh] pulls this Terroir block UP by
+          exactly that amount so it overlaps the chalk's pin area.
+          Solid #010101 bg covers the image while in place.
+          Pure normal-flow scroll — no transform — so as the user
+          scrolls, Terroir naturally rises off the top of the
+          viewport, revealing the pinned chalk image behind it like
+          a curtain. */}
+      <div className="relative z-10 -mt-[100vh] min-h-screen bg-[#010101] flex items-center justify-center">
+        <div className="max-w-[920px] mx-auto px-6 md:px-16 text-center w-full py-24 md:py-32">
+          <FadeUp>
+            <p
+              className="font-display italic text-[#C8A96E] mb-6 tracking-widest"
+              style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
+            >
+              [ Ditchling Common · East Sussex ]
+            </p>
+          </FadeUp>
+
+          <FadeUp delay={0.1}>
+            <h2
+              className="font-display italic text-white leading-[1.05]"
+              style={{ fontSize: "clamp(32px, 5vw, 72px)", fontWeight: 400 }}
+            >
+              Two countries.
+            </h2>
+          </FadeUp>
+          <FadeUp delay={0.18}>
+            <h2
+              className="font-display italic text-white leading-[1.05]"
+              style={{ fontSize: "clamp(32px, 5vw, 72px)", fontWeight: 400 }}
+            >
+              One <span className="text-[#C8A96E]">ancient</span> seabed.
+            </h2>
+          </FadeUp>
+          <FadeUp delay={0.26}>
+            <h2
+              className="font-display italic text-white leading-[1.05]"
+              style={{ fontSize: "clamp(32px, 5vw, 72px)", fontWeight: 400 }}
+            >
+              One <span className="text-[#C8A96E]">tradition.</span>
+            </h2>
+          </FadeUp>
+
+          <FadeUp delay={0.4}>
+            <p
+              className="font-body text-white/70 leading-relaxed mx-auto mt-12 md:mt-16"
+              style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, maxWidth: "560px" }}
+            >
+              It began with a belief: that the chalk soils beneath the South Downs
+              — mirroring the geology of Champagne — could produce world-class
+              sparkling wine. In 1995, Ridgeview planted its first vines.
+            </p>
+          </FadeUp>
+        </div>
       </div>
     </section>
   );
@@ -1051,15 +1052,13 @@ export default function BookingPage() {
       <main>
         <PageHeader />
         <ScrollReset><EstatePeopleSection /></ScrollReset>
-        {/* Terroir Statement — normal-flow editorial intro, NOT
-            part of the sticky stack (per user direction). */}
-        <ScrollReset><HeritageTerroirSection /></ScrollReset>
-        {/* Chalk Image — normal-flow too. With sticky positioning
-            the next card would rise from below and progressively
-            cover the image's bottom half during the transition;
-            normal flow lets the panorama scroll fully through the
-            viewport before Behind the Bottle starts sticking. */}
-        <ScrollReset><HeritageChalkImageCard /></ScrollReset>
+        {/* Terroir Statement + Chalk Image — merged into a single
+            LAYERED REVEAL section. The chalk image is sticky-pinned
+            in the background; the Terroir text overlay sits on top
+            (with solid bg) and scrolls upward naturally, revealing
+            the pinned image as it goes — Apple "Powerful connections"
+            pattern. */}
+        <ScrollReset><HeritageRevealStack /></ScrollReset>
         {/* ── Heritage Sticky Stack (2 cards) ──
             Behind the Bottle (compact) → Discovery. The
             deck-of-cards behaviour kicks in here: as the user
