@@ -98,7 +98,7 @@ function ProductHero() {
           <p className="font-body text-white/35 text-[10px] uppercase tracking-[0.3em] mb-4 md:mb-6">
             <a href={`${basePath}/`} className="link-underline hover:text-[#C8A96E] transition-colors duration-500">Home</a>
             <span className="mx-3 text-white/20">/</span>
-            <a href={`${basePath}/#wine-collection`} className="link-underline hover:text-[#C8A96E] transition-colors duration-500">Shop</a>
+            <a href={`${basePath}/wines`} className="link-underline hover:text-[#C8A96E] transition-colors duration-500">Shop</a>
             <span className="mx-3 text-white/20">/</span>
             <span className="text-white/55">Blanc de Noirs</span>
           </p>
