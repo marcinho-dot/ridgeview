@@ -192,13 +192,16 @@ function HeritageTerroirSection() {
 // with `min-h-screen` so it owns one slot in the sticky deck.
 
 function HeritageChalkImageCard() {
-  // Sticky-card layer of the 4-card heritage stack. Tight top padding
-  // (py-6 md:py-10) so the image sits close to the headline of the
-  // previous card visually — the panorama is the visual payoff to
-  // the "Two countries / One ancient seabed" statement. Inner content
-  // centered in viewport so the panorama is the focal element.
+  // Sticky-card layer of the 4-card heritage stack. Image anchored
+  // to the TOP of the card (`items-start` + tiny pt) so that the
+  // moment the card enters the viewport from below — covering the
+  // previous Terroir card — the panorama is the FIRST thing the
+  // user sees. With `items-center` the image sat in the middle of
+  // a min-h-screen card, leaving a half-viewport of empty space
+  // above it; the user had to scroll way past the previous headline
+  // before the image was visible.
   return (
-    <section className="relative overflow-hidden bg-[#010101] py-6 md:py-10 min-h-screen flex items-center">
+    <section className="relative overflow-hidden bg-[#010101] pt-3 md:pt-6 pb-6 md:pb-10 min-h-screen flex items-start">
       <div className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10 w-full">
         <FadeUp>
           <div
