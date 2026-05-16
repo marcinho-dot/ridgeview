@@ -127,23 +127,19 @@ function PageHeader() {
 // ── Section: Heritage Part 1 — Terroir ──────────────────────────────────────
 
 function HeritageTerroirSection() {
-  // Composition (locked 2026-05-16):
-  //   1. Centered typography stack at the top — kicker
-  //      ([ Ditchling Common · East Sussex ]) → 3-line headline
-  //      (Two countries / One ancient seabed / One tradition) →
-  //      "It began with a belief…" body paragraph. Pure type on the
-  //      bare #010101 surface. The 21st.dev ScrollRotateReveal
-  //      that wrapped this earlier is gone.
-  //   2. Wide 16:9 vineyard image card below (terroir-vineyard.jpg,
-  //      resampled from vineyard_fav.jpg). The chalk-specific
-  //      story is overlaid: [ Chalk · Ancient Seabed ] kicker at
-  //      the top, Chardonnay / Pinot Noir / Pinot Meunier + the
-  //      Champagne caption at the bottom. Both bands sit on
-  //      gradient-darkened strips so the middle of the image (sky
-  //      + vine canopy) stays uninterrupted.
+  // Composition (locked 2026-05-16, refined for sticky-card stacking):
+  //   Pure typography only — kicker → 3-line headline → body
+  //   paragraph. The chalk-vineyard image card that briefly lived
+  //   here was extracted into its own sticky card (HeritageChalkImageCard
+  //   below) so each card in the stack fits inside one viewport
+  //   without the next card scrolling past unseen content.
+  //
+  //   Padding tuned (py-20 md:py-28) so even on mobile (~667px
+  //   viewport minus the ~60px BottomNav) the headline + body sit
+  //   centered without bumping into the floating mobile nav.
   return (
-    <section className="relative overflow-hidden bg-[#010101] py-28 md:py-40">
-      <div className="relative z-10 max-w-[920px] mx-auto px-6 md:px-16 text-center">
+    <section className="relative overflow-hidden bg-[#010101] py-20 md:py-28 min-h-screen flex items-center">
+      <div className="relative z-10 max-w-[920px] mx-auto px-6 md:px-16 text-center w-full">
         <FadeUp>
           <p
             className="font-display italic text-[#C8A96E] mb-6 tracking-widest"
@@ -178,11 +174,6 @@ function HeritageTerroirSection() {
           </h2>
         </FadeUp>
 
-        {/* Body paragraph that previously sat below the rotating card.
-            Stays right under the headline as a continuation of the
-            editorial set-up — the chalk-specific story (sub-kicker +
-            grape varieties + Champagne caption) moves down onto the
-            vineyard image card below. */}
         <FadeUp delay={0.4}>
           <p
             className="font-body text-white/70 leading-relaxed mx-auto mt-12 md:mt-16"
@@ -194,17 +185,23 @@ function HeritageTerroirSection() {
           </p>
         </FadeUp>
       </div>
+    </section>
+  );
+}
 
-      {/* ── Chalk image card ──
-          16:9 panorama of the Sussex vineyard (terroir-vineyard.jpg,
-          resampled from vineyard_fav.jpg). The chalk story is
-          overlaid: kicker pinned to the top of the image, grape
-          varieties + Champagne caption pinned to the bottom.
-          Symmetric dark gradients on top + bottom keep both
-          captions readable while the middle of the image (sky +
-          vine canopy) breathes uninterrupted. */}
-      <div className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10 mt-16 md:mt-24">
-        <FadeUp delay={0.5}>
+// ── Section: Heritage Part 1.5 — Chalk vineyard image card ──────────────────
+// Lives as its own sticky card so the 16:9 panorama gets a full
+// viewport of attention before the next card slides over it. The
+// kicker pins to the top of the image, the grape varieties +
+// Champagne caption pin to the bottom — same composition as the
+// previous in-Terroir version, just hoisted into a dedicated section
+// with `min-h-screen` so it owns one slot in the sticky deck.
+
+function HeritageChalkImageCard() {
+  return (
+    <section className="relative overflow-hidden bg-[#010101] py-12 md:py-16 min-h-screen flex items-center">
+      <div className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10 w-full">
+        <FadeUp>
           <div
             className="relative w-full overflow-hidden rounded-sm border border-[#C8A96E]/20"
             style={{ aspectRatio: "16/9" }}
@@ -1005,9 +1002,20 @@ export default function BookingPage() {
               the deck-stack covers the previous card fully — otherwise
               the wrapper's empty bottom (when the section content is
               shorter than min-h-screen) lets the previous card's
-              content bleed through. */}
+              content bleed through.
+
+              Each inner section uses `min-h-screen flex items-center`
+              and tight padding so its content sits centered in one
+              viewport — guarantees the bottom of the card (image,
+              caption, last pillar) is visible before the next card
+              starts rising over it. Mobile BottomNav (~60px floating
+              bar) is accounted for by the natural padding-bottom +
+              centering. */}
           <div className="sticky top-0 min-h-screen bg-[#010101]">
             <ScrollReset><HeritageTerroirSection /></ScrollReset>
+          </div>
+          <div className="sticky top-0 min-h-screen bg-[#010101]">
+            <ScrollReset><HeritageChalkImageCard /></ScrollReset>
           </div>
           <div className="sticky top-0 min-h-screen bg-[#0a0a0a]">
             <ScrollReset>
