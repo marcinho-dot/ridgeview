@@ -178,23 +178,40 @@ function HeritageRevealStack() {
   const imageScale = useTransform(scrollYProgress, [0.4, 1.0], [1.55, 1.28]);
   const imageY = useTransform(scrollYProgress, [0.4, 1.0], ["0vh", "-13vh"]);
 
-  // TOP kicker [ Chalk · Ancient Seabed ] — appears as soon as
-  // Terroir has fully cleared (progress 0.5), drifts upward through
-  // the image, fades out before chalk releases.
-  const topY = useTransform(scrollYProgress, [0.5, 0.75], ["40vh", "-40vh"]);
+  // TOP kicker [ Chalk · Ancient Seabed ] — rises in from below,
+  // settles at rest, holds for a LONG visibility plateau, drifts
+  // very subtly upward during the late + soft fade-out.
+  //
+  //   Phase A · 0.50 → 0.60  Drift in from y=20vh to rest (y=0)
+  //   Phase B · 0.60 → 0.85  HOLD at rest position (~25% of progress)
+  //   Phase C · 0.85 → 0.97  Gentle drift up to y=-12vh while fading
+  //
+  // Opacity plateau (0.55 → 0.85) is now ~30% of progress —
+  // up from the previous ~15%, so the text breathes much longer
+  // on screen. Fade-out range (0.85 → 0.97) is wider for softness.
+  const topY = useTransform(
+    scrollYProgress,
+    [0.5, 0.6, 0.85, 0.97],
+    ["20vh", "0vh", "0vh", "-12vh"],
+  );
   const topOpacity = useTransform(
     scrollYProgress,
-    [0.5, 0.55, 0.7, 0.75],
+    [0.5, 0.55, 0.85, 0.97],
     [0, 1, 1, 0],
   );
 
-  // BOTTOM block (grape names + Champagne caption) — rises from
-  // below the visible frame, passes through its rest position at
-  // the visibility midpoint, exits upward.
-  const bottomY = useTransform(scrollYProgress, [0.5, 0.75], ["55vh", "-40vh"]);
+  // BOTTOM block (grape names + Champagne caption) — same shape as
+  // the kicker: in → hold → subtle drift + fade. Starts slightly
+  // lower (y=30vh) so it feels like it's rising up from below the
+  // frame as the chalk image settles.
+  const bottomY = useTransform(
+    scrollYProgress,
+    [0.5, 0.6, 0.85, 0.97],
+    ["30vh", "0vh", "0vh", "-12vh"],
+  );
   const bottomOpacity = useTransform(
     scrollYProgress,
-    [0.5, 0.58, 0.7, 0.75],
+    [0.5, 0.58, 0.85, 0.97],
     [0, 1, 1, 0],
   );
 
