@@ -313,8 +313,8 @@ function HeritageRevealStack() {
           scrolls, Terroir naturally rises off the top of the
           viewport, revealing the pinned chalk image behind it like
           a curtain. */}
-      <div className="relative z-10 -mt-[100vh] min-h-screen bg-[#010101] flex items-center justify-center">
-        <div className="max-w-[920px] mx-auto px-6 md:px-16 text-center w-full pt-24 md:pt-32 pb-2 md:pb-3">
+      <div className="relative z-10 -mt-[100vh] min-h-screen bg-[#010101] flex items-end justify-center">
+        <div className="max-w-[920px] mx-auto px-6 md:px-16 text-center w-full pb-12 md:pb-16">
           <FadeUp>
             <p
               className="font-display italic text-[#C8A96E] mb-2 tracking-widest"
