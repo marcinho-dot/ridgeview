@@ -182,21 +182,24 @@ function HeritageRevealStack() {
   // settles at rest, holds for a LONG visibility plateau, drifts
   // very subtly upward during the late + soft fade-out.
   //
-  //   Phase A · 0.50 → 0.60  Drift in from y=20vh to rest (y=0)
-  //   Phase B · 0.60 → 0.85  HOLD at rest position (~25% of progress)
+  //   Phase A · 0.50 → 0.65  Drift in from y=20vh to rest (y=0)
+  //                          + GRADUAL fade-in (0→1 across 15% of
+  //                          progress — much more subtle than before)
+  //   Phase B · 0.65 → 0.85  HOLD at rest position (~20% of progress)
   //   Phase C · 0.85 → 0.97  Gentle drift up to y=-12vh while fading
   //
-  // Opacity plateau (0.55 → 0.85) is now ~30% of progress —
-  // up from the previous ~15%, so the text breathes much longer
-  // on screen. Fade-out range (0.85 → 0.97) is wider for softness.
+  // Fade-in widened from 0.05 → 0.15 of progress so the kicker
+  // "appears" rather than "pops in". y and opacity now share the
+  // same keyframes so the kicker reaches rest position exactly when
+  // it reaches full opacity.
   const topY = useTransform(
     scrollYProgress,
-    [0.5, 0.6, 0.85, 0.97],
+    [0.5, 0.65, 0.85, 0.97],
     ["20vh", "0vh", "0vh", "-12vh"],
   );
   const topOpacity = useTransform(
     scrollYProgress,
-    [0.5, 0.55, 0.85, 0.97],
+    [0.5, 0.65, 0.85, 0.97],
     [0, 1, 1, 0],
   );
 
@@ -258,11 +261,15 @@ function HeritageRevealStack() {
           }}
         />
 
-        {/* TOP: Chalk kicker — multi-layer shadow (tight inner + soft halo) */}
+        {/* TOP: Chalk kicker — multi-layer shadow (tight inner + soft halo).
+            Bumped 2026-05-16: bigger type (22-32px from 15-22px), and
+            starts 120px lower than the previous `top-[12vh]` rest
+            position (more breathing room below the navbar). */}
         <motion.p
-          className="absolute top-[12vh] left-0 right-0 font-display italic text-[#C8A96E] tracking-widest text-center px-6"
+          className="absolute left-0 right-0 font-display italic text-[#C8A96E] tracking-widest text-center px-6"
           style={{
-            fontSize: "clamp(15px, 1.6vw, 22px)",
+            top: "calc(12vh + 120px)",
+            fontSize: "clamp(22px, 2.4vw, 32px)",
             textShadow:
               "0 2px 6px rgba(0,0,0,0.95), 0 4px 22px rgba(0,0,0,0.85), 0 0 60px rgba(0,0,0,0.5)",
             y: topY,
