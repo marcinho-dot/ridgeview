@@ -30,8 +30,11 @@ interface ParallaxRowProps {
   bodies: ReactNode[];
   imageSrc: string;
   imageAlt: string;
-  /** "4/3" for landscape, "3/4" for portrait. Drives the image
-   *  container's aspect ratio. */
+  /** Tailwind aspect class used on MOBILE only (e.g.
+   *  "aspect-[3/4]" for portrait, "aspect-[4/3]" for landscape).
+   *  On desktop the image drops its aspect constraint and stretches
+   *  to match the text column's height via `items-stretch` on the
+   *  parent flex. */
   imageAspect: string;
   /** When true, image sits on the LEFT on desktop (text right). */
   reverse?: boolean;
@@ -68,67 +71,77 @@ function ParallaxRow({
   );
 
   return (
-    <div
-      ref={ref}
-      className={`min-h-screen flex flex-col items-center justify-center gap-10 md:gap-20 lg:gap-28 py-20 md:py-28 ${
-        reverse ? "md:flex-row-reverse" : "md:flex-row"
-      }`}
-    >
-      {/* Text column */}
-      <motion.div style={{ y: textY }} className="flex-1 w-full max-w-[520px]">
-        <p
-          className="font-display italic text-[#C8A96E] tracking-widest mb-5"
-          style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
-        >
-          {kicker}
-        </p>
-
-        <h2
-          className="font-display italic text-white leading-[1.08] mb-6"
-          style={{ fontSize: "clamp(28px, 3.5vw, 52px)", fontWeight: 400 }}
-        >
-          {headline}
-        </h2>
-
-        {bodies.map((body, i) => (
-          <p
-            key={i}
-            className={`font-body leading-relaxed ${
-              i === 0 ? "text-white/60" : "text-white/45"
-            } ${i < bodies.length - 1 ? "mb-5" : ""}`}
-            style={{
-              fontSize:
-                i === 0
-                  ? "clamp(14px, 1.4vw, 17px)"
-                  : "clamp(13px, 1.25vw, 15px)",
-              fontWeight: 300,
-              maxWidth: "480px",
-            }}
-          >
-            {body}
-          </p>
-        ))}
-      </motion.div>
-
-      {/* Image column — clip-path reveals from the left */}
-      <motion.div
-        style={{
-          opacity: imageOpacity,
-          clipPath: imageClip,
-          aspectRatio: imageAspect,
-        }}
-        className="group relative overflow-hidden rounded-sm w-full max-w-[420px] md:max-w-[520px] mx-auto md:mx-0"
+    // OUTER stage: min-h-screen gives the parallax effect scroll
+    // room. items-center vertically centers the inner row inside
+    // that stage.
+    <div ref={ref} className="min-h-screen flex items-center py-20 md:py-28">
+      {/* INNER row: on mobile flex-col with the image at its
+          natural aspect ratio. On desktop flex-row with
+          `items-stretch` so the image column stretches to MATCH
+          the text column's natural height (per user direction:
+          image should track text height on desktop). */}
+      <div
+        className={`w-full flex flex-col items-center gap-10 md:gap-20 lg:gap-28 md:items-stretch ${
+          reverse ? "md:flex-row-reverse" : "md:flex-row"
+        }`}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={`${basePath}${imageSrc}`}
-          alt={imageAlt}
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.03]"
-          style={{ objectPosition: "center center" }}
-        />
-        <div className="absolute inset-0 bg-black/15" />
-        <div className="absolute inset-0 border border-white/[0.06] rounded-sm" />
-      </motion.div>
+        {/* Text column */}
+        <motion.div
+          style={{ y: textY }}
+          className="flex-1 w-full max-w-[520px]"
+        >
+          <p
+            className="font-display italic text-[#C8A96E] tracking-widest mb-5"
+            style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
+          >
+            {kicker}
+          </p>
+
+          <h2
+            className="font-display italic text-white leading-[1.08] mb-6"
+            style={{ fontSize: "clamp(28px, 3.5vw, 52px)", fontWeight: 400 }}
+          >
+            {headline}
+          </h2>
+
+          {bodies.map((body, i) => (
+            <p
+              key={i}
+              className={`font-body leading-relaxed ${
+                i === 0 ? "text-white/60" : "text-white/45"
+              } ${i < bodies.length - 1 ? "mb-5" : ""}`}
+              style={{
+                fontSize:
+                  i === 0
+                    ? "clamp(14px, 1.4vw, 17px)"
+                    : "clamp(13px, 1.25vw, 15px)",
+                fontWeight: 300,
+                maxWidth: "480px",
+              }}
+            >
+              {body}
+            </p>
+          ))}
+        </motion.div>
+
+        {/* Image column — mobile keeps its aspect ratio; desktop
+            drops it and stretches to the text height (items-stretch
+            on parent + md:aspect-auto here) */}
+        <motion.div
+          style={{ opacity: imageOpacity, clipPath: imageClip }}
+          className={`group relative overflow-hidden rounded-sm w-full max-w-[420px] md:max-w-[520px] mx-auto md:mx-0 md:flex-1 ${imageAspect} md:aspect-auto`}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`${basePath}${imageSrc}`}
+            alt={imageAlt}
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.03]"
+            style={{ objectPosition: "center center" }}
+          />
+          <div className="absolute inset-0 bg-black/15" />
+          <div className="absolute inset-0 border border-white/[0.06] rounded-sm" />
+        </motion.div>
+      </div>
     </div>
   );
 }
@@ -153,7 +166,7 @@ export function EstatePeopleSection() {
           ]}
           imageSrc="/images/estate-vineyard.jpg"
           imageAlt="Ridgeview vineyard with the South Downs ridge in the distance"
-          imageAspect="4/3"
+          imageAspect="aspect-[4/3]"
           reverse
         />
 
@@ -172,7 +185,7 @@ export function EstatePeopleSection() {
           ]}
           imageSrc="/images/harvest-walk.jpg"
           imageAlt="Ridgeview team member walking through the vineyard during harvest, carrying picking buckets"
-          imageAspect="3/4"
+          imageAspect="aspect-[3/4]"
         />
 
       </div>
