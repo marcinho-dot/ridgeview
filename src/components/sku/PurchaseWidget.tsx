@@ -28,6 +28,12 @@ export interface Variant {
    *  e.g. "75cl Bottle" → "75cl-bottle". Set explicitly for the
    *  3 canonical variants: "75cl", "magnum", "case6". */
   variantId?: string;
+  /** Optional format-specific bottle/case shot. When the parent
+   *  page lifts variant state via `variantIdx` + `onVariantChange`,
+   *  it can swap the hero image to match (e.g. show the Magnum
+   *  bottle when the Magnum variant is clicked). Falls back to
+   *  the page's default 75cl bottle image when undefined. */
+  image?: string;
 }
 
 interface Props {
@@ -46,6 +52,13 @@ interface Props {
   image: string;
   /** Optional callback fired AFTER the cart add (e.g. for analytics). */
   onAddToBasket?: (selection: { variant: Variant; quantity: number; total: number }) => void;
+  /** Controlled variant index. When set together with `onVariantChange`
+   *  the widget becomes fully controlled — the parent owns variant
+   *  state and can wire the hero bottle image to track variant clicks
+   *  (Magnum / Case-of-6 image swap). Leave both undefined for the
+   *  default self-contained behaviour. */
+  variantIdx?: number;
+  onVariantChange?: (idx: number, variant: Variant) => void;
 }
 
 const formatGBP = (n: number) =>
@@ -73,8 +86,20 @@ export function PurchaseWidget({
   vintage,
   image,
   onAddToBasket,
+  variantIdx: controlledIdx,
+  onVariantChange,
 }: Props) {
-  const [variantIdx, setVariantIdx] = useState(0);
+  const [internalIdx, setInternalIdx] = useState(0);
+  // Controlled mode kicks in as soon as the parent passes a numeric
+  // `variantIdx`. The change handler still runs in uncontrolled mode
+  // too, so analytics / parent reactions work in either pattern.
+  const isControlled = typeof controlledIdx === "number";
+  const variantIdx = isControlled ? controlledIdx : internalIdx;
+  const setVariantIdx = (idx: number) => {
+    if (!isControlled) setInternalIdx(idx);
+    onVariantChange?.(idx, variants[idx]);
+  };
+
   const [quantity, setQuantity] = useState(1);
   const { add, openDrawer } = useCart();
 

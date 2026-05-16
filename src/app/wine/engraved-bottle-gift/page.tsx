@@ -1,7 +1,7 @@
 "use client";
 
-import { ReactNode, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { ReactNode, useRef, useState } from "react";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ScrollReset } from "@/components/ScrollReset";
@@ -32,9 +32,9 @@ import { basePath } from "@/lib/basePath";
 // are different wines, not formats of the same wine — the FINAL Variant-
 // Ordering rule (75cl/Magnum/Case) doesn't apply here.
 const ENGRAVED_BOTTLE_VARIANTS: Variant[] = [
-  { label: "Bloomsbury NV", detail: "75cl · Custom Engraving · Made-to-Order", price: 50 },
-  { label: "Fitzrovia Rosé", detail: "75cl · Custom Engraving · Made-to-Order", price: 60 },
-  { label: "Blanc de Blancs", detail: "75cl · Custom Engraving · Made-to-Order", price: 90, badge: "Vintage" },
+  { label: "Bloomsbury NV", detail: "75cl · Custom Engraving · Made-to-Order", price: 50, image: "/products/bloomsbury.png" },
+  { label: "Fitzrovia Rosé", detail: "75cl · Custom Engraving · Made-to-Order", price: 60, image: "/products/fitzrovia.png" },
+  { label: "Blanc de Blancs", detail: "75cl · Custom Engraving · Made-to-Order", price: 90, badge: "Vintage", image: "/products/blanc-de-blancs.png" },
 ];
 
 // ── Animation Helpers ────────────────────────────────────────────────────────
@@ -79,6 +79,15 @@ function ProductHero() {
     offset: ["start start", "end start"],
   });
   const bottleY = useTransform(scrollYProgress, [0, 1], [0, -80]);
+
+  // The engraved-bottle gift has 3 variants that are 3 DIFFERENT wines —
+  // not formats of the same wine. Lifting variant state here lets the
+  // hero bottle swap to Bloomsbury / Fitzrovia / BdB as the user clicks,
+  // which is the biggest visual win of the whole format-swap feature.
+  const [variantIdx, setVariantIdx] = useState(0);
+  const activeVariant = ENGRAVED_BOTTLE_VARIANTS[variantIdx];
+  const heroBottleSrc = activeVariant.image ?? "/products/engraved-bottle-gift.png";
+  const heroBottleAlt = `Ridgeview Engraved Bottle Gift — ${activeVariant.label}`;
 
   return (
     // Section sizes to its natural content height (no min-h constraint).
@@ -189,6 +198,8 @@ function ProductHero() {
                     freeShippingThreshold={45}
                     ctaId="hero-mobile-cta"
                     memberNote="Each engraved bottle is handled personally — to arrange your order, confirm the engraving text and discuss larger or corporate gifts, please email info@ridgeview.co.uk. Fulfilment in up to 5 working days."
+                    variantIdx={variantIdx}
+                    onVariantChange={setVariantIdx}
                   />
                 </div>
 
@@ -240,16 +251,25 @@ function ProductHero() {
                 className="absolute inset-0 flex items-center justify-center pointer-events-none"
                 style={{ y: bottleY }}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={`${basePath}/products/engraved-bottle-gift.png`}
-                  alt="Ridgeview Engraved Bottle Gift — bespoke engraving on award-winning English Sparkling Wine"
-                  className="pointer-events-auto w-auto max-w-none object-contain h-[clamp(376px,51svh,484px)] md:h-[clamp(704px,90svh,1078px)] [transform:translateX(8%)_translateY(-30px)_rotate(28deg)] md:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)] hover:[transform:translateX(8%)_translateY(-30px)_rotate(28deg)_scale(1.015)] md:hover:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)_scale(1.015)] [transition:transform_900ms_cubic-bezier(0.16,1,0.3,1),filter_900ms_cubic-bezier(0.16,1,0.3,1)] hover:[filter:drop-shadow(0_40px_80px_rgba(0,0,0,0.7))_drop-shadow(0_0_60px_rgba(200,169,110,0.12))]"
-                  style={{
-                    transformOrigin: "center",
-                    filter: "drop-shadow(0 30px 60px rgba(0,0,0,0.6))",
-                  }}
-                />
+                {/* Bottle keyed on heroBottleSrc → AnimatePresence crossfades
+                    when the user picks a different wine for engraving. */}
+                <AnimatePresence mode="wait">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <motion.img
+                    key={heroBottleSrc}
+                    src={`${basePath}${heroBottleSrc}`}
+                    alt={heroBottleAlt}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                    className="pointer-events-auto w-auto max-w-none object-contain h-[clamp(376px,51svh,484px)] md:h-[clamp(704px,90svh,1078px)] [transform:translateX(8%)_translateY(-30px)_rotate(28deg)] md:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)] hover:[transform:translateX(8%)_translateY(-30px)_rotate(28deg)_scale(1.015)] md:hover:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)_scale(1.015)] [transition:transform_900ms_cubic-bezier(0.16,1,0.3,1),filter_900ms_cubic-bezier(0.16,1,0.3,1)] hover:[filter:drop-shadow(0_40px_80px_rgba(0,0,0,0.7))_drop-shadow(0_0_60px_rgba(200,169,110,0.12))]"
+                    style={{
+                      transformOrigin: "center",
+                      filter: "drop-shadow(0 30px 60px rgba(0,0,0,0.6))",
+                    }}
+                  />
+                </AnimatePresence>
               </motion.div>
 
               {/* Quick "Add to basket" — anchored bottom-right next to the bottle

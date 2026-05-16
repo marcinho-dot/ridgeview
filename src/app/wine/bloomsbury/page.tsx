@@ -1,7 +1,7 @@
 "use client";
 
-import { ReactNode, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { ReactNode, useRef, useState } from "react";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ScrollReset } from "@/components/ScrollReset";
@@ -25,9 +25,9 @@ import { basePath } from "@/lib/basePath";
 //   Position 2: Magnum (if available — the premium upgrade)
 //   Position 3: Case of 6 (if available — the bulk / gifting option)
 const BLOOMSBURY_VARIANTS: Variant[] = [
-  { label: "75cl Bottle", detail: "75cl · 12% ABV", price: 34 },
-  { label: "Magnum · 1.5L", detail: "1.5L · 12% ABV · Slower-aged", price: 85 },
-  { label: "Case of 6 · 6×75cl", detail: "6 × 75cl · Save 10%", price: 183.6, badge: "Best value" },
+  { label: "75cl Bottle", detail: "75cl · 12% ABV", price: 34, image: "/products/bloomsbury.png" },
+  { label: "Magnum · 1.5L", detail: "1.5L · 12% ABV · Slower-aged", price: 85, image: "/products/bloomsbury-magnum.png" },
+  { label: "Case of 6 · 6×75cl", detail: "6 × 75cl · Save 10%", price: 183.6, badge: "Best value" /* no case-shot yet — falls back to 75cl bottle */ },
 ];
 
 // ── Animation Helpers ────────────────────────────────────────────────────────
@@ -72,6 +72,16 @@ function ProductHero() {
     offset: ["start start", "end start"],
   });
   const bottleY = useTransform(scrollYProgress, [0, 1], [0, -80]);
+
+  // Variant state is LIFTED here so the hero bottle image swaps in
+  // sync with the PurchaseWidget format selector. PurchaseWidget runs
+  // in controlled mode via the `variantIdx` + `onVariantChange` props.
+  // Variants without a custom `image` (e.g. Case of 6 until we have a
+  // case shot) gracefully fall back to the 75cl bottle.
+  const [variantIdx, setVariantIdx] = useState(0);
+  const activeVariant = BLOOMSBURY_VARIANTS[variantIdx];
+  const heroBottleSrc = activeVariant.image ?? "/products/bloomsbury.png";
+  const heroBottleAlt = `Ridgeview Bloomsbury NV — English Sparkling Wine, ${activeVariant.label}`;
 
   return (
     // Section sizes to its natural content height (no min-h constraint).
@@ -180,6 +190,8 @@ function ProductHero() {
                     variants={BLOOMSBURY_VARIANTS}
                     freeShippingThreshold={45}
                     ctaId="hero-mobile-cta"
+                    variantIdx={variantIdx}
+                    onVariantChange={setVariantIdx}
                   />
                 </div>
 
@@ -332,21 +344,33 @@ function ProductHero() {
 
               {/* Bottle wrapper — absolute, doesn't dictate column height.
                   Wrapped in motion.div so the bottle drifts upward via the
-                  scroll-driven parallax (subtle 80px range). */}
+                  scroll-driven parallax (subtle 80px range). The inner
+                  motion.img is keyed on `heroBottleSrc` so AnimatePresence
+                  crossfades the bottle whenever the user picks a different
+                  format (75cl → Magnum → Case). Only opacity is animated
+                  — the className still owns the rotate/translate transform
+                  + hover scale, untouched by motion. */}
               <motion.div
                 className="absolute inset-0 flex items-center justify-center pointer-events-none"
                 style={{ y: bottleY }}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={`${basePath}/products/bloomsbury.png`}
-                  alt="Ridgeview Bloomsbury NV — English Sparkling Wine, 75cl bottle"
-                  className="pointer-events-auto w-auto max-w-none object-contain h-[clamp(376px,51svh,484px)] md:h-[clamp(704px,90svh,1078px)] [transform:translateX(8%)_translateY(-30px)_rotate(28deg)] md:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)] hover:[transform:translateX(8%)_translateY(-30px)_rotate(28deg)_scale(1.015)] md:hover:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)_scale(1.015)] [transition:transform_900ms_cubic-bezier(0.16,1,0.3,1),filter_900ms_cubic-bezier(0.16,1,0.3,1)] hover:[filter:drop-shadow(0_40px_80px_rgba(0,0,0,0.7))_drop-shadow(0_0_60px_rgba(200,169,110,0.12))]"
-                  style={{
-                    transformOrigin: "center",
-                    filter: "drop-shadow(0 30px 60px rgba(0,0,0,0.6))",
-                  }}
-                />
+                <AnimatePresence mode="wait">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <motion.img
+                    key={heroBottleSrc}
+                    src={`${basePath}${heroBottleSrc}`}
+                    alt={heroBottleAlt}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                    className="pointer-events-auto w-auto max-w-none object-contain h-[clamp(376px,51svh,484px)] md:h-[clamp(704px,90svh,1078px)] [transform:translateX(8%)_translateY(-30px)_rotate(28deg)] md:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)] hover:[transform:translateX(8%)_translateY(-30px)_rotate(28deg)_scale(1.015)] md:hover:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)_scale(1.015)] [transition:transform_900ms_cubic-bezier(0.16,1,0.3,1),filter_900ms_cubic-bezier(0.16,1,0.3,1)] hover:[filter:drop-shadow(0_40px_80px_rgba(0,0,0,0.7))_drop-shadow(0_0_60px_rgba(200,169,110,0.12))]"
+                    style={{
+                      transformOrigin: "center",
+                      filter: "drop-shadow(0 30px 60px rgba(0,0,0,0.6))",
+                    }}
+                  />
+                </AnimatePresence>
               </motion.div>
 
               {/* Quick "Add to basket" — anchored bottom-right next to the bottle
