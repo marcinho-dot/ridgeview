@@ -127,13 +127,20 @@ function PageHeader() {
 // ── Section: Heritage Part 1 — Terroir ──────────────────────────────────────
 
 function HeritageTerroirSection() {
-  // Pure-typography pass (locked 2026-05-16, per user direction):
-  // the 21st.dev ScrollRotateReveal 3D-rotating card and its
-  // estate-vineyard.jpg + the terroir-hero.jpg backdrop were all
-  // removed. Editorial copy is verbatim from the previous version —
-  // kicker, 3-line headline, chalk sub-kicker, grape varieties,
-  // Champagne caption, body paragraph — now stacked as a centered
-  // vertical text composition against the bare #010101 surface.
+  // Composition (locked 2026-05-16):
+  //   1. Centered typography stack at the top — kicker
+  //      ([ Ditchling Common · East Sussex ]) → 3-line headline
+  //      (Two countries / One ancient seabed / One tradition) →
+  //      "It began with a belief…" body paragraph. Pure type on the
+  //      bare #010101 surface. The 21st.dev ScrollRotateReveal
+  //      that wrapped this earlier is gone.
+  //   2. Wide 16:9 vineyard image card below (terroir-vineyard.jpg,
+  //      resampled from vineyard_fav.jpg). The chalk-specific
+  //      story is overlaid: [ Chalk · Ancient Seabed ] kicker at
+  //      the top, Chardonnay / Pinot Noir / Pinot Meunier + the
+  //      Champagne caption at the bottom. Both bands sit on
+  //      gradient-darkened strips so the middle of the image (sky
+  //      + vine canopy) stays uninterrupted.
   return (
     <section className="relative overflow-hidden bg-[#010101] py-28 md:py-40">
       <div className="relative z-10 max-w-[920px] mx-auto px-6 md:px-16 text-center">
@@ -171,59 +178,93 @@ function HeritageTerroirSection() {
           </h2>
         </FadeUp>
 
-        {/* Chalk sub-kicker + grape varieties + caption.
-            Previously anchored inside the rotating image card;
-            now floats below the headline as a centered typographic
-            block, separated by a generous vertical gap. */}
+        {/* Body paragraph that previously sat below the rotating card.
+            Stays right under the headline as a continuation of the
+            editorial set-up — the chalk-specific story (sub-kicker +
+            grape varieties + Champagne caption) moves down onto the
+            vineyard image card below. */}
         <FadeUp delay={0.4}>
           <p
-            className="font-display italic text-[#C8A96E] tracking-widest mt-14 md:mt-20 mb-6"
-            style={{ fontSize: "clamp(11px, 1vw, 13px)" }}
-          >
-            [ Chalk · Ancient Seabed ]
-          </p>
-        </FadeUp>
-
-        <FadeUp delay={0.46}>
-          <div className="flex flex-wrap justify-center gap-x-7 gap-y-2 mb-4">
-            {["Chardonnay", "Pinot Noir", "Pinot Meunier"].map((grape) => (
-              <p
-                key={grape}
-                className="font-display italic text-[#C8A96E]"
-                style={{
-                  fontSize: "clamp(14px, 1.3vw, 17px)",
-                  letterSpacing: "0.06em",
-                }}
-              >
-                {grape}
-              </p>
-            ))}
-          </div>
-        </FadeUp>
-
-        <FadeUp delay={0.52}>
-          <p
-            className="font-body text-white/65 leading-snug mx-auto"
-            style={{
-              fontSize: "clamp(12px, 1.1vw, 14px)",
-              fontWeight: 300,
-              maxWidth: "460px",
-            }}
-          >
-            The same varieties that define Champagne — rooted in Sussex chalk.
-          </p>
-        </FadeUp>
-
-        {/* Body paragraph that previously sat below the rotating card. */}
-        <FadeUp delay={0.6}>
-          <p
-            className="font-body text-white/70 leading-relaxed mx-auto mt-16 md:mt-24"
+            className="font-body text-white/70 leading-relaxed mx-auto mt-12 md:mt-16"
             style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, maxWidth: "560px" }}
           >
             It began with a belief: that the chalk soils beneath the South Downs
             — mirroring the geology of Champagne — could produce world-class
             sparkling wine. In 1995, Ridgeview planted its first vines.
           </p>
+        </FadeUp>
+      </div>
+
+      {/* ── Chalk image card ──
+          16:9 panorama of the Sussex vineyard (terroir-vineyard.jpg,
+          resampled from vineyard_fav.jpg). The chalk story is
+          overlaid: kicker pinned to the top of the image, grape
+          varieties + Champagne caption pinned to the bottom.
+          Symmetric dark gradients on top + bottom keep both
+          captions readable while the middle of the image (sky +
+          vine canopy) breathes uninterrupted. */}
+      <div className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10 mt-16 md:mt-24">
+        <FadeUp delay={0.5}>
+          <div
+            className="relative w-full overflow-hidden rounded-sm border border-[#C8A96E]/20"
+            style={{ aspectRatio: "16/9" }}
+          >
+            <img
+              src={`${basePath}/images/terroir-vineyard.jpg`}
+              alt="Vineyard rows on the chalk soils of Ditchling Common, East Sussex"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            {/* Readability gradients — top + bottom darken for caption legibility */}
+            <div
+              className="absolute inset-x-0 top-0 h-1/3 pointer-events-none"
+              style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%)" }}
+            />
+            <div
+              className="absolute inset-x-0 bottom-0 h-1/2 pointer-events-none"
+              style={{ background: "linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0) 100%)" }}
+            />
+
+            {/* TOP: Chalk sub-kicker */}
+            <p
+              className="absolute top-5 left-0 right-0 md:top-8 font-display italic text-[#C8A96E] tracking-widest text-center"
+              style={{
+                fontSize: "clamp(11px, 1vw, 13px)",
+                textShadow: "0 1px 12px rgba(0,0,0,0.85)",
+              }}
+            >
+              [ Chalk · Ancient Seabed ]
+            </p>
+
+            {/* BOTTOM: Grape varieties + Champagne caption */}
+            <div className="absolute inset-x-0 bottom-5 md:bottom-8 px-6 md:px-10 text-center">
+              <div className="flex flex-wrap justify-center gap-x-7 gap-y-2 mb-3 md:mb-4">
+                {["Chardonnay", "Pinot Noir", "Pinot Meunier"].map((grape) => (
+                  <p
+                    key={grape}
+                    className="font-display italic text-[#C8A96E]"
+                    style={{
+                      fontSize: "clamp(14px, 1.3vw, 17px)",
+                      letterSpacing: "0.06em",
+                      textShadow: "0 1px 10px rgba(0,0,0,0.8)",
+                    }}
+                  >
+                    {grape}
+                  </p>
+                ))}
+              </div>
+              <p
+                className="font-body text-white/85 leading-snug mx-auto"
+                style={{
+                  fontSize: "clamp(12px, 1.1vw, 14px)",
+                  fontWeight: 300,
+                  maxWidth: "460px",
+                  textShadow: "0 1px 12px rgba(0,0,0,0.9)",
+                }}
+              >
+                The same varieties that define Champagne — rooted in Sussex chalk.
+              </p>
+            </div>
+          </div>
         </FadeUp>
       </div>
     </section>
