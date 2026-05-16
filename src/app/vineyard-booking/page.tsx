@@ -164,19 +164,23 @@ function HeritageRevealStack() {
     offset: ["start end", "end start"],
   });
 
-  // CHALK IMAGE motion — concentrated in the user-visible portion of
-  // chalk's life (progress 0.4 → 1.0) so the zoom + pan actually
-  // happens AFTER Terroir has begun revealing the image. The CSS
-  // scale > 1 makes the image larger than the 100vh frame; the
-  // sticky parent's overflow-hidden clips the excess; the translateY
-  // moves the image upward within that overflow envelope.
+  // CHALK IMAGE motion — kicks in AS SOON AS the image is ~2%
+  // visible from below the receding Terroir (progress ~0.255),
+  // and runs continuously until the image leaves the viewport.
   //
-  // Scale ends at 1.28 (not 1.0) so the image still overflows the
-  // frame by 28vh at progress 1.0 — leaves ±14vh of safe headroom
-  // for the 13vh upward pan to translate within without leaking
-  // background through.
-  const imageScale = useTransform(scrollYProgress, [0.4, 1.0], [1.55, 1.28]);
-  const imageY = useTransform(scrollYProgress, [0.4, 1.0], ["0vh", "-13vh"]);
+  // Why 0.26: the sticky engages at progress 0.25 (when section_top
+  // reaches viewport_top). Each additional 0.0025 of progress reveals
+  // ~1vh of the chalk image from below as Terroir scrolls upward.
+  // So progress 0.26 ≈ image's first 4vh peeking out = the moment
+  // the user perceives the image starting to appear.
+  //
+  // The CSS scale > 1 makes the image larger than the 100vh frame;
+  // the sticky parent's overflow-hidden clips the excess; the
+  // translateY moves the image upward within that overflow envelope.
+  // Scale ends at 1.28 (not 1.0) so 28vh of overflow always remains,
+  // leaving safe headroom for the 13vh upward pan with no bg leak.
+  const imageScale = useTransform(scrollYProgress, [0.26, 1.0], [1.55, 1.28]);
+  const imageY = useTransform(scrollYProgress, [0.26, 1.0], ["0vh", "-13vh"]);
 
   // TOP kicker [ Chalk · Ancient Seabed ]
   //   - y: CONTINUOUS linear drift from +25vh → -25vh across the
