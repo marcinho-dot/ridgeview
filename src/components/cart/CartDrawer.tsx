@@ -290,23 +290,27 @@ export function CartDrawer() {
                   </div>
                 </div>
 
-                {/* Primary CTA — placeholder until a payment backend
-                    (Stripe / Shopify / etc.) is wired up. Reaching
-                    this CTA means cart-state is fully populated and
-                    valid; the integration is "swap the onClick". */}
-                <button
-                  type="button"
-                  onClick={() => {
-                    // TODO: route to /checkout once payment backend
-                    // is wired. For now, surface the placeholder.
-                    window.alert(
-                      "Checkout coming soon. Your basket is saved.",
-                    );
-                  }}
+                {/* Primary CTA — routes to /checkout. Cart state lives
+                    in localStorage so the cart drawer + /cart page +
+                    /checkout all see the same items. Payment provider
+                    integration happens INSIDE /checkout (placeholder
+                    until the board confirms which provider). */}
+                <a
+                  href="/checkout"
+                  onClick={closeDrawer}
                   className="btn-cta w-full"
                 >
                   Proceed to Checkout · {subtotalLabel}
-                </button>
+                </a>
+
+                <a
+                  href="/cart"
+                  onClick={closeDrawer}
+                  className="block text-center mt-3 font-body text-white/55 hover:text-[#C8A96E] uppercase tracking-[0.22em] transition-colors"
+                  style={{ fontSize: "clamp(10px, 0.95vw, 12px)" }}
+                >
+                  View Full Basket
+                </a>
 
                 <div className="flex items-center justify-between gap-4 mt-4">
                   <button

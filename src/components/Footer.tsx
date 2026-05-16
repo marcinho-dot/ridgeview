@@ -246,13 +246,24 @@ export function Footer() {
         <p className="font-body text-white/40 text-xs" style={{ fontWeight: 300 }}>
           © Ridgeview 2026
         </p>
-        <div className="flex items-center gap-6">
-          <a href="#" className="link-underline font-body text-white/40 text-xs hover:text-white/60 transition-colors" style={{ fontWeight: 300 }}>
-            Privacy Policy
-          </a>
-          <a href="#" className="link-underline font-body text-white/40 text-xs hover:text-white/60 transition-colors" style={{ fontWeight: 300 }}>
-            Sitemap
-          </a>
+        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+          {[
+            { href: "/legal/terms", label: "Terms" },
+            { href: "/legal/privacy", label: "Privacy" },
+            { href: "/legal/cookies", label: "Cookies" },
+            { href: "/legal/delivery", label: "Delivery" },
+            { href: "/legal/returns", label: "Returns" },
+            { href: "/legal/company", label: "Company Info" },
+          ].map(({ href, label }) => (
+            <a
+              key={href}
+              href={href}
+              className="link-underline font-body text-white/40 text-xs hover:text-white/60 transition-colors"
+              style={{ fontWeight: 300 }}
+            >
+              {label}
+            </a>
+          ))}
         </div>
         </div>
       </div>
