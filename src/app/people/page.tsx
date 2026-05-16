@@ -237,7 +237,7 @@ export default function PeoplePage() {
             <span className="text-[#C8A96E]">1995</span>, planting the first
             vines when few in England dared. Awarded an{" "}
             <span className="text-[#C8A96E]">MBE</span> in 2011 for his
-            services to the English wine industry. His guiding motto —
+            services to the English sparkling wine industry. His guiding motto —
             &ldquo;life is for celebrating&rdquo; — still shapes every bottle
             Ridgeview makes today.
           </p>

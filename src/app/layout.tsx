@@ -8,7 +8,7 @@ import { CartDrawer } from "@/components/cart/CartDrawer";
 export const metadata: Metadata = {
   title: "Ridgeview Wine Estate — English Sparkling Wine",
   description:
-    "Ridgeview Wine Estate crafts award-winning English sparkling wines from our home vineyard in Sussex. Celebrate life with estate-crafted, limited production wines.",
+    "Ridgeview Wine Estate crafts award-winning English sparkling wines from our home vineyard in Sussex. Celebrate life with estate-crafted, limited production sparkling wines.",
 };
 
 export default function RootLayout({

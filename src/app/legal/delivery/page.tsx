@@ -16,7 +16,7 @@ export default function DeliveryPage() {
     >
       <p>
         Every Ridgeview order is hand-picked from our cellar in Ditchling
-        Common and dispatched by courier with the care our wines
+        Common and dispatched by courier with the care our sparkling wines
         deserve. Here is what to expect.
       </p>
 

@@ -99,7 +99,7 @@ export default function PrivacyPage() {
             data="Identity, Contact, Transaction"
           />
           <Row
-            purpose="Send marketing emails about our wines and estate events"
+            purpose="Send marketing emails about our sparkling wines and estate events"
             basis="Consent (opt-in)"
             data="Identity, Contact, Marketing"
           />

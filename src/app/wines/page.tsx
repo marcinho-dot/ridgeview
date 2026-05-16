@@ -44,7 +44,7 @@ function PageHero() {
           className="font-display italic text-[#C8A96E] tracking-widest mb-5"
           style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
         >
-          [ The Collection · {wines.length} {wines.length === 1 ? "wine" : "wines"} ]
+          [ The Collection · {wines.length} sparkling {wines.length === 1 ? "wine" : "wines"} ]
         </motion.p>
 
         <motion.h1
@@ -54,7 +54,7 @@ function PageHero() {
           className="font-display italic text-cream leading-[1.06] mb-6"
           style={{ fontSize: "clamp(38px, 6vw, 88px)", fontWeight: 400 }}
         >
-          {wines.length} wines from <span className="text-[#C8A96E]">Sussex chalk</span>.
+          {wines.length} sparkling wines from <span className="text-[#C8A96E]">Sussex chalk</span>.
         </motion.h1>
 
         <motion.p

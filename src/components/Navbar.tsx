@@ -27,7 +27,7 @@ function getLinks(isOffHome: boolean) {
     },
     {
       label: "Shop",
-      kicker: "Ten award-winning wines",
+      kicker: "Ten award-winning sparkling wines",
       href: anchor("#wine-collection"),
     },
     {

@@ -8,7 +8,7 @@ const milestones = [
   { year: "1995", text: "Ridgeview plants first vines beneath the South Downs ridge." },
   { year: "2000", text: "First commercial vintage — English sparkling wine comes of age." },
   { year: "2010", text: "Blanc de Blancs crowned Best Global Sparkling Wine at Decanter." },
-  { year: "2012", text: "Official wine of the Queen's Diamond Jubilee celebrations." },
+  { year: "2012", text: "Official sparkling wine of the Queen's Diamond Jubilee celebrations." },
   { year: "2024", text: "UK Government's most-poured sparkling wine of the year." },
 ];
 
@@ -80,7 +80,7 @@ export function CellarSection() {
               first vines at a time when many said it simply couldn&apos;t be done.
             </p>
             <p className="font-body text-white/60 text-[14px] leading-relaxed mb-8" style={{ fontWeight: 300 }}>
-              Today, Ridgeview is one of the most decorated English wine producers in the world. Poured at
+              Today, Ridgeview is one of the most decorated English sparkling wine producers in the world. Poured at
               State Banquets, served to heads of state, and awarded at the finest competitions globally.
               The family is still here. The commitment to quality unchanged.
             </p>

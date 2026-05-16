@@ -29,7 +29,7 @@ const PERKS = [
   "Bespoke bottle customization for milestone moments",
   "Exclusive invitations to member-only experiences and events",
   "Rare cellar access — archive wines not available elsewhere",
-  "20% off Ridgeview wines all year round",
+  "20% off Ridgeview sparkling wines all year round",
   "Two curated 6-bottle cases delivered each year (May + November)",
   "Welcome gift set: Bloomsbury NV, two Ridgeview flutes, bespoke bottle stopper",
   "Complimentary tour and tasting voucher for two at the estate",

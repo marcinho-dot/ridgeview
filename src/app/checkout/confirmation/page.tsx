@@ -204,7 +204,7 @@ export default function ConfirmationPage() {
                 We couldn&rsquo;t locate the details of a recent order in this
                 session. If you&rsquo;ve just placed an order, please check your
                 email for the confirmation. Otherwise, head back to the
-                shop and pick out your wines.
+                shop and pick out your sparkling wines.
               </p>
               <Link href="/wines" className="btn-cta">
                 Shop All Wines

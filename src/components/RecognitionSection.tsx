@@ -78,7 +78,7 @@ export function RecognitionSection() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
           transition={{ duration: 0.9, delay: 0.45, ease: "easeOut" }}
         >
-          Ridgeview wines have been served at State Banquets at Buckingham Palace and as
+          Ridgeview sparkling wines have been served at State Banquets at Buckingham Palace and as
           the official sparkling wine of 10 Downing Street. In over two decades of
           production, the estate has become one of the most consistently decorated
           producers of English sparkling wine — poured in the finest restaurants across

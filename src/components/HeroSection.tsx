@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { basePath } from "@/lib/basePath";
 
 const proofPoints = [
-  "Official wine · Queen's Diamond Jubilee",
+  "Official sparkling wine · Queen's Diamond Jubilee",
   "Served at King Charles' first State Banquet",
   "Poured for Barack Obama · Buckingham Palace",
   "UK Government's most-poured sparkling wine 2024",
