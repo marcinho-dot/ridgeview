@@ -60,7 +60,7 @@ export function BehindTheBottleSection({
 
       <div
         className={`relative max-w-[1400px] mx-auto px-6 md:px-16 w-full ${
-          compact ? "py-10 md:py-16" : "py-24 md:py-36"
+          compact ? "pt-10 pb-24 md:pt-16 md:pb-28" : "py-24 md:py-36"
         }`}
       >
         <div
