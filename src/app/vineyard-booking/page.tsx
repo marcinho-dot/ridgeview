@@ -215,13 +215,13 @@ function HeritageChalkImageCard() {
     offset: ["start end", "end start"],
   });
 
-  // Zoom-out finishes BY THE TIME the image is fully visible
-  // (progress ~0.36 = when the section's top reaches viewport top
-  // and sticky engages). Means the camera-pulling-back motion runs
-  // during the entry, not after — so the user sees the zoom WHILE
-  // the image is appearing, not once it's already settled. Range
-  // also bumped to 1.4 → 1 for a more visible effect.
-  const imageScale = useTransform(scrollYProgress, [0, 0.4], [1.4, 1]);
+  // Zoom-out is continuous across the ENTIRE visibility window of
+  // the image — from the moment its top edge enters the viewport
+  // (progress 0) until its bottom edge leaves at the top (progress 1).
+  // The camera-pulling-back motion is ALIVE the whole time the image
+  // is on screen: entry, pinned middle, and exit. Range 1.4 → 1.0
+  // spread linearly over [0, 1] for a slow, sustained pull-back.
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1.4, 1]);
 
   const topY = useTransform(scrollYProgress, [0, 1], ["50vh", "-50vh"]);
   const topOpacity = useTransform(
