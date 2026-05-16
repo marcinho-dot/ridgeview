@@ -127,19 +127,14 @@ function PageHeader() {
 // ── Section: Heritage Part 1 — Terroir ──────────────────────────────────────
 
 function HeritageTerroirSection() {
-  // Composition (locked 2026-05-16, refined for sticky-card stacking):
+  // Composition (locked 2026-05-16):
   //   Pure typography only — kicker → 3-line headline → body
-  //   paragraph. The chalk-vineyard image card that briefly lived
-  //   here was extracted into its own sticky card (HeritageChalkImageCard
-  //   below) so each card in the stack fits inside one viewport
-  //   without the next card scrolling past unseen content.
-  //
-  //   Padding tuned (py-20 md:py-28) so even on mobile (~667px
-  //   viewport minus the ~60px BottomNav) the headline + body sit
-  //   centered without bumping into the floating mobile nav.
+  //   paragraph. The chalk-vineyard image card (HeritageChalkImageCard
+  //   below) lives as its own section so the panorama gets its own
+  //   editorial moment without crowding the typographic statement.
   return (
-    <section className="relative overflow-hidden bg-[#010101] py-20 md:py-28 min-h-screen flex items-center">
-      <div className="relative z-10 max-w-[920px] mx-auto px-6 md:px-16 text-center w-full">
+    <section className="relative overflow-hidden bg-[#010101] py-28 md:py-40">
+      <div className="relative z-10 max-w-[920px] mx-auto px-6 md:px-16 text-center">
         <FadeUp>
           <p
             className="font-display italic text-[#C8A96E] mb-6 tracking-widest"
@@ -199,8 +194,8 @@ function HeritageTerroirSection() {
 
 function HeritageChalkImageCard() {
   return (
-    <section className="relative overflow-hidden bg-[#010101] py-12 md:py-16 min-h-screen flex items-center">
-      <div className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10 w-full">
+    <section className="relative overflow-hidden bg-[#010101] py-20 md:py-28">
+      <div className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10">
         <FadeUp>
           <div
             className="relative w-full overflow-hidden rounded-sm border border-[#C8A96E]/20"
@@ -983,58 +978,31 @@ export default function BookingPage() {
       <main>
         <PageHeader />
         <ScrollReset><EstatePeopleSection /></ScrollReset>
-        {/* ── Sticky Heritage Stack ──
-            The three editorial sections (Terroir / Method / Discovery)
-            now stack like a deck of cards: each is `sticky top-0
-            min-h-screen` so as the user scrolls, the next card rises
-            from below and covers the previous one. Pattern adapted
-            from the 21st.dev sticky-scroll-cards-section, restyled to
-            the Ridgeview dark-and-gold language — every card keeps
-            its existing internal layout, the wrappers only add the
-            stacking behaviour.
-
-            Order matches the page narrative:
-              1. Where (Terroir — chalk + grapes + vineyard image)
-              2. How  (Behind the Bottle — Méthode Traditionnelle pillars)
-              3. Why English wine (Discovery — Merret quote on candle photo) */}
-        <div className="relative">
-          {/* Each sticky wrapper carries the bg of its inner section so
-              the deck-stack covers the previous card fully — otherwise
-              the wrapper's empty bottom (when the section content is
-              shorter than min-h-screen) lets the previous card's
-              content bleed through.
-
-              Each inner section uses `min-h-screen flex items-center`
-              and tight padding so its content sits centered in one
-              viewport — guarantees the bottom of the card (image,
-              caption, last pillar) is visible before the next card
-              starts rising over it. Mobile BottomNav (~60px floating
-              bar) is accounted for by the natural padding-bottom +
-              centering. */}
-          <div className="sticky top-0 min-h-screen bg-[#010101]">
-            <ScrollReset><HeritageTerroirSection /></ScrollReset>
-          </div>
-          <div className="sticky top-0 min-h-screen bg-[#010101]">
-            <ScrollReset><HeritageChalkImageCard /></ScrollReset>
-          </div>
-          <div className="sticky top-0 min-h-screen bg-[#0a0a0a]">
-            <ScrollReset>
-              <BehindTheBottleSection
-                compact
-                headline={<>Crafted in the <span className="text-[#C8A96E]">Méthode Traditionnelle</span>.</>}
-                intro="For three decades, Ridgeview has crafted English sparkling wines the long way — by hand, on the chalk hills of Sussex, using the same Traditional Method as the great houses of Champagne."
-                pillars={[
-                  { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region — the foundation of every great sparkling wine." },
-                  { label: "Hand Harvest", detail: "Grapes are picked at first light and sorted by hand to keep only the most balanced bunches." },
-                  { label: "Méthode Traditionnelle", detail: "An English invention — coal-fired bottles strong enough to hold the bubbles, the cork to seal them in, deliberate secondary fermentation." },
-                ]}
-              />
-            </ScrollReset>
-          </div>
-          <div className="sticky top-0 min-h-screen bg-[#010101]">
-            <ScrollReset><HeritageDiscoverySection /></ScrollReset>
-          </div>
-        </div>
+        {/* Heritage trio — Terroir Statement → Chalk Vineyard Image →
+            Behind the Bottle (Méthode Traditionnelle) → Heritage
+            Discovery (Merret quote). All four are normal-flow
+            sections: each fills as much vertical space as its content
+            needs, scrolls naturally like a normal page, and the next
+            section follows below. The sticky-stack experiment was
+            reverted (2026-05-16) — sticky positioning pins the
+            element so its content can't scroll inside the sticky
+            window, which made the bottom of any section taller than
+            the viewport invisible. Normal scroll always shows the
+            full section before moving on. */}
+        <ScrollReset><HeritageTerroirSection /></ScrollReset>
+        <ScrollReset><HeritageChalkImageCard /></ScrollReset>
+        <ScrollReset>
+          <BehindTheBottleSection
+            headline={<>Crafted in the <span className="text-[#C8A96E]">Méthode Traditionnelle</span>.</>}
+            intro="For three decades, Ridgeview has crafted English sparkling wines the long way — by hand, on the chalk hills of Sussex, using the same Traditional Method as the great houses of Champagne."
+            pillars={[
+              { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region — the foundation of every great sparkling wine." },
+              { label: "Hand Harvest", detail: "Grapes are picked at first light and sorted by hand to keep only the most balanced bunches." },
+              { label: "Méthode Traditionnelle", detail: "An English invention — coal-fired bottles strong enough to hold the bubbles, the cork to seal them in, deliberate secondary fermentation." },
+            ]}
+          />
+        </ScrollReset>
+        <ScrollReset><HeritageDiscoverySection /></ScrollReset>
         <ScrollReset><RecognitionSection /></ScrollReset>
         <ScrollReset><VisitPanels /></ScrollReset>
         <ScrollReset><PracticalInfo /></ScrollReset>
