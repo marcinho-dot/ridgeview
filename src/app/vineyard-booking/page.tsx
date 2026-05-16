@@ -127,12 +127,13 @@ function PageHeader() {
 // ── Section: Heritage Part 1 — Terroir ──────────────────────────────────────
 
 function HeritageTerroirSection() {
-  // Sticky-card layer of the 4-card heritage stack. Pure typography —
-  // kicker → 3-line headline → body. Pinned at top while user scrolls
-  // through the page; the next card (HeritageChalkImageCard) rises
-  // from below to cover it.
+  // Normal-flow editorial header for the sticky-stack trio below
+  // (Chalk Image / Behind the Bottle / Discovery). The Terroir
+  // statement reads first as a pure typographic intro at its own
+  // natural height — no sticky pinning, no `min-h-screen`. The
+  // 3-card sticky deck starts AFTER this section.
   return (
-    <section className="relative overflow-hidden bg-[#010101] py-20 md:py-28 min-h-screen flex items-center">
+    <section className="relative overflow-hidden bg-[#010101] py-24 md:py-32">
       <div className="relative z-10 max-w-[920px] mx-auto px-6 md:px-16 text-center w-full">
         <FadeUp>
           <p
@@ -985,23 +986,15 @@ export default function BookingPage() {
       <main>
         <PageHeader />
         <ScrollReset><EstatePeopleSection /></ScrollReset>
-        {/* ── Heritage Sticky Stack ──
-            4 sticky cards stacked deck-of-cards style. Each card has
-            `sticky top-0 min-h-screen` and an opaque bg so as the
-            user scrolls, the next card rises from below and covers
-            the previous one. Each inner section uses
-            `min-h-screen flex items-center` + compact spacing so its
-            content fits inside one viewport (the user's previous
-            request — sections too tall for one viewport had their
-            bottoms hidden behind the next card; viewport-fitting
-            cards solve this).
-
-            Order: Terroir Statement → Chalk Image → Behind the Bottle
-            (compact) → Discovery. */}
+        {/* Terroir Statement — normal-flow editorial intro, NOT
+            part of the sticky stack (per user direction). */}
+        <ScrollReset><HeritageTerroirSection /></ScrollReset>
+        {/* ── Heritage Sticky Stack (3 cards) ──
+            Chalk Image → Behind the Bottle (compact) → Discovery.
+            Each card is `sticky top-0 min-h-screen` with an opaque
+            bg so as the user scrolls, the next card rises from
+            below and covers the previous one. */}
         <div className="relative">
-          <div className="sticky top-0 min-h-screen bg-[#010101]">
-            <ScrollReset><HeritageTerroirSection /></ScrollReset>
-          </div>
           <div className="sticky top-0 min-h-screen bg-[#010101]">
             <ScrollReset><HeritageChalkImageCard /></ScrollReset>
           </div>
