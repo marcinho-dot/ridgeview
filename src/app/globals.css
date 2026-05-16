@@ -27,7 +27,11 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  /* `overflow-x: clip` instead of `hidden` — both suppress horizontal
+     scroll, but `hidden` creates a scroll context that breaks
+     `position: sticky` on descendants. Clip is supported in all modern
+     browsers (Chrome 90+, Firefox 81+, Safari 16+). */
+  overflow-x: clip;
   max-width: 100%;
   scroll-padding-top: 0px;
 }
@@ -69,7 +73,10 @@ body {
   font-family: 'Raleway', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  /* Same `clip` vs `hidden` reasoning as on <html>: keep sticky
+     positioning functional for the sticky-card-stack on /vineyard-
+     booking/ and any future sticky use. */
+  overflow-x: clip;
   max-width: 100%;
 }
 

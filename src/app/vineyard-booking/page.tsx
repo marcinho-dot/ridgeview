@@ -986,19 +986,46 @@ export default function BookingPage() {
       <main>
         <PageHeader />
         <ScrollReset><EstatePeopleSection /></ScrollReset>
-        <ScrollReset><HeritageTerroirSection /></ScrollReset>
-        <ScrollReset>
-          <BehindTheBottleSection
-            headline={<>Crafted in the <span className="text-[#C8A96E]">Méthode Traditionnelle</span>.</>}
-            intro="For three decades, Ridgeview has crafted English sparkling wines the long way — by hand, on the chalk hills of Sussex, using the same Traditional Method as the great houses of Champagne."
-            pillars={[
-              { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region — the foundation of every great sparkling wine." },
-              { label: "Hand Harvest", detail: "Grapes are picked at first light and sorted by hand to keep only the most balanced bunches." },
-              { label: "Méthode Traditionnelle", detail: "An English invention — coal-fired bottles strong enough to hold the bubbles, the cork to seal them in, deliberate secondary fermentation." },
-            ]}
-          />
-        </ScrollReset>
-        <ScrollReset><HeritageDiscoverySection /></ScrollReset>
+        {/* ── Sticky Heritage Stack ──
+            The three editorial sections (Terroir / Method / Discovery)
+            now stack like a deck of cards: each is `sticky top-0
+            min-h-screen` so as the user scrolls, the next card rises
+            from below and covers the previous one. Pattern adapted
+            from the 21st.dev sticky-scroll-cards-section, restyled to
+            the Ridgeview dark-and-gold language — every card keeps
+            its existing internal layout, the wrappers only add the
+            stacking behaviour.
+
+            Order matches the page narrative:
+              1. Where (Terroir — chalk + grapes + vineyard image)
+              2. How  (Behind the Bottle — Méthode Traditionnelle pillars)
+              3. Why English wine (Discovery — Merret quote on candle photo) */}
+        <div className="relative">
+          {/* Each sticky wrapper carries the bg of its inner section so
+              the deck-stack covers the previous card fully — otherwise
+              the wrapper's empty bottom (when the section content is
+              shorter than min-h-screen) lets the previous card's
+              content bleed through. */}
+          <div className="sticky top-0 min-h-screen bg-[#010101]">
+            <ScrollReset><HeritageTerroirSection /></ScrollReset>
+          </div>
+          <div className="sticky top-0 min-h-screen bg-[#0a0a0a]">
+            <ScrollReset>
+              <BehindTheBottleSection
+                headline={<>Crafted in the <span className="text-[#C8A96E]">Méthode Traditionnelle</span>.</>}
+                intro="For three decades, Ridgeview has crafted English sparkling wines the long way — by hand, on the chalk hills of Sussex, using the same Traditional Method as the great houses of Champagne."
+                pillars={[
+                  { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region — the foundation of every great sparkling wine." },
+                  { label: "Hand Harvest", detail: "Grapes are picked at first light and sorted by hand to keep only the most balanced bunches." },
+                  { label: "Méthode Traditionnelle", detail: "An English invention — coal-fired bottles strong enough to hold the bubbles, the cork to seal them in, deliberate secondary fermentation." },
+                ]}
+              />
+            </ScrollReset>
+          </div>
+          <div className="sticky top-0 min-h-screen bg-[#010101]">
+            <ScrollReset><HeritageDiscoverySection /></ScrollReset>
+          </div>
+        </div>
         <ScrollReset><RecognitionSection /></ScrollReset>
         <ScrollReset><VisitPanels /></ScrollReset>
         <ScrollReset><PracticalInfo /></ScrollReset>
