@@ -105,7 +105,10 @@ function PricingCard({
   highlights,
   recommended,
 }: {
-  variant: "annual" | "biannual";
+  /** Only "annual" exists today (Ridgeview has a single tier).
+   *  Kept as a union for forward-compat in case additional plans
+   *  are introduced. */
+  variant: "annual";
   badge: string;
   title: string;
   price: string;
@@ -174,7 +177,7 @@ function PricingCard({
         ))}
       </ul>
       <a href="#join" className="btn-cta w-full text-center">
-        Choose {variant === "annual" ? "annual" : "biannual"}
+        Choose {variant}
       </a>
     </div>
   );
@@ -281,36 +284,29 @@ export default function WineClubPage() {
                   className="font-display italic text-cream leading-[1.08]"
                   style={{ fontSize: "clamp(32px, 4.6vw, 64px)", fontWeight: 400 }}
                 >
-                  Two ways to <span className="text-[#C8A96E]">join</span>.
+                  Become a <span className="text-[#C8A96E]">member</span>.
                 </motion.h2>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+              {/* Single card — Ridgeview offers only one membership tier
+                  (verified 2026-05-17 against ridgeview.co.uk/ourview-
+                  wine-club). The previously rendered "Biannual" plan
+                  was fabricated and has been removed. */}
+              <div className="max-w-[640px] mx-auto">
                 <PricingCard
                   variant="annual"
                   badge="Annual"
                   title="Annual Membership"
                   price="£580"
-                  cadence="Year one · reduces to £530 from year two onward"
+                  cadence="Year one (includes £50 joining fee) · £530 from year two"
                   recommended
                   highlights={[
-                    "Twelve bottles a year across two curated shipments",
-                    "Welcome gift set + complimentary Fitzrovia Rosé bottle",
-                    "All member benefits unlocked from day one",
+                    "Twelve bottles a year across two seasonal cases (May & November)",
+                    "Luxury welcome case worth £134: Bloomsbury NV, two flutes, bespoke stopper, plus a tour & tasting voucher for two",
+                    "20% off Ridgeview wines year-round + complimentary next-working-day delivery",
+                    "10% off food and 20% off wine when dining at The Rows & Vine",
+                    "Priority access to rare archive and limited-edition releases, plus member-only events",
                     "Single annual payment via GoCardless Direct Debit",
-                  ]}
-                />
-                <PricingCard
-                  variant="biannual"
-                  badge="Biannual"
-                  title="Biannual Plan"
-                  price="£50 + £265 ×2"
-                  cadence="£50 upfront, then £265 every May and November"
-                  highlights={[
-                    "Twelve bottles a year, split between two shipments",
-                    "Welcome gift set: Bloomsbury NV, two flutes, bottle stopper",
-                    "All member benefits unlocked from day one",
-                    "Payments aligned with each shipment via GoCardless",
                   ]}
                 />
               </div>
