@@ -1020,6 +1020,7 @@ export default function BookingPage() {
           <div className="sticky top-0 min-h-screen bg-[#0a0a0a]">
             <ScrollReset>
               <BehindTheBottleSection
+                compact
                 headline={<>Crafted in the <span className="text-[#C8A96E]">Méthode Traditionnelle</span>.</>}
                 intro="For three decades, Ridgeview has crafted English sparkling wines the long way — by hand, on the chalk hills of Sussex, using the same Traditional Method as the great houses of Champagne."
                 pillars={[
