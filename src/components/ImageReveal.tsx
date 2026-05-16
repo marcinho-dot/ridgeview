@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { basePath } from "@/lib/basePath";
+import { SubstackForm } from "@/components/SubstackForm";
 
 /* ── SVG Icons ─────────────────────────────────────────────────────── */
 
@@ -28,22 +29,6 @@ function IconFacebook({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
       <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-    </svg>
-  );
-}
-
-function IconSubstack({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
-      <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24l9.54-5.417L20.539 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z" />
-    </svg>
-  );
-}
-
-function IconArrowRight({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 20 20" fill="currentColor" className={className}>
-      <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638l-3.96-3.72a.75.75 0 011.04-1.06l5.25 4.93a.75.75 0 010 1.06l-5.25 4.93a.75.75 0 11-1.04-1.06l3.96-3.72H3.75A.75.75 0 013 10z" clipRule="evenodd" />
     </svg>
   );
 }
@@ -335,39 +320,10 @@ export function ImageRevealSection() {
             ))}
           </div>
 
-          {/* Substack Email Input with icon */}
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              const input = e.currentTarget.querySelector("input");
-              const email = input?.value;
-              if (email) {
-                window.open(
-                  `https://substack.com/@ridgeview?email=${encodeURIComponent(email)}`,
-                  "_blank"
-                );
-              }
-            }}
-            className="flex items-center gap-0 border border-white/20 rounded-full hover:border-[#C8A96E]/40 focus-within:border-[#C8A96E]/40 transition-colors duration-300"
-          >
-            <div className="flex items-center justify-center w-13 h-[50px] pl-1">
-              <IconSubstack className="w-[16px] h-[16px] text-white/50" />
-            </div>
-            <input
-              type="email"
-              placeholder="Your email for our Substack"
-              required
-              className="flex-1 bg-transparent border-0 px-3 py-3.5 font-body text-white/80 text-[13px] tracking-wide placeholder:text-white/40 focus:outline-none"
-              style={{ fontWeight: 300 }}
-            />
-            <button
-              type="submit"
-              className="flex items-center justify-center w-13 h-[50px] pr-1 hover:bg-[#C8A96E]/5 rounded-r-full transition-all duration-300 group/btn"
-              aria-label="Subscribe on Substack"
-            >
-              <IconArrowRight className="w-4 h-4 text-white/50 group-hover/btn:text-[#C8A96E] transition-colors duration-300" />
-            </button>
-          </form>
+          {/* Substack Email Input — extracted to <SubstackForm /> 2026-05-17
+              so the same form (with bumped contrast) can be reused on
+              the /beyond-the-bottle PageHero. */}
+          <SubstackForm />
         </div>
       </section>
 

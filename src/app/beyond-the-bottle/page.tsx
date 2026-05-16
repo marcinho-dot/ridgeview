@@ -5,6 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { BottomNav } from "@/components/BottomNav";
 import { CategoryAccordion } from "@/components/beyond/CategoryAccordion";
+import { SubstackForm } from "@/components/SubstackForm";
 import { articles } from "@/data/articles";
 
 /**
@@ -65,6 +66,20 @@ function PageHero() {
           {articles.length} articles across seven facets of life at Ridgeview &mdash;
           from the cellar to the South Downs, harvest to hospitality.
         </motion.p>
+
+        {/* Substack signup — added 2026-05-17 per user direction:
+            same form as the homepage ImageReveal section, mounted
+            here below the subtitle. (Social icons intentionally
+            not added — only the email-capture pill.) */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+          className="mt-8 md:mt-10 mx-auto"
+          style={{ maxWidth: "440px" }}
+        >
+          <SubstackForm />
+        </motion.div>
       </div>
     </section>
   );
