@@ -151,7 +151,7 @@ function ParallaxRow({
 
 export function EstatePeopleSection() {
   return (
-    <section className="bg-[#010101]">
+    <section className="bg-[#010101] pt-16 md:pt-24">
       <div className="max-w-[1400px] mx-auto px-6 md:px-16">
 
         {/* Row 1 — The Estate: image left / text right on desktop */}
