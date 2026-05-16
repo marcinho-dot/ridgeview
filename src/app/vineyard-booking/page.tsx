@@ -193,79 +193,119 @@ function HeritageTerroirSection() {
 // with `min-h-screen` so it owns one slot in the sticky deck.
 
 function HeritageChalkImageCard() {
-  // Sticky-card layer of the 4-card heritage stack. Image anchored
-  // to the TOP of the card (`items-start` + tiny pt) so that the
-  // moment the card enters the viewport from below — covering the
-  // previous Terroir card — the panorama is the FIRST thing the
-  // user sees. With `items-center` the image sat in the middle of
-  // a min-h-screen card, leaving a half-viewport of empty space
-  // above it; the user had to scroll way past the previous headline
-  // before the image was visible.
+  // Apple-style scroll-pinned full-bleed reveal (cf. apple.com/mac-studio
+  // "Powerful connections" section). Pattern:
+  //
+  //   - Outer wrapper is taller than the viewport (175vh) so the
+  //     sticky inner stays pinned for ~75vh of scroll.
+  //   - Inner is `sticky top-0 h-screen overflow-hidden` — the
+  //     panorama fills the viewport edge-to-edge.
+  //   - Image starts at scale 1.22 (zoomed in) and zooms OUT to 1.0
+  //     across the first 60% of scroll progress — Apple's "camera
+  //     pulling back" feel.
+  //   - Top kicker drifts up + fades in then out.
+  //   - Bottom grape-varieties + Champagne caption rises from below
+  //     and drifts up past natural position as the user keeps scrolling.
+  //
+  // No padding / aspect-ratio container anymore — image is true
+  // full-bleed (covers the entire viewport during the sticky window).
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const imageScale = useTransform(scrollYProgress, [0, 0.6], [1.22, 1]);
+
+  const topY = useTransform(scrollYProgress, [0, 1], [40, -80]);
+  const topOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.2, 0.85, 1],
+    [0, 1, 1, 0],
+  );
+
+  const bottomY = useTransform(scrollYProgress, [0, 1], [80, -60]);
+  const bottomOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.3, 0.85, 1],
+    [0, 1, 1, 0],
+  );
+
   return (
-    <section className="relative overflow-hidden bg-[#010101] pt-3 md:pt-6 pb-2 md:pb-4">
-      <div className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10 w-full">
-        <FadeUp>
-          <div
-            className="relative w-full overflow-hidden rounded-sm border border-[#C8A96E]/20"
-            style={{ aspectRatio: "16/9" }}
-          >
-            <img
-              src={`${basePath}/images/terroir-vineyard.jpg`}
-              alt="Vineyard rows on the chalk soils of Ditchling Common, East Sussex"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            {/* Readability gradients — top + bottom darken for caption legibility */}
-            <div
-              className="absolute inset-x-0 top-0 h-1/3 pointer-events-none"
-              style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%)" }}
-            />
-            <div
-              className="absolute inset-x-0 bottom-0 h-1/2 pointer-events-none"
-              style={{ background: "linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0) 100%)" }}
-            />
+    <section
+      ref={ref}
+      className="relative bg-[#010101]"
+      style={{ height: "175vh" }}
+    >
+      <div className="sticky top-0 h-screen overflow-hidden">
+        {/* Full-bleed image with zoom-out scroll animation */}
+        <motion.img
+          src={`${basePath}/images/terroir-vineyard.jpg`}
+          alt="Vineyard rows on the chalk soils of Ditchling Common, East Sussex"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ scale: imageScale }}
+        />
+        {/* Readability gradients */}
+        <div
+          className="absolute inset-x-0 top-0 h-1/3 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 100%)",
+          }}
+        />
+        <div
+          className="absolute inset-x-0 bottom-0 h-1/2 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%)",
+          }}
+        />
 
-            {/* TOP: Chalk sub-kicker */}
-            <p
-              className="absolute top-5 left-0 right-0 md:top-8 font-display italic text-[#C8A96E] tracking-widest text-center"
-              style={{
-                fontSize: "clamp(11px, 1vw, 13px)",
-                textShadow: "0 1px 12px rgba(0,0,0,0.85)",
-              }}
-            >
-              [ Chalk · Ancient Seabed ]
-            </p>
+        {/* TOP: Chalk kicker — drifts up + fades */}
+        <motion.p
+          className="absolute top-[12vh] left-0 right-0 font-display italic text-[#C8A96E] tracking-widest text-center"
+          style={{
+            fontSize: "clamp(12px, 1.2vw, 16px)",
+            textShadow: "0 1px 14px rgba(0,0,0,0.85)",
+            y: topY,
+            opacity: topOpacity,
+          }}
+        >
+          [ Chalk · Ancient Seabed ]
+        </motion.p>
 
-            {/* BOTTOM: Grape varieties + Champagne caption */}
-            <div className="absolute inset-x-0 bottom-5 md:bottom-8 px-6 md:px-10 text-center">
-              <div className="flex flex-wrap justify-center gap-x-7 gap-y-2 mb-3 md:mb-4">
-                {["Chardonnay", "Pinot Noir", "Pinot Meunier"].map((grape) => (
-                  <p
-                    key={grape}
-                    className="font-display italic text-[#C8A96E]"
-                    style={{
-                      fontSize: "clamp(14px, 1.3vw, 17px)",
-                      letterSpacing: "0.06em",
-                      textShadow: "0 1px 10px rgba(0,0,0,0.8)",
-                    }}
-                  >
-                    {grape}
-                  </p>
-                ))}
-              </div>
+        {/* BOTTOM: Grape varieties + Champagne caption — rises + drifts up */}
+        <motion.div
+          className="absolute inset-x-0 bottom-[14vh] px-6 md:px-10 text-center"
+          style={{ y: bottomY, opacity: bottomOpacity }}
+        >
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mb-5 md:mb-6">
+            {["Chardonnay", "Pinot Noir", "Pinot Meunier"].map((grape) => (
               <p
-                className="font-body text-white/85 leading-snug mx-auto"
+                key={grape}
+                className="font-display italic text-[#C8A96E]"
                 style={{
-                  fontSize: "clamp(12px, 1.1vw, 14px)",
-                  fontWeight: 300,
-                  maxWidth: "460px",
-                  textShadow: "0 1px 12px rgba(0,0,0,0.9)",
+                  fontSize: "clamp(18px, 2vw, 28px)",
+                  letterSpacing: "0.06em",
+                  textShadow: "0 1px 12px rgba(0,0,0,0.85)",
                 }}
               >
-                The same varieties that define Champagne — rooted in Sussex chalk.
+                {grape}
               </p>
-            </div>
+            ))}
           </div>
-        </FadeUp>
+          <p
+            className="font-body text-white/90 leading-snug mx-auto"
+            style={{
+              fontSize: "clamp(14px, 1.3vw, 17px)",
+              fontWeight: 300,
+              maxWidth: "520px",
+              textShadow: "0 1px 14px rgba(0,0,0,0.9)",
+            }}
+          >
+            The same varieties that define Champagne — rooted in Sussex chalk.
+          </p>
+        </motion.div>
       </div>
     </section>
   );
