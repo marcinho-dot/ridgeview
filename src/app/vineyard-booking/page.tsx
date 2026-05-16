@@ -215,13 +215,26 @@ function HeritageChalkImageCard() {
     offset: ["start end", "end start"],
   });
 
-  // Zoom-out is continuous across the ENTIRE visibility window of
-  // the image — from the moment its top edge enters the viewport
-  // (progress 0) until its bottom edge leaves at the top (progress 1).
-  // The camera-pulling-back motion is ALIVE the whole time the image
-  // is on screen: entry, pinned middle, and exit. Range 1.4 → 1.0
-  // spread linearly over [0, 1] for a slow, sustained pull-back.
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1.4, 1]);
+  // COMBINED IMAGE MOTION — runs across the FULL visibility window
+  // (progress 0 → 1: from when the image's top first peeks in at
+  // the viewport bottom, until its bottom edge leaves at the top).
+  //
+  //   1. scale  1.55 → 1.28   (camera pulls back — continuous zoom-out)
+  //   2. y      0vh → -13vh   (image translates upward — "camera tilts
+  //                            down", revealing progressively lower
+  //                            portions of the panorama)
+  //
+  // The image is rendered with `absolute inset-0 w-full h-full
+  // object-cover` and CSS scale > 1, so it overflows the 100vh frame.
+  // The parent sticky div has `overflow-hidden` to clip the excess.
+  // At scale 1.28 the image overflows the frame by 28vh (14vh top +
+  // 14vh bottom), so a 13vh upward pan stays safely inside that
+  // overflow envelope — no bg leak at any progress.
+  //
+  // Apple's Mac Studio "Powerful connections" pattern: zoom + tilt
+  // simultaneously, both alive the whole time the image is on screen.
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1.55, 1.28]);
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0vh", "-13vh"]);
 
   const topY = useTransform(scrollYProgress, [0, 1], ["50vh", "-50vh"]);
   const topOpacity = useTransform(
@@ -249,12 +262,12 @@ function HeritageChalkImageCard() {
       style={{ height: "175vh" }}
     >
       <div className="sticky top-0 h-screen overflow-hidden">
-        {/* Full-bleed image with zoom-out scroll animation */}
+        {/* Full-bleed image — zoom-out + upward pan running together */}
         <motion.img
           src={`${basePath}/images/terroir-vineyard.jpg`}
           alt="Vineyard rows on the chalk soils of Ditchling Common, East Sussex"
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ scale: imageScale }}
+          style={{ scale: imageScale, y: imageY }}
         />
         {/* Readability gradients */}
         <div
