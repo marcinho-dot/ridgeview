@@ -88,7 +88,7 @@ export function DiscoverSection() {
             transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
           >
             <MagneticButton strength={0.04}>
-              <a href={`${basePath}/booking`} className="btn-cta">
+              <a href={`${basePath}/vineyard-booking`} className="btn-cta">
                 Discover our Vineyard
               </a>
             </MagneticButton>

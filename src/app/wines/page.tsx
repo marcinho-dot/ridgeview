@@ -613,7 +613,7 @@ function BackToTop() {
 export default function WinesPage() {
   return (
     <div className="bg-[#010101] min-h-screen">
-      {/* Grain noise overlay — same value used on /booking for visual
+      {/* Grain noise overlay — same value used on /vineyard-booking for visual
           continuity across non-homepage routes. Sits above content
           (z-100) but pointer-events:none so it never blocks clicks. */}
       <div

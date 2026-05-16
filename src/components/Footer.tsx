@@ -137,11 +137,11 @@ export function Footer() {
           </h4>
           <ul className="space-y-3">
             {[
-              { label: "Vineyard Tours & Wine Tastings", href: `${home}booking` },
-              { label: "Wine Bar & Shop", href: `${home}booking` },
+              { label: "Vineyard Tours & Wine Tastings", href: `${home}vineyard-booking` },
+              { label: "Wine Bar & Shop", href: `${home}vineyard-booking` },
               { label: "How to get to Ridgeview", href: `${home}#footer` },
               { label: "Nearby Accommodation", href: `${home}#footer` },
-              { label: "Opening Times", href: `${home}booking` },
+              { label: "Opening Times", href: `${home}vineyard-booking` },
             ].map((item) => (
               <li key={item.label}>
                 <a href={item.href} className="link-underline font-body text-white/55 text-sm hover:text-[#C8A96E]/80 transition-colors duration-300" style={{ fontWeight: 300 }}>

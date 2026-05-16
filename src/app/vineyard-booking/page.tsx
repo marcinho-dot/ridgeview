@@ -551,7 +551,7 @@ function VisitPanels() {
 // ── Component: Floating Back-to-Top ──────────────────────────────────────────
 // Smart UX behaviour (locked 2026-05-12):
 //   - Appears when the user reaches the Visit section (`#visit`),
-//     including via the homepage Hero deep-link `/booking#visit`.
+//     including via the homepage Hero deep-link `/vineyard-booking#visit`.
 //   - Stays visible while the user keeps scrolling DOWN (past Visit,
 //     into Practical Info, into Footer).
 //   - Hides as soon as the user reverses direction and scrolls UP —

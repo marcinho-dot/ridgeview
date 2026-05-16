@@ -73,7 +73,7 @@ function PageHero() {
 export default function BeyondHubPage() {
   return (
     <div className="bg-[#010101] min-h-screen">
-      {/* Noise overlay — matches /booking and /wines for visual continuity */}
+      {/* Noise overlay — matches /vineyard-booking and /wines for visual continuity */}
       <div
         aria-hidden
         className="pointer-events-none fixed inset-0 z-[100] opacity-[0.035]"

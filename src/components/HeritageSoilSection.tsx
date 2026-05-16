@@ -102,7 +102,7 @@ export function HeritageSoilSection() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.65, ease: "easeOut" }}
             >
-              <Link href="/booking" className="btn-cta">
+              <Link href="/vineyard-booking" className="btn-cta">
                 Discover the Vineyard
               </Link>
             </motion.div>

@@ -33,7 +33,7 @@ function getLinks(isOffHome: boolean) {
     {
       label: "Vineyard",
       kicker: "Tours, tastings & private events",
-      href: `${basePath}/booking`,
+      href: `${basePath}/vineyard-booking`,
     },
     {
       label: "Beyond the Bottle",
@@ -41,7 +41,7 @@ function getLinks(isOffHome: boolean) {
       href: `${basePath}/beyond-the-bottle/`,
     },
     {
-      label: "About",
+      label: "People",
       kicker: "The team, the winemaker, the founder",
       href: `${basePath}/people/`,
     },
@@ -68,7 +68,7 @@ export function Navbar() {
     const normalized = path.replace(/\/$/, "");
     const home = basePath.replace(/\/$/, "");
     setIsOffHome(normalized !== home);
-    setIsBookingPage(path.includes("/booking"));
+    setIsBookingPage(path.includes("/vineyard-booking"));
   }, []);
 
   useEffect(() => {

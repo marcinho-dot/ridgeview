@@ -186,7 +186,7 @@ export function HeroSection() {
             Shop
           </a>
           <a
-            href={`${basePath}/booking#visit`}
+            href={`${basePath}/vineyard-booking#visit`}
             className="btn-cta"
             onClick={() => {
               // Mark this navigation as coming from the homepage Hero
