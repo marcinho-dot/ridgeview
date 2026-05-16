@@ -24,20 +24,24 @@ import { basePath } from "@/lib/basePath";
  * CTA across the site (Navbar, BottomNav, Footer, SKU upsell, etc.).
  */
 
+// PERKS — verbatim from the live ridgeview.co.uk/ourview-wine-club/
+// benefits list (verified 2026-05-17). Order kept consistent with the
+// live page. Previous fabricated entries (gift scheduling, bottle
+// customization, members pricing) were removed; real-page-only
+// benefits (OurView Concierge, Joy of the Unexpected, masterclasses)
+// were added.
 const PERKS = [
-  "Gift scheduling — surprise loved ones with a future-dated case",
-  "Bespoke bottle customization for milestone moments",
-  "Exclusive invitations to member-only experiences and events",
-  "Rare cellar access — archive wines not available elsewhere",
-  "20% off Ridgeview sparkling wines all year round",
-  "Two curated 6-bottle cases delivered each year (May + November)",
-  "Welcome gift set: Bloomsbury NV, two Ridgeview flutes, bespoke bottle stopper",
-  "Complimentary tour and tasting voucher for two at the estate",
-  "10% off food at The Rows & Vine, our vineyard restaurant",
-  "Members pricing on gift sets and limited editions",
-  "Exclusive partner-brand offers",
-  "Behind-the-scenes insight articles and winemaker notes",
-  "Complimentary next-day delivery on every order",
+  "20% off Ridgeview wines all year round",
+  "10% off food at The Rows & Vine and 20% off wine when dining",
+  "A luxury Welcome Case worth £134, including Bloomsbury NV and a Tour for two",
+  "Two 6-bottle cases of Ridgeview wine delivered each year (May and November)",
+  "Complimentary next-working-day delivery on all orders and gifts",
+  "Exclusive access to the ‘OurView Concierge’ for personal estate bookings",
+  "Access to rare archive and limited-edition wines not available to the public",
+  "Priority invitations to member-only experiences and masterclasses",
+  "The ‘Joy of the Unexpected’: spontaneous gifts and on-site surprises",
+  "Exclusive insight articles and behind-the-scenes news from the vineyard",
+  "Exclusive offers with luxury partner brands",
 ];
 
 const STEPS = [
@@ -45,54 +49,62 @@ const STEPS = [
     n: "01",
     title: "Sign up",
     body:
-      "Enter your contact details and set up a Direct Debit mandate to begin your membership.",
+      "Enter your details and set up a Direct Debit mandate via GoCardless to begin your membership.",
   },
   {
     n: "02",
     title: "Your welcome case",
     body:
-      "We send a welcome gift box direct to your door: a bottle of Bloomsbury NV, two Ridgeview flutes and a bespoke bottle stopper.",
+      "Your luxury Welcome Case (worth £134) arrives at your door — a Bloomsbury NV gift set with two Ridgeview flutes, a bespoke stopper, your membership card and a complimentary Tour & Tasting voucher for two.",
   },
   {
     n: "03",
     title: "Unlock your benefits",
     body:
-      "From the moment you join, every member perk — 20% off wines, archive access, events and more — is yours to enjoy.",
+      "From the moment you join, every member perk — 20% off wines, archive access, masterclasses, OurView Concierge and more — is yours to enjoy.",
   },
 ];
 
+// FAQS — all answers verified against the live ridgeview.co.uk page
+// (2026-05-17). The previously rendered "biannual payment plan"
+// content was fabricated and has been removed. Welcome gift wording,
+// delivery info, member portal name, and contact details corrected.
 const FAQS = [
   {
     q: "What are the payment options and membership fees?",
-    a: "Two options, both via GoCardless: Annual payment of £580 upfront (reducing to £530 in your second year) and you'll receive a complimentary bottle of Fitzrovia Rosé in your welcome set. Or biannual payment — £50 upfront, then £265 every May and November before each twice-yearly shipment.",
+    a: "Annual payment of £580 in year one (which includes a £50 joining fee contributing toward your luxury Welcome Case), reducing to £530 from year two onward. Payment is collected as a one-off annual Direct Debit mandate via GoCardless. Join in May and receive a complimentary bottle of Fitzrovia Rosé NV with your Welcome Case (total added value £174).",
   },
   {
     q: "Can I purchase a wine club membership as a gift?",
-    a: "Yes — an OurView Wine Club membership makes an extraordinary gift that sparkles all year round. Use the Join button below and select the gift option at checkout.",
+    a: "Yes — share the joy of Ridgeview with a gifted membership for £580 as a one-off credit-card payment. Your giftee receives the luxury Welcome Case plus a full year of every OurView benefit; at the end of the year we reach out to them directly to see if they’d like to continue.",
   },
   {
     q: "Where is membership available?",
-    a: "Across the entire UK. Member cases and online purchases can be shipped anywhere in the U.K. — London, Kent, Sussex and beyond. All digital member benefits are available wherever you are.",
+    a: "Member cases and online purchases ship anywhere in the UK. All digital member benefits are available wherever you are.",
   },
   {
-    q: "When do I receive my welcome gift set?",
-    a: "Within two weeks of joining. The biannual welcome set includes a bottle of Bloomsbury NV, two Ridgeview flutes and a bespoke bottle stopper. Annual members additionally receive a complimentary bottle of Fitzrovia Rosé.",
+    q: "What’s in my Welcome Case?",
+    a: "A Bloomsbury NV gift set with two Ridgeview flutes and a bespoke stopper, your membership card, and a complimentary Tour & Tasting voucher for two — worth £134 in total. Join in May and you’ll also receive a bonus bottle of Fitzrovia Rosé NV with your Spring Winemaker’s Case.",
   },
   {
-    q: "What is in my biannual cases?",
-    a: "Six specially selected bottles handpicked by our Head Winemaker, showcasing the breadth and beauty of our award-winning English sparkling wine. You receive an email with the case contents before each shipment in May and November.",
+    q: "What is in my seasonal cases?",
+    a: "Six bottles per case, thoughtfully curated by our Head Winemaker to showcase the best of the Ridgeview cellar — including rare archives and member-exclusives you won’t find anywhere else. Cases are shipped during the second week of May and November (after the Direct Debit clears via GoCardless).",
   },
   {
     q: "How fast is delivery?",
-    a: "Next-working-day delivery is included on every order, and free on orders over £45.",
+    a: "As a member you enjoy free next-working-day delivery on all wine purchases — even on orders under £45 — when using your 20% member discount.",
   },
   {
     q: "How do I track my wine?",
-    a: "You receive a tracking email directly from DHL (our courier) for every shipment, so you can follow its journey and request leave-with-neighbour or safe-place arrangements as needed.",
+    a: "You receive a tracking email directly from DHL (our courier) for every shipment, so you can follow its journey and arrange leave-with-neighbour or safe-place options as needed.",
   },
   {
     q: "Managing my membership",
-    a: "Address details, card information and shipment preferences can all be managed through your OurView portal. For anything else, the team is reachable at memberships@ridgeview.co.uk or 01444 242 040.",
+    a: "Address details, shipment preferences and Direct Debit info are managed through your Member Portal. For anything else, the team is reachable on 01444 242 040.",
+  },
+  {
+    q: "What if I want to cancel?",
+    a: "Membership renews annually. While mid-year cancellations aren’t available (except as outlined in our Terms & Conditions), we always contact you at least two weeks before your anniversary so you can decide whether to renew.",
   },
 ];
 
@@ -301,12 +313,13 @@ export default function WineClubPage() {
                   cadence="Year one (includes £50 joining fee) · £530 from year two"
                   recommended
                   highlights={[
-                    "Twelve bottles a year across two seasonal cases (May & November)",
-                    "Luxury welcome case worth £134: Bloomsbury NV, two flutes, bespoke stopper, plus a tour & tasting voucher for two",
-                    "20% off Ridgeview wines year-round + complimentary next-working-day delivery",
+                    "Twelve bottles a year across two 6-bottle seasonal cases (May & November)",
+                    "Luxury Welcome Case worth £134: Bloomsbury NV gift set, two flutes, bespoke stopper, plus a Tour & Tasting voucher for two",
+                    "20% off Ridgeview wines year-round + complimentary next-working-day delivery on all orders",
                     "10% off food and 20% off wine when dining at The Rows & Vine",
-                    "Priority access to rare archive and limited-edition releases, plus member-only events",
-                    "Single annual payment via GoCardless Direct Debit",
+                    "Priority invitations to member-only experiences and masterclasses, plus access to rare archive and limited-edition wines",
+                    "Single annual Direct Debit via GoCardless",
+                    "Join in May for a bonus bottle of Fitzrovia Rosé NV (total added value £174)",
                   ]}
                 />
               </div>
@@ -616,9 +629,9 @@ export default function WineClubPage() {
                   maxWidth: "520px",
                 }}
               >
-                Sign up takes a few minutes, your welcome gift set arrives
-                within two weeks, and every benefit is yours from the moment
-                you join.
+                Sign up takes a few minutes, your luxury Welcome Case ships
+                direct to your door, and every benefit is yours from the
+                moment you join.
               </p>
               <a href="#" className="btn-cta">
                 Join the Wine Club
@@ -627,7 +640,7 @@ export default function WineClubPage() {
                 className="font-body text-white/35 mt-8"
                 style={{ fontSize: "12px", fontWeight: 300 }}
               >
-                Questions? memberships@ridgeview.co.uk · 01444 242 040
+                Questions? Call 01444 242 040
               </p>
             </div>
           </section>
