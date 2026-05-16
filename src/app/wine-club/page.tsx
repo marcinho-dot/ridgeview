@@ -212,7 +212,7 @@ export default function WineClubPage() {
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/55 to-[#010101]" />
 
-            <div className="relative max-w-[1600px] mx-auto px-6 md:px-16 pt-32 md:pt-40 pb-20 md:pb-28 text-center">
+            <div className="relative max-w-[1600px] mx-auto px-6 md:px-16 pt-32 md:pt-40 pb-8 md:pb-10 text-center">
               <motion.p
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -255,10 +255,14 @@ export default function WineClubPage() {
         </ScrollReset>
 
         {/* ── Pricing ──────────────────────────────────────────────── */}
+        {/* border-t removed + top padding reduced 2026-05-17 so the
+            hero flows directly into the membership cards without a
+            visible cut + so more of the first card is in the initial
+            viewport. */}
         <ScrollReset>
-          <section className="relative bg-[#010101] border-t border-white/[0.06]">
-            <div className="max-w-[1600px] mx-auto px-6 md:px-16 py-20 md:py-28">
-              <div className="mb-14 md:mb-20 max-w-[820px]">
+          <section className="relative bg-[#010101]">
+            <div className="max-w-[1600px] mx-auto px-6 md:px-16 pt-8 md:pt-10 pb-20 md:pb-28">
+              <div className="mb-6 md:mb-8 max-w-[820px]">
                 <motion.p
                   initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
