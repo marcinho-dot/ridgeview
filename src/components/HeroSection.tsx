@@ -3,7 +3,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { basePath } from "@/lib/basePath";
-import { JellyButtonCanvas } from "@/components/JellyButtonCanvas";
 
 const proofPoints = [
   "Official wine · Queen's Diamond Jubilee",
@@ -167,21 +166,28 @@ export function HeroSection() {
             entry-points and the navbar tell the same story. On
             narrow screens they wrap to a stack via flex-wrap so the
             second button never overflows. */}
-        {/* Hero CTAs — both buttons use the Canvas 2D gold-metaball
-            effect (reverted from the kickflip variant 2026-05-15 per
-            user direction). The kickflip implementation lives in
-            src/components/_archive/jelly-3d-tilt/ for future use. */}
+        {/* Hero CTAs — plain `.btn-cta` (etched-crystal frosted-glass +
+            gold border + cream text), matching every other CTA on the
+            site (Reserve a Table, Book a Vineyard Tour, Shop Bottle,
+            etc.). The previous Canvas 2D gold-metaball "jelly" effect
+            (JellyButtonCanvas) was rolled back 2026-05-16 per user
+            direction — it visually competed with the rest of the
+            site's editorial chrome. The component still lives at
+            src/components/JellyButtonCanvas.tsx if we ever want to
+            bring it back, and the kickflip variant is in
+            src/components/_archive/jelly-3d-tilt/. */}
         <motion.div
           className="mt-5 flex flex-wrap items-center gap-3"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <JellyButtonCanvas href={`${basePath}/#wine-collection`}>
+          <a href={`${basePath}/#wine-collection`} className="btn-cta">
             Shop
-          </JellyButtonCanvas>
-          <JellyButtonCanvas
+          </a>
+          <a
             href={`${basePath}/booking#visit`}
+            className="btn-cta"
             onClick={() => {
               // Mark this navigation as coming from the homepage Hero
               // so the booking page's floating Back-to-Top button knows
@@ -200,7 +206,7 @@ export function HeroSection() {
             }}
           >
             Vineyard Booking
-          </JellyButtonCanvas>
+          </a>
         </motion.div>
       </div>
 
