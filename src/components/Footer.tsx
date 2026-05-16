@@ -115,11 +115,18 @@ export function Footer() {
           </h4>
           <ul className="space-y-3">
             {[
+              // Cases of Wine, Gift Sets & Collections, Click & Collect
+              // were removed 2026-05-16:
+              //   - Cases are SKU format variants (Magnum, Case of 6) on
+              //     each /wine/<slug>/ page — no separate landing needed.
+              //   - Gift Sets pointed to /wines (redundant); no dedicated
+              //     /gifts route exists. The engraved-bottle-gift SKU is
+              //     still discoverable via the main catalogue.
+              //   - Click & Collect was advertised but never wired into
+              //     the checkout flow (Royal Mail shipping only). Listing
+              //     it was misleading.
               { label: "English Sparkling Wine", href: `${home}wines` },
-              { label: "Cases of Wine", href: `${home}wines` },
-              { label: "Gift Sets & Collections", href: `${home}wines` },
               { label: "OurView Wine Club", href: `${home}wine-club/` },
-              { label: "Click & Collect", href: `${home}wines` },
             ].map((item) => (
               <li key={item.label}>
                 <a href={item.href} className="link-underline font-body text-white/55 text-sm hover:text-[#C8A96E]/80 transition-colors duration-300" style={{ fontWeight: 300 }}>
