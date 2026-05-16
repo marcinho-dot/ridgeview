@@ -311,7 +311,9 @@ function HeritageRevealStack() {
                 "0 2px 8px rgba(0,0,0,0.95), 0 4px 24px rgba(0,0,0,0.85), 0 0 60px rgba(0,0,0,0.55)",
             }}
           >
-            The same varieties that define Champagne — rooted in Sussex chalk.
+            The same varieties that define Champagne –{" "}
+            <br className="hidden md:block" />
+            rooted in Sussex chalk.
           </p>
         </motion.div>
       </div>
