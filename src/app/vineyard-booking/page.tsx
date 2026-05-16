@@ -184,31 +184,29 @@ function HeritageRevealStack() {
 
   // TOP kicker [ Chalk · Ancient Seabed ]
   //   - y: CONTINUOUS linear drift from +25vh → -25vh across the
-  //     entire visibility window (0.50 → 0.97). No stops, no holds —
-  //     the scroll-driven motion is always alive.
-  //   - opacity: gradual fade-in (0.50 → 0.65) · long plateau
-  //     (0.65 → 0.85) · soft late fade-out (0.85 → 0.97).
+  //     visibility window. Scroll-driven motion is always alive.
+  //   - opacity: starts fading in MUCH earlier (~50% earlier) so
+  //     the kicker is already fading in WHILE Terroir is still
+  //     scrolling off, instead of waiting until Terroir is gone.
   //
-  // The y and opacity are deliberately DECOUPLED: y travels at a
-  // constant pace so the user feels the scroll-tracking motion the
-  // whole time, while opacity does its own thing (slow appear, long
-  // hold, soft disappear). Earlier we had y held at rest during the
-  // opacity plateau — which made the kicker feel "stuck" and blocked
-  // the scroll-effect feeling.
-  const topY = useTransform(scrollYProgress, [0.5, 0.97], ["25vh", "-25vh"]);
+  // y and opacity are deliberately DECOUPLED — y at constant pace,
+  // opacity has its own envelope (early gentle fade-in, long plateau,
+  // soft late fade-out).
+  const topY = useTransform(scrollYProgress, [0.28, 0.97], ["25vh", "-25vh"]);
   const topOpacity = useTransform(
     scrollYProgress,
-    [0.5, 0.65, 0.85, 0.97],
+    [0.28, 0.42, 0.85, 0.97],
     [0, 1, 1, 0],
   );
 
-  // BOTTOM block (grape names + Champagne caption) — same pattern:
-  // continuous y drift + decoupled opacity envelope. Slightly wider
-  // y range (+35 → -30) because the block has more vertical mass.
-  const bottomY = useTransform(scrollYProgress, [0.5, 0.97], ["35vh", "-30vh"]);
+  // BOTTOM block (grape names + Champagne caption) — same pattern,
+  // fade-in starts even earlier than the kicker because the block
+  // sits at the bottom of the frame and becomes naturally exposed
+  // by the receding Terroir sooner (around progress 0.37).
+  const bottomY = useTransform(scrollYProgress, [0.25, 0.97], ["35vh", "-30vh"]);
   const bottomOpacity = useTransform(
     scrollYProgress,
-    [0.5, 0.58, 0.85, 0.97],
+    [0.25, 0.38, 0.85, 0.97],
     [0, 1, 1, 0],
   );
 
@@ -325,7 +323,7 @@ function HeritageRevealStack() {
         <div className="max-w-[920px] mx-auto px-6 md:px-16 text-center w-full py-24 md:py-32">
           <FadeUp>
             <p
-              className="font-display italic text-[#C8A96E] mb-6 tracking-widest"
+              className="font-display italic text-[#C8A96E] mb-2 tracking-widest"
               style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
             >
               [ Ditchling Common · East Sussex ]
