@@ -1,7 +1,7 @@
 "use client";
 
-import { ReactNode, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { ReactNode, useRef, useState } from "react";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ScrollReset } from "@/components/ScrollReset";
@@ -26,8 +26,8 @@ import { basePath } from "@/lib/basePath";
 //   Position 2: Magnum (if available) [N/A]
 //   Position 3: Case of 6 (if available — "Best value" badge)
 const SPARKLING_RED_VARIANTS: Variant[] = [
-  { label: "75cl Bottle", detail: "75cl · 12% ABV · Limited Release", price: 55 },
-  { label: "Case of 6 · 6×75cl", detail: "6 × 75cl · Save 10%", price: 297, badge: "Best value" },
+  { label: "75cl Bottle", detail: "75cl · 12% ABV · Limited Release", price: 55, image: "/products/sparkling-red-reserve.png" },
+  { label: "Case of 6 · 6×75cl", detail: "6 × 75cl · Save 10%", price: 297, badge: "Best value" /* no case-shot — falls back to 75cl bottle */ },
 ];
 
 // ── Animation Helpers ────────────────────────────────────────────────────────
@@ -72,6 +72,14 @@ function ProductHero() {
     offset: ["start start", "end start"],
   });
   const bottleY = useTransform(scrollYProgress, [0, 1], [0, -80]);
+
+  // Variant state lifted so the hero bottle would crossfade on Case-of-6
+  // click — we don't have a Sparkling Red Reserve case shot yet so the
+  // Case variant transparently falls back to the 75cl bottle for now.
+  const [variantIdx, setVariantIdx] = useState(0);
+  const activeVariant = SPARKLING_RED_VARIANTS[variantIdx];
+  const heroBottleSrc = activeVariant.image ?? "/products/sparkling-red-reserve.png";
+  const heroBottleAlt = `Ridgeview Sparkling Red Reserve — Limited Release 100% Pinot Noir sparkling red, ${activeVariant.label}`;
 
   return (
     // Section sizes to its natural content height (no min-h constraint).
@@ -181,6 +189,8 @@ function ProductHero() {
                     variants={SPARKLING_RED_VARIANTS}
                     freeShippingThreshold={45}
                     ctaId="hero-mobile-cta"
+                    variantIdx={variantIdx}
+                    onVariantChange={setVariantIdx}
                   />
                 </div>
 
@@ -271,16 +281,27 @@ function ProductHero() {
                 className="absolute inset-0 flex items-center justify-center pointer-events-none"
                 style={{ y: bottleY }}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={`${basePath}/products/sparkling-red-reserve.png`}
-                  alt="Ridgeview Sparkling Red Reserve — Limited Release 100% Pinot Noir sparkling red, 75cl bottle"
-                  className="pointer-events-auto w-auto max-w-none object-contain h-[clamp(376px,51svh,484px)] md:h-[clamp(704px,90svh,1078px)] [transform:translateX(8%)_translateY(-30px)_rotate(28deg)] md:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)] hover:[transform:translateX(8%)_translateY(-30px)_rotate(28deg)_scale(1.015)] md:hover:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)_scale(1.015)] [transition:transform_900ms_cubic-bezier(0.16,1,0.3,1),filter_900ms_cubic-bezier(0.16,1,0.3,1)] hover:[filter:drop-shadow(0_40px_80px_rgba(0,0,0,0.7))_drop-shadow(0_0_60px_rgba(200,169,110,0.12))]"
-                  style={{
-                    transformOrigin: "center",
-                    filter: "drop-shadow(0 30px 60px rgba(0,0,0,0.6))",
-                  }}
-                />
+                {/* Bottle keyed on heroBottleSrc → AnimatePresence crossfades
+                    on Case-of-6 / format change (see PurchaseWidget below).
+                    No case shot for Sparkling Red Reserve yet — Case variant
+                    falls back to the 75cl bottle, no visible swap. */}
+                <AnimatePresence mode="wait">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <motion.img
+                    key={heroBottleSrc}
+                    src={`${basePath}${heroBottleSrc}`}
+                    alt={heroBottleAlt}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                    className="pointer-events-auto w-auto max-w-none object-contain h-[clamp(376px,51svh,484px)] md:h-[clamp(704px,90svh,1078px)] [transform:translateX(8%)_translateY(-30px)_rotate(28deg)] md:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)] hover:[transform:translateX(8%)_translateY(-30px)_rotate(28deg)_scale(1.015)] md:hover:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)_scale(1.015)] [transition:transform_900ms_cubic-bezier(0.16,1,0.3,1),filter_900ms_cubic-bezier(0.16,1,0.3,1)] hover:[filter:drop-shadow(0_40px_80px_rgba(0,0,0,0.7))_drop-shadow(0_0_60px_rgba(200,169,110,0.12))]"
+                    style={{
+                      transformOrigin: "center",
+                      filter: "drop-shadow(0 30px 60px rgba(0,0,0,0.6))",
+                    }}
+                  />
+                </AnimatePresence>
               </motion.div>
 
               {/* Quick "Add to basket" — anchored bottom-right next to the bottle

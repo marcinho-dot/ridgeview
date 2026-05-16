@@ -27,7 +27,7 @@ import { basePath } from "@/lib/basePath";
 const BLOOMSBURY_VARIANTS: Variant[] = [
   { label: "75cl Bottle", detail: "75cl · 12% ABV", price: 34, image: "/products/bloomsbury.png" },
   { label: "Magnum · 1.5L", detail: "1.5L · 12% ABV · Slower-aged", price: 85, image: "/products/bloomsbury-magnum.png" },
-  { label: "Case of 6 · 6×75cl", detail: "6 × 75cl · Save 10%", price: 183.6, badge: "Best value" /* no case-shot yet — falls back to 75cl bottle */ },
+  { label: "Case of 6 · 6×75cl", detail: "6 × 75cl · Save 10%", price: 183.6, badge: "Best value", image: "/products/bloomsbury-case.png" },
 ];
 
 // ── Animation Helpers ────────────────────────────────────────────────────────

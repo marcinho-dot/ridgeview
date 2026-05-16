@@ -27,7 +27,7 @@ import { basePath } from "@/lib/basePath";
 const BLANC_DE_BLANCS_VARIANTS: Variant[] = [
   { label: "75cl Bottle", detail: "75cl · 12% ABV · Vintage", price: 75, image: "/products/blanc-de-blancs.png" },
   { label: "Magnum 2010 · 1.5L", detail: "1.5L · 12% ABV · Cellar-aged", price: 195, image: "/products/blanc-de-blancs-magnum.png" },
-  { label: "Case of 6 · 6×75cl", detail: "6 × 75cl · Save 10%", price: 405, badge: "Best value" /* no case-shot yet — falls back to 75cl bottle */ },
+  { label: "Case of 6 · 6×75cl", detail: "6 × 75cl · Save 10%", price: 405, badge: "Best value", image: "/products/blanc-de-blancs-case.png" },
 ];
 
 // ── Animation Helpers ────────────────────────────────────────────────────────
