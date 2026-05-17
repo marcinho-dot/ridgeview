@@ -36,18 +36,15 @@ function IconFacebook({ className }: { className?: string }) {
 /* ── Gallery images data ───────────────────────────────────────────── */
 
 const galleryImages = [
-  // 2026-05-18: user moved slot 4 (vineyard rows) to slot 1 — it
-  // now leads the fan (z-50) as the strongest "place" / sense-of-
-  // landscape opener. Others shift one slot to the right.
   { src: "gallery-2.jpg", alt: "Ridgeview vineyard rows stretching to the South Downs" },
   { src: "gallery-4.jpg", alt: "A walk through the Ridgeview vineyard, South Downs in the distance" },
-  // File at gallery-1.jpg updated 2026-05-18 to
-  // Ridgeview_Restaurant&Terrace-25 — restaurant pavilion seen
-  // from the garden, vineyard backdrop. Lives in slot 3 (centre
-  // card, z-30).
   { src: "gallery-1.jpg", alt: "Ridgeview restaurant pavilion seen from the garden with vineyard backdrop" },
   { src: "gallery-5.jpg", alt: "Ridgeview restaurant pavilion and covered terrace seating" },
   { src: "gallery-3.jpg", alt: "Ridgeview Estate restaurant pavilion overlooking the vineyard at golden hour" },
+  // Slot 6 (last card, z-10) — added 2026-05-18 per user direction.
+  // AF_LXA_Ridgeview Wine Estate-23: wide overview of the pavilion
+  // plus the South Downs vineyard sweeping out behind it.
+  { src: "gallery-6.jpg", alt: "Aerial overview of the Ridgeview pavilion with vineyard and South Downs beyond" },
 ];
 
 /* ── Social links ──────────────────────────────────────────────────── */
@@ -254,28 +251,27 @@ export function ImageRevealSection() {
   }, []);
 
   const imgSize = mobile ? 155 : 300;
-  // 5-card fan layout (2026-05-18 — was 4 cards). Outer cards spread
-  // wider so the fan reads as a hand of editorial polaroids; inner
-  // cards sit closer to center with subtle offsets. Spacing tuned so
-  // adjacent cards overlap ~50% on both viewports.
-  //
-  // Mobile outer-card spread reduced by 5px per side (2026-05-18,
-  // was ±130) so the rotated corners no longer clip past the
-  // viewport edge on 375px phones.
-  const xL2 = mobile ? -125 : -440;  // far-left
-  const xL1 = mobile ? -55  : -180;  // mid-left
-  const xM  = 0;                      // center
-  const xR1 = mobile ? 55   : 180;   // mid-right
-  const xR2 = mobile ? 125  : 440;   // far-right
+  // 6-card fan layout (2026-05-18 — was 5 cards). Symmetric — three
+  // cards on each side, no centre slot. Outer spread held at
+  // ±125 mobile / ±440 desktop so the rotated corners don't clip
+  // past the viewport edge on 375px phones (user-set padding).
+  // Inner cards packed tighter to make room for the extra card.
+  const xL3 = mobile ? -125 : -440;
+  const xL2 = mobile ? -78  : -260;
+  const xL1 = mobile ? -28  : -90;
+  const xR1 = mobile ? 28   : 90;
+  const xR2 = mobile ? 78   : 260;
+  const xR3 = mobile ? 125  : 440;
 
   const spring = { type: "spring" as const, stiffness: 120, damping: 12 };
 
   const positions = [
-    { rotate: -10, x: xL2, y: 16, z: 50, delay: 0,    hoverRotate: -3, hoverX: xL2 - 10, hoverY: 4 },
-    { rotate: -4,  x: xL1, y: -6, z: 40, delay: 0.10, hoverRotate: 0,  hoverX: xL1,      hoverY: -14 },
-    { rotate: 2,   x: xM,  y: -2, z: 30, delay: 0.20, hoverRotate: 0,  hoverX: xM,       hoverY: -12 },
-    { rotate: 6,   x: xR1, y:  6, z: 20, delay: 0.30, hoverRotate: 1,  hoverX: xR1,      hoverY: -8 },
-    { rotate: -6,  x: xR2, y: 22, z: 10, delay: 0.40, hoverRotate: 2,  hoverX: xR2 + 10, hoverY: 12 },
+    { rotate: -11, x: xL3, y: 18, z: 60, delay: 0,    hoverRotate: -3, hoverX: xL3 - 8, hoverY: 6 },
+    { rotate: -6,  x: xL2, y: -4, z: 50, delay: 0.08, hoverRotate: -1, hoverX: xL2,     hoverY: -14 },
+    { rotate: -2,  x: xL1, y:  2, z: 40, delay: 0.16, hoverRotate: 0,  hoverX: xL1,     hoverY: -10 },
+    { rotate:  3,  x: xR1, y: -2, z: 30, delay: 0.24, hoverRotate: 0,  hoverX: xR1,     hoverY: -12 },
+    { rotate:  7,  x: xR2, y:  6, z: 20, delay: 0.32, hoverRotate: 2,  hoverX: xR2,     hoverY: -6 },
+    { rotate: -5,  x: xR3, y: 22, z: 10, delay: 0.40, hoverRotate: 1,  hoverX: xR3 + 8, hoverY: 10 },
   ];
 
   return (
