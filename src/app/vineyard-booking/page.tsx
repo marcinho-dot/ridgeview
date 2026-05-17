@@ -1039,7 +1039,14 @@ function PracticalInfo() {
           </FadeUp>
 
           <FadeUp delay={0.3}>
-            <div>
+            {/* Right-anchored on desktop (md:text-right + md:justify-end on
+                the icon row) so the column's visible content reaches the
+                section's right edge — aligning with the NearbyAccommodation
+                carousel pagination dots above. Without this anchor the
+                Contact values floated mid-column and left a visible gap on
+                the right that broke the section-to-section width rhythm
+                with the carousel. (2026-05-17) */}
+            <div className="md:text-right">
               <h3
                 className="font-body text-cream uppercase mb-6"
                 style={{ fontSize: "clamp(10px, 0.9vw, 12px)", fontWeight: 500, letterSpacing: "0.18em" }}
@@ -1050,7 +1057,7 @@ function PracticalInfo() {
                 <a href="tel:01444242040" className="link-underline font-body text-white/65 block hover:text-white/80 transition-colors duration-300" style={{ fontSize: "clamp(13px, 1.2vw, 15px)", fontWeight: 300 }}>01444 242040</a>
                 <a href="mailto:info@ridgeview.co.uk" className="link-underline font-body text-white/65 block hover:text-white/80 transition-colors duration-300" style={{ fontSize: "clamp(13px, 1.2vw, 15px)", fontWeight: 300 }}>info@ridgeview.co.uk</a>
               </div>
-              <div className="flex items-center gap-5">
+              <div className="flex items-center gap-5 md:justify-end">
                 <a href="https://www.instagram.com/ridgeviewwine/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-white/45 hover:text-[#C8A96E] transition-colors duration-300">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg>
                 </a>
