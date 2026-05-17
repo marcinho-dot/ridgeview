@@ -233,6 +233,18 @@ function HeritageRevealStack() {
     [0, 1, 1, 0],
   );
 
+  // Mobile-only strong scroll-up parallax (2026-05-17 - user re-enabled
+  // a motion on the text block, but pinned to be smooth on budget
+  // Android GPUs like the Huawei P30 Lite's Kirin 710):
+  //   - px output (not vh) so URL-bar shows/hides don't snap the y
+  //   - PURE translateY, no opacity changes, no scale - GPU just
+  //     promotes the layer and translates the composited bitmap, no
+  //     re-raster per frame
+  //   - 0 → -700px total drift across the section's full visibility
+  //     window. Feels strong (~50% of viewport) without being so
+  //     aggressive that the text rockets off-screen.
+  const mobileBottomY = useTransform(scrollYProgress, [0, 1], [0, -700]);
+
   return (
     <section
       ref={ref}
@@ -309,17 +321,17 @@ function HeritageRevealStack() {
             The [ Chalk · Ancient Seabed ] kicker now sits directly
             above the grape names as part of the same editorial unit.
             Desktop: shared y-drift + opacity fade choreography via
-            the motion values below. Mobile (2026-05-17 per user
-            direction): static — `y: 0, opacity: 1` explicitly
-            overrides the bottomY/bottomOpacity MotionValues which
-            otherwise keep ticking under the hood (passing `style={}`
-            wasn't enough — framer-motion retained the last animated
-            output and the text crept off-screen). */}
+            bottomY + bottomOpacity (vh-based, cinematic). Mobile
+            (2026-05-17): strong but smooth scroll-up parallax via
+            mobileBottomY — px-based + translate-only so URL-bar
+            shifts and budget-GPU rasterise costs don't introduce
+            jitter. Opacity stays at 1 so the text is always legible
+            during its drift. */}
         <motion.div
           className="absolute inset-x-0 bottom-[14vh] px-6 md:px-10 text-center"
           style={
             isMobile
-              ? { y: 0, opacity: 1 }
+              ? { y: mobileBottomY, opacity: 1 }
               : { y: bottomY, opacity: bottomOpacity }
           }
         >
