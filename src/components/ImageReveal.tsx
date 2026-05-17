@@ -39,6 +39,7 @@ const galleryImages = [
   { src: "gallery-1.jpg", alt: "Ridgeview Estate tasting room and terrace" },
   { src: "gallery-2.jpg", alt: "Ridgeview vineyard rows stretching to the South Downs" },
   { src: "gallery-3.jpg", alt: "View from the Ridgeview restaurant over the vineyard" },
+  { src: "gallery-4.jpg", alt: "A walk through the Ridgeview vineyard, South Downs in the distance" },
 ];
 
 /* ── Social links ──────────────────────────────────────────────────── */
@@ -245,15 +246,21 @@ export function ImageRevealSection() {
   }, []);
 
   const imgSize = mobile ? 155 : 300;
-  const xL = mobile ? -80 : -240;
-  const xR = mobile ? 95 : 310;
+  // 4-card fan layout (2026-05-18 — was 3 cards). Outer cards spread
+  // wider so the fan reads as a hand of editorial polaroids; inner
+  // cards sit closer to center with subtle offsets.
+  const xL2 = mobile ? -110 : -360;  // far-left
+  const xL1 = mobile ? -38  : -120;  // mid-left
+  const xR1 = mobile ? 38   : 120;   // mid-right
+  const xR2 = mobile ? 110  : 360;   // far-right
 
   const spring = { type: "spring" as const, stiffness: 120, damping: 12 };
 
   const positions = [
-    { rotate: -8, x: xL, y: 10, z: 30, delay: 0, hoverRotate: 1, hoverX: xL - 10, hoverY: 0 },
-    { rotate: 6, x: 0, y: 0, z: 20, delay: 0.15, hoverRotate: 0, hoverX: 0, hoverY: -10 },
-    { rotate: -6, x: xR, y: 20, z: 10, delay: 0.3, hoverRotate: 3, hoverX: xR, hoverY: 10 },
+    { rotate: -9, x: xL2, y: 14, z: 40, delay: 0,    hoverRotate: -2, hoverX: xL2 - 10, hoverY: 4 },
+    { rotate: -3, x: xL1, y: -6, z: 30, delay: 0.12, hoverRotate: 0,  hoverX: xL1,      hoverY: -14 },
+    { rotate:  5, x: xR1, y:  4, z: 20, delay: 0.24, hoverRotate: 1,  hoverX: xR1,      hoverY: -8 },
+    { rotate: -7, x: xR2, y: 20, z: 10, delay: 0.36, hoverRotate: 2,  hoverX: xR2 + 10, hoverY: 10 },
   ];
 
   return (
