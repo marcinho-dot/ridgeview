@@ -121,7 +121,7 @@ function PageHeader() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1.1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
           >
-            Lorem ipsum.
+            Seventeen thousand vines. One ancient seabed.
           </motion.h1>
         </div>
 
@@ -132,7 +132,7 @@ function PageHeader() {
           className="font-body text-white/60 max-w-[440px]"
           style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, lineHeight: 1.7, textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+          Visit the estate that helped establish English sparkling in the méthode traditionnelle. Planted 1995. An hour from London, twenty minutes from Brighton.
         </motion.p>
       </motion.div>
     </section>
