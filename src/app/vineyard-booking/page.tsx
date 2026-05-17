@@ -52,20 +52,35 @@ function PageHeader() {
     // VisitPanels) anchor reliably to the hero on this page.
     <section id="top" ref={ref} className="relative h-screen w-full overflow-hidden">
       <motion.div style={{ y: bgY }} className="absolute inset-0">
-        {/* Mobile hero — vineyard rows leading toward the South Downs (portrait-friendly crop) */}
-        <img
-          src={`${basePath}/images/terroir-hero.jpg`}
-          alt="Ridgeview vineyard rows leading toward the South Downs"
-          className="absolute inset-0 w-full h-full object-cover sm:hidden"
-          style={{ objectPosition: "center 50%" }}
-        />
-        {/* Desktop hero — drone shot, vineyard rows + cellar buildings */}
-        <img
-          src={`${basePath}/images/booking-hero-aerial.jpg`}
-          alt="Aerial view of Ridgeview Wine Estate — vineyard rows and cellar buildings"
-          className="absolute inset-0 w-full h-full object-cover hidden sm:block"
-          style={{ objectPosition: "center 50%" }}
-        />
+        {/* Hero image — uses <picture> with media sources so the browser
+            fetches EXACTLY ONE asset based on viewport width, instead of
+            the old setup where both <img>s loaded and only one rendered
+            (the other was display:hidden, but already downloaded — a 11.5MB
+            penalty on Mobile that was the #1 cause of /vineyard-booking/
+            jank on Huawei P30 Lite-class devices).
+              Mobile  ≤ 640px → terroir-hero-1080.jpg  (265 KB)
+              Tablet  ≤ 1280  → terroir-hero.jpg       (908 KB)
+              Desktop > 1280  → booking-hero-aerial.jpg (2.24 MB, was 11.56MB)
+            fetchpriority="high" because the hero is above-the-fold. */}
+        <picture>
+          <source
+            media="(max-width: 640px)"
+            srcSet={`${basePath}/images/terroir-hero-1080.jpg`}
+          />
+          <source
+            media="(max-width: 1280px)"
+            srcSet={`${basePath}/images/terroir-hero.jpg`}
+          />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`${basePath}/images/booking-hero-aerial.jpg`}
+            alt="Aerial view of Ridgeview Wine Estate — vineyard rows and cellar buildings"
+            decoding="async"
+            fetchPriority="high"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ objectPosition: "center 50%" }}
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-b from-[#010101]/30 via-transparent to-[#010101]/60" />
         {/* Desktop-only: stronger dark fade across the lower 30% so the
             kicker / headline / body copy stay legible against the bright
@@ -207,17 +222,35 @@ function HeritageRevealStack() {
   return (
     <section
       ref={ref}
-      className="relative bg-[#010101]"
-      style={{ height: "300vh" }}
+      className="relative bg-[#010101] h-[220vh] md:h-[300vh]"
     >
-      {/* ── LAYER 0 (BEHIND) — Chalk image sticky-pinned for 200vh ── */}
+      {/* Mobile height tightened from 300vh → 220vh (2026-05-17 after
+          user feedback "Scroll-Effekt im Chalk-Abschnitt viel zu lang").
+          Sticky pin range scales proportionally — the editorial choreography
+          stays intact, just compressed into a shorter scroll path that
+          doesn't make Mobile users feel the page is "stuck". Desktop keeps
+          300vh because larger viewports tolerate the cinematic pacing. */}
+
+      {/* ── LAYER 0 (BEHIND) — Chalk image sticky-pinned ── */}
       <div className="sticky top-0 h-screen overflow-hidden z-0 bg-[#010101]">
-        <motion.img
-          src={`${basePath}/images/terroir-vineyard.jpg`}
-          alt="Vineyard rows on the chalk soils of Ditchling Common, East Sussex"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ scale: imageScale, y: imageY }}
-        />
+        {/* Asset: terroir-vineyard.jpg (684 KB desktop) + new
+            terroir-vineyard-1280.jpg (239 KB mobile srcset). Mobile gets
+            the smaller variant so the decode doesn't compete with the
+            scroll-driven scale/y transforms on the same image. */}
+        <picture>
+          <source
+            media="(max-width: 768px)"
+            srcSet={`${basePath}/images/terroir-vineyard-1280.jpg`}
+          />
+          <motion.img
+            src={`${basePath}/images/terroir-vineyard.jpg`}
+            alt="Vineyard rows on the chalk soils of Ditchling Common, East Sussex"
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 w-full h-full object-cover motion-reduce:!scale-100 motion-reduce:![transform:none]"
+            style={{ scale: imageScale, y: imageY, willChange: "transform" }}
+          />
+        </picture>
         {/* Readability layers — refined 2026-05-16 after the radial
             halos were rendering as visible dark "blobs" rather than
             blending smoothly. Stripped back to just two soft linear
@@ -388,9 +421,12 @@ function HeritageDiscoverySection() {
 
       {/* ── Full-bleed background image + readability layers ── */}
       <div className="absolute inset-0">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={`${basePath}/images/quote.png`}
+          src={`${basePath}/images/quote.jpg`}
           alt="Wine glass raised against Ridgeview vineyard at golden hour"
+          loading="lazy"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ objectPosition: "center 40%" }}
         />
