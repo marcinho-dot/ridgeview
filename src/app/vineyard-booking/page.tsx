@@ -476,7 +476,22 @@ function HeritageDiscoverySection() {
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-16 py-24 md:py-32 min-h-[68vh] md:min-h-[92vh] flex items-center">
         <div className="w-full grid grid-cols-1 md:grid-cols-[5fr_7fr] gap-6 md:gap-16 items-stretch">
 
-          {/* LEFT: text column (matches BehindTheBottle's 5fr text column width) */}
+          {/* LEFT: text column (matches BehindTheBottle's 5fr text column width)
+              Reading order rearranged 2026-05-18 (text content unchanged, copy
+              is Marc's final). Was: Intro → Quote → Attribution → Body → Divider.
+              Now:   Intro → Body → Quote → Attribution → Divider.
+              Rationale: the body paragraph delivers the historical context
+              (English invention of secondary fermentation, coal-fired bottle,
+              cork seal, Champenois resistance, eventual heritage). Letting it
+              land BEFORE the Merret quote turns the quote into a "proof" /
+              punchline — the reader arrives at the 1662 document already
+              primed for why it matters. The old order had the quote first
+              and the context after the attribution, which dramaturgically
+              dropped the artifact mid-stream and then explained it after
+              the citation had already closed the thought.
+
+              FadeUp delays re-staggered to match the new order:
+                Intro 0.1 · Body 0.2 · Quote 0.3 · Attribution 0.4 · Divider 0.6 */}
           <div className="flex flex-col justify-center">
 
             <FadeUp delay={0.1}>
@@ -493,8 +508,27 @@ function HeritageDiscoverySection() {
               </p>
             </FadeUp>
 
+            <FadeUp delay={0.2}>
+              <p
+                className="font-body text-white/70 leading-relaxed mb-10"
+                style={{
+                  fontSize: "clamp(13px, 1.3vw, 15px)",
+                  fontWeight: 300,
+                  maxWidth: "520px",
+                  textShadow: "0 2px 14px rgba(0,0,0,0.85)",
+                }}
+              >
+                The English invented secondary fermentation. The coal-fired glass bottle
+                strong enough to contain it. The use of cork to seal it. For decades, the
+                Champenois called the bubbles &lsquo;the devil&apos;s wine&rsquo; and tried
+                to remove them. Today, Champagne is one of France&rsquo;s greatest cultural
+                treasures - while the method, like the chalk beneath it, a shared European
+                heritage.
+              </p>
+            </FadeUp>
+
             {/* Pull-quote - large decorative open-quote sits behind the text */}
-            <FadeUp delay={0.2} duration={1.1}>
+            <FadeUp delay={0.3} duration={1.1}>
               <div className="relative mb-8">
                 <span
                   className="absolute font-display italic text-[#C8A96E] select-none pointer-events-none"
@@ -533,25 +567,6 @@ function HeritageDiscoverySection() {
                 }}
               >
                 - Christopher Merret · Royal Society · London, 17 December 1662
-              </p>
-            </FadeUp>
-
-            <FadeUp delay={0.5}>
-              <p
-                className="font-body text-white/70 leading-relaxed mb-10"
-                style={{
-                  fontSize: "clamp(13px, 1.3vw, 15px)",
-                  fontWeight: 300,
-                  maxWidth: "520px",
-                  textShadow: "0 2px 14px rgba(0,0,0,0.85)",
-                }}
-              >
-                The English invented secondary fermentation. The coal-fired glass bottle
-                strong enough to contain it. The use of cork to seal it. For decades, the
-                Champenois called the bubbles &lsquo;the devil&apos;s wine&rsquo; and tried
-                to remove them. Today, Champagne is one of France&rsquo;s greatest cultural
-                treasures - while the method, like the chalk beneath it, a shared European
-                heritage.
               </p>
             </FadeUp>
 
