@@ -344,7 +344,7 @@ function HeritageRevealStack() {
           viewport, revealing the pinned chalk image behind it like
           a curtain. */}
       <div className="relative z-10 -mt-[700px] md:-mt-[100vh] min-h-[700px] md:min-h-screen bg-[#010101] flex items-center justify-center">
-        <div className="max-w-[920px] mx-auto px-6 md:px-16 text-center w-full pt-[10vh] pb-[4vh] md:py-12">
+        <div className="max-w-[920px] mx-auto px-6 md:px-16 text-center w-full pt-2 pb-2 md:py-4">
           {/* FadeUp wrappers were stripped here 2026-05-17 per user
               direction: the curtain reveal itself already provides
               the editorial entrance — adding the .reveal fade + 28px
