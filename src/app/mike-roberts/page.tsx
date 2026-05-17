@@ -152,7 +152,7 @@ export default function MikeRobertsPage() {
                   style={{ fontSize: "clamp(15px, 1.4vw, 18px)", fontWeight: 300 }}
                 >
                   Mike planted Ridgeview&rsquo;s first vines in 1995 on the chalk
-                  soils beneath the South Downs &mdash; convinced that the same
+                  soils beneath the South Downs - convinced that the same
                   geology that produced Champagne could grow world-class English
                   sparkling wine.
                 </p>
@@ -160,9 +160,9 @@ export default function MikeRobertsPage() {
                   className="font-body text-white/55 leading-[1.85]"
                   style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300 }}
                 >
-                  His daring dream &mdash; to produce sparkling wine in England
+                  His daring dream - to produce sparkling wine in England
                   that would stand shoulder to shoulder with the world&rsquo;s
-                  best &mdash; became the foundation of an industry. Three
+                  best - became the foundation of an industry. Three
                   decades later, the conviction he planted still shapes every
                   cuvée Ridgeview makes.
                 </p>
@@ -200,7 +200,7 @@ export default function MikeRobertsPage() {
                 >
                   Awarded an MBE in 2011 for services to the English sparkling
                   wine industry. Mike&rsquo;s commitment went far beyond
-                  Ridgeview &mdash; he was tireless in championing English wine
+                  Ridgeview - he was tireless in championing English wine
                   itself.
                 </p>
                 <p
@@ -209,7 +209,7 @@ export default function MikeRobertsPage() {
                 >
                   Generous with his knowledge from the start, he shared what he
                   had learned from French winemaking colleagues with a new
-                  generation of English producers &mdash; laying the groundwork
+                  generation of English producers - laying the groundwork
                   for the industry as we know it today.
                 </p>
               </motion.div>
@@ -270,13 +270,13 @@ export default function MikeRobertsPage() {
                 className="font-body uppercase text-white/55 tracking-[0.3em] mb-12"
                 style={{ fontSize: "11px", fontWeight: 300 }}
               >
-                &mdash; Mike Roberts
+                - Mike Roberts
               </p>
               <p
                 className="font-body text-white/70 leading-[1.85] max-w-[560px] mx-auto"
                 style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300 }}
               >
-                Mike&rsquo;s guiding motto &mdash; now the house motto at
+                Mike&rsquo;s guiding motto - now the house motto at
                 Ridgeview. Every bottle is shaped by the same conviction: that
                 wine exists for the moments worth raising a glass to.
               </p>

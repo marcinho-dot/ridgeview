@@ -585,7 +585,7 @@ function GiftCTA() {
             maxWidth: "520px",
           }}
         >
-          Engrave a message on Bloomsbury, Fitzrovia Rosé or Blanc de Blancs &mdash;
+          Engrave a message on Bloomsbury, Fitzrovia Rosé or Blanc de Blancs -
           made-to-order in our cellar within five working days.
         </motion.p>
         <motion.div

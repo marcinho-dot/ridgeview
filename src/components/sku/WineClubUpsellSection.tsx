@@ -87,7 +87,7 @@ export function WineClubUpsellSection() {
                 className="font-body text-white/70 leading-[1.85] mb-9"
                 style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, maxWidth: "440px" }}
               >
-                Membership opens a quieter door to the estate &mdash; with vineyard
+                Membership opens a quieter door to the estate - with vineyard
                 partner-perks, first access to new releases, and seasonal cellar
                 invitations woven through the year.
               </p>

@@ -174,7 +174,7 @@ function ProductHero() {
                 className="font-body text-white/70 mb-4 md:mb-6"
                 style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, lineHeight: 1.75, maxWidth: "540px" }}
               >
-                A milestone, a thank-you, a corporate gesture &mdash; each
+                A milestone, a thank-you, a corporate gesture - each
                 bottle is engraved by hand with the message you choose, on
                 one of three of Ridgeview&rsquo;s award-winning sparkling
                 wines. Made-to-order, fulfilled in up to five working days
@@ -417,7 +417,7 @@ function BlendSection() {
               className="font-body text-white/55"
               style={{ fontSize: "clamp(13px, 1.25vw, 15px)", maxWidth: "520px", margin: "0 auto" }}
             >
-              A still rosé from 100% Pinot Précoce &mdash; an early-ripening
+              A still rosé from 100% Pinot Précoce - an early-ripening
               variety of Pinot Noir grown across Suffolk and Essex.
             </p>
           </FadeUp>
@@ -463,7 +463,7 @@ function BlendSection() {
               }}
             >
               Hand-picked Pinot Précoce from Suffolk and Essex partner
-              vineyards &mdash; an early-ripening variety of Pinot Noir
+              vineyards - an early-ripening variety of Pinot Noir
               that delivers ripe red-berry fruit at lower English
               latitudes. Vinified still rather than sparkling, with brief
               skin contact for the rose-petal hue. A new direction for

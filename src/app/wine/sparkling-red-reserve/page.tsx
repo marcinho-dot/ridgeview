@@ -171,7 +171,7 @@ function ProductHero() {
                 blackberry, vanilla and cherry on the nose, deeply layered with
                 streaks of pomegranate and notes of sweet, peppery spice. A
                 limited-edition love-letter to England&rsquo;s finest Pinot grapes
-                &mdash; Pioneer Trophy at the WineGB Awards 2023.
+                - Pioneer Trophy at the WineGB Awards 2023.
               </p>
             </FadeUp>
 
@@ -495,7 +495,7 @@ function BlendSection() {
               }}
             >
               Hand-picked Pinot Noir from our Sussex chalk vineyards is
-              vinified red with extended skin contact &mdash; coaxing out
+              vinified red with extended skin contact - coaxing out
               the silky tannin, dark fruit and warm spice that define
               this rare style. The Pioneer Trophy at the WineGB Awards
               2023 recognised it as the most convincing English sparkling

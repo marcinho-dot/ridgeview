@@ -170,7 +170,7 @@ function ProductHero() {
               >
                 Bright, fresh and fruit-driven with vibrant citrus aromas and notes of lemon zest,
                 green apple and honey. Our bestselling blend epitomises the Méthode Traditionnelle English
-                style &mdash; structured and bright, with crisp green apple and citrus layered
+                style - structured and bright, with crisp green apple and citrus layered
                 with toasted almond and buttery pastry, finishing fresh and moreish with a touch
                 of saline minerality.
               </p>
@@ -581,9 +581,9 @@ function BlendSection() {
               }}
             >
               Grapes are sourced from our original estate vines, along with carefully
-              selected partner vineyards across southern England &mdash; typically south-facing,
+              selected partner vineyards across southern England - typically south-facing,
               with free-draining slopes, on varied chalk, clay, gravel and sandstone soils.
-              Sites range between 10&ndash;50 metres above sea level, benefitting from a cool,
+              Sites range between 10-50 metres above sea level, benefitting from a cool,
               maritime climate.
             </p>
           </div>

@@ -268,7 +268,7 @@ function ComingSoonStub({ categoryLabel }: { categoryLabel?: string }) {
         style={{ fontSize: "clamp(14px, 1.3vw, 16px)", fontWeight: 300 }}
       >
         We&rsquo;re moving our editorial archive across as the new estate site
-        comes together. Check back soon &mdash; in the meantime, browse
+        comes together. Check back soon - in the meantime, browse
         {categoryLabel ? ` more ${categoryLabel.toLowerCase()} stories` : " our other stories"} on the hub.
       </p>
     </div>

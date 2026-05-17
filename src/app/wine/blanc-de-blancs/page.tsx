@@ -554,7 +554,7 @@ function BlendSection() {
               }}
             >
               Fruit is hand-picked from a single south-facing parcel on the
-              Ditchling Common estate &mdash; the first vines planted on
+              Ditchling Common estate - the first vines planted on
               the estate in 1995, set on shallow soils over Cretaceous
               chalk. A cool, maritime microclimate slows ripening and
               protects the natural acidity that gives this Blanc de

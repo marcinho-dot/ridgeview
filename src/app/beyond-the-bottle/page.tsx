@@ -63,7 +63,7 @@ function PageHero() {
             maxWidth: "560px",
           }}
         >
-          {articles.length} articles across seven facets of life at Ridgeview &mdash;
+          {articles.length} articles across seven facets of life at Ridgeview -
           from the cellar to the South Downs, harvest to hospitality.
         </motion.p>
 

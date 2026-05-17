@@ -168,7 +168,7 @@ function ProductHero() {
               >
                 A unique English Pinot expression, crafted only in the very best
                 vintage years. The stellar 2016 harvest brings together red-fruit
-                aromas, sweet spice and toasted nuts. Full-bodied yet precise &mdash;
+                aromas, sweet spice and toasted nuts. Full-bodied yet precise -
                 power balanced with finesse over a deliciously layered palate
                 and a long, mineral-driven finish.
               </p>
@@ -541,7 +541,7 @@ function BlendSection() {
               }}
             >
               Pinot Noir and Pinot Meunier are hand-picked from our
-              Sussex chalk vineyards and pressed gently &mdash; the
+              Sussex chalk vineyards and pressed gently - the
               skins separated quickly enough that no colour leaches
               into the juice, leaving a wine of pale gold rather than
               rosé. Crafted only in the very best vintage years, the

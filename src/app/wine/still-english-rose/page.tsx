@@ -154,8 +154,8 @@ function ProductHero() {
               >
                 A light rose-petal pink in the glass, with delicate aromas of
                 watermelon, grapefruit and fresh summer berries. The palate is
-                refreshingly fruit-forward &mdash; peach, cranberry and
-                strawberries-and-cream &mdash; over a crisp yet creamy long
+                refreshingly fruit-forward - peach, cranberry and
+                strawberries-and-cream - over a crisp yet creamy long
                 finish. Made from hand-picked Pinot Précoce, our debut still
                 rosé, in limited release.
               </p>
@@ -399,7 +399,7 @@ function BlendSection() {
               className="font-body text-white/55"
               style={{ fontSize: "clamp(13px, 1.25vw, 15px)", maxWidth: "520px", margin: "0 auto" }}
             >
-              A still rosé from 100% Pinot Précoce &mdash; an early-ripening
+              A still rosé from 100% Pinot Précoce - an early-ripening
               variety of Pinot Noir grown across Suffolk and Essex.
             </p>
           </FadeUp>
@@ -445,7 +445,7 @@ function BlendSection() {
               }}
             >
               Hand-picked Pinot Précoce from Suffolk and Essex partner
-              vineyards &mdash; an early-ripening variety of Pinot Noir
+              vineyards - an early-ripening variety of Pinot Noir
               that delivers ripe red-berry fruit at lower English
               latitudes. Vinified still rather than sparkling, with brief
               skin contact for the rose-petal hue. A new direction for

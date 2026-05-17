@@ -166,7 +166,7 @@ function ProductHero() {
                 className="font-body text-white/70 mb-4 md:mb-6"
                 style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, lineHeight: 1.75, maxWidth: "540px" }}
               >
-                Our flagship Méthode Traditionnelle blend &mdash; Pinot Noir and Pinot Meunier
+                Our flagship Méthode Traditionnelle blend - Pinot Noir and Pinot Meunier
                 weave through Chardonnay to give depth, weight and finesse. Bright
                 red berry aromas open onto a palate of toasted almond, raspberry
                 frangipane and subtle bergamot orange, finishing with the saline
@@ -507,10 +507,10 @@ function BlendSection() {
               }}
             >
               All three grapes are hand-picked from our Sussex chalk
-              vineyards &mdash; the same Cretaceous seam that runs
+              vineyards - the same Cretaceous seam that runs
               beneath Champagne. Pinot Noir and Pinot Meunier carry
               the body and red-berry depth; Chardonnay layers in the
-              freshness and finesse. Together they form Cavendish &mdash;
+              freshness and finesse. Together they form Cavendish -
               the everyday Méthode Traditionnelle blend, served at State
               Banquets and named the UK Government&rsquo;s most-poured
               sparkling wine in 2024.

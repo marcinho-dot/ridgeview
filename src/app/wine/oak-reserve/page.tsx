@@ -168,7 +168,7 @@ function ProductHero() {
                 className="font-body text-white/70 mb-4 md:mb-6"
                 style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, lineHeight: 1.75, maxWidth: "540px" }}
               >
-                A rare special cuvée celebrating our quarter-century &mdash;
+                A rare special cuvée celebrating our quarter-century -
                 100% Chardonnay from the original 1995 plantings, drawn from
                 a trio of consecutive vintages (2015, 2016, 2017) and matured
                 in a mix of aged and new oak. The nose carries candied citrus
@@ -482,7 +482,7 @@ function BlendSection() {
                 textWrap: "balance",
               }}
             >
-              A celebration of our quarter-century &mdash; Chardonnay
+              A celebration of our quarter-century - Chardonnay
               hand-picked from the very first vines planted on the
               Ditchling Common estate in 1995, fermented in a mix of
               aged and new oak barrels and blended across three

@@ -168,7 +168,7 @@ function ProductHero() {
                 A peach-gold hue with fragrant aromas of redcurrant, summer
                 berries and honey. The palate carries bright strawberries and
                 cherries layered with hints of orange, cranberry and biscuit
-                &mdash; a soft, creamy texture and rounded mouthfeel giving way
+                - a soft, creamy texture and rounded mouthfeel giving way
                 to an elegant, long-lingering finish. An elegant, grown-up
                 English sparkling rosé.
               </p>
@@ -492,7 +492,7 @@ function BlendSection() {
             >
               Pinot Noir and Pinot Meunier are hand-picked from our
               Sussex chalk vineyards and pressed with a brief saignée
-              &mdash; just long enough on the skins to draw a delicate
+              - just long enough on the skins to draw a delicate
               peach-gold hue without crossing into deeper rosé territory.
               The 2020 vintage carries the structure and depth that earned
               Platinum at the Decanter World Wine Awards 2023, the top

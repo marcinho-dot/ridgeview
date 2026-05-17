@@ -37,7 +37,7 @@ export function Footer() {
               style={{ fontSize: "13px", fontWeight: 300, maxWidth: "480px" }}
             >
               Subscribe to our Substack newsletter for harvest dispatches,
-              cellar updates and member-only releases &mdash; direct from
+              cellar updates and member-only releases - direct from
               Ridgeview. Unsubscribe anytime.
             </p>
           </div>

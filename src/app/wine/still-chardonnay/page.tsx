@@ -153,7 +153,7 @@ function ProductHero() {
                 A gentle gold in the glass, with floral aromas of white blossom.
                 Complex and layered with peach, pear and apricot, threaded with
                 lychee and subtle florals over a smooth, silky finish and a hint
-                of mineral lift. Ridgeview&rsquo;s first-ever still wine &mdash;
+                of mineral lift. Ridgeview&rsquo;s first-ever still wine -
                 100% Chardonnay, made for the table.
               </p>
             </FadeUp>
@@ -395,7 +395,7 @@ function BlendSection() {
               className="font-body text-white/55"
               style={{ fontSize: "clamp(13px, 1.25vw, 15px)", maxWidth: "520px", margin: "0 auto" }}
             >
-              A still expression of estate-grown Chardonnay &mdash; light,
+              A still expression of estate-grown Chardonnay - light,
               floral, made for the table.
             </p>
           </FadeUp>
@@ -441,7 +441,7 @@ function BlendSection() {
               }}
             >
               Fruit is hand-picked from our Sussex chalk vineyards and
-              vinified still rather than sparkling &mdash; releasing the
+              vinified still rather than sparkling - releasing the
               floral, stone-fruit purity of Chardonnay without the
               traditional secondary fermentation. A new direction for
               the estate, and a versatile wine for the table.

@@ -168,7 +168,7 @@ function ProductHero() {
                 A delicate cherry-blossom hue and an abundance of fine bubbles.
                 The nose evokes wild raspberry and honeyed redcurrant; the
                 spring-fresh palate brims with sherbet and summer fruit, balanced
-                by a creamy, long finish. Our most popular sparkling rosé &mdash;
+                by a creamy, long finish. Our most popular sparkling rosé -
                 full of sunshine and celebration all year round.
               </p>
             </FadeUp>
@@ -526,11 +526,11 @@ function BlendSection() {
                 textWrap: "balance",
               }}
             >
-              Hand-picked across our Sussex chalk vineyards &mdash;
+              Hand-picked across our Sussex chalk vineyards -
               the same Cretaceous seam that runs beneath Champagne.
               The Pinots provide colour and gentle red-berry fruit;
               Chardonnay lifts the palate with freshness and finesse.
-              Together they form Fitzrovia &mdash; a signature
+              Together they form Fitzrovia - a signature
               sparkling rosé full of sunshine and celebration, alive
               with colour and character.
             </p>
