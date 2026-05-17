@@ -1153,12 +1153,25 @@ export default function BookingPage() {
             the pinned image as it goes - Apple "Powerful connections"
             pattern. */}
         <ScrollReset><HeritageRevealStack /></ScrollReset>
-        {/* ── Heritage Sticky Stack (2 cards) ──
-            Behind the Bottle (compact) → Discovery. The
-            deck-of-cards behaviour kicks in here: as the user
-            scrolls, Discovery rises from below and covers
-            Behind the Bottle. */}
-        <div className="relative">
+        {/* ── Heritage Sticky Stack (3 cards) ──
+            Chalk · Ancient Seabed → Behind the Bottle → Discovery.
+            The deck-of-cards / curtain-up choreography:
+              1. HeritageRevealStack's chalk image stays pinned to
+                 the top while the user scrolls through its internal
+                 220vh choreography (Terroir text scrolls away,
+                 [Chalk · Ancient Seabed] reveals).
+              2. Behind the Bottle's wrapper is pulled UP by one
+                 viewport (-mt-[100svh]/md:-mt-[100vh]) so its top
+                 enters the viewport from below WHILE the chalk
+                 panel is still sticky-pinned — it slides up over
+                 the pinned chalk image (sticky top-0 inside a
+                 relative ancestor + bg-[#0a0a0a] solid covers).
+              3. Discovery then rises from below to cover Behind
+                 the Bottle (existing pattern).
+            Without the -mt pull-up, the chalk section un-pinned
+            at its natural end and Behind the Bottle started in
+            normal flow afterwards - no overlap, no curtain rise. */}
+        <div className="relative -mt-[100svh] md:-mt-[100vh]">
           <div className="sticky top-0 min-h-svh md:min-h-screen bg-[#0a0a0a]">
             <ScrollReset>
               <BehindTheBottleSection
