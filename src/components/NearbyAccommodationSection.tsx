@@ -29,8 +29,12 @@ import { basePath } from "@/lib/basePath";
  *   - CTAs are EXTERNAL with target="_blank" rel="noopener noreferrer"
  *     (wines link to internal /wine/<slug> pages; hotels link to
  *     each hotel's own booking site)
- *   - Center CTA "Plan your visit" anchors to #practical-info on
- *     the same page (wine's center CTA goes to /wines catalog)
+ *   - No center CTA in the controls bar. WineCollection has
+ *     "Shop all Wines" pointing to the /wines catalog (true
+ *     outbound, different page). The accommodation equivalent
+ *     would have been a same-page anchor to PracticalInfo right
+ *     below — wrong hierarchy for a primary btn-cta. Section ends
+ *     on dots; natural scroll handles the handoff.
  *
  * Source images: live at /public/images/accommodation/<slug>.webp,
  * downloaded verbatim from the ridgeview.co.uk WP uploads (real
@@ -446,10 +450,15 @@ export function NearbyAccommodationSection() {
         </div>
 
         {/* ══════════════════════════════════════════════════════
-            CONTROLS BAR — prev/counter/next | center CTA | dots
-            (identical layout to WineCollectionSection lines 479-519)
+            CONTROLS BAR — prev/counter/next | dots
+            The center "Plan your visit" CTA was removed 2026-05-17.
+            It was a primary-weight btn-cta pointing to a same-page
+            anchor immediately below — wrong hierarchy (competed with
+            the per-card "View Hotel" external CTAs and inflated the
+            visual weight of a 50px scroll). Section now ends cleanly
+            on dots; natural scroll handles the PracticalInfo handoff.
         ══════════════════════════════════════════════════════ */}
-        <div className="flex items-center justify-between mt-5 gap-4 flex-wrap md:flex-nowrap">
+        <div className="flex items-center justify-between mt-5 gap-4">
           <div className="flex items-center gap-3">
             <ArrowBtn dir="prev" onClick={() => paginate(-1)} />
             <span className="font-body text-white/35 text-xs tracking-[0.2em] min-w-[38px] text-center select-none">
@@ -457,19 +466,6 @@ export function NearbyAccommodationSection() {
             </span>
             <ArrowBtn dir="next" onClick={() => paginate(1)} />
           </div>
-
-          {/* CENTER — soft handoff to PracticalInfo below the carousel */}
-          <motion.div
-            className="order-3 md:order-none w-full md:w-auto flex justify-center"
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <a href="#practical-info" className="btn-cta">
-              Plan your visit
-            </a>
-          </motion.div>
 
           <div className="flex items-center gap-1.5">
             {ACCOMMODATIONS.map((_, i) => (

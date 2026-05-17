@@ -956,7 +956,7 @@ function BackToTopFloat() {
 
 function PracticalInfo() {
   return (
-    <section id="practical-info" className="bg-[#010101] scroll-mt-24">
+    <section className="bg-[#010101]">
       <div className="max-w-[960px] mx-auto px-6 md:px-16 py-20 md:py-28">
 
         <FadeUp>
