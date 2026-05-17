@@ -330,8 +330,10 @@ function WineLegend() {
         </div>
 
         {/* Custom always-visible gold scrollbar — same mechanic as the
-            Beyond-the-Bottle row on the homepage. */}
-        <div className="hidden md:block mt-6 px-2">
+            Beyond-the-Bottle row on the homepage. Shown on mobile too
+            (was desktop-only) so users on touch devices can see the
+            scroll affordance + drag the thumb directly. */}
+        <div className="block mt-4 md:mt-6 px-4 md:px-2">
           <div ref={cbarRef} className="rv-row-cbar">
             <div ref={cthumbRef} className="rv-row-cbar-thumb" />
           </div>
