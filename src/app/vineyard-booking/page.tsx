@@ -74,7 +74,7 @@ function PageHeader() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={`${basePath}/images/booking-hero-aerial.jpg`}
-            alt="Aerial view of Ridgeview Wine Estate — vineyard rows and cellar buildings"
+            alt="Aerial view of Ridgeview Wine Estate - vineyard rows and cellar buildings"
             decoding="async"
             fetchPriority="high"
             className="absolute inset-0 w-full h-full object-cover"
@@ -324,7 +324,7 @@ function HeritageRevealStack() {
                 "0 2px 8px rgba(0,0,0,0.95), 0 4px 24px rgba(0,0,0,0.85), 0 0 60px rgba(0,0,0,0.55)",
             }}
           >
-            The same varieties that define Champagne –{" "}
+            The same varieties that define Champagne -{" "}
             <br className="hidden md:block" />
             rooted in Sussex chalk.
           </p>
@@ -382,7 +382,7 @@ function HeritageRevealStack() {
               style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, maxWidth: "560px" }}
             >
               It began with a belief: that the chalk soils beneath the South Downs
-              — mirroring the geology of Champagne — could produce world-class
+              - mirroring the geology of Champagne - could produce world-class
               sparkling wine. In 1995, Ridgeview planted its first vines.
             </p>
           </FadeUp>
@@ -487,7 +487,7 @@ function HeritageDiscoverySection() {
               >
                 Our wine coopers of latter times use vast quantities of sugar and
                 molasses to all sorts of wines to make the drink brisk and sparkling
-                —{" "}<span className="text-[#C8A96E]">and to give them spirit.</span>
+                -{" "}<span className="text-[#C8A96E]">and to give them spirit.</span>
               </blockquote>
             </div>
           </FadeUp>
@@ -501,7 +501,7 @@ function HeritageDiscoverySection() {
                 textShadow: "0 1px 8px rgba(0,0,0,0.7)",
               }}
             >
-              — Christopher Merret · Royal Society · London, 1662
+              - Christopher Merret · Royal Society · London, 1662
             </p>
           </FadeUp>
 
@@ -637,7 +637,7 @@ function VisitPanels() {
                 className="font-body text-[#C8A96E] tracking-[0.18em] uppercase mb-8"
                 style={{ fontSize: "clamp(10px, 0.9vw, 12px)", fontWeight: 400 }}
               >
-                1.5 hrs · Fri–Sun
+                1.5 hrs · Fri-Sun
               </p>
               {/* `data-back-to-top-anchor` marks this CTA as the
                   vertical reference for the floating BackToTopFloat —
@@ -1023,10 +1023,10 @@ function PracticalInfo() {
               </h3>
               <div className="space-y-3">
                 {[
-                  { day: "Monday – Thursday", time: "Closed" },
-                  { day: "Friday", time: "10:00 – 17:00" },
-                  { day: "Saturday", time: "10:00 – 17:00" },
-                  { day: "Sunday", time: "10:00 – 16:00" },
+                  { day: "Monday - Thursday", time: "Closed" },
+                  { day: "Friday", time: "10:00 - 17:00" },
+                  { day: "Saturday", time: "10:00 - 17:00" },
+                  { day: "Sunday", time: "10:00 - 16:00" },
                 ].map((item) => (
                   <div key={item.day} className="flex justify-between items-baseline border-b border-white/[0.06] pb-3">
                     <span className="font-body text-white/65" style={{ fontSize: "clamp(13px, 1.2vw, 15px)", fontWeight: 300 }}>{item.day}</span>
@@ -1128,11 +1128,11 @@ export default function BookingPage() {
               <BehindTheBottleSection
                 compact
                 headline={<>Crafted in the <span className="text-[#C8A96E]">Méthode Traditionnelle</span>.</>}
-                intro="For three decades, Ridgeview has crafted English sparkling wines the long way — by hand, on the chalk hills of Sussex, using the same Traditional Method as the great houses of Champagne."
+                intro="For three decades, Ridgeview has crafted English sparkling wines the long way - by hand, on the chalk hills of Sussex, using the same Traditional Method as the great houses of Champagne."
                 pillars={[
-                  { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region — the foundation of every great sparkling wine." },
+                  { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region - the foundation of every great sparkling wine." },
                   { label: "Hand Harvest", detail: "Grapes are picked at first light and sorted by hand to keep only the most balanced bunches." },
-                  { label: "Méthode Traditionnelle", detail: "An English invention — coal-fired bottles strong enough to hold the bubbles, the cork to seal them in, deliberate secondary fermentation." },
+                  { label: "Méthode Traditionnelle", detail: "An English invention - coal-fired bottles strong enough to hold the bubbles, the cork to seal them in, deliberate secondary fermentation." },
                 ]}
               />
             </ScrollReset>
