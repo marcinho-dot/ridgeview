@@ -228,17 +228,18 @@ function HeritageRevealStack() {
   // upper third of the image as it fades.
   // 2026-05-18: section was extended on desktop from 220vh → 320vh
   // so chalk can stay pinned during Behind the Bottle's slide-up
-  // (curtain-up effect). The choreography progress values were
-  // re-mapped to the new total scroll range so the fade-in / hold /
-  // fade-out windows still hit the intended moments:
-  //   progress 0.48 ≈ Terroir overlay finished scrolling out
-  //   progress 0.76 ≈ chalk un-sticks (BTB pins)
+  // (curtain-up effect). Choreography progress values mapped to the
+  // 420vh total scroll range. Fade-in start moved from 0.48 → 0.18
+  // (30% earlier per user direction): text starts appearing while
+  // Terroir is still scrolling out, becomes fully visible around
+  // the peak of the chalk reveal, then fades + drifts up through
+  // progress 0.76 (chalk un-stick / BTB pin).
   // The mobile choreography is still gated to static via isMobile,
   // so these progress values only drive the desktop path.
-  const bottomY = useTransform(scrollYProgress, [0.48, 0.76], ["20vh", "-30vh"]);
+  const bottomY = useTransform(scrollYProgress, [0.18, 0.76], ["20vh", "-30vh"]);
   const bottomOpacity = useTransform(
     scrollYProgress,
-    [0.48, 0.53, 0.65, 0.76],
+    [0.18, 0.23, 0.65, 0.76],
     [0, 1, 1, 0],
   );
 
@@ -335,7 +336,7 @@ function HeritageRevealStack() {
             so the text always renders at its CSS-positioned baseline
             (bottom-[14vh]) with full opacity. */}
         <motion.div
-          className="absolute inset-x-0 bottom-[calc(14vh+53px)] md:bottom-auto md:top-[20vh] px-6 md:px-10 text-center"
+          className="absolute inset-x-0 bottom-[calc(14vh+53px)] md:bottom-auto md:top-[calc(20vh+100px)] px-6 md:px-10 text-center"
           style={
             isMobile
               ? { y: 0, opacity: 1 }
