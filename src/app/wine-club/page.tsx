@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { BottomNav } from "@/components/BottomNav";
 import { ScrollReset } from "@/components/ScrollReset";
 import { basePath } from "@/lib/basePath";
+import { useCart } from "@/lib/cart/CartContext";
 
 /**
  * /wine-club/ — dedicated OurView Wine Club page.
@@ -128,6 +129,26 @@ function PricingCard({
   highlights: string[];
   recommended?: boolean;
 }) {
+  // Cart integration — wire the CTA at the bottom of the card to
+  // the basket flow. Adds the OurView Wine Club as a £580 line and
+  // opens the cart drawer so the user gets immediate confirmation.
+  const { add, openDrawer } = useCart();
+
+  const handleAdd = () => {
+    add({
+      slug: "wine-club",
+      name: "OurView Wine Club",
+      vintage: "Annual Membership",
+      variantId: variant,
+      variantLabel: "Year One Membership",
+      unitPricePence: 58000, // £580
+      priceLabel: "£580",
+      image: "/products/bloomsbury.png",
+      quantity: 1,
+    });
+    openDrawer();
+  };
+
   return (
     <div
       className={`relative h-full flex flex-col p-8 md:p-10 rounded-sm border ${
@@ -136,14 +157,10 @@ function PricingCard({
           : "border-white/12 bg-[#0a0a0a]"
       }`}
     >
-      {recommended && (
-        <p
-          className="absolute -top-3 left-8 px-3 py-1 rounded-sm bg-[#C8A96E] text-[#010101] font-body uppercase tracking-[0.22em]"
-          style={{ fontSize: "10px", fontWeight: 500 }}
-        >
-          Most chosen
-        </p>
-      )}
+      {/* "Most chosen" badge removed 2026-05-17 — only one membership
+          tier exists so the comparative framing was meaningless. The
+          gold border + gold-tinted fill above (when recommended) keep
+          the card visually prominent. */}
       <p
         className="font-body text-[#C8A96E] uppercase tracking-[0.22em] mb-5"
         style={{ fontSize: "11px" }}
@@ -188,9 +205,13 @@ function PricingCard({
           </li>
         ))}
       </ul>
-      <a href="#join" className="btn-cta w-full text-center">
-        Choose {variant}
-      </a>
+      <button
+        type="button"
+        onClick={handleAdd}
+        className="btn-cta w-full text-center"
+      >
+        Add to basket
+      </button>
     </div>
   );
 }
@@ -277,7 +298,7 @@ export default function WineClubPage() {
         <ScrollReset>
           <section className="relative bg-[#010101]">
             <div className="max-w-[1600px] mx-auto px-6 md:px-16 pt-8 md:pt-10 pb-20 md:pb-28">
-              <div className="mb-6 md:mb-8 max-w-[820px]">
+              <div className="mb-6 md:mb-8 max-w-[820px] mx-auto text-center">
                 <motion.p
                   initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
