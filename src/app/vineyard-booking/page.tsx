@@ -233,19 +233,12 @@ function HeritageRevealStack() {
     [0, 1, 1, 0],
   );
 
-  // Mobile-only scroll-up parallax (2026-05-17 - user re-enabled
-  // a motion on the text block, but pinned to be smooth on budget
-  // Android GPUs like the Huawei P30 Lite's Kirin 710):
-  //   - px output (not vh) so URL-bar shows/hides don't snap the y
-  //   - PURE translateY, no opacity changes, no scale - GPU just
-  //     promotes the layer and translates the composited bitmap, no
-  //     re-raster per frame
-  //   - 0 → -50px drift. Iterated from -700 → -250 → -50 after the
-  //     user tested on a Huawei P30 Lite — even 250px pushed the
-  //     text out of the reveal window. 50px is a barely-there
-  //     parallax that registers as motion-quality without
-  //     repositioning the text meaningfully.
-  const mobileBottomY = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  // Mobile: NO scroll choreography on the chalk text block. We tried
+  // re-introducing a px-based parallax (700 → 250 → 50px iterations)
+  // but at every magnitude the text either drifted out of the reveal
+  // window or read as imperceptible jitter on the Huawei P30 Lite.
+  // Reverted to fully static — `y: 0, opacity: 1` in the motion-div
+  // below. Desktop choreography (bottomY + bottomOpacity) untouched.
 
   return (
     <section
@@ -324,16 +317,15 @@ function HeritageRevealStack() {
             above the grape names as part of the same editorial unit.
             Desktop: shared y-drift + opacity fade choreography via
             bottomY + bottomOpacity (vh-based, cinematic). Mobile
-            (2026-05-17): strong but smooth scroll-up parallax via
-            mobileBottomY — px-based + translate-only so URL-bar
-            shifts and budget-GPU rasterise costs don't introduce
-            jitter. Opacity stays at 1 so the text is always legible
-            during its drift. */}
+            (2026-05-17 final): fully static — { y: 0, opacity: 1 }
+            explicitly overrides the persistent MotionValue outputs
+            so the text always renders at its CSS-positioned baseline
+            (bottom-[14vh]) with full opacity. */}
         <motion.div
           className="absolute inset-x-0 bottom-[14vh] px-6 md:px-10 text-center"
           style={
             isMobile
-              ? { y: mobileBottomY, opacity: 1 }
+              ? { y: 0, opacity: 1 }
               : { y: bottomY, opacity: bottomOpacity }
           }
         >
