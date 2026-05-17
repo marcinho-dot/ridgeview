@@ -41,7 +41,11 @@ const galleryImages = [
   // landscape opener. Others shift one slot to the right.
   { src: "gallery-2.jpg", alt: "Ridgeview vineyard rows stretching to the South Downs" },
   { src: "gallery-4.jpg", alt: "A walk through the Ridgeview vineyard, South Downs in the distance" },
-  { src: "gallery-1.jpg", alt: "Ridgeview Estate tasting room and terrace" },
+  // File at gallery-1.jpg updated 2026-05-18 to
+  // Ridgeview_Restaurant&Terrace-25 — restaurant pavilion seen
+  // from the garden, vineyard backdrop. Lives in slot 3 (centre
+  // card, z-30).
+  { src: "gallery-1.jpg", alt: "Ridgeview restaurant pavilion seen from the garden with vineyard backdrop" },
   { src: "gallery-5.jpg", alt: "Ridgeview restaurant pavilion and covered terrace seating" },
   { src: "gallery-3.jpg", alt: "Ridgeview Estate restaurant pavilion overlooking the vineyard at golden hour" },
 ];
