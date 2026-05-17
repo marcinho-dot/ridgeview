@@ -185,24 +185,22 @@ function HeritageRevealStack() {
   // BOTTOM block (kicker + grape names + Champagne caption) — the
   // kicker [ Chalk · Ancient Seabed ] lives INSIDE this block as its
   // first child. The whole composition reads as a single editorial
-  // unit and shares one motion envelope.
-  //
-  // CRITICAL TIMING: the curtain effect (Terroir scrolling upward to
-  // reveal the chalk image) runs between progress 0.25 and 0.50.
-  // The on-image texts must wait UNTIL THAT'S DONE — otherwise the
-  // user perceives the curtain reveal and the text fade-in as one
-  // muddled event. So fade-in starts at p=0.50, exactly when the
-  // chalk image is fully revealed for the first time.
+  // unit and shares one motion envelope:
   //
   //   y       — CONTINUOUS linear drift +20vh → -30vh across the
-  //             visible window. Total travel: 50vh — moderate
-  //             upward drift through the middle of the image.
-  //   opacity — fade-in (0.50 → 0.60) · plateau (0.60 → 0.78) ·
-  //             gradual fade-out (0.78 → 0.95).
-  const bottomY = useTransform(scrollYProgress, [0.5, 0.97], ["20vh", "-30vh"]);
+  //             visibility window. Total travel: 50vh — moderate
+  //             upward drift through the middle of the image, not
+  //             the full-frame traversal we briefly tried at ±120vh.
+  //   opacity — early fade-in (0.25 → 0.38) · plateau (0.38 → 0.7) ·
+  //             gradual fade-out (0.7 → 0.97).
+  //
+  // The fade-out starts at p=0.7 while the block is still clearly
+  // visible inside the frame, and gradually carries it through the
+  // upper third of the image as it fades.
+  const bottomY = useTransform(scrollYProgress, [0.25, 0.97], ["20vh", "-30vh"]);
   const bottomOpacity = useTransform(
     scrollYProgress,
-    [0.5, 0.6, 0.78, 0.95],
+    [0.25, 0.38, 0.7, 0.97],
     [0, 1, 1, 0],
   );
 
