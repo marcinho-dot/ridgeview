@@ -657,15 +657,19 @@ body::after {
 }
 
 /* ─── Scroll-Reveal with Re-Show-Reset ─────────────────────── */
-/* Initial hidden state — fade + 28px slide up + 6px blur */
+/* Initial hidden state — fade + 28px slide up + 6px blur.
+   Duration tightened 1.4s → 0.8s on 2026-05-17 (user feedback:
+   reveals felt sluggish on mobile vs. the framer-motion paces on
+   the rest of the site, which sit in the 0.7-1.0s band). Easing
+   curve + slide + blur are kept verbatim — only the timing changes. */
 .reveal {
   opacity: 0;
   transform: translate3d(0, 28px, 0);
   filter: blur(6px);
   transition:
-    opacity 1.4s cubic-bezier(0.2, 0.7, 0.2, 1),
-    transform 1.4s cubic-bezier(0.2, 0.7, 0.2, 1),
-    filter 1.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+    opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
   will-change: opacity, transform, filter;
 }
 /* Revealed state — added by RevealInit IntersectionObserver */
