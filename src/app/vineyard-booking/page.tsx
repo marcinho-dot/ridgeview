@@ -226,10 +226,19 @@ function HeritageRevealStack() {
   // The fade-out starts at p=0.7 while the block is still clearly
   // visible inside the frame, and gradually carries it through the
   // upper third of the image as it fades.
-  const bottomY = useTransform(scrollYProgress, [0.25, 0.97], ["20vh", "-30vh"]);
+  // 2026-05-18: section was extended on desktop from 220vh → 320vh
+  // so chalk can stay pinned during Behind the Bottle's slide-up
+  // (curtain-up effect). The choreography progress values were
+  // re-mapped to the new total scroll range so the fade-in / hold /
+  // fade-out windows still hit the intended moments:
+  //   progress 0.48 ≈ Terroir overlay finished scrolling out
+  //   progress 0.76 ≈ chalk un-sticks (BTB pins)
+  // The mobile choreography is still gated to static via isMobile,
+  // so these progress values only drive the desktop path.
+  const bottomY = useTransform(scrollYProgress, [0.48, 0.76], ["20vh", "-30vh"]);
   const bottomOpacity = useTransform(
     scrollYProgress,
-    [0.25, 0.38, 0.7, 0.97],
+    [0.48, 0.53, 0.65, 0.76],
     [0, 1, 1, 0],
   );
 
@@ -243,14 +252,18 @@ function HeritageRevealStack() {
   return (
     <section
       ref={ref}
-      className="relative bg-[#010101] h-[160vh] md:h-[220vh]"
+      className="relative bg-[#010101] h-[160vh] md:h-[320vh]"
     >
-      {/* Mobile height tightened from 300vh → 220vh (2026-05-17 after
-          user feedback "Scroll-Effekt im Chalk-Abschnitt viel zu lang").
-          Sticky pin range scales proportionally - the editorial choreography
-          stays intact, just compressed into a shorter scroll path that
-          doesn't make Mobile users feel the page is "stuck". Desktop keeps
-          300vh because larger viewports tolerate the cinematic pacing. */}
+      {/* Mobile: 160vh — compact, matches user feedback "Scroll-Effekt
+          im Chalk-Abschnitt viel zu lang". Mobile transition to Behind
+          the Bottle is the natural sticky-stack handoff (no slide-over).
+          Desktop: 320vh (extended 2026-05-18 from 220vh) so chalk stays
+          pinned for an additional ~100vh after its choreography ends,
+          giving Behind the Bottle's wrapper (-mt-[100vh] z-[5]) room to
+          slide up OVER the still-pinned chalk image as a curtain rise.
+          Without the extension the chalk un-sticks before BTB pins, so
+          chalk leaves from the top while BTB enters from the bottom —
+          a cross-fade rather than the requested curtain-up. */}
 
       {/* ── LAYER 0 (BEHIND) - Chalk image sticky-pinned ── */}
       <div className="sticky top-0 h-[700px] md:h-screen overflow-hidden z-0 bg-[#010101]">
@@ -1153,34 +1166,26 @@ export default function BookingPage() {
             the pinned image as it goes - Apple "Powerful connections"
             pattern. */}
         <ScrollReset><HeritageRevealStack /></ScrollReset>
-        {/* ── Heritage Sticky Stack (3 cards) ──
-            Chalk · Ancient Seabed → Behind the Bottle → Discovery.
-            The deck-of-cards / curtain-up choreography:
-              1. HeritageRevealStack's chalk image stays pinned to
-                 the top while the user scrolls through its internal
-                 220vh choreography (Terroir text scrolls away,
-                 [Chalk · Ancient Seabed] reveals).
-              2. Behind the Bottle's wrapper is pulled UP by one
-                 viewport (-mt-[100svh]/md:-mt-[100vh]) so its top
-                 enters the viewport from below WHILE the chalk
-                 panel is still sticky-pinned — it slides up over
-                 the pinned chalk image (sticky top-0 inside a
-                 relative ancestor + bg-[#0a0a0a] solid covers).
-              3. Discovery then rises from below to cover Behind
-                 the Bottle (existing pattern).
+        {/* ── Heritage Sticky Stack (3 cards on desktop / 2 on mobile) ──
+            Behind the Bottle → Discovery deck-of-cards pattern.
 
-            z-[5] on the wrapper is critical: the chalk container
-            inside HeritageRevealStack has an explicit z-0 (creates
-            a stacking context), while Behind the Bottle's sticky
-            panel was z-auto by default. CSS stacking puts z-auto
-            positioned elements BELOW z-0 stacking contexts, so
-            without an explicit z-index Behind the Bottle painted
-            UNDER the chalk image and the slide-up was invisible.
-            z-[5] places the wrapper between chalk (z-0) and the
-            Terroir overlay (z-10) — Behind the Bottle covers
-            chalk, but Terroir still covers Behind the Bottle
-            during the curtain-reveal phase. */}
-        <div className="relative -mt-[100svh] md:-mt-[100vh] z-[5]">
+            DESKTOP curtain-up: HeritageRevealStack's section was
+            extended to 320vh so chalk stays pinned ~100vh longer
+            than its choreography needs. The wrapper here is pulled
+            UP by 100vh (md:-mt-[100vh]) and elevated to z-[5] —
+            higher than chalk's z-0 stacking context but lower than
+            Terroir's z-10. Result: as user scrolls past the chalk
+            reveal window, BTB rises from below the viewport AND
+            slides up over the still-pinned chalk image. Then BTB
+            pins exactly when chalk un-sticks (covered by BTB).
+
+            MOBILE natural flow (no -mt / no z): mobile's chalk
+            section stays at 160vh (compact per user feedback). BTB
+            simply pins as the next sticky panel after the chalk
+            section ends. No slide-over choreography — cross-fade
+            via natural sticky stack. Keeps the scroll path short
+            and avoids GPU work on budget Android. */}
+        <div className="relative md:-mt-[100vh] md:z-[5]">
           <div className="sticky top-0 min-h-svh md:min-h-screen bg-[#0a0a0a]">
             <ScrollReset>
               <BehindTheBottleSection
