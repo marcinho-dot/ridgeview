@@ -179,23 +179,19 @@ function HeritageRevealStack() {
     offset: ["start end", "end start"],
   });
 
-  // CHALK IMAGE motion — kicks in AS SOON AS the image is ~2%
-  // visible from below the receding Terroir (progress ~0.255),
-  // and runs continuously until the image leaves the viewport.
-  //
-  // Why 0.26: the sticky engages at progress 0.25 (when section_top
-  // reaches viewport_top). Each additional 0.0025 of progress reveals
-  // ~1vh of the chalk image from below as Terroir scrolls upward.
-  // So progress 0.26 ≈ image's first 4vh peeking out = the moment
-  // the user perceives the image starting to appear.
+  // CHALK IMAGE motion — restored 2026-05-17 to the user-confirmed
+  // "Beste Version bis lang" state from commit 1d79237. Both
+  // transforms span the FULL visibility window [0, 1]:
+  //   scale 1.55 → 1.28   (continuous zoom-out / camera pull-back)
+  //   y     0vh  → -13vh  (gentle upward pan / camera tilt down)
   //
   // The CSS scale > 1 makes the image larger than the 100vh frame;
   // the sticky parent's overflow-hidden clips the excess; the
   // translateY moves the image upward within that overflow envelope.
   // Scale ends at 1.28 (not 1.0) so 28vh of overflow always remains,
   // leaving safe headroom for the 13vh upward pan with no bg leak.
-  const imageScale = useTransform(scrollYProgress, [0.26, 1.0], [1.55, 1.28]);
-  const imageY = useTransform(scrollYProgress, [0.26, 1.0], ["0vh", "-13vh"]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1.55, 1.28]);
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0vh", "-13vh"]);
 
   // BOTTOM block (kicker + grape names + Champagne caption) — the
   // kicker [ Chalk · Ancient Seabed ] lives INSIDE this block as its
