@@ -381,7 +381,16 @@ function HeritageRevealStack() {
 
           <p
             className="font-body text-white/70 leading-relaxed mx-auto mt-12 md:mt-16"
-            style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, maxWidth: "560px" }}
+            style={{
+              fontSize: "clamp(14px, 1.4vw, 17px)",
+              fontWeight: 300,
+              // 700px (was 560px) gives the paragraph room to settle into
+              // 3 lines on desktop instead of breaking onto 4 with a
+              // word orphan on the last line. text-wrap:balance lets the
+              // browser distribute words evenly across the 3 lines.
+              maxWidth: "700px",
+              textWrap: "balance",
+            }}
           >
             It began with a belief: that the chalk soils beneath the South Downs
             - the same Cretaceous seabed that surfaces across the Channel - could produce world-class
