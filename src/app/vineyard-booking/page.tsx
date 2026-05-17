@@ -187,19 +187,17 @@ function HeritageRevealStack() {
   // first child. The whole composition reads as a single editorial
   // unit and shares one motion envelope:
   //
-  //   y       — CONTINUOUS linear drift +30vh → -90vh across the
-  //             visibility window. Total travel: 120vh — the block
-  //             scrolls nearly across the entire image, entering
-  //             from below the frame and exiting above the top.
+  //   y       — CONTINUOUS linear drift +20vh → -30vh across the
+  //             visibility window. Total travel: 50vh — moderate
+  //             upward drift through the middle of the image, not
+  //             the full-frame traversal we briefly tried at ±120vh.
   //   opacity — early fade-in (0.25 → 0.38) · plateau (0.38 → 0.7) ·
-  //             LONG GRADUAL fade-out (0.7 → 0.97).
+  //             gradual fade-out (0.7 → 0.97).
   //
-  // The fade-out now starts at p=0.7 (block in middle of frame, fully
-  // visible) and runs gradually all the way to p=0.97 (block above
-  // frame). So the user actually SEES the text gently dimming as it
-  // drifts upward across the upper half of the image — a "leichten
-  // fade-out" that matches the long scroll travel.
-  const bottomY = useTransform(scrollYProgress, [0.25, 0.97], ["30vh", "-90vh"]);
+  // The fade-out starts at p=0.7 while the block is still clearly
+  // visible inside the frame, and gradually carries it through the
+  // upper third of the image as it fades.
+  const bottomY = useTransform(scrollYProgress, [0.25, 0.97], ["20vh", "-30vh"]);
   const bottomOpacity = useTransform(
     scrollYProgress,
     [0.25, 0.38, 0.7, 0.97],
