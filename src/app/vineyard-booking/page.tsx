@@ -218,7 +218,7 @@ function HeritageRevealStack() {
   return (
     <section
       ref={ref}
-      className="relative bg-[#010101] h-[220vh] md:h-[300vh]"
+      className="relative bg-[#010101] h-[160vh] md:h-[220vh]"
     >
       {/* Mobile height tightened from 300vh → 220vh (2026-05-17 after
           user feedback "Scroll-Effekt im Chalk-Abschnitt viel zu lang").
