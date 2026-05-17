@@ -254,11 +254,15 @@ export function ImageRevealSection() {
   // wider so the fan reads as a hand of editorial polaroids; inner
   // cards sit closer to center with subtle offsets. Spacing tuned so
   // adjacent cards overlap ~50% on both viewports.
-  const xL2 = mobile ? -130 : -440;  // far-left
+  //
+  // Mobile outer-card spread reduced by 5px per side (2026-05-18,
+  // was ±130) so the rotated corners no longer clip past the
+  // viewport edge on 375px phones.
+  const xL2 = mobile ? -125 : -440;  // far-left
   const xL1 = mobile ? -55  : -180;  // mid-left
   const xM  = 0;                      // center
   const xR1 = mobile ? 55   : 180;   // mid-right
-  const xR2 = mobile ? 130  : 440;   // far-right
+  const xR2 = mobile ? 125  : 440;   // far-right
 
   const spring = { type: "spring" as const, stiffness: 120, damping: 12 };
 
