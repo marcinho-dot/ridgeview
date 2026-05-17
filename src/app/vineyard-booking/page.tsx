@@ -345,50 +345,47 @@ function HeritageRevealStack() {
           a curtain. */}
       <div className="relative z-10 -mt-[700px] md:-mt-[100vh] min-h-[700px] md:min-h-screen bg-[#010101] flex items-center justify-center">
         <div className="max-w-[920px] mx-auto px-6 md:px-16 text-center w-full pt-[10vh] pb-[4vh] md:py-12">
-          <FadeUp>
-            <p
-              className="font-display italic text-[#C8A96E] mb-2 tracking-widest"
-              style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
-            >
-              [ Ditchling Common · East Sussex ]
-            </p>
-          </FadeUp>
+          {/* FadeUp wrappers were stripped here 2026-05-17 per user
+              direction: the curtain reveal itself already provides
+              the editorial entrance — adding the .reveal fade + 28px
+              slide + 6px blur on top muddied the moment. Texts now
+              render directly (still benefit from the IntersectionObserver
+              re-show-reset by virtue of the surrounding ScrollReset
+              wrapper, but no per-line stagger fade). */}
+          <p
+            className="font-display italic text-[#C8A96E] mb-2 tracking-widest"
+            style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
+          >
+            [ Ditchling Common · East Sussex ]
+          </p>
 
-          <FadeUp delay={0.1}>
-            <h2
-              className="font-display italic text-white leading-[1.05]"
-              style={{ fontSize: "clamp(32px, 5vw, 72px)", fontWeight: 400 }}
-            >
-              Two countries.
-            </h2>
-          </FadeUp>
-          <FadeUp delay={0.18}>
-            <h2
-              className="font-display italic text-white leading-[1.05]"
-              style={{ fontSize: "clamp(32px, 5vw, 72px)", fontWeight: 400 }}
-            >
-              One <span className="text-[#C8A96E]">ancient</span> seabed.
-            </h2>
-          </FadeUp>
-          <FadeUp delay={0.26}>
-            <h2
-              className="font-display italic text-white leading-[1.05]"
-              style={{ fontSize: "clamp(32px, 5vw, 72px)", fontWeight: 400 }}
-            >
-              One <span className="text-[#C8A96E]">tradition.</span>
-            </h2>
-          </FadeUp>
+          <h2
+            className="font-display italic text-white leading-[1.05]"
+            style={{ fontSize: "clamp(32px, 5vw, 72px)", fontWeight: 400 }}
+          >
+            Two countries.
+          </h2>
+          <h2
+            className="font-display italic text-white leading-[1.05]"
+            style={{ fontSize: "clamp(32px, 5vw, 72px)", fontWeight: 400 }}
+          >
+            One <span className="text-[#C8A96E]">ancient</span> seabed.
+          </h2>
+          <h2
+            className="font-display italic text-white leading-[1.05]"
+            style={{ fontSize: "clamp(32px, 5vw, 72px)", fontWeight: 400 }}
+          >
+            One <span className="text-[#C8A96E]">tradition.</span>
+          </h2>
 
-          <FadeUp delay={0.4}>
-            <p
-              className="font-body text-white/70 leading-relaxed mx-auto mt-12 md:mt-16"
-              style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, maxWidth: "560px" }}
-            >
-              It began with a belief: that the chalk soils beneath the South Downs
-              - the same Cretaceous seabed that surfaces across the Channel - could produce world-class
-              sparkling wine. In 1995, Ridgeview planted its first vines.
-            </p>
-          </FadeUp>
+          <p
+            className="font-body text-white/70 leading-relaxed mx-auto mt-12 md:mt-16"
+            style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, maxWidth: "560px" }}
+          >
+            It began with a belief: that the chalk soils beneath the South Downs
+            - the same Cretaceous seabed that surfaces across the Channel - could produce world-class
+            sparkling wine. In 1995, Ridgeview planted its first vines.
+          </p>
         </div>
       </div>
     </section>
