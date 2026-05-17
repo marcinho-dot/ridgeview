@@ -38,8 +38,11 @@ function IconFacebook({ className }: { className?: string }) {
 const galleryImages = [
   { src: "gallery-4.jpg", alt: "A walk through the Ridgeview vineyard, South Downs in the distance" },
   { src: "gallery-1.jpg", alt: "Ridgeview Estate tasting room and terrace" },
+  // Slot 3 (center card, z-30) — added 2026-05-18 per user direction.
+  // Rows & Vine bar / harvest gathering shot (JLau-RV270423-0766).
+  { src: "gallery-5.jpg", alt: "Guests gathered at the Rows & Vine bar at Ridgeview" },
   { src: "gallery-2.jpg", alt: "Ridgeview vineyard rows stretching to the South Downs" },
-  // Slot 4 (last card in the fan, z-10) — swapped 2026-05-18 to the
+  // Slot 5 (last card in the fan, z-10) — swapped 2026-05-18 to the
   // FAV AF_LXA_Ridgeview Wine Estate-18 restaurant terrace shot per
   // user direction. File saved as gallery-3.jpg so the existing
   // position / animation order in the array stays unchanged.
@@ -250,21 +253,24 @@ export function ImageRevealSection() {
   }, []);
 
   const imgSize = mobile ? 155 : 300;
-  // 4-card fan layout (2026-05-18 — was 3 cards). Outer cards spread
+  // 5-card fan layout (2026-05-18 — was 4 cards). Outer cards spread
   // wider so the fan reads as a hand of editorial polaroids; inner
-  // cards sit closer to center with subtle offsets.
-  const xL2 = mobile ? -110 : -360;  // far-left
-  const xL1 = mobile ? -38  : -120;  // mid-left
-  const xR1 = mobile ? 38   : 120;   // mid-right
-  const xR2 = mobile ? 110  : 360;   // far-right
+  // cards sit closer to center with subtle offsets. Spacing tuned so
+  // adjacent cards overlap ~50% on both viewports.
+  const xL2 = mobile ? -130 : -440;  // far-left
+  const xL1 = mobile ? -55  : -180;  // mid-left
+  const xM  = 0;                      // center
+  const xR1 = mobile ? 55   : 180;   // mid-right
+  const xR2 = mobile ? 130  : 440;   // far-right
 
   const spring = { type: "spring" as const, stiffness: 120, damping: 12 };
 
   const positions = [
-    { rotate: -9, x: xL2, y: 14, z: 40, delay: 0,    hoverRotate: -2, hoverX: xL2 - 10, hoverY: 4 },
-    { rotate: -3, x: xL1, y: -6, z: 30, delay: 0.12, hoverRotate: 0,  hoverX: xL1,      hoverY: -14 },
-    { rotate:  5, x: xR1, y:  4, z: 20, delay: 0.24, hoverRotate: 1,  hoverX: xR1,      hoverY: -8 },
-    { rotate: -7, x: xR2, y: 20, z: 10, delay: 0.36, hoverRotate: 2,  hoverX: xR2 + 10, hoverY: 10 },
+    { rotate: -10, x: xL2, y: 16, z: 50, delay: 0,    hoverRotate: -3, hoverX: xL2 - 10, hoverY: 4 },
+    { rotate: -4,  x: xL1, y: -6, z: 40, delay: 0.10, hoverRotate: 0,  hoverX: xL1,      hoverY: -14 },
+    { rotate: 2,   x: xM,  y: -2, z: 30, delay: 0.20, hoverRotate: 0,  hoverX: xM,       hoverY: -12 },
+    { rotate: 6,   x: xR1, y:  6, z: 20, delay: 0.30, hoverRotate: 1,  hoverX: xR1,      hoverY: -8 },
+    { rotate: -6,  x: xR2, y: 22, z: 10, delay: 0.40, hoverRotate: 2,  hoverX: xR2 + 10, hoverY: 12 },
   ];
 
   return (
