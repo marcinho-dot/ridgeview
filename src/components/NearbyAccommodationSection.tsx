@@ -201,7 +201,8 @@ export function NearbyAccommodationSection() {
   return (
     <section
       ref={sectionRef}
-      className="bg-[#010101] py-20 md:py-28"
+      id="nearby-accommodation"
+      className="bg-[#010101] py-20 md:py-28 scroll-mt-24"
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-16">
 

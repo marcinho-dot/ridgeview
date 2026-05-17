@@ -112,7 +112,7 @@ export function Footer() {
               { label: "Vineyard Tours & Wine Tastings", href: `${home}vineyard-booking` },
               { label: "Wine Bar & Shop", href: `${home}vineyard-booking` },
               { label: "How to get to Ridgeview", href: `${home}#footer` },
-              { label: "Nearby Accommodation", href: `${home}#footer` },
+              { label: "Nearby Accommodation", href: `${home}vineyard-booking/#nearby-accommodation` },
               { label: "Opening Times", href: `${home}vineyard-booking` },
             ].map((item) => (
               <li key={item.label}>
