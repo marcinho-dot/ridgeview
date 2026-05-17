@@ -399,9 +399,11 @@ function HeritageDiscoverySection() {
   // a full-bleed cinematic background image (user direction). Same
   // editorial copy, same FadeUp timings - composition is a single
   // layered scene:
-  //   1. Full-bleed background image - 2026-05-17 swapped from the
-  //      golden-hour quote.jpg to a B&W cellar-winemaker-steam shot
-  //      that better fits the Merret heritage-quote tonality
+  //   1. Full-bleed background image - swapped iteratively:
+  //      golden-hour quote.jpg → B&W cellar-winemaker-steam →
+  //      page-14-bottles.jpg (final 2026-05-17, fits the
+  //      Méthode-Traditionnelle / heritage-quote tonality with
+  //      the line-up of finished bottles)
   //   2. Layered dark overlays + left-weighted gradient so the text
   //      side stays readable while the right side of the image
   //      breathes
@@ -420,21 +422,25 @@ function HeritageDiscoverySection() {
       <div className="absolute inset-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={`${basePath}/images/cellar-winemaker-steam-bw.jpg`}
-          alt="Cellar winemaker working amid steam — black & white"
+          src={`${basePath}/images/page-14-bottles.jpg`}
+          alt="Ridgeview sparkling wines — bottle line-up"
           loading="lazy"
           decoding="async"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ objectPosition: "center 40%" }}
         />
-        {/* Base darken - keep the image visible but mute it */}
-        <div className="absolute inset-0 bg-black/55" />
-        {/* Left-weighted gradient - text sits on the darker left half */}
+        {/* Base darken - strengthened 2026-05-17 (was bg-black/55)
+            for sharper text contrast against the new lighter
+            page-14-bottles bg image */}
+        <div className="absolute inset-0 bg-black/70" />
+        {/* Left-weighted gradient - text sits on the darker left half.
+            Also strengthened (top stop 0.78 → 0.88) so the headline,
+            quote, attribution and body copy all stay legible. */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(100deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.55) 38%, rgba(0,0,0,0.25) 70%, rgba(0,0,0,0.15) 100%)",
+              "linear-gradient(100deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.65) 38%, rgba(0,0,0,0.35) 70%, rgba(0,0,0,0.22) 100%)",
           }}
         />
         {/* Top + bottom page-blend gradients */}

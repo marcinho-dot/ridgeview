@@ -73,16 +73,20 @@ export function BehindTheBottleSection({
             className="absolute inset-0 w-full h-full object-cover"
             style={{ objectPosition: "center 45%" }}
           />
-          {/* Base darken so the dark editorial type stays legible */}
-          <div className="absolute inset-0 bg-black/55 pointer-events-none" />
+          {/* Base darken so the dark editorial type stays legible.
+              Strengthened 2026-05-17 (was bg-black/55) for sharper
+              text contrast — the user reported the previous overlay
+              wasn't dark enough against the chalk-bottles image. */}
+          <div className="absolute inset-0 bg-black/70 pointer-events-none" />
           {/* Left-weighted gradient — kicker/headline column sits on
-              the darker side, pillars on the lighter side */}
+              the darker side, pillars on the lighter side. Also
+              strengthened to keep both columns readable. */}
           <div
             aria-hidden
             className="absolute inset-0 pointer-events-none"
             style={{
               background:
-                "linear-gradient(100deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.45) 40%, rgba(0,0,0,0.22) 75%, rgba(0,0,0,0.10) 100%)",
+                "linear-gradient(100deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.58) 40%, rgba(0,0,0,0.32) 75%, rgba(0,0,0,0.18) 100%)",
             }}
           />
           {/* Top + bottom #010101 blend gradients to soften cut-ins */}
