@@ -240,11 +240,12 @@ function HeritageRevealStack() {
   //   - PURE translateY, no opacity changes, no scale - GPU just
   //     promotes the layer and translates the composited bitmap, no
   //     re-raster per frame
-  //   - 0 → -250px drift. The first attempt at -700px was so strong
-  //     the text had already drifted off-screen by the time the
-  //     chalk image was fully revealed. 250px is a tactile parallax
-  //     that keeps the text in frame throughout the reveal window.
-  const mobileBottomY = useTransform(scrollYProgress, [0, 1], [0, -250]);
+  //   - 0 → -50px drift. Iterated from -700 → -250 → -50 after the
+  //     user tested on a Huawei P30 Lite — even 250px pushed the
+  //     text out of the reveal window. 50px is a barely-there
+  //     parallax that registers as motion-quality without
+  //     repositioning the text meaningfully.
+  const mobileBottomY = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   return (
     <section
