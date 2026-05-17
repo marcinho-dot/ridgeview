@@ -144,13 +144,13 @@ export function Navbar() {
               Menu
             </span>
             <div className="flex flex-col justify-center items-center w-6 gap-[5px]">
-              <motion.span className="block h-px bg-white origin-center" style={{ width: 22 }}
+              <motion.span className="block h-px bg-white/70 origin-center" style={{ width: 22 }}
                 animate={menuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }} />
-              <motion.span className="block h-px bg-white" style={{ width: 22 }}
+              <motion.span className="block h-px bg-white/70" style={{ width: 22 }}
                 animate={menuOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
                 transition={{ duration: 0.2 }} />
-              <motion.span className="block h-px bg-white origin-center" style={{ width: 22 }}
+              <motion.span className="block h-px bg-white/70 origin-center" style={{ width: 22 }}
                 animate={menuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }} />
             </div>
