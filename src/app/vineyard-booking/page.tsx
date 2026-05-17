@@ -959,13 +959,17 @@ function PracticalInfo() {
   // desktop next to the 3 info columns - was stacked above before.
   // Outer container expanded from max-w-[960px] to max-w-[1400px] to
   // match the rest of /vineyard-booking (VisitPanels, Heritage,
-  // NearbyAccommodation all use 1400px). 1fr/2fr split gives the
-  // title a comfortable left rail (~390px @ 1280vw) and lets the 3
-  // info columns share the right rail (~260px each).
+  // NearbyAccommodation all use 1400px).
+  //
+  // Grid is FLAT (4 equal cols × gap-20) rather than nested
+  // ([1fr_2fr] outer × cols-3 inner) so all four blocks - title,
+  // Opening Times, Getting Here, Contact - share the same 80px
+  // horizontal rhythm. The nested variant gave title-to-OT 80px
+  // but OT-to-GH only 40px, breaking the visual cadence.
   return (
     <section className="bg-[#010101]">
       <div className="max-w-[1400px] mx-auto px-6 md:px-16 py-20 md:py-28">
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 md:gap-20 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-20 items-start">
 
           {/* LEFT — title block */}
           <div>
@@ -987,9 +991,7 @@ function PracticalInfo() {
             </FadeUp>
           </div>
 
-          {/* RIGHT — 3-column info grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-10">
-
+          {/* RIGHT rail — 3 info blocks, siblings in the outer 4-col grid */}
           <FadeUp delay={0.1}>
             <div>
               <h3
@@ -1071,7 +1073,6 @@ function PracticalInfo() {
             </div>
           </FadeUp>
 
-          </div>
         </div>
       </div>
     </section>
