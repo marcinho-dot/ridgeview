@@ -42,11 +42,11 @@ const galleryImages = [
   // Rows & Vine bar / harvest gathering shot (JLau-RV270423-0766).
   { src: "gallery-5.jpg", alt: "Guests gathered at the Rows & Vine bar at Ridgeview" },
   { src: "gallery-2.jpg", alt: "Ridgeview vineyard rows stretching to the South Downs" },
-  // Slot 5 (last card in the fan, z-10) — swapped 2026-05-18 to the
-  // FAV AF_LXA_Ridgeview Wine Estate-18 restaurant terrace shot per
-  // user direction. File saved as gallery-3.jpg so the existing
-  // position / animation order in the array stays unchanged.
-  { src: "gallery-3.jpg", alt: "Ridgeview Estate restaurant detail at golden hour" },
+  // Slot 5 (last card in the fan, z-10) — file at gallery-3.jpg
+  // updated 2026-05-18 to AF_LXA_Ridgeview Wine Estate-37 — the
+  // restaurant pavilion interior looking out onto the vineyard at
+  // golden hour. Position / animation order unchanged.
+  { src: "gallery-3.jpg", alt: "Ridgeview Estate restaurant pavilion overlooking the vineyard at golden hour" },
 ];
 
 /* ── Social links ──────────────────────────────────────────────────── */
