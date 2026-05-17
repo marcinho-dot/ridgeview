@@ -119,7 +119,12 @@ const ACCOMMODATIONS: Accommodation[] = [
 // ─── Constants ────────────────────────────────────────────────
 const INTERVAL  = 12000;
 const DESKTOP_H = 440;
-const MOBILE_H  = 620;
+// MOBILE_H trimmed 2026-05-17 (was 620) to remove the dead band
+// below the CTA. Calibrated to fit the tallest card (The Bull —
+// 2-line name on ~320px viewports + badge + 4-line description),
+// so shorter cards keep ~20-30px breathing at the bottom and
+// taller cards still fit within the absolute-positioned slide.
+const MOBILE_H  = 540;
 
 // ─── Slide variants ───────────────────────────────────────────
 const variants = {
@@ -401,7 +406,7 @@ export function NearbyAccommodationSection() {
               </div>
 
               {/* Content stack */}
-              <div className="flex-1 flex flex-col px-6 pt-5 pb-6">
+              <div className="flex-1 flex flex-col px-6 pt-5 pb-5">
                 <p
                   className="font-display italic text-[#C8A96E] tracking-widest mb-2"
                   style={{ fontSize: "12px" }}
