@@ -228,7 +228,7 @@ function HeritageRevealStack() {
           300vh because larger viewports tolerate the cinematic pacing. */}
 
       {/* ── LAYER 0 (BEHIND) - Chalk image sticky-pinned ── */}
-      <div className="sticky top-0 h-screen overflow-hidden z-0 bg-[#010101]">
+      <div className="sticky top-0 h-svh md:h-screen overflow-hidden z-0 bg-[#010101]">
         {/* Asset: terroir-vineyard.jpg (684 KB desktop) + new
             terroir-vineyard-1280.jpg (239 KB mobile srcset). Mobile gets
             the smaller variant so the decode doesn't compete with the
@@ -340,7 +340,7 @@ function HeritageRevealStack() {
           scrolls, Terroir naturally rises off the top of the
           viewport, revealing the pinned chalk image behind it like
           a curtain. */}
-      <div className="relative z-10 -mt-[100vh] min-h-screen bg-[#010101] flex items-center justify-center">
+      <div className="relative z-10 -mt-[100svh] md:-mt-[100vh] min-h-svh md:min-h-screen bg-[#010101] flex items-center justify-center">
         <div className="max-w-[920px] mx-auto px-6 md:px-16 text-center w-full pt-[24vh] pb-[4vh] md:py-12">
           <FadeUp>
             <p
@@ -416,7 +416,7 @@ function HeritageDiscoverySection() {
   //      drop-shadow on every text element for guaranteed contrast
   //      on any image area
   return (
-    <section className="relative overflow-hidden bg-[#010101] min-h-[88vh] md:min-h-[92vh]">
+    <section className="relative overflow-hidden bg-[#010101] min-h-[68vh] md:min-h-[92vh]">
 
       {/* ── Full-bleed background image + readability layers ── */}
       <div className="absolute inset-0">
@@ -449,7 +449,7 @@ function HeritageDiscoverySection() {
       </div>
 
       {/* ── Text overlay ── */}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32 min-h-[88vh] md:min-h-[92vh] flex items-center">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32 min-h-[68vh] md:min-h-[92vh] flex items-center">
         <div className="max-w-[640px]">
 
           <FadeUp delay={0.1}>
@@ -1129,7 +1129,7 @@ export default function BookingPage() {
             scrolls, Discovery rises from below and covers
             Behind the Bottle. */}
         <div className="relative">
-          <div className="sticky top-0 min-h-screen bg-[#0a0a0a]">
+          <div className="sticky top-0 min-h-svh md:min-h-screen bg-[#0a0a0a]">
             <ScrollReset>
               <BehindTheBottleSection
                 compact
@@ -1145,7 +1145,7 @@ export default function BookingPage() {
               />
             </ScrollReset>
           </div>
-          <div className="sticky top-0 min-h-screen bg-[#010101]">
+          <div className="sticky top-0 min-h-svh md:min-h-screen bg-[#010101]">
             <ScrollReset><HeritageDiscoverySection /></ScrollReset>
           </div>
         </div>

@@ -55,7 +55,7 @@ export function BehindTheBottleSection({
   return (
     <section
       className={`relative bg-[#0a0a0a] border-t border-white/[0.06] overflow-hidden ${
-        compact ? "min-h-screen flex items-center" : ""
+        compact ? "min-h-svh md:min-h-screen flex items-center" : ""
       }`}
     >
       {/* Optional full-bleed background image with readability overlays.
