@@ -299,11 +299,18 @@ function HeritageRevealStack() {
             above the grape names as part of the same editorial unit.
             Desktop: shared y-drift + opacity fade choreography via
             the motion values below. Mobile (2026-05-17 per user
-            direction): static — no scroll-driven motion, full
-            opacity at all times. */}
+            direction): static — `y: 0, opacity: 1` explicitly
+            overrides the bottomY/bottomOpacity MotionValues which
+            otherwise keep ticking under the hood (passing `style={}`
+            wasn't enough — framer-motion retained the last animated
+            output and the text crept off-screen). */}
         <motion.div
           className="absolute inset-x-0 bottom-[14vh] px-6 md:px-10 text-center"
-          style={isMobile ? {} : { y: bottomY, opacity: bottomOpacity }}
+          style={
+            isMobile
+              ? { y: 0, opacity: 1 }
+              : { y: bottomY, opacity: bottomOpacity }
+          }
         >
           {/* Kicker - sits directly above the grape names */}
           <p
