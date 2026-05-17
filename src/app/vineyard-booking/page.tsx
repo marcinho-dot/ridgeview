@@ -231,7 +231,7 @@ function HeritageRevealStack() {
           300vh because larger viewports tolerate the cinematic pacing. */}
 
       {/* ── LAYER 0 (BEHIND) - Chalk image sticky-pinned ── */}
-      <div className="sticky top-0 h-svh md:h-screen overflow-hidden z-0 bg-[#010101]">
+      <div className="sticky top-0 h-[700px] md:h-screen overflow-hidden z-0 bg-[#010101]">
         {/* Asset: terroir-vineyard.jpg (684 KB desktop) + new
             terroir-vineyard-1280.jpg (239 KB mobile srcset). Mobile gets
             the smaller variant so the decode doesn't compete with the
@@ -343,7 +343,7 @@ function HeritageRevealStack() {
           scrolls, Terroir naturally rises off the top of the
           viewport, revealing the pinned chalk image behind it like
           a curtain. */}
-      <div className="relative z-10 -mt-[100svh] md:-mt-[100vh] min-h-svh md:min-h-screen bg-[#010101] flex items-center justify-center">
+      <div className="relative z-10 -mt-[700px] md:-mt-[100vh] min-h-[700px] md:min-h-screen bg-[#010101] flex items-center justify-center">
         <div className="max-w-[920px] mx-auto px-6 md:px-16 text-center w-full pt-[24vh] pb-[4vh] md:py-12">
           <FadeUp>
             <p
