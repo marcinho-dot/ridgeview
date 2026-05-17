@@ -36,10 +36,10 @@ function IconFacebook({ className }: { className?: string }) {
 /* ── Gallery images data ───────────────────────────────────────────── */
 
 const galleryImages = [
+  { src: "gallery-4.jpg", alt: "A walk through the Ridgeview vineyard, South Downs in the distance" },
   { src: "gallery-1.jpg", alt: "Ridgeview Estate tasting room and terrace" },
   { src: "gallery-2.jpg", alt: "Ridgeview vineyard rows stretching to the South Downs" },
   { src: "gallery-3.jpg", alt: "View from the Ridgeview restaurant over the vineyard" },
-  { src: "gallery-4.jpg", alt: "A walk through the Ridgeview vineyard, South Downs in the distance" },
 ];
 
 /* ── Social links ──────────────────────────────────────────────────── */
