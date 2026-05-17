@@ -33,6 +33,14 @@ interface Props {
    *  floating BottomNav). Tightens padding, gaps and pillar spacing;
    *  centers the content vertically in a `min-h-screen` flex shell. */
   compact?: boolean;
+  /** Optional full-bleed background image path (relative to /public).
+   *  When set, renders the image behind the content with a dark
+   *  overlay so the kicker/headline/pillars stay readable. When
+   *  omitted, the section keeps the bare gold-glow ambient bg used
+   *  on the SKU pages. */
+  backgroundImage?: string;
+  /** Optional alt text for the background image. */
+  backgroundImageAlt?: string;
 }
 
 export function BehindTheBottleSection({
@@ -41,6 +49,8 @@ export function BehindTheBottleSection({
   intro,
   pillars,
   compact = false,
+  backgroundImage,
+  backgroundImageAlt = "",
 }: Props) {
   return (
     <section
@@ -48,7 +58,47 @@ export function BehindTheBottleSection({
         compact ? "min-h-screen flex items-center" : ""
       }`}
     >
-      {/* Subtle ambient gold glow keeps the section editorial - no background image */}
+      {/* Optional full-bleed background image with readability overlays.
+          Used on /vineyard-booking (chalk-bottles shot). SKU pages
+          omit this prop and keep the bare gold-glow ambient bg. */}
+      {backgroundImage && (
+        <>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={backgroundImage}
+            alt={backgroundImageAlt}
+            aria-hidden={backgroundImageAlt ? undefined : true}
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ objectPosition: "center 45%" }}
+          />
+          {/* Base darken so the dark editorial type stays legible */}
+          <div className="absolute inset-0 bg-black/55 pointer-events-none" />
+          {/* Left-weighted gradient — kicker/headline column sits on
+              the darker side, pillars on the lighter side */}
+          <div
+            aria-hidden
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "linear-gradient(100deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.45) 40%, rgba(0,0,0,0.22) 75%, rgba(0,0,0,0.10) 100%)",
+            }}
+          />
+          {/* Top + bottom #010101 blend gradients to soften cut-ins */}
+          <div
+            aria-hidden
+            className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-[#010101] to-transparent pointer-events-none"
+          />
+          <div
+            aria-hidden
+            className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#010101] to-transparent pointer-events-none"
+          />
+        </>
+      )}
+
+      {/* Subtle ambient gold glow — always on (sits ON TOP of the bg
+          image when there is one to keep the brand warmth visible) */}
       <div
         aria-hidden
         className="absolute inset-0 pointer-events-none"

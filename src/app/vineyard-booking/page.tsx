@@ -1127,6 +1127,8 @@ export default function BookingPage() {
             <ScrollReset>
               <BehindTheBottleSection
                 compact
+                backgroundImage={`${basePath}/images/chalk-bottles.jpg`}
+                backgroundImageAlt="Ridgeview bottles resting on Sussex chalk"
                 headline={<>Crafted in the <span className="text-[#C8A96E]">Méthode Traditionnelle</span>.</>}
                 intro="For three decades, Ridgeview has crafted English sparkling wines the long way - by hand, on the chalk hills of Sussex, using the Méthode Traditionnelle."
                 pillars={[
