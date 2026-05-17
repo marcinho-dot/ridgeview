@@ -955,28 +955,40 @@ function BackToTopFloat() {
 // ── Section: Practical Info ─────────────────────────────────────────────────
 
 function PracticalInfo() {
+  // Layout 2026-05-17: title block (kicker + headline) sits LEFT on
+  // desktop next to the 3 info columns - was stacked above before.
+  // Outer container expanded from max-w-[960px] to max-w-[1400px] to
+  // match the rest of /vineyard-booking (VisitPanels, Heritage,
+  // NearbyAccommodation all use 1400px). 1fr/2fr split gives the
+  // title a comfortable left rail (~390px @ 1280vw) and lets the 3
+  // info columns share the right rail (~260px each).
   return (
     <section className="bg-[#010101]">
-      <div className="max-w-[960px] mx-auto px-6 md:px-16 py-20 md:py-28">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-16 py-20 md:py-28">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 md:gap-20 items-start">
 
-        <FadeUp>
-          <p
-            className="font-display italic text-[#C8A96E] tracking-widest mb-5"
-            style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
-          >
-            [ Practical Information ]
-          </p>
-        </FadeUp>
-        <FadeUp delay={0.1}>
-          <h2
-            className="font-display italic text-cream leading-[1.08] mb-14 md:mb-20"
-            style={{ fontSize: "clamp(32px, 4vw, 58px)", fontWeight: 400 }}
-          >
-            Find <span className="text-[#C8A96E]">us.</span>
-          </h2>
-        </FadeUp>
+          {/* LEFT — title block */}
+          <div>
+            <FadeUp>
+              <p
+                className="font-display italic text-[#C8A96E] tracking-widest mb-5"
+                style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
+              >
+                [ Practical Information ]
+              </p>
+            </FadeUp>
+            <FadeUp delay={0.1}>
+              <h2
+                className="font-display italic text-cream leading-[1.08]"
+                style={{ fontSize: "clamp(32px, 4vw, 58px)", fontWeight: 400 }}
+              >
+                Find <span className="text-[#C8A96E]">us.</span>
+              </h2>
+            </FadeUp>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+          {/* RIGHT — 3-column info grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-10">
 
           <FadeUp delay={0.1}>
             <div>
@@ -1052,6 +1064,7 @@ function PracticalInfo() {
             </div>
           </FadeUp>
 
+          </div>
         </div>
       </div>
     </section>
