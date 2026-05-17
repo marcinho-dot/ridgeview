@@ -183,6 +183,20 @@ function HeritageRevealStack() {
     offset: ["start end", "end start"],
   });
 
+  // Mobile gate for the BOTTOM-block scroll choreography. Desktop
+  // keeps the y-drift + opacity fade; mobile renders the kicker +
+  // grape varieties + Champagne caption statically (no scroll-driven
+  // transform, full opacity). Same isMobile pattern WineCollectionSection
+  // uses. Initial false → SSR + first paint matches desktop output,
+  // useEffect flips it on phones after mount.
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check, { passive: true });
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
   // CHALK IMAGE motion - restored 2026-05-17 to the user-confirmed
   // "Beste Version bis lang" state from commit 1d79237. Both
   // transforms span the FULL visibility window [0, 1]:
@@ -282,11 +296,14 @@ function HeritageRevealStack() {
 
         {/* BOTTOM: Kicker + Grape varieties + Champagne caption.
             The [ Chalk · Ancient Seabed ] kicker now sits directly
-            above the grape names as part of the same editorial unit,
-            sharing the same y + opacity animation. */}
+            above the grape names as part of the same editorial unit.
+            Desktop: shared y-drift + opacity fade choreography via
+            the motion values below. Mobile (2026-05-17 per user
+            direction): static — no scroll-driven motion, full
+            opacity at all times. */}
         <motion.div
           className="absolute inset-x-0 bottom-[14vh] px-6 md:px-10 text-center"
-          style={{ y: bottomY, opacity: bottomOpacity }}
+          style={isMobile ? {} : { y: bottomY, opacity: bottomOpacity }}
         >
           {/* Kicker - sits directly above the grape names */}
           <p
