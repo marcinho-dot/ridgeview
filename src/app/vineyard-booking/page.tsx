@@ -322,7 +322,7 @@ function HeritageRevealStack() {
             so the text always renders at its CSS-positioned baseline
             (bottom-[14vh]) with full opacity. */}
         <motion.div
-          className="absolute inset-x-0 bottom-[14vh] px-6 md:px-10 text-center"
+          className="absolute inset-x-0 bottom-[calc(14vh+25px)] md:bottom-[14vh] px-6 md:px-10 text-center"
           style={
             isMobile
               ? { y: 0, opacity: 1 }
