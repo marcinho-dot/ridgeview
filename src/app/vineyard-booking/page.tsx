@@ -82,20 +82,23 @@ function PageHeader() {
           />
         </picture>
         <div className="absolute inset-0 bg-gradient-to-b from-[#010101]/30 via-transparent to-[#010101]/60" />
-        {/* Desktop-only: stronger dark fade across the lower 30% so the
-            kicker / headline / body copy stay legible against the bright
-            aerial drone shot (mobile already has enough contrast from
-            the portrait crop + the base gradient above). */}
+        {/* Stronger dark fade across the lower 30% so the kicker /
+            headline / body copy stay legible against the bright
+            background image. Enabled on ALL viewports 2026-05-17 —
+            mobile previously relied on the portrait crop for contrast
+            but the user reported the text was still hard to read on
+            phones. */}
         <div
-          className="hidden sm:block absolute left-0 right-0 bottom-0 bg-gradient-to-t from-[#010101]/97 via-[#010101]/65 to-transparent"
+          className="absolute left-0 right-0 bottom-0 bg-gradient-to-t from-[#010101]/97 via-[#010101]/65 to-transparent"
           style={{ height: "30%" }}
         />
-        {/* Desktop-only: extra diagonal darkening anchored to the
-            bottom-left corner where the text block sits. Strong at the
-            bottom-left, fading diagonally toward the top-right so the
-            cellar buildings on the right stay visible. */}
+        {/* Extra diagonal darkening anchored to the bottom-left corner
+            where the text block sits. Strong at the bottom-left, fading
+            diagonally toward the top-right so the upper-right portion
+            of the image breathes. Also enabled on mobile (was
+            desktop-only) for the same readability reason. */}
         <div
-          className="hidden sm:block absolute inset-0 bg-gradient-to-tr from-[#010101]/90 via-[#010101]/22 to-transparent"
+          className="absolute inset-0 bg-gradient-to-tr from-[#010101]/90 via-[#010101]/22 to-transparent"
         />
       </motion.div>
 
