@@ -396,11 +396,12 @@ function HeritageRevealStack() {
 
 function HeritageDiscoverySection() {
   // Refactored 2026-05-16: text moved from a right-hand column ONTO
-  // the quote.png image as a full-bleed cinematic overlay (user
-  // direction). Same editorial copy, same FadeUp timings -
-  // composition is now a single layered scene:
-  //   1. Full-bleed quote.png as section background (golden-hour
-  //      wine glass against the vineyard)
+  // a full-bleed cinematic background image (user direction). Same
+  // editorial copy, same FadeUp timings - composition is a single
+  // layered scene:
+  //   1. Full-bleed background image - 2026-05-17 swapped from the
+  //      golden-hour quote.jpg to a B&W cellar-winemaker-steam shot
+  //      that better fits the Merret heritage-quote tonality
   //   2. Layered dark overlays + left-weighted gradient so the text
   //      side stays readable while the right side of the image
   //      breathes
@@ -419,8 +420,8 @@ function HeritageDiscoverySection() {
       <div className="absolute inset-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={`${basePath}/images/quote.jpg`}
-          alt="Wine glass raised against Ridgeview vineyard at golden hour"
+          src={`${basePath}/images/cellar-winemaker-steam-bw.jpg`}
+          alt="Cellar winemaker working amid steam — black & white"
           loading="lazy"
           decoding="async"
           className="absolute inset-0 w-full h-full object-cover"
