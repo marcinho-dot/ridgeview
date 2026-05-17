@@ -341,7 +341,7 @@ function HeritageRevealStack() {
           viewport, revealing the pinned chalk image behind it like
           a curtain. */}
       <div className="relative z-10 -mt-[100vh] min-h-screen bg-[#010101] flex items-center justify-center">
-        <div className="max-w-[920px] mx-auto px-6 md:px-16 text-center w-full py-8 md:py-12">
+        <div className="max-w-[920px] mx-auto px-6 md:px-16 text-center w-full pt-[24vh] pb-[4vh] md:py-12">
           <FadeUp>
             <p
               className="font-display italic text-[#C8A96E] mb-2 tracking-widest"
