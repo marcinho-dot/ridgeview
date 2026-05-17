@@ -19,15 +19,33 @@ export function HeritageSoilSection() {
       <div>
         {/* Immersive Full-Width Panel */}
         <div className="group relative overflow-hidden cursor-pointer">
-          {/* Image */}
-          <div className="aspect-[9/11] sm:aspect-[16/9] md:aspect-[2.4/1]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={`${basePath}/images/vineyard-og.png`}
-              alt="The Ridgeview Estate — vineyard rows leading to the South Downs ridge"
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.03]"
-              style={{ objectPosition: "center 45%" }}
-            />
+          {/* Image — mobile aspect tightened from 9/11 → 4/5 so the section
+              isn't unnecessarily tall on portrait viewports (shorter scroll
+              path, less time the user spends inside the section while the
+              heavy fade-ins run).
+              Asset: was an 8.77 MB PNG → now JPEG q82 (1.26 MB desktop) +
+              srcset to a 1280w q80 mobile variant (404 KB) so Huawei P30
+              Lite-class Android devices don't choke on image decode while
+              the parent useInView fades fire (the perceived "ruckelnder
+              Scroll-Effekt" was the main thread blocked on PNG decode).
+              loading="lazy" + decoding="async" keeps decode off the main
+              thread until the section approaches the viewport. */}
+          <div className="aspect-[4/5] sm:aspect-[16/9] md:aspect-[2.4/1]">
+            <picture>
+              <source
+                media="(max-width: 767px)"
+                srcSet={`${basePath}/images/vineyard-og-1280.jpg`}
+              />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`${basePath}/images/vineyard-og.jpg`}
+                alt="The Ridgeview Estate — vineyard rows leading to the South Downs ridge"
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                style={{ objectPosition: "center 45%" }}
+              />
+            </picture>
 
             {/* Lighter on mobile so the image breathes — slightly stronger
                 on desktop where the wider crop tolerates more weight. */}
