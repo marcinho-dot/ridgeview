@@ -9,6 +9,7 @@ import { RecognitionSection } from "@/components/RecognitionSection";
 import { EstatePeopleSection } from "@/components/EstatePeopleSection";
 import { ScrollReset } from "@/components/ScrollReset";
 import { BehindTheBottleSection } from "@/components/sku/BehindTheBottleSection";
+import { NearbyAccommodationSection } from "@/components/NearbyAccommodationSection";
 import { basePath } from "@/lib/basePath";
 
 // ── Animation Helpers ────────────────────────────────────────────────────────
@@ -955,7 +956,7 @@ function BackToTopFloat() {
 
 function PracticalInfo() {
   return (
-    <section className="bg-[#010101]">
+    <section id="practical-info" className="bg-[#010101] scroll-mt-24">
       <div className="max-w-[960px] mx-auto px-6 md:px-16 py-20 md:py-28">
 
         <FadeUp>
@@ -1107,6 +1108,7 @@ export default function BookingPage() {
         </div>
         <ScrollReset><RecognitionSection /></ScrollReset>
         <ScrollReset><VisitPanels /></ScrollReset>
+        <ScrollReset><NearbyAccommodationSection /></ScrollReset>
         <ScrollReset><PracticalInfo /></ScrollReset>
       </main>
       <Footer />
