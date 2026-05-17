@@ -36,13 +36,14 @@ function IconFacebook({ className }: { className?: string }) {
 /* ── Gallery images data ───────────────────────────────────────────── */
 
 const galleryImages = [
-  // Slot 1 (first card in the fan, z-40) — swapped 2026-05-18 from
-  // the vineyard-walk shot to the restaurant exterior / terrace
-  // detail (FAV AF_LXA_Ridgeview Wine Estate-18) per user direction.
-  { src: "gallery-4.jpg", alt: "Ridgeview Estate restaurant detail at golden hour" },
+  { src: "gallery-4.jpg", alt: "A walk through the Ridgeview vineyard, South Downs in the distance" },
   { src: "gallery-1.jpg", alt: "Ridgeview Estate tasting room and terrace" },
   { src: "gallery-2.jpg", alt: "Ridgeview vineyard rows stretching to the South Downs" },
-  { src: "gallery-3.jpg", alt: "View from the Ridgeview restaurant over the vineyard" },
+  // Slot 4 (last card in the fan, z-10) — swapped 2026-05-18 to the
+  // FAV AF_LXA_Ridgeview Wine Estate-18 restaurant terrace shot per
+  // user direction. File saved as gallery-3.jpg so the existing
+  // position / animation order in the array stays unchanged.
+  { src: "gallery-3.jpg", alt: "Ridgeview Estate restaurant detail at golden hour" },
 ];
 
 /* ── Social links ──────────────────────────────────────────────────── */
