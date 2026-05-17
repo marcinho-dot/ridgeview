@@ -233,17 +233,18 @@ function HeritageRevealStack() {
     [0, 1, 1, 0],
   );
 
-  // Mobile-only strong scroll-up parallax (2026-05-17 - user re-enabled
+  // Mobile-only scroll-up parallax (2026-05-17 - user re-enabled
   // a motion on the text block, but pinned to be smooth on budget
   // Android GPUs like the Huawei P30 Lite's Kirin 710):
   //   - px output (not vh) so URL-bar shows/hides don't snap the y
   //   - PURE translateY, no opacity changes, no scale - GPU just
   //     promotes the layer and translates the composited bitmap, no
   //     re-raster per frame
-  //   - 0 → -700px total drift across the section's full visibility
-  //     window. Feels strong (~50% of viewport) without being so
-  //     aggressive that the text rockets off-screen.
-  const mobileBottomY = useTransform(scrollYProgress, [0, 1], [0, -700]);
+  //   - 0 → -250px drift. The first attempt at -700px was so strong
+  //     the text had already drifted off-screen by the time the
+  //     chalk image was fully revealed. 250px is a tactile parallax
+  //     that keeps the text in frame throughout the reveal window.
+  const mobileBottomY = useTransform(scrollYProgress, [0, 1], [0, -250]);
 
   return (
     <section
