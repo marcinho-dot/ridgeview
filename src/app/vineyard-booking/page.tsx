@@ -262,7 +262,18 @@ function HeritageRevealStack() {
             loading="lazy"
             decoding="async"
             className="absolute inset-0 w-full h-full object-cover motion-reduce:!scale-100 motion-reduce:![transform:none]"
-            style={{ scale: imageScale, y: imageY, willChange: "transform" }}
+            // Mobile (2026-05-17): scroll-driven scale + y disabled.
+            // vh-based imageY jumped whenever the URL bar hid/showed
+            // (vh recalcs by ~6-8%) and the continuous scale-transform
+            // on a 1000px+ JPG stutters on budget Android GPUs (Kirin
+            // 710 etc). Desktop keeps the cinematic zoom-out + pan;
+            // mobile renders a static frame — same overflow-hidden
+            // container + object-cover keeps the composition tight.
+            style={
+              isMobile
+                ? { scale: 1, y: 0 }
+                : { scale: imageScale, y: imageY, willChange: "transform" }
+            }
           />
         </picture>
         {/* Readability layers - refined 2026-05-16 after the radial
