@@ -26,8 +26,10 @@ export function Footer() {
           style={{ objectPosition: "left bottom" }}
         />
         {/* Base darken — pulls the image back so the text/links remain
-            the primary read. */}
-        <div className="absolute inset-0 bg-black/70" />
+            the primary read. Bumped 2026-05-18 (was bg-black/70) for a
+            stronger overlay so the aerial photo reads more as a
+            textured backdrop than a hero image. */}
+        <div className="absolute inset-0 bg-black/85" />
         {/* Top blend gradient — fades the image into the section above
             so the Substack strip's edge isn't a hard cut. */}
         <div
