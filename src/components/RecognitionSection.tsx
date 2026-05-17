@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, type ReactNode } from "react";
+import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 
 /* ─────────────────────────────────────────────────────────────────────────
@@ -8,8 +9,24 @@ import { motion, useInView } from "framer-motion";
    Social proof — typography-only, milestone timeline with luxury design.
 ───────────────────────────────────────────────────────────────────────── */
 
-const milestones = [
-  { year: "1995", text: "Ridgeview plants first vines beneath the South Downs ridge." },
+// Milestone copy. `text` is ReactNode so individual entries can embed
+// links (e.g. the 1995 entry linking to founder Mike Roberts's page).
+const milestones: { year: string; text: ReactNode }[] = [
+  {
+    year: "1995",
+    text: (
+      <>
+        Founder{" "}
+        <Link
+          href="/mike-roberts"
+          className="text-[#C8A96E] hover:text-[#C8A96E]/75 underline decoration-[#C8A96E]/40 hover:decoration-[#C8A96E]/70 underline-offset-2 transition-colors duration-300"
+        >
+          Mike Roberts
+        </Link>{" "}
+        plants Ridgeview&rsquo;s first vines beneath the South Downs ridge.
+      </>
+    ),
+  },
   { year: "2000", text: "First vintage released — English Wine of the Year." },
   { year: "2010", text: "Blanc de Blancs crowned Best Global Sparkling Wine at Decanter." },
   { year: "2012", text: "Official wine of the Queen's Diamond Jubilee celebrations." },

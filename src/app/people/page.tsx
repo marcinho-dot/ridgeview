@@ -3,7 +3,7 @@
 /**
  * /people — the people behind Ridgeview.
  *
- * Three-chapter scroll narrative driven by the 21st.dev
+ * Two-chapter scroll narrative driven by the 21st.dev
  * `story-scroll` component (FlowArt + FlowSection). Each chapter
  * pins to the viewport while the next slides up and rotates from
  * 30° → 0° as it locks in — same mechanic as the reference demo,
@@ -11,16 +11,17 @@
  *
  *   01 · The People       — the team behind the estate
  *   02 · The Winemaker    — Simon Roberts (head winemaker)
- *   03 · The Founder      — Mike Roberts (in memoriam)
+ *
+ * Mike Roberts (founder, in memoriam) used to live here as chapter
+ * 03. He's been moved to his own dedicated page at /mike-roberts
+ * (2026-05-17). The Winemaker chapter below links to that page
+ * from his name in the body copy.
  *
  * Reading order inside each chapter (top → bottom):
  *   kicker → divider → headline → divider → body → divider → images
- *
- * Editorial copy is brand-voice-clean (verifiable facts only,
- * pulled from the migrated "Remembering Mike Roberts" tribute
- * article in `content/articles/`).
  */
 
+import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { BottomNav } from "@/components/BottomNav";
@@ -147,8 +148,14 @@ export default function PeoplePage() {
             className="max-w-[60ch] font-body font-light text-white/70 leading-relaxed"
             style={{ fontSize: "clamp(15px, 1.4vw, 18px)" }}
           >
-            Head Winemaker at Ridgeview and son of founder Mike Roberts.
-            Simon carries the{" "}
+            Head Winemaker at Ridgeview and son of founder{" "}
+            <Link
+              href="/mike-roberts"
+              className="text-[#C8A96E] hover:text-[#C8A96E]/75 underline decoration-[#C8A96E]/40 hover:decoration-[#C8A96E]/70 underline-offset-4 transition-colors duration-300"
+            >
+              Mike Roberts
+            </Link>
+            . Simon carries the{" "}
             <span className="text-[#C8A96E]">Méthode Traditionnelle</span> forward on
             Sussex chalk — every cuvée passes through his hands from press to
             dégorgement, guided by the same conviction his father planted in
@@ -184,124 +191,9 @@ export default function PeoplePage() {
           </div>
         </FlowSection>
 
-        {/* ───────── 03 · The Founder · Mike Roberts (In Memoriam) ── */}
-        <FlowSection
-          aria-label="Mike Roberts — Founder, in memoriam"
-          style={{ backgroundColor: "#010101", color: "#f5f0e8" }}
-        >
-          <p
-            className="font-display italic text-[#C8A96E] uppercase"
-            style={{
-              fontSize: "clamp(13px, 1.2vw, 15px)",
-              letterSpacing: "0.25em",
-            }}
-          >
-            The Founder
-          </p>
-          <hr className="my-[0.15vw] border-none border-t border-[#C8A96E]/40" />
-
-          <div>
-            <h2
-              className="font-display italic font-normal text-cream"
-              style={{
-                fontSize: "clamp(2.5rem, 7.5vw, 7.5rem)",
-                lineHeight: 1.02,
-              }}
-            >
-              Mike Roberts.
-            </h2>
-            <p
-              className="mt-2 font-display italic text-[#C8A96E]"
-              style={{ fontSize: "clamp(13px, 1.2vw, 16px)" }}
-            >
-              In Memoriam
-            </p>
-            <p
-              className="mt-2 md:mt-3 font-body font-light text-white/55 uppercase"
-              style={{
-                fontSize: "clamp(11px, 1vw, 12px)",
-                letterSpacing: "0.3em",
-              }}
-            >
-              Founder · Member of the Order of the British Empire
-            </p>
-          </div>
-
-          <hr className="my-[0.4vw] border-none border-t border-[#C8A96E]/40" />
-
-          <p
-            className="max-w-[60ch] font-body font-light text-white/75 leading-relaxed"
-            style={{ fontSize: "clamp(15px, 1.4vw, 18px)" }}
-          >
-            Founded Ridgeview in{" "}
-            <span className="text-[#C8A96E]">1995</span>, planting the first
-            vines when few in England dared. Awarded an{" "}
-            <span className="text-[#C8A96E]">MBE</span> in 2011 for his
-            services to the English sparkling wine industry. His guiding motto —
-            &ldquo;life is for celebrating&rdquo; — still shapes every bottle
-            Ridgeview makes today.
-          </p>
-
-          {/* HR + image grid flow directly after the body paragraph
-              with the FlowSection's gap-3 (12 px) spacing — compact
-              stack at the top, empty band below the images instead
-              (2026-05-15 user direction). */}
-          <div>
-            <hr className="my-[0.4vw] border-none border-t border-[#C8A96E]/40" />
-
-            {/* 3-photo grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
-              <img
-                src={`${basePath}/images/people/mike-hero.png`}
-                alt="Mike Roberts, founder of Ridgeview Wine Estate"
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
-              <img
-                src={`${basePath}/images/people/mike-1.webp`}
-                alt="Mike Roberts in the early years of Ridgeview"
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
-              <img
-                src={`${basePath}/images/people/mike-dogs.jpg`}
-                alt="Mike Roberts at the estate with his dogs"
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-              />
-              {/* "life is for celebrating" — Mike Roberts's guiding
-                  motto, also Ridgeview's house motto. Sits as a
-                  typographic lock-up at the bottom of his last
-                  portrait. Gradient softens the photo behind so the
-                  cream italic stays readable on any image content. */}
-              <div className="absolute inset-x-0 bottom-0 px-5 pb-5 pt-12 md:px-7 md:pb-7 md:pt-16 bg-gradient-to-t from-black/92 via-black/55 to-transparent">
-                <p
-                  className="font-display italic text-cream text-center leading-tight"
-                  style={{ fontSize: "clamp(15px, 1.9vw, 24px)" }}
-                >
-                  &ldquo;life is for{" "}
-                  <span className="text-[#C8A96E]">celebrating</span>
-                  &rdquo;
-                </p>
-                <p
-                  className="mt-2 font-body font-light text-white/55 uppercase text-center"
-                  style={{
-                    fontSize: "clamp(9px, 0.85vw, 11px)",
-                    letterSpacing: "0.3em",
-                  }}
-                >
-                  Mike Roberts
-                </p>
-              </div>
-            </div>
-            </div>
-          </div>
-        </FlowSection>
+        {/* Mike Roberts's tribute section (formerly chapter 03) has
+            been moved to its own dedicated page at /mike-roberts
+            (2026-05-17). Linked from the Winemaker paragraph above. */}
       </FlowArt>
 
       <Footer />
