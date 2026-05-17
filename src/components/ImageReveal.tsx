@@ -40,11 +40,11 @@ const galleryImages = [
   { src: "gallery-4.jpg", alt: "A walk through the Ridgeview vineyard, South Downs in the distance" },
   { src: "gallery-1.jpg", alt: "Ridgeview restaurant pavilion seen from the garden with vineyard backdrop" },
   { src: "gallery-5.jpg", alt: "Ridgeview restaurant pavilion and covered terrace seating" },
-  { src: "gallery-3.jpg", alt: "Ridgeview Estate restaurant pavilion overlooking the vineyard at golden hour" },
-  // Slot 6 (last card, z-10) — added 2026-05-18 per user direction.
-  // AF_LXA_Ridgeview Wine Estate-23: wide overview of the pavilion
-  // plus the South Downs vineyard sweeping out behind it.
+  // 2026-05-18 (later): user swapped the last two slots — wide
+  // aerial overview now lands at slot 5 (z-20), golden-hour
+  // pavilion-interior closer to the right edge (slot 6, z-10).
   { src: "gallery-6.jpg", alt: "Aerial overview of the Ridgeview pavilion with vineyard and South Downs beyond" },
+  { src: "gallery-3.jpg", alt: "Ridgeview Estate restaurant pavilion overlooking the vineyard at golden hour" },
 ];
 
 /* ── Social links ──────────────────────────────────────────────────── */
@@ -252,16 +252,22 @@ export function ImageRevealSection() {
 
   const imgSize = mobile ? 155 : 300;
   // 6-card fan layout (2026-05-18 — was 5 cards). Symmetric — three
-  // cards on each side, no centre slot. Outer spread held at
-  // ±125 mobile / ±440 desktop so the rotated corners don't clip
-  // past the viewport edge on 375px phones (user-set padding).
-  // Inner cards packed tighter to make room for the extra card.
-  const xL3 = mobile ? -125 : -440;
-  const xL2 = mobile ? -78  : -260;
-  const xL1 = mobile ? -28  : -90;
-  const xR1 = mobile ? 28   : 90;
-  const xR2 = mobile ? 78   : 260;
-  const xR3 = mobile ? 125  : 440;
+  // cards on each side, no centre slot.
+  //
+  // Mobile outer spread further reduced (was ±125, now ±95) — user
+  // reported the cards still clipped past the viewport edge on
+  // 375px phones because the bounding box of an 11°-rotated 155px
+  // card is ~180px wide, so 125 + 90 = 215 from centre easily
+  // overshoots a 187.5px half-viewport. At ±95 + ~90 rotation
+  // extent = ~185 from centre, leaving ~2-5px breathing on each
+  // side at 375vw. Inner cards scaled down proportionally.
+  // Desktop spread unchanged.
+  const xL3 = mobile ? -95 : -440;
+  const xL2 = mobile ? -58 : -260;
+  const xL1 = mobile ? -20 : -90;
+  const xR1 = mobile ? 20  : 90;
+  const xR2 = mobile ? 58  : 260;
+  const xR3 = mobile ? 95  : 440;
 
   const spring = { type: "spring" as const, stiffness: 120, damping: 12 };
 
