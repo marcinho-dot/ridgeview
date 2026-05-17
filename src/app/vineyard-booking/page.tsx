@@ -455,8 +455,7 @@ function HeritageDiscoverySection() {
                 textShadow: "0 2px 14px rgba(0,0,0,0.85)",
               }}
             >
-              Before Dom Pérignon began his experiments in Épernay, an English
-              scientist documented the method that makes wine sparkle.
+              The recipe for sparkling wine was first written down in London.
             </p>
           </FadeUp>
 
@@ -485,9 +484,7 @@ function HeritageDiscoverySection() {
                   textShadow: "0 2px 20px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.5)",
                 }}
               >
-                Our wine coopers of latter times use vast quantities of sugar and
-                molasses to all sorts of wines to make the drink brisk and sparkling
-                -{" "}<span className="text-[#C8A96E]">and to give them spirit.</span>
+                Some Observations concerning the Ordering of Wines.
               </blockquote>
             </div>
           </FadeUp>
@@ -501,7 +498,7 @@ function HeritageDiscoverySection() {
                 textShadow: "0 1px 8px rgba(0,0,0,0.7)",
               }}
             >
-              - Christopher Merret · Royal Society · London, 1662
+              - Christopher Merret · Royal Society · London, 17 December 1662
             </p>
           </FadeUp>
 
