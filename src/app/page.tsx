@@ -15,12 +15,12 @@ export default function Home() {
     <main>
       <Navbar />
       <HeroSection />
-      {/* Beyond-the-Bottle category cards — replaces the legacy
+      {/* Beyond-the-Bottle category cards - replaces the legacy
           BlogSection. 7 horizontally-scrollable cards, each linking
           to /beyond-the-bottle/#<category-slug>. */}
       <ScrollReset><CategoryCardRow /></ScrollReset>
       <ScrollReset><HeritageSoilSection /></ScrollReset>
-      {/* ImageRevealSection is intentionally NOT wrapped in ScrollReset —
+      {/* ImageRevealSection is intentionally NOT wrapped in ScrollReset -
           it uses once:false so the gallery cards re-animate every time the
           section scrolls into view, regardless of direction. */}
       <ImageRevealSection />

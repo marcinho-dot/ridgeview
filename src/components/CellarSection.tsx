@@ -6,7 +6,7 @@ import { basePath } from "@/lib/basePath";
 
 const milestones = [
   { year: "1995", text: "Ridgeview plants first vines beneath the South Downs ridge." },
-  { year: "2000", text: "First commercial vintage — English sparkling wine comes of age." },
+  { year: "2000", text: "First commercial vintage - English sparkling wine comes of age." },
   { year: "2010", text: "Blanc de Blancs crowned Best Global Sparkling Wine at Decanter." },
   { year: "2012", text: "Official sparkling wine of the Queen's Diamond Jubilee celebrations." },
   { year: "2024", text: "UK Government's most-poured sparkling wine of the year." },
@@ -75,8 +75,8 @@ export function CellarSection() {
               From a pioneering vision to the world stage.
             </h3>
             <p className="font-body text-white/60 text-[14px] leading-relaxed mb-5" style={{ fontWeight: 300 }}>
-              It began with a belief: that the chalk soils beneath the South Downs — mirroring Champagne&apos;s
-              geology — could produce world-class sparkling wine. In 1995, Ridgeview planted its
+              It began with a belief: that the chalk soils beneath the South Downs - mirroring Champagne&apos;s
+              geology - could produce world-class sparkling wine. In 1995, Ridgeview planted its
               first vines at a time when many said it simply couldn&apos;t be done.
             </p>
             <p className="font-body text-white/60 text-[14px] leading-relaxed mb-8" style={{ fontWeight: 300 }}>
@@ -96,7 +96,7 @@ export function CellarSection() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={`${basePath}/images/cellar-detail.png`}
-                alt="Ridgeview cellar — selecting bottles by hand"
+                alt="Ridgeview cellar - selecting bottles by hand"
                 className="w-full h-full object-cover"
                 style={{ objectPosition: "center 30%" }}
               />
@@ -140,7 +140,7 @@ export function CellarSection() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={`${basePath}/images/lifestyle-bg.png`}
-                alt="Ridgeview — enjoyed at sunset"
+                alt="Ridgeview - enjoyed at sunset"
                 className="w-full h-full object-cover"
                 style={{ objectPosition: "center 60%" }}
               />

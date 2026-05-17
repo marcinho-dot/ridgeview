@@ -9,7 +9,7 @@ import type { Article } from "@/data/articles";
  * /beyond-the-bottle/ hub and (Phase 4) on article detail pages as a
  * "related articles" tile.
  *
- * Click → /beyond-the-bottle/<slug>/  (Phase 4 route — for now a 404
+ * Click → /beyond-the-bottle/<slug>/  (Phase 4 route - for now a 404
  * placeholder is acceptable since Phase 2 is skeleton only).
  */
 
@@ -35,7 +35,7 @@ export function ArticleCard({ article, index = 0 }: Props) {
         ease: [0.16, 1, 0.3, 1],
       }}
     >
-      {/* Image stage — dark frame, subtle gold radial atmosphere */}
+      {/* Image stage - dark frame, subtle gold radial atmosphere */}
       <div className="relative aspect-[4/3] overflow-hidden mb-4 bg-[#0a0a0a] rounded-sm">
         <div
           className="absolute inset-0 pointer-events-none z-10"
@@ -82,7 +82,7 @@ export function ArticleCard({ article, index = 0 }: Props) {
         {article.title}
       </h3>
 
-      {/* Excerpt — truncated to 2 lines */}
+      {/* Excerpt - truncated to 2 lines */}
       {article.excerpt && (
         <p
           className="font-body text-white/55 group-hover:text-white/75 leading-relaxed transition-colors duration-400"

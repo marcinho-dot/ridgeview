@@ -1,6 +1,6 @@
 "use client";
 
-// Adapted from 21st.dev — MagneticButton
+// Adapted from 21st.dev - MagneticButton
 import { useRef, useState, useEffect, ReactNode } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 

@@ -48,33 +48,33 @@ export default function PrivacyPage() {
       </p>
       <ul>
         <li>
-          <strong>Identity data</strong> — first name, last name, date of
+          <strong>Identity data</strong> - first name, last name, date of
           birth (for age verification), and where applicable, title.
         </li>
         <li>
-          <strong>Contact data</strong> — billing and delivery address,
+          <strong>Contact data</strong> - billing and delivery address,
           email address, telephone number.
         </li>
         <li>
-          <strong>Transaction data</strong> — products purchased, order
+          <strong>Transaction data</strong> - products purchased, order
           values, payment confirmation tokens. We do not store full card
           numbers; payment is handled by our PCI-compliant payment
           processor.
         </li>
         <li>
-          <strong>Account data</strong> — if you create an account: user
+          <strong>Account data</strong> - if you create an account: user
           ID, hashed password, communication preferences.
         </li>
         <li>
-          <strong>Marketing data</strong> — your preferences in receiving
+          <strong>Marketing data</strong> - your preferences in receiving
           marketing from us; your interaction with our emails.
         </li>
         <li>
-          <strong>Technical data</strong> — IP address, browser type and
+          <strong>Technical data</strong> - IP address, browser type and
           version, time-zone setting, device type, and pages visited.
         </li>
         <li>
-          <strong>Sensitive data</strong> — only where you voluntarily
+          <strong>Sensitive data</strong> - only where you voluntarily
           disclose it (e.g. dietary requirements for an estate visit).
           We process this with explicit consent.
         </li>
@@ -129,30 +129,30 @@ export default function PrivacyPage() {
       </p>
       <ul>
         <li>
-          <strong>Payment processors</strong> — our card payment provider
+          <strong>Payment processors</strong> - our card payment provider
           handles your transaction and does not return card details to
           us. (Provider will be named here once integration is confirmed
           by our board.)
         </li>
         <li>
-          <strong>Delivery courier</strong> — name, address and phone
+          <strong>Delivery courier</strong> - name, address and phone
           number for the courier of choice.
         </li>
         <li>
-          <strong>Email service provider</strong> — for order
+          <strong>Email service provider</strong> - for order
           confirmations and (with consent) marketing.
         </li>
         <li>
-          <strong>IT and hosting providers</strong> — Vercel Inc.,
+          <strong>IT and hosting providers</strong> - Vercel Inc.,
           deployment platform; standard server logs for security and
           troubleshooting.
         </li>
         <li>
-          <strong>Professional advisors</strong> — accountants and
+          <strong>Professional advisors</strong> - accountants and
           lawyers, under standard confidentiality terms.
         </li>
         <li>
-          <strong>HMRC and other regulators</strong> — where required by
+          <strong>HMRC and other regulators</strong> - where required by
           law.
         </li>
       </ul>
@@ -171,54 +171,54 @@ export default function PrivacyPage() {
       <h2>6. How long we keep it</h2>
       <ul>
         <li>
-          <strong>Order records</strong> — kept for at least six years
+          <strong>Order records</strong> - kept for at least six years
           after the end of the tax year in which the order was placed,
           to meet HMRC accounting requirements.
         </li>
         <li>
-          <strong>Account data</strong> — for as long as your account is
+          <strong>Account data</strong> - for as long as your account is
           active. You can delete your account at any time; we will
           retain only what we are legally required to keep.
         </li>
         <li>
-          <strong>Marketing consents</strong> — until you withdraw
+          <strong>Marketing consents</strong> - until you withdraw
           consent (unsubscribe link in every email, or write to us).
         </li>
         <li>
-          <strong>Technical logs</strong> — typically 30–90 days.
+          <strong>Technical logs</strong> - typically 30-90 days.
         </li>
       </ul>
 
       <h2>7. Your rights</h2>
       <p>
-        Under the UK GDPR you have the following rights — free of charge
+        Under the UK GDPR you have the following rights - free of charge
         in most cases:
       </p>
       <ul>
         <li>
-          <strong>Access</strong> — a copy of the personal data we hold
+          <strong>Access</strong> - a copy of the personal data we hold
           about you.
         </li>
         <li>
-          <strong>Rectification</strong> — correction of inaccurate data.
+          <strong>Rectification</strong> - correction of inaccurate data.
         </li>
         <li>
-          <strong>Erasure</strong> — deletion where it is no longer
+          <strong>Erasure</strong> - deletion where it is no longer
           needed (subject to legal retention obligations).
         </li>
         <li>
-          <strong>Restriction</strong> — limit how we process your data.
+          <strong>Restriction</strong> - limit how we process your data.
         </li>
         <li>
-          <strong>Portability</strong> — receive your data in a
+          <strong>Portability</strong> - receive your data in a
           machine-readable format.
         </li>
         <li>
-          <strong>Objection</strong> — to processing based on legitimate
+          <strong>Objection</strong> - to processing based on legitimate
           interests, including direct marketing.
         </li>
         <li>
-          <strong>Withdrawal of consent</strong> — at any time, where we
+          <strong>Withdrawal of consent</strong> - at any time, where we
           rely on consent.
         </li>
       </ul>
@@ -233,7 +233,7 @@ export default function PrivacyPage() {
         If you are unhappy with how we have handled your data, please
         contact us first so we can put things right. You also have the
         right to lodge a complaint with the Information Commissioner&rsquo;s
-        Office (ICO) — the UK&rsquo;s data protection regulator — at{" "}
+        Office (ICO) - the UK&rsquo;s data protection regulator - at{" "}
         <a
           href={COMPANY.external.icoUrl}
           target="_blank"
@@ -247,7 +247,7 @@ export default function PrivacyPage() {
       <h2>9. Cookies</h2>
       <p>
         Our website uses cookies and similar technologies. Full details
-        — including how to control them — are on our{" "}
+        - including how to control them - are on our{" "}
         <a href="/legal/cookies">Cookie Policy</a>.
       </p>
 

@@ -69,7 +69,7 @@ export function OurViewSection() {
             community.
           </p>
 
-          {/* Primary CTA — leads to the dedicated /wine-club/ landing
+          {/* Primary CTA - leads to the dedicated /wine-club/ landing
               page where the full pricing + member benefits live. The
               newsletter signup that used to sit below this has moved to
               the Footer ("Stay in the loop" column). */}
@@ -94,7 +94,7 @@ export function OurViewSection() {
               viewport={{ once: true, amount: 0.5, margin: "0px 0px -80px 0px" }}
               transition={{ duration: 0.65, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
-              {/* Arrow — always cream, slides 4px on hover */}
+              {/* Arrow - always cream, slides 4px on hover */}
               <span
                 aria-hidden
                 className="font-body text-cream flex-shrink-0 transition-transform duration-400 ease-out group-hover:translate-x-1 group-hover:text-[#C8A96E]"
@@ -103,7 +103,7 @@ export function OurViewSection() {
                 →
               </span>
 
-              {/* Text — cream by default, gold on hover */}
+              {/* Text - cream by default, gold on hover */}
               <span
                 className="font-display transition-colors duration-400 text-cream group-hover:text-[#C8A96E]"
                 style={{

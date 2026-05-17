@@ -7,7 +7,7 @@ import { categories, articles, type CategorySlug } from "@/data/articles";
 import { basePath } from "@/lib/basePath";
 
 /**
- * Beyond-the-Bottle category accordion — restores the legacy
+ * Beyond-the-Bottle category accordion - restores the legacy
  * BlogSection look (horizontal flex-panel strip on desktop, vertical
  * collapse rows on mobile) and adapts it to the new content shape:
  * each panel = one category, the active panel reveals the category's
@@ -64,7 +64,7 @@ function DesktopStrip({
   const canHover = useCanHover();
 
   // NOTE: NO `onMouseLeave` collapse on the strip container.
-  // The article grid sits BELOW the strip — collapsing on mouse-leave
+  // The article grid sits BELOW the strip - collapsing on mouse-leave
   // would yank the grid away as the user moves their cursor down to
   // click an article. Active state now persists until the user
   // explicitly clicks the active panel to close it, or clicks/hovers
@@ -88,7 +88,7 @@ function DesktopStrip({
             onMouseEnter={canHover ? () => setActive(cat.slug) : undefined}
             role="button"
             aria-expanded={isActive}
-            aria-label={`${cat.label} — ${count} stories`}
+            aria-label={`${cat.label} - ${count} stories`}
           >
             {/* Background image */}
             {cat.image && (
@@ -100,7 +100,7 @@ function DesktopStrip({
               />
             )}
 
-            {/* Base overlay — darker when collapsed */}
+            {/* Base overlay - darker when collapsed */}
             <div
               className="absolute inset-0 transition-colors duration-500"
               style={{
@@ -196,7 +196,7 @@ function DesktopStrip({
   );
 }
 
-// ── DESKTOP ARTICLE GRID — appears below strip when a category is active ────
+// ── DESKTOP ARTICLE GRID - appears below strip when a category is active ────
 
 function DesktopArticleGrid({ active }: { active: CategorySlug | null }) {
   const articles = active ? articlesByCategory[active] : [];
@@ -249,7 +249,7 @@ function MobileAccordion({
             transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
             style={{ transitionDelay: `${0.05 + i * 0.06}s` }}
           >
-            {/* Background image — full bleed */}
+            {/* Background image - full bleed */}
             {cat.image && (
               // eslint-disable-next-line @next/next/no-img-element
               <img

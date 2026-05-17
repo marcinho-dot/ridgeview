@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { basePath } from "@/lib/basePath";
 
 /**
- * WineClubUpsellSection — Conversion block linking to OurView Wine Club.
+ * WineClubUpsellSection - Conversion block linking to OurView Wine Club.
  *
  * Background: lifestyle-bg.png (warm tasting / pour scene from existing assets).
  * Two-column on desktop: left = pitch + CTA, right = perks list.
@@ -18,7 +18,7 @@ import { basePath } from "@/lib/basePath";
  * - Complimentary glass at Gingerman Group restaurants (Member + 3 guests)
  * - Complimentary glass at Royal Opera House (seasonal)
  * - Rotating discounts with curated Sussex partner brands (kept generic
- *   so this stays accurate as partner brands change — at sync time the
+ *   so this stays accurate as partner brands change - at sync time the
  *   active partners were Dr. Wills Natural Condiments + Piglets Pantry,
  *   but Ridgeview rotates this roster, so the perk is described
  *   abstractly rather than naming brands).
@@ -27,7 +27,7 @@ import { basePath } from "@/lib/basePath";
 const PERKS = [
   {
     label: "20% off every wine",
-    detail: "Members save 20% on every bottle, case and gift across the Ridgeview range — applied automatically at checkout.",
+    detail: "Members save 20% on every bottle, case and gift across the Ridgeview range - applied automatically at checkout.",
   },
   {
     label: "First access",
@@ -35,11 +35,11 @@ const PERKS = [
   },
   {
     label: "Vineyard partner-perks",
-    detail: "Complimentary glasses of Bloomsbury at the Royal Opera House and Gingerman Group restaurants — member plus up to three guests.",
+    detail: "Complimentary glasses of Bloomsbury at the Royal Opera House and Gingerman Group restaurants - member plus up to three guests.",
   },
   {
     label: "Curated Sussex partners",
-    detail: "Member-only discounts with a rotating network of hand-picked Sussex partners — local food, hospitality and lifestyle brands the estate stands behind.",
+    detail: "Member-only discounts with a rotating network of hand-picked Sussex partners - local food, hospitality and lifestyle brands the estate stands behind.",
   },
   {
     label: "Cellar visits",
@@ -50,7 +50,7 @@ const PERKS = [
 export function WineClubUpsellSection() {
   return (
     <section className="relative bg-[#0a0a0a] border-t border-white/[0.06] overflow-hidden">
-      {/* Background image — lifestyle pour */}
+      {/* Background image - lifestyle pour */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={`${basePath}/images/lifestyle-bg.png`}
@@ -59,12 +59,12 @@ export function WineClubUpsellSection() {
         className="absolute inset-0 w-full h-full object-cover opacity-30"
         style={{ objectPosition: "center 30%" }}
       />
-      {/* Gradient overlay — left side darker for text legibility */}
+      {/* Gradient overlay - left side darker for text legibility */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/40" />
 
       <div className="relative max-w-[1400px] mx-auto px-6 md:px-16 py-24 md:py-32">
         <div className="grid grid-cols-1 md:grid-cols-[5fr_6fr] gap-12 md:gap-20 items-center">
-          {/* Left — pitch */}
+          {/* Left - pitch */}
           <div>
             <div className="reveal" style={{ transitionDelay: "0s" }}>
               <p
@@ -99,7 +99,7 @@ export function WineClubUpsellSection() {
             </div>
           </div>
 
-          {/* Right — perks list */}
+          {/* Right - perks list */}
           <ul className="space-y-7 md:space-y-8">
             {PERKS.map((p, i) => (
               <motion.li

@@ -1,11 +1,11 @@
 /**
- * CartIcon — woven basket with bottle + grape cluster.
+ * CartIcon - woven basket with bottle + grape cluster.
  *
  * Final hand-designed mark supplied by the user (2026-05-16). The
  * source PNG (`public/icons/cart-basket.png`) is a pre-processed
  * alpha mask: the basket silhouette is opaque white, everything
  * else is transparent. We render it as a CSS `mask-image` on a
- * `background-color: currentColor` span — so the basket inherits
+ * `background-color: currentColor` span - so the basket inherits
  * the navbar's themed colour exactly like the previous inline SVG
  * did (white/65 at rest, gold on hover, gold-on-cream on press,
  * etc.). No filter hacks, no colour drift.

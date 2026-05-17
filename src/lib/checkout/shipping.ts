@@ -1,5 +1,5 @@
 /**
- * Shipping.ts — UK mainland shipping options for the checkout flow.
+ * Shipping.ts - UK mainland shipping options for the checkout flow.
  *
  * Modelled on the policy live on ridgeview.co.uk (verified 2026-05-16):
  *   - UK Mainland only (Scotland + NI +1 day, no international shipping)

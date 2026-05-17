@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * EstatePeopleSection — adapted from 21st.dev's
+ * EstatePeopleSection - adapted from 21st.dev's
  * parallax-scroll-feature-section to Ridgeview's dark editorial
  * language.
  *
@@ -61,7 +61,7 @@ function ParallaxRow({
   // Image fades in across the first 70% of progress.
   const imageOpacity = useTransform(scrollYProgress, [0, 0.7], [0, 1]);
 
-  // Image clip-path wipes in from the LEFT — start fully clipped
+  // Image clip-path wipes in from the LEFT - start fully clipped
   // from the right (right edge hides the whole image), end fully
   // revealed.
   const imageClip = useTransform(
@@ -71,7 +71,7 @@ function ParallaxRow({
   );
 
   return (
-    // OUTER row stage. Padding only — no `min-h-screen` (it was
+    // OUTER row stage. Padding only - no `min-h-screen` (it was
     // creating a 100vh empty band between The Estate and The People
     // sections). The parallax animation still completes naturally
     // as the user scrolls past the row.
@@ -125,7 +125,7 @@ function ParallaxRow({
           ))}
         </motion.div>
 
-        {/* Image column — aspect ratio applies on mobile (when
+        {/* Image column - aspect ratio applies on mobile (when
             flex-col, with a 420px width cap). On desktop, both the
             aspect ratio AND the width cap are dropped (md:aspect-auto
             + md:max-w-none) so the image stretches to match the text
@@ -154,7 +154,7 @@ export function EstatePeopleSection() {
     <section className="bg-[#010101] pt-16 md:pt-24">
       <div className="max-w-[1400px] mx-auto px-6 md:px-16">
 
-        {/* Row 1 — The Estate: image left / text right on desktop */}
+        {/* Row 1 - The Estate: image left / text right on desktop */}
         <ParallaxRow
           kicker="[ The Estate ]"
           headline={
@@ -164,8 +164,8 @@ export function EstatePeopleSection() {
             </>
           }
           bodies={[
-            "Over 17,000 vines on the home estate at Ditchling Common, East Sussex — perfectly positioned to grow Chardonnay, Pinot Noir and Pinot Meunier on the same ancient chalk that defines Champagne.",
-            "England’s first underground wine cellars, built in 1999, require no energy — relying on natural ambient temperature. Expanded in 2020 to store one million bottles. Rainwater harvesting, solar energy, and a Bio-Bubble system that has naturally cleaned over 22 million litres of waste water since inception.",
+            "Over 17,000 vines on the home estate at Ditchling Common, East Sussex - perfectly positioned to grow Chardonnay, Pinot Noir and Pinot Meunier on the same ancient chalk that defines Champagne.",
+            "England’s first underground wine cellars, built in 1999, require no energy - relying on natural ambient temperature. Expanded in 2020 to store one million bottles. Rainwater harvesting, solar energy, and a Bio-Bubble system that has naturally cleaned over 22 million litres of waste water since inception.",
           ]}
           imageSrc="/images/estate-vineyard.jpg"
           imageAlt="Ridgeview vineyard with the South Downs ridge in the distance"
@@ -173,7 +173,7 @@ export function EstatePeopleSection() {
           reverse
         />
 
-        {/* Row 2 — The People: text left / image right on desktop */}
+        {/* Row 2 - The People: text left / image right on desktop */}
         <ParallaxRow
           kicker="[ The People ]"
           headline={
@@ -183,8 +183,8 @@ export function EstatePeopleSection() {
             </>
           }
           bodies={[
-            "A dedicated team of viticulturists, winemakers and hospitality professionals — working together to shape the future of English sparkling wine. From vineyard management to cellar craft, every hand plays a part.",
-            "Ridgeview believes in passion, purpose and a commitment to excellence. The team includes second-generation members who grew up among the vines — alongside specialist winemakers and a hospitality crew devoted to making every visit memorable.",
+            "A dedicated team of viticulturists, winemakers and hospitality professionals - working together to shape the future of English sparkling wine. From vineyard management to cellar craft, every hand plays a part.",
+            "Ridgeview believes in passion, purpose and a commitment to excellence. The team includes second-generation members who grew up among the vines - alongside specialist winemakers and a hospitality crew devoted to making every visit memorable.",
           ]}
           imageSrc="/images/harvest-walk.jpg"
           imageAlt="Ridgeview team member walking through the vineyard during harvest, carrying picking buckets"

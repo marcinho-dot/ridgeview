@@ -17,12 +17,12 @@ import { FAQSection } from "@/components/sku/FAQSection";
 import { getTestimonial } from "@/data/testimonials";
 import { basePath } from "@/lib/basePath";
 
-// Engraved Bottle Gift variants — synced 2026-05-12 with ridgeview.co.uk
+// Engraved Bottle Gift variants - synced 2026-05-12 with ridgeview.co.uk
 // (/product/personalised-engraved-wine-bottle-gift/). Bespoke gift
 // service: three of Ridgeview's sparkling wines available with custom
 // engraving on the bottle. Fulfilled by a third-party engraver in up
 // to 5 working days. Live shop shows "Out of Stock" on the variant
-// dropdown — Ridgeview is handling these orders personally via email
+// dropdown - Ridgeview is handling these orders personally via email
 // (info@ridgeview.co.uk) for now.
 //
 // Variant prices below are estimates extracted from the £50-£90 range
@@ -30,7 +30,7 @@ import { basePath } from "@/lib/basePath";
 // Refine if Marc shares the exact dropdown values.
 //
 // Order = ascending price (cheapest entry-point as default), since these
-// are different wines, not formats of the same wine — the FINAL Variant-
+// are different wines, not formats of the same wine - the FINAL Variant-
 // Ordering rule (75cl/Magnum/Case) doesn't apply here.
 const ENGRAVED_BOTTLE_VARIANTS: Variant[] = [
   { label: "Bloomsbury NV", detail: "75cl · Custom Engraving · Made-to-Order", price: 50, image: "/products/bloomsbury.png" },
@@ -73,7 +73,7 @@ function GoldDivider({ origin = "left" as "left" | "center" }) {
 
 function ProductHero() {
   // Parallax: bottle drifts upward 80px as the hero scrolls out of view.
-  // Subtle premium effect — Apple product pages use this exact pattern.
+  // Subtle premium effect - Apple product pages use this exact pattern.
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -81,18 +81,18 @@ function ProductHero() {
   });
   const bottleY = useTransform(scrollYProgress, [0, 1], [0, -80]);
 
-  // The engraved-bottle gift has 3 variants that are 3 DIFFERENT wines —
+  // The engraved-bottle gift has 3 variants that are 3 DIFFERENT wines -
   // not formats of the same wine. Lifting variant state here lets the
   // hero bottle swap to Bloomsbury / Fitzrovia / BdB as the user clicks,
   // which is the biggest visual win of the whole format-swap feature.
   const [variantIdx, setVariantIdx] = useState(0);
   const activeVariant = ENGRAVED_BOTTLE_VARIANTS[variantIdx];
   const heroBottleSrc = activeVariant.image ?? "/products/engraved-bottle-gift.png";
-  const heroBottleAlt = `Ridgeview Engraved Bottle Gift — ${activeVariant.label}`;
+  const heroBottleAlt = `Ridgeview Engraved Bottle Gift - ${activeVariant.label}`;
 
   return (
     // Section sizes to its natural content height (no min-h constraint).
-    // Goal "alles fits in einen viewport und adapts" — by dropping
+    // Goal "alles fits in einen viewport und adapts" - by dropping
     // min-h-[100svh] the hero never pads itself with empty space on
     // tall monitors, and the next section follows immediately. Atmospheric
     // weight is carried by the typography, the oversized bottle (90svh)
@@ -161,7 +161,7 @@ function ProductHero() {
                 so they sit next to the bottle visually and free up vertical space
                 for the ATB button to land inside the initial viewport. */}
 
-            {/* Divider — Desktop: between subtitle and description; Mobile: between
+            {/* Divider - Desktop: between subtitle and description; Mobile: between
                 Price/CTAs and the description block (pushed below the fold via order). */}
             <FadeUp delay={0.4} className="order-6">
               <div className="mb-3 md:mb-5">
@@ -188,7 +188,7 @@ function ProductHero() {
                 Desktop: source order applies → block is at the end as before. */}
             <FadeUp delay={0.55} className="order-5 mb-6 md:mb-0">
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 md:gap-10">
-                {/* Stateful purchase block — variant + qty + free-shipping bar + ATB */}
+                {/* Stateful purchase block - variant + qty + free-shipping bar + ATB */}
                 <div className="flex-1 max-w-[480px]">
                   <PurchaseWidget
                     slug="engraved-bottle-gift"
@@ -198,13 +198,13 @@ function ProductHero() {
                     variants={ENGRAVED_BOTTLE_VARIANTS}
                     freeShippingThreshold={45}
                     ctaId="hero-mobile-cta"
-                    memberNote="Each engraved bottle is handled personally — to arrange your order, confirm the engraving text and discuss larger or corporate gifts, please email info@ridgeview.co.uk. Fulfilment in up to 5 working days."
+                    memberNote="Each engraved bottle is handled personally - to arrange your order, confirm the engraving text and discuss larger or corporate gifts, please email info@ridgeview.co.uk. Fulfilment in up to 5 working days."
                     variantIdx={variantIdx}
                     onVariantChange={setVariantIdx}
                   />
                 </div>
 
-                {/* No hero badges — this is a gifting service, not a wine
+                {/* No hero badges - this is a gifting service, not a wine
                     being judged. The 3 underlying wines have their own
                     awards on their respective SKU pages. */}
               </div>
@@ -215,7 +215,7 @@ function ProductHero() {
           {/* md:mt-20 drops the bottle column ~80px on desktop so the
               foil cap sits around the H1 title baseline (instead of
               crowding the breadcrumb/navbar). Info column stays tight
-              against the breadcrumb — the offset only applies to the
+              against the breadcrumb - the offset only applies to the
               bottle so the two columns get an editorial "stagger".
               Mobile keeps the bottle at the top of the stack (no mt). */}
           <FadeUp delay={0.05} className="order-1 md:order-2 md:mt-20">
@@ -223,7 +223,7 @@ function ProductHero() {
               className="relative h-[clamp(320px,44svh,420px)] md:h-[clamp(480px,62svh,720px)]"
               style={{ overflow: "visible" }}
             >
-              {/* soft halo — absolute centered, no layout impact */}
+              {/* soft halo - absolute centered, no layout impact */}
               <div
                 className="absolute top-1/2 left-1/2 pointer-events-none"
                 style={{
@@ -237,15 +237,15 @@ function ProductHero() {
                 }}
               />
 
-              {/* Mobile award badges — absolute overlay, vertically stacked
+              {/* Mobile award badges - absolute overlay, vertically stacked
                   on the left side of the bottle wrapper. Each badge has
                   a micro-caption (year only) underneath. Anchored 30px
                   higher than the bottle midpoint so it sits in the upper
                   half of the wrapper, where the eye lands first. */}
-              {/* No mobile award badges for the Engraved Bottle Gift —
+              {/* No mobile award badges for the Engraved Bottle Gift -
                   gifting service rather than wine judged on its merits. */}
 
-              {/* Bottle wrapper — absolute, doesn't dictate column height.
+              {/* Bottle wrapper - absolute, doesn't dictate column height.
                   Wrapped in motion.div so the bottle drifts upward via the
                   scroll-driven parallax (subtle 80px range). */}
               <motion.div
@@ -257,7 +257,7 @@ function ProductHero() {
                 <BottleStage src={heroBottleSrc} alt={heroBottleAlt} />
               </motion.div>
 
-              {/* Quick "Add to basket" — anchored bottom-right next to the bottle
+              {/* Quick "Add to basket" - anchored bottom-right next to the bottle
                   on every breakpoint. Marked with data-atb-trigger so the
                   StickyMobileCTA only appears when this AND every other ATB
                   on the page is out of view. The widget ATB in the info
@@ -423,7 +423,7 @@ function BlendSection() {
           </FadeUp>
         </div>
 
-        {/* Single big percentage — 100% Pinot Précoce, centered */}
+        {/* Single big percentage - 100% Pinot Précoce, centered */}
         <div className="flex justify-center mb-20 md:mb-24">
           <FadeUp delay={0.28}>
             <div className="group text-center cursor-default px-8">
@@ -479,7 +479,7 @@ function BlendSection() {
 // ── Awards & Specs ──────────────────────────────────────────────────────────
 
 function AwardsSpecsSection() {
-  // No awards yet — new launch (2026). Section gracefully renders empty
+  // No awards yet - new launch (2026). Section gracefully renders empty
   // awards list; the Specs column below carries the wine's info.
   const awards: { medal: string; body: string; year: string }[] = [];
 
@@ -489,13 +489,13 @@ function AwardsSpecsSection() {
     { label: "Bottle Size", value: "75cl (all options)" },
     { label: "Lead Time", value: "Up to 5 working days (third-party engraver)" },
     { label: "Min. Order", value: "Single bottle" },
-    { label: "Larger Orders", value: "Yes — please email info@ridgeview.co.uk" },
+    { label: "Larger Orders", value: "Yes - please email info@ridgeview.co.uk" },
     { label: "Corporate Use", value: "Available · contact for branded engraving" },
     { label: "Allergens", value: "Contains Sulphites (underlying wines)" },
   ];
 
   // If awards is empty, render only the Specs column (centered, single-
-  // column) — no orphaned "Awards" headline above an empty list.
+  // column) - no orphaned "Awards" headline above an empty list.
   const hasAwards = awards.length > 0;
 
   return (
@@ -505,7 +505,7 @@ function AwardsSpecsSection() {
           ? "grid grid-cols-1 md:grid-cols-[55fr_45fr] gap-16 md:gap-24"
           : "max-w-[640px] mx-auto"
         }>
-          {/* Awards — rendered only when there are awards to list */}
+          {/* Awards - rendered only when there are awards to list */}
           {hasAwards && (
           <div>
             <FadeUp>
@@ -623,7 +623,7 @@ function ClosingCTA() {
         </FadeUp>
         <FadeUp delay={0.2}>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            {/* No data-atb-trigger here — this is a duplicate CTA, not the
+            {/* No data-atb-trigger here - this is a duplicate CTA, not the
                 primary purchase action. StickyMobileCTA should stay visible
                 when ClosingCTA enters the viewport. */}
             <button
@@ -668,27 +668,27 @@ const FAQ_ITEMS = [
   {
     question: "When will my order arrive?",
     answer:
-      "Standard UK delivery is 2–4 working days. Order before noon for next-working-day dispatch. Free UK delivery on orders over £45.",
+      "Standard UK delivery is 2-4 working days. Order before noon for next-working-day dispatch. Free UK delivery on orders over £45.",
   },
   {
     question: "How does the engraving work?",
     answer:
-      "Each bottle is engraved by hand by our specialist engraver after you place the order. You'll confirm the engraving text by email (info@ridgeview.co.uk) — name, dates, short messages and corporate logos are all supported. Fulfilment takes up to 5 working days from confirmation.",
+      "Each bottle is engraved by hand by our specialist engraver after you place the order. You'll confirm the engraving text by email (info@ridgeview.co.uk) - name, dates, short messages and corporate logos are all supported. Fulfilment takes up to 5 working days from confirmation.",
   },
   {
     question: "Can I order larger or corporate quantities?",
     answer:
-      "Yes — for case orders, branded corporate gifts or events, please email info@ridgeview.co.uk with quantity and engraving brief. We arrange bespoke runs on a case-by-case basis.",
+      "Yes - for case orders, branded corporate gifts or events, please email info@ridgeview.co.uk with quantity and engraving brief. We arrange bespoke runs on a case-by-case basis.",
   },
   {
     question: "Can I add a personalised gift note?",
     answer:
-      "Yes — every order includes a complimentary handwritten gift note option at checkout. Add the recipient's address and we'll ship directly to them, with no prices on the packing slip.",
+      "Yes - every order includes a complimentary handwritten gift note option at checkout. Add the recipient's address and we'll ship directly to them, with no prices on the packing slip.",
   },
   {
     question: "Do you ship outside the UK?",
     answer:
-      "International shipping is available to most of Europe and selected destinations. Customs and duties may apply at the destination — please contact our team for a tailored quote.",
+      "International shipping is available to most of Europe and selected destinations. Customs and duties may apply at the destination - please contact our team for a tailored quote.",
   },
   {
     question: "What if I'm not happy with the wine?",
@@ -697,7 +697,7 @@ const FAQ_ITEMS = [
   },
 ];
 
-// The three wines available for engraving — each linked to its own SKU
+// The three wines available for engraving - each linked to its own SKU
 // page so visitors can read the full tasting story before customising.
 const RELATED_WINES = [
   {
@@ -706,7 +706,7 @@ const RELATED_WINES = [
     style: "House Cuvée · Sparkling Wine of the Year 2024",
     price: 34,
     image: "/products/bloomsbury.png",
-    note: "The bestselling Méthode Traditionnelle blend — Sommelier Awards 2024 Wine of the Year.",
+    note: "The bestselling Méthode Traditionnelle blend - Sommelier Awards 2024 Wine of the Year.",
   },
   {
     slug: "fitzrovia",
@@ -714,7 +714,7 @@ const RELATED_WINES = [
     style: "Sparkling Rosé · Non Vintage",
     price: 40,
     image: "/products/fitzrovia.png",
-    note: "Wild raspberry and summer fruit — a celebratory rosé in fine bubbles.",
+    note: "Wild raspberry and summer fruit - a celebratory rosé in fine bubbles.",
   },
   {
     slug: "blanc-de-blancs",
@@ -722,7 +722,7 @@ const RELATED_WINES = [
     style: "Vintage · Single-Vineyard Chardonnay",
     price: 75,
     image: "/products/blanc-de-blancs.png",
-    note: "Pure Chardonnay from the 1995 plantings — Decanter Platinum 2023.",
+    note: "Pure Chardonnay from the 1995 plantings - Decanter Platinum 2023.",
   },
 ];
 
@@ -733,7 +733,7 @@ export default function EngravedBottleGiftPage() {
 
   return (
     <main className="bg-[#010101] pb-[80px] md:pb-0">
-      {/* Schema.org JSON-LD — Google Rich Snippets (product, aggregate rating, reviews) */}
+      {/* Schema.org JSON-LD - Google Rich Snippets (product, aggregate rating, reviews) */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA_LD) }}
@@ -742,23 +742,23 @@ export default function EngravedBottleGiftPage() {
       <Navbar />
       <ProductHero />
       {/* TastingPairingSection + BlendSection removed for the gifting
-          service — those sections describe wine character, but here the
+          service - those sections describe wine character, but here the
           underlying wine is chosen at order time (3 options), so the page
           surfaces the gifting story instead. The local component definitions
           remain in this file but are not rendered. */}
 
-      {/* A) Behind the Bottle — production craft pillars shared across every
+      {/* A) Behind the Bottle - production craft pillars shared across every
           Ridgeview SKU (Soil → Harvest → Winemaking). SKU-specific details
           like single-vineyard / lees duration / palate live in the Specs
           section and the Varietal section above. */}
       <ScrollReset>
         <BehindTheBottleSection
           headline={<>Crafted in the <span className="text-[#C8A96E]">Méthode Traditionnelle</span>.</>}
-          intro="For three decades, Ridgeview has crafted English sparkling wines the long way — by hand, on the chalk hills of Sussex, using the same Traditional Method as the great houses of Champagne."
+          intro="For three decades, Ridgeview has crafted English sparkling wines the long way - by hand, on the chalk hills of Sussex, using the same Traditional Method as the great houses of Champagne."
           pillars={[
-            { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region — the foundation of every great sparkling wine." },
+            { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region - the foundation of every great sparkling wine." },
             { label: "Hand Harvest", detail: "Grapes are picked at first light and sorted by hand to keep only the most balanced bunches." },
-            { label: "Méthode Traditionnelle", detail: "An English invention — coal-fired bottles strong enough to hold the bubbles, the cork to seal them in, deliberate secondary fermentation." },
+            { label: "Méthode Traditionnelle", detail: "An English invention - coal-fired bottles strong enough to hold the bubbles, the cork to seal them in, deliberate secondary fermentation." },
           ]}
         />
       </ScrollReset>
@@ -767,7 +767,7 @@ export default function EngravedBottleGiftPage() {
         <ScrollReset><TestimonialSection testimonial={testimonial} /></ScrollReset>
       )}
 
-      {/* AwardSection omitted — gifting service, no awards. AwardsSpecsSection
+      {/* AwardSection omitted - gifting service, no awards. AwardsSpecsSection
           below conditionally hides the empty Awards column and just shows
           the gifting-service specs (lead time, min order, corporate options). */}
       <ScrollReset><AwardsSpecsSection /></ScrollReset>
@@ -788,7 +788,7 @@ export default function EngravedBottleGiftPage() {
       <ScrollReset><ClosingCTA /></ScrollReset>
       <Footer />
       {/* Sticky mobile purchase bar (Mini-Flasche + Preis + ATB) appears only
-          when EVERY ATB on the page (hero bottle-side, widget, ClosingCTA —
+          when EVERY ATB on the page (hero bottle-side, widget, ClosingCTA -
           all marked with data-atb-trigger) is out of viewport. As soon as
           any ATB scrolls back in, the bar hides. */}
       <StickyMobileCTA

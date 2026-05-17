@@ -6,7 +6,7 @@ import { basePath } from "@/lib/basePath";
 import { useCart } from "@/lib/cart/CartContext";
 
 /**
- * StickyMobileCTA — Mobile-only sticky bottom bar mit "Add to basket" CTA.
+ * StickyMobileCTA - Mobile-only sticky bottom bar mit "Add to basket" CTA.
  *
  * - Zeigt sich automatisch, sobald die ursprünglichen Hero-CTAs (referenziert
  *   via `triggerRef`) aus dem Viewport scrollen.
@@ -15,7 +15,7 @@ import { useCart } from "@/lib/cart/CartContext";
  * - Slide-up Animation analog zur BottomNav.
  *
  * Cart-Integration (2026-05-15): the ATB on this sticky bar is a
- * *quick add* — it adds 1× the default variant (75cl Bottle, since
+ * *quick add* - it adds 1× the default variant (75cl Bottle, since
  * variants are ordered with 75cl at position 0) to the cart and
  * auto-opens the drawer. Users wanting Magnum or Case of 6 scroll
  * up to the full PurchaseWidget to select.
@@ -29,12 +29,12 @@ interface Props {
   /** Wine slug + vintage for cart line identity. */
   slug: string;
   vintage: string;
-  /** Default variant for the quick-add — typically the 75cl bottle. */
+  /** Default variant for the quick-add - typically the 75cl bottle. */
   defaultVariantId: string;
   defaultVariantLabel: string;
   defaultUnitPricePence: number;
   /**
-   * Trigger — entweder ein Ref auf EIN spezifisches Element ODER eine
+   * Trigger - entweder ein Ref auf EIN spezifisches Element ODER eine
    * DOM-id (kein "#"-Präfix) für SINGLE-element observation, ODER
    * `triggerSelector` für MULTI-element observation: der Sticky erscheint
    * dann nur, wenn KEINER der gematchten Elemente im Viewport ist
@@ -48,7 +48,7 @@ interface Props {
   onAddToBasket?: () => void;
   /** Optional: Link für den "Back to Shop"-Sekundär-CTA. */
   backHref?: string;
-  /** Mark the default variant as out of stock — sticky ATB switches
+  /** Mark the default variant as out of stock - sticky ATB switches
    *  to a disabled "Out of Stock" state, mirroring the PurchaseWidget /
    *  QuickAddButton behaviour for fully unavailable SKUs. */
   outOfStock?: boolean;
@@ -137,7 +137,7 @@ export function StickyMobileCTA({
             <p className="font-body text-white/55 text-[11px] mt-0.5">{price}</p>
           </div>
 
-          {/* Optional secondary "back to shop" — only icon-style on small screens */}
+          {/* Optional secondary "back to shop" - only icon-style on small screens */}
           {backHref && (
             <a
               href={backHref}
@@ -148,7 +148,7 @@ export function StickyMobileCTA({
             </a>
           )}
 
-          {/* Primary CTA — Add to basket (shared .btn-cta so every CTA on
+          {/* Primary CTA - Add to basket (shared .btn-cta so every CTA on
               the site is visually identical). Quick-adds 1× the
               default variant + opens the drawer. */}
           <button

@@ -16,7 +16,7 @@ import { useEffect } from "react";
  *     von allen Elementen, die unterhalb des Viewports liegen
  *     (rect.top > innerHeight). Diese Elemente animieren beim nächsten
  *     Runterscrollen frisch rein.
- *     Sichtbare Elemente bleiben sichtbar — kein Flackern mid-page.
+ *     Sichtbare Elemente bleiben sichtbar - kein Flackern mid-page.
  *
  * Performance: Single passive scroll listener mit Flanken-Logik (kein
  * State-Loop). IntersectionObserver ist nativ.
@@ -27,7 +27,7 @@ export function RevealInit() {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    // Respect prefers-reduced-motion — CSS handles visibility, observer not needed
+    // Respect prefers-reduced-motion - CSS handles visibility, observer not needed
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) return;
 
@@ -42,7 +42,7 @@ export function RevealInit() {
           if (entry.isIntersecting) {
             entry.target.classList.add(REVEAL_CLASS);
           }
-          // Note: nur ADD, nie REMOVE — Reset passiert nur via scroll-listener
+          // Note: nur ADD, nie REMOVE - Reset passiert nur via scroll-listener
         });
       },
       {

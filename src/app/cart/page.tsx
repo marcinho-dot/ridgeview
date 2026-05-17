@@ -1,19 +1,19 @@
 "use client";
 
 /**
- * /cart — full-page basket overview.
+ * /cart - full-page basket overview.
  *
  * Lives alongside the existing right-anchored cart drawer (which is a
  * mini-cart, opened from the navbar). This page is the "expanded" view
  * you reach via the drawer's "View Full Basket" link or directly with
- * the /cart URL — it gives line items more breathing room, exposes
+ * the /cart URL - it gives line items more breathing room, exposes
  * delivery + VAT detail inline, and serves as the natural pre-checkout
  * stop where a customer can review everything calmly before hitting
  * Proceed to Checkout.
  *
  * Cart state comes from the same CartContext as the drawer, so any
  * edit here (qty change, remove) is reflected in the drawer and vice
- * versa — single source of truth.
+ * versa - single source of truth.
  *
  * Static-export-friendly: no server state. The "Proceed to Checkout"
  * CTA navigates to /checkout (full payment flow placeholder until the
@@ -435,7 +435,7 @@ function EmptyCart() {
         className="font-body font-light text-white/55 max-w-[42ch] mx-auto mb-8"
         style={{ fontSize: "clamp(13px, 1.1vw, 15px)" }}
       >
-        Bring something home from Sussex — bottles to celebrate, gift, or
+        Bring something home from Sussex - bottles to celebrate, gift, or
         simply enjoy.
       </p>
       <Link href="/wines" className="btn-cta">

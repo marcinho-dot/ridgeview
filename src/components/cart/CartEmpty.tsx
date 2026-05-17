@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * CartEmpty — the empty-state inside the cart drawer.
+ * CartEmpty - the empty-state inside the cart drawer.
  *
  * Editorial copy + CTA back to the wine listing. Uses the same
  * basket-with-grapes mark as the navbar icon but oversized in
@@ -30,7 +30,7 @@ export function CartEmpty() {
         className="font-body font-light text-white/55 max-w-[36ch] mb-8"
         style={{ fontSize: "clamp(13px, 1.1vw, 15px)" }}
       >
-        Bring something home from Sussex — bottles to celebrate, gift
+        Bring something home from Sussex - bottles to celebrate, gift
         or simply enjoy.
       </p>
       <a

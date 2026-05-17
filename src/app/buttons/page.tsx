@@ -4,7 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
 /* ─────────────────────────────────────────────────────────────────────────
-   Button Showcase v4 — 20 underline-frame variants.
+   Button Showcase v4 - 20 underline-frame variants.
 
    All buttons share:
      - Transparent background before hover
@@ -72,7 +72,7 @@ const V: Variant[] = [
   {
     n: 5,
     name: "White Frame · Underline R→L",
-    desc: "Underline slides in from the right instead of the left — quieter, more editorial.",
+    desc: "Underline slides in from the right instead of the left - quieter, more editorial.",
     base: "border-white/70 hover:border-white text-[#f5f0e8]",
     mods: "from-right",
   },
@@ -87,7 +87,7 @@ const V: Variant[] = [
   {
     n: 7,
     name: "White Frame · Underline Center-out",
-    desc: "Underline grows from the center outward on hover — symmetrical, theatrical.",
+    desc: "Underline grows from the center outward on hover - symmetrical, theatrical.",
     base: "border-white/70 hover:border-white text-[#f5f0e8]",
     mods: "from-center",
   },
@@ -124,7 +124,7 @@ const V: Variant[] = [
   {
     n: 12,
     name: "Gold Frame · Double-Line · Arrow",
-    desc: "Double underline + arrow. Layered, refined — feels like a press/print headline.",
+    desc: "Double underline + arrow. Layered, refined - feels like a press/print headline.",
     base: `border-[${GOLD}]/70 hover:border-[${GOLD}] text-[${GOLD}]`,
     mods: "double",
     arrow: true,
@@ -154,7 +154,7 @@ const V: Variant[] = [
   {
     n: 16,
     name: "Heavy Gold Frame · Thick Underline · Arrow",
-    desc: "2px gold border + 2px gold underline + arrow. The boldest variant — primary action surface.",
+    desc: "2px gold border + 2px gold underline + arrow. The boldest variant - primary action surface.",
     base: `border-[${GOLD}] text-[${GOLD}]`,
     borderClass: "border-2",
     mods: "thick",
@@ -171,7 +171,7 @@ const V: Variant[] = [
   {
     n: 18,
     name: "Gold Frame · Diagonal Arrow ↗",
-    desc: "Gold variant of the diagonal arrow — couture / brand-link aesthetic.",
+    desc: "Gold variant of the diagonal arrow - couture / brand-link aesthetic.",
     base: `border-[${GOLD}]/70 hover:border-[${GOLD}] text-[${GOLD}]`,
     mods: "diag-arrow",
     arrow: true,
@@ -233,7 +233,7 @@ export default function ButtonShowcase() {
                 lineHeight: 1.05,
               }}
             >
-              Pick a button — we&rsquo;ll roll it out across the site.
+              Pick a button - we&rsquo;ll roll it out across the site.
             </h1>
             <p
               className="font-body text-white/65 max-w-[720px] leading-relaxed"

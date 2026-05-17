@@ -11,7 +11,7 @@ export function BottleRevealSection() {
     offset: ["start end", "end start"],
   });
 
-  // Subtle parallax — image moves slower than scroll
+  // Subtle parallax - image moves slower than scroll
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
 
   return (
@@ -22,7 +22,7 @@ export function BottleRevealSection() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={`${basePath}/images/vineceller.png`}
-          alt="Ridgeview wine cellar — bottles ageing in the estate cellar"
+          alt="Ridgeview wine cellar - bottles ageing in the estate cellar"
           className="absolute inset-0 w-full h-full object-contain"
           style={{ objectPosition: "center center" }}
         />

@@ -25,15 +25,15 @@ export function HeroSection() {
   return (
     // h-screen (= 100vh) gives the section the FULL viewport height in
     // every context: DevTools mobile simulation, desktop, and real
-    // mobile (where the lower edge may sit under the URL bar — that's
+    // mobile (where the lower edge may sit under the URL bar - that's
     // fine because all our content is top-aligned, the unused bottom
     // of the image is just decorative).
     <section className="relative h-screen w-full overflow-hidden">
 
-      {/* Background image — vineyard hero at Ridgeview, Sussex.
+      {/* Background image - vineyard hero at Ridgeview, Sussex.
           Source is 2560×1440 (16:9). object-cover lands edge-to-edge with
           no crop on 16:9 desktop viewports; on shorter / portrait viewports
-          (16:10 macs, mobile) it crops the BOTTOM only — objectPosition
+          (16:10 macs, mobile) it crops the BOTTOM only - objectPosition
           "center top" anchors the upper half of the image so sky, horizon
           and the headline-overlay zone are always preserved. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -45,11 +45,11 @@ export function HeroSection() {
       />
 
       {/* Three-layer overlay stack (mobile + desktop):
-          1) Full-frame vertical gradient — TOP boosted to compensate
+          1) Full-frame vertical gradient - TOP boosted to compensate
              for the brighter sky in the new 16:9 image, so the upper
              zone reads as dark as on the old crop.
-          2) Left-side fade — original strength.
-          3) Bottom dark band on lower 55% — reduced to 25% of
+          2) Left-side fade - original strength.
+          3) Bottom dark band on lower 55% - reduced to 25% of
              original (95/70 → 24/18) so the lower image breathes. */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/15 to-black/50 pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-transparent to-transparent pointer-events-none" />
@@ -58,11 +58,11 @@ export function HeroSection() {
         style={{ height: "55%" }}
       />
 
-      {/* Main content — moved to the LOWER portion of the hero
+      {/* Main content - moved to the LOWER portion of the hero
           (2026-05-17) per user direction. Content anchored to the
           bottom with breathing space so it never sticks to the edge:
-            Mobile  pb-[14vh]  — ~14 % of viewport above the bottom
-            Desktop pb-[10vh]  — ~10 % of viewport above the bottom
+            Mobile  pb-[14vh]  - ~14 % of viewport above the bottom
+            Desktop pb-[10vh]  - ~10 % of viewport above the bottom
           The undimmed upper half of the misty-morning image now
           carries the atmospheric weight that used to sit below the
           text. */}
@@ -79,7 +79,7 @@ export function HeroSection() {
           [ Est. 1995 · Ditchling Common, Sussex ]
         </motion.p>
 
-        {/* Headline — staggered line reveal */}
+        {/* Headline - staggered line reveal */}
         <div className="relative">
           <h1
             className="relative font-display italic text-cream leading-[1.05] mb-5"
@@ -112,7 +112,7 @@ export function HeroSection() {
           </h1>
         </div>
 
-        {/* Proof point ticker — sits in a stack with the same baseline
+        {/* Proof point ticker - sits in a stack with the same baseline
             spacing rhythm as the kicker/headline (mb-5). Text bumped to
             white/80 + larger font size so it stays legible against the
             misty background; icon enlarged so it reads as a proper bullet. */}
@@ -127,7 +127,7 @@ export function HeroSection() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.3, duration: 0.8 }}
         >
-          {/* Inline SVG diamond — perfect geometric control over size +
+          {/* Inline SVG diamond - perfect geometric control over size +
               alignment. mt offsets shift the glyph's geometric centre
               down to sit on the text's x-height middle for the first
               line (mobile 12px font / desktop 14px font). */}
@@ -164,18 +164,18 @@ export function HeroSection() {
           </div>
         </motion.div>
 
-        {/* Primary CTAs — two equal-weight buttons sharing the
+        {/* Primary CTAs - two equal-weight buttons sharing the
             etched-crystal .btn-cta style. The labels map 1:1 onto the
             new four-item header menu (Shop · Vineyard) so the hero
             entry-points and the navbar tell the same story. On
             narrow screens they wrap to a stack via flex-wrap so the
             second button never overflows. */}
-        {/* Hero CTAs — plain `.btn-cta` (etched-crystal frosted-glass +
+        {/* Hero CTAs - plain `.btn-cta` (etched-crystal frosted-glass +
             gold border + cream text), matching every other CTA on the
             site (Reserve a Table, Book a Vineyard Tour, Shop Bottle,
             etc.). The previous Canvas 2D gold-metaball "jelly" effect
             (JellyButtonCanvas) was rolled back 2026-05-16 per user
-            direction — it visually competed with the rest of the
+            direction - it visually competed with the rest of the
             site's editorial chrome. The component still lives at
             src/components/JellyButtonCanvas.tsx if we ever want to
             bring it back, and the kickflip variant is in
@@ -205,7 +205,7 @@ export function HeroSection() {
                   String(Date.now()),
                 );
               } catch {
-                /* sessionStorage unavailable (private mode etc.) — fine */
+                /* sessionStorage unavailable (private mode etc.) - fine */
               }
             }}
           >

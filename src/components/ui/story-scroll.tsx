@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * FlowArt + FlowSection — scroll-pinned story narrative.
+ * FlowArt + FlowSection - scroll-pinned story narrative.
  *
  * Integrated 2026-05-15 from the 21st.dev "story-scroll" community
  * component (`boudjadjasamira/story-scroll`). Used on `/people` for
@@ -12,14 +12,14 @@
  *      section scrolls in behind it (ScrollTrigger pin, no extra
  *      spacing).
  *   2. As the next section enters, its inner card rotates from 30°
- *      to 0° around its bottom-left corner — gives the "story page
+ *      to 0° around its bottom-left corner - gives the "story page
  *      tilting into view" feel.
  *
  * Style passed through `style` on each FlowSection (typically
  * backgroundColor + color) so callers can theme each chapter in
  * the Ridgeview CD (dark surfaces + gold + cream).
  *
- * Respects `prefers-reduced-motion: reduce` — pin + rotate are
+ * Respects `prefers-reduced-motion: reduce` - pin + rotate are
  * skipped, the sections scroll normally.
  */
 
@@ -58,7 +58,7 @@ export const FlowSection: React.FC<FlowSectionProps> = ({
         "flow-art-container relative flex min-h-screen w-full flex-col justify-start gap-3 px-[4vw]",
         // pt clears the 80 px fixed navbar (clamp 96-144px);
         // pb clears the ~80 px mobile-only BottomNav bar.
-        // gap-3 (12 px) is the BASE row spacing — callers can tighten
+        // gap-3 (12 px) is the BASE row spacing - callers can tighten
         // further via inline `style={{ gap: '8px' }}` on a wrapper if
         // they need a compact top-stack (kicker→headline→body).
         "pt-[clamp(6rem,10vw,9rem)] pb-[clamp(5.5rem,6vw,7rem)]",

@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * CartLineItem — one row in the cart drawer.
+ * CartLineItem - one row in the cart drawer.
  *
  * Layout: bottle thumbnail (left) · product info + variant + qty
  * controls (middle) · line subtotal + remove button (right).
@@ -36,7 +36,7 @@ export function CartLineItem({ item }: CartLineItemProps) {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={`${basePath}${item.image}`}
-          alt={`${item.name} — ${item.variantLabel}`}
+          alt={`${item.name} - ${item.variantLabel}`}
           className="absolute inset-0 w-full h-full object-contain object-center"
         />
       </a>
@@ -56,7 +56,7 @@ export function CartLineItem({ item }: CartLineItemProps) {
           </p>
         </div>
 
-        {/* Qty spinner — same -/+ pattern as PurchaseWidget */}
+        {/* Qty spinner - same -/+ pattern as PurchaseWidget */}
         <div
           className="inline-flex items-center self-start gap-0 rounded-sm border border-white/15 bg-white/[0.02]"
           aria-label={`Quantity for ${item.name}`}
@@ -68,7 +68,7 @@ export function CartLineItem({ item }: CartLineItemProps) {
             className="w-7 h-7 md:w-8 md:h-8 inline-flex items-center justify-center text-white/65 hover:text-[#C8A96E] transition-colors"
           >
             <span aria-hidden className="text-base leading-none">
-              –
+              -
             </span>
           </button>
           <span

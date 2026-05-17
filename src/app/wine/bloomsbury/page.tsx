@@ -18,13 +18,13 @@ import { FAQSection } from "@/components/sku/FAQSection";
 import { getTestimonial } from "@/data/testimonials";
 import { basePath } from "@/lib/basePath";
 
-// Bloomsbury bottle variants — synced 2026-05-11 with ridgeview.co.uk.
-// Bloomsbury bottle variants — synced 2026-05-11 with ridgeview.co.uk.
+// Bloomsbury bottle variants - synced 2026-05-11 with ridgeview.co.uk.
+// Bloomsbury bottle variants - synced 2026-05-11 with ridgeview.co.uk.
 // Order convention (final, locked 2026-05-12):
-//   Position 1: 75cl Bottle (ALWAYS — drives H1 price + default selection,
+//   Position 1: 75cl Bottle (ALWAYS - drives H1 price + default selection,
 //                            the everyday purchase that anchors the page)
-//   Position 2: Magnum (if available — the premium upgrade)
-//   Position 3: Case of 6 (if available — the bulk / gifting option)
+//   Position 2: Magnum (if available - the premium upgrade)
+//   Position 3: Case of 6 (if available - the bulk / gifting option)
 const BLOOMSBURY_VARIANTS: Variant[] = [
   { label: "75cl Bottle", detail: "75cl · 12% ABV", price: 34, image: "/products/bloomsbury.png" },
   { label: "Magnum · 1.5L", detail: "1.5L · 12% ABV · Slower-aged", price: 85, image: "/products/bloomsbury-magnum.png" },
@@ -66,7 +66,7 @@ function GoldDivider({ origin = "left" as "left" | "center" }) {
 
 function ProductHero() {
   // Parallax: bottle drifts upward 80px as the hero scrolls out of view.
-  // Subtle premium effect — Apple product pages use this exact pattern.
+  // Subtle premium effect - Apple product pages use this exact pattern.
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -82,11 +82,11 @@ function ProductHero() {
   const [variantIdx, setVariantIdx] = useState(0);
   const activeVariant = BLOOMSBURY_VARIANTS[variantIdx];
   const heroBottleSrc = activeVariant.image ?? "/products/bloomsbury.png";
-  const heroBottleAlt = `Ridgeview Bloomsbury NV — English Sparkling Wine, ${activeVariant.label}`;
+  const heroBottleAlt = `Ridgeview Bloomsbury NV - English Sparkling Wine, ${activeVariant.label}`;
 
   return (
     // Section sizes to its natural content height (no min-h constraint).
-    // Goal "alles fits in einen viewport und adapts" — by dropping
+    // Goal "alles fits in einen viewport und adapts" - by dropping
     // min-h-[100svh] the hero never pads itself with empty space on
     // tall monitors, and the next section follows immediately. Atmospheric
     // weight is carried by the typography, the oversized bottle (90svh)
@@ -155,7 +155,7 @@ function ProductHero() {
                 so they sit next to the bottle visually and free up vertical space
                 for the ATB button to land inside the initial viewport. */}
 
-            {/* Divider — Desktop: between subtitle and description; Mobile: between
+            {/* Divider - Desktop: between subtitle and description; Mobile: between
                 Price/CTAs and the description block (pushed below the fold via order). */}
             <FadeUp delay={0.4} className="order-6">
               <div className="mb-3 md:mb-5">
@@ -181,7 +181,7 @@ function ProductHero() {
                 Desktop: source order applies → block is at the end as before. */}
             <FadeUp delay={0.55} className="order-5 mb-6 md:mb-0">
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 md:gap-10">
-                {/* Stateful purchase block — variant + qty + free-shipping bar + ATB */}
+                {/* Stateful purchase block - variant + qty + free-shipping bar + ATB */}
                 <div className="flex-1 max-w-[480px]">
                   <PurchaseWidget
                     slug="bloomsbury"
@@ -196,11 +196,11 @@ function ProductHero() {
                   />
                 </div>
 
-                {/* Award Badges (Desktop) — 3-up, newest first. Mix of
+                {/* Award Badges (Desktop) - 3-up, newest first. Mix of
                     real image badges where year-matching imagery exists,
                     and typographic accolade panels where it doesn't. */}
                 <div className="hidden md:flex items-start gap-5 pt-1 flex-wrap" aria-label="Awards">
-                  {/* Sommelier Awards · Sparkling Wine of the Year · 2024 —
+                  {/* Sommelier Awards · Sparkling Wine of the Year · 2024 -
                       REAL official medal image from sommelierwineawards.com,
                       saved as sommelier-2024-sparkling-wine-of-year.webp.
                       Replaced typographic panel 2026-05-12 once the authentic
@@ -208,7 +208,7 @@ function ProductHero() {
                   <div className="flex flex-col items-center gap-2.5">
                     <motion.img
                       src={`${basePath}/images/awards/sommelier-2024-sparkling-wine-of-year.webp`}
-                      alt="Sparkling Wine of the Year — SWA Trophy, Sommelier Wine Awards 2024"
+                      alt="Sparkling Wine of the Year - SWA Trophy, Sommelier Wine Awards 2024"
                       title="Sommelier Wine Awards · Sparkling Wine of the Year · 2024"
                       className="h-[clamp(86px,7.5vw,108px)] w-auto [filter:drop-shadow(0_10px_28px_rgba(0,0,0,0.55))] hover:[filter:drop-shadow(0_14px_36px_rgba(0,0,0,0.65))_drop-shadow(0_0_24px_rgba(200,169,110,0.18))] transition-[filter] duration-500"
                       loading="lazy"
@@ -221,11 +221,11 @@ function ProductHero() {
                       Sommelier <span className="text-[#C8A96E]/70 mx-1">·</span> 2024
                     </p>
                   </div>
-                  {/* IWSC 93 Points · 2020 — real badge image */}
+                  {/* IWSC 93 Points · 2020 - real badge image */}
                   <div className="flex flex-col items-center gap-2.5">
                     <motion.img
                       src={`${basePath}/images/awards/iwsc-93pts-2020.webp`}
-                      alt="IWSC 93 Points — International Wine & Spirit Competition 2020"
+                      alt="IWSC 93 Points - International Wine & Spirit Competition 2020"
                       title="IWSC 93 Points · 2020"
                       className="h-[clamp(86px,7.5vw,108px)] w-auto [filter:drop-shadow(0_10px_28px_rgba(0,0,0,0.55))] hover:[filter:drop-shadow(0_14px_36px_rgba(0,0,0,0.65))_drop-shadow(0_0_24px_rgba(200,169,110,0.18))] transition-[filter] duration-500"
                       loading="lazy"
@@ -238,11 +238,11 @@ function ProductHero() {
                       IWSC <span className="text-[#C8A96E]/70 mx-1">·</span> 2020
                     </p>
                   </div>
-                  {/* Decanter Silver · 2018 — real badge image */}
+                  {/* Decanter Silver · 2018 - real badge image */}
                   <div className="flex flex-col items-center gap-2.5">
                     <motion.img
                       src={`${basePath}/images/awards/decanter-2018-silver.webp`}
-                      alt="Silver — Decanter World Wine Awards 2018"
+                      alt="Silver - Decanter World Wine Awards 2018"
                       title="Decanter Silver · 2018"
                       className="h-[clamp(86px,7.5vw,108px)] w-auto [filter:drop-shadow(0_10px_28px_rgba(0,0,0,0.55))] hover:[filter:drop-shadow(0_14px_36px_rgba(0,0,0,0.65))_drop-shadow(0_0_24px_rgba(200,169,110,0.18))] transition-[filter] duration-500"
                       loading="lazy"
@@ -264,7 +264,7 @@ function ProductHero() {
           {/* md:mt-20 drops the bottle column ~80px on desktop so the
               foil cap sits around the H1 title baseline (instead of
               crowding the breadcrumb/navbar). Info column stays tight
-              against the breadcrumb — the offset only applies to the
+              against the breadcrumb - the offset only applies to the
               bottle so the two columns get an editorial "stagger".
               Mobile keeps the bottle at the top of the stack (no mt). */}
           <FadeUp delay={0.05} className="order-1 md:order-2 md:mt-20">
@@ -272,7 +272,7 @@ function ProductHero() {
               className="relative h-[clamp(320px,44svh,420px)] md:h-[clamp(480px,62svh,720px)]"
               style={{ overflow: "visible" }}
             >
-              {/* soft halo — absolute centered, no layout impact */}
+              {/* soft halo - absolute centered, no layout impact */}
               <div
                 className="absolute top-1/2 left-1/2 pointer-events-none"
                 style={{
@@ -286,20 +286,20 @@ function ProductHero() {
                 }}
               />
 
-              {/* Mobile award badges — absolute overlay, vertically stacked
+              {/* Mobile award badges - absolute overlay, vertically stacked
                   on the left side of the bottle wrapper. Each badge has
                   a micro-caption (year only) underneath. Anchored 30px
                   higher than the bottle midpoint so it sits in the upper
                   half of the wrapper, where the eye lands first. */}
-              {/* Mobile: 3 stacked accolades — Sommelier typographic + two
+              {/* Mobile: 3 stacked accolades - Sommelier typographic + two
                   real image badges. Centered on midpoint to fit the bottle
                   wrapper. */}
               <div className="md:hidden absolute left-0 bottom-2 flex flex-col gap-3 z-10 pointer-events-none">
-                {/* Sommelier 2024 — REAL Sparkling Wine of the Year badge */}
+                {/* Sommelier 2024 - REAL Sparkling Wine of the Year badge */}
                 <div className="flex flex-col items-center gap-1.5">
                   <motion.img
                     src={`${basePath}/images/awards/sommelier-2024-sparkling-wine-of-year.webp`}
-                    alt="Sparkling Wine of the Year — SWA Trophy 2024"
+                    alt="Sparkling Wine of the Year - SWA Trophy 2024"
                     title="Sommelier Wine Awards · Sparkling Wine of the Year · 2024"
                     className="h-[clamp(54px,14vw,68px)] w-auto [filter:drop-shadow(0_6px_18px_rgba(0,0,0,0.55))]"
                     loading="lazy"
@@ -314,7 +314,7 @@ function ProductHero() {
                 <div className="flex flex-col items-center gap-1.5">
                   <motion.img
                     src={`${basePath}/images/awards/iwsc-93pts-2020.webp`}
-                    alt="IWSC 93 Points — International Wine & Spirit Competition 2020"
+                    alt="IWSC 93 Points - International Wine & Spirit Competition 2020"
                     title="IWSC 93 Points · 2020"
                     className="h-[clamp(54px,14vw,68px)] w-auto [filter:drop-shadow(0_6px_18px_rgba(0,0,0,0.55))]"
                     loading="lazy"
@@ -329,7 +329,7 @@ function ProductHero() {
                 <div className="flex flex-col items-center gap-1.5">
                   <motion.img
                     src={`${basePath}/images/awards/decanter-2018-silver.webp`}
-                    alt="Silver — Decanter World Wine Awards 2018"
+                    alt="Silver - Decanter World Wine Awards 2018"
                     title="Decanter Silver · 2018"
                     className="h-[clamp(54px,14vw,68px)] w-auto [filter:drop-shadow(0_6px_18px_rgba(0,0,0,0.55))]"
                     loading="lazy"
@@ -343,13 +343,13 @@ function ProductHero() {
                 </div>
               </div>
 
-              {/* Bottle wrapper — absolute, doesn't dictate column height.
+              {/* Bottle wrapper - absolute, doesn't dictate column height.
                   Wrapped in motion.div so the bottle drifts upward via the
                   scroll-driven parallax (subtle 80px range). The inner
                   motion.img is keyed on `heroBottleSrc` so AnimatePresence
                   crossfades the bottle whenever the user picks a different
                   format (75cl → Magnum → Case). Only opacity is animated
-                  — the className still owns the rotate/translate transform
+                  - the className still owns the rotate/translate transform
                   + hover scale, untouched by motion. */}
               <motion.div
                 className="absolute inset-0 flex items-center justify-center pointer-events-none"
@@ -358,7 +358,7 @@ function ProductHero() {
                 <BottleStage src={heroBottleSrc} alt={heroBottleAlt} />
               </motion.div>
 
-              {/* Quick "Add to basket" — anchored bottom-right next to the bottle
+              {/* Quick "Add to basket" - anchored bottom-right next to the bottle
                   on every breakpoint. Marked with data-atb-trigger so the
                   StickyMobileCTA only appears when this AND every other ATB
                   on the page is out of view. The widget ATB in the info
@@ -529,7 +529,7 @@ function BlendSection() {
           </FadeUp>
         </div>
 
-        {/* Big percentages — 3-column grid, vertical gold borders */}
+        {/* Big percentages - 3-column grid, vertical gold borders */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-14 md:gap-0 mb-20 md:mb-24">
           {blend.map((b, i) => (
             <FadeUp key={b.grape} delay={0.28 + i * 0.1}>
@@ -567,7 +567,7 @@ function BlendSection() {
         <FadeUp delay={0.7}>
           {/* Wide column (~920px) so the 45-word paragraph fits onto three
               lines (~15 words per line). `text-wrap: balance` then spreads
-              the words evenly so all three lines end up similar in length —
+              the words evenly so all three lines end up similar in length -
               no widow on the last line. The GoldDivider sits in the same
               container and inherits the new width. */}
           <div className="max-w-[920px] mx-auto text-center">
@@ -744,7 +744,7 @@ function ClosingCTA() {
         </FadeUp>
         <FadeUp delay={0.2}>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            {/* No data-atb-trigger here — duplicate CTA, not primary. */}
+            {/* No data-atb-trigger here - duplicate CTA, not primary. */}
             <QuickAddButton
               slug="bloomsbury"
               productName={"Bloomsbury"}
@@ -775,7 +775,7 @@ const SCHEMA_LD = {
   "@type": "Product",
   name: "Ridgeview Bloomsbury NV",
   description:
-    "Bright, fresh and fruit-driven English Sparkling Wine — vibrant citrus aromas with green apple and honey. Bestselling Méthode Traditionnelle blend from Sussex.",
+    "Bright, fresh and fruit-driven English Sparkling Wine - vibrant citrus aromas with green apple and honey. Bestselling Méthode Traditionnelle blend from Sussex.",
   image: "https://darkslateblue-alligator-388666.hostingersite.com/ridgeview/products/bloomsbury.png",
   brand: { "@type": "Brand", name: "Ridgeview Wine Estate" },
   sku: "R2201",
@@ -806,12 +806,12 @@ const SCHEMA_LD = {
     },
   ],
   award: [
-    "Sparkling Wine of the Year — Sommelier Awards 2024",
-    "Gold — Sommelier Awards 2024",
-    "Star of England, Star Taste, Star Value, Star of Sussex — Harpers Wine Star Awards 2021",
-    "93 Points — International Wine & Spirit Competition 2020",
-    "Silver — Decanter World Wine Awards 2018",
-    "Silver Outstanding — International Wine & Spirit Competition 2018",
+    "Sparkling Wine of the Year - Sommelier Awards 2024",
+    "Gold - Sommelier Awards 2024",
+    "Star of England, Star Taste, Star Value, Star of Sussex - Harpers Wine Star Awards 2021",
+    "93 Points - International Wine & Spirit Competition 2020",
+    "Silver - Decanter World Wine Awards 2018",
+    "Silver Outstanding - International Wine & Spirit Competition 2018",
   ],
 };
 
@@ -819,22 +819,22 @@ const FAQ_ITEMS = [
   {
     question: "When will my order arrive?",
     answer:
-      "Standard UK delivery is 2–4 working days. Order before noon for next-working-day dispatch. Free UK delivery on orders over £45.",
+      "Standard UK delivery is 2-4 working days. Order before noon for next-working-day dispatch. Free UK delivery on orders over £45.",
   },
   {
     question: "How should I store Bloomsbury?",
     answer:
-      "Lay bottles flat in a cool, dark place between 8–12°C. Bloomsbury NV drinks beautifully on release; if you wish to age, store away from light and temperature swings — it'll continue to develop richness for 3–5 years.",
+      "Lay bottles flat in a cool, dark place between 8-12°C. Bloomsbury NV drinks beautifully on release; if you wish to age, store away from light and temperature swings - it'll continue to develop richness for 3-5 years.",
   },
   {
     question: "Can I add a personalised gift note?",
     answer:
-      "Yes — every order includes a complimentary handwritten gift note option at checkout. Add the recipient's address and we'll ship directly to them, with no prices on the packing slip.",
+      "Yes - every order includes a complimentary handwritten gift note option at checkout. Add the recipient's address and we'll ship directly to them, with no prices on the packing slip.",
   },
   {
     question: "Do you ship outside the UK?",
     answer:
-      "International shipping is available to most of Europe and selected destinations. Customs and duties may apply at the destination — please contact our team for a tailored quote.",
+      "International shipping is available to most of Europe and selected destinations. Customs and duties may apply at the destination - please contact our team for a tailored quote.",
   },
   {
     question: "What if I'm not happy with the wine?",
@@ -850,7 +850,7 @@ const RELATED_WINES = [
     style: "Rosé · Non Vintage",
     price: 40,
     image: "/products/fitzrovia-rose.webp",
-    note: "Pink-grapefruit and wild strawberry — the breezy sister to Bloomsbury.",
+    note: "Pink-grapefruit and wild strawberry - the breezy sister to Bloomsbury.",
   },
   {
     slug: "cavendish",
@@ -875,7 +875,7 @@ export default function BloomsburyPage() {
 
   return (
     <main className="bg-[#010101] pb-[80px] md:pb-0">
-      {/* Schema.org JSON-LD — Google Rich Snippets (product, aggregate rating, reviews) */}
+      {/* Schema.org JSON-LD - Google Rich Snippets (product, aggregate rating, reviews) */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA_LD) }}
@@ -886,17 +886,17 @@ export default function BloomsburyPage() {
       <ScrollReset><TastingPairingSection /></ScrollReset>
       <ScrollReset><BlendSection /></ScrollReset>
 
-      {/* A) Behind the Bottle — production craft pillars shared across every
+      {/* A) Behind the Bottle - production craft pillars shared across every
           Ridgeview SKU (Soil → Harvest → Winemaking). SKU-specific details
           like lees duration / palate notes live in the Specs section. */}
       <ScrollReset>
         <BehindTheBottleSection
           headline={<>Crafted in the <span className="text-[#C8A96E]">Méthode Traditionnelle</span>.</>}
-          intro="For three decades, Ridgeview has crafted English sparkling wines the long way — by hand, on the chalk hills of Sussex, using the same Traditional Method as the great houses of Champagne."
+          intro="For three decades, Ridgeview has crafted English sparkling wines the long way - by hand, on the chalk hills of Sussex, using the same Traditional Method as the great houses of Champagne."
           pillars={[
-            { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region — the foundation of every great sparkling wine." },
+            { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region - the foundation of every great sparkling wine." },
             { label: "Hand Harvest", detail: "Grapes are picked at first light and sorted by hand to keep only the most balanced bunches." },
-            { label: "Méthode Traditionnelle", detail: "An English invention — coal-fired bottles strong enough to hold the bubbles, the cork to seal them in, deliberate secondary fermentation." },
+            { label: "Méthode Traditionnelle", detail: "An English invention - coal-fired bottles strong enough to hold the bubbles, the cork to seal them in, deliberate secondary fermentation." },
           ]}
         />
       </ScrollReset>
@@ -916,9 +916,9 @@ export default function BloomsburyPage() {
             // Featured visual = real Decanter Silver 2018 badge (honest
             // badge-to-award mapping). The Sommelier 2024 "Sparkling Wine
             // of the Year" win lives in the Awards-Specs list and SCHEMA_LD
-            // below as text — no real Sommelier badge image is available
+            // below as text - no real Sommelier badge image is available
             // and we don't fake one (brand-voice rule "nothing invented").
-            description: "Recognised by the global Decanter judging panel — among many accolades the wine has collected over the years, including Sparkling Wine of the Year and Gold at the Sommelier Awards 2024, IWSC Silver Outstanding 2018, IWSC 93 Points 2020, and Star of England at the Harpers Wine Star Awards 2021.",
+            description: "Recognised by the global Decanter judging panel - among many accolades the wine has collected over the years, including Sparkling Wine of the Year and Gold at the Sommelier Awards 2024, IWSC Silver Outstanding 2018, IWSC 93 Points 2020, and Star of England at the Harpers Wine Star Awards 2021.",
           }}
         />
       </ScrollReset>
@@ -941,7 +941,7 @@ export default function BloomsburyPage() {
       <ScrollReset><ClosingCTA /></ScrollReset>
       <Footer />
       {/* Sticky mobile purchase bar (Mini-Flasche + Preis + ATB) appears only
-          when EVERY ATB on the page (hero bottle-side, widget, ClosingCTA —
+          when EVERY ATB on the page (hero bottle-side, widget, ClosingCTA -
           all marked with data-atb-trigger) is out of viewport. As soon as
           any ATB scrolls back in, the bar hides. */}
       <StickyMobileCTA

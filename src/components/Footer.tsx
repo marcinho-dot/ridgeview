@@ -5,11 +5,11 @@ export function Footer() {
   // Every same-page anchor in the footer needs to resolve to the homepage,
   // not to whatever route the footer is rendered on (SKU pages, booking, etc.).
   // Prefixing with `${basePath}/` makes the link absolute to the homepage on
-  // every route — the anchor scroll fires once that route loads.
+  // every route - the anchor scroll fires once that route loads.
   const home = `${basePath}/`;
   return (
     <footer id="footer" className="bg-[#010101] border-t border-white/10">
-      {/* ── Substack strip — newsletter signup ──────
+      {/* ── Substack strip - newsletter signup ──────
           Rewritten 2026-05-17: Ridgeview now publishes exclusively
           on Substack (no in-house newsletter), so the copy and the
           form both speak Substack. The form uses the shared
@@ -83,7 +83,7 @@ export function Footer() {
               // Cases of Wine, Gift Sets & Collections, Click & Collect
               // were removed 2026-05-16:
               //   - Cases are SKU format variants (Magnum, Case of 6) on
-              //     each /wine/<slug>/ page — no separate landing needed.
+              //     each /wine/<slug>/ page - no separate landing needed.
               //   - Gift Sets pointed to /wines (redundant); no dedicated
               //     /gifts route exists. The engraved-bottle-gift SKU is
               //     still discoverable via the main catalogue.
@@ -212,7 +212,7 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Bottom bar — same 1600px constraint as the top grid */}
+      {/* Bottom bar - same 1600px constraint as the top grid */}
       <div className="border-t border-white/10">
         <div className="max-w-[1600px] mx-auto px-6 md:px-16 py-4 md:py-5 flex flex-col md:flex-row items-center gap-3 md:gap-0 md:justify-between">
         <p className="font-body text-white/40 text-xs" style={{ fontWeight: 300 }}>

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import type { Testimonial } from "@/data/testimonials";
 
 /**
- * TestimonialSection — Press-Review Pull-Quote für SKU-Pages.
+ * TestimonialSection - Press-Review Pull-Quote für SKU-Pages.
  *
  * Voraussetzungen:
  * - Quelle, Reviewer und Score MÜSSEN sichtbar sein (Brand-Voice-Vorgabe).
@@ -62,7 +62,7 @@ export function TestimonialSection({ testimonial, kicker = "[ Press · Recogniti
           </p>
         </FadeUp>
 
-        {/* Decorative opening quote mark — oversized for proportional impact,
+        {/* Decorative opening quote mark - oversized for proportional impact,
             but height-clamped to the glyph's visible extent so it doesn't push
             the quote down with empty line-box space below */}
         <FadeUp delay={0.1}>
@@ -81,7 +81,7 @@ export function TestimonialSection({ testimonial, kicker = "[ Press · Recogniti
           </div>
         </FadeUp>
 
-        {/* The Quote — Pull-Quote in Cormorant Garamond italic */}
+        {/* The Quote - Pull-Quote in Cormorant Garamond italic */}
         <FadeUp delay={0.18}>
           <blockquote
             cite={url}
@@ -154,7 +154,7 @@ export function TestimonialSection({ testimonial, kicker = "[ Press · Recogniti
           </div>
         </FadeUp>
 
-        {/* Disclaimer — verpflichtend, damit Quelle klar erkennbar ist */}
+        {/* Disclaimer - verpflichtend, damit Quelle klar erkennbar ist */}
         <FadeUp delay={0.42}>
           <div className="mt-6 md:mt-8 max-w-[640px] mx-auto">
             <div

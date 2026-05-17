@@ -25,7 +25,7 @@ export default function CookiesPage() {
       <h2>1. What is a cookie?</h2>
       <p>
         A cookie is a small text file that a website stores in your
-        browser so the site can remember information about your visit —
+        browser so the site can remember information about your visit -
         for example, which items are in your basket or whether you have
         accepted these cookies. Similar technologies include local
         storage, session storage, pixel tags and software development
@@ -44,18 +44,18 @@ export default function CookiesPage() {
       </p>
       <ul>
         <li>
-          <strong>Cart state</strong> — local storage key{" "}
+          <strong>Cart state</strong> - local storage key{" "}
           <code>ridgeview-cart-v1</code>; persists your basket between
           visits on the same device.
         </li>
         <li>
-          <strong>Session flag</strong> — session storage key{" "}
+          <strong>Session flag</strong> - session storage key{" "}
           <code>rv-back-to-top-from-hero</code>; one-time-use flag (under
           10 seconds) so the booking page knows whether you arrived via
           the homepage Hero CTA.
         </li>
         <li>
-          <strong>Order confirmation</strong> — session storage key{" "}
+          <strong>Order confirmation</strong> - session storage key{" "}
           <code>rv-last-order</code>; lets the confirmation page display
           your most recent order summary. Cleared when you close the
           browser.
@@ -132,7 +132,7 @@ export default function CookiesPage() {
       </ul>
       <p>
         Please note that if you disable strictly necessary cookies, some
-        parts of the site — including the shopping basket and checkout —
+        parts of the site - including the shopping basket and checkout -
         may no longer work.
       </p>
 

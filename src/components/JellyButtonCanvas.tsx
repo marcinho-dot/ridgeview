@@ -1,18 +1,18 @@
 "use client";
 
 /**
- * JellyButtonCanvas — Canvas 2D metaballs jelly button.
+ * JellyButtonCanvas - Canvas 2D metaballs jelly button.
  *
  * Variant of `JellyButtonCss` that renders the liquid follower on a
  * `<canvas>` instead of using an SVG goo filter. Two gold "metaballs"
  * are drawn each frame with `ctx.filter = "blur(...) contrast(...)"`,
  * which softens then re-thresholds the alpha so overlapping balls fuse
- * into a single smooth blob — same trick as the SVG goo, in canvas-land.
+ * into a single smooth blob - same trick as the SVG goo, in canvas-land.
  *
  * Key difference vs. the CSS/SVG variant: blob position is updated by
  * JS spring-lerp inside requestAnimationFrame, so the blob trails the
  * cursor with adjustable inertia (lerp factor 0.22 below). This gives
- * a more "viscous fluid" feel — the blob feels like it has mass.
+ * a more "viscous fluid" feel - the blob feels like it has mass.
  *
  * Universal browser support: Canvas 2D + `ctx.filter` work in Safari 14+,
  * all Chromium, all Firefox. No WebGPU.
@@ -54,7 +54,7 @@ export function JellyButtonCanvas({ href, children, onClick }: JellyButtonCanvas
       canvas.style.width = `${rect.width}px`;
       canvas.style.height = `${rect.height}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      // Centre the blob on first sizing — so hover starts from middle.
+      // Centre the blob on first sizing - so hover starts from middle.
       if (blob.current.x === 0 && blob.current.y === 0) {
         blob.current.x = rect.width / 2;
         blob.current.y = rect.height / 2;
@@ -86,7 +86,7 @@ export function JellyButtonCanvas({ href, children, onClick }: JellyButtonCanvas
         // filter would over-saturate the gold into yellow.
         //
         // Blur radius is scaled to the smaller canvas dimension so
-        // the goo effect stays proportional on tall/short buttons —
+        // the goo effect stays proportional on tall/short buttons -
         // a fixed 8px blur eats the alpha center on a 44px-tall
         // button. Radii are bumped beyond `min(w,h)*0.5` so the
         // shapes definitely overlap the button bounds when fully
@@ -103,7 +103,7 @@ export function JellyButtonCanvas({ href, children, onClick }: JellyButtonCanvas
         ctx.arc(blob.current.x, blob.current.y, r1, 0, Math.PI * 2);
         ctx.fill();
 
-        // Smaller trailer biased toward raw cursor position — creates
+        // Smaller trailer biased toward raw cursor position - creates
         // a subtle "drip" / stretch at the cursor side when the user
         // moves quickly across the button.
         const r2 = Math.min(w, h) * 0.65 * sc;
@@ -115,7 +115,7 @@ export function JellyButtonCanvas({ href, children, onClick }: JellyButtonCanvas
 
         // Pass 2: re-tint the goo'd alpha mask with Ridgeview gold
         // using source-in composite. The white from pass 1 is
-        // replaced with #C8A96E in exactly the masked region — no
+        // replaced with #C8A96E in exactly the masked region - no
         // saturation artefacts.
         ctx.filter = "none";
         ctx.globalCompositeOperation = "source-in";
@@ -126,7 +126,7 @@ export function JellyButtonCanvas({ href, children, onClick }: JellyButtonCanvas
         ctx.filter = "none";
       }
 
-      // Stop rAF when fully exited (scale ≈ 0) — saves cycles.
+      // Stop rAF when fully exited (scale ≈ 0) - saves cycles.
       const stillAnimating =
         mouse.current.hover ||
         blob.current.scale > 0.005 ||

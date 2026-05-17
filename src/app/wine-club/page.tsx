@@ -10,7 +10,7 @@ import { basePath } from "@/lib/basePath";
 import { useCart } from "@/lib/cart/CartContext";
 
 /**
- * /wine-club/ — dedicated OurView Wine Club page.
+ * /wine-club/ - dedicated OurView Wine Club page.
  *
  * Content sourced from the legacy ridgeview.co.uk/wine-club-membership/
  * (1:1 perks list, pricing structure, FAQ) plus the four
@@ -25,7 +25,7 @@ import { useCart } from "@/lib/cart/CartContext";
  * CTA across the site (Navbar, BottomNav, Footer, SKU upsell, etc.).
  */
 
-// PERKS — verbatim from the live ridgeview.co.uk/ourview-wine-club/
+// PERKS - verbatim from the live ridgeview.co.uk/ourview-wine-club/
 // benefits list (verified 2026-05-17). Order kept consistent with the
 // live page. Previous fabricated entries (gift scheduling, bottle
 // customization, members pricing) were removed; real-page-only
@@ -56,17 +56,17 @@ const STEPS = [
     n: "02",
     title: "Your welcome case",
     body:
-      "Your luxury Welcome Case (worth £134) arrives at your door — a Bloomsbury NV gift set with two Ridgeview flutes, a bespoke stopper, your membership card and a complimentary Tour & Tasting voucher for two.",
+      "Your luxury Welcome Case (worth £134) arrives at your door - a Bloomsbury NV gift set with two Ridgeview flutes, a bespoke stopper, your membership card and a complimentary Tour & Tasting voucher for two.",
   },
   {
     n: "03",
     title: "Unlock your benefits",
     body:
-      "From the moment you join, every member perk — 20% off wines, archive access, masterclasses, OurView Concierge and more — is yours to enjoy.",
+      "From the moment you join, every member perk - 20% off wines, archive access, masterclasses, OurView Concierge and more - is yours to enjoy.",
   },
 ];
 
-// FAQS — all answers verified against the live ridgeview.co.uk page
+// FAQS - all answers verified against the live ridgeview.co.uk page
 // (2026-05-17). The previously rendered "biannual payment plan"
 // content was fabricated and has been removed. Welcome gift wording,
 // delivery info, member portal name, and contact details corrected.
@@ -77,7 +77,7 @@ const FAQS = [
   },
   {
     q: "Can I purchase a wine club membership as a gift?",
-    a: "Yes — share the joy of Ridgeview with a gifted membership for £580 as a one-off credit-card payment. Your giftee receives the luxury Welcome Case plus a full year of every OurView benefit; at the end of the year we reach out to them directly to see if they’d like to continue.",
+    a: "Yes - share the joy of Ridgeview with a gifted membership for £580 as a one-off credit-card payment. Your giftee receives the luxury Welcome Case plus a full year of every OurView benefit; at the end of the year we reach out to them directly to see if they’d like to continue.",
   },
   {
     q: "Where is membership available?",
@@ -85,15 +85,15 @@ const FAQS = [
   },
   {
     q: "What’s in my Welcome Case?",
-    a: "A Bloomsbury NV gift set with two Ridgeview flutes and a bespoke stopper, your membership card, and a complimentary Tour & Tasting voucher for two — worth £134 in total. Join in May and you’ll also receive a bonus bottle of Fitzrovia Rosé NV with your Spring Winemaker’s Case.",
+    a: "A Bloomsbury NV gift set with two Ridgeview flutes and a bespoke stopper, your membership card, and a complimentary Tour & Tasting voucher for two - worth £134 in total. Join in May and you’ll also receive a bonus bottle of Fitzrovia Rosé NV with your Spring Winemaker’s Case.",
   },
   {
     q: "What is in my seasonal cases?",
-    a: "Six bottles per case, thoughtfully curated by our Head Winemaker to showcase the best of the Ridgeview cellar — including rare archives and member-exclusives you won’t find anywhere else. Cases are shipped during the second week of May and November (after the Direct Debit clears via GoCardless).",
+    a: "Six bottles per case, thoughtfully curated by our Head Winemaker to showcase the best of the Ridgeview cellar - including rare archives and member-exclusives you won’t find anywhere else. Cases are shipped during the second week of May and November (after the Direct Debit clears via GoCardless).",
   },
   {
     q: "How fast is delivery?",
-    a: "As a member you enjoy free next-working-day delivery on all wine purchases — even on orders under £45 — when using your 20% member discount.",
+    a: "As a member you enjoy free next-working-day delivery on all wine purchases - even on orders under £45 - when using your 20% member discount.",
   },
   {
     q: "How do I track my wine?",
@@ -129,7 +129,7 @@ function PricingCard({
   highlights: string[];
   recommended?: boolean;
 }) {
-  // Cart integration — wire the CTA at the bottom of the card to
+  // Cart integration - wire the CTA at the bottom of the card to
   // the basket flow. Adds the OurView Wine Club as a £580 line and
   // opens the cart drawer so the user gets immediate confirmation.
   const { add, openDrawer } = useCart();
@@ -157,7 +157,7 @@ function PricingCard({
           : "border-white/12 bg-[#0a0a0a]"
       }`}
     >
-      {/* "Most chosen" badge removed 2026-05-17 — only one membership
+      {/* "Most chosen" badge removed 2026-05-17 - only one membership
           tier exists so the comparative framing was meaningless. The
           gold border + gold-tinted fill above (when recommended) keep
           the card visually prominent. */}
@@ -321,7 +321,7 @@ export default function WineClubPage() {
                 </motion.h2>
               </div>
 
-              {/* Single card — Ridgeview offers only one membership tier
+              {/* Single card - Ridgeview offers only one membership tier
                   (verified 2026-05-17 against ridgeview.co.uk/ourview-
                   wine-club). The previously rendered "Biannual" plan
                   was fabricated and has been removed. */}
@@ -451,7 +451,7 @@ export default function WineClubPage() {
 
         {/* ── Testimonials ─────────────────────────────────────────── */}
         {/* Three verbatim quotes pulled from the live legacy
-            /wine-club-membership/ page — two member testimonials and a
+            /wine-club-membership/ page - two member testimonials and a
             Decanter press citation. Nothing rephrased or composited. */}
         <ScrollReset>
           <section className="relative bg-[#010101] border-t border-white/[0.06] overflow-hidden">
@@ -495,7 +495,7 @@ export default function WineClubPage() {
                     className="font-body text-[#C8A96E]/85 uppercase tracking-[0.22em]"
                     style={{ fontSize: "10px" }}
                   >
-                    — OurView member
+                    - OurView member
                   </figcaption>
                 </motion.figure>
 
@@ -522,7 +522,7 @@ export default function WineClubPage() {
                     className="font-body text-[#C8A96E]/85 uppercase tracking-[0.22em]"
                     style={{ fontSize: "10px" }}
                   >
-                    — OurView member
+                    - OurView member
                   </figcaption>
                 </motion.figure>
 
@@ -546,7 +546,7 @@ export default function WineClubPage() {
                     className="font-body text-[#C8A96E]/85 uppercase tracking-[0.22em]"
                     style={{ fontSize: "10px" }}
                   >
-                    — Decanter, 2023
+                    - Decanter, 2023
                   </figcaption>
                 </motion.figure>
               </div>

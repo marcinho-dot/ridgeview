@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * OrderSummary — sticky right-rail panel used on /checkout.
+ * OrderSummary - sticky right-rail panel used on /checkout.
  *
  * Same visual language as the cart-page summary block, slightly more
  * detail (per-line breakdown), and a small "What happens next" footer
@@ -46,7 +46,7 @@ export function OrderSummary({
         Your Order
       </h2>
 
-      {/* Line items — compact list */}
+      {/* Line items - compact list */}
       <ul className="space-y-4 max-h-[40vh] overflow-y-auto pr-1">
         {items.map((item) => (
           <li key={item.id} className="flex gap-3">

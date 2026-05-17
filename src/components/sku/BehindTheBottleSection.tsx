@@ -4,11 +4,11 @@ import { ReactNode } from "react";
 import { motion } from "framer-motion";
 
 /**
- * BehindTheBottleSection — Production / craftsmanship story for an SKU.
+ * BehindTheBottleSection - Production / craftsmanship story for an SKU.
  *
  * Layout: Asymmetric two-column grid on desktop (kicker/headline left,
- * pillars right), stacked on mobile. Solid #0a0a0a background — no
- * imagery — so the gold accent rings on the pillar numbers stay crisp.
+ * pillars right), stacked on mobile. Solid #0a0a0a background - no
+ * imagery - so the gold accent rings on the pillar numbers stay crisp.
  *
  * The four "craft pillars" follow the production chronology:
  * Soil → Harvest → Winemaking → Maturation. Universal to every
@@ -48,7 +48,7 @@ export function BehindTheBottleSection({
         compact ? "min-h-screen flex items-center" : ""
       }`}
     >
-      {/* Subtle ambient gold glow keeps the section editorial — no background image */}
+      {/* Subtle ambient gold glow keeps the section editorial - no background image */}
       <div
         aria-hidden
         className="absolute inset-0 pointer-events-none"
@@ -68,7 +68,7 @@ export function BehindTheBottleSection({
             compact ? "gap-6 md:gap-16" : "gap-12 md:gap-20"
           }`}
         >
-          {/* Left column — kicker + headline + intro */}
+          {/* Left column - kicker + headline + intro */}
           <div>
             <div className="reveal" style={{ transitionDelay: "0s" }}>
               <p
@@ -109,7 +109,7 @@ export function BehindTheBottleSection({
             )}
           </div>
 
-          {/* Right column — craft pillars list */}
+          {/* Right column - craft pillars list */}
           <div>
             <ul className={compact ? "space-y-3 md:space-y-6" : "space-y-7 md:space-y-8"}>
               {pillars.map((p, i) => (

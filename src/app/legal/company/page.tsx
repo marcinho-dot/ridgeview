@@ -8,18 +8,18 @@ export const metadata = {
 };
 
 /**
- * /legal/company — statutory company info.
+ * /legal/company - statutory company info.
  *
  * Scope deliberately mirrors the equivalent page on ridgeview.co.uk:
  * we display only what UK legislation requires on a public web page
  * under the Companies Act 2006 s.82 and the Companies (Trading
- * Disclosures) Regulations 2008 — namely the registered name,
+ * Disclosures) Regulations 2008 - namely the registered name,
  * registered number, country of incorporation and registered office.
  *
  * Other regulatory identifiers (VAT, AWRS, ICO data-controller
- * registration) appear on the documents that legally require them —
+ * registration) appear on the documents that legally require them -
  * VAT invoices, B2B alcohol-trade paperwork, ICO subject-access
- * responses — but are NOT displayed on the public website. This is
+ * responses - but are NOT displayed on the public website. This is
  * standard practice across UK wine retailers (Berry Bros &amp; Rudd,
  * Majestic, Laithwaites, Nyetimber, etc.) and matches the public
  * footprint of ridgeview.co.uk itself.
@@ -99,7 +99,7 @@ export default function CompanyPage() {
       <p>
         {COMPANY.tradingName} is registered with HM Revenue &amp;
         Customs for Value Added Tax. A valid VAT invoice is issued with
-        every order — the relevant VAT registration number is shown on
+        every order - the relevant VAT registration number is shown on
         each invoice and on customer-service correspondence where
         required. As a UK seller of alcoholic products, we operate
         under the Licensing Act 2003 and hold the appropriate premises
@@ -127,7 +127,7 @@ export default function CompanyPage() {
         In the unlikely event a dispute about your order cannot be
         resolved directly with us, you may refer the matter to a
         certified Alternative Dispute Resolution (ADR) provider for the
-        wine trade — currently the{" "}
+        wine trade - currently the{" "}
         <a
           href="https://www.wsta.co.uk"
           target="_blank"

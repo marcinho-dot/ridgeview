@@ -4,7 +4,7 @@ import { COMPANY } from "@/lib/legal/company";
 export const metadata = {
   title: "Delivery · Ridgeview Wine Estate",
   description:
-    "How and where we deliver Ridgeview English sparkling wine — UK mainland, next-working-day, free over £45.",
+    "How and where we deliver Ridgeview English sparkling wine - UK mainland, next-working-day, free over £45.",
 };
 
 export default function DeliveryPage() {
@@ -23,16 +23,16 @@ export default function DeliveryPage() {
       <h2>Where we deliver</h2>
       <ul>
         <li>
-          <strong>UK mainland</strong> — next working day for orders
+          <strong>UK mainland</strong> - next working day for orders
           placed before 12:00 (noon) on a working day.
         </li>
         <li>
-          <strong>Scotland and Northern Ireland</strong> — please allow
+          <strong>Scotland and Northern Ireland</strong> - please allow
           one additional working day on top of the standard mainland
           service.
         </li>
         <li>
-          <strong>Channel Islands, Isle of Man, BFPO</strong> — please
+          <strong>Channel Islands, Isle of Man, BFPO</strong> - please
           contact our team for a quote and lead-time:{" "}
           <a href={`mailto:${COMPANY.contact.email}`}>
             {COMPANY.contact.email}
@@ -40,7 +40,7 @@ export default function DeliveryPage() {
           .
         </li>
         <li>
-          <strong>International</strong> — we are not currently set up
+          <strong>International</strong> - we are not currently set up
           for direct international shipping. If you would like to ship
           to an address outside the United Kingdom, please email us so
           we can assist.
@@ -50,17 +50,17 @@ export default function DeliveryPage() {
       <h2>Cost</h2>
       <ul>
         <li>
-          <strong>Standard delivery</strong> — £5.50 per order.
+          <strong>Standard delivery</strong> - £5.50 per order.
         </li>
         <li>
-          <strong>Free delivery</strong> — on every order over £45.
+          <strong>Free delivery</strong> - on every order over £45.
         </li>
         <li>
-          <strong>Click &amp; Collect</strong> — free; collect from our
+          <strong>Click &amp; Collect</strong> - free; collect from our
           Wine Bar &amp; Shop at the estate during opening hours.
         </li>
         <li>
-          <strong>Nominated-day delivery</strong> — price on application;
+          <strong>Nominated-day delivery</strong> - price on application;
           add a note at checkout and we will confirm the cost.
         </li>
       </ul>
@@ -97,8 +97,8 @@ export default function DeliveryPage() {
       <h2>Tracking</h2>
       <p>
         Once your order leaves the cellar you will receive a tracking
-        link by email. If anything looks off — late delivery, damage in
-        transit, or a courier issue — please contact us within 7 days of
+        link by email. If anything looks off - late delivery, damage in
+        transit, or a courier issue - please contact us within 7 days of
         the dispatch email and we will put it right.
       </p>
 

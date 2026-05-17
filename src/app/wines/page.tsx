@@ -16,7 +16,7 @@ const priceValue = (p: string): number =>
   parseFloat(p.replace(/[^0-9.]/g, "")) || 0;
 
 const wines = allWines
-  // Bottle-focused listing — exclude the gift product and the OurView
+  // Bottle-focused listing - exclude the gift product and the OurView
   // Wine Club membership entry. (Club still lives in wines.ts so its
   // existence is single-source; CTAs across the site link to it via
   // its customUrl. It just doesn't belong in this bottle grid.)
@@ -28,7 +28,7 @@ const wines = allWines
 function PageHero() {
   return (
     <section className="relative bg-[#010101] overflow-hidden pt-28 md:pt-32 pb-14 md:pb-20">
-      {/* Atmospheric gold radial — keeps the dark page from feeling flat */}
+      {/* Atmospheric gold radial - keeps the dark page from feeling flat */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -79,7 +79,7 @@ function PageHero() {
 // ── Section: Wine Legend ────────────────────────────────────────────────────
 // Compact anchor-strip under the hero: one mini-bottle per wine. Click jumps
 // to the full card in the grid below. Solves the "10 wines = lots of scrolling"
-// UX problem — gives users a one-glance overview + a direct route to whichever
+// UX problem - gives users a one-glance overview + a direct route to whichever
 // bottle they came for. On mobile the strip scrolls horizontally with snap;
 // desktop wraps to a single (or two-line on narrow viewports) row.
 
@@ -88,7 +88,7 @@ function WineLegend() {
   const cbarRef = useRef<HTMLDivElement | null>(null);
   const cthumbRef = useRef<HTMLDivElement | null>(null);
 
-  // Wheel + drag + custom scrollbar — mirrors the Beyond-the-Bottle
+  // Wheel + drag + custom scrollbar - mirrors the Beyond-the-Bottle
   // homepage row mechanic so the bottle poster scrolls horizontally
   // on desktop with the same affordances (vertical wheel → horizontal
   // scroll, pointer drag, draggable thumb under the row).
@@ -226,7 +226,7 @@ function WineLegend() {
 
   return (
     <section className="relative bg-[#010101] border-t border-white/[0.06] overflow-hidden">
-      {/* Soft gold radial wash anchoring the bottle row — gives the
+      {/* Soft gold radial wash anchoring the bottle row - gives the
           editorial poster a quiet stage instead of a flat dark band. */}
       <div
         aria-hidden
@@ -238,7 +238,7 @@ function WineLegend() {
       />
 
       <div className="relative max-w-[1500px] mx-auto px-2 md:px-12 pt-8 md:pt-10 pb-2 md:pb-8">
-        {/* "Jump to a bottle" label removed 2026-05-17 — the mini-
+        {/* "Jump to a bottle" label removed 2026-05-17 - the mini-
             bottle strip is self-explanatory and the explicit label
             felt redundant above it. */}
 
@@ -274,7 +274,7 @@ function WineLegend() {
                   aria-label={`Open ${wine.name}`}
                   className="group relative flex flex-col items-center w-[88px] md:w-[220px] lg:w-[240px] focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C8A96E]/40 rounded-sm"
                 >
-                  {/* Bottle stage — square thumb on mobile, taller portrait
+                  {/* Bottle stage - square thumb on mobile, taller portrait
                       plate on desktop so the bottle reads as a poster
                       figure not a thumbnail. */}
                   <div className="relative w-full aspect-square md:aspect-[5/6] bg-[#0a0a0a] rounded-sm overflow-hidden">
@@ -294,7 +294,7 @@ function WineLegend() {
                       aria-hidden
                       className="absolute inset-0 w-full h-full object-contain p-2.5 md:p-5 transition-transform duration-700 ease-out group-hover:scale-[1.06] [filter:drop-shadow(0_8px_14px_rgba(0,0,0,0.6))]"
                     />
-                    {/* Inset hairline — gold on hover. Read as a vitrine
+                    {/* Inset hairline - gold on hover. Read as a vitrine
                         frame around the bottle. */}
                     <div
                       aria-hidden
@@ -302,7 +302,7 @@ function WineLegend() {
                     />
                   </div>
 
-                  {/* Editorial caption block — display italic name + gold
+                  {/* Editorial caption block - display italic name + gold
                       italic price + uppercase volume hairline. */}
                   <span
                     className="font-display italic text-white/80 group-hover:text-cream mt-3 md:mt-4 text-center leading-[1.15] transition-colors duration-400"
@@ -329,7 +329,7 @@ function WineLegend() {
         </ul>
         </div>
 
-        {/* Custom always-visible gold scrollbar — same mechanic as the
+        {/* Custom always-visible gold scrollbar - same mechanic as the
             Beyond-the-Bottle row on the homepage. Shown on mobile too
             (was desktop-only) so users on touch devices can see the
             scroll affordance + drag the thumb directly. */}
@@ -346,7 +346,7 @@ function WineLegend() {
 // ── Section: Wine Grid ──────────────────────────────────────────────────────
 
 function WineGrid() {
-  // Track the URL hash so the matching grid card gets a gold ring —
+  // Track the URL hash so the matching grid card gets a gold ring -
   // signals to the user "this is the wine you jumped to from the
   // legend strip above". Reads on mount AND on every hashchange so
   // repeated clicks in the legend re-highlight cleanly.
@@ -378,7 +378,7 @@ function WineGrid() {
               viewport={{ once: true, amount: 0.15 }}
               transition={{
                 duration: 0.7,
-                // Stagger across rows (3 cols) — items in same row reveal
+                // Stagger across rows (3 cols) - items in same row reveal
                 // together, next row 0.08s later.
                 delay: 0.05 + (i % 3) * 0.08,
                 ease: [0.16, 1, 0.3, 1],
@@ -395,7 +395,7 @@ function WineGrid() {
                   : wine.slug ? `${basePath}/wine/${wine.slug}` : "#"}
                 className="block text-center focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C8A96E]/40 rounded-sm"
               >
-                {/* Bottle stage — dark frame + gold radial atmosphere */}
+                {/* Bottle stage - dark frame + gold radial atmosphere */}
                 <div className="relative aspect-[3/4] overflow-hidden mb-5 md:mb-6 bg-[#0a0a0a] rounded-sm">
                   <div
                     className="absolute inset-0 pointer-events-none"
@@ -447,7 +447,7 @@ function WineGrid() {
                   {wine.price}
                 </p>
 
-                {/* Trailer — tasting notes as pill chips, same compact
+                {/* Trailer - tasting notes as pill chips, same compact
                     treatment as the homepage carousel's mobile view */}
                 <div className="flex flex-wrap justify-center gap-1.5 mb-6">
                   {wine.tastingNotes.map((note) => (
@@ -460,7 +460,7 @@ function WineGrid() {
                   ))}
                 </div>
 
-                {/* Shop Bottle — no border, elegant gold underline
+                {/* Shop Bottle - no border, elegant gold underline
                     appears on hover, slides from left like a magazine
                     accent line. */}
                 <span
@@ -486,7 +486,7 @@ function WineGrid() {
 // ── Section: View Switch ────────────────────────────────────────────────────
 // Small UX gimmick (added 2026-05-17): pill-toggle between the
 // compact horizontal bottle-row and the editorial card grid. Two
-// modes are mutually exclusive — only one renders at a time so the
+// modes are mutually exclusive - only one renders at a time so the
 // page reads as a single deliberate composition rather than a
 // scroll-down catalog.
 
@@ -617,7 +617,7 @@ function BackToTop() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    // Threshold ≈ "past the hero" — 70 % of viewport height covers the
+    // Threshold ≈ "past the hero" - 70 % of viewport height covers the
     // hero section + mini-bottle legend on all common viewports.
     const onScroll = () => {
       setVisible(window.scrollY > window.innerHeight * 0.7);
@@ -650,7 +650,7 @@ function BackToTop() {
           "opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease",
       }}
     >
-      {/* Up arrow — simple inline SVG, gold-on-glass aesthetic.
+      {/* Up arrow - simple inline SVG, gold-on-glass aesthetic.
           Cream stroke matches the cream text used elsewhere on
           floating chrome (Navbar logo, etc.). */}
       <svg
@@ -677,13 +677,13 @@ function BackToTop() {
 
 export default function WinesPage() {
   // View mode: "row" = compact horizontal bottle strip (default),
-  // "grid" = editorial card grid. Mutually exclusive — toggled via
+  // "grid" = editorial card grid. Mutually exclusive - toggled via
   // the ViewSwitch pill above the gallery.
   const [view, setView] = useState<"row" | "grid">("row");
 
   return (
     <div className="bg-[#010101] min-h-screen">
-      {/* Grain noise overlay — same value used on /vineyard-booking for visual
+      {/* Grain noise overlay - same value used on /vineyard-booking for visual
           continuity across non-homepage routes. Sits above content
           (z-100) but pointer-events:none so it never blocks clicks. */}
       <div
@@ -708,7 +708,7 @@ export default function WinesPage() {
       </main>
       <BackToTop />
       <Footer />
-      {/* No <BottomNav /> on /wines — the catalog cards themselves
+      {/* No <BottomNav /> on /wines - the catalog cards themselves
           are the primary navigation on this page; a sticky bottom
           bar would just add mobile clutter without a relevant
           destination (Home is one tap away in the hamburger menu,

@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 import { useCart } from "@/lib/cart/CartContext";
 
 /**
- * PurchaseWidget — composable purchase block for SKU pages.
+ * PurchaseWidget - composable purchase block for SKU pages.
  * Bundles: Variant-Selector + Quantity-Selector + Free-Shipping-Bar + ATB Button.
  *
  * The ATB button dispatches to the global cart (CartContext) using
- * the (slug, variantId) merge key — same wine + same variant
+ * the (slug, variantId) merge key - same wine + same variant
  * increments the existing line; magnums/cases stay as separate
  * lines. After dispatch the cart drawer auto-opens so the user
  * gets visual confirmation.
@@ -24,7 +24,7 @@ export interface Variant {
   price: number;
   /** Optional savings badge e.g. "Save 15%" */
   badge?: string;
-  /** Stable id for cart merging. Defaults to a slug of `label` —
+  /** Stable id for cart merging. Defaults to a slug of `label` -
    *  e.g. "75cl Bottle" → "75cl-bottle". Set explicitly for the
    *  3 canonical variants: "75cl", "magnum", "case6". */
   variantId?: string;
@@ -35,7 +35,7 @@ export interface Variant {
    *  the page's default 75cl bottle image when undefined. */
   image?: string;
   /** Optional pre-discount price (GBP). Set on bundle variants that
-   *  ship at a saving — typically a Case of 6 (= 6× single-bottle
+   *  ship at a saving - typically a Case of 6 (= 6× single-bottle
    *  list price). When present, the widget renders a strikethrough
    *  next to the actual price so the saving is visually concrete:
    *  "£183.60  ~~£204.00~~". The "Save 10%" badge on the variant
@@ -57,7 +57,7 @@ interface Props {
   memberNote?: string;
   /** id on the ATB-button for the StickyMobileCTA IntersectionObserver. */
   ctaId?: string;
-  /** Wine identity — required for cart line items. */
+  /** Wine identity - required for cart line items. */
   slug: string;
   productName: string;
   vintage: string;
@@ -66,7 +66,7 @@ interface Props {
   /** Optional callback fired AFTER the cart add (e.g. for analytics). */
   onAddToBasket?: (selection: { variant: Variant; quantity: number; total: number }) => void;
   /** Controlled variant index. When set together with `onVariantChange`
-   *  the widget becomes fully controlled — the parent owns variant
+   *  the widget becomes fully controlled - the parent owns variant
    *  state and can wire the hero bottle image to track variant clicks
    *  (Magnum / Case-of-6 image swap). Leave both undefined for the
    *  default self-contained behaviour. */
@@ -78,7 +78,7 @@ const formatGBP = (n: number) =>
   new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", minimumFractionDigits: 2 }).format(n);
 
 /** Slugify a variant label when the SKU page didn't set an explicit
- *  variantId — "75cl Bottle" → "75cl-bottle". Keeps cart lines stable
+ *  variantId - "75cl Bottle" → "75cl-bottle". Keeps cart lines stable
  *  across re-renders. */
 function variantIdFor(v: Variant, fallbackIdx: number): string {
   if (v.variantId) return v.variantId;
@@ -230,7 +230,7 @@ export function PurchaseWidget({
           </button>
         </div>
 
-        {/* ATB Button — data-atb-trigger ties into the StickyMobileCTA
+        {/* ATB Button - data-atb-trigger ties into the StickyMobileCTA
             observer. Dispatches to the cart + auto-opens the drawer.
             When the active variant is out of stock the button is
             disabled, label switches to "Out of Stock", and the cart
@@ -249,7 +249,7 @@ export function PurchaseWidget({
       </div>
 
       {/* ── Free Shipping Bar ──────────────────────────────────────
-          Hidden when the active variant is out of stock — no point
+          Hidden when the active variant is out of stock - no point
           dangling a free-shipping promise on an un-buyable item. */}
       <div aria-live="polite" className={`space-y-1.5 ${isOOS ? "hidden" : ""}`}>
         <div className="relative h-[3px] rounded-full overflow-hidden bg-white/[0.08]">
@@ -280,7 +280,7 @@ export function PurchaseWidget({
 
       {/* ── Member Note ──────────────────────────────────────────────
           !mt-2 md:!mt-1 overrides the parent space-y-4/5 for this last
-          fine-print caption — it visually belongs as a tail to the
+          fine-print caption - it visually belongs as a tail to the
           free-shipping bar above it, so 8/4px reads almost like a
           continuation of the same block. Tuned 2026-05-12. */}
       {memberNote && (

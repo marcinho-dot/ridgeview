@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * /mike-roberts — dedicated tribute page for Ridgeview's founder.
+ * /mike-roberts - dedicated tribute page for Ridgeview's founder.
  *
  * Split out from the People page (2026-05-17) so Mike has his own
  * editorial home. Content + images verified against the migrated
@@ -12,10 +12,10 @@
  *   - People page · Simon Roberts paragraph mentions him as father
  *
  * Names policy (per tasks/lessons.md):
- *   ✅ Mike Roberts (founder) — fully named
- *   ✅ Simon Roberts (Head Winemaker, adoptive son) — referenced
+ *   ✅ Mike Roberts (founder) - fully named
+ *   ✅ Simon Roberts (Head Winemaker, adoptive son) - referenced
  *      generically as "Head Winemaker", not by name on this page
- *   ❌ Mike's wife / biological children / "Roberts family" — never
+ *   ❌ Mike's wife / biological children / "Roberts family" - never
  *      mentioned. Family-language uses "Ridgeview" / "the team".
  */
 
@@ -29,7 +29,7 @@ import { basePath } from "@/lib/basePath";
 export default function MikeRobertsPage() {
   return (
     <div className="bg-[#010101] min-h-screen">
-      {/* Grain noise overlay — matches other premium routes */}
+      {/* Grain noise overlay - matches other premium routes */}
       <div
         aria-hidden
         className="pointer-events-none fixed inset-0 z-[100] opacity-[0.035]"

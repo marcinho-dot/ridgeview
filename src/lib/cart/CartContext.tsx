@@ -3,7 +3,7 @@
 /**
  * CartProvider + useCart hook.
  *
- * Holds the basket state for the whole site. Static-export friendly —
+ * Holds the basket state for the whole site. Static-export friendly -
  * everything lives client-side, persisted to `localStorage` under the
  * key `ridgeview-cart-v1`. The provider mounts once in `layout.tsx`
  * and is consumed by:
@@ -14,7 +14,7 @@
  *   - `<StickyMobileCTA />` on each SKU page (quick-adds the default
  *     75cl variant)
  *
- * Persistence is one-way write-on-change + read-on-mount. SSR-safe —
+ * Persistence is one-way write-on-change + read-on-mount. SSR-safe -
  * the initial state is an empty cart so the server-rendered HTML and
  * the client's first paint agree (no hydration mismatch); the real
  * cart is read from localStorage in a `useEffect` after mount.
@@ -84,7 +84,7 @@ function writePersisted(items: CartItem[]) {
     const payload: PersistedCart = { v: 1, items };
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
   } catch {
-    /* private mode etc. — fine, cart just won't survive reload */
+    /* private mode etc. - fine, cart just won't survive reload */
   }
 }
 
@@ -97,7 +97,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   // Hydrate from localStorage AFTER first paint to avoid an SSR/CSR
   // mismatch. The "empty cart on first paint" flash is unavoidable
-  // for static export — but it's invisible because the cart drawer
+  // for static export - but it's invisible because the cart drawer
   // is closed by default and the badge "0" is hidden.
   useEffect(() => {
     setItems(readPersisted());
@@ -110,7 +110,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     writePersisted(items);
   }, [items]);
 
-  // Cross-tab sync — if the user has the site open in two tabs and
+  // Cross-tab sync - if the user has the site open in two tabs and
   // adds in one, the other one's cart updates too.
   useEffect(() => {
     const onStorage = (e: StorageEvent) => {

@@ -52,10 +52,10 @@ function PageHeader() {
     // VisitPanels) anchor reliably to the hero on this page.
     <section id="top" ref={ref} className="relative h-screen w-full overflow-hidden">
       <motion.div style={{ y: bgY }} className="absolute inset-0">
-        {/* Hero image — uses <picture> with media sources so the browser
+        {/* Hero image - uses <picture> with media sources so the browser
             fetches EXACTLY ONE asset based on viewport width, instead of
             the old setup where both <img>s loaded and only one rendered
-            (the other was display:hidden, but already downloaded — a 11.5MB
+            (the other was display:hidden, but already downloaded - a 11.5MB
             penalty on Mobile that was the #1 cause of /vineyard-booking/
             jank on Huawei P30 Lite-class devices).
               Mobile  ≤ 640px → terroir-hero-1080.jpg  (265 KB)
@@ -164,13 +164,13 @@ function PageHeader() {
 //
 // Scroll choreography (useScroll offset "start end"→"end start",
 // 400vh total range across the section's life):
-//   progress 0.00 — section just enters viewport from below
-//   progress 0.25 — sticky engages (section_top reaches viewport top);
+//   progress 0.00 - section just enters viewport from below
+//   progress 0.25 - sticky engages (section_top reaches viewport top);
 //                   Terroir covers the full viewport
-//   progress 0.50 — Terroir fully scrolled off the top;
+//   progress 0.50 - Terroir fully scrolled off the top;
 //                   chalk image fully revealed at viewport [0, 100vh]
-//   progress 0.75 — sticky range ends; chalk starts to release upward
-//   progress 1.00 — chalk fully off the top of the viewport
+//   progress 0.75 - sticky range ends; chalk starts to release upward
+//   progress 1.00 - chalk fully off the top of the viewport
 
 function HeritageRevealStack() {
   const ref = useRef<HTMLDivElement>(null);
@@ -179,7 +179,7 @@ function HeritageRevealStack() {
     offset: ["start end", "end start"],
   });
 
-  // CHALK IMAGE motion — restored 2026-05-17 to the user-confirmed
+  // CHALK IMAGE motion - restored 2026-05-17 to the user-confirmed
   // "Beste Version bis lang" state from commit 1d79237. Both
   // transforms span the FULL visibility window [0, 1]:
   //   scale 1.55 → 1.28   (continuous zoom-out / camera pull-back)
@@ -193,16 +193,16 @@ function HeritageRevealStack() {
   const imageScale = useTransform(scrollYProgress, [0, 1], [1.55, 1.28]);
   const imageY = useTransform(scrollYProgress, [0, 1], ["0vh", "-13vh"]);
 
-  // BOTTOM block (kicker + grape names + Champagne caption) — the
+  // BOTTOM block (kicker + grape names + Champagne caption) - the
   // kicker [ Chalk · Ancient Seabed ] lives INSIDE this block as its
   // first child. The whole composition reads as a single editorial
   // unit and shares one motion envelope:
   //
-  //   y       — CONTINUOUS linear drift +20vh → -30vh across the
-  //             visibility window. Total travel: 50vh — moderate
+  //   y       - CONTINUOUS linear drift +20vh → -30vh across the
+  //             visibility window. Total travel: 50vh - moderate
   //             upward drift through the middle of the image, not
   //             the full-frame traversal we briefly tried at ±120vh.
-  //   opacity — early fade-in (0.25 → 0.38) · plateau (0.38 → 0.7) ·
+  //   opacity - early fade-in (0.25 → 0.38) · plateau (0.38 → 0.7) ·
   //             gradual fade-out (0.7 → 0.97).
   //
   // The fade-out starts at p=0.7 while the block is still clearly
@@ -222,12 +222,12 @@ function HeritageRevealStack() {
     >
       {/* Mobile height tightened from 300vh → 220vh (2026-05-17 after
           user feedback "Scroll-Effekt im Chalk-Abschnitt viel zu lang").
-          Sticky pin range scales proportionally — the editorial choreography
+          Sticky pin range scales proportionally - the editorial choreography
           stays intact, just compressed into a shorter scroll path that
           doesn't make Mobile users feel the page is "stuck". Desktop keeps
           300vh because larger viewports tolerate the cinematic pacing. */}
 
-      {/* ── LAYER 0 (BEHIND) — Chalk image sticky-pinned ── */}
+      {/* ── LAYER 0 (BEHIND) - Chalk image sticky-pinned ── */}
       <div className="sticky top-0 h-screen overflow-hidden z-0 bg-[#010101]">
         {/* Asset: terroir-vineyard.jpg (684 KB desktop) + new
             terroir-vineyard-1280.jpg (239 KB mobile srcset). Mobile gets
@@ -247,18 +247,18 @@ function HeritageRevealStack() {
             style={{ scale: imageScale, y: imageY, willChange: "transform" }}
           />
         </picture>
-        {/* Readability layers — refined 2026-05-16 after the radial
+        {/* Readability layers - refined 2026-05-16 after the radial
             halos were rendering as visible dark "blobs" rather than
             blending smoothly. Stripped back to just two soft linear
             gradients (top + bottom) plus a subtle base darken. The
             text legibility now comes from multi-layer text-shadows
             on the on-image texts themselves, not from heavy halos. */}
 
-        {/* Base darken — 12% black across the entire image so the
+        {/* Base darken - 12% black across the entire image so the
             brightest highlights never fight with gold/cream text */}
         <div className="absolute inset-0 pointer-events-none bg-black/[0.12]" />
 
-        {/* Top readability gradient — smooth fade, no hard color stops */}
+        {/* Top readability gradient - smooth fade, no hard color stops */}
         <div
           className="absolute inset-x-0 top-0 h-[40%] pointer-events-none"
           style={{
@@ -267,7 +267,7 @@ function HeritageRevealStack() {
           }}
         />
 
-        {/* Bottom readability gradient — smooth fade, no hard color stops */}
+        {/* Bottom readability gradient - smooth fade, no hard color stops */}
         <div
           className="absolute inset-x-0 bottom-0 h-[55%] pointer-events-none"
           style={{
@@ -284,7 +284,7 @@ function HeritageRevealStack() {
           className="absolute inset-x-0 bottom-[14vh] px-6 md:px-10 text-center"
           style={{ y: bottomY, opacity: bottomOpacity }}
         >
-          {/* Kicker — sits directly above the grape names */}
+          {/* Kicker - sits directly above the grape names */}
           <p
             className="font-display italic text-[#C8A96E] tracking-widest mb-4 md:mb-5"
             style={{
@@ -296,7 +296,7 @@ function HeritageRevealStack() {
             [ Chalk · Ancient Seabed ]
           </p>
 
-          {/* Grape varieties — single line with brand "·" middle-dot
+          {/* Grape varieties - single line with brand "·" middle-dot
               separator (Ridgeview CD pattern, same as the kicker
               "[ Chalk · Ancient Seabed ]"). Non-breaking space inside
               "Pinot Noir" + "Pinot Meunier" so those two-word names
@@ -331,12 +331,12 @@ function HeritageRevealStack() {
         </motion.div>
       </div>
 
-      {/* ── LAYER 10 (ON TOP) — Terroir text overlay ── */}
+      {/* ── LAYER 10 (ON TOP) - Terroir text overlay ── */}
       {/* The chalk above takes 100vh in normal flow (its h-screen
           sticky div); -mt-[100vh] pulls this Terroir block UP by
           exactly that amount so it overlaps the chalk's pin area.
           Solid #010101 bg covers the image while in place.
-          Pure normal-flow scroll — no transform — so as the user
+          Pure normal-flow scroll - no transform - so as the user
           scrolls, Terroir naturally rises off the top of the
           viewport, revealing the pinned chalk image behind it like
           a curtain. */}
@@ -392,12 +392,12 @@ function HeritageRevealStack() {
   );
 }
 
-// ── Section: Heritage Part 2 — Merret Quote ─────────────────────────────────
+// ── Section: Heritage Part 2 - Merret Quote ─────────────────────────────────
 
 function HeritageDiscoverySection() {
   // Refactored 2026-05-16: text moved from a right-hand column ONTO
   // the quote.png image as a full-bleed cinematic overlay (user
-  // direction). Same editorial copy, same FadeUp timings —
+  // direction). Same editorial copy, same FadeUp timings -
   // composition is now a single layered scene:
   //   1. Full-bleed quote.png as section background (golden-hour
   //      wine glass against the vineyard)
@@ -426,9 +426,9 @@ function HeritageDiscoverySection() {
           className="absolute inset-0 w-full h-full object-cover"
           style={{ objectPosition: "center 40%" }}
         />
-        {/* Base darken — keep the image visible but mute it */}
+        {/* Base darken - keep the image visible but mute it */}
         <div className="absolute inset-0 bg-black/55" />
-        {/* Left-weighted gradient — text sits on the darker left half */}
+        {/* Left-weighted gradient - text sits on the darker left half */}
         <div
           className="absolute inset-0"
           style={{
@@ -460,7 +460,7 @@ function HeritageDiscoverySection() {
             </p>
           </FadeUp>
 
-          {/* Pull-quote — large decorative open-quote sits behind the text */}
+          {/* Pull-quote - large decorative open-quote sits behind the text */}
           <FadeUp delay={0.2} duration={1.1}>
             <div className="relative mb-8">
               <span
@@ -522,7 +522,7 @@ function HeritageDiscoverySection() {
             </p>
           </FadeUp>
 
-          {/* Gold divider — anchored left, brighter than the off-image
+          {/* Gold divider - anchored left, brighter than the off-image
               version because the photo behind would otherwise eat it. */}
           <motion.div
             style={{
@@ -543,7 +543,7 @@ function HeritageDiscoverySection() {
   );
 }
 
-// ── Section: Heritage Part 3 — Behind the Bottle (shared with SKU pages) ────
+// ── Section: Heritage Part 3 - Behind the Bottle (shared with SKU pages) ────
 // The legacy HeritageMethodSection lived here. Replaced by the shared
 // BehindTheBottleSection component used on the SKU pages, so the same
 // four craft pillars (Soil → Harvest → Method → Lees) tell the same
@@ -575,7 +575,7 @@ function VisitPanels() {
         <FadeUp>
           {/* Anchor `#visit` sits directly on the kicker <p> (not the
               wrapping div) so the browser scrolls to position the
-              kicker exactly at the navbar's bottom edge — the div's
+              kicker exactly at the navbar's bottom edge - the div's
               pt-10/16 padding above no longer adds to the landing
               offset. `scroll-margin-top: 80px` ≈ navbar height (≈70px)
               + a small breath, so the kicker sits cleanly under the
@@ -640,7 +640,7 @@ function VisitPanels() {
                 1.5 hrs · Fri-Sun
               </p>
               {/* `data-back-to-top-anchor` marks this CTA as the
-                  vertical reference for the floating BackToTopFloat —
+                  vertical reference for the floating BackToTopFloat -
                   the arrow measures this element's position at runtime
                   and aligns its centre with it. Picking the Vineyard
                   Tour CTA (LEFT panel) is arbitrary since both visit
@@ -714,7 +714,7 @@ function VisitPanels() {
 //     including via the homepage Hero deep-link `/vineyard-booking#visit`.
 //   - Stays visible while the user keeps scrolling DOWN (past Visit,
 //     into Practical Info, into Footer).
-//   - Hides as soon as the user reverses direction and scrolls UP —
+//   - Hides as soon as the user reverses direction and scrolls UP -
 //     because they're already moving toward the top naturally, the
 //     affordance is redundant and would just be visual clutter.
 //   - Hides again if the user scrolls back above the Visit section.
@@ -728,14 +728,14 @@ function BackToTopFloat() {
   // Direct URL navigation, refresh, browser-back-into-page, or visits
   // from other routes all leave `enabled` false → button never appears.
   const [enabled, setEnabled] = useState(false);
-  // `show` is the position-based visibility — true when the visit
+  // `show` is the position-based visibility - true when the visit
   // section is in or above the viewport, false when it's below.
   const [show, setShow] = useState(false);
   // Dynamic `bottom: Npx` value. Computed at runtime by measuring the
   // visit-section CTA marked with `data-back-to-top-anchor` and
   // aligning the arrow's centre with the CTA's centre.
   //
-  // Initial value is `null` — the arrow is NOT rendered until this
+  // Initial value is `null` - the arrow is NOT rendered until this
   // has been set to a real measured value. That way we never paint a
   // fallback position first and then jump to the measured one (the
   // "vertical zucken" the user kept seeing).
@@ -771,15 +771,15 @@ function BackToTopFloat() {
   //     re-show it.
   //
   // Why disarm: the button is a one-time courtesy for the
-  // deep-link-from-Hero user — it gives them a way back to the
+  // deep-link-from-Hero user - it gives them a way back to the
   // hero of the page they were sent into. Once they've used the
   // page normally (scrolled back up to / past the hero), the
   // affordance is no longer relevant.
   //
   // Three event sources feed a single rAF-throttled `update()`:
-  //   1. `scroll` — catches user scrolling
-  //   2. `resize` — catches viewport-height changes
-  //   3. `IntersectionObserver` — catches LAYOUT SHIFTS that move
+  //   1. `scroll` - catches user scrolling
+  //   2. `resize` - catches viewport-height changes
+  //   3. `IntersectionObserver` - catches LAYOUT SHIFTS that move
   //      the kicker without user scrolling (lazy images / font swaps)
   useEffect(() => {
     if (!enabled) return;
@@ -838,21 +838,21 @@ function BackToTopFloat() {
   }, [enabled]);
 
   // ── Position alignment (one-shot, then frozen) ───────────────────────
-  // Measure the visit-section CTA's vertical position ONCE — the first
-  // moment the CTA is intersecting the viewport — set the arrow's
+  // Measure the visit-section CTA's vertical position ONCE - the first
+  // moment the CTA is intersecting the viewport - set the arrow's
   // bottom from that measurement, and never touch it again on scroll.
   // The arrow stays exactly where it was first painted; it does NOT
   // track the CTA when the user scrolls down into other sections.
   //
   // We use an IntersectionObserver instead of a scroll listener so we
   // get a guaranteed callback the moment the CTA enters the viewport
-  // — including the initial paint, where the observer fires once
+  // - including the initial paint, where the observer fires once
   // synchronously with the current intersection state. No polling,
   // no rAF throttling needed.
   //
   // The arrow is NOT rendered until `bottomPx` is non-null (see the
   // conditional in the return below). That eliminates the previous
-  // "paint at fallback then jump to measured" flicker — there's
+  // "paint at fallback then jump to measured" flicker - there's
   // simply nothing on screen until we have the right value.
   //
   // Re-measures on resize (the layout changed → the previously-locked
@@ -871,7 +871,7 @@ function BackToTopFloat() {
       if (measured) return;
       const rect = cta.getBoundingClientRect();
       const vh = window.innerHeight;
-      // The CTA must be FULLY inside the viewport — not just barely
+      // The CTA must be FULLY inside the viewport - not just barely
       // intersecting. The previous "any intersection" check captured
       // the moment the CTA first peeked in from the bottom, when its
       // centre was still below the fold. The resulting bottom was
@@ -895,7 +895,7 @@ function BackToTopFloat() {
 
     // Multi-threshold IntersectionObserver: fires every time the CTA's
     // intersection ratio crosses 0.25 / 0.5 / 0.75 / 1.0. By the time
-    // we hit 1.0, the CTA is fully inside the viewport — that's the
+    // we hit 1.0, the CTA is fully inside the viewport - that's the
     // first scroll moment where measure() actually has a usable rect.
     // Single-threshold-0 wouldn't work here: it only fires twice (on
     // enter and on exit) and the enter-fire happens at the worst
@@ -927,7 +927,7 @@ function BackToTopFloat() {
     };
   }, [enabled]);
 
-  // Inline styles for the V4 etched-crystal look — replicated here
+  // Inline styles for the V4 etched-crystal look - replicated here
   // rather than via the `.btn-cta` class because `.btn-cta` declares
   // `position: relative` which (in this Tailwind v4 + Next.js setup)
   // wins over Tailwind's `.fixed` utility due to CSS layer ordering.
@@ -948,10 +948,10 @@ function BackToTopFloat() {
             justifyContent: "center",
             // `bottom` is set once at mount via the measurement effect
             // above (matching the visit-section CTA's vertical
-            // centre), then frozen — the arrow does NOT track the CTA
+            // centre), then frozen - the arrow does NOT track the CTA
             // as the user scrolls. Re-measures only on resize.
             bottom: `${bottomPx}px`,
-            // 40 px square — matches the computed height of a `.btn-cta`
+            // 40 px square - matches the computed height of a `.btn-cta`
             // (font-size 10-11 px · padding 13 px vertical = ~40 px),
             // so the floating arrow visually aligns with the "Reserve a
             // Table" CTA when both are on screen.
@@ -1110,11 +1110,11 @@ export default function BookingPage() {
       <main>
         <PageHeader />
         <ScrollReset><EstatePeopleSection /></ScrollReset>
-        {/* Terroir Statement + Chalk Image — merged into a single
+        {/* Terroir Statement + Chalk Image - merged into a single
             LAYERED REVEAL section. The chalk image is sticky-pinned
             in the background; the Terroir text overlay sits on top
             (with solid bg) and scrolls upward naturally, revealing
-            the pinned image as it goes — Apple "Powerful connections"
+            the pinned image as it goes - Apple "Powerful connections"
             pattern. */}
         <ScrollReset><HeritageRevealStack /></ScrollReset>
         {/* ── Heritage Sticky Stack (2 cards) ──

@@ -6,7 +6,7 @@ import { motion, useInView } from "framer-motion";
 
 /* ─────────────────────────────────────────────────────────────────────────
    RecognitionSection
-   Social proof — typography-only, milestone timeline with luxury design.
+   Social proof - typography-only, milestone timeline with luxury design.
 ───────────────────────────────────────────────────────────────────────── */
 
 // Milestone copy. `text` is ReactNode so individual entries can embed
@@ -27,7 +27,7 @@ const milestones: { year: string; text: ReactNode }[] = [
       </>
     ),
   },
-  { year: "2000", text: "First vintage released — English Wine of the Year." },
+  { year: "2000", text: "First vintage released - English Wine of the Year." },
   { year: "2010", text: "Blanc de Blancs crowned Best Global Sparkling Wine at Decanter." },
   { year: "2012", text: "Official wine of the Queen's Diamond Jubilee celebrations." },
   { year: "2024", text: "UK Government's most-poured sparkling wine of the year." },
@@ -98,11 +98,11 @@ export function RecognitionSection() {
           Ridgeview sparkling wines have been served at State Banquets at Buckingham Palace and as
           the official sparkling wine of 10 Downing Street. In over two decades of
           production, the estate has become one of the most consistently decorated
-          producers of English sparkling wine — poured in the finest restaurants across
+          producers of English sparkling wine - poured in the finest restaurants across
           the United Kingdom, the United States, Scandinavia, and Japan.
         </motion.p>
 
-        {/* ── Milestone timeline — own viewport trigger ── */}
+        {/* ── Milestone timeline - own viewport trigger ── */}
         <div ref={timelineRef}>
 
           {/* Thin gold divider */}

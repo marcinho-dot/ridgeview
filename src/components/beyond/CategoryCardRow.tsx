@@ -186,7 +186,7 @@ export function CategoryCardRow() {
       id="beyond-the-bottle-row"
       className="relative bg-[#010101] border-t border-white/[0.06] overflow-hidden"
     >
-      {/* Subtle gold radial — keeps the dark band from feeling flat */}
+      {/* Subtle gold radial - keeps the dark band from feeling flat */}
       <div
         aria-hidden
         className="absolute inset-0 pointer-events-none"
@@ -197,7 +197,7 @@ export function CategoryCardRow() {
       />
 
       <div className="relative max-w-[1600px] mx-auto py-20 md:py-28">
-        {/* Header — staggered entrance triggers when the section enters
+        {/* Header - staggered entrance triggers when the section enters
             the viewport (amount: 0.15 so it fires while the section
             is still partly below the fold, before the user has time to
             wonder if anything is animating). */}
@@ -279,7 +279,7 @@ export function CategoryCardRow() {
                     href={`${basePath}/beyond-the-bottle/#${cat.slug}`}
                     className="group block focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C8A96E]/40 rounded-sm"
                   >
-                    {/* Image stage — aspect 16:15 (25% shorter than the
+                    {/* Image stage - aspect 16:15 (25% shorter than the
                         previous 4:5 portrait) */}
                     <div className="relative aspect-[16/15] overflow-hidden mb-4 bg-[#0a0a0a] rounded-sm">
                       {cat.image ? (
@@ -305,7 +305,7 @@ export function CategoryCardRow() {
                         className="absolute inset-x-5 bottom-5 h-px bg-[#C8A96E]/0 group-hover:bg-[#C8A96E]/60 transition-colors duration-500"
                       />
 
-                      {/* Label stack — overlaid in the bottom area */}
+                      {/* Label stack - overlaid in the bottom area */}
                       <div className="absolute inset-x-0 bottom-0 px-5 md:px-6 pb-5 md:pb-6">
                         <p
                           className="font-body text-[#C8A96E]/80 group-hover:text-[#C8A96E] uppercase tracking-[0.24em] mb-2 transition-colors duration-400"
@@ -325,7 +325,7 @@ export function CategoryCardRow() {
                       </div>
                     </div>
 
-                    {/* Blurb — sits under the image, not over */}
+                    {/* Blurb - sits under the image, not over */}
                     <p
                       className="font-body text-white/55 group-hover:text-white/75 leading-relaxed transition-colors duration-400"
                       style={{

@@ -6,21 +6,21 @@ import { basePath } from "@/lib/basePath";
 export function LifestyleSection() {
   return (
     <section className="relative overflow-hidden" style={{ height: "60vh", minHeight: "380px" }}>
-      {/* Background — bottle + glasses at golden hour vineyard */}
+      {/* Background - bottle + glasses at golden hour vineyard */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={`${basePath}/images/lifestyle-bg.png`}
-        alt="Ridgeview — enjoyed at golden hour"
+        alt="Ridgeview - enjoyed at golden hour"
         className="absolute inset-0 w-full h-full object-cover"
         style={{ objectPosition: "center 55%" }}
       />
 
-      {/* Layered overlays — no top gradient to avoid seam with slide-in */}
+      {/* Layered overlays - no top gradient to avoid seam with slide-in */}
       <div className="absolute inset-0 bg-black/45" />
       <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/30" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#010101]/60" />
 
-      {/* Content — centred quote */}
+      {/* Content - centred quote */}
       <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
 
         <div className="overflow-hidden mb-2">

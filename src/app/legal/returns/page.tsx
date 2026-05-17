@@ -4,7 +4,7 @@ import { COMPANY, formatAddress } from "@/lib/legal/company";
 export const metadata = {
   title: "Returns & Cancellation · Ridgeview Wine Estate",
   description:
-    "Your right to cancel an order, return faulty goods, and the model cancellation form — Ridgeview Wine Estate (QBRidge Limited).",
+    "Your right to cancel an order, return faulty goods, and the model cancellation form - Ridgeview Wine Estate (QBRidge Limited).",
 };
 
 export default function ReturnsPage() {
@@ -24,12 +24,12 @@ export default function ReturnsPage() {
       <p>
         Under the Consumer Contracts (Information, Cancellation and
         Additional Charges) Regulations 2013, you have the right to
-        cancel your order — for any reason — within{" "}
+        cancel your order - for any reason - within{" "}
         <strong>14 calendar days</strong> of the day you (or someone you
         nominate) receive the goods.
       </p>
       <p>
-        To cancel, simply tell us in writing — by email, by post, or by
+        To cancel, simply tell us in writing - by email, by post, or by
         using the{" "}
         <a href="#cancellation-form">model cancellation form</a> below.
         You do not have to give a reason.
@@ -37,7 +37,7 @@ export default function ReturnsPage() {
 
       <div className="legal-callout">
         <p>
-          <strong>Important — sealed wine.</strong> Once a bottle has
+          <strong>Important - sealed wine.</strong> Once a bottle has
           been opened it is no longer in a re-saleable condition, and the
           right to cancel does not apply to that bottle. Sealed,
           unopened bottles can be returned without issue.
@@ -47,7 +47,7 @@ export default function ReturnsPage() {
       <h3>How to return the wine</h3>
       <ol>
         <li>
-          Notify us within the 14-day window — see the form below.
+          Notify us within the 14-day window - see the form below.
         </li>
         <li>
           Send the bottles back, in the original packaging where
@@ -58,7 +58,7 @@ export default function ReturnsPage() {
           We refund the full purchase price (plus the original standard
           delivery cost) to your original payment method within 14 days
           of either receiving the goods back or receiving evidence that
-          you have sent them — whichever is sooner.
+          you have sent them - whichever is sooner.
         </li>
       </ol>
       <p>
@@ -82,7 +82,7 @@ export default function ReturnsPage() {
           of the damaged item(s) and your order reference.
         </li>
         <li>
-          We will arrange replacement bottles — at our cost — or, where
+          We will arrange replacement bottles - at our cost - or, where
           you prefer, a full refund.
         </li>
         <li>
@@ -95,7 +95,7 @@ export default function ReturnsPage() {
       <p>
         Refunds are issued to your original payment method. Bank
         processing times vary, but most cards show the credit within
-        3–5 working days of issue. We always aim to action refunds
+        3-5 working days of issue. We always aim to action refunds
         within 14 days of receiving the returned goods (or, in the case
         of damaged goods, within 14 days of accepting your claim).
       </p>
@@ -104,16 +104,16 @@ export default function ReturnsPage() {
       <ul>
         <li>
           <strong>Bottles opened or otherwise out of saleable
-          condition</strong> — the right to cancel does not apply.
+          condition</strong> - the right to cancel does not apply.
         </li>
         <li>
-          <strong>Personalised or engraved products</strong> — these are
+          <strong>Personalised or engraved products</strong> - these are
           made to order and cannot be returned under the 14-day rule
           unless they arrive damaged or are not as described.
         </li>
         <li>
           <strong>Estate visits, wine tastings and gift vouchers</strong>{" "}
-          — bookings are covered by separate terms communicated at the
+          - bookings are covered by separate terms communicated at the
           time of booking.
         </li>
       </ul>

@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * BottleStage — hero product imagery for an SKU page.
+ * BottleStage - hero product imagery for an SKU page.
  *
  * Wraps an <img> in AnimatePresence so the bottle/case PNG crossfades
  * when the user picks a different Format in the PurchaseWidget.
@@ -17,7 +17,7 @@
  *     no translate-X. The result reads as a clean product shot
  *     centered in the column, not a sprawling-off-screen photo.
  *
- * Toggle is automatic via the src filename. No prop drilling needed —
+ * Toggle is automatic via the src filename. No prop drilling needed -
  * adding a new case shot to a SKU's variant list is enough.
  */
 

@@ -223,7 +223,7 @@ export function ImageRevealSection() {
   // (egal ob von oben oder unten). once:false + higher amount delays the
   // trigger until the section is more visible.
   // margin: shrinks the viewport bottom by 100px so the cards have to clear
-  // the mobile BottomNav (≈80px tall) before the entrance animation fires —
+  // the mobile BottomNav (≈80px tall) before the entrance animation fires -
   // otherwise the cards would appear behind the sticky bar.
   const inView = useInView(ref, {
     once: false,
@@ -307,7 +307,7 @@ export function ImageRevealSection() {
 
         {/* ── Social & Newsletter ───────────────────────────────── */}
         <div className="max-w-[520px] mx-auto px-6 pb-16 md:pb-20">
-          {/* Social Icons — no links */}
+          {/* Social Icons - no links */}
           <div className="flex items-center justify-center gap-5 mb-6">
             {socials.map((s) => (
               <div
@@ -320,7 +320,7 @@ export function ImageRevealSection() {
             ))}
           </div>
 
-          {/* Substack Email Input — extracted to <SubstackForm /> 2026-05-17
+          {/* Substack Email Input - extracted to <SubstackForm /> 2026-05-17
               so the same form (with bumped contrast) can be reused on
               the /beyond-the-bottle PageHero. */}
           <SubstackForm />

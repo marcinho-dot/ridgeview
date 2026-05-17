@@ -6,13 +6,13 @@ import { wines as allWines } from "@/data/wines";
 import { basePath } from "@/lib/basePath";
 
 // The homepage Wine Collection carousel shows only actual wines.
-// The Engraved Bottle Gift is a bespoke engraving service — it lives
+// The Engraved Bottle Gift is a bespoke engraving service - it lives
 // in wines.ts so its SKU page can be data-driven, but it is filtered
 // out here so the slider's "01 / NN" counter, dots, and rotation
 // reflect the wine range only. (2026-05-12)
 //
 // Carousel order: most expensive → least expensive (2026-05-12). The
-// editorial intent is to open with the flagship — Oak Reserve £85 —
+// editorial intent is to open with the flagship - Oak Reserve £85 -
 // and step down to the entry-level Still wines. Price strings are
 // parsed defensively so "£75", "£27.50", and any future "From £X"
 // formats all yield numeric values for the sort.
@@ -27,7 +27,7 @@ const wines = allWines
   // wine.
   .filter((w) => w.slug !== "engraved-bottle-gift" && w.kind !== "membership")
   .sort((a, b) => {
-    // Membership entries (OurView Wine Club) always last — they aren't
+    // Membership entries (OurView Wine Club) always last - they aren't
     // bottles and shouldn't intrude on the price-descending ranking.
     if (a.kind === "membership" && b.kind !== "membership") return 1;
     if (b.kind === "membership" && a.kind !== "membership") return -1;
@@ -117,9 +117,9 @@ export function WineCollectionSection() {
         {/* ── Header row ──────────────────────────────────────
             The anchor target sits on this header wrapper (NOT the outer
             <section>) so a "Shop" breadcrumb click lands exactly at the
-            section header rather than at the section's outer edge —
+            section header rather than at the section's outer edge -
             otherwise scroll-margin-top would only offset to the top of
-            the <section>'s padding, and the user would still see ~80–
+            the <section>'s padding, and the user would still see ~80-
             112px of empty space + part of the carousel pushed under the
             navbar. Tuned 2026-05-12. */}
         <div
@@ -149,7 +149,7 @@ export function WineCollectionSection() {
               Our <span className="text-[#C8A96E]">Wine</span> Collection
             </motion.h2>
           </div>
-          {/* Counter + progress — desktop only */}
+          {/* Counter + progress - desktop only */}
           <div className="hidden md:flex flex-col items-end gap-2 pb-1">
             <span className="font-body text-white/35 text-xs tracking-[0.22em]">
               {String(current + 1).padStart(2, "0")} &nbsp;/&nbsp; {String(wines.length).padStart(2, "0")}
@@ -470,7 +470,7 @@ export function WineCollectionSection() {
         </div>
 
         {/* ══════════════════════════════════════════════════════
-            CONTROLS BAR — Three-column row:
+            CONTROLS BAR - Three-column row:
               left  = prev | counter | next
               CENTER = "View all 10 Wines" link to /wines catalog
               right = pagination dots
@@ -485,7 +485,7 @@ export function WineCollectionSection() {
             <ArrowBtn dir="next" onClick={() => paginate(1)} />
           </div>
 
-          {/* CENTER — bridges the carousel teaser to the full /wines catalog */}
+          {/* CENTER - bridges the carousel teaser to the full /wines catalog */}
           <motion.div
             className="order-3 md:order-none w-full md:w-auto flex justify-center"
             initial={{ opacity: 0, y: 8 }}

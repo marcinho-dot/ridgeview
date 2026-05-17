@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * CartButton — basket icon + line-item count badge.
+ * CartButton - basket icon + line-item count badge.
  *
  * Renders the CartIcon (woven basket with grapes) with a gold-bordered
  * count badge in the top-right. Clicking it opens the cart drawer.
@@ -18,7 +18,7 @@ import { useCart } from "@/lib/cart/CartContext";
 import { CartIcon } from "./CartIcon";
 
 interface CartButtonProps {
-  /** Tailwind class for the icon stroke colour at rest — passed
+  /** Tailwind class for the icon stroke colour at rest - passed
    *  through so the Navbar can match its current state (white/65
    *  vs. cream depending on scroll). */
   className?: string;
@@ -40,7 +40,7 @@ export function CartButton({ className = "" }: CartButtonProps) {
     <button
       type="button"
       onClick={openDrawer}
-      aria-label={`Open cart — ${count} item${count === 1 ? "" : "s"}`}
+      aria-label={`Open cart - ${count} item${count === 1 ? "" : "s"}`}
       className={`relative inline-flex items-center justify-center p-1 transition-colors duration-300 hover:text-[#C8A96E] focus-visible:outline-none focus-visible:text-[#C8A96E] ${className}`}
     >
       <CartIcon size={28} />

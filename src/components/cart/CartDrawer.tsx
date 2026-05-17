@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * CartDrawer — slide-in basket panel.
+ * CartDrawer - slide-in basket panel.
  *
  * Sits on top of the page as a right-anchored drawer. Closed by
  * default; opened by:
@@ -15,7 +15,7 @@
  *   [Line items / empty state]
  *   [Footer]  subtotal + "Proceed to Checkout" CTA + VAT note
  *
- * Static-export friendly — everything client-side. Checkout is a
+ * Static-export friendly - everything client-side. Checkout is a
  * placeholder for now (cart-state is real but there's no payment
  * backend wired up). When you bolt on Stripe/Shopify, the CTA's
  * onClick is the single integration point.
@@ -148,7 +148,7 @@ export function CartDrawer() {
             </header>
 
             {/* Free-delivery progress used to live here as a
-                standalone block — moved 2026-05-15 into the footer's
+                standalone block - moved 2026-05-15 into the footer's
                 Shipment section so the same info isn't duplicated
                 top + bottom. */}
 
@@ -168,7 +168,7 @@ export function CartDrawer() {
             {/* ── Footer ───────────────────────────────────────── */}
             {items.length > 0 && (
               <footer className="border-t border-white/[0.08] px-6 md:px-8 py-5 md:py-6 bg-[#0a0a0a]">
-                {/* Subtotal — gross sum of all lines */}
+                {/* Subtotal - gross sum of all lines */}
                 <div className="flex items-baseline justify-between pb-3 border-b border-white/[0.06]">
                   <p
                     className="font-body font-light text-white/65 uppercase tracking-[0.22em]"
@@ -184,7 +184,7 @@ export function CartDrawer() {
                   </p>
                 </div>
 
-                {/* Shipment — policy text + free-delivery progress bar.
+                {/* Shipment - policy text + free-delivery progress bar.
                     Two-column row mirrors the order-summary convention
                     on UK luxury wine shops. Below the policy line: a
                     hair-line progress bar with a status caption
@@ -229,7 +229,7 @@ export function CartDrawer() {
                     </div>
                   </div>
 
-                  {/* Progress bar + tight caption — sits flush across
+                  {/* Progress bar + tight caption - sits flush across
                       the full Shipment row, gives the customer a quick
                       visual cue of how close they are to the £45
                       free-delivery threshold without the duplicated
@@ -264,7 +264,7 @@ export function CartDrawer() {
                   </div>
                 </div>
 
-                {/* Total — gross with VAT shown inline as the
+                {/* Total - gross with VAT shown inline as the
                     parenthetical "(includes £X 20 % VAT)" so the
                     headline number stays the price the customer pays. */}
                 <div className="flex items-baseline justify-between pt-4 mb-5">
@@ -290,7 +290,7 @@ export function CartDrawer() {
                   </div>
                 </div>
 
-                {/* Primary CTA — routes to /checkout. Cart state lives
+                {/* Primary CTA - routes to /checkout. Cart state lives
                     in localStorage so the cart drawer + /cart page +
                     /checkout all see the same items. Payment provider
                     integration happens INSIDE /checkout (placeholder

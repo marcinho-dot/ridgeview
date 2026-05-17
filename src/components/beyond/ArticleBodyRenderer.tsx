@@ -151,7 +151,7 @@ function renderContentBlock(block: SideBySideContent, key: number) {
               className="font-body text-[#C8A96E]/85 uppercase tracking-[0.22em] mt-3"
               style={{ fontSize: "10px" }}
             >
-              — {block.attribution}
+              - {block.attribution}
             </p>
           )}
         </blockquote>
@@ -293,7 +293,7 @@ export function ArticleBodyRenderer({ blocks }: Props) {
                     className="font-body text-[#C8A96E]/85 uppercase tracking-[0.22em] mt-4"
                     style={{ fontSize: "10px" }}
                   >
-                    — {block.attribution}
+                    - {block.attribution}
                   </p>
                 )}
               </blockquote>

@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 import { basePath } from "@/lib/basePath";
 
 /**
- * RelatedWinesSection — Cross-sell adjacent SKUs.
+ * RelatedWinesSection - Cross-sell adjacent SKUs.
  *
  * Shows 2-3 related bottles as compact cards. Each card has a small bottle
  * image (rotated subtly), name, short style descriptor, price, and a Shop
- * Bottle link. Editorial layout — generous whitespace, gold dividers.
+ * Bottle link. Editorial layout - generous whitespace, gold dividers.
  */
 
 export interface RelatedWine {
@@ -131,7 +131,7 @@ export function RelatedWinesSection({
                 From {formatGBP(w.price)}
               </p>
 
-              {/* CTA — text link, gold underline grows on hover */}
+              {/* CTA - text link, gold underline grows on hover */}
               <span className="relative inline-flex items-center gap-2 font-body text-white/75 group-hover:text-[#C8A96E] text-[10px] uppercase tracking-[0.22em] transition-colors duration-300">
                 Discover
                 <span className="inline-block transition-transform duration-400 ease-out group-hover:translate-x-1">&rarr;</span>
@@ -144,7 +144,7 @@ export function RelatedWinesSection({
           ))}
         </div>
 
-        {/* Section-anchoring CTA — links back to the full Wine Collection
+        {/* Section-anchoring CTA - links back to the full Wine Collection
             on the homepage. Moved here 2026-05-12 from each SKU's ClosingCTA
             so it lives once in the shared RelatedWinesSection and propagates
             to every SKU page automatically. */}

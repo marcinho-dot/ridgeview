@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * SubstackForm — reusable email-capture pill for Ridgeview's Substack.
+ * SubstackForm - reusable email-capture pill for Ridgeview's Substack.
  *
  * Bumped contrast 2026-05-17 (user feedback: form was too low-contrast
  * against dark backgrounds):

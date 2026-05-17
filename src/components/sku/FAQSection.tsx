@@ -4,12 +4,12 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 /**
- * FAQSection — Accordion of common buyer questions.
+ * FAQSection - Accordion of common buyer questions.
  *
  * Categories typical for an English Sparkling Wine SKU:
  * Shipping · Returns · Storage · Gifting · Service.
  *
- * Pure presentational component — answers belong to the page that mounts
+ * Pure presentational component - answers belong to the page that mounts
  * the section so each SKU can override gift-specific or shipping-specific
  * details where needed.
  */
@@ -26,7 +26,7 @@ interface Props {
 }
 
 export function FAQSection({ kicker = "[ Good to know ]", headline = "Questions, answered.", items }: Props) {
-  // All accordions closed by default — user opens any item by clicking.
+  // All accordions closed by default - user opens any item by clicking.
   // (Was previously `useState(0)` which auto-opened the first FAQ.)
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 

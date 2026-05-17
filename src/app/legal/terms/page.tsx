@@ -53,7 +53,7 @@ export default function TermsPage() {
         buy the products in your basket at the prices and conditions shown
         at checkout. Your order is accepted only when we send you an order
         confirmation by email. Until that point, we may decline an order
-        for any reason — for example, where stock is unavailable, where
+        for any reason - for example, where stock is unavailable, where
         we cannot verify your age, or where the delivery address falls
         outside our serviceable area.
       </p>
@@ -77,7 +77,7 @@ export default function TermsPage() {
         We deliver to UK mainland addresses by next-working-day courier
         when orders are received before 12:00 (noon) on a working day.
         Delivery to Scotland and Northern Ireland may take one additional
-        working day. Standard delivery costs £5.50 — orders over £45
+        working day. Standard delivery costs £5.50 - orders over £45
         ship free. The maximum size of a single order is 36 bottles; for
         larger orders, please contact our team directly.
       </p>
@@ -111,8 +111,8 @@ export default function TermsPage() {
 
       <h2>8. Intellectual property</h2>
       <p>
-        All content on this website — including text, photographs, the
-        Ridgeview marque, wine labels and design — is the property of{" "}
+        All content on this website - including text, photographs, the
+        Ridgeview marque, wine labels and design - is the property of{" "}
         {COMPANY.legalName} or its licensors and is protected by UK and
         international copyright and trade-mark law. You may not reproduce
         or republish any part of the site for commercial purposes without

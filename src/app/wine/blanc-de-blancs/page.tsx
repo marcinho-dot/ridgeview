@@ -18,13 +18,13 @@ import { FAQSection } from "@/components/sku/FAQSection";
 import { getTestimonial } from "@/data/testimonials";
 import { basePath } from "@/lib/basePath";
 
-// Blanc de Blancs bottle variants — synced 2026-05-11 with ridgeview.co.uk.
+// Blanc de Blancs bottle variants - synced 2026-05-11 with ridgeview.co.uk.
 // 2010 Magnum is the cellar-aged release sold under this listing.
 // Order convention (final, locked 2026-05-12):
-//   Position 1: 75cl Bottle (ALWAYS — drives H1 price + default selection,
+//   Position 1: 75cl Bottle (ALWAYS - drives H1 price + default selection,
 //                            the everyday purchase that anchors the page)
-//   Position 2: Magnum (if available — the premium upgrade)
-//   Position 3: Case of 6 (if available — the bulk / gifting option)
+//   Position 2: Magnum (if available - the premium upgrade)
+//   Position 3: Case of 6 (if available - the bulk / gifting option)
 const BLANC_DE_BLANCS_VARIANTS: Variant[] = [
   { label: "75cl Bottle", detail: "75cl · 12% ABV · Vintage", price: 75, image: "/products/blanc-de-blancs.png" },
   { label: "Magnum 2010 · 1.5L", detail: "1.5L · 12% ABV · Cellar-aged", price: 195, image: "/products/blanc-de-blancs-magnum.png" },
@@ -66,7 +66,7 @@ function GoldDivider({ origin = "left" as "left" | "center" }) {
 
 function ProductHero() {
   // Parallax: bottle drifts upward 80px as the hero scrolls out of view.
-  // Subtle premium effect — Apple product pages use this exact pattern.
+  // Subtle premium effect - Apple product pages use this exact pattern.
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -79,11 +79,11 @@ function ProductHero() {
   const [variantIdx, setVariantIdx] = useState(0);
   const activeVariant = BLANC_DE_BLANCS_VARIANTS[variantIdx];
   const heroBottleSrc = activeVariant.image ?? "/products/blanc-de-blancs.png";
-  const heroBottleAlt = `Ridgeview Blanc de Blancs — English Sparkling Wine, ${activeVariant.label}`;
+  const heroBottleAlt = `Ridgeview Blanc de Blancs - English Sparkling Wine, ${activeVariant.label}`;
 
   return (
     // Section sizes to its natural content height (no min-h constraint).
-    // Goal "alles fits in einen viewport und adapts" — by dropping
+    // Goal "alles fits in einen viewport und adapts" - by dropping
     // min-h-[100svh] the hero never pads itself with empty space on
     // tall monitors, and the next section follows immediately. Atmospheric
     // weight is carried by the typography, the oversized bottle (90svh)
@@ -152,7 +152,7 @@ function ProductHero() {
                 so they sit next to the bottle visually and free up vertical space
                 for the ATB button to land inside the initial viewport. */}
 
-            {/* Divider — Desktop: between subtitle and description; Mobile: between
+            {/* Divider - Desktop: between subtitle and description; Mobile: between
                 Price/CTAs and the description block (pushed below the fold via order). */}
             <FadeUp delay={0.4} className="order-6">
               <div className="mb-3 md:mb-5">
@@ -178,7 +178,7 @@ function ProductHero() {
                 Desktop: source order applies → block is at the end as before. */}
             <FadeUp delay={0.55} className="order-5 mb-6 md:mb-0">
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 md:gap-10">
-                {/* Stateful purchase block — variant + qty + free-shipping bar + ATB */}
+                {/* Stateful purchase block - variant + qty + free-shipping bar + ATB */}
                 <div className="flex-1 max-w-[480px]">
                   <PurchaseWidget
                     slug="blanc-de-blancs"
@@ -193,7 +193,7 @@ function ProductHero() {
                   />
                 </div>
 
-                {/* Award Badges (Desktop only) — 3-up real badges, ordered
+                {/* Award Badges (Desktop only) - 3-up real badges, ordered
                     most prestigious first. Each image accurately matches its
                     caption (locked 2026-05-12: badge-to-award honesty rule). */}
                 <div className="hidden md:flex items-start gap-5 pt-1 flex-wrap" aria-label="Awards">
@@ -201,7 +201,7 @@ function ProductHero() {
                   <div className="flex flex-col items-center gap-2.5">
                     <motion.img
                       src={`${basePath}/images/awards/decanter-2023-platinum.webp`}
-                      alt="Platinum — Decanter World Wine Awards 2023"
+                      alt="Platinum - Decanter World Wine Awards 2023"
                       title="Decanter Platinum · 2023"
                       className="h-[clamp(86px,7.5vw,108px)] w-auto [filter:drop-shadow(0_10px_28px_rgba(0,0,0,0.55))] hover:[filter:drop-shadow(0_14px_36px_rgba(0,0,0,0.65))_drop-shadow(0_0_24px_rgba(200,169,110,0.18))] transition-[filter] duration-500"
                       loading="lazy"
@@ -218,7 +218,7 @@ function ProductHero() {
                   <div className="flex flex-col items-center gap-2.5">
                     <motion.img
                       src={`${basePath}/images/awards/winegb-2023-trophy.webp`}
-                      alt="Trophy — WineGB Awards 2023"
+                      alt="Trophy - WineGB Awards 2023"
                       title="WineGB Trophy · 2023"
                       className="h-[clamp(86px,7.5vw,108px)] w-auto [filter:drop-shadow(0_10px_28px_rgba(0,0,0,0.55))] hover:[filter:drop-shadow(0_14px_36px_rgba(0,0,0,0.65))_drop-shadow(0_0_24px_rgba(200,169,110,0.18))] transition-[filter] duration-500"
                       loading="lazy"
@@ -231,12 +231,12 @@ function ProductHero() {
                       WineGB <span className="text-[#C8A96E]/70 mx-1">·</span> 2023
                     </p>
                   </div>
-                  {/* IWSC Gold · 95 Points · 2020 — real badge for the actual
+                  {/* IWSC Gold · 95 Points · 2020 - real badge for the actual
                       Blanc de Blancs 2015 win at IWSC 2020. */}
                   <div className="flex flex-col items-center gap-2.5">
                     <motion.img
                       src={`${basePath}/images/awards/iwsc-95pts-2020-gold.webp`}
-                      alt="Gold — IWSC 95 Points 2020"
+                      alt="Gold - IWSC 95 Points 2020"
                       title="IWSC Gold · 95 Points · 2020"
                       className="h-[clamp(86px,7.5vw,108px)] w-auto [filter:drop-shadow(0_10px_28px_rgba(0,0,0,0.55))] hover:[filter:drop-shadow(0_14px_36px_rgba(0,0,0,0.65))_drop-shadow(0_0_24px_rgba(200,169,110,0.18))] transition-[filter] duration-500"
                       loading="lazy"
@@ -258,7 +258,7 @@ function ProductHero() {
           {/* md:mt-20 drops the bottle column ~80px on desktop so the
               foil cap sits around the H1 title baseline (instead of
               crowding the breadcrumb/navbar). Info column stays tight
-              against the breadcrumb — the offset only applies to the
+              against the breadcrumb - the offset only applies to the
               bottle so the two columns get an editorial "stagger".
               Mobile keeps the bottle at the top of the stack (no mt). */}
           <FadeUp delay={0.05} className="order-1 md:order-2 md:mt-20">
@@ -266,7 +266,7 @@ function ProductHero() {
               className="relative h-[clamp(320px,44svh,420px)] md:h-[clamp(480px,62svh,720px)]"
               style={{ overflow: "visible" }}
             >
-              {/* soft halo — absolute centered, no layout impact */}
+              {/* soft halo - absolute centered, no layout impact */}
               <div
                 className="absolute top-1/2 left-1/2 pointer-events-none"
                 style={{
@@ -280,7 +280,7 @@ function ProductHero() {
                 }}
               />
 
-              {/* Mobile award badges — absolute overlay, vertically stacked
+              {/* Mobile award badges - absolute overlay, vertically stacked
                   on the left side of the bottle wrapper. Each badge has
                   a micro-caption (year only) underneath. Anchored 30px
                   higher than the bottle midpoint so it sits in the upper
@@ -292,7 +292,7 @@ function ProductHero() {
                 <div className="flex flex-col items-center gap-1.5">
                   <motion.img
                     src={`${basePath}/images/awards/decanter-2023-platinum.webp`}
-                    alt="Platinum — Decanter World Wine Awards 2023"
+                    alt="Platinum - Decanter World Wine Awards 2023"
                     title="Decanter Platinum · 2023"
                     className="h-[clamp(54px,14vw,68px)] w-auto [filter:drop-shadow(0_6px_18px_rgba(0,0,0,0.55))]"
                     loading="lazy"
@@ -307,7 +307,7 @@ function ProductHero() {
                 <div className="flex flex-col items-center gap-1.5">
                   <motion.img
                     src={`${basePath}/images/awards/winegb-2023-trophy.webp`}
-                    alt="Trophy — WineGB Awards 2023"
+                    alt="Trophy - WineGB Awards 2023"
                     title="WineGB Trophy · 2023"
                     className="h-[clamp(54px,14vw,68px)] w-auto [filter:drop-shadow(0_6px_18px_rgba(0,0,0,0.55))]"
                     loading="lazy"
@@ -322,7 +322,7 @@ function ProductHero() {
                 <div className="flex flex-col items-center gap-1.5">
                   <motion.img
                     src={`${basePath}/images/awards/iwsc-95pts-2020-gold.webp`}
-                    alt="Gold — IWSC 95 Points 2020"
+                    alt="Gold - IWSC 95 Points 2020"
                     title="IWSC Gold · 95 Points · 2020"
                     className="h-[clamp(54px,14vw,68px)] w-auto [filter:drop-shadow(0_6px_18px_rgba(0,0,0,0.55))]"
                     loading="lazy"
@@ -336,7 +336,7 @@ function ProductHero() {
                 </div>
               </div>
 
-              {/* Bottle wrapper — absolute, doesn't dictate column height.
+              {/* Bottle wrapper - absolute, doesn't dictate column height.
                   Wrapped in motion.div so the bottle drifts upward via the
                   scroll-driven parallax (subtle 80px range). */}
               <motion.div
@@ -348,7 +348,7 @@ function ProductHero() {
                 <BottleStage src={heroBottleSrc} alt={heroBottleAlt} />
               </motion.div>
 
-              {/* Quick "Add to basket" — anchored bottom-right next to the bottle
+              {/* Quick "Add to basket" - anchored bottom-right next to the bottle
                   on every breakpoint. Marked with data-atb-trigger so the
                   StickyMobileCTA only appears when this AND every other ATB
                   on the page is out of view. The widget ATB in the info
@@ -514,7 +514,7 @@ function BlendSection() {
           </FadeUp>
         </div>
 
-        {/* Single big percentage — 100% Chardonnay, centered */}
+        {/* Single big percentage - 100% Chardonnay, centered */}
         <div className="flex justify-center mb-20 md:mb-24">
           <FadeUp delay={0.28}>
             <div className="group text-center cursor-default px-8">
@@ -710,7 +710,7 @@ function ClosingCTA() {
         </FadeUp>
         <FadeUp delay={0.2}>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            {/* No data-atb-trigger here — this is a duplicate CTA, not the
+            {/* No data-atb-trigger here - this is a duplicate CTA, not the
                 primary purchase action. StickyMobileCTA should stay visible
                 when ClosingCTA enters the viewport. */}
             <QuickAddButton
@@ -764,9 +764,9 @@ const SCHEMA_LD = {
     bestRating: "5",
   },
   award: [
-    "Platinum — Decanter World Wine Awards 2023",
-    "Trophy, Best Sparkling Wine — WineGB Awards 2023",
-    "Gold (95 Points) — International Wine & Spirit Competition 2020",
+    "Platinum - Decanter World Wine Awards 2023",
+    "Trophy, Best Sparkling Wine - WineGB Awards 2023",
+    "Gold (95 Points) - International Wine & Spirit Competition 2020",
   ],
 };
 
@@ -774,22 +774,22 @@ const FAQ_ITEMS = [
   {
     question: "When will my order arrive?",
     answer:
-      "Standard UK delivery is 2–4 working days. Order before noon for next-working-day dispatch. Free UK delivery on orders over £45.",
+      "Standard UK delivery is 2-4 working days. Order before noon for next-working-day dispatch. Free UK delivery on orders over £45.",
   },
   {
     question: "How should I store Blanc de Blancs?",
     answer:
-      "Lay bottles flat in a cool, dark place between 8–12°C. Blanc de Blancs is built for the cellar — it drinks beautifully on release but will keep developing for 8–10 years from disgorgement, deepening into richer brioche and toasted-nut notes.",
+      "Lay bottles flat in a cool, dark place between 8-12°C. Blanc de Blancs is built for the cellar - it drinks beautifully on release but will keep developing for 8-10 years from disgorgement, deepening into richer brioche and toasted-nut notes.",
   },
   {
     question: "Can I add a personalised gift note?",
     answer:
-      "Yes — every order includes a complimentary handwritten gift note option at checkout. Add the recipient's address and we'll ship directly to them, with no prices on the packing slip.",
+      "Yes - every order includes a complimentary handwritten gift note option at checkout. Add the recipient's address and we'll ship directly to them, with no prices on the packing slip.",
   },
   {
     question: "Do you ship outside the UK?",
     answer:
-      "International shipping is available to most of Europe and selected destinations. Customs and duties may apply at the destination — please contact our team for a tailored quote.",
+      "International shipping is available to most of Europe and selected destinations. Customs and duties may apply at the destination - please contact our team for a tailored quote.",
   },
   {
     question: "What if I'm not happy with the wine?",
@@ -805,7 +805,7 @@ const RELATED_WINES = [
     style: "House Cuvée · Non Vintage",
     price: 34,
     image: "/products/bloomsbury.webp",
-    note: "Bright, fresh and fruit-driven — the everyday Méthode Traditionnelle blend.",
+    note: "Bright, fresh and fruit-driven - the everyday Méthode Traditionnelle blend.",
   },
   {
     slug: "cavendish",
@@ -821,7 +821,7 @@ const RELATED_WINES = [
     style: "Rosé · Non Vintage",
     price: 40,
     image: "/products/fitzrovia-rose.webp",
-    note: "Pink-grapefruit and wild strawberry — the breezy counterpart to Blanc de Blancs.",
+    note: "Pink-grapefruit and wild strawberry - the breezy counterpart to Blanc de Blancs.",
   },
 ];
 
@@ -830,7 +830,7 @@ export default function BlancDeBlancsPage() {
 
   return (
     <main className="bg-[#010101] pb-[80px] md:pb-0">
-      {/* Schema.org JSON-LD — Google Rich Snippets (product, aggregate rating, reviews) */}
+      {/* Schema.org JSON-LD - Google Rich Snippets (product, aggregate rating, reviews) */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA_LD) }}
@@ -841,18 +841,18 @@ export default function BlancDeBlancsPage() {
       <ScrollReset><TastingPairingSection /></ScrollReset>
       <ScrollReset><BlendSection /></ScrollReset>
 
-      {/* A) Behind the Bottle — production craft pillars shared across every
+      {/* A) Behind the Bottle - production craft pillars shared across every
           Ridgeview SKU (Soil → Harvest → Winemaking). SKU-specific details
           like single-vineyard / lees duration / palate live in the Specs
           section and the Varietal section above. */}
       <ScrollReset>
         <BehindTheBottleSection
           headline={<>Crafted in the <span className="text-[#C8A96E]">Méthode Traditionnelle</span>.</>}
-          intro="For three decades, Ridgeview has crafted English sparkling wines the long way — by hand, on the chalk hills of Sussex, using the same Traditional Method as the great houses of Champagne."
+          intro="For three decades, Ridgeview has crafted English sparkling wines the long way - by hand, on the chalk hills of Sussex, using the same Traditional Method as the great houses of Champagne."
           pillars={[
-            { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region — the foundation of every great sparkling wine." },
+            { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region - the foundation of every great sparkling wine." },
             { label: "Hand Harvest", detail: "Grapes are picked at first light and sorted by hand to keep only the most balanced bunches." },
-            { label: "Méthode Traditionnelle", detail: "An English invention — coal-fired bottles strong enough to hold the bubbles, the cork to seal them in, deliberate secondary fermentation." },
+            { label: "Méthode Traditionnelle", detail: "An English invention - coal-fired bottles strong enough to hold the bubbles, the cork to seal them in, deliberate secondary fermentation." },
           ]}
         />
       </ScrollReset>
@@ -869,7 +869,7 @@ export default function BlancDeBlancsPage() {
             year: 2023,
             tier: "Best in Show",
             badgeSrc: "/images/awards/decanter-2023-platinum.webp",
-            description: "Awarded Platinum by the global Decanter judging panel — the top tier of recognition, placing Blanc de Blancs among the world's finest sparkling wines.",
+            description: "Awarded Platinum by the global Decanter judging panel - the top tier of recognition, placing Blanc de Blancs among the world's finest sparkling wines.",
           }}
         />
       </ScrollReset>
@@ -892,7 +892,7 @@ export default function BlancDeBlancsPage() {
       <ScrollReset><ClosingCTA /></ScrollReset>
       <Footer />
       {/* Sticky mobile purchase bar (Mini-Flasche + Preis + ATB) appears only
-          when EVERY ATB on the page (hero bottle-side, widget, ClosingCTA —
+          when EVERY ATB on the page (hero bottle-side, widget, ClosingCTA -
           all marked with data-atb-trigger) is out of viewport. As soon as
           any ATB scrolls back in, the bar hides. */}
       <StickyMobileCTA

@@ -1,14 +1,14 @@
 "use client";
 
 /**
- * LegalLayout — shared shell for all /legal/* pages.
+ * LegalLayout - shared shell for all /legal/* pages.
  *
  * Provides consistent typography, page header, and a small sidebar /
  * cross-link footer so the suite of legal pages reads as one document
  * surface. Each individual page (Terms, Privacy, Cookies, etc.) renders
  * its own copy inside the <article> slot.
  *
- * Last-updated dates live on each page rather than here — different
+ * Last-updated dates live on each page rather than here - different
  * pages can be revised independently.
  */
 
@@ -103,7 +103,7 @@ export function LegalLayout({
 
       {/*
         Scoped typography for legal articles. Tailwind v4 + this site's
-        editorial vocabulary — Cormorant for headings, Raleway for body,
+        editorial vocabulary - Cormorant for headings, Raleway for body,
         gold rule under H2, max-width 70ch for readable line-length.
       */}
       <style jsx global>{`

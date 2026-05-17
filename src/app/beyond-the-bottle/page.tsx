@@ -9,7 +9,7 @@ import { SubstackForm } from "@/components/SubstackForm";
 import { articles } from "@/data/articles";
 
 /**
- * Beyond the Bottle — articles hub.
+ * Beyond the Bottle - articles hub.
  *
  * Renders the BlogSection-style interactive category accordion:
  *   - Desktop: horizontal flex-panel strip (7 panels), active one
@@ -17,7 +17,7 @@ import { articles } from "@/data/articles";
  *   - Mobile: vertical accordion rows, each row's expansion shows
  *     the article cards inline.
  *
- * Deep-link support is handled inside `CategoryAccordion` — arriving
+ * Deep-link support is handled inside `CategoryAccordion` - arriving
  * via /beyond-the-bottle/#wines auto-activates that panel and
  * smooth-scrolls to it.
  */
@@ -67,10 +67,10 @@ function PageHero() {
           from the cellar to the South Downs, harvest to hospitality.
         </motion.p>
 
-        {/* Substack signup — added 2026-05-17 per user direction:
+        {/* Substack signup - added 2026-05-17 per user direction:
             same form as the homepage ImageReveal section, mounted
             here below the subtitle. (Social icons intentionally
-            not added — only the email-capture pill.) */}
+            not added - only the email-capture pill.) */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -88,7 +88,7 @@ function PageHero() {
 export default function BeyondHubPage() {
   return (
     <div className="bg-[#010101] min-h-screen">
-      {/* Noise overlay — matches /vineyard-booking and /wines for visual continuity */}
+      {/* Noise overlay - matches /vineyard-booking and /wines for visual continuity */}
       <div
         aria-hidden
         className="pointer-events-none fixed inset-0 z-[100] opacity-[0.035]"

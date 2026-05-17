@@ -18,12 +18,12 @@ import { FAQSection } from "@/components/sku/FAQSection";
 import { getTestimonial } from "@/data/testimonials";
 import { basePath } from "@/lib/basePath";
 
-// Rosé de Noirs bottle variants — synced 2026-05-12 with ridgeview.co.uk.
+// Rosé de Noirs bottle variants - synced 2026-05-12 with ridgeview.co.uk.
 // Vintage 2020 release. Case of 6 sold as separate listing
 // (/product/rose-de-noirs-case-of-6/) at £351 (10% off £390 list, RA410).
 // No Magnum format on the live shop.
 // Order convention (final, locked 2026-05-12):
-//   Position 1: 75cl Bottle (ALWAYS — drives H1 price + default selection)
+//   Position 1: 75cl Bottle (ALWAYS - drives H1 price + default selection)
 //   Position 2: Magnum (if available) [N/A]
 //   Position 3: Case of 6 (if available)
 const ROSE_DE_NOIRS_VARIANTS: Variant[] = [
@@ -66,7 +66,7 @@ function GoldDivider({ origin = "left" as "left" | "center" }) {
 
 function ProductHero() {
   // Parallax: bottle drifts upward 80px as the hero scrolls out of view.
-  // Subtle premium effect — Apple product pages use this exact pattern.
+  // Subtle premium effect - Apple product pages use this exact pattern.
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -79,11 +79,11 @@ function ProductHero() {
   const [variantIdx, setVariantIdx] = useState(0);
   const activeVariant = ROSE_DE_NOIRS_VARIANTS[variantIdx];
   const heroBottleSrc = activeVariant.image ?? "/products/rose-de-noirs.png";
-  const heroBottleAlt = `Ridgeview Rosé de Noirs 2020 — Vintage Pinot-led sparkling rosé, ${activeVariant.label}`;
+  const heroBottleAlt = `Ridgeview Rosé de Noirs 2020 - Vintage Pinot-led sparkling rosé, ${activeVariant.label}`;
 
   return (
     // Section sizes to its natural content height (no min-h constraint).
-    // Goal "alles fits in einen viewport und adapts" — by dropping
+    // Goal "alles fits in einen viewport und adapts" - by dropping
     // min-h-[100svh] the hero never pads itself with empty space on
     // tall monitors, and the next section follows immediately. Atmospheric
     // weight is carried by the typography, the oversized bottle (90svh)
@@ -152,7 +152,7 @@ function ProductHero() {
                 so they sit next to the bottle visually and free up vertical space
                 for the ATB button to land inside the initial viewport. */}
 
-            {/* Divider — Desktop: between subtitle and description; Mobile: between
+            {/* Divider - Desktop: between subtitle and description; Mobile: between
                 Price/CTAs and the description block (pushed below the fold via order). */}
             <FadeUp delay={0.4} className="order-6">
               <div className="mb-3 md:mb-5">
@@ -179,7 +179,7 @@ function ProductHero() {
                 Desktop: source order applies → block is at the end as before. */}
             <FadeUp delay={0.55} className="order-5 mb-6 md:mb-0">
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 md:gap-10">
-                {/* Stateful purchase block — variant + qty + free-shipping bar + ATB */}
+                {/* Stateful purchase block - variant + qty + free-shipping bar + ATB */}
                 <div className="flex-1 max-w-[480px]">
                   <PurchaseWidget
                     slug="rose-de-noirs"
@@ -194,13 +194,13 @@ function ProductHero() {
                   />
                 </div>
 
-                {/* Award Badges (Desktop only) — top-aligned next to widget */}
+                {/* Award Badges (Desktop only) - top-aligned next to widget */}
                 <div className="hidden md:flex items-start gap-6 pt-1" aria-label="Awards">
                   {/* Decanter Platinum · 2023 */}
                   <div className="flex flex-col items-center gap-2.5">
                     <motion.img
                       src={`${basePath}/images/awards/decanter-2023-platinum.webp`}
-                      alt="Platinum — Decanter World Wine Awards 2023"
+                      alt="Platinum - Decanter World Wine Awards 2023"
                       title="Decanter Platinum · 2023"
                       className="h-[clamp(86px,7.5vw,108px)] w-auto [filter:drop-shadow(0_10px_28px_rgba(0,0,0,0.55))] hover:[filter:drop-shadow(0_14px_36px_rgba(0,0,0,0.65))_drop-shadow(0_0_24px_rgba(200,169,110,0.18))] transition-[filter] duration-500"
                       loading="lazy"
@@ -213,7 +213,7 @@ function ProductHero() {
                       Decanter <span className="text-[#C8A96E]/70 mx-1">·</span> 2023
                     </p>
                   </div>
-                  {/* "Best in Show" descriptor removed 2026-05-15 — read
+                  {/* "Best in Show" descriptor removed 2026-05-15 - read
                       as a 2nd award; the AwardSection below only has the
                       one Decanter Platinum 2023, so hero now matches. */}
                 </div>
@@ -225,7 +225,7 @@ function ProductHero() {
           {/* md:mt-20 drops the bottle column ~80px on desktop so the
               foil cap sits around the H1 title baseline (instead of
               crowding the breadcrumb/navbar). Info column stays tight
-              against the breadcrumb — the offset only applies to the
+              against the breadcrumb - the offset only applies to the
               bottle so the two columns get an editorial "stagger".
               Mobile keeps the bottle at the top of the stack (no mt). */}
           <FadeUp delay={0.05} className="order-1 md:order-2 md:mt-20">
@@ -233,7 +233,7 @@ function ProductHero() {
               className="relative h-[clamp(320px,44svh,420px)] md:h-[clamp(480px,62svh,720px)]"
               style={{ overflow: "visible" }}
             >
-              {/* soft halo — absolute centered, no layout impact */}
+              {/* soft halo - absolute centered, no layout impact */}
               <div
                 className="absolute top-1/2 left-1/2 pointer-events-none"
                 style={{
@@ -247,7 +247,7 @@ function ProductHero() {
                 }}
               />
 
-              {/* Mobile award badges — absolute overlay, vertically stacked
+              {/* Mobile award badges - absolute overlay, vertically stacked
                   on the left side of the bottle wrapper. Each badge has
                   a micro-caption (year only) underneath. Anchored 30px
                   higher than the bottle midpoint so it sits in the upper
@@ -256,7 +256,7 @@ function ProductHero() {
                 <div className="flex flex-col items-center gap-1.5">
                   <motion.img
                     src={`${basePath}/images/awards/decanter-2023-platinum.webp`}
-                    alt="Platinum — Decanter World Wine Awards 2023"
+                    alt="Platinum - Decanter World Wine Awards 2023"
                     title="Decanter Platinum · 2023"
                     className="h-[clamp(60px,16vw,80px)] w-auto [filter:drop-shadow(0_6px_18px_rgba(0,0,0,0.55))]"
                     loading="lazy"
@@ -272,7 +272,7 @@ function ProductHero() {
                     (same reason as desktop). */}
               </div>
 
-              {/* Bottle wrapper — absolute, doesn't dictate column height.
+              {/* Bottle wrapper - absolute, doesn't dictate column height.
                   Wrapped in motion.div so the bottle drifts upward via the
                   scroll-driven parallax (subtle 80px range). */}
               <motion.div
@@ -284,7 +284,7 @@ function ProductHero() {
                 <BottleStage src={heroBottleSrc} alt={heroBottleAlt} />
               </motion.div>
 
-              {/* Quick "Add to basket" — anchored bottom-right next to the bottle
+              {/* Quick "Add to basket" - anchored bottom-right next to the bottle
                   on every breakpoint. Marked with data-atb-trigger so the
                   StickyMobileCTA only appears when this AND every other ATB
                   on the page is out of view. The widget ATB in the info
@@ -450,7 +450,7 @@ function BlendSection() {
           </FadeUp>
         </div>
 
-        {/* Three-grape stack — typographic blend display
+        {/* Three-grape stack - typographic blend display
             (no specific % numbers on the live shop; the proportions
             are blended each year and not publicly disclosed). */}
         <div className="flex flex-col items-center gap-6 md:gap-8 mb-20 md:mb-24">
@@ -643,7 +643,7 @@ function ClosingCTA() {
         </FadeUp>
         <FadeUp delay={0.2}>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            {/* No data-atb-trigger here — duplicate CTA, not primary. */}
+            {/* No data-atb-trigger here - duplicate CTA, not primary. */}
             <QuickAddButton
               slug="rose-de-noirs"
               productName={"Rosé de Noirs"}
@@ -695,7 +695,7 @@ const SCHEMA_LD = {
     bestRating: "5",
   },
   award: [
-    "Platinum (Best in Show) — Decanter World Wine Awards 2023",
+    "Platinum (Best in Show) - Decanter World Wine Awards 2023",
   ],
 };
 
@@ -703,22 +703,22 @@ const FAQ_ITEMS = [
   {
     question: "When will my order arrive?",
     answer:
-      "Standard UK delivery is 2–4 working days. Order before noon for next-working-day dispatch. Free UK delivery on orders over £45.",
+      "Standard UK delivery is 2-4 working days. Order before noon for next-working-day dispatch. Free UK delivery on orders over £45.",
   },
   {
     question: "How should I store Rosé de Noirs?",
     answer:
-      "Lay bottles flat in a cool, dark place between 8–12°C. Vintage rosé sparkling drinks beautifully on release but holds its colour and structure well for 4–6 years from disgorgement. Serve well chilled at 6–8°C to preserve the peach-gold hue and bright red-fruit aromatics.",
+      "Lay bottles flat in a cool, dark place between 8-12°C. Vintage rosé sparkling drinks beautifully on release but holds its colour and structure well for 4-6 years from disgorgement. Serve well chilled at 6-8°C to preserve the peach-gold hue and bright red-fruit aromatics.",
   },
   {
     question: "Can I add a personalised gift note?",
     answer:
-      "Yes — every order includes a complimentary handwritten gift note option at checkout. Add the recipient's address and we'll ship directly to them, with no prices on the packing slip.",
+      "Yes - every order includes a complimentary handwritten gift note option at checkout. Add the recipient's address and we'll ship directly to them, with no prices on the packing slip.",
   },
   {
     question: "Do you ship outside the UK?",
     answer:
-      "International shipping is available to most of Europe and selected destinations. Customs and duties may apply at the destination — please contact our team for a tailored quote.",
+      "International shipping is available to most of Europe and selected destinations. Customs and duties may apply at the destination - please contact our team for a tailored quote.",
   },
   {
     question: "What if I'm not happy with the wine?",
@@ -734,7 +734,7 @@ const RELATED_WINES = [
     style: "Vintage · Pinot-Led Cuvée",
     price: 60,
     image: "/products/blanc-de-noirs.png",
-    note: "Same red grapes — vinified white. The pale-gold sibling to this rosé.",
+    note: "Same red grapes - vinified white. The pale-gold sibling to this rosé.",
   },
   {
     slug: "fitzrovia",
@@ -742,7 +742,7 @@ const RELATED_WINES = [
     style: "Rosé · Non Vintage",
     price: 40,
     image: "/products/fitzrovia.png",
-    note: "The everyday rosé — fresh, fruit-driven, ready to pour.",
+    note: "The everyday rosé - fresh, fruit-driven, ready to pour.",
   },
   {
     slug: "blanc-de-blancs",
@@ -759,7 +759,7 @@ export default function RoseDeNoirsPage() {
 
   return (
     <main className="bg-[#010101] pb-[80px] md:pb-0">
-      {/* Schema.org JSON-LD — Google Rich Snippets (product, aggregate rating, reviews) */}
+      {/* Schema.org JSON-LD - Google Rich Snippets (product, aggregate rating, reviews) */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA_LD) }}
@@ -770,18 +770,18 @@ export default function RoseDeNoirsPage() {
       <ScrollReset><TastingPairingSection /></ScrollReset>
       <ScrollReset><BlendSection /></ScrollReset>
 
-      {/* A) Behind the Bottle — production craft pillars shared across every
+      {/* A) Behind the Bottle - production craft pillars shared across every
           Ridgeview SKU (Soil → Harvest → Winemaking). SKU-specific details
           like single-vineyard / lees duration / palate live in the Specs
           section and the Varietal section above. */}
       <ScrollReset>
         <BehindTheBottleSection
           headline={<>Crafted in the <span className="text-[#C8A96E]">Méthode Traditionnelle</span>.</>}
-          intro="For three decades, Ridgeview has crafted English sparkling wines the long way — by hand, on the chalk hills of Sussex, using the same Traditional Method as the great houses of Champagne."
+          intro="For three decades, Ridgeview has crafted English sparkling wines the long way - by hand, on the chalk hills of Sussex, using the same Traditional Method as the great houses of Champagne."
           pillars={[
-            { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region — the foundation of every great sparkling wine." },
+            { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region - the foundation of every great sparkling wine." },
             { label: "Hand Harvest", detail: "Grapes are picked at first light and sorted by hand to keep only the most balanced bunches." },
-            { label: "Méthode Traditionnelle", detail: "An English invention — coal-fired bottles strong enough to hold the bubbles, the cork to seal them in, deliberate secondary fermentation." },
+            { label: "Méthode Traditionnelle", detail: "An English invention - coal-fired bottles strong enough to hold the bubbles, the cork to seal them in, deliberate secondary fermentation." },
           ]}
         />
       </ScrollReset>
@@ -798,7 +798,7 @@ export default function RoseDeNoirsPage() {
             year: 2023,
             tier: "Best in Show",
             badgeSrc: "/images/awards/decanter-2023-platinum.webp",
-            description: "Awarded Platinum (Best in Show) by the global Decanter judging panel — the top tier of recognition, placing Rosé de Noirs among the world's finest sparkling rosés.",
+            description: "Awarded Platinum (Best in Show) by the global Decanter judging panel - the top tier of recognition, placing Rosé de Noirs among the world's finest sparkling rosés.",
           }}
         />
       </ScrollReset>
@@ -821,7 +821,7 @@ export default function RoseDeNoirsPage() {
       <ScrollReset><ClosingCTA /></ScrollReset>
       <Footer />
       {/* Sticky mobile purchase bar (Mini-Flasche + Preis + ATB) appears only
-          when EVERY ATB on the page (hero bottle-side, widget, ClosingCTA —
+          when EVERY ATB on the page (hero bottle-side, widget, ClosingCTA -
           all marked with data-atb-trigger) is out of viewport. As soon as
           any ATB scrolls back in, the bar hides. */}
       <StickyMobileCTA

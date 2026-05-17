@@ -6,7 +6,7 @@ import { basePath } from "@/lib/basePath";
 
 interface BottomNavProps {
   /**
-   * Optional — when set, the BottomNav is shown only when NONE of the
+   * Optional - when set, the BottomNav is shown only when NONE of the
    * matched ATB elements are in viewport (typical pattern: pass
    * "[data-atb-trigger]" on SKU pages so the nav appears only when
    * every Add-to-Basket button is off-screen).
@@ -27,7 +27,7 @@ export function BottomNav({ hideWhileVisibleSelector }: BottomNavProps = {}) {
         document.querySelectorAll<HTMLElement>(hideWhileVisibleSelector),
       );
       if (!targets.length) {
-        // No triggers on the page — fall back to legacy scroll behaviour.
+        // No triggers on the page - fall back to legacy scroll behaviour.
         const onScroll = () =>
           setVisible(window.scrollY > window.innerHeight * 0.85);
         window.addEventListener("scroll", onScroll, { passive: true });
@@ -49,7 +49,7 @@ export function BottomNav({ hideWhileVisibleSelector }: BottomNavProps = {}) {
       return () => observer.disconnect();
     }
 
-    // Legacy mode — show after scrolling past 85vh.
+    // Legacy mode - show after scrolling past 85vh.
     const onScroll = () => setVisible(window.scrollY > window.innerHeight * 0.85);
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
@@ -68,7 +68,7 @@ export function BottomNav({ hideWhileVisibleSelector }: BottomNavProps = {}) {
         >
           {/* Both links share .btn-cta (Etched Crystal · Dual-Layer)
               so the mobile bottom nav matches every other CTA on the
-              site — backdrop-blur milk glass + layered gold edge. */}
+              site - backdrop-blur milk glass + layered gold edge. */}
           <a href={`${basePath}/`} className="btn-cta">
             Home
           </a>

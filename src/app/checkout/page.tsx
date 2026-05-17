@@ -1,19 +1,19 @@
 "use client";
 
 /**
- * /checkout — single-page multi-section checkout flow.
+ * /checkout - single-page multi-section checkout flow.
  *
  * Sections (top to bottom, scroll-anchored):
- *   1. Contact         — email, age confirmation (Challenge 25 / 18+)
- *   2. Delivery        — recipient name + UK address + phone
- *   3. Shipping method — radio list from getShippingOptions()
- *   4. Payment         — PLACEHOLDER until Aufsichtsrat provides the
+ *   1. Contact         - email, age confirmation (Challenge 25 / 18+)
+ *   2. Delivery        - recipient name + UK address + phone
+ *   3. Shipping method - radio list from getShippingOptions()
+ *   4. Payment         - PLACEHOLDER until Aufsichtsrat provides the
  *                        payment provider integration (Stripe / Adyen /
  *                        Worldpay etc.). For now: a non-functional card
  *                        form with a clearly marked TODO; the "Place
  *                        Order" CTA writes the order intent into
  *                        sessionStorage and routes to /checkout/confirmation.
- *   5. Review          — terms acceptance, marketing opt-in (NOT pre-
+ *   5. Review          - terms acceptance, marketing opt-in (NOT pre-
  *                        ticked per UK Consumer Contracts Regulations),
  *                        right-of-cancellation notice, "Place Order".
  *
@@ -34,7 +34,7 @@
  *   - Total price (incl. VAT + shipping) shown BEFORE the Place Order
  *     button (CCR 2013 art 8(1)).
  *   - Right-to-cancel summary visible (CCR 2013 art 13 + 14, although
- *     sealed-wine exemption applies once unsealed — see /legal/returns).
+ *     sealed-wine exemption applies once unsealed - see /legal/returns).
  *   - 36-bottle cap enforced (matches the live ridgeview.co.uk policy).
  */
 
@@ -111,7 +111,7 @@ export default function CheckoutPage() {
     }
     if (overCap) {
       setError(
-        `Orders over ${MAX_BOTTLES_PER_ORDER} bottles need to be placed directly with our team — please email info@ridgeview.co.uk.`,
+        `Orders over ${MAX_BOTTLES_PER_ORDER} bottles need to be placed directly with our team - please email info@ridgeview.co.uk.`,
       );
       return;
     }
@@ -173,7 +173,7 @@ export default function CheckoutPage() {
     // Clear cart so the drawer + /cart show empty after successful order.
     clear();
 
-    // Small delay to feel like a network call (UX-only — replace with
+    // Small delay to feel like a network call (UX-only - replace with
     // real spinner during the provider call when integrated).
     setTimeout(() => {
       router.push("/checkout/confirmation");
@@ -241,7 +241,7 @@ export default function CheckoutPage() {
           >
             {/* ────────────────────── LEFT: form sections */}
             <div className="space-y-12 md:space-y-16">
-              {/* 1 — Contact */}
+              {/* 1 - Contact */}
               <Section
                 step="01"
                 title="Contact"
@@ -278,13 +278,13 @@ export default function CheckoutPage() {
                     <strong className="text-cream">
                       Challenge 25
                     </strong>{" "}
-                    policy — our courier may ask the recipient for
+                    policy - our courier may ask the recipient for
                     photographic ID on delivery (UK Licensing Act 2003).
                   </span>
                 </label>
               </Section>
 
-              {/* 2 — Delivery address */}
+              {/* 2 - Delivery address */}
               <Section
                 step="02"
                 title="Delivery Address"
@@ -390,7 +390,7 @@ export default function CheckoutPage() {
                 </Field>
               </Section>
 
-              {/* 3 — Shipping method */}
+              {/* 3 - Shipping method */}
               <Section
                 step="03"
                 title="Shipping Method"
@@ -442,7 +442,7 @@ export default function CheckoutPage() {
                 </fieldset>
               </Section>
 
-              {/* 4 — Payment placeholder */}
+              {/* 4 - Payment placeholder */}
               <Section
                 step="04"
                 title="Payment"
@@ -456,7 +456,7 @@ export default function CheckoutPage() {
                     ⓘ Payment integration pending. The fields below are a
                     placeholder; no card is charged in this build. The
                     payment provider (Stripe / Worldpay / etc.) will be
-                    configured shortly — your order intent will be
+                    configured shortly - your order intent will be
                     captured but no money will move.
                   </p>
                 </div>
@@ -512,7 +512,7 @@ export default function CheckoutPage() {
                 </div>
               </Section>
 
-              {/* 5 — Review */}
+              {/* 5 - Review */}
               <Section
                 step="05"
                 title="Review & Place Order"
@@ -572,7 +572,7 @@ export default function CheckoutPage() {
                     >
                       Send me Ridgeview cellar updates, harvest dispatches
                       and member experiences by email. You can unsubscribe
-                      at any time — see our Privacy Policy.
+                      at any time - see our Privacy Policy.
                     </span>
                   </label>
                 </div>
@@ -584,7 +584,7 @@ export default function CheckoutPage() {
                   >
                     <strong className="text-cream">Right to cancel.</strong>{" "}
                     Under the Consumer Contracts Regulations 2013, you have
-                    14 days from delivery to cancel your order — provided
+                    14 days from delivery to cancel your order - provided
                     the seal on the bottle is intact. Full details +
                     model cancellation form on our{" "}
                     <Link

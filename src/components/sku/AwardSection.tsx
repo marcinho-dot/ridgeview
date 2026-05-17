@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { basePath } from "@/lib/basePath";
 
 /**
- * AwardSection — Award-Trophy-Pseudo-Testimonial.
+ * AwardSection - Award-Trophy-Pseudo-Testimonial.
  *
  * Verwendung:
  * - Als Recognition-Element für SKUs ohne externe Press-Review
@@ -46,7 +46,7 @@ export interface AwardSectionData {
   /** Optionales Tier-Label aus dem Wettbewerb (z.B. "Highly Recommended"). */
   tier?: string;
   /**
-   * Pfad zum Badge-Bild — RELATIV zu /public/, ohne basePath.
+   * Pfad zum Badge-Bild - RELATIV zu /public/, ohne basePath.
    * (z.B. "/images/awards/decanter-2018-silver.webp")
    */
   badgeSrc: string;
@@ -89,7 +89,7 @@ export function AwardSection({ data, kicker = "[ Award · Distinction ]" }: Prop
           </p>
         </FadeUp>
 
-        {/* Award Badge — Hero-Bild, ersetzt das Anführungszeichen aus der TestimonialSection */}
+        {/* Award Badge - Hero-Bild, ersetzt das Anführungszeichen aus der TestimonialSection */}
         <FadeUp delay={0.1}>
           <div
             className="mx-auto mb-3 md:mb-5 flex items-center justify-center"
@@ -99,7 +99,7 @@ export function AwardSection({ data, kicker = "[ Award · Distinction ]" }: Prop
           >
             <motion.img
               src={`${basePath}${badgeSrc}`}
-              alt={`${medal} — ${body} ${year}`}
+              alt={`${medal} - ${body} ${year}`}
               className="h-full w-auto object-contain [filter:drop-shadow(0_8px_24px_rgba(0,0,0,0.5))]"
               loading="lazy"
               initial={{ opacity: 0, scale: 0.94 }}
@@ -110,7 +110,7 @@ export function AwardSection({ data, kicker = "[ Award · Distinction ]" }: Prop
           </div>
         </FadeUp>
 
-        {/* Medal Name — Pull-Quote-Style Hero-Text */}
+        {/* Medal Name - Pull-Quote-Style Hero-Text */}
         <FadeUp delay={0.18}>
           <p
             className="font-display italic text-cream"
@@ -199,7 +199,7 @@ export function AwardSection({ data, kicker = "[ Award · Distinction ]" }: Prop
           </FadeUp>
         )}
 
-        {/* Disclaimer — klar machen, dass Trophy-Artwork den Awarding-Bodies gehört */}
+        {/* Disclaimer - klar machen, dass Trophy-Artwork den Awarding-Bodies gehört */}
         <FadeUp delay={0.46}>
           <div className="mt-6 md:mt-8 max-w-[640px] mx-auto">
             <div

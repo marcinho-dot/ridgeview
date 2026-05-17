@@ -19,11 +19,11 @@ export function DiscoverSection() {
         style={{ objectPosition: "center 55%" }}
       />
 
-      {/* Gradient overlays — darker at bottom for text legibility */}
+      {/* Gradient overlays - darker at bottom for text legibility */}
       <div className="absolute inset-0 bg-black/40" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/70" />
 
-      {/* Content — vertically centred, pushes CTA to bottom */}
+      {/* Content - vertically centred, pushes CTA to bottom */}
       <div className="absolute inset-0 flex flex-col justify-between px-6 md:px-16 py-16 md:py-24">
         <div className="max-w-[1440px] mx-auto w-full flex-1 flex flex-col justify-center">
 
@@ -39,7 +39,7 @@ export function DiscoverSection() {
             [ Ditchling Common, East Sussex ]
           </motion.p>
 
-          {/* Catchy headline — replaces DISCOVER / OUR VINEYARD */}
+          {/* Catchy headline - replaces DISCOVER / OUR VINEYARD */}
           <div className="overflow-hidden mb-2">
             <motion.h2
               className="font-display italic text-white leading-[1.0]"
@@ -65,7 +65,7 @@ export function DiscoverSection() {
             </motion.h2>
           </div>
 
-          {/* Description — larger, more legible */}
+          {/* Description - larger, more legible */}
           <motion.p
             className="font-body text-white/75 leading-relaxed mb-10"
             style={{ fontSize: "clamp(14px, 1.5vw, 18px)", fontWeight: 300, maxWidth: "520px" }}
@@ -74,7 +74,7 @@ export function DiscoverSection() {
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.7, delay: 0.28, ease: "easeOut" }}
           >
-            Walk the rows where English sparkling wine was born — thirty acres of
+            Walk the rows where English sparkling wine was born - thirty acres of
             chalk and clay beneath the South Downs ridge. Tours and dining
             available year-round.
           </motion.p>

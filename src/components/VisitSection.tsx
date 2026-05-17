@@ -5,7 +5,7 @@ import { motion, useInView } from "framer-motion";
 import { basePath } from "@/lib/basePath";
 
 /* ─────────────────────────────────────────────────────────────────────────
-   VisitSection — Primary Conversion
+   VisitSection - Primary Conversion
    Two equal panels: Vineyard Tour (left) + Restaurant (right)
    Absorbs former DiscoverSection + LifestyleSection content.
 ───────────────────────────────────────────────────────────────────────── */
@@ -77,7 +77,7 @@ export function VisitSection() {
           <div className="absolute inset-0 bg-black/45 transition-colors duration-700 group-hover:bg-black/58" />
           {/* Bottom gradient for text legibility */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-          {/* Right border — separates panels on desktop */}
+          {/* Right border - separates panels on desktop */}
           <div className="absolute top-0 right-0 bottom-0 w-px bg-white/[0.08] hidden md:block" />
 
           {/* Content */}
@@ -108,7 +108,7 @@ export function VisitSection() {
               className="font-body text-[#C8A96E] tracking-[0.18em] uppercase mb-8"
               style={{ fontSize: "clamp(10px, 0.9vw, 12px)", fontWeight: 400 }}
             >
-              1.5 hrs · From £20pp · Fri–Sun
+              1.5 hrs · From £20pp · Fri-Sun
             </p>
 
             <a href={`${basePath}/vineyard-booking`} className="btn-cta">

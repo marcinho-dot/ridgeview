@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { basePath } from "@/lib/basePath";
 
 /* ─────────────────────────────────────────────────────────────────────────
-   Hook: useCanHover() — true on devices with a real pointer (mouse/trackpad).
+   Hook: useCanHover() - true on devices with a real pointer (mouse/trackpad).
    False on touch-only devices, so hover-to-open won't fire on tap.
 ───────────────────────────────────────────────────────────────────────── */
 function useCanHover() {
@@ -22,7 +22,7 @@ function useCanHover() {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
-   Blog data — all content verified from ridgeview.co.uk
+   Blog data - all content verified from ridgeview.co.uk
    Sorted newest-first by sitemap lastmod date
 ───────────────────────────────────────────────────────────────────────── */
 
@@ -134,7 +134,7 @@ function AccordionPanels() {
               className="absolute inset-0 w-full h-full object-cover"
             />
 
-            {/* Base overlay — darker when collapsed */}
+            {/* Base overlay - darker when collapsed */}
             <div
               className="absolute inset-0 transition-colors duration-500"
               style={{
@@ -144,7 +144,7 @@ function AccordionPanels() {
               }}
             />
 
-            {/* Gradient overlay — active panel only */}
+            {/* Gradient overlay - active panel only */}
             {isActive && (
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
             )}
@@ -307,7 +307,7 @@ function MobileAccordion() {
             style={{ transitionDelay: `${0.05 + i * 0.10}s` }}
             onClick={() => setActive((prev) => (prev === i ? null : i))}
           >
-            {/* Image — always present */}
+            {/* Image - always present */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={post.image}
@@ -512,14 +512,14 @@ function MobileAccordion() {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
-   BlogSection — main export
+   BlogSection - main export
 ───────────────────────────────────────────────────────────────────────── */
 
 export function BlogSection() {
   return (
     <section id="journal" className="relative z-[1] bg-[#010101] py-20 md:py-28">
       <div className="max-w-[1400px] mx-auto px-6 md:px-16">
-        {/* Section Header — uses .reveal (mn-fx-style: fade + 28px slide + blur 6px, 0.9s cubic-bezier(.2,.7,.2,1)) */}
+        {/* Section Header - uses .reveal (mn-fx-style: fade + 28px slide + blur 6px, 0.9s cubic-bezier(.2,.7,.2,1)) */}
         <div className="reveal mb-6 md:mb-8">
           <p
             className="font-display italic text-[#C8A96E] tracking-widest mb-4"
@@ -539,10 +539,10 @@ export function BlogSection() {
           </h2>
         </div>
 
-        {/* Desktop: Accordion Panels — each panel reveals individually with stagger */}
+        {/* Desktop: Accordion Panels - each panel reveals individually with stagger */}
         <AccordionPanels />
 
-        {/* Mobile: Vertical Accordion — each item reveals individually with stagger */}
+        {/* Mobile: Vertical Accordion - each item reveals individually with stagger */}
         <MobileAccordion />
       </div>
     </section>

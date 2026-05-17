@@ -97,7 +97,7 @@ export default function ArticleDetailPage() {
 
   return (
     <div className="bg-[#010101] min-h-screen">
-      {/* Noise overlay — matches other non-homepage routes */}
+      {/* Noise overlay - matches other non-homepage routes */}
       <div
         aria-hidden
         className="pointer-events-none fixed inset-0 z-[100] opacity-[0.035]"
@@ -122,7 +122,7 @@ export default function ArticleDetailPage() {
             }}
           />
           <div className="relative max-w-[1100px] mx-auto px-6 md:px-12 text-center">
-            {/* Breadcrumb-style category backlink — mirrors the legacy
+            {/* Breadcrumb-style category backlink - mirrors the legacy
                 site's "Home | News | <listing title>" pattern. */}
             {category && (
               <motion.p
@@ -184,7 +184,7 @@ export default function ArticleDetailPage() {
         {/* Hero image used to render here in a separate full-width section,
             but the live legacy layout puts the first image inside the
             first body module (side-by-side with intro text). Rendering it
-            twice — once as hero, once as the first body module's image —
+            twice - once as hero, once as the first body module's image -
             caused the duplicate-image stack on the detail page. The body
             now opens with the proper side-by-side layout via
             ArticleBodyRenderer; heroImage is still on the article card

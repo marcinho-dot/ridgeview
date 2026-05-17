@@ -8,7 +8,7 @@ import { basePath } from "@/lib/basePath";
 import { CartButton } from "@/components/cart/CartButton";
 
 function getLinks() {
-  // Primary menu — five items, identical structure across desktop +
+  // Primary menu - five items, identical structure across desktop +
   // mobile (locked 2026-05-16). Each has a `kicker` line that only
   // renders in the mobile drawer (editorial / magazine TOC pattern).
   //
@@ -74,7 +74,7 @@ export function Navbar() {
   const { items: menuItems, wineClubHref } = getLinks();
 
   // The Booking (Vineyard) page starts with the milk-glass treatment by
-  // default — the aerial hero image is busy and the header would disappear
+  // default - the aerial hero image is busy and the header would disappear
   // against it without a frosted backdrop.
   const milkGlass = scrolled || isBookingPage;
 
@@ -88,10 +88,10 @@ export function Navbar() {
             : "py-5 md:py-6 bg-transparent"
         }`}
       >
-        {/* Left links — desktop. Five-item structure (Home, Shop,
+        {/* Left links - desktop. Five-item structure (Home, Shop,
             Vineyard, Beyond the Bottle, People) mirrored in the
             mobile drawer.
-            All entries share the same link-underline text style —
+            All entries share the same link-underline text style -
             no standalone gold CTA. Wine Club lives on the right. */}
         <div className="hidden md:flex items-center gap-7">
           {menuItems.map(({ label, href }) => (
@@ -118,7 +118,7 @@ export function Navbar() {
             Order (left → right): Search · Account · Wine Club · MENU
             (mobile-only) · Cart. Cart sits at the FAR RIGHT of the
             cluster (after the hamburger on mobile, after Wine Club on
-            desktop) per user direction 2026-05-16 — keeps the basket
+            desktop) per user direction 2026-05-16 - keeps the basket
             icon as the visual terminus of the row on every viewport. */}
         <div className="flex items-center gap-4 md:gap-5">
           <button aria-label="Search" className="hidden md:flex text-white/65 hover:text-[#C8A96E] transition-colors duration-300 p-1">
@@ -134,7 +134,7 @@ export function Navbar() {
             Wine Club
           </a>
 
-          {/* Hamburger + MENU — mobile only */}
+          {/* Hamburger + MENU - mobile only */}
           <button
             aria-label="Toggle menu"
             className="md:hidden flex items-center gap-2.5"
@@ -156,11 +156,11 @@ export function Navbar() {
             </div>
           </button>
 
-          {/* Cart — visible on BOTH mobile and desktop (unlike search
+          {/* Cart - visible on BOTH mobile and desktop (unlike search
               / account which are desktop-only) because it's primary
               shopping UX. Inherits the same text-white/65 as the
               neighbouring Search / Account icons so the navbar row
-              reads as one cohesive cluster — the count badge already
+              reads as one cohesive cluster - the count badge already
               flags this icon as the "interactive" one. Positioned at
               the FAR RIGHT after the hamburger so the basket reads as
               the natural terminus of the action row. */}
@@ -171,7 +171,7 @@ export function Navbar() {
       {/* ── Mobile Editorial Drawer ────────────────────────────────
           Design direction (frontend-design + ui-ux-pro-max):
           Asymmetric left-aligned magazine TOC layout. Each menu item
-          is a numbered editorial entry — gold ordinal (01–04) +
+          is a numbered editorial entry - gold ordinal (01-04) +
           Cormorant italic label + small Raleway kicker + gold arrow
           cue. The whole drawer rides on a deep-black canvas with a
           warm gold radial glow in the upper-right and a subtle
@@ -194,7 +194,7 @@ export function Navbar() {
             {/* Base black canvas */}
             <div className="absolute inset-0 bg-[#050505]" />
 
-            {/* Atmospheric gold radial — upper-right glow, evokes
+            {/* Atmospheric gold radial - upper-right glow, evokes
                 a candlelit cellar window. Pointer-events:none so it
                 never blocks taps. */}
             <div
@@ -204,7 +204,7 @@ export function Navbar() {
                   "radial-gradient(ellipse 65% 55% at 82% 18%, rgba(200,169,110,0.08) 0%, transparent 65%)",
               }}
             />
-            {/* Secondary cool radial — lower-left, very subtle */}
+            {/* Secondary cool radial - lower-left, very subtle */}
             <div
               className="absolute inset-0 pointer-events-none"
               style={{
@@ -213,13 +213,13 @@ export function Navbar() {
               }}
             />
 
-            {/* Content stack — restructured 2026-05-12 to bring the
+            {/* Content stack - restructured 2026-05-12 to bring the
                 action-zone (icons + Wine Club CTA) to the TOP so the
                 user lands on what they can DO immediately when the
                 drawer opens. The menu list sits tight underneath, no
                 wasted vertical padding above or below. */}
             <div className="relative z-10 flex flex-col h-full">
-              {/* Top bar — logo + Search/Account icons + Close.
+              {/* Top bar - logo + Search/Account icons + Close.
                   The two utility icons moved up from the bottom so
                   they're reachable next to the close affordance. */}
               <motion.div
@@ -252,7 +252,7 @@ export function Navbar() {
                 </div>
               </motion.div>
 
-              {/* Wine Club featured CTA — moved up from the bottom.
+              {/* Wine Club featured CTA - moved up from the bottom.
                   This is the most important non-navigation action,
                   now visible immediately when the drawer opens. */}
               <motion.div
@@ -271,10 +271,10 @@ export function Navbar() {
                 </a>
               </motion.div>
 
-              {/* Menu items — asymmetric, numbered, editorial TOC.
+              {/* Menu items - asymmetric, numbered, editorial TOC.
                   Sits directly under the CTA bar with a small top
                   pad. No flex-1 / justify-center on the list (was
-                  the source of the big empty top+bottom padding) —
+                  the source of the big empty top+bottom padding) -
                   items stack tightly and the flex-1 spacer below
                   carries the remaining vertical space. */}
               <div className="px-8 pt-2">
@@ -289,7 +289,7 @@ export function Navbar() {
                     transition={{ delay: 0.28 + i * 0.08, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                   >
                     <div className="flex items-center gap-5 py-5">
-                      {/* Ordinal — small gold number, 01–04 */}
+                      {/* Ordinal - small gold number, 01-04 */}
                       <span
                         className="font-display italic text-[#C8A96E]/65 group-hover:text-[#C8A96E] transition-colors duration-400 leading-none flex-shrink-0 self-start mt-3"
                         style={{ fontSize: "13px", letterSpacing: "0.08em" }}
@@ -297,7 +297,7 @@ export function Navbar() {
                         0{i + 1}
                       </span>
 
-                      {/* Label + kicker — slides slightly right on hover */}
+                      {/* Label + kicker - slides slightly right on hover */}
                       <div className="flex-1 transition-transform duration-500 ease-out group-hover:translate-x-1.5">
                         <span
                           className="block font-display italic text-cream group-hover:text-white transition-colors duration-400 leading-[1.0]"
@@ -316,7 +316,7 @@ export function Navbar() {
                         </span>
                       </div>
 
-                      {/* Arrow cue — gold, slides right on hover */}
+                      {/* Arrow cue - gold, slides right on hover */}
                       <span
                         aria-hidden
                         className="text-[#C8A96E]/35 group-hover:text-[#C8A96E] flex-shrink-0 self-center transition-all duration-500 group-hover:translate-x-1.5"
@@ -329,7 +329,7 @@ export function Navbar() {
                 ))}
               </div>
 
-              {/* Signature — sits DIRECTLY under the last menu item
+              {/* Signature - sits DIRECTLY under the last menu item
                   (no flex-1 spacer pushing it down). Aligned to the
                   menu's px-8 left/right padding so it reads as a
                   quiet outro to the list rather than a footer bar.

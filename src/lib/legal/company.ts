@@ -1,5 +1,5 @@
 /**
- * Company.ts — single source of truth for Ridgeview's legal entity data.
+ * Company.ts - single source of truth for Ridgeview's legal entity data.
  *
  * All legal pages (Terms, Privacy, Cookies, Delivery, Returns, Company
  * Info) and the checkout footer pull registered company / contact
@@ -10,7 +10,7 @@
  * surface the registered legal name, registered number, country of
  * incorporation and registered office. Tax-side identifiers (VAT,
  * AWRS) live on invoices / B2B documentation rather than on the
- * public website — same approach the existing ridgeview.co.uk site
+ * public website - same approach the existing ridgeview.co.uk site
  * and every comparable UK wine retailer take. If the board ever
  * decides to expose those numbers publicly, they can be added back
  * as additional fields here.
@@ -44,7 +44,7 @@ export const COMPANY = {
     email: "info@ridgeview.co.uk",
     phone: "+44 (0)1444 242040",
     /** UK regulator complaints route for unresolved consumer disputes
-     *  (ADR — Alternative Dispute Resolution). */
+     *  (ADR - Alternative Dispute Resolution). */
     adrBody: "Wine and Spirit Trade Association (WSTA)",
   },
 

@@ -16,8 +16,8 @@ import { FAQSection } from "@/components/sku/FAQSection";
 import { getTestimonial } from "@/data/testimonials";
 import { basePath } from "@/lib/basePath";
 
-// Still Chardonnay variants — synced 2026-05-12 with ridgeview.co.uk
-// (/product/still-chardonnay/, R2321). NEW launch — Ridgeview's first
+// Still Chardonnay variants - synced 2026-05-12 with ridgeview.co.uk
+// (/product/still-chardonnay/, R2321). NEW launch - Ridgeview's first
 // still (non-sparkling) wine. Single 75cl variant.
 const STILL_CHARDONNAY_VARIANTS: Variant[] = [
   { label: "75cl Bottle", detail: "75cl · 11% ABV · 2023 Vintage", price: 27.5 },
@@ -58,7 +58,7 @@ function GoldDivider({ origin = "left" as "left" | "center" }) {
 
 function ProductHero() {
   // Parallax: bottle drifts upward 80px as the hero scrolls out of view.
-  // Subtle premium effect — Apple product pages use this exact pattern.
+  // Subtle premium effect - Apple product pages use this exact pattern.
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -68,7 +68,7 @@ function ProductHero() {
 
   return (
     // Section sizes to its natural content height (no min-h constraint).
-    // Goal "alles fits in einen viewport und adapts" — by dropping
+    // Goal "alles fits in einen viewport und adapts" - by dropping
     // min-h-[100svh] the hero never pads itself with empty space on
     // tall monitors, and the next section follows immediately. Atmospheric
     // weight is carried by the typography, the oversized bottle (90svh)
@@ -137,7 +137,7 @@ function ProductHero() {
                 so they sit next to the bottle visually and free up vertical space
                 for the ATB button to land inside the initial viewport. */}
 
-            {/* Divider — Desktop: between subtitle and description; Mobile: between
+            {/* Divider - Desktop: between subtitle and description; Mobile: between
                 Price/CTAs and the description block (pushed below the fold via order). */}
             <FadeUp delay={0.4} className="order-6">
               <div className="mb-3 md:mb-5">
@@ -163,7 +163,7 @@ function ProductHero() {
                 Desktop: source order applies → block is at the end as before. */}
             <FadeUp delay={0.55} className="order-5 mb-6 md:mb-0">
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 md:gap-10">
-                {/* Stateful purchase block — variant + qty + free-shipping bar + ATB */}
+                {/* Stateful purchase block - variant + qty + free-shipping bar + ATB */}
                 <div className="flex-1 max-w-[480px]">
                   <PurchaseWidget
                     slug="still-chardonnay"
@@ -176,7 +176,7 @@ function ProductHero() {
                   />
                 </div>
 
-                {/* No hero awards for Still Chardonnay — NEW launch, no
+                {/* No hero awards for Still Chardonnay - NEW launch, no
                     accolades yet (no fake badges per badge-honesty rule). */}
               </div>
             </FadeUp>
@@ -186,7 +186,7 @@ function ProductHero() {
           {/* md:mt-20 drops the bottle column ~80px on desktop so the
               foil cap sits around the H1 title baseline (instead of
               crowding the breadcrumb/navbar). Info column stays tight
-              against the breadcrumb — the offset only applies to the
+              against the breadcrumb - the offset only applies to the
               bottle so the two columns get an editorial "stagger".
               Mobile keeps the bottle at the top of the stack (no mt). */}
           <FadeUp delay={0.05} className="order-1 md:order-2 md:mt-20">
@@ -194,7 +194,7 @@ function ProductHero() {
               className="relative h-[clamp(320px,44svh,420px)] md:h-[clamp(480px,62svh,720px)]"
               style={{ overflow: "visible" }}
             >
-              {/* soft halo — absolute centered, no layout impact */}
+              {/* soft halo - absolute centered, no layout impact */}
               <div
                 className="absolute top-1/2 left-1/2 pointer-events-none"
                 style={{
@@ -208,7 +208,7 @@ function ProductHero() {
                 }}
               />
 
-              {/* Mobile award badges — absolute overlay, vertically stacked
+              {/* Mobile award badges - absolute overlay, vertically stacked
                   on the left side of the bottle wrapper. Each badge has
                   a micro-caption (year only) underneath. Anchored 30px
                   higher than the bottle midpoint so it sits in the upper
@@ -216,7 +216,7 @@ function ProductHero() {
               {/* No mobile award badges for Still Chardonnay (NEW launch,
                   no accolades yet). Bottle wrapper has no overlay items. */}
 
-              {/* Bottle wrapper — absolute, doesn't dictate column height.
+              {/* Bottle wrapper - absolute, doesn't dictate column height.
                   Wrapped in motion.div so the bottle drifts upward via the
                   scroll-driven parallax (subtle 80px range). */}
               <motion.div
@@ -226,7 +226,7 @@ function ProductHero() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={`${basePath}/products/still-chardonnay.png`}
-                  alt="Ridgeview Still Chardonnay 2023 — 100% Chardonnay still wine, 75cl bottle"
+                  alt="Ridgeview Still Chardonnay 2023 - 100% Chardonnay still wine, 75cl bottle"
                   className="pointer-events-auto w-auto max-w-none object-contain h-[clamp(376px,51svh,484px)] md:h-[clamp(704px,90svh,1078px)] [transform:translateX(8%)_translateY(-30px)_rotate(28deg)] md:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)] hover:[transform:translateX(8%)_translateY(-30px)_rotate(28deg)_scale(1.015)] md:hover:[transform:translateY(clamp(-110px,-7svh,-60px))_rotate(35deg)_scale(1.015)] [transition:transform_900ms_cubic-bezier(0.16,1,0.3,1),filter_900ms_cubic-bezier(0.16,1,0.3,1)] hover:[filter:drop-shadow(0_40px_80px_rgba(0,0,0,0.7))_drop-shadow(0_0_60px_rgba(200,169,110,0.12))]"
                   style={{
                     transformOrigin: "center",
@@ -235,7 +235,7 @@ function ProductHero() {
                 />
               </motion.div>
 
-              {/* Quick "Add to basket" — anchored bottom-right next to the bottle
+              {/* Quick "Add to basket" - anchored bottom-right next to the bottle
                   on every breakpoint. Marked with data-atb-trigger so the
                   StickyMobileCTA only appears when this AND every other ATB
                   on the page is out of view. The widget ATB in the info
@@ -401,7 +401,7 @@ function BlendSection() {
           </FadeUp>
         </div>
 
-        {/* Single big percentage — 100% Chardonnay, centered */}
+        {/* Single big percentage - 100% Chardonnay, centered */}
         <div className="flex justify-center mb-20 md:mb-24">
           <FadeUp delay={0.28}>
             <div className="group text-center cursor-default px-8">
@@ -456,7 +456,7 @@ function BlendSection() {
 // ── Awards & Specs ──────────────────────────────────────────────────────────
 
 function AwardsSpecsSection() {
-  // No awards yet — new launch (2026). Section gracefully renders empty
+  // No awards yet - new launch (2026). Section gracefully renders empty
   // awards list; the Specs column below carries the wine's info.
   const awards: { medal: string; body: string; year: string }[] = [];
 
@@ -472,7 +472,7 @@ function AwardsSpecsSection() {
   ];
 
   // If awards is empty, render only the Specs column (centered, single-
-  // column) — no orphaned "Awards" headline above an empty list.
+  // column) - no orphaned "Awards" headline above an empty list.
   const hasAwards = awards.length > 0;
 
   return (
@@ -482,7 +482,7 @@ function AwardsSpecsSection() {
           ? "grid grid-cols-1 md:grid-cols-[55fr_45fr] gap-16 md:gap-24"
           : "max-w-[640px] mx-auto"
         }>
-          {/* Awards — rendered only when there are awards to list */}
+          {/* Awards - rendered only when there are awards to list */}
           {hasAwards && (
           <div>
             <FadeUp>
@@ -600,7 +600,7 @@ function ClosingCTA() {
         </FadeUp>
         <FadeUp delay={0.2}>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            {/* No data-atb-trigger here — this is a duplicate CTA, not the
+            {/* No data-atb-trigger here - this is a duplicate CTA, not the
                 primary purchase action. StickyMobileCTA should stay visible
                 when ClosingCTA enters the viewport. */}
             <QuickAddButton
@@ -633,7 +633,7 @@ const SCHEMA_LD = {
   "@type": "Product",
   name: "Ridgeview Still Chardonnay 2023",
   description:
-    "Ridgeview's first-ever still wine — 100% estate-grown Chardonnay. White blossom and lychee aromatics over a palate of peach, pear and apricot, finishing silky with mineral lift.",
+    "Ridgeview's first-ever still wine - 100% estate-grown Chardonnay. White blossom and lychee aromatics over a palate of peach, pear and apricot, finishing silky with mineral lift.",
   image: "https://ridgeview.vercel.app/products/still-chardonnay.png",
   brand: { "@type": "Brand", name: "Ridgeview Wine Estate" },
   sku: "R2321",
@@ -651,22 +651,22 @@ const FAQ_ITEMS = [
   {
     question: "When will my order arrive?",
     answer:
-      "Standard UK delivery is 2–4 working days. Order before noon for next-working-day dispatch. Free UK delivery on orders over £45.",
+      "Standard UK delivery is 2-4 working days. Order before noon for next-working-day dispatch. Free UK delivery on orders over £45.",
   },
   {
     question: "How should I store Still Chardonnay?",
     answer:
-      "Store upright (still wines don't need to lie flat — there's no cork to keep wet under pressure) in a cool, dark place between 10–14°C. Best enjoyed within 1–2 years of release to preserve the floral, stone-fruit freshness. Serve chilled at 8–10°C.",
+      "Store upright (still wines don't need to lie flat - there's no cork to keep wet under pressure) in a cool, dark place between 10-14°C. Best enjoyed within 1-2 years of release to preserve the floral, stone-fruit freshness. Serve chilled at 8-10°C.",
   },
   {
     question: "Can I add a personalised gift note?",
     answer:
-      "Yes — every order includes a complimentary handwritten gift note option at checkout. Add the recipient's address and we'll ship directly to them, with no prices on the packing slip.",
+      "Yes - every order includes a complimentary handwritten gift note option at checkout. Add the recipient's address and we'll ship directly to them, with no prices on the packing slip.",
   },
   {
     question: "Do you ship outside the UK?",
     answer:
-      "International shipping is available to most of Europe and selected destinations. Customs and duties may apply at the destination — please contact our team for a tailored quote.",
+      "International shipping is available to most of Europe and selected destinations. Customs and duties may apply at the destination - please contact our team for a tailored quote.",
   },
   {
     question: "What if I'm not happy with the wine?",
@@ -682,7 +682,7 @@ const RELATED_WINES = [
     style: "Vintage · Single-Vineyard Chardonnay",
     price: 75,
     image: "/products/blanc-de-blancs.png",
-    note: "Same grape, sparkling — pure Chardonnay from the 1995 plantings.",
+    note: "Same grape, sparkling - pure Chardonnay from the 1995 plantings.",
   },
   {
     slug: "bloomsbury",
@@ -690,7 +690,7 @@ const RELATED_WINES = [
     style: "House Cuvée · Non Vintage",
     price: 34,
     image: "/products/bloomsbury.png",
-    note: "The Chardonnay-led everyday sparkling blend — bright and ready to pour.",
+    note: "The Chardonnay-led everyday sparkling blend - bright and ready to pour.",
   },
   {
     slug: "cavendish",
@@ -698,7 +698,7 @@ const RELATED_WINES = [
     style: "House Cuvée · Non Vintage",
     price: 36,
     image: "/products/cavendish.png",
-    note: "Pinot-led NV blend — red berries and toasted almond.",
+    note: "Pinot-led NV blend - red berries and toasted almond.",
   },
 ];
 
@@ -709,7 +709,7 @@ export default function StillChardonnayPage() {
 
   return (
     <main className="bg-[#010101] pb-[80px] md:pb-0">
-      {/* Schema.org JSON-LD — Google Rich Snippets (product, aggregate rating, reviews) */}
+      {/* Schema.org JSON-LD - Google Rich Snippets (product, aggregate rating, reviews) */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA_LD) }}
@@ -720,18 +720,18 @@ export default function StillChardonnayPage() {
       <ScrollReset><TastingPairingSection /></ScrollReset>
       <ScrollReset><BlendSection /></ScrollReset>
 
-      {/* A) Behind the Bottle — production craft pillars shared across every
+      {/* A) Behind the Bottle - production craft pillars shared across every
           Ridgeview SKU (Soil → Harvest → Winemaking). SKU-specific details
           like single-vineyard / lees duration / palate live in the Specs
           section and the Varietal section above. */}
       <ScrollReset>
         <BehindTheBottleSection
           headline={<>Crafted in the <span className="text-[#C8A96E]">Méthode Traditionnelle</span>.</>}
-          intro="For three decades, Ridgeview has crafted English sparkling wines the long way — by hand, on the chalk hills of Sussex, using the same Traditional Method as the great houses of Champagne."
+          intro="For three decades, Ridgeview has crafted English sparkling wines the long way - by hand, on the chalk hills of Sussex, using the same Traditional Method as the great houses of Champagne."
           pillars={[
-            { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region — the foundation of every great sparkling wine." },
+            { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region - the foundation of every great sparkling wine." },
             { label: "Hand Harvest", detail: "Grapes are picked at first light and sorted by hand to keep only the most balanced bunches." },
-            { label: "Méthode Traditionnelle", detail: "An English invention — coal-fired bottles strong enough to hold the bubbles, the cork to seal them in, deliberate secondary fermentation." },
+            { label: "Méthode Traditionnelle", detail: "An English invention - coal-fired bottles strong enough to hold the bubbles, the cork to seal them in, deliberate secondary fermentation." },
           ]}
         />
       </ScrollReset>
@@ -740,7 +740,7 @@ export default function StillChardonnayPage() {
         <ScrollReset><TestimonialSection testimonial={testimonial} /></ScrollReset>
       )}
 
-      {/* AwardSection omitted — Still Chardonnay is a new launch with
+      {/* AwardSection omitted - Still Chardonnay is a new launch with
           no accolades yet. AwardsSpecsSection below renders empty awards
           list + the wine's specs. */}
       <ScrollReset><AwardsSpecsSection /></ScrollReset>
@@ -761,7 +761,7 @@ export default function StillChardonnayPage() {
       <ScrollReset><ClosingCTA /></ScrollReset>
       <Footer />
       {/* Sticky mobile purchase bar (Mini-Flasche + Preis + ATB) appears only
-          when EVERY ATB on the page (hero bottle-side, widget, ClosingCTA —
+          when EVERY ATB on the page (hero bottle-side, widget, ClosingCTA -
           all marked with data-atb-trigger) is out of viewport. As soon as
           any ATB scrolls back in, the bar hides. */}
       <StickyMobileCTA

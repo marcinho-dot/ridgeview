@@ -1,16 +1,16 @@
 "use client";
 
 /**
- * /people — the people behind Ridgeview.
+ * /people - the people behind Ridgeview.
  *
  * Two-chapter scroll narrative driven by the 21st.dev
  * `story-scroll` component (FlowArt + FlowSection). Each chapter
  * pins to the viewport while the next slides up and rotates from
- * 30° → 0° as it locks in — same mechanic as the reference demo,
+ * 30° → 0° as it locks in - same mechanic as the reference demo,
  * themed in Ridgeview's CD (dark surfaces + gold + cream).
  *
- *   01 · The People       — the team behind the estate
- *   02 · The Winemaker    — Simon Roberts (head winemaker)
+ *   01 · The People       - the team behind the estate
+ *   02 · The Winemaker    - Simon Roberts (head winemaker)
  *
  * Mike Roberts (founder, in memoriam) used to live here as chapter
  * 03. He's been moved to his own dedicated page at /mike-roberts
@@ -69,7 +69,7 @@ export default function PeoplePage() {
             style={{ fontSize: "clamp(15px, 1.4vw, 18px)" }}
           >
             A dedicated team of viticulturists, winemakers, and hospitality
-            professionals — working together to shape the future of English
+            professionals - working together to shape the future of English
             sparkling wine. Across the vineyard, the cellar, and the
             restaurant, every hand plays a part.
           </p>
@@ -77,7 +77,7 @@ export default function PeoplePage() {
           {/* HR + image grid flow directly after the body paragraph
               with the FlowSection's gap-3 (12 px) spacing. Previously
               wrapped in mt-auto to pin to the section bottom, but that
-              opened a large empty band between text and images — user
+              opened a large empty band between text and images - user
               prefers the compact stack with the empty band below the
               images instead (2026-05-15). */}
           <div>
@@ -96,7 +96,7 @@ export default function PeoplePage() {
               <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
                 <img
                   src={`${basePath}/images/people/people-harvest-54.jpg`}
-                  alt="Harvest at Ridgeview — picking by hand"
+                  alt="Harvest at Ridgeview - picking by hand"
                   className="absolute inset-0 w-full h-full object-cover"
                   loading="lazy"
                 />
@@ -107,7 +107,7 @@ export default function PeoplePage() {
 
         {/* ───────── 02 · The Winemaker · Simon Roberts ──────────── */}
         <FlowSection
-          aria-label="Simon Roberts — Head Winemaker"
+          aria-label="Simon Roberts - Head Winemaker"
           style={{ backgroundColor: "#080808", color: "#f5f0e8" }}
         >
           <p
@@ -157,13 +157,13 @@ export default function PeoplePage() {
             </Link>
             . Simon carries the{" "}
             <span className="text-[#C8A96E]">Méthode Traditionnelle</span> forward on
-            Sussex chalk — every cuvée passes through his hands from press to
+            Sussex chalk - every cuvée passes through his hands from press to
             dégorgement, guided by the same conviction his father planted in
             1995.
           </p>
 
           {/* HR + image grid flow directly after the body paragraph
-              with the FlowSection's gap-3 (12 px) spacing — compact
+              with the FlowSection's gap-3 (12 px) spacing - compact
               stack at the top, empty band below the images instead
               (2026-05-15 user direction). */}
           <div>

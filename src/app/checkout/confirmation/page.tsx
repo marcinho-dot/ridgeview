@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * /checkout/confirmation — order success page.
+ * /checkout/confirmation - order success page.
  *
  * Reached via router.push() from /checkout after the (currently
  * placeholder) Place Order action. Pulls the last order's summary
@@ -46,7 +46,7 @@ export default function ConfirmationPage() {
     }
   }, []);
 
-  // Avoid hydration mismatch — render the fallback shell on first
+  // Avoid hydration mismatch - render the fallback shell on first
   // render, swap to real data after effect.
   if (!hydrated) return null;
 
@@ -94,7 +94,7 @@ export default function ConfirmationPage() {
                 Your order is in. We&rsquo;ve sent a confirmation to{" "}
                 <strong className="text-cream">{order.email}</strong> and
                 will follow up with tracking once your wine leaves the
-                cellar — usually within one working day for UK mainland
+                cellar - usually within one working day for UK mainland
                 addresses.
               </p>
 
@@ -165,7 +165,7 @@ export default function ConfirmationPage() {
                   <Step>
                     A tracking link will follow by email once the courier
                     collects. The recipient may be asked for photographic
-                    ID on delivery — UK Licensing Act 2003 / Challenge 25.
+                    ID on delivery - UK Licensing Act 2003 / Challenge 25.
                   </Step>
                   <Step>
                     You have 14 days from delivery to cancel any unopened
