@@ -577,19 +577,48 @@ function HeritageDiscoverySection() {
               lets the 1500x1000 image fill whatever vertical space the
               text occupies on desktop. On mobile (grid-cols-1) the image
               stacks below the text and uses aspect-[3/2] for its natural
-              landscape proportion. */}
-          <div className="relative overflow-hidden rounded-sm aspect-[3/2] md:aspect-auto">
+              landscape proportion. The `group` class lets the inner
+              layers respond to hover collectively. */}
+          <div className="group relative overflow-hidden rounded-sm aspect-[3/2] md:aspect-auto border border-white/[0.06] hover:border-[#C8A96E]/30 transition-colors duration-700">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={`${basePath}/images/cellar-winemaker-steam-bw.jpg`}
               alt="Ridgeview cellar — winemaker at work, B&W"
               loading="lazy"
               decoding="async"
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.04]"
             />
-            {/* Subtle base darken so the B&W image's brightest highlights
-                don't blow out next to the cream text in the left column. */}
-            <div className="absolute inset-0 bg-black/15 pointer-events-none" />
+
+            {/* Layer 1 — base darken. Damps the B&W highlights so they
+                don't fight with the cream text in the left column. */}
+            <div className="absolute inset-0 bg-black/20 pointer-events-none transition-colors duration-700 group-hover:bg-black/10" />
+
+            {/* Layer 2 — top fade. Softens the upper edge so the photo
+                bleeds into the section's #010101 background without a
+                hard cut, matches the editorial style of VisitPanels. */}
+            <div className="absolute inset-x-0 top-0 h-[35%] pointer-events-none"
+              style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 100%)" }}
+            />
+
+            {/* Layer 3 — bottom fade with a warm gold cast. The tint is
+                very subtle (gold @ 0.08 alpha) but it pulls the B&W
+                image toward the brand palette and ties the right column
+                to the gold divider on the left. */}
+            <div className="absolute inset-x-0 bottom-0 h-[45%] pointer-events-none"
+              style={{ background: "linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(200,169,110,0.04) 40%, rgba(0,0,0,0) 100%)" }}
+            />
+
+            {/* Layer 4 — gold corner brackets (top-right + bottom-left).
+                Editorial frame device. Fade in on hover for a touch of
+                interactivity without being too obvious. */}
+            <span
+              aria-hidden
+              className="absolute top-3 right-3 w-5 h-5 border-t border-r border-[#C8A96E]/30 opacity-60 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+            />
+            <span
+              aria-hidden
+              className="absolute bottom-3 left-3 w-5 h-5 border-b border-l border-[#C8A96E]/30 opacity-60 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+            />
           </div>
 
         </div>
