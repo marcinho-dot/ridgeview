@@ -129,7 +129,7 @@ function PageHeader() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
-          className="font-body text-white/60 max-w-[920px]"
+          className="font-body text-white/60 max-w-[680px]"
           style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, lineHeight: 1.7, textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
         >
           Visit the estate that established English sparkling in the méthode traditionnelle. Planted 1995. An hour from London, twenty minutes from Brighton.
