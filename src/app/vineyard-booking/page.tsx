@@ -1168,10 +1168,19 @@ export default function BookingPage() {
                  relative ancestor + bg-[#0a0a0a] solid covers).
               3. Discovery then rises from below to cover Behind
                  the Bottle (existing pattern).
-            Without the -mt pull-up, the chalk section un-pinned
-            at its natural end and Behind the Bottle started in
-            normal flow afterwards - no overlap, no curtain rise. */}
-        <div className="relative -mt-[100svh] md:-mt-[100vh]">
+
+            z-[5] on the wrapper is critical: the chalk container
+            inside HeritageRevealStack has an explicit z-0 (creates
+            a stacking context), while Behind the Bottle's sticky
+            panel was z-auto by default. CSS stacking puts z-auto
+            positioned elements BELOW z-0 stacking contexts, so
+            without an explicit z-index Behind the Bottle painted
+            UNDER the chalk image and the slide-up was invisible.
+            z-[5] places the wrapper between chalk (z-0) and the
+            Terroir overlay (z-10) — Behind the Bottle covers
+            chalk, but Terroir still covers Behind the Bottle
+            during the curtain-reveal phase. */}
+        <div className="relative -mt-[100svh] md:-mt-[100vh] z-[5]">
           <div className="sticky top-0 min-h-svh md:min-h-screen bg-[#0a0a0a]">
             <ScrollReset>
               <BehindTheBottleSection
