@@ -1277,7 +1277,11 @@ export default function BookingPage() {
         <ScrollReset><PracticalInfo /></ScrollReset>
       </main>
       <Footer />
-      <BottomNav />
+      {/* BottomNav appears ONLY when the footer is in viewport on
+          /vineyard-booking (per user direction 2026-05-18). Symmetric:
+          fades back out when the user scrolls up past the footer.
+          Other pages keep the legacy scrollY > 0.85 behaviour. */}
+      <BottomNav showWhenVisibleSelector="#footer" />
       <BackToTopFloat />
     </div>
   );
