@@ -38,9 +38,11 @@ function IconFacebook({ className }: { className?: string }) {
 const galleryImages = [
   { src: "gallery-4.jpg", alt: "A walk through the Ridgeview vineyard, South Downs in the distance" },
   { src: "gallery-1.jpg", alt: "Ridgeview Estate tasting room and terrace" },
-  // Slot 3 (center card, z-30) — added 2026-05-18 per user direction.
-  // Rows & Vine bar / harvest gathering shot (JLau-RV270423-0766).
-  { src: "gallery-5.jpg", alt: "Guests gathered at the Rows & Vine bar at Ridgeview" },
+  // Slot 3 (center card, z-30) — file at gallery-5.jpg updated
+  // 2026-05-18 to AF_LXA_Ridgeview Wine Estate-14: the restaurant
+  // pavilion / covered terrace seen from the garden. Position
+  // unchanged.
+  { src: "gallery-5.jpg", alt: "Ridgeview restaurant pavilion and covered terrace seating" },
   { src: "gallery-2.jpg", alt: "Ridgeview vineyard rows stretching to the South Downs" },
   // Slot 5 (last card in the fan, z-10) — file at gallery-3.jpg
   // updated 2026-05-18 to AF_LXA_Ridgeview Wine Estate-37 — the
