@@ -8,7 +8,42 @@ export function Footer() {
   // every route - the anchor scroll fires once that route loads.
   const home = `${basePath}/`;
   return (
-    <footer id="footer" className="bg-[#010101] border-t border-white/10">
+    <footer id="footer" className="relative bg-[#010101] border-t border-white/10 overflow-hidden isolate">
+      {/* ── Background aerial photo ──────
+          Drone shot (F-ALP-DJI_0326 → footer-aerial.jpg) anchored to
+          bottom-left of the footer so the building / chalk-soil corner
+          remains visible while the rest of the frame fades into the
+          surrounding overlays. Added 2026-05-18 per user direction. */}
+      <div className="absolute inset-0 -z-10 pointer-events-none">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={`${basePath}/images/footer-aerial.jpg`}
+          alt=""
+          aria-hidden
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: "left bottom" }}
+        />
+        {/* Base darken — pulls the image back so the text/links remain
+            the primary read. */}
+        <div className="absolute inset-0 bg-black/70" />
+        {/* Top blend gradient — fades the image into the section above
+            so the Substack strip's edge isn't a hard cut. */}
+        <div
+          className="absolute inset-x-0 top-0 h-32 pointer-events-none"
+          style={{ background: "linear-gradient(to bottom, rgba(1,1,1,1) 0%, rgba(1,1,1,0) 100%)" }}
+        />
+        {/* Right-side fade — pushes the image's right half toward solid
+            black so the right-aligned legal/social columns sit on a
+            cleaner plate. Keeps the bottom-LEFT corner of the image
+            (per user direction) prominent. */}
+        <div
+          className="absolute inset-y-0 right-0 w-[55%] pointer-events-none"
+          style={{ background: "linear-gradient(to left, rgba(1,1,1,0.95) 0%, rgba(1,1,1,0) 100%)" }}
+        />
+      </div>
+
       {/* ── Substack strip - newsletter signup ──────
           Rewritten 2026-05-17: Ridgeview now publishes exclusively
           on Substack (no in-house newsletter), so the copy and the
