@@ -290,7 +290,7 @@ export function NearbyAccommodationSection() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: 0.15 }}
-                    className="font-body text-white/65 leading-relaxed mb-7"
+                    className="font-body text-white/65 leading-relaxed mb-4"
                     style={{
                       fontSize: "clamp(13px, 1.3vw, 15px)",
                       fontWeight: 300,
@@ -309,7 +309,7 @@ export function NearbyAccommodationSection() {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ duration: 0.4, delay: 0.2 }}
-                      className="font-body text-[#C8A96E] tracking-[0.18em] uppercase mb-7"
+                      className="font-body text-[#C8A96E] tracking-[0.18em] uppercase mb-4"
                       style={{ fontSize: "clamp(10px, 0.9vw, 12px)", fontWeight: 400 }}
                     >
                       &mdash; {a.badge}
@@ -415,7 +415,7 @@ export function NearbyAccommodationSection() {
                   {a.name}
                 </h3>
                 <p
-                  className="font-body text-white/65 leading-relaxed mb-4"
+                  className="font-body text-white/65 leading-relaxed mb-3"
                   style={{
                     fontSize: "13px",
                     fontWeight: 300,
@@ -429,7 +429,7 @@ export function NearbyAccommodationSection() {
                 </p>
                 {a.badge && (
                   <p
-                    className="font-body text-[#C8A96E] tracking-[0.18em] uppercase mb-4"
+                    className="font-body text-[#C8A96E] tracking-[0.18em] uppercase mb-3"
                     style={{ fontSize: "10px", fontWeight: 400 }}
                   >
                     &mdash; {a.badge}
@@ -439,7 +439,7 @@ export function NearbyAccommodationSection() {
                   href={a.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-cta mt-auto text-center"
+                  className="btn-cta self-start text-center"
                   aria-label={`Visit ${a.name} (opens in new tab)`}
                 >
                   View Hotel
