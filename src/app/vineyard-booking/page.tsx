@@ -455,7 +455,7 @@ function HeritageDiscoverySection() {
                 textShadow: "0 2px 14px rgba(0,0,0,0.85)",
               }}
             >
-              The recipe for sparkling wine was first written down in London.
+              Before it became a French treasure, an English physician wrote it down.
             </p>
           </FadeUp>
 
@@ -513,9 +513,11 @@ function HeritageDiscoverySection() {
               }}
             >
               The English invented secondary fermentation. The coal-fired glass bottle
-              strong enough to contain it. The use of cork to seal it. The Champenois
-              called the bubbles &lsquo;the devil&apos;s wine&rsquo; and spent decades
-              trying to remove them.
+              strong enough to contain it. The use of cork to seal it. For decades, the
+              Champenois called the bubbles &lsquo;the devil&apos;s wine&rsquo; and tried
+              to remove them. Today, Champagne is one of France&rsquo;s greatest cultural
+              treasures - while the method, like the chalk beneath it, a shared European
+              heritage.
             </p>
           </FadeUp>
 
