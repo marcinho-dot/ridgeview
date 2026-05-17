@@ -132,7 +132,7 @@ function PageHeader() {
           className="font-body text-white/60 max-w-[440px]"
           style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, lineHeight: 1.7, textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
         >
-          Established 1995. English sparkling, méthode traditionnelle. An hour from London, twenty from Brighton.
+          Visit the estate that established English sparkling in the méthode traditionnelle. Planted 1995. An hour from London, twenty minutes from Brighton.
         </motion.p>
       </motion.div>
     </section>
