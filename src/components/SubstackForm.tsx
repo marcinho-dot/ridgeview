@@ -45,15 +45,13 @@ export function SubstackForm({ className = "" }: Props) {
   return (
     <form
       onSubmit={(e) => {
+        // Substack URL temporarily removed 2026-05-17 — the
+        // previous `https://substack.com/@ridgeview` link was the
+        // wrong account. User will provide the correct Substack
+        // URL later; until then the form just no-ops on submit.
+        // TODO: re-wire window.open(...) once the real Substack
+        // handle is confirmed.
         e.preventDefault();
-        const input = e.currentTarget.querySelector("input");
-        const email = input?.value;
-        if (email) {
-          window.open(
-            `https://substack.com/@ridgeview?email=${encodeURIComponent(email)}`,
-            "_blank",
-          );
-        }
       }}
       className={`flex items-center gap-0 border border-white/35 bg-white/[0.04] rounded-full hover:border-[#C8A96E]/55 focus-within:border-[#C8A96E]/55 transition-colors duration-300 ${className}`}
     >
