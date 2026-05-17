@@ -395,58 +395,16 @@ function HeritageRevealStack() {
 // ── Section: Heritage Part 2 - Merret Quote ─────────────────────────────────
 
 function HeritageDiscoverySection() {
-  // Refactored 2026-05-16: text moved from a right-hand column ONTO
-  // a full-bleed cinematic background image (user direction). Same
-  // editorial copy, same FadeUp timings - composition is a single
-  // layered scene:
-  //   1. Full-bleed background image - swapped iteratively:
-  //      golden-hour quote.jpg → B&W cellar-winemaker-steam →
-  //      page-14-bottles.jpg (final 2026-05-17, fits the
-  //      Méthode-Traditionnelle / heritage-quote tonality with
-  //      the line-up of finished bottles)
-  //   2. Layered dark overlays + left-weighted gradient so the text
-  //      side stays readable while the right side of the image
-  //      breathes
-  //   3. Top + bottom #010101 blend gradients so the section reads
-  //      as part of the page rhythm, not as a hard cut-in
-  //   4. Editorial gold corner accents at the section's outer
-  //      corners (kept from the old image-frame treatment)
-  //   5. Text stack (intro · pull-quote · attribution · body ·
-  //      gold divider) anchored left, vertically centered, with
-  //      drop-shadow on every text element for guaranteed contrast
-  //      on any image area
+  // Reverted 2026-05-17 (user direction): the full-bleed background
+  // image was removed - section now sits on a solid #010101 plate
+  // so the Merret pull-quote reads as pure editorial typography
+  // without the bottle-line-up image behind it. Text stack (intro ·
+  // pull-quote · attribution · body · gold divider) anchored left,
+  // vertically centered. The drop-shadows on each text element are
+  // intentionally KEPT - harmless on solid black and easier to
+  // re-introduce a bg image later if needed.
   return (
     <section className="relative overflow-hidden bg-[#010101] min-h-[68vh] md:min-h-[92vh]">
-
-      {/* ── Full-bleed background image + readability layers ── */}
-      <div className="absolute inset-0">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={`${basePath}/images/page-14-bottles.jpg`}
-          alt="Ridgeview sparkling wines — bottle line-up"
-          loading="lazy"
-          decoding="async"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "center 40%" }}
-        />
-        {/* Base darken - strengthened 2026-05-17 (was bg-black/55)
-            for sharper text contrast against the new lighter
-            page-14-bottles bg image */}
-        <div className="absolute inset-0 bg-black/70" />
-        {/* Left-weighted gradient - text sits on the darker left half.
-            Also strengthened (top stop 0.78 → 0.88) so the headline,
-            quote, attribution and body copy all stay legible. */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(100deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.65) 38%, rgba(0,0,0,0.35) 70%, rgba(0,0,0,0.22) 100%)",
-          }}
-        />
-        {/* Top + bottom page-blend gradients */}
-        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#010101] to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#010101] to-transparent" />
-      </div>
 
       {/* ── Text overlay ── */}
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32 min-h-[68vh] md:min-h-[92vh] flex items-center">
@@ -1133,8 +1091,6 @@ export default function BookingPage() {
             <ScrollReset>
               <BehindTheBottleSection
                 compact
-                backgroundImage={`${basePath}/images/chalk-bottles.jpg`}
-                backgroundImageAlt="Ridgeview bottles resting on Sussex chalk"
                 headline={<>Crafted in the <span className="text-[#C8A96E]">Méthode Traditionnelle</span>.</>}
                 intro="For three decades, Ridgeview has crafted English sparkling wines the long way - by hand, on the chalk hills of Sussex, using the Méthode Traditionnelle."
                 pillars={[
