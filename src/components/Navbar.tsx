@@ -228,7 +228,9 @@ export function Navbar() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.12, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               >
-                <RidgeviewBadgeLogo scrolled={false} />
+                <Link href="/" onClick={() => setMenuOpen(false)} aria-label="Ridgeview — Home">
+                  <RidgeviewBadgeLogo scrolled={false} />
+                </Link>
                 <div className="flex items-center gap-1">
                   <button
                     aria-label="Search"
