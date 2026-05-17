@@ -460,112 +460,138 @@ function HeritageRevealStack() {
 // ── Section: Heritage Part 2 - Merret Quote ─────────────────────────────────
 
 function HeritageDiscoverySection() {
-  // Reverted 2026-05-17 (user direction): the full-bleed background
-  // image was removed - section now sits on a solid #010101 plate
-  // so the Merret pull-quote reads as pure editorial typography
-  // without the bottle-line-up image behind it. Text stack (intro ·
-  // pull-quote · attribution · body · gold divider) anchored left,
-  // vertically centered. The drop-shadows on each text element are
-  // intentionally KEPT - harmless on solid black and easier to
-  // re-introduce a bg image later if needed.
+  // Rebuilt 2026-05-18: switched from a single-column text overlay
+  // to a 2-column layout matching BehindTheBottleSection's compact
+  // pattern — text in a 5fr left column, cellar-winemaker-steam-bw
+  // image in a 7fr right column. Outer container/padding/gap match
+  // BehindTheBottle (max-w-[1400px] · px-6 md:px-16 · gap-6 md:gap-16)
+  // so the text column ends up at the same physical width on desktop.
+  // The image stretches to match the text column's height via the
+  // grid's default items-stretch behaviour (image is absolutely
+  // positioned with inset-0 + object-cover, so it fills the grid
+  // row regardless of its intrinsic 1500x1000 aspect).
   return (
     <section className="relative overflow-hidden bg-[#010101] min-h-[68vh] md:min-h-[92vh]">
 
-      {/* ── Text overlay ── */}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32 min-h-[68vh] md:min-h-[92vh] flex items-center">
-        <div className="max-w-[640px]">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-16 py-24 md:py-32 min-h-[68vh] md:min-h-[92vh] flex items-center">
+        <div className="w-full grid grid-cols-1 md:grid-cols-[5fr_7fr] gap-6 md:gap-16 items-stretch">
 
-          <FadeUp delay={0.1}>
-            <p
-              className="font-body text-white/75 leading-relaxed mb-10"
-              style={{
-                fontSize: "clamp(14px, 1.35vw, 16px)",
-                fontWeight: 300,
-                maxWidth: "520px",
-                textShadow: "0 2px 14px rgba(0,0,0,0.85)",
-              }}
-            >
-              Before it became a French treasure, an English physician wrote it down.
-            </p>
-          </FadeUp>
+          {/* LEFT: text column (matches BehindTheBottle's 5fr text column width) */}
+          <div className="flex flex-col justify-center">
 
-          {/* Pull-quote - large decorative open-quote sits behind the text */}
-          <FadeUp delay={0.2} duration={1.1}>
-            <div className="relative mb-8">
-              <span
-                className="absolute font-display italic text-[#C8A96E] select-none pointer-events-none"
+            <FadeUp delay={0.1}>
+              <p
+                className="font-body text-white/75 leading-relaxed mb-10"
                 style={{
-                  fontSize: "clamp(100px, 16vw, 200px)",
-                  lineHeight: 1,
-                  top: "-0.35em",
-                  left: "-0.08em",
-                  opacity: 0.18,
-                  textShadow: "0 2px 24px rgba(0,0,0,0.6)",
+                  fontSize: "clamp(14px, 1.35vw, 16px)",
+                  fontWeight: 300,
+                  maxWidth: "520px",
+                  textShadow: "0 2px 14px rgba(0,0,0,0.85)",
                 }}
               >
-                &ldquo;
-              </span>
-              <blockquote
-                className="font-display italic text-cream relative z-10"
+                Before it became a French treasure, an English physician wrote it down.
+              </p>
+            </FadeUp>
+
+            {/* Pull-quote - large decorative open-quote sits behind the text */}
+            <FadeUp delay={0.2} duration={1.1}>
+              <div className="relative mb-8">
+                <span
+                  className="absolute font-display italic text-[#C8A96E] select-none pointer-events-none"
+                  style={{
+                    fontSize: "clamp(100px, 16vw, 200px)",
+                    lineHeight: 1,
+                    top: "-0.35em",
+                    left: "-0.08em",
+                    opacity: 0.18,
+                    textShadow: "0 2px 24px rgba(0,0,0,0.6)",
+                  }}
+                >
+                  &ldquo;
+                </span>
+                <blockquote
+                  className="font-display italic text-cream relative z-10"
+                  style={{
+                    fontSize: "clamp(24px, 3.2vw, 48px)",
+                    fontWeight: 400,
+                    lineHeight: 1.2,
+                    textShadow: "0 2px 20px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.5)",
+                  }}
+                >
+                  Some Observations concerning the Ordering of Wines.
+                </blockquote>
+              </div>
+            </FadeUp>
+
+            <FadeUp delay={0.4}>
+              <p
+                className="font-body text-white/55 tracking-[0.2em] uppercase mb-10"
                 style={{
-                  fontSize: "clamp(24px, 3.2vw, 48px)",
+                  fontSize: "clamp(9px, 0.9vw, 11px)",
                   fontWeight: 400,
-                  lineHeight: 1.2,
-                  textShadow: "0 2px 20px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.5)",
+                  textShadow: "0 1px 8px rgba(0,0,0,0.7)",
                 }}
               >
-                Some Observations concerning the Ordering of Wines.
-              </blockquote>
-            </div>
-          </FadeUp>
+                - Christopher Merret · Royal Society · London, 17 December 1662
+              </p>
+            </FadeUp>
 
-          <FadeUp delay={0.4}>
-            <p
-              className="font-body text-white/55 tracking-[0.2em] uppercase mb-10"
+            <FadeUp delay={0.5}>
+              <p
+                className="font-body text-white/70 leading-relaxed mb-10"
+                style={{
+                  fontSize: "clamp(13px, 1.3vw, 15px)",
+                  fontWeight: 300,
+                  maxWidth: "520px",
+                  textShadow: "0 2px 14px rgba(0,0,0,0.85)",
+                }}
+              >
+                The English invented secondary fermentation. The coal-fired glass bottle
+                strong enough to contain it. The use of cork to seal it. For decades, the
+                Champenois called the bubbles &lsquo;the devil&apos;s wine&rsquo; and tried
+                to remove them. Today, Champagne is one of France&rsquo;s greatest cultural
+                treasures - while the method, like the chalk beneath it, a shared European
+                heritage.
+              </p>
+            </FadeUp>
+
+            {/* Gold divider - anchored left, brighter than the off-image
+                version because the photo behind would otherwise eat it. */}
+            <motion.div
               style={{
-                fontSize: "clamp(9px, 0.9vw, 11px)",
-                fontWeight: 400,
-                textShadow: "0 1px 8px rgba(0,0,0,0.7)",
+                height: "1px",
+                background: "rgba(200,169,110,0.45)",
+                maxWidth: "320px",
+                transformOrigin: "left",
+                boxShadow: "0 0 8px rgba(200,169,110,0.25)",
               }}
-            >
-              - Christopher Merret · Royal Society · London, 17 December 1662
-            </p>
-          </FadeUp>
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            />
+          </div>
 
-          <FadeUp delay={0.5}>
-            <p
-              className="font-body text-white/70 leading-relaxed mb-10"
-              style={{
-                fontSize: "clamp(13px, 1.3vw, 15px)",
-                fontWeight: 300,
-                maxWidth: "520px",
-                textShadow: "0 2px 14px rgba(0,0,0,0.85)",
-              }}
-            >
-              The English invented secondary fermentation. The coal-fired glass bottle
-              strong enough to contain it. The use of cork to seal it. For decades, the
-              Champenois called the bubbles &lsquo;the devil&apos;s wine&rsquo; and tried
-              to remove them. Today, Champagne is one of France&rsquo;s greatest cultural
-              treasures - while the method, like the chalk beneath it, a shared European
-              heritage.
-            </p>
-          </FadeUp>
+          {/* RIGHT: cellar image column. Height matches the text column
+              via grid items-stretch; the absolute inset-0 + object-cover
+              lets the 1500x1000 image fill whatever vertical space the
+              text occupies on desktop. On mobile (grid-cols-1) the image
+              stacks below the text and uses aspect-[3/2] for its natural
+              landscape proportion. */}
+          <div className="relative overflow-hidden rounded-sm aspect-[3/2] md:aspect-auto">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={`${basePath}/images/cellar-winemaker-steam-bw.jpg`}
+              alt="Ridgeview cellar — winemaker at work, B&W"
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            {/* Subtle base darken so the B&W image's brightest highlights
+                don't blow out next to the cream text in the left column. */}
+            <div className="absolute inset-0 bg-black/15 pointer-events-none" />
+          </div>
 
-          {/* Gold divider - anchored left, brighter than the off-image
-              version because the photo behind would otherwise eat it. */}
-          <motion.div
-            style={{
-              height: "1px",
-              background: "rgba(200,169,110,0.45)",
-              maxWidth: "320px",
-              transformOrigin: "left",
-              boxShadow: "0 0 8px rgba(200,169,110,0.25)",
-            }}
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          />
         </div>
       </div>
     </section>
