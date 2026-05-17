@@ -50,7 +50,7 @@ function PageHeader() {
   return (
     // `id="top"` lets in-page CTAs (e.g. the Back-to-Top button inside
     // VisitPanels) anchor reliably to the hero on this page.
-    <section id="top" ref={ref} className="relative h-screen w-full overflow-hidden">
+    <section id="top" ref={ref} className="relative h-svh md:h-screen w-full overflow-hidden">
       <motion.div style={{ y: bgY }} className="absolute inset-0">
         {/* Hero image - uses <picture> with media sources so the browser
             fetches EXACTLY ONE asset based on viewport width, instead of
