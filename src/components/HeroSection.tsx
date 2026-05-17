@@ -58,11 +58,15 @@ export function HeroSection() {
         style={{ height: "55%" }}
       />
 
-      {/* Main content — top-left aligned. Sits in the upper third of the
-          hero, comfortably clear of the navbar (mobile ~70px, desktop ~95px)
-          and inside the soft dark fade. The big undimmed lower half of
-          the image then carries the misty-morning atmosphere. */}
-      <div className="absolute inset-0 flex flex-col justify-start pt-[calc(14vh+60px)] md:pt-[calc(18vh+60px)] px-6 md:px-16 max-w-[1400px] mx-auto left-0 right-0">
+      {/* Main content — moved to the LOWER portion of the hero
+          (2026-05-17) per user direction. Content anchored to the
+          bottom with breathing space so it never sticks to the edge:
+            Mobile  pb-[14vh]  — ~14 % of viewport above the bottom
+            Desktop pb-[10vh]  — ~10 % of viewport above the bottom
+          The undimmed upper half of the misty-morning image now
+          carries the atmospheric weight that used to sit below the
+          text. */}
+      <div className="absolute inset-0 flex flex-col justify-end pb-[14vh] md:pb-[10vh] px-6 md:px-16 max-w-[1400px] mx-auto left-0 right-0">
 
         {/* Kicker */}
         <motion.p
