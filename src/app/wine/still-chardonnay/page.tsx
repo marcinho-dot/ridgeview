@@ -727,9 +727,9 @@ export default function StillChardonnayPage() {
       <ScrollReset>
         <BehindTheBottleSection
           headline={<>Crafted in the <span className="text-[#C8A96E]">Méthode Traditionnelle</span>.</>}
-          intro="For three decades, Ridgeview has crafted English sparkling wines the long way - by hand, on the chalk hills of Sussex, using the same Traditional Method as the great houses of Champagne."
+          intro="For three decades, Ridgeview has crafted English sparkling wines the long way - by hand, on the chalk hills of Sussex, using the Méthode Traditionnelle."
           pillars={[
-            { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region - the foundation of every great sparkling wine." },
+            { label: "Sussex Chalk Soil", detail: "Vines grown on Cretaceous chalk that runs from the South Downs, beneath the Channel, into northern France - the foundation of great sparkling wine." },
             { label: "Hand Harvest", detail: "Grapes are picked at first light and sorted by hand to keep only the most balanced bunches." },
             { label: "Méthode Traditionnelle", detail: "An English invention - coal-fired bottles strong enough to hold the bubbles, the cork to seal them in, deliberate secondary fermentation." },
           ]}

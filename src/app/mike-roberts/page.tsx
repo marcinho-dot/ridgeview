@@ -153,8 +153,8 @@ export default function MikeRobertsPage() {
                 >
                   Mike planted Ridgeview&rsquo;s first vines in 1995 on the chalk
                   soils beneath the South Downs - convinced that the same
-                  geology that produced Champagne could grow world-class English
-                  sparkling wine.
+                  Cretaceous seabed that surfaces across the Channel could grow
+                  world-class English sparkling wine.
                 </p>
                 <p
                   className="font-body text-white/55 leading-[1.85]"

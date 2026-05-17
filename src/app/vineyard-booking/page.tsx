@@ -324,7 +324,7 @@ function HeritageRevealStack() {
                 "0 2px 8px rgba(0,0,0,0.95), 0 4px 24px rgba(0,0,0,0.85), 0 0 60px rgba(0,0,0,0.55)",
             }}
           >
-            The same varieties that define Champagne -{" "}
+            The same varieties, grown across the Channel -{" "}
             <br className="hidden md:block" />
             rooted in Sussex chalk.
           </p>
@@ -382,7 +382,7 @@ function HeritageRevealStack() {
               style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, maxWidth: "560px" }}
             >
               It began with a belief: that the chalk soils beneath the South Downs
-              - mirroring the geology of Champagne - could produce world-class
+              - the same Cretaceous seabed that surfaces across the Channel - could produce world-class
               sparkling wine. In 1995, Ridgeview planted its first vines.
             </p>
           </FadeUp>
@@ -1128,9 +1128,9 @@ export default function BookingPage() {
               <BehindTheBottleSection
                 compact
                 headline={<>Crafted in the <span className="text-[#C8A96E]">Méthode Traditionnelle</span>.</>}
-                intro="For three decades, Ridgeview has crafted English sparkling wines the long way - by hand, on the chalk hills of Sussex, using the same Traditional Method as the great houses of Champagne."
+                intro="For three decades, Ridgeview has crafted English sparkling wines the long way - by hand, on the chalk hills of Sussex, using the Méthode Traditionnelle."
                 pillars={[
-                  { label: "Sussex Chalk Soil", detail: "Vines grown on the same Cretaceous chalk that runs beneath the Champagne region - the foundation of every great sparkling wine." },
+                  { label: "Sussex Chalk Soil", detail: "Vines grown on Cretaceous chalk that runs from the South Downs, beneath the Channel, into northern France - the foundation of great sparkling wine." },
                   { label: "Hand Harvest", detail: "Grapes are picked at first light and sorted by hand to keep only the most balanced bunches." },
                   { label: "Méthode Traditionnelle", detail: "An English invention - coal-fired bottles strong enough to hold the bubbles, the cork to seal them in, deliberate secondary fermentation." },
                 ]}

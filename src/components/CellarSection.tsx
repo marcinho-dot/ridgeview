@@ -75,9 +75,9 @@ export function CellarSection() {
               From a pioneering vision to the world stage.
             </h3>
             <p className="font-body text-white/60 text-[14px] leading-relaxed mb-5" style={{ fontWeight: 300 }}>
-              It began with a belief: that the chalk soils beneath the South Downs - mirroring Champagne&apos;s
-              geology - could produce world-class sparkling wine. In 1995, Ridgeview planted its
-              first vines at a time when many said it simply couldn&apos;t be done.
+              It began with a belief: that the chalk soils beneath the South Downs - the same Cretaceous
+              seabed that surfaces across the Channel - could produce world-class sparkling wine. In 1995,
+              Ridgeview planted its first vines at a time when many said it simply couldn&apos;t be done.
             </p>
             <p className="font-body text-white/60 text-[14px] leading-relaxed mb-8" style={{ fontWeight: 300 }}>
               Today, Ridgeview is one of the most decorated English sparkling wine producers in the world. Poured at

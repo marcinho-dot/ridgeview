@@ -108,10 +108,9 @@ export function HeritageSoilSection() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
             >
-              On the ancient chalk of the South Downs, where soil and
-              microclimate mirror the finest terroirs of Champagne -
-              visionary winemakers have been crafting award-winning English
-              sparkling wine since 1995.
+              On the ancient chalk of the South Downs - the same Cretaceous
+              seabed that runs into northern France - visionary winemakers
+              have been crafting award-winning English sparkling wine since 1995.
             </motion.p>
 
             {/* CTA */}

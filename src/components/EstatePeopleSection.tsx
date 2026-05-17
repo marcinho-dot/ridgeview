@@ -164,7 +164,7 @@ export function EstatePeopleSection() {
             </>
           }
           bodies={[
-            "Over 17,000 vines on the home estate at Ditchling Common, East Sussex - perfectly positioned to grow Chardonnay, Pinot Noir and Pinot Meunier on the same ancient chalk that defines Champagne.",
+            "Over 17,000 vines on the home estate at Ditchling Common, East Sussex - perfectly positioned to grow Chardonnay, Pinot Noir and Pinot Meunier on chalk that runs from the South Downs, beneath the Channel, into northern France.",
             "England’s first underground wine cellars, built in 1999, require no energy - relying on natural ambient temperature. Expanded in 2020 to store one million bottles. Rainwater harvesting, solar energy, and a Bio-Bubble system that has naturally cleaned over 22 million litres of waste water since inception.",
           ]}
           imageSrc="/images/estate-vineyard.jpg"
