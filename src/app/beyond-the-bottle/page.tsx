@@ -1,12 +1,55 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { BottomNav } from "@/components/BottomNav";
 import { CategoryAccordion } from "@/components/beyond/CategoryAccordion";
 import { SubstackForm } from "@/components/SubstackForm";
 import { articles } from "@/data/articles";
+
+/**
+ * CountUp — small inline counter that animates from 0 to a target
+ * number when the element enters the viewport. Used in the PageHero
+ * subtitle so the "83 articles" line has a tactile moment when the
+ * user lands on the page. Uses requestAnimationFrame + an ease-out
+ * cubic curve for a 1.8 s settle. tabular-nums keeps the digit
+ * column from jiggling as the number grows.
+ */
+function CountUp({ to, duration = 1800 }: { to: number; duration?: number }) {
+  const [n, setN] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.6 });
+
+  useEffect(() => {
+    if (!inView) return;
+    const start = performance.now();
+    let raf = 0;
+    const tick = (now: number) => {
+      const t = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      setN(Math.round(to * eased));
+      if (t < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [inView, to, duration]);
+
+  return (
+    <span
+      ref={ref}
+      className="font-display italic text-cream"
+      style={{
+        fontSize: "1.4em",
+        fontWeight: 400,
+        fontVariantNumeric: "tabular-nums",
+      }}
+    >
+      {n}
+    </span>
+  );
+}
 
 /**
  * Beyond the Bottle - articles hub.
@@ -63,7 +106,7 @@ function PageHero() {
             maxWidth: "560px",
           }}
         >
-          {articles.length} articles across seven facets of life at Ridgeview -
+          <CountUp to={articles.length} /> articles across seven facets of life at Ridgeview -
           from the cellar to the South Downs, harvest to hospitality.
         </motion.p>
 
