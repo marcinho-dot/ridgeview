@@ -52,32 +52,32 @@ export function Footer() {
           form both speak Substack. The form uses the shared
           <SubstackForm /> component (same as the homepage ImageReveal
           + /beyond-the-bottle hero) for visual consistency.
-          Two-column on desktop (intro copy left, form right), stacks
-          on mobile. */}
+          Layout restructured 2026-05-18 from a 2-column grid (text
+          left / form right) to a single left-aligned column — kicker,
+          headline, description, form all stacked vertically so the
+          form no longer floats alone on the right side of the strip. */}
       <div className="max-w-[1600px] mx-auto px-6 md:px-16 pt-14 md:pt-16 pb-10 md:pb-14 border-b border-white/[0.06]">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-end">
-          <div>
-            <p
-              className="font-display italic text-[#C8A96E] tracking-widest mb-3"
-              style={{ fontSize: "clamp(12px, 1.2vw, 14px)" }}
-            >
-              [ Our Substack ]
-            </p>
-            <h3
-              className="font-display italic text-cream leading-[1.1] mb-3"
-              style={{ fontSize: "clamp(22px, 2.4vw, 32px)", fontWeight: 400 }}
-            >
-              Field notes from the estate.
-            </h3>
-            <p
-              className="font-body text-white/55"
-              style={{ fontSize: "13px", fontWeight: 300, maxWidth: "480px" }}
-            >
-              Subscribe to our Substack newsletter for harvest dispatches,
-              cellar updates and member-only releases - direct from
-              Ridgeview. Unsubscribe anytime.
-            </p>
-          </div>
+        <div className="max-w-[560px]">
+          <p
+            className="font-display italic text-[#C8A96E] tracking-widest mb-3"
+            style={{ fontSize: "clamp(12px, 1.2vw, 14px)" }}
+          >
+            [ Our Substack ]
+          </p>
+          <h3
+            className="font-display italic text-cream leading-[1.1] mb-3"
+            style={{ fontSize: "clamp(22px, 2.4vw, 32px)", fontWeight: 400 }}
+          >
+            Field notes from the estate.
+          </h3>
+          <p
+            className="font-body text-white/55 mb-6 md:mb-7"
+            style={{ fontSize: "13px", fontWeight: 300, maxWidth: "480px" }}
+          >
+            Subscribe to our Substack newsletter for harvest dispatches,
+            cellar updates and member-only releases - direct from
+            Ridgeview. Unsubscribe anytime.
+          </p>
           <div className="w-full" style={{ maxWidth: "460px" }}>
             <SubstackForm />
           </div>
