@@ -1,7 +1,19 @@
 import { basePath } from "@/lib/basePath";
 import { SubstackForm } from "@/components/SubstackForm";
 
-export function Footer() {
+interface FooterProps {
+  /**
+   * Whether to render the aerial-drone background image inside the
+   * footer. Defaults to true (used on /vineyard-booking, SKU pages,
+   * etc.). The homepage opts out via withBackground={false} (per
+   * user direction 2026-05-18) so the homepage's own cinematic
+   * sections aren't competing with another full-bleed image at the
+   * very bottom of the page.
+   */
+  withBackground?: boolean;
+}
+
+export function Footer({ withBackground = true }: FooterProps = {}) {
   // Every same-page anchor in the footer needs to resolve to the homepage,
   // not to whatever route the footer is rendered on (SKU pages, booking, etc.).
   // Prefixing with `${basePath}/` makes the link absolute to the homepage on
@@ -9,42 +21,43 @@ export function Footer() {
   const home = `${basePath}/`;
   return (
     <footer id="footer" className="relative bg-[#010101] border-t border-white/10 overflow-hidden isolate">
-      {/* ── Background aerial photo ──────
-          Drone shot (F-ALP-DJI_0326 → footer-aerial.jpg) anchored to
-          bottom-left of the footer so the building / chalk-soil corner
-          remains visible while the rest of the frame fades into the
-          surrounding overlays. Added 2026-05-18 per user direction. */}
-      <div className="absolute inset-0 -z-10 pointer-events-none">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={`${basePath}/images/footer-aerial.jpg`}
-          alt=""
-          aria-hidden
-          loading="lazy"
-          decoding="async"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "left bottom" }}
-        />
-        {/* Base darken — pulls the image back so the text/links remain
-            the primary read. Bumped 2026-05-18 (was bg-black/70) for a
-            stronger overlay so the aerial photo reads more as a
-            textured backdrop than a hero image. */}
-        <div className="absolute inset-0 bg-black/85" />
-        {/* Top blend gradient — fades the image into the section above
-            so the Substack strip's edge isn't a hard cut. */}
-        <div
-          className="absolute inset-x-0 top-0 h-32 pointer-events-none"
-          style={{ background: "linear-gradient(to bottom, rgba(1,1,1,1) 0%, rgba(1,1,1,0) 100%)" }}
-        />
-        {/* Right-side fade — pushes the image's right half toward solid
-            black so the right-aligned legal/social columns sit on a
-            cleaner plate. Keeps the bottom-LEFT corner of the image
-            (per user direction) prominent. */}
-        <div
-          className="absolute inset-y-0 right-0 w-[55%] pointer-events-none"
-          style={{ background: "linear-gradient(to left, rgba(1,1,1,0.95) 0%, rgba(1,1,1,0) 100%)" }}
-        />
-      </div>
+      {withBackground && (
+        /* ── Background aerial photo ──────
+            Drone shot (F-ALP-DJI_0326 → footer-aerial.jpg) anchored
+            to bottom-left of the footer so the building / chalk-soil
+            corner remains visible while the rest of the frame fades
+            into the surrounding overlays. Added 2026-05-18; gated
+            behind withBackground so /page.tsx can opt out. */
+        <div className="absolute inset-0 -z-10 pointer-events-none">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`${basePath}/images/footer-aerial.jpg`}
+            alt=""
+            aria-hidden
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ objectPosition: "left bottom" }}
+          />
+          {/* Base darken — pulls the image back so the text/links
+              remain the primary read. */}
+          <div className="absolute inset-0 bg-black/85" />
+          {/* Top blend gradient — fades the image into the section
+              above so the Substack strip's edge isn't a hard cut. */}
+          <div
+            className="absolute inset-x-0 top-0 h-32 pointer-events-none"
+            style={{ background: "linear-gradient(to bottom, rgba(1,1,1,1) 0%, rgba(1,1,1,0) 100%)" }}
+          />
+          {/* Right-side fade — pushes the image's right half toward
+              solid black so the right-aligned legal/social columns
+              sit on a cleaner plate. Keeps the bottom-LEFT corner of
+              the image (per user direction) prominent. */}
+          <div
+            className="absolute inset-y-0 right-0 w-[55%] pointer-events-none"
+            style={{ background: "linear-gradient(to left, rgba(1,1,1,0.95) 0%, rgba(1,1,1,0) 100%)" }}
+          />
+        </div>
+      )}
 
       {/* ── Substack strip - newsletter signup ──────
           Rewritten 2026-05-17: Ridgeview now publishes exclusively

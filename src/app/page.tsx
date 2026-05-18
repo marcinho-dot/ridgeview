@@ -26,7 +26,11 @@ export default function Home() {
       <ImageRevealSection />
       <ScrollReset><WineCollectionSection /></ScrollReset>
       <ScrollReset><OurViewSection /></ScrollReset>
-      <Footer />
+      {/* withBackground=false: homepage opts out of the aerial-drone
+          footer image (per user direction 2026-05-18) so the page's
+          own cinematic sections aren't competing with another
+          full-bleed image at the bottom. */}
+      <Footer withBackground={false} />
       <BottomNav />
     </main>
   );
