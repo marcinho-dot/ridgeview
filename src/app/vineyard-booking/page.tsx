@@ -700,7 +700,7 @@ function VisitPanels() {
           <div className="group relative overflow-hidden flex flex-col justify-end" style={{ minHeight: "70vh" }}>
             <img
               src={`${basePath}/images/booking/6.jpg`}
-              alt="Ridgeview vineyard at sunset with sparkling wine"
+              alt="A guided summer tour group walking through Ridgeview's vine rows"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.03]"
               style={{ objectPosition: "center 55%" }}
             />
