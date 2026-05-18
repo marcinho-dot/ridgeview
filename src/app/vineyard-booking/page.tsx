@@ -1117,7 +1117,7 @@ function PracticalInfo() {
   return (
     <section className="bg-[#010101]">
       <div className="max-w-[1400px] mx-auto px-6 md:px-16 py-20 md:py-28">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-20 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-20 items-start">
 
           {/* LEFT — title block */}
           <div>
@@ -1185,39 +1185,6 @@ function PracticalInfo() {
               <p className="font-body text-white/45 leading-relaxed" style={{ fontSize: "clamp(12px, 1.1vw, 14px)", fontWeight: 300 }}>
                 Located at the foot of the South Downs, 10 minutes north of Brighton. Free parking available on site.
               </p>
-            </div>
-          </FadeUp>
-
-          <FadeUp delay={0.3}>
-            {/* Right-anchored on desktop (md:text-right + md:justify-end on
-                the icon row) so the column's visible content reaches the
-                section's right edge — aligning with the NearbyAccommodation
-                carousel pagination dots above. Without this anchor the
-                Contact values floated mid-column and left a visible gap on
-                the right that broke the section-to-section width rhythm
-                with the carousel. (2026-05-17) */}
-            <div className="md:text-right">
-              <h3
-                className="font-body text-cream uppercase mb-6"
-                style={{ fontSize: "clamp(10px, 0.9vw, 12px)", fontWeight: 500, letterSpacing: "0.18em" }}
-              >
-                CONTACT
-              </h3>
-              <div className="space-y-3 mb-8">
-                <a href="tel:01444242040" className="link-underline font-body text-white/65 block hover:text-white/80 transition-colors duration-300" style={{ fontSize: "clamp(13px, 1.2vw, 15px)", fontWeight: 300 }}>01444 242040</a>
-                <a href="mailto:info@ridgeview.co.uk" className="link-underline font-body text-white/65 block hover:text-white/80 transition-colors duration-300" style={{ fontSize: "clamp(13px, 1.2vw, 15px)", fontWeight: 300 }}>info@ridgeview.co.uk</a>
-              </div>
-              <div className="flex items-center gap-5 md:justify-end">
-                <a href="https://www.instagram.com/ridgeviewwine/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-white/45 hover:text-[#C8A96E] transition-colors duration-300">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg>
-                </a>
-                <a href="https://www.facebook.com/RidgeviewWineEstate/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-white/45 hover:text-[#C8A96E] transition-colors duration-300">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>
-                </a>
-                <a href="https://www.linkedin.com/company/ridgeview-wine-estate/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-white/45 hover:text-[#C8A96E] transition-colors duration-300">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" /></svg>
-                </a>
-              </div>
             </div>
           </FadeUp>
 
