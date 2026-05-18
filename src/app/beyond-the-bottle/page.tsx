@@ -16,14 +16,20 @@ import { articles } from "@/data/articles";
  * user lands on the page. Uses requestAnimationFrame + an ease-out
  * cubic curve for a 1.8 s settle. tabular-nums keeps the digit
  * column from jiggling as the number grows.
+ *
+ * once:false on the IntersectionObserver — the counter re-runs
+ * every time the user scrolls back into the hero (per user
+ * direction 2026-05-18). setN(0) at the start of each run resets
+ * the digit immediately so there's no flash of the previous value.
  */
 function CountUp({ to, duration = 1800 }: { to: number; duration?: number }) {
   const [n, setN] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.6 });
+  const inView = useInView(ref, { once: false, amount: 0.6 });
 
   useEffect(() => {
     if (!inView) return;
+    setN(0);
     const start = performance.now();
     let raf = 0;
     const tick = (now: number) => {
