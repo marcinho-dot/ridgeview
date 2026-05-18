@@ -96,16 +96,22 @@ function ParallaxRow({
           style={{ y: textY }}
           className="flex-1 w-full max-w-[520px] md:flex md:flex-col md:justify-center"
         >
+          {/* Bumped 2026-05-18 so the text block reaches ≥80% of the
+              image height on desktop (image is locked to 600px via the
+              row min-h). Headline larger + bodies slightly bigger +
+              loose line-leading on bodies + bigger inter-paragraph
+              margins — together adds ~150px to the natural text
+              height, bringing it to ~490-520px on desktop. */}
           <p
-            className="font-display italic text-[#C8A96E] tracking-widest mb-5"
+            className="font-display italic text-[#C8A96E] tracking-widest mb-6"
             style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
           >
             {kicker}
           </p>
 
           <h2
-            className="font-display italic text-white leading-[1.08] mb-6"
-            style={{ fontSize: "clamp(28px, 3.5vw, 52px)", fontWeight: 400 }}
+            className="font-display italic text-white leading-[1.08] mb-8"
+            style={{ fontSize: "clamp(32px, 4vw, 60px)", fontWeight: 400 }}
           >
             {headline}
           </h2>
@@ -113,14 +119,14 @@ function ParallaxRow({
           {bodies.map((body, i) => (
             <p
               key={i}
-              className={`font-body leading-relaxed ${
-                i === 0 ? "text-white/60" : "text-white/45"
-              } ${i < bodies.length - 1 ? "mb-5" : ""}`}
+              className={`font-body leading-[1.85] ${
+                i === 0 ? "text-white/65" : "text-white/50"
+              } ${i < bodies.length - 1 ? "mb-7" : ""}`}
               style={{
                 fontSize:
                   i === 0
-                    ? "clamp(14px, 1.4vw, 17px)"
-                    : "clamp(13px, 1.25vw, 15px)",
+                    ? "clamp(15px, 1.5vw, 18px)"
+                    : "clamp(14px, 1.3vw, 16px)",
                 fontWeight: 300,
                 maxWidth: "480px",
               }}
