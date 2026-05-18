@@ -73,7 +73,7 @@ function CountUp({ to, duration = 1800 }: { to: number; duration?: number }) {
 
 function PageHero() {
   return (
-    <section className="relative bg-[#010101] overflow-hidden pt-20 md:pt-24 pb-2 md:pb-2">
+    <section className="relative bg-[#010101] overflow-hidden pt-20 md:pt-24 pb-10 md:pb-12">
       <div
         aria-hidden
         className="absolute inset-0 pointer-events-none"
