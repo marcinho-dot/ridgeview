@@ -73,7 +73,7 @@ export function HeroSection() {
           inset, so the kicker sits directly under "Home" rather than
           aligned to the wider CategoryCardRow inset. md:pt-[125px]
           puts the kicker ~35px higher than the previous 18vh test. */}
-      <div className="absolute inset-0 flex flex-col justify-end md:justify-start pb-[14vh] md:pb-0 md:pt-[159px] px-6 md:px-10 max-w-[1600px] mx-auto md:max-w-none md:mx-0 left-0 right-0">
+      <div className="absolute inset-0 flex flex-col justify-end md:justify-start pb-[14vh] md:pb-0 md:pt-[124px] px-6 md:px-10 max-w-[1600px] mx-auto md:max-w-none md:mx-0 left-0 right-0">
 
         {/* Kicker */}
         <motion.p
