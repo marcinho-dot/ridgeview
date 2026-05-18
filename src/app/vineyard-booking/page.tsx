@@ -1284,12 +1284,13 @@ export default function BookingPage() {
             from VisitPanels (2026-05-18) and used here as a visual
             bridge directly under Recognition per user direction. */}
         <ScrollReset><CellarBanner /></ScrollReset>
-        {/* Order swapped 2026-05-18 per user direction —
-            "book your experience" (VisitPanels) now sits as the
-            last conversion-focused section before PracticalInfo
-            and the footer, with NearbyAccommodation moving up. */}
-        <ScrollReset><NearbyAccommodationSection /></ScrollReset>
+        {/* Order 2026-05-18 (later in day, second revision per user):
+            VisitPanels ("Book Your Experience") first so the
+            conversion CTAs land right after the cellar bridge,
+            NearbyAccommodation ("Where to Stay") below — the natural
+            follow-up question after booking the experience. */}
         <ScrollReset><VisitPanels /></ScrollReset>
+        <ScrollReset><NearbyAccommodationSection /></ScrollReset>
         <ScrollReset><PracticalInfo /></ScrollReset>
       </main>
       <Footer />
