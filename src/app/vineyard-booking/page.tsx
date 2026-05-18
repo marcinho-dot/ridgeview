@@ -752,7 +752,7 @@ function VisitPanels() {
           <div className="group relative overflow-hidden flex flex-col justify-end" style={{ minHeight: "70vh" }}>
             <img
               src={`${basePath}/images/booking/7.jpg`}
-              alt="The Rows & Vine restaurant with vineyard views"
+              alt="The Rows & Vine restaurant pavilion seen from the vineyard"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.03]"
               style={{ objectPosition: "center 40%" }}
             />
