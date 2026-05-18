@@ -716,7 +716,17 @@ function VisitPanels() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
             <div className="absolute top-0 right-0 bottom-0 w-px bg-white/[0.08] hidden md:block" />
 
-            <div className="relative z-10 px-6 md:px-16 pb-12 md:pb-16">
+            {/* Left padding uses max(64px, calc((100vw - 1400px) / 2 + 64px))
+                so the "[ Vineyard Tour ]" kicker aligns horizontally with
+                the "[ Where to Stay · South Downs ]" kicker in
+                NearbyAccommodationSection on viewports wider than 1400px.
+                NearbyAccommodation lives inside a max-w-[1400px] mx-auto
+                px-16 container, so its kicker sits at
+                ((viewport - 1400) / 2) + 64 from the viewport's left edge.
+                The full-bleed Tour panel here matches that x via the
+                calc expression, falling back to the standard 24px mobile /
+                64px desktop padding on narrower viewports. */}
+            <div className="relative z-10 pl-[max(24px,calc((100vw-1400px)/2+24px))] pr-6 md:pl-[max(64px,calc((100vw-1400px)/2+64px))] md:pr-16 pb-12 md:pb-16">
               <p
                 className="font-display italic text-[#C8A96E] mb-4 tracking-widest"
                 style={{ fontSize: "clamp(11px, 1vw, 13px)" }}
