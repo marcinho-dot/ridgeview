@@ -67,9 +67,13 @@ export function HeroSection() {
           carries the atmospheric weight that used to sit below the
           text. */}
       {/* Mobile: text anchored to bottom (justify-end + pb-[14vh]).
-          Desktop: text anchored to TOP (justify-start + pt-[18vh])
-          just under the navbar — test layout 2026-05-18. */}
-      <div className="absolute inset-0 flex flex-col justify-end md:justify-start pb-[14vh] md:pb-0 md:pt-[18vh] px-6 md:px-16 max-w-[1600px] mx-auto left-0 right-0">
+          Desktop: text anchored to TOP-LEFT, flush with the navbar's
+          left edge — desktop dropped the max-w-[1600px] mx-auto
+          container and uses md:px-10 to match the navbar's px-10
+          inset, so the kicker sits directly under "Home" rather than
+          aligned to the wider CategoryCardRow inset. md:pt-[125px]
+          puts the kicker ~35px higher than the previous 18vh test. */}
+      <div className="absolute inset-0 flex flex-col justify-end md:justify-start pb-[14vh] md:pb-0 md:pt-[159px] px-6 md:px-10 max-w-[1600px] mx-auto md:max-w-none md:mx-0 left-0 right-0">
 
         {/* Kicker */}
         <motion.p
