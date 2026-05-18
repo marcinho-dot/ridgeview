@@ -73,7 +73,7 @@ function CountUp({ to, duration = 1800 }: { to: number; duration?: number }) {
 
 function PageHero() {
   return (
-    <section className="relative bg-[#010101] overflow-hidden pt-28 md:pt-32 pb-6 md:pb-8">
+    <section className="relative bg-[#010101] overflow-hidden pt-20 md:pt-24 pb-2 md:pb-2">
       <div
         aria-hidden
         className="absolute inset-0 pointer-events-none"
@@ -124,20 +124,10 @@ function PageHero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          className="mt-8 md:mt-10 mx-auto"
+          className="mt-5 md:mt-6 mx-auto"
           style={{ maxWidth: "440px" }}
         >
           <SubstackForm />
-          {/* Editorial claim under the form (2026-05-18) — picks up
-              the "Stories from the estate" headline and frames the
-              Substack as the next chapter rather than a generic
-              newsletter. */}
-          <p
-            className="font-display italic text-white/45 mt-4 tracking-wide"
-            style={{ fontSize: "clamp(12px, 1.05vw, 14px)" }}
-          >
-            The next chapter, in your inbox.
-          </p>
         </motion.div>
       </div>
     </section>
@@ -162,13 +152,13 @@ export default function BeyondHubPage() {
       <main>
         <PageHero />
 
-        {/* Border-t removed 2026-05-18 and top padding tightened so
-            the accordion strip rides up into the hero's lower region —
-            keeps the kicker + headline + accordion in a single
-            compact above-the-fold view. Bottom padding kept generous
-            so the section closes cleanly into the footer. */}
+        {/* Accordion pulled tight under the hero so the whole strip
+            fits above the fold on a 1080p viewport. pt-0 + matching
+            pb-2/-mt on the hero squeezes the gap to ~8px so the
+            kicker + headline + counter + Substack form + accordion
+            grid all share one above-the-fold view. */}
         <section className="relative bg-[#010101]">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-16 pt-2 pb-12 md:pt-4 md:pb-16">
+          <div className="max-w-[1400px] mx-auto px-6 md:px-16 pt-0 pb-12 md:pb-16">
             <CategoryAccordion />
           </div>
         </section>
