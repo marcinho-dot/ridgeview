@@ -80,16 +80,21 @@ function ParallaxRow({
           items-STRETCH so the image column matches the text column's
           height (per-row alignment). The aspect ratio applies on
           mobile (flex-col, no stretch context) but is dropped on
-          desktop so the image can fill the text-driven height. */}
+          desktop so the image can fill the text-driven height.
+          min-h enforced (2026-05-18) so both rows share the same
+          row height — image + text columns lock to a single visual
+          rhythm whether the text is shorter or longer. */}
       <div
-        className={`w-full flex flex-col items-center gap-10 md:gap-16 lg:gap-20 md:items-stretch ${
+        className={`w-full flex flex-col items-center gap-10 md:gap-16 lg:gap-20 md:items-stretch min-h-[480px] md:min-h-[600px] ${
           reverse ? "md:flex-row-reverse" : "md:flex-row"
         }`}
       >
-        {/* Text column */}
+        {/* Text column - vertically centred inside the locked
+            row height so shorter copy (The People) doesn't hug
+            the top while the image fills the full panel. */}
         <motion.div
           style={{ y: textY }}
-          className="flex-1 w-full max-w-[520px]"
+          className="flex-1 w-full max-w-[520px] md:flex md:flex-col md:justify-center"
         >
           <p
             className="font-display italic text-[#C8A96E] tracking-widest mb-5"
