@@ -646,11 +646,12 @@ function HeritageDiscoverySection() {
 
 // ── Section: Visit Panels ───────────────────────────────────────────────────
 
-function VisitPanels() {
+// Cinematic cellar banner — extracted 2026-05-18 from the top of
+// VisitPanels and used as a standalone bridge between Recognition
+// and NearbyAccommodation per user direction.
+function CellarBanner() {
   return (
     <section className="bg-[#010101]">
-
-      {/* Full-width cinematic image banner */}
       <FadeIn>
         <div className="group relative w-full overflow-hidden" style={{ height: "clamp(280px, 45vw, 520px)" }}>
           <img
@@ -665,8 +666,15 @@ function VisitPanels() {
           <div className="absolute inset-0 bg-gradient-to-b from-[#010101] via-transparent to-[#010101]" style={{ opacity: 0.6 }} />
         </div>
       </FadeIn>
+    </section>
+  );
+}
 
-      <div className="max-w-[960px] mx-auto px-6 md:px-16 pt-10 pb-10 md:pt-16 md:pb-12 text-center">
+function VisitPanels() {
+  return (
+    <section className="bg-[#010101]">
+
+      <div className="max-w-[960px] mx-auto px-6 md:px-16 pt-16 pb-10 md:pt-24 md:pb-12 text-center">
         <FadeUp>
           {/* Anchor `#visit` sits directly on the kicker <p> (not the
               wrapping div) so the browser scrolls to position the
@@ -1272,6 +1280,10 @@ export default function BookingPage() {
           </div>
         </div>
         <ScrollReset><RecognitionSection /></ScrollReset>
+        {/* CellarBanner — the cinematic cellar-hands shot extracted
+            from VisitPanels (2026-05-18) and used here as a visual
+            bridge directly under Recognition per user direction. */}
+        <ScrollReset><CellarBanner /></ScrollReset>
         {/* Order swapped 2026-05-18 per user direction —
             "book your experience" (VisitPanels) now sits as the
             last conversion-focused section before PracticalInfo
