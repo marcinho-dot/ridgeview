@@ -66,7 +66,7 @@ export function HeroSection() {
           The undimmed upper half of the misty-morning image now
           carries the atmospheric weight that used to sit below the
           text. */}
-      <div className="absolute inset-0 flex flex-col justify-end pb-[14vh] md:pb-[10vh] px-6 md:px-16 max-w-[1400px] mx-auto left-0 right-0">
+      <div className="absolute inset-0 flex flex-col justify-end pb-[14vh] md:pb-[10vh] px-6 md:px-16 max-w-[1600px] mx-auto left-0 right-0">
 
         {/* Kicker */}
         <motion.p
