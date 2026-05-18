@@ -674,7 +674,7 @@ function VisitPanels() {
   return (
     <section className="bg-[#010101]">
 
-      <div className="max-w-[960px] mx-auto px-6 md:px-16 pt-24 pb-16 md:pt-32 md:pb-20 text-center">
+      <div className="max-w-[960px] mx-auto px-6 md:px-16 pt-[156px] pb-16 md:pt-[188px] md:pb-20 text-center">
         <FadeUp>
           {/* Anchor `#visit` sits directly on the kicker <p> (not the
               wrapping div) so the browser scrolls to position the
