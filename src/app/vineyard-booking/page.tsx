@@ -716,7 +716,7 @@ function VisitPanels() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
             <div className="absolute top-0 right-0 bottom-0 w-px bg-white/[0.08] hidden md:block" />
 
-            <div className="relative z-10 px-8 md:px-10 lg:px-14 pb-12 md:pb-16">
+            <div className="relative z-10 px-6 md:px-16 pb-12 md:pb-16">
               <p
                 className="font-display italic text-[#C8A96E] mb-4 tracking-widest"
                 style={{ fontSize: "clamp(11px, 1vw, 13px)" }}
@@ -767,7 +767,7 @@ function VisitPanels() {
             <div className="absolute inset-0 bg-black/45 transition-colors duration-700 group-hover:bg-black/58" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
 
-            <div className="relative z-10 px-8 md:px-10 lg:px-14 pb-12 md:pb-16">
+            <div className="relative z-10 px-6 md:px-16 pb-12 md:pb-16">
               <p
                 className="font-display italic text-[#C8A96E] mb-4 tracking-widest"
                 style={{ fontSize: "clamp(11px, 1vw, 13px)" }}
