@@ -600,26 +600,54 @@ function HeritageDiscoverySection() {
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.04]"
             />
 
-            {/* Layer 1 — base darken. Damps the B&W highlights so they
-                don't fight with the cream text in the left column. */}
-            <div className="absolute inset-0 bg-black/20 pointer-events-none transition-colors duration-700 group-hover:bg-black/10" />
+            {/* Layer 1 — base darken. Bumped 2026-05-18 from /20 to /45
+                for a more cinematic plate on the B&W cellar shot.
+                Drops slightly on hover (/35) for a subtle reveal. */}
+            <div className="absolute inset-0 bg-black/45 pointer-events-none transition-colors duration-700 group-hover:bg-black/35" />
 
-            {/* Layer 2 — top fade. Softens the upper edge so the photo
+            {/* Layer 2 — corner vignette. Radial gradient that darkens
+                the four corners while keeping the centre lightly
+                exposed — pushes the image into the cinematic CD
+                vocabulary (matches the radial halos used on
+                HeritageRevealStack + the BehindTheBottle gold-glow). */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(ellipse 75% 65% at 50% 50%, rgba(0,0,0,0) 30%, rgba(0,0,0,0.55) 100%)",
+              }}
+            />
+
+            {/* Layer 3 — top fade. Softens the upper edge so the photo
                 bleeds into the section's #010101 background without a
-                hard cut, matches the editorial style of VisitPanels. */}
-            <div className="absolute inset-x-0 top-0 h-[35%] pointer-events-none"
-              style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 100%)" }}
+                hard cut. Strengthened along with the base darken so the
+                cellar's bright ceiling beams don't punch through. */}
+            <div className="absolute inset-x-0 top-0 h-[40%] pointer-events-none"
+              style={{ background: "linear-gradient(to bottom, rgba(1,1,1,0.85) 0%, rgba(1,1,1,0) 100%)" }}
             />
 
-            {/* Layer 3 — bottom fade with a warm gold cast. The tint is
-                very subtle (gold @ 0.08 alpha) but it pulls the B&W
-                image toward the brand palette and ties the right column
-                to the gold divider on the left. */}
-            <div className="absolute inset-x-0 bottom-0 h-[45%] pointer-events-none"
-              style={{ background: "linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(200,169,110,0.04) 40%, rgba(0,0,0,0) 100%)" }}
+            {/* Layer 4 — bottom fade with a warm gold cast. Stronger
+                darken at the very bottom + a mid-gradient gold tint
+                (#C8A96E @ 0.06) so the image's lower half reads as
+                lit from the brand palette and ties to the gold
+                divider in the left column. */}
+            <div className="absolute inset-x-0 bottom-0 h-[55%] pointer-events-none"
+              style={{ background: "linear-gradient(to top, rgba(1,1,1,0.8) 0%, rgba(200,169,110,0.06) 45%, rgba(1,1,1,0) 100%)" }}
             />
 
-            {/* Layer 4 — gold corner brackets (top-right + bottom-left).
+            {/* Layer 5 — gold rim glow, top-right. Editorial accent
+                that suggests an off-frame light source matching the
+                gold corner bracket below. Very subtle (0.10 alpha)
+                so it reads as atmosphere, not a hotspot. */}
+            <div
+              className="absolute inset-0 pointer-events-none mix-blend-screen opacity-70"
+              style={{
+                background:
+                  "radial-gradient(ellipse 45% 35% at 85% 15%, rgba(200,169,110,0.18) 0%, rgba(200,169,110,0) 60%)",
+              }}
+            />
+
+            {/* Layer 6 — gold corner brackets (top-right + bottom-left).
                 Editorial frame device. Fade in on hover for a touch of
                 interactivity without being too obvious. */}
             <span
