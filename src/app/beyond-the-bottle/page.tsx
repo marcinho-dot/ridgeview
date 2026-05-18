@@ -67,7 +67,7 @@ function CountUp({ to, duration = 1800 }: { to: number; duration?: number }) {
 
 function PageHero() {
   return (
-    <section className="relative bg-[#010101] overflow-hidden pt-28 md:pt-32 pb-14 md:pb-20">
+    <section className="relative bg-[#010101] overflow-hidden pt-28 md:pt-32 pb-6 md:pb-8">
       <div
         aria-hidden
         className="absolute inset-0 pointer-events-none"
@@ -146,8 +146,13 @@ export default function BeyondHubPage() {
       <main>
         <PageHero />
 
-        <section className="relative bg-[#010101] border-t border-white/[0.06]">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-16 py-12 md:py-16">
+        {/* Border-t removed 2026-05-18 and top padding tightened so
+            the accordion strip rides up into the hero's lower region —
+            keeps the kicker + headline + accordion in a single
+            compact above-the-fold view. Bottom padding kept generous
+            so the section closes cleanly into the footer. */}
+        <section className="relative bg-[#010101]">
+          <div className="max-w-[1400px] mx-auto px-6 md:px-16 pt-2 pb-12 md:pt-4 md:pb-16">
             <CategoryAccordion />
           </div>
         </section>
