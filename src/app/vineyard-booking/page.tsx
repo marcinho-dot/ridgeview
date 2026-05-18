@@ -1272,8 +1272,12 @@ export default function BookingPage() {
           </div>
         </div>
         <ScrollReset><RecognitionSection /></ScrollReset>
-        <ScrollReset><VisitPanels /></ScrollReset>
+        {/* Order swapped 2026-05-18 per user direction —
+            "book your experience" (VisitPanels) now sits as the
+            last conversion-focused section before PracticalInfo
+            and the footer, with NearbyAccommodation moving up. */}
         <ScrollReset><NearbyAccommodationSection /></ScrollReset>
+        <ScrollReset><VisitPanels /></ScrollReset>
         <ScrollReset><PracticalInfo /></ScrollReset>
       </main>
       <Footer />
