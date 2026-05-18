@@ -128,6 +128,16 @@ function PageHero() {
           style={{ maxWidth: "440px" }}
         >
           <SubstackForm />
+          {/* Editorial claim under the form (2026-05-18) — picks up
+              the "Stories from the estate" headline and frames the
+              Substack as the next chapter rather than a generic
+              newsletter. */}
+          <p
+            className="font-display italic text-white/45 mt-4 tracking-wide"
+            style={{ fontSize: "clamp(12px, 1.05vw, 14px)" }}
+          >
+            The next chapter, in your inbox.
+          </p>
         </motion.div>
       </div>
     </section>
