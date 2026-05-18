@@ -66,7 +66,10 @@ export function HeroSection() {
           The undimmed upper half of the misty-morning image now
           carries the atmospheric weight that used to sit below the
           text. */}
-      <div className="absolute inset-0 flex flex-col justify-end pb-[14vh] md:pb-[10vh] px-6 md:px-16 max-w-[1600px] mx-auto left-0 right-0">
+      {/* Mobile: text anchored to bottom (justify-end + pb-[14vh]).
+          Desktop: text anchored to TOP (justify-start + pt-[18vh])
+          just under the navbar — test layout 2026-05-18. */}
+      <div className="absolute inset-0 flex flex-col justify-end md:justify-start pb-[14vh] md:pb-0 md:pt-[18vh] px-6 md:px-16 max-w-[1600px] mx-auto left-0 right-0">
 
         {/* Kicker */}
         <motion.p
