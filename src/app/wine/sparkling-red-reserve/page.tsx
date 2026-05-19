@@ -27,8 +27,8 @@ import { basePath } from "@/lib/basePath";
 //   Position 2: Magnum (if available) [N/A]
 //   Position 3: Case of 6 (if available - "Best value" badge)
 const SPARKLING_RED_VARIANTS: Variant[] = [
-  { label: "75cl Bottle", detail: "75cl · 12% ABV · Limited Release", price: 55, image: "/products/sparkling-red-reserve.png" },
-  { label: "Case of 6 · 6×75cl", detail: "6 × 75cl · Save 10%", price: 297, originalPrice: 330, badge: "Best value", image: "/products/sparkling-red-reserve-case.png" },
+  { variantId: "75cl",  label: "75cl Bottle",        detail: "75cl · 12% ABV · Limited Release", price: 55,  image: "/products/sparkling-red-reserve.png" },
+  { variantId: "case6", label: "Case of 6 · 6×75cl", detail: "6 × 75cl · Save 10%",              price: 297, originalPrice: 330, badge: "Best value", image: "/products/sparkling-red-reserve-case.png" },
 ];
 
 // ── Animation Helpers ────────────────────────────────────────────────────────
@@ -64,7 +64,13 @@ function GoldDivider({ origin = "left" as "left" | "center" }) {
 
 // ── Hero / Product Showcase ─────────────────────────────────────────────────
 
-function ProductHero() {
+function ProductHero({
+  variantIdx,
+  setVariantIdx,
+}: {
+  variantIdx: number;
+  setVariantIdx: (idx: number) => void;
+}) {
   // Parallax: bottle drifts upward 80px as the hero scrolls out of view.
   // Subtle premium effect - Apple product pages use this exact pattern.
   const heroRef = useRef<HTMLElement>(null);
@@ -74,10 +80,8 @@ function ProductHero() {
   });
   const bottleY = useTransform(scrollYProgress, [0, 1], [0, -80]);
 
-  // Variant state lifted so the hero bottle would crossfade on Case-of-6
-  // click - we don't have a Sparkling Red Reserve case shot yet so the
-  // Case variant transparently falls back to the 75cl bottle for now.
-  const [variantIdx, setVariantIdx] = useState(0);
+  // Variant state lives at the page root (passed in) so every ATB on
+  // the page shares the same selection.
   const activeVariant = SPARKLING_RED_VARIANTS[variantIdx];
   const heroBottleSrc = activeVariant.image ?? "/products/sparkling-red-reserve.png";
   const heroBottleAlt = `Ridgeview Sparkling Red Reserve - Limited Release 100% Pinot Noir sparkling red, ${activeVariant.label}`;
@@ -300,11 +304,9 @@ function ProductHero() {
                   slug="sparkling-red-reserve"
                   productName={"Sparkling Red Reserve"}
                   vintage={"Multi-Vintage Blend"}
-                  image="/products/sparkling-red-reserve.png"
-                  defaultVariantId="75cl"
-                  defaultVariantLabel="75cl Bottle"
-                  defaultUnitPricePence={5500}
-                  defaultPriceLabel="£55"
+                  variant={activeVariant}
+                  variantIdx={variantIdx}
+                  image={activeVariant.image ?? "/products/sparkling-red-reserve.png"}
                 />
               </div>
             </div>
@@ -626,7 +628,15 @@ function AwardsSpecsSection() {
 
 // ── Closing CTA ─────────────────────────────────────────────────────────────
 
-function ClosingCTA() {
+function ClosingCTA({
+  variant,
+  variantIdx,
+}: {
+  variant: Variant;
+  variantIdx: number;
+}) {
+  const formatGBP = (n: number) =>
+    new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", minimumFractionDigits: 0 }).format(n);
   return (
     <section className="bg-[#010101] border-t border-white/[0.06]">
       <div className="max-w-[960px] mx-auto px-6 md:px-16 py-20 md:py-28 text-center">
@@ -653,14 +663,12 @@ function ClosingCTA() {
               slug="sparkling-red-reserve"
               productName={"Sparkling Red Reserve"}
               vintage={"Multi-Vintage Blend"}
-              image="/products/sparkling-red-reserve.png"
-              defaultVariantId="75cl"
-              defaultVariantLabel="75cl Bottle"
-              defaultUnitPricePence={5500}
-              defaultPriceLabel="£55"
+              variant={variant}
+              variantIdx={variantIdx}
+              image={variant.image ?? "/products/sparkling-red-reserve.png"}
               triggerForSticky={false}
             >
-              Add to basket · £55
+              Add to basket · {formatGBP(variant.price)}
             </QuickAddButton>
           </div>
         </FadeUp>
@@ -762,6 +770,8 @@ const RELATED_WINES = [
 export default function SparklingRedReservePage() {
   // testimonials.ts uses the short key "red-reserve" (predates the URL slug)
   const testimonial = getTestimonial("red-reserve");
+  const [variantIdx, setVariantIdx] = useState(0);
+  const activeVariant = SPARKLING_RED_VARIANTS[variantIdx];
 
   return (
     <main className="bg-[#010101] pb-[80px] md:pb-0">
@@ -772,7 +782,7 @@ export default function SparklingRedReservePage() {
       />
 
       <Navbar />
-      <ProductHero />
+      <ProductHero variantIdx={variantIdx} setVariantIdx={setVariantIdx} />
       <ScrollReset><TastingPairingSection /></ScrollReset>
       <ScrollReset><BlendSection /></ScrollReset>
 
@@ -824,21 +834,19 @@ export default function SparklingRedReservePage() {
         <FAQSection items={FAQ_ITEMS} />
       </ScrollReset>
 
-      <ScrollReset><ClosingCTA /></ScrollReset>
+      <ScrollReset>
+        <ClosingCTA variant={activeVariant} variantIdx={variantIdx} />
+      </ScrollReset>
       <Footer />
-      {/* Sticky mobile purchase bar (Mini-Flasche + Preis + ATB) appears only
-          when EVERY ATB on the page (hero bottle-side, widget, ClosingCTA -
-          all marked with data-atb-trigger) is out of viewport. As soon as
-          any ATB scrolls back in, the bar hides. */}
+      {/* Sticky mobile purchase bar - variant + price label update live
+          when the user picks a different format upstream. */}
       <StickyMobileCTA
         productName="Sparkling Red Reserve"
-        price="£55.00 · 75cl"
-        thumbnailSrc="/products/sparkling-red-reserve.png"
+        thumbnailSrc={activeVariant.image ?? "/products/sparkling-red-reserve.png"}
         slug="sparkling-red-reserve"
         vintage={"Multi-Vintage Blend"}
-        defaultVariantId="75cl"
-        defaultVariantLabel="75cl Bottle"
-        defaultUnitPricePence={5500}
+        variant={activeVariant}
+        variantIdx={variantIdx}
         triggerSelector="[data-atb-trigger]"
       />
     </main>

@@ -22,7 +22,7 @@ import { basePath } from "@/lib/basePath";
 // Essex partner vineyards. Single 75cl variant; live shop notes
 // "limited number of bottles remaining" but stock available.
 const STILL_ENGLISH_ROSE_VARIANTS: Variant[] = [
-  { label: "75cl Bottle", detail: "75cl · 12.5% ABV · NV · Limited", price: 27.5 },
+  { variantId: "75cl", label: "75cl Bottle", detail: "75cl · 12.5% ABV · NV · Limited", price: 27.5 },
 ];
 
 // ── Animation Helpers ────────────────────────────────────────────────────────
@@ -250,11 +250,8 @@ function ProductHero() {
                   slug="still-english-rose"
                   productName={"Still English Rosé"}
                   vintage={"2024 · Limited"}
-                  image="/products/still-english-rose.png"
-                  defaultVariantId="75cl"
-                  defaultVariantLabel="75cl Bottle"
-                  defaultUnitPricePence={2750}
-                  defaultPriceLabel="£27.50"
+                  variant={STILL_ENGLISH_ROSE_VARIANTS[0]}
+                  image={STILL_ENGLISH_ROSE_VARIANTS[0].image ?? "/products/still-english-rose.png"}
                 />
               </div>
             </div>
@@ -584,6 +581,11 @@ function AwardsSpecsSection() {
 // ── Closing CTA ─────────────────────────────────────────────────────────────
 
 function ClosingCTA() {
+  // Still English Rosé has a single variant; quick-add hands it the
+  // canonical 75cl entry directly.
+  const variant = STILL_ENGLISH_ROSE_VARIANTS[0];
+  const formatGBP = (n: number) =>
+    new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", minimumFractionDigits: 2 }).format(n);
   return (
     <section className="bg-[#010101] border-t border-white/[0.06]">
       <div className="max-w-[960px] mx-auto px-6 md:px-16 py-20 md:py-28 text-center">
@@ -612,14 +614,11 @@ function ClosingCTA() {
               slug="still-english-rose"
               productName={"Still English Rosé"}
               vintage={"2024 · Limited"}
-              image="/products/still-english-rose.png"
-              defaultVariantId="75cl"
-              defaultVariantLabel="75cl Bottle"
-              defaultUnitPricePence={2750}
-              defaultPriceLabel="£27.50"
+              variant={variant}
+              image={variant.image ?? "/products/still-english-rose.png"}
               triggerForSticky={false}
             >
-              Add to basket · £27.50
+              Add to basket · {formatGBP(variant.price)}
             </QuickAddButton>
           </div>
         </FadeUp>
@@ -771,13 +770,10 @@ export default function StillEnglishRosePage() {
           any ATB scrolls back in, the bar hides. */}
       <StickyMobileCTA
         productName="Still English Rosé"
-        price="£27.50 · 75cl"
-        thumbnailSrc="/products/still-english-rose.png"
+        thumbnailSrc={STILL_ENGLISH_ROSE_VARIANTS[0].image ?? "/products/still-english-rose.png"}
         slug="still-english-rose"
         vintage={"2024 · Limited"}
-        defaultVariantId="75cl"
-        defaultVariantLabel="75cl Bottle"
-        defaultUnitPricePence={2750}
+        variant={STILL_ENGLISH_ROSE_VARIANTS[0]}
         triggerSelector="[data-atb-trigger]"
       />
     </main>

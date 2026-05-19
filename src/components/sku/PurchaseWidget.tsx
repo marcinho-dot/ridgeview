@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useCart } from "@/lib/cart/CartContext";
+import { variantIdFor } from "@/lib/cart/variantId";
 
 /**
  * PurchaseWidget - composable purchase block for SKU pages.
@@ -74,20 +75,8 @@ interface Props {
   onVariantChange?: (idx: number, variant: Variant) => void;
 }
 
-const formatGBP = (n: number) =>
+export const formatGBP = (n: number) =>
   new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", minimumFractionDigits: 2 }).format(n);
-
-/** Slugify a variant label when the SKU page didn't set an explicit
- *  variantId - "75cl Bottle" → "75cl-bottle". Keeps cart lines stable
- *  across re-renders. */
-function variantIdFor(v: Variant, fallbackIdx: number): string {
-  if (v.variantId) return v.variantId;
-  const slug = v.label
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-  return slug || `variant-${fallbackIdx}`;
-}
 
 export function PurchaseWidget({
   variants,

@@ -33,9 +33,9 @@ import { basePath } from "@/lib/basePath";
 // are different wines, not formats of the same wine - the FINAL Variant-
 // Ordering rule (75cl/Magnum/Case) doesn't apply here.
 const ENGRAVED_BOTTLE_VARIANTS: Variant[] = [
-  { label: "Bloomsbury NV", detail: "75cl · Custom Engraving · Made-to-Order", price: 50, image: "/products/bloomsbury.png" },
-  { label: "Fitzrovia Rosé", detail: "75cl · Custom Engraving · Made-to-Order", price: 60, image: "/products/fitzrovia.png" },
-  { label: "Blanc de Blancs", detail: "75cl · Custom Engraving · Made-to-Order", price: 90, badge: "Vintage", image: "/products/blanc-de-blancs.png" },
+  { variantId: "bloomsbury-engraved",      label: "Bloomsbury NV",   detail: "75cl · Custom Engraving · Made-to-Order", price: 50, image: "/products/bloomsbury.png" },
+  { variantId: "fitzrovia-engraved",       label: "Fitzrovia Rosé",  detail: "75cl · Custom Engraving · Made-to-Order", price: 60, image: "/products/fitzrovia.png" },
+  { variantId: "blanc-de-blancs-engraved", label: "Blanc de Blancs", detail: "75cl · Custom Engraving · Made-to-Order", price: 90, badge: "Vintage", image: "/products/blanc-de-blancs.png" },
 ];
 
 // ── Animation Helpers ────────────────────────────────────────────────────────
@@ -71,7 +71,13 @@ function GoldDivider({ origin = "left" as "left" | "center" }) {
 
 // ── Hero / Product Showcase ─────────────────────────────────────────────────
 
-function ProductHero() {
+function ProductHero({
+  variantIdx,
+  setVariantIdx,
+}: {
+  variantIdx: number;
+  setVariantIdx: (idx: number) => void;
+}) {
   // Parallax: bottle drifts upward 80px as the hero scrolls out of view.
   // Subtle premium effect - Apple product pages use this exact pattern.
   const heroRef = useRef<HTMLElement>(null);
@@ -82,10 +88,8 @@ function ProductHero() {
   const bottleY = useTransform(scrollYProgress, [0, 1], [0, -80]);
 
   // The engraved-bottle gift has 3 variants that are 3 DIFFERENT wines -
-  // not formats of the same wine. Lifting variant state here lets the
-  // hero bottle swap to Bloomsbury / Fitzrovia / BdB as the user clicks,
-  // which is the biggest visual win of the whole format-swap feature.
-  const [variantIdx, setVariantIdx] = useState(0);
+  // not formats of the same wine. State lives at the page root so every
+  // ATB on the page targets the SAME wine selection (hero swap + cart).
   const activeVariant = ENGRAVED_BOTTLE_VARIANTS[variantIdx];
   const heroBottleSrc = activeVariant.image ?? "/products/engraved-bottle-gift.png";
   const heroBottleAlt = `Ridgeview Engraved Bottle Gift - ${activeVariant.label}`;
@@ -268,11 +272,9 @@ function ProductHero() {
                   slug="engraved-bottle-gift"
                   productName={"Engraved Bottle Gift"}
                   vintage={"Bespoke Gift"}
-                  image="/products/engraved-bottle-gift.png"
-                  defaultVariantId="75cl"
-                  defaultVariantLabel="75cl Bottle"
-                  defaultUnitPricePence={5000}
-                  defaultPriceLabel="£50"
+                  variant={activeVariant}
+                  variantIdx={variantIdx}
+                  image={activeVariant.image ?? "/products/engraved-bottle-gift.png"}
                 />
               </div>
             </div>
@@ -601,7 +603,15 @@ function AwardsSpecsSection() {
 
 // ── Closing CTA ─────────────────────────────────────────────────────────────
 
-function ClosingCTA() {
+function ClosingCTA({
+  variant,
+  variantIdx,
+}: {
+  variant: Variant;
+  variantIdx: number;
+}) {
+  const formatGBP = (n: number) =>
+    new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", minimumFractionDigits: 0 }).format(n);
   return (
     <section className="bg-[#010101] border-t border-white/[0.06]">
       <div className="max-w-[960px] mx-auto px-6 md:px-16 py-20 md:py-28 text-center">
@@ -623,15 +633,22 @@ function ClosingCTA() {
         </FadeUp>
         <FadeUp delay={0.2}>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            {/* No data-atb-trigger here - this is a duplicate CTA, not the
-                primary purchase action. StickyMobileCTA should stay visible
-                when ClosingCTA enters the viewport. */}
-            <button
-              type="button"
-              className="btn-cta"
+            {/* No data-atb-trigger here - duplicate CTA, not primary.
+                Wired to the active wine variant (Bloomsbury / Fitzrovia /
+                BdB) so the closing CTA respects the same selection as
+                the hero ATB. Previously this was an inert <button> with
+                no onClick - now it's a real Add-to-basket. */}
+            <QuickAddButton
+              slug="engraved-bottle-gift"
+              productName={"Engraved Bottle Gift"}
+              vintage={"Bespoke Gift"}
+              variant={variant}
+              variantIdx={variantIdx}
+              image={variant.image ?? "/products/engraved-bottle-gift.png"}
+              triggerForSticky={false}
             >
-              Add to basket · from £50.00
-            </button>
+              Add to basket · {formatGBP(variant.price)}
+            </QuickAddButton>
           </div>
         </FadeUp>
       </div>
@@ -730,6 +747,8 @@ export default function EngravedBottleGiftPage() {
   // No press testimonial for the engraved-bottle gift service.
   // getTestimonial returns undefined → TestimonialSection skipped.
   const testimonial = getTestimonial("engraved-bottle-gift");
+  const [variantIdx, setVariantIdx] = useState(0);
+  const activeVariant = ENGRAVED_BOTTLE_VARIANTS[variantIdx];
 
   return (
     <main className="bg-[#010101] pb-[80px] md:pb-0">
@@ -740,7 +759,7 @@ export default function EngravedBottleGiftPage() {
       />
 
       <Navbar />
-      <ProductHero />
+      <ProductHero variantIdx={variantIdx} setVariantIdx={setVariantIdx} />
       {/* TastingPairingSection + BlendSection removed for the gifting
           service - those sections describe wine character, but here the
           underlying wine is chosen at order time (3 options), so the page
@@ -785,21 +804,19 @@ export default function EngravedBottleGiftPage() {
         <FAQSection items={FAQ_ITEMS} />
       </ScrollReset>
 
-      <ScrollReset><ClosingCTA /></ScrollReset>
+      <ScrollReset>
+        <ClosingCTA variant={activeVariant} variantIdx={variantIdx} />
+      </ScrollReset>
       <Footer />
-      {/* Sticky mobile purchase bar (Mini-Flasche + Preis + ATB) appears only
-          when EVERY ATB on the page (hero bottle-side, widget, ClosingCTA -
-          all marked with data-atb-trigger) is out of viewport. As soon as
-          any ATB scrolls back in, the bar hides. */}
+      {/* Sticky mobile purchase bar - variant + price label update live
+          when the user picks a different wine upstream. */}
       <StickyMobileCTA
         productName="Engraved Bottle Gift"
-        price="From £50.00 · 75cl"
-        thumbnailSrc="/products/engraved-bottle-gift.png"
+        thumbnailSrc={activeVariant.image ?? "/products/engraved-bottle-gift.png"}
         slug="engraved-bottle-gift"
         vintage={"Bespoke Gift"}
-        defaultVariantId="75cl"
-        defaultVariantLabel="75cl Bottle"
-        defaultUnitPricePence={5000}
+        variant={activeVariant}
+        variantIdx={variantIdx}
         triggerSelector="[data-atb-trigger]"
       />
     </main>

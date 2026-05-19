@@ -20,7 +20,7 @@ import { basePath } from "@/lib/basePath";
 // (/product/still-chardonnay/, R2321). NEW launch - Ridgeview's first
 // still (non-sparkling) wine. Single 75cl variant.
 const STILL_CHARDONNAY_VARIANTS: Variant[] = [
-  { label: "75cl Bottle", detail: "75cl · 11% ABV · 2023 Vintage", price: 27.5 },
+  { variantId: "75cl", label: "75cl Bottle", detail: "75cl · 11% ABV · 2023 Vintage", price: 27.5 },
 ];
 
 // ── Animation Helpers ────────────────────────────────────────────────────────
@@ -246,11 +246,8 @@ function ProductHero() {
                   slug="still-chardonnay"
                   productName={"Still Chardonnay"}
                   vintage={"2023"}
-                  image="/products/still-chardonnay.png"
-                  defaultVariantId="75cl"
-                  defaultVariantLabel="75cl Bottle"
-                  defaultUnitPricePence={2750}
-                  defaultPriceLabel="£27.50"
+                  variant={STILL_CHARDONNAY_VARIANTS[0]}
+                  image={STILL_CHARDONNAY_VARIANTS[0].image ?? "/products/still-chardonnay.png"}
                 />
               </div>
             </div>
@@ -579,6 +576,11 @@ function AwardsSpecsSection() {
 // ── Closing CTA ─────────────────────────────────────────────────────────────
 
 function ClosingCTA() {
+  // Still Chardonnay has a single variant; quick-add hands it the
+  // canonical 75cl entry directly.
+  const variant = STILL_CHARDONNAY_VARIANTS[0];
+  const formatGBP = (n: number) =>
+    new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", minimumFractionDigits: 2 }).format(n);
   return (
     <section className="bg-[#010101] border-t border-white/[0.06]">
       <div className="max-w-[960px] mx-auto px-6 md:px-16 py-20 md:py-28 text-center">
@@ -607,14 +609,11 @@ function ClosingCTA() {
               slug="still-chardonnay"
               productName={"Still Chardonnay"}
               vintage={"2023"}
-              image="/products/still-chardonnay.png"
-              defaultVariantId="75cl"
-              defaultVariantLabel="75cl Bottle"
-              defaultUnitPricePence={2750}
-              defaultPriceLabel="£27.50"
+              variant={variant}
+              image={variant.image ?? "/products/still-chardonnay.png"}
               triggerForSticky={false}
             >
-              Add to basket · £27.50
+              Add to basket · {formatGBP(variant.price)}
             </QuickAddButton>
           </div>
         </FadeUp>
@@ -766,13 +765,10 @@ export default function StillChardonnayPage() {
           any ATB scrolls back in, the bar hides. */}
       <StickyMobileCTA
         productName="Still Chardonnay"
-        price="£27.50 · 75cl"
-        thumbnailSrc="/products/still-chardonnay.png"
+        thumbnailSrc={STILL_CHARDONNAY_VARIANTS[0].image ?? "/products/still-chardonnay.png"}
         slug="still-chardonnay"
         vintage={"2023"}
-        defaultVariantId="75cl"
-        defaultVariantLabel="75cl Bottle"
-        defaultUnitPricePence={2750}
+        variant={STILL_CHARDONNAY_VARIANTS[0]}
         triggerSelector="[data-atb-trigger]"
       />
     </main>

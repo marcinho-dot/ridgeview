@@ -26,9 +26,9 @@ import { basePath } from "@/lib/basePath";
 //   Position 2: Magnum (if available - the premium upgrade)
 //   Position 3: Case of 6 (if available - the bulk / gifting option)
 const BLANC_DE_BLANCS_VARIANTS: Variant[] = [
-  { label: "75cl Bottle", detail: "75cl · 12% ABV · Vintage", price: 75, image: "/products/blanc-de-blancs.png" },
-  { label: "Magnum 2010 · 1.5L", detail: "1.5L · 12% ABV · Cellar-aged", price: 195, image: "/products/blanc-de-blancs-magnum.png" },
-  { label: "Case of 6 · 6×75cl", detail: "6 × 75cl · Save 10%", price: 405, originalPrice: 450, badge: "Best value", image: "/products/blanc-de-blancs-case.png" },
+  { variantId: "75cl",   label: "75cl Bottle",        detail: "75cl · 12% ABV · Vintage",      price: 75,  image: "/products/blanc-de-blancs.png" },
+  { variantId: "magnum", label: "Magnum 2010 · 1.5L", detail: "1.5L · 12% ABV · Cellar-aged",  price: 195, image: "/products/blanc-de-blancs-magnum.png" },
+  { variantId: "case6",  label: "Case of 6 · 6×75cl", detail: "6 × 75cl · Save 10%",           price: 405, originalPrice: 450, badge: "Best value", image: "/products/blanc-de-blancs-case.png" },
 ];
 
 // ── Animation Helpers ────────────────────────────────────────────────────────
@@ -64,7 +64,13 @@ function GoldDivider({ origin = "left" as "left" | "center" }) {
 
 // ── Hero / Product Showcase ─────────────────────────────────────────────────
 
-function ProductHero() {
+function ProductHero({
+  variantIdx,
+  setVariantIdx,
+}: {
+  variantIdx: number;
+  setVariantIdx: (idx: number) => void;
+}) {
   // Parallax: bottle drifts upward 80px as the hero scrolls out of view.
   // Subtle premium effect - Apple product pages use this exact pattern.
   const heroRef = useRef<HTMLElement>(null);
@@ -74,9 +80,9 @@ function ProductHero() {
   });
   const bottleY = useTransform(scrollYProgress, [0, 1], [0, -80]);
 
-  // Variant state lifted so the hero bottle image crossfades when
-  // the user picks Magnum / Case of 6 from the PurchaseWidget.
-  const [variantIdx, setVariantIdx] = useState(0);
+  // Variant state lives at the page root (passed in) so every ATB on
+  // the page shares the same selection. Hero bottle image swaps via
+  // activeVariant.image, PurchaseWidget runs controlled.
   const activeVariant = BLANC_DE_BLANCS_VARIANTS[variantIdx];
   const heroBottleSrc = activeVariant.image ?? "/products/blanc-de-blancs.png";
   const heroBottleAlt = `Ridgeview Blanc de Blancs - English Sparkling Wine, ${activeVariant.label}`;
@@ -359,11 +365,9 @@ function ProductHero() {
                   slug="blanc-de-blancs"
                   productName={"Blanc de Blancs"}
                   vintage={"2020"}
-                  image="/products/blanc-de-blancs.png"
-                  defaultVariantId="75cl"
-                  defaultVariantLabel="75cl Bottle"
-                  defaultUnitPricePence={7500}
-                  defaultPriceLabel="£75"
+                  variant={activeVariant}
+                  variantIdx={variantIdx}
+                  image={activeVariant.image ?? "/products/blanc-de-blancs.png"}
                 />
               </div>
             </div>
@@ -688,7 +692,15 @@ function AwardsSpecsSection() {
 
 // ── Closing CTA ─────────────────────────────────────────────────────────────
 
-function ClosingCTA() {
+function ClosingCTA({
+  variant,
+  variantIdx,
+}: {
+  variant: Variant;
+  variantIdx: number;
+}) {
+  const formatGBP = (n: number) =>
+    new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", minimumFractionDigits: 0 }).format(n);
   return (
     <section className="bg-[#010101] border-t border-white/[0.06]">
       <div className="max-w-[960px] mx-auto px-6 md:px-16 py-20 md:py-28 text-center">
@@ -717,14 +729,12 @@ function ClosingCTA() {
               slug="blanc-de-blancs"
               productName={"Blanc de Blancs"}
               vintage={"2020"}
-              image="/products/blanc-de-blancs.png"
-              defaultVariantId="75cl"
-              defaultVariantLabel="75cl Bottle"
-              defaultUnitPricePence={7500}
-              defaultPriceLabel="£75"
+              variant={variant}
+              variantIdx={variantIdx}
+              image={variant.image ?? "/products/blanc-de-blancs.png"}
               triggerForSticky={false}
             >
-              Add to basket · £75
+              Add to basket · {formatGBP(variant.price)}
             </QuickAddButton>
           </div>
         </FadeUp>
@@ -827,6 +837,10 @@ const RELATED_WINES = [
 
 export default function BlancDeBlancsPage() {
   const testimonial = getTestimonial("blanc-de-blancs");
+  // Variant state lives at the page root so every ATB on the page
+  // (hero, ClosingCTA, sticky mobile bar) acts on the SAME selection.
+  const [variantIdx, setVariantIdx] = useState(0);
+  const activeVariant = BLANC_DE_BLANCS_VARIANTS[variantIdx];
 
   return (
     <main className="bg-[#010101] pb-[80px] md:pb-0">
@@ -837,7 +851,7 @@ export default function BlancDeBlancsPage() {
       />
 
       <Navbar />
-      <ProductHero />
+      <ProductHero variantIdx={variantIdx} setVariantIdx={setVariantIdx} />
       <ScrollReset><TastingPairingSection /></ScrollReset>
       <ScrollReset><BlendSection /></ScrollReset>
 
@@ -889,21 +903,22 @@ export default function BlancDeBlancsPage() {
         <FAQSection items={FAQ_ITEMS} />
       </ScrollReset>
 
-      <ScrollReset><ClosingCTA /></ScrollReset>
+      <ScrollReset>
+        <ClosingCTA variant={activeVariant} variantIdx={variantIdx} />
+      </ScrollReset>
       <Footer />
       {/* Sticky mobile purchase bar (Mini-Flasche + Preis + ATB) appears only
           when EVERY ATB on the page (hero bottle-side, widget, ClosingCTA -
           all marked with data-atb-trigger) is out of viewport. As soon as
-          any ATB scrolls back in, the bar hides. */}
+          any ATB scrolls back in, the bar hides. Variant + price label
+          update live when the user picks a different format upstream. */}
       <StickyMobileCTA
         productName="Blanc de Blancs"
-        price="£75.00 · 75cl"
-        thumbnailSrc="/products/blanc-de-blancs.png"
+        thumbnailSrc={activeVariant.image ?? "/products/blanc-de-blancs.png"}
         slug="blanc-de-blancs"
         vintage={"2020"}
-        defaultVariantId="75cl"
-        defaultVariantLabel="75cl Bottle"
-        defaultUnitPricePence={7500}
+        variant={activeVariant}
+        variantIdx={variantIdx}
         triggerSelector="[data-atb-trigger]"
       />
     </main>

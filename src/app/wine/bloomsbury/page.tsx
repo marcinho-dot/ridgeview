@@ -26,9 +26,9 @@ import { basePath } from "@/lib/basePath";
 //   Position 2: Magnum (if available - the premium upgrade)
 //   Position 3: Case of 6 (if available - the bulk / gifting option)
 const BLOOMSBURY_VARIANTS: Variant[] = [
-  { label: "75cl Bottle", detail: "75cl · 12% ABV", price: 34, image: "/products/bloomsbury.png" },
-  { label: "Magnum · 1.5L", detail: "1.5L · 12% ABV · Slower-aged", price: 85, image: "/products/bloomsbury-magnum.png" },
-  { label: "Case of 6 · 6×75cl", detail: "6 × 75cl · Save 10%", price: 183.6, originalPrice: 204, badge: "Best value", image: "/products/bloomsbury-case.png" },
+  { variantId: "75cl",   label: "75cl Bottle",        detail: "75cl · 12% ABV",                price: 34,    image: "/products/bloomsbury.png" },
+  { variantId: "magnum", label: "Magnum · 1.5L",      detail: "1.5L · 12% ABV · Slower-aged",  price: 85,    image: "/products/bloomsbury-magnum.png" },
+  { variantId: "case6",  label: "Case of 6 · 6×75cl", detail: "6 × 75cl · Save 10%",           price: 183.6, originalPrice: 204, badge: "Best value", image: "/products/bloomsbury-case.png" },
 ];
 
 // ── Animation Helpers ────────────────────────────────────────────────────────
@@ -64,7 +64,13 @@ function GoldDivider({ origin = "left" as "left" | "center" }) {
 
 // ── Hero / Product Showcase ─────────────────────────────────────────────────
 
-function ProductHero() {
+function ProductHero({
+  variantIdx,
+  setVariantIdx,
+}: {
+  variantIdx: number;
+  setVariantIdx: (idx: number) => void;
+}) {
   // Parallax: bottle drifts upward 80px as the hero scrolls out of view.
   // Subtle premium effect - Apple product pages use this exact pattern.
   const heroRef = useRef<HTMLElement>(null);
@@ -74,12 +80,12 @@ function ProductHero() {
   });
   const bottleY = useTransform(scrollYProgress, [0, 1], [0, -80]);
 
-  // Variant state is LIFTED here so the hero bottle image swaps in
-  // sync with the PurchaseWidget format selector. PurchaseWidget runs
-  // in controlled mode via the `variantIdx` + `onVariantChange` props.
-  // Variants without a custom `image` (e.g. Case of 6 until we have a
-  // case shot) gracefully fall back to the 75cl bottle.
-  const [variantIdx, setVariantIdx] = useState(0);
+  // Variant state is lifted to BloomsburyPage so every ATB on the page
+  // (hero QuickAddButton, ClosingCTA QuickAddButton, StickyMobileCTA)
+  // shares the same selection. PurchaseWidget runs in controlled mode
+  // via the `variantIdx` + `onVariantChange` props. Variants without a
+  // custom `image` (e.g. Case of 6 until we have a case shot) gracefully
+  // fall back to the 75cl bottle.
   const activeVariant = BLOOMSBURY_VARIANTS[variantIdx];
   const heroBottleSrc = activeVariant.image ?? "/products/bloomsbury.png";
   const heroBottleAlt = `Ridgeview Bloomsbury NV - English Sparkling Wine, ${activeVariant.label}`;
@@ -369,11 +375,9 @@ function ProductHero() {
                   slug="bloomsbury"
                   productName={"Bloomsbury"}
                   vintage={"NV"}
-                  image="/products/bloomsbury.png"
-                  defaultVariantId="75cl"
-                  defaultVariantLabel="75cl Bottle"
-                  defaultUnitPricePence={3400}
-                  defaultPriceLabel="£34"
+                  variant={activeVariant}
+                  variantIdx={variantIdx}
+                  image={activeVariant.image ?? "/products/bloomsbury.png"}
                 />
               </div>
             </div>
@@ -722,7 +726,17 @@ function AwardsSpecsSection() {
 
 // ── Closing CTA ─────────────────────────────────────────────────────────────
 
-function ClosingCTA() {
+function ClosingCTA({
+  variant,
+  variantIdx,
+}: {
+  variant: Variant;
+  variantIdx: number;
+}) {
+  // GBP formatter is small enough to inline here (the CTA label mirrors
+  // the PurchaseWidget total) - no need to pull in a util.
+  const formatGBP = (n: number) =>
+    new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", minimumFractionDigits: 0 }).format(n);
   return (
     <section className="bg-[#010101] border-t border-white/[0.06]">
       <div className="max-w-[960px] mx-auto px-6 md:px-16 py-20 md:py-28 text-center">
@@ -749,14 +763,12 @@ function ClosingCTA() {
               slug="bloomsbury"
               productName={"Bloomsbury"}
               vintage={"NV"}
-              image="/products/bloomsbury.png"
-              defaultVariantId="75cl"
-              defaultVariantLabel="75cl Bottle"
-              defaultUnitPricePence={3400}
-              defaultPriceLabel="£34"
+              variant={variant}
+              variantIdx={variantIdx}
+              image={variant.image ?? "/products/bloomsbury.png"}
               triggerForSticky={false}
             >
-              Add to basket · £34
+              Add to basket · {formatGBP(variant.price)}
             </QuickAddButton>
           </div>
         </FadeUp>
@@ -872,6 +884,12 @@ const RELATED_WINES = [
 
 export default function BloomsburyPage() {
   const testimonial = getTestimonial("bloomsbury");
+  // Variant state lives at the page root so every ATB on the page
+  // (hero, ClosingCTA, sticky mobile bar) acts on the SAME selection.
+  // The PurchaseWidget format selector mutates this via onVariantChange,
+  // and the hero bottle image swaps in sync via activeVariant.image.
+  const [variantIdx, setVariantIdx] = useState(0);
+  const activeVariant = BLOOMSBURY_VARIANTS[variantIdx];
 
   return (
     <main className="bg-[#010101] pb-[80px] md:pb-0">
@@ -882,7 +900,7 @@ export default function BloomsburyPage() {
       />
 
       <Navbar />
-      <ProductHero />
+      <ProductHero variantIdx={variantIdx} setVariantIdx={setVariantIdx} />
       <ScrollReset><TastingPairingSection /></ScrollReset>
       <ScrollReset><BlendSection /></ScrollReset>
 
@@ -938,21 +956,22 @@ export default function BloomsburyPage() {
         <FAQSection items={FAQ_ITEMS} />
       </ScrollReset>
 
-      <ScrollReset><ClosingCTA /></ScrollReset>
+      <ScrollReset>
+        <ClosingCTA variant={activeVariant} variantIdx={variantIdx} />
+      </ScrollReset>
       <Footer />
       {/* Sticky mobile purchase bar (Mini-Flasche + Preis + ATB) appears only
           when EVERY ATB on the page (hero bottle-side, widget, ClosingCTA -
           all marked with data-atb-trigger) is out of viewport. As soon as
-          any ATB scrolls back in, the bar hides. */}
+          any ATB scrolls back in, the bar hides. Variant + price label
+          update live when the user picks Magnum/Case upstream. */}
       <StickyMobileCTA
         productName="Bloomsbury NV"
-        price="£34.00 · 75cl"
-        thumbnailSrc="/products/bloomsbury.png"
+        thumbnailSrc={activeVariant.image ?? "/products/bloomsbury.png"}
         slug="bloomsbury"
         vintage={"NV"}
-        defaultVariantId="75cl"
-        defaultVariantLabel="75cl Bottle"
-        defaultUnitPricePence={3400}
+        variant={activeVariant}
+        variantIdx={variantIdx}
         triggerSelector="[data-atb-trigger]"
       />
     </main>

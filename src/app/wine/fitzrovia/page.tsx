@@ -27,8 +27,8 @@ import { basePath } from "@/lib/basePath";
 //   Position 2: Magnum (if available - the premium upgrade) [N/A here]
 //   Position 3: Case of 6 (if available - the bulk / gifting option)
 const FITZROVIA_VARIANTS: Variant[] = [
-  { label: "75cl Bottle", detail: "75cl · 12% ABV · NV", price: 40, image: "/products/fitzrovia.png" },
-  { label: "Case of 6 · 6×75cl", detail: "6 × 75cl · Save 10%", price: 216, originalPrice: 240, badge: "Best value", image: "/products/fitzrovia-case.png" },
+  { variantId: "75cl",  label: "75cl Bottle",        detail: "75cl · 12% ABV · NV", price: 40,  image: "/products/fitzrovia.png" },
+  { variantId: "case6", label: "Case of 6 · 6×75cl", detail: "6 × 75cl · Save 10%", price: 216, originalPrice: 240, badge: "Best value", image: "/products/fitzrovia-case.png" },
 ];
 
 // ── Animation Helpers ────────────────────────────────────────────────────────
@@ -64,7 +64,13 @@ function GoldDivider({ origin = "left" as "left" | "center" }) {
 
 // ── Hero / Product Showcase ─────────────────────────────────────────────────
 
-function ProductHero() {
+function ProductHero({
+  variantIdx,
+  setVariantIdx,
+}: {
+  variantIdx: number;
+  setVariantIdx: (idx: number) => void;
+}) {
   // Parallax: bottle drifts upward 80px as the hero scrolls out of view.
   // Subtle premium effect - Apple product pages use this exact pattern.
   const heroRef = useRef<HTMLElement>(null);
@@ -74,9 +80,8 @@ function ProductHero() {
   });
   const bottleY = useTransform(scrollYProgress, [0, 1], [0, -80]);
 
-  // Variant state lifted so the hero bottle crossfades to the Case shot
-  // when the user clicks Case of 6 in the PurchaseWidget.
-  const [variantIdx, setVariantIdx] = useState(0);
+  // Variant state lives at the page root (passed in) so every ATB on
+  // the page shares the same selection.
   const activeVariant = FITZROVIA_VARIANTS[variantIdx];
   const heroBottleSrc = activeVariant.image ?? "/products/fitzrovia.png";
   const heroBottleAlt = `Ridgeview Fitzrovia Rosé - Méthode Traditionnelle sparkling rosé, ${activeVariant.label}`;
@@ -330,11 +335,9 @@ function ProductHero() {
                   slug="fitzrovia"
                   productName={"Fitzrovia Rosé"}
                   vintage={"NV"}
-                  image="/products/fitzrovia.png"
-                  defaultVariantId="75cl"
-                  defaultVariantLabel="75cl Bottle"
-                  defaultUnitPricePence={4000}
-                  defaultPriceLabel="£40"
+                  variant={activeVariant}
+                  variantIdx={variantIdx}
+                  image={activeVariant.image ?? "/products/fitzrovia.png"}
                 />
               </div>
             </div>
@@ -659,7 +662,15 @@ function AwardsSpecsSection() {
 
 // ── Closing CTA ─────────────────────────────────────────────────────────────
 
-function ClosingCTA() {
+function ClosingCTA({
+  variant,
+  variantIdx,
+}: {
+  variant: Variant;
+  variantIdx: number;
+}) {
+  const formatGBP = (n: number) =>
+    new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", minimumFractionDigits: 0 }).format(n);
   return (
     <section className="bg-[#010101] border-t border-white/[0.06]">
       <div className="max-w-[960px] mx-auto px-6 md:px-16 py-20 md:py-28 text-center">
@@ -686,14 +697,12 @@ function ClosingCTA() {
               slug="fitzrovia"
               productName={"Fitzrovia Rosé"}
               vintage={"NV"}
-              image="/products/fitzrovia.png"
-              defaultVariantId="75cl"
-              defaultVariantLabel="75cl Bottle"
-              defaultUnitPricePence={4000}
-              defaultPriceLabel="£40"
+              variant={variant}
+              variantIdx={variantIdx}
+              image={variant.image ?? "/products/fitzrovia.png"}
               triggerForSticky={false}
             >
-              Add to basket · £40
+              Add to basket · {formatGBP(variant.price)}
             </QuickAddButton>
           </div>
         </FadeUp>
@@ -796,6 +805,8 @@ const RELATED_WINES = [
 
 export default function FitzroviaPage() {
   const testimonial = getTestimonial("fitzrovia");
+  const [variantIdx, setVariantIdx] = useState(0);
+  const activeVariant = FITZROVIA_VARIANTS[variantIdx];
 
   return (
     <main className="bg-[#010101] pb-[80px] md:pb-0">
@@ -806,7 +817,7 @@ export default function FitzroviaPage() {
       />
 
       <Navbar />
-      <ProductHero />
+      <ProductHero variantIdx={variantIdx} setVariantIdx={setVariantIdx} />
       <ScrollReset><TastingPairingSection /></ScrollReset>
       <ScrollReset><BlendSection /></ScrollReset>
 
@@ -858,21 +869,19 @@ export default function FitzroviaPage() {
         <FAQSection items={FAQ_ITEMS} />
       </ScrollReset>
 
-      <ScrollReset><ClosingCTA /></ScrollReset>
+      <ScrollReset>
+        <ClosingCTA variant={activeVariant} variantIdx={variantIdx} />
+      </ScrollReset>
       <Footer />
-      {/* Sticky mobile purchase bar (Mini-Flasche + Preis + ATB) appears only
-          when EVERY ATB on the page (hero bottle-side, widget, ClosingCTA -
-          all marked with data-atb-trigger) is out of viewport. As soon as
-          any ATB scrolls back in, the bar hides. */}
+      {/* Sticky mobile purchase bar - variant + price label update live
+          when the user picks a different format upstream. */}
       <StickyMobileCTA
         productName="Fitzrovia Rosé"
-        price="£40.00 · 75cl"
-        thumbnailSrc="/products/fitzrovia.png"
+        thumbnailSrc={activeVariant.image ?? "/products/fitzrovia.png"}
         slug="fitzrovia"
         vintage={"NV"}
-        defaultVariantId="75cl"
-        defaultVariantLabel="75cl Bottle"
-        defaultUnitPricePence={4000}
+        variant={activeVariant}
+        variantIdx={variantIdx}
         triggerSelector="[data-atb-trigger]"
       />
     </main>

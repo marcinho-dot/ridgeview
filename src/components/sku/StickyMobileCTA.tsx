@@ -4,9 +4,11 @@ import { RefObject, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { basePath } from "@/lib/basePath";
 import { useCart } from "@/lib/cart/CartContext";
+import { variantIdFor } from "@/lib/cart/variantId";
+import { formatGBP, type Variant } from "@/components/sku/PurchaseWidget";
 
 /**
- * StickyMobileCTA - Mobile-only sticky bottom bar mit "Add to basket" CTA.
+ * StickyMobileCTA — Mobile-only sticky bottom bar mit "Add to basket" CTA.
  *
  * - Zeigt sich automatisch, sobald die ursprünglichen Hero-CTAs (referenziert
  *   via `triggerRef`) aus dem Viewport scrollen.
@@ -14,25 +16,29 @@ import { useCart } from "@/lib/cart/CartContext";
  *   mobile Aktion "Add to basket" sein soll, nicht "Home / View All Wines".
  * - Slide-up Animation analog zur BottomNav.
  *
- * Cart-Integration (2026-05-15): the ATB on this sticky bar is a
- * *quick add* - it adds 1× the default variant (75cl Bottle, since
- * variants are ordered with 75cl at position 0) to the cart and
- * auto-opens the drawer. Users wanting Magnum or Case of 6 scroll
- * up to the full PurchaseWidget to select.
+ * Cart-Integration: the ATB on this sticky bar is CONTROLLED by the
+ * parent's `variantIdx` state — exactly the same active variant that
+ * the PurchaseWidget and QuickAddButton operate on. Every ATB on the
+ * page therefore routes through one selection. The displayed price
+ * label updates live when the user picks Magnum or Case in the
+ * PurchaseWidget upstream.
  */
 
 interface Props {
   productName: string;
-  price: string;
-  /** Pfad zum Flaschen-Thumbnail, RELATIV zu /public/, ohne basePath. */
+  /** Pfad zum Flaschen-Thumbnail, RELATIV zu /public/, ohne basePath.
+   *  Typically the parent passes `activeVariant.image` so the
+   *  thumbnail matches the selected format. */
   thumbnailSrc: string;
   /** Wine slug + vintage for cart line identity. */
   slug: string;
   vintage: string;
-  /** Default variant for the quick-add - typically the 75cl bottle. */
-  defaultVariantId: string;
-  defaultVariantLabel: string;
-  defaultUnitPricePence: number;
+  /** Live variant from the parent's `variantIdx` state — drives both
+   *  the visible price label AND the cart dispatch. */
+  variant: Variant;
+  /** Index of the active variant (used by `variantIdFor()` fallback
+   *  when the variant has no explicit `variantId`). Defaults to 0. */
+  variantIdx?: number;
   /**
    * Trigger - entweder ein Ref auf EIN spezifisches Element ODER eine
    * DOM-id (kein "#"-Präfix) für SINGLE-element observation, ODER
@@ -48,30 +54,30 @@ interface Props {
   onAddToBasket?: () => void;
   /** Optional: Link für den "Back to Shop"-Sekundär-CTA. */
   backHref?: string;
-  /** Mark the default variant as out of stock - sticky ATB switches
-   *  to a disabled "Out of Stock" state, mirroring the PurchaseWidget /
-   *  QuickAddButton behaviour for fully unavailable SKUs. */
+  /** Force the disabled out-of-stock state. When undefined we read
+   *  `variant.outOfStock`. Sticky ATB switches to "Out of Stock"
+   *  label and cart dispatch is short-circuited. */
   outOfStock?: boolean;
 }
 
 export function StickyMobileCTA({
   productName,
-  price,
   thumbnailSrc,
   slug,
   vintage,
-  defaultVariantId,
-  defaultVariantLabel,
-  defaultUnitPricePence,
+  variant,
+  variantIdx = 0,
   triggerRef,
   triggerId,
   triggerSelector,
   onAddToBasket,
   backHref,
-  outOfStock = false,
+  outOfStock,
 }: Props) {
   const { add, openDrawer } = useCart();
   const [show, setShow] = useState(false);
+  const oos = outOfStock ?? variant.outOfStock ?? false;
+  const priceLabel = formatGBP(variant.price);
 
   useEffect(() => {
     // Multi-element mode: show sticky only when NONE of the targets are visible.
@@ -134,7 +140,7 @@ export function StickyMobileCTA({
             >
               {productName}
             </p>
-            <p className="font-body text-white/55 text-[11px] mt-0.5">{price}</p>
+            <p className="font-body text-white/55 text-[11px] mt-0.5">{priceLabel}</p>
           </div>
 
           {/* Optional secondary "back to shop" - only icon-style on small screens */}
@@ -149,31 +155,32 @@ export function StickyMobileCTA({
           )}
 
           {/* Primary CTA - Add to basket (shared .btn-cta so every CTA on
-              the site is visually identical). Quick-adds 1× the
-              default variant + opens the drawer. */}
+              the site is visually identical). Dispatches the *active*
+              variant (from parent state) so all ATBs on the page merge
+              into one cart line per format. */}
           <button
             type="button"
             onClick={() => {
-              if (outOfStock) return;
+              if (oos) return;
               add({
                 slug,
                 name: productName,
                 vintage,
-                variantId: defaultVariantId,
-                variantLabel: defaultVariantLabel,
-                unitPricePence: defaultUnitPricePence,
-                priceLabel: price,
+                variantId: variantIdFor(variant, variantIdx),
+                variantLabel: variant.label,
+                unitPricePence: Math.round(variant.price * 100),
+                priceLabel,
                 image: thumbnailSrc,
                 quantity: 1,
               });
               openDrawer();
               onAddToBasket?.();
             }}
-            disabled={outOfStock}
-            aria-disabled={outOfStock}
-            className={`btn-cta shrink-0 ${outOfStock ? "opacity-60 cursor-not-allowed" : ""}`}
+            disabled={oos}
+            aria-disabled={oos}
+            className={`btn-cta shrink-0 ${oos ? "opacity-60 cursor-not-allowed" : ""}`}
           >
-            {outOfStock ? "Out of Stock" : "Add to basket"}
+            {oos ? "Out of Stock" : "Add to basket"}
           </button>
         </motion.div>
       )}
