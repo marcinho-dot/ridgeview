@@ -157,8 +157,18 @@ export function HeroSection() {
                   height="12"
                   viewBox="0 0 12 12"
                   aria-hidden
-                  className="inline-block align-middle mr-3 flex-shrink-0"
-                  style={{ filter: "drop-shadow(0 1px 4px rgba(0,0,0,0.8))" }}
+                  className="inline-block mr-3 flex-shrink-0"
+                  style={{
+                    filter: "drop-shadow(0 1px 4px rgba(0,0,0,0.8))",
+                    // `vertical-align: middle` (the default for align-middle)
+                    // anchors the icon to the LOWERCASE x-height middle, which
+                    // sits ~2px below the capital cap-middle on Raleway. We
+                    // want cap-middle so the diamond reads as level with the
+                    // visual centre of capitals like "S" in "Served". 0.13em
+                    // bumps the icon up by ~2px on 16px text and scales
+                    // proportionally on smaller font sizes.
+                    verticalAlign: "0.13em",
+                  }}
                 >
                   <path d="M6 0 L12 6 L6 12 L0 6 Z" fill="#C8A96E" />
                 </svg>
