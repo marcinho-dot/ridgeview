@@ -78,15 +78,10 @@ const ACCOMMODATIONS: Accommodation[] = [
     link: "https://www.thebullditchling.com/",
     badge: "Great British Pub of the Year 2016",
   },
-  {
-    slug: "ginger-pig",
-    name: "The Ginger Pig",
-    kicker: "Pub with Rooms",
-    description:
-      "Room style at the Ginger Pig follows the Ginger philosophy of simple and understated, designed with maximum comfort and enjoyment in mind. Every room is air-conditioned and features an oversized shower or stand-alone bath tub, indulgent bathroom products, luxury Royal Warrant 'Hypnos' mattresses, high thread-count linen, Nespresso-style coffee machines, and premixed 'Ginger' cocktails.",
-    image: "/images/accommodation/ginger-pig.webp",
-    link: "https://thegingerpigpub.com/",
-  },
+  // The Ginger Pig (Brighton) removed 2026-05-18 — thegingerpigpub.com
+  // now returns 404, so the "View Hotel" CTA would be dead. The asset
+  // file gallery accommodation/ginger-pig.webp is kept in /public for
+  // now in case the venue reappears at a new URL.
   {
     slug: "hotel-du-vin-brighton",
     name: "Hotel Du Vin Brighton",
