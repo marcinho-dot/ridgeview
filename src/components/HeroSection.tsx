@@ -142,8 +142,19 @@ export function HeroSection() {
             height="12"
             viewBox="0 0 12 12"
             aria-hidden
-            className="flex-shrink-0 mt-[5px] md:mt-[8px]"
-            style={{ filter: "drop-shadow(0 1px 4px rgba(0,0,0,0.8))" }}
+            className="flex-shrink-0"
+            style={{
+              filter: "drop-shadow(0 1px 4px rgba(0,0,0,0.8))",
+              // Cap-middle alignment that AUTO-SCALES with the
+              // proof-point font size (clamp(13px, 1.3vw, 16px)).
+              // Raleway 300 cap-center sits ≈0.69em from line-top.
+              // Icon top = cap-center − icon-height/2 = 0.69em − 6px.
+              // Replaces a hardcoded mt-[5px] / md:mt-[8px] which was
+              // calibrated for 16px text but mis-applied between
+              // 768–1230px viewports where font is still at clamp-min.
+              marginTop:
+                "calc(0.69 * clamp(13px, 1.3vw, 16px) - 6px)",
+            }}
           >
             <path d="M6 0 L12 6 L6 12 L0 6 Z" fill="#C8A96E" />
           </svg>
