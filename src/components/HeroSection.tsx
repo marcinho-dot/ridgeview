@@ -136,7 +136,7 @@ export function HeroSection() {
             height="12"
             viewBox="0 0 12 12"
             aria-hidden
-            className="flex-shrink-0 mt-[3px] md:mt-[5px]"
+            className="flex-shrink-0 mt-[3px] md:mt-[5.5px]"
             style={{ filter: "drop-shadow(0 1px 4px rgba(0,0,0,0.8))" }}
           >
             <path d="M6 0 L12 6 L6 12 L0 6 Z" fill="#C8A96E" />
