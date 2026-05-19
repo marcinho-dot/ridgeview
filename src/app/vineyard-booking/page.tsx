@@ -10,6 +10,7 @@ import { EstatePeopleSection } from "@/components/EstatePeopleSection";
 import { ScrollReset } from "@/components/ScrollReset";
 import { BehindTheBottleSection } from "@/components/sku/BehindTheBottleSection";
 import { NearbyAccommodationSection } from "@/components/NearbyAccommodationSection";
+import { HashScroll } from "@/components/HashScroll";
 import { basePath } from "@/lib/basePath";
 
 // ── Animation Helpers ────────────────────────────────────────────────────────
@@ -1236,6 +1237,7 @@ export default function BookingPage() {
         }}
       />
       <Navbar />
+      <HashScroll />
       <main>
         <PageHeader />
         <ScrollReset><EstatePeopleSection /></ScrollReset>
