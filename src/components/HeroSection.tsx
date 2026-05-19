@@ -141,12 +141,12 @@ export function HeroSection() {
           >
             <path d="M6 0 L12 6 L6 12 L0 6 Z" fill="#C8A96E" />
           </svg>
-          {/* md:mt-px shifts the text 1px DOWN on desktop so the
+          {/* md:mt-[2px] shifts the text 2px DOWN on desktop so the
               diamond icon's geometric centre lands on the cap-height
-              middle of the first text line (with Raleway 14px Light,
-              cap middle sits ~1px below the bare top of the line-box).
-              Tuned 2026-05-18. */}
-          <div className="overflow-hidden h-[36px] md:h-[20px] md:mt-px">
+              middle of the first text line. Tuned via screenshot
+              comparison 2026-05-18 (1px was visibly still 1px short
+              on the actual live rendering at clamp(14px) text size). */}
+          <div className="overflow-hidden h-[36px] md:h-[20px] md:mt-[2px]">
             <AnimatePresence mode="wait">
               <motion.p
                 key={proofIndex}
