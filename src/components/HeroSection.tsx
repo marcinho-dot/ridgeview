@@ -143,16 +143,18 @@ export function HeroSection() {
           </svg>
           {/* md:mt-[2px] shifts the text 2px DOWN on desktop so the
               diamond icon's geometric centre lands on the cap-height
-              middle of the first text line. Tuned via screenshot
-              comparison 2026-05-18 (1px was visibly still 1px short
-              on the actual live rendering at clamp(14px) text size). */}
-          <div className="overflow-hidden h-[36px] md:h-[20px] md:mt-[2px]">
+              middle of the first text line. Container heights bumped
+              2026-05-18 (h-[40px] / md:h-[24px]) to accommodate the
+              larger font size (clamp(13px, 1.3vw, 16px) — up from
+              clamp(12px, 1.15vw, 14px) for better readability against
+              the misty background). */}
+          <div className="overflow-hidden h-[40px] md:h-[24px] md:mt-[2px]">
             <AnimatePresence mode="wait">
               <motion.p
                 key={proofIndex}
                 className="font-body text-white/80"
                 style={{
-                  fontSize: "clamp(12px, 1.15vw, 14px)",
+                  fontSize: "clamp(13px, 1.3vw, 16px)",
                   fontWeight: 300,
                   letterSpacing: "0.1em",
                   lineHeight: 1.4,
