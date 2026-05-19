@@ -58,22 +58,15 @@ export function HeroSection() {
         style={{ height: "55%" }}
       />
 
-      {/* Main content - moved to the LOWER portion of the hero
-          (2026-05-17) per user direction. Content anchored to the
-          bottom with breathing space so it never sticks to the edge:
-            Mobile  pb-[14vh]  - ~14 % of viewport above the bottom
-            Desktop pb-[10vh]  - ~10 % of viewport above the bottom
-          The undimmed upper half of the misty-morning image now
-          carries the atmospheric weight that used to sit below the
-          text. */}
-      {/* Mobile: text anchored to bottom (justify-end + pb-[14vh]).
-          Desktop: text anchored to TOP-LEFT, flush with the navbar's
-          left edge — desktop dropped the max-w-[1600px] mx-auto
-          container and uses md:px-10 to match the navbar's px-10
-          inset, so the kicker sits directly under "Home" rather than
-          aligned to the wider CategoryCardRow inset. md:pt-[125px]
-          puts the kicker ~35px higher than the previous 18vh test. */}
-      <div className="absolute inset-0 flex flex-col justify-end md:justify-start pb-[14vh] md:pb-0 md:pt-[124px] px-6 md:px-10 max-w-[1600px] mx-auto md:max-w-none md:mx-0 left-0 right-0">
+      {/* Mobile: text anchored to bottom (justify-end + pb-[14vh]) -
+          the undimmed upper half of the misty-morning image carries
+          the atmospheric weight that sits above the text.
+          Desktop (2026-05-18 revert): text vertically centered in the
+          hero (justify-center), with the same max-w-[1600px] +
+          md:px-16 inset as the section below (CategoryCardRow). The
+          kicker therefore aligns visually with the CategoryCardRow's
+          kicker — one consistent left rail down the page. */}
+      <div className="absolute inset-0 flex flex-col justify-end md:justify-center pb-[14vh] md:pb-0 px-6 md:px-16 max-w-[1600px] mx-auto left-0 right-0">
 
         {/* Kicker */}
         <motion.p
@@ -148,7 +141,12 @@ export function HeroSection() {
           >
             <path d="M6 0 L12 6 L6 12 L0 6 Z" fill="#C8A96E" />
           </svg>
-          <div className="overflow-hidden h-[36px] md:h-[20px]">
+          {/* md:mt-px shifts the text 1px DOWN on desktop so the
+              diamond icon's geometric centre lands on the cap-height
+              middle of the first text line (with Raleway 14px Light,
+              cap middle sits ~1px below the bare top of the line-box).
+              Tuned 2026-05-18. */}
+          <div className="overflow-hidden h-[36px] md:h-[20px] md:mt-px">
             <AnimatePresence mode="wait">
               <motion.p
                 key={proofIndex}
