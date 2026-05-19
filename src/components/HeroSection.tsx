@@ -145,15 +145,17 @@ export function HeroSection() {
             className="flex-shrink-0"
             style={{
               filter: "drop-shadow(0 1px 4px rgba(0,0,0,0.8))",
-              // Cap-middle alignment that AUTO-SCALES with the
-              // proof-point font size (clamp(13px, 1.3vw, 16px)).
-              // Raleway 300 cap-center sits ≈0.69em from line-top.
-              // Icon top = cap-center − icon-height/2 = 0.69em − 6px.
-              // Replaces a hardcoded mt-[5px] / md:mt-[8px] which was
-              // calibrated for 16px text but mis-applied between
-              // 768–1230px viewports where font is still at clamp-min.
+              // Icon centre lands ~2px ABOVE the cap-middle of the
+              // text (in the upper half of the cap letters), so the
+              // text reads visually anchored BELOW the diamond rather
+              // than flanking it. Coefficient tuned to 0.5 = sits at
+              // y = 0.5em − 6px from line-top.
+              //   - 13px font: 0.5*13-6 = 0.5px (icon at top of line)
+              //   - 16px font: 0.5*16-6 = 2px (icon just above cap-top)
+              // Replaces a hardcoded mt-[5px] / md:mt-[8px] which only
+              // worked for the clamp's endpoints.
               marginTop:
-                "calc(0.69 * clamp(13px, 1.3vw, 16px) - 6px)",
+                "calc(0.5 * clamp(13px, 1.3vw, 16px) - 6px)",
             }}
           >
             <path d="M6 0 L12 6 L6 12 L0 6 Z" fill="#C8A96E" />
