@@ -122,33 +122,20 @@ export function HeroSection() {
             two lines on mobile (where the longest proof points wrap)
             and one line on desktop (plenty of horizontal room). */}
         <motion.div
-          className="flex items-start gap-3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.3, duration: 0.8 }}
         >
-          {/* Inline SVG diamond - perfect geometric control over size +
-              alignment. mt offsets shift the glyph's geometric centre
-              down to sit on the text's x-height middle for the first
-              line (mobile 12px font / desktop 14px font). */}
-          <svg
-            width="12"
-            height="12"
-            viewBox="0 0 12 12"
-            aria-hidden
-            className="flex-shrink-0 mt-[3px] md:mt-[5.5px]"
-            style={{ filter: "drop-shadow(0 1px 4px rgba(0,0,0,0.8))" }}
-          >
-            <path d="M6 0 L12 6 L6 12 L0 6 Z" fill="#C8A96E" />
-          </svg>
-          {/* md:mt-[2px] shifts the text 2px DOWN on desktop so the
-              diamond icon's geometric centre lands on the cap-height
-              middle of the first text line. Container heights bumped
-              2026-05-18 (h-[40px] / md:h-[24px]) to accommodate the
-              larger font size (clamp(13px, 1.3vw, 16px) — up from
-              clamp(12px, 1.15vw, 14px) for better readability against
-              the misty background). */}
-          <div className="overflow-hidden h-[40px] md:h-[24px] md:mt-[2px]">
+          {/* Diamond icon is now INLINE inside the text (2026-05-18).
+              Previous structure had it as a flex sibling with manual
+              mt offsets that drifted out of alignment every time the
+              font size changed (12 → 14 → 16) and needed pixel-by-
+              pixel re-tuning per breakpoint. With `align-middle`
+              + `inline-block`, the browser anchors the icon's
+              geometric centre to the text's x-height middle of the
+              line it's in — alignment is now self-correcting and
+              survives font-size bumps without code changes. */}
+          <div className="overflow-hidden h-[40px] md:h-[24px]">
             <AnimatePresence mode="wait">
               <motion.p
                 key={proofIndex}
@@ -165,6 +152,16 @@ export function HeroSection() {
                 exit={{ y: "-110%", opacity: 0 }}
                 transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  aria-hidden
+                  className="inline-block align-middle mr-3 flex-shrink-0"
+                  style={{ filter: "drop-shadow(0 1px 4px rgba(0,0,0,0.8))" }}
+                >
+                  <path d="M6 0 L12 6 L6 12 L0 6 Z" fill="#C8A96E" />
+                </svg>
                 {proofPoints[proofIndex]}
               </motion.p>
             </AnimatePresence>
