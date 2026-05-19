@@ -122,19 +122,33 @@ export function HeroSection() {
             two lines on mobile (where the longest proof points wrap)
             and one line on desktop (plenty of horizontal room). */}
         <motion.div
+          className="flex items-start gap-3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.3, duration: 0.8 }}
         >
-          {/* Diamond icon is now INLINE inside the text (2026-05-18).
-              Previous structure had it as a flex sibling with manual
-              mt offsets that drifted out of alignment every time the
-              font size changed (12 → 14 → 16) and needed pixel-by-
-              pixel re-tuning per breakpoint. With `align-middle`
-              + `inline-block`, the browser anchors the icon's
-              geometric centre to the text's x-height middle of the
-              line it's in — alignment is now self-correcting and
-              survives font-size bumps without code changes. */}
+          {/* Diamond icon STAYS STATIC across proof-point rotations
+              (lives OUTSIDE the AnimatePresence). The mt offsets put
+              the icon's geometric centre on the cap-height middle of
+              the first text line — recalibrated 2026-05-18 for the
+              new font size (clamp(13px, 1.3vw, 16px)):
+                - Mobile: 13px font, line-height 18.2px, cap-middle
+                  at ~10px from line top → icon top at ~4px (mt-[4px])
+                - Desktop: 16px font, line-height 22.4px, cap-middle
+                  at ~12.3px from line top → icon top at ~6.3px
+                  (md:mt-[6px], rounded down for crispness). */}
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 12 12"
+            aria-hidden
+            className="flex-shrink-0 mt-[4px] md:mt-[6px]"
+            style={{ filter: "drop-shadow(0 1px 4px rgba(0,0,0,0.8))" }}
+          >
+            <path d="M6 0 L12 6 L6 12 L0 6 Z" fill="#C8A96E" />
+          </svg>
+          {/* Rotating text container - the AnimatePresence + slide
+              animation only affects the text now, never the diamond. */}
           <div className="overflow-hidden h-[40px] md:h-[24px]">
             <AnimatePresence mode="wait">
               <motion.p
@@ -152,26 +166,6 @@ export function HeroSection() {
                 exit={{ y: "-110%", opacity: 0 }}
                 transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
-                <svg
-                  width="12"
-                  height="12"
-                  viewBox="0 0 12 12"
-                  aria-hidden
-                  className="inline-block mr-3 flex-shrink-0"
-                  style={{
-                    filter: "drop-shadow(0 1px 4px rgba(0,0,0,0.8))",
-                    // `vertical-align: middle` (the default for align-middle)
-                    // anchors the icon to the LOWERCASE x-height middle, which
-                    // sits ~2px below the capital cap-middle on Raleway. We
-                    // want cap-middle so the diamond reads as level with the
-                    // visual centre of capitals like "S" in "Served". 0.13em
-                    // bumps the icon up by ~2px on 16px text and scales
-                    // proportionally on smaller font sizes.
-                    verticalAlign: "0.13em",
-                  }}
-                >
-                  <path d="M6 0 L12 6 L6 12 L0 6 Z" fill="#C8A96E" />
-                </svg>
                 {proofPoints[proofIndex]}
               </motion.p>
             </AnimatePresence>
