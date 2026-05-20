@@ -45,7 +45,12 @@ const articlesByCategory: Record<CategorySlug, typeof articles> = (() => {
     sustainability: [],
     "estate-life": [],
   };
-  for (const a of articles) grouped[a.category].push(a);
+  // Skip drafts — they stay in articles.ts (data preserved on disk)
+  // but never appear in category listings or counts.
+  for (const a of articles) {
+    if (a.draft) continue;
+    grouped[a.category].push(a);
+  }
   for (const key of Object.keys(grouped) as CategorySlug[]) {
     grouped[key].sort((a, b) => (a.date < b.date ? 1 : -1));
   }

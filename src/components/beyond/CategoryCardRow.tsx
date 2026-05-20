@@ -175,8 +175,11 @@ export function CategoryCardRow() {
     };
   }, []);
 
-  // Compute article counts per category for the kicker line
+  // Compute article counts per category for the kicker line.
+  // Drafts excluded so the displayed counts match what's actually
+  // browseable on the hub / category pages.
   const countByCategory = articles.reduce<Record<string, number>>((acc, a) => {
+    if (a.draft) return acc;
     acc[a.category] = (acc[a.category] || 0) + 1;
     return acc;
   }, {});

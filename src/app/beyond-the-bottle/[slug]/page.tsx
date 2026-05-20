@@ -77,7 +77,11 @@ export default function ArticleDetailPage() {
   const params = useParams<{ slug: string }>();
   const slug = typeof params?.slug === "string" ? params.slug : "";
 
-  const article = articles.find((a) => a.slug === slug);
+  // Drafts: article exists in articles.ts but flagged unpublished
+  // (e.g. archived B Corp content awaiting re-application).
+  // Treat as not-found at the route level so direct URLs 404.
+  const articleRaw = articles.find((a) => a.slug === slug);
+  const article = articleRaw && !articleRaw.draft ? articleRaw : undefined;
   const category = useMemo(
     () => (article ? categories.find((c) => c.slug === article.category) : null),
     [article],
@@ -86,7 +90,12 @@ export default function ArticleDetailPage() {
   const related = useMemo(() => {
     if (!article) return [];
     return articles
-      .filter((a) => a.category === article.category && a.slug !== article.slug)
+      .filter(
+        (a) =>
+          !a.draft &&
+          a.category === article.category &&
+          a.slug !== article.slug,
+      )
       .slice(0, RELATED_COUNT);
   }, [article]);
 

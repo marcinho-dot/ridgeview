@@ -112,7 +112,7 @@ function PageHero() {
             maxWidth: "560px",
           }}
         >
-          <CountUp to={articles.length} /> articles across seven facets of life at Ridgeview -
+          <CountUp to={articles.filter((a) => !a.draft).length} /> articles across seven facets of life at Ridgeview -
           from the cellar to the South Downs, harvest to hospitality.
         </motion.p>
 
