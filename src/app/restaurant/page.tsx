@@ -133,8 +133,8 @@ function WelcomeSection() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-sm group">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={`${basePath}/images/restaurant/pavilion-summer.webp`}
-                alt="The Rows & Vine alfresco pavilion in summer"
+                src={`${basePath}/images/restaurant/welcome-pavilion-hires.webp`}
+                alt="The Rows & Vine alfresco pavilion with vineyard views"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.03]"
               />
               <div className="absolute inset-0 bg-black/15 transition-colors duration-700 group-hover:bg-black/5" />
@@ -201,13 +201,13 @@ function AtmosphereBanner() {
     <section className="relative h-[70vh] min-h-[520px] w-full overflow-hidden border-t border-white/[0.06]">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={`${basePath}/images/restaurant/restaurant-interior.webp`}
-        alt="The Rows & Vine interior — warm cellar dining"
+        src={`${basePath}/images/restaurant/atmosphere-aerial.webp`}
+        alt="Aerial view of The Rows & Vine pavilions at golden hour, with Sussex vineyards beyond"
         className="absolute inset-0 w-full h-full object-cover"
-        // Anchor the crop to the upper third — image's top section
-        // (vineyard rows beyond the tables) is the more cinematic
-        // half. Default centre-cover hid most of the vineyard.
-        style={{ objectPosition: "center 35%" }}
+        // Aerial composition: vineyard + distant hills at top, two
+        // pavilions in lower third. Anchor slightly below centre so
+        // pavilions stay visible while vineyard backdrop dominates.
+        style={{ objectPosition: "center 45%" }}
       />
 
       {/* Overlay stack tuned 2026-05-20 for text legibility.
