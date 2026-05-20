@@ -27,8 +27,11 @@ const wines = allWines
 
 function PageHero() {
   return (
-    <section className="relative bg-[#010101] overflow-hidden pt-28 md:pt-32 pb-14 md:pb-20">
-      {/* Atmospheric gold radial - keeps the dark page from feeling flat */}
+    // Hero compacted 2026-05-20: pt 28/32 → 20/24 and pb 14/20 → 6/10
+    // so the row-view gallery fits inside the viewport on standard
+    // monitors. The atmospheric radial + typographic weight still
+    // carry the section, no extra vertical breathing needed.
+    <section className="relative bg-[#010101] overflow-hidden pt-20 md:pt-24 pb-6 md:pb-10">
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -47,6 +50,12 @@ function PageHero() {
           [ The Collection · {wines.length} sparkling {wines.length === 1 ? "wine" : "wines"} ]
         </motion.p>
 
+        {/* Headline — "Sussex chalk." always wraps to its own line on
+            every breakpoint via a `block` span (NOT a <br>). The Cockpit
+            content editor splits headlines at <br> tags into two
+            separately-editable text fields; using display:block keeps
+            the line break visual-only and the headline stays one DOM
+            text node from the editor's perspective. */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -54,7 +63,10 @@ function PageHero() {
           className="font-display italic text-cream leading-[1.06] mb-6"
           style={{ fontSize: "clamp(38px, 6vw, 88px)", fontWeight: 400 }}
         >
-          Sparkling wines from <span className="text-[#C8A96E]">Sussex chalk</span>.
+          Sparkling wines from{" "}
+          <span className="block">
+            <span className="text-[#C8A96E]">Sussex chalk</span>.
+          </span>
         </motion.h1>
 
         <motion.p
@@ -82,7 +94,7 @@ function PageHero() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
-          className="mt-8 md:mt-10"
+          className="mt-6 md:mt-7"
         >
           <a
             href={`${basePath}/wines/cases`}
@@ -575,7 +587,7 @@ function GalleryToolbar({
   total: number;
 }) {
   return (
-    <section className="relative bg-[#010101] pt-0 md:pt-2 pb-4 md:pb-6">
+    <section className="relative bg-[#010101] pt-0 pb-2 md:pb-3">
       <div className="max-w-[1500px] mx-auto px-6 md:px-12 flex items-center justify-end gap-4 md:gap-5">
         {/* Hint label — desktop only, explains the icons */}
         <span
