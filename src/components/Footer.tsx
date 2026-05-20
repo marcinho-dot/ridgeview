@@ -113,10 +113,14 @@ export function Footer({ withBackground = true }: FooterProps = {}) {
                 Our Story
               </a>
             </li>
-            {["Sustainable & Ethical Practices", "Career Vacancies", "Contact Us"].map((item) => (
-              <li key={item}>
-                <a href="#" className="link-underline font-body text-white/55 text-sm hover:text-[#C8A96E]/80 transition-colors duration-300" style={{ fontWeight: 300 }}>
-                  {item}
+            {[
+              { label: "Sustainable & Ethical Practices", href: "/sustainability" },
+              { label: "Career Vacancies", href: "/careers" },
+              { label: "Contact Us", href: "/contact" },
+            ].map((item) => (
+              <li key={item.label}>
+                <a href={item.href} className="link-underline font-body text-white/55 text-sm hover:text-[#C8A96E]/80 transition-colors duration-300" style={{ fontWeight: 300 }}>
+                  {item.label}
                 </a>
               </li>
             ))}
@@ -186,7 +190,7 @@ export function Footer({ withBackground = true }: FooterProps = {}) {
               { label: "Returns", href: "/legal/returns" },
               { label: "Legal", href: "/legal/terms" },
               { label: "Privacy Policy", href: "/legal/privacy" },
-              { label: "Help & FAQs", href: "#" },
+              { label: "Help & FAQs", href: "/help" },
               { label: "Corporate Services", href: "/corporate-services/corporate-wine-gifts" },
             ].map((item) => (
               <li key={item.label}>
@@ -204,10 +208,19 @@ export function Footer({ withBackground = true }: FooterProps = {}) {
             NEWS &amp; MEDIA
           </h4>
           <ul className="space-y-3">
-            {["News", "Press Releases", "Drink Responsibly"].map((item) => (
-              <li key={item}>
-                <a href="#" className="link-underline font-body text-white/55 text-sm hover:text-[#C8A96E]/80 transition-colors duration-300" style={{ fontWeight: 300 }}>
-                  {item}
+            {[
+              { label: "News", href: "/beyond-the-bottle" },
+              { label: "Press Releases", href: "/press" },
+              { label: "Drink Responsibly", href: "https://www.drinkaware.co.uk/", external: true },
+            ].map((item) => (
+              <li key={item.label}>
+                <a
+                  href={item.href}
+                  className="link-underline font-body text-white/55 text-sm hover:text-[#C8A96E]/80 transition-colors duration-300"
+                  style={{ fontWeight: 300 }}
+                  {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                >
+                  {item.label}
                 </a>
               </li>
             ))}
