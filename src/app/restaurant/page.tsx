@@ -712,6 +712,96 @@ function ReserveSection() {
   );
 }
 
+// ── Section: ResDiary widget — live booking inline ────────────────────────
+//
+// Embeds the same ResDiary microsite the UK site uses
+// (RidgeviewWineBar/67732). Sits directly UNDER ReserveSection so the
+// editorial email/phone CTAs remain the first conversion touch and the
+// real-time slot picker is a second-screen affordance for users who
+// want to commit on the spot.
+//
+// DSGVO note: ResDiary sets cookies and loads third-party JS. The
+// iframe is lazy-loaded so the widget only initialises when scrolled
+// into view, but a real consent-gate is a follow-up task.
+function ReserveWidgetSection() {
+  return (
+    <section
+      id="book-online"
+      className="relative bg-[#010101] py-16 md:py-20 border-t border-white/[0.06] scroll-mt-24"
+    >
+      <div className="max-w-[1100px] mx-auto px-6 md:px-16">
+        <div className="text-center mb-10 md:mb-12">
+          <div className="reveal" style={{ transitionDelay: "0.05s" }}>
+            <p
+              className="font-display italic text-[#C8A96E] tracking-widest mb-4"
+              style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
+            >
+              [ Live availability ]
+            </p>
+          </div>
+          <div className="reveal" style={{ transitionDelay: "0.15s" }}>
+            <h3
+              className="font-display italic text-cream leading-[1.08] mb-5"
+              style={{ fontSize: "clamp(28px, 3.2vw, 44px)", fontWeight: 400 }}
+            >
+              Check a <span className="text-[#C8A96E]">table</span>.
+            </h3>
+          </div>
+          <div className="reveal" style={{ transitionDelay: "0.25s" }}>
+            <p
+              className="font-body text-white/55 leading-relaxed mx-auto"
+              style={{
+                fontSize: "clamp(13px, 1.25vw, 15px)",
+                fontWeight: 300,
+                maxWidth: "520px",
+              }}
+            >
+              Pick a date, party size and time — confirmed instantly by
+              email through our booking partner.
+            </p>
+          </div>
+        </div>
+
+        <div
+          className="reveal relative bg-[#0a0a0a] border border-white/[0.08] rounded-md overflow-hidden"
+          style={{ transitionDelay: "0.35s" }}
+        >
+          <iframe
+            id="resdiary-restaurant"
+            title="Reserve a table at The Rows & Vine"
+            src="https://booking.resdiary.com/widget/Standard/RidgeviewWineBar/67732"
+            loading="lazy"
+            className="w-full block"
+            style={{ minHeight: "720px", border: 0, background: "#fff" }}
+          />
+        </div>
+
+        <div className="reveal mt-6 text-center" style={{ transitionDelay: "0.45s" }}>
+          <p
+            className="font-body text-white/40 leading-relaxed mx-auto"
+            style={{
+              fontSize: "12.5px",
+              fontWeight: 300,
+              letterSpacing: "0.02em",
+              maxWidth: "560px",
+            }}
+          >
+            Bookings are processed by ResDiary on behalf of Ridgeview. For
+            tables of 8+, private events or weddings please email{" "}
+            <a
+              href="mailto:[email protected]"
+              className="text-[#C8A96E] hover:underline"
+            >
+              [email protected]
+            </a>
+            .
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ── Section: Cross-page links ──────────────────────────────────────────────
 function ContextLinksSection() {
   const links = [
@@ -796,6 +886,7 @@ export default function RestaurantPage() {
         <ScrollReset><VisitInfoSection /></ScrollReset>
         <ScrollReset><FaqSection /></ScrollReset>
         <ScrollReset><ReserveSection /></ScrollReset>
+        <ScrollReset><ReserveWidgetSection /></ScrollReset>
         <ScrollReset><ContextLinksSection /></ScrollReset>
       </main>
       <Footer />

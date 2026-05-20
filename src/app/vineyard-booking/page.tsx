@@ -786,8 +786,12 @@ function VisitPanels() {
                   the arrow measures this element's position at runtime
                   and aligns its centre with it. Picking the Vineyard
                   Tour CTA (LEFT panel) is arbitrary since both visit
-                  CTAs share the same baseline; either would do. */}
-              <a href="#" className="btn-cta" data-back-to-top-anchor>
+                  CTAs share the same baseline; either would do.
+
+                  Anchor target: scrolls to the TourBookingSection
+                  directly below VisitPanels — the booking block where
+                  the NewBridge CTA + private-group email live. */}
+              <a href="#book-tour" className="btn-cta" data-back-to-top-anchor>
                 Book a Vineyard Tour
               </a>
             </div>
@@ -845,6 +849,148 @@ function VisitPanels() {
           </div>
         </FadeUp>
 
+      </div>
+    </section>
+  );
+}
+
+// ── Section: Tour booking — NewBridge link-out ─────────────────────────────
+//
+// Tour CTA pattern (parallel to /restaurant#book-online, which uses
+// ResDiary inline). NewBridge / Smart-Gift sets X-Frame-Options:
+// SAMEORIGIN, so we cannot iframe-embed the calendar. Instead we
+// match the UK pattern: a prominent CTA that opens the live events
+// calendar in a new tab.
+//
+// Sits directly UNDER VisitPanels so the editorial conversion CTAs
+// remain the first touch, and this block is the explicit
+// "now actually book" affordance.
+function TourBookingSection() {
+  return (
+    <section
+      id="book-tour"
+      className="relative bg-[#010101] py-20 md:py-28 border-t border-white/[0.06] overflow-hidden scroll-mt-24"
+    >
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(200,169,110,0.05) 0%, transparent 70%)",
+        }}
+      />
+
+      <div className="relative max-w-[1000px] mx-auto px-6 md:px-16 text-center">
+        <FadeUp delay={0.05}>
+          <p
+            className="font-display italic text-[#C8A96E] tracking-widest mb-5"
+            style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
+          >
+            [ Tours &amp; Tastings · Live availability ]
+          </p>
+        </FadeUp>
+        <FadeUp delay={0.15}>
+          <h2
+            className="font-display italic text-cream leading-[1.08] mb-6"
+            style={{ fontSize: "clamp(34px, 4.5vw, 60px)", fontWeight: 400 }}
+          >
+            Book your <span className="text-[#C8A96E]">tour</span>.
+          </h2>
+        </FadeUp>
+        <FadeUp delay={0.25}>
+          <p
+            className="font-body text-white/65 leading-[1.85] mx-auto mb-9"
+            style={{
+              fontSize: "clamp(14px, 1.3vw, 16px)",
+              fontWeight: 300,
+              maxWidth: "560px",
+            }}
+          >
+            See live dates and pick your tour through Ridgeview&rsquo;s
+            secure booking partner. Classic Tour &amp; Tasting · Taste of
+            Ridgeview · Winter Cellar · Vegan Wine Tour.
+          </p>
+        </FadeUp>
+
+        <FadeUp delay={0.35}>
+          <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 mb-10">
+            <a
+              href="https://ridgeview.newbridgevouchers.co.uk/events"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-cta"
+            >
+              View dates &amp; book
+            </a>
+            <a href="mailto:[email protected]" className="btn-cta">
+              Email for private groups
+            </a>
+          </div>
+        </FadeUp>
+
+        <FadeUp delay={0.45}>
+          <div
+            className="grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-8 max-w-[760px] mx-auto pt-6 border-t border-white/[0.06]"
+          >
+            <div>
+              <p
+                className="font-body text-white/35 uppercase tracking-[0.25em] mb-2"
+                style={{ fontSize: "10px", fontWeight: 400 }}
+              >
+                Standard tour
+              </p>
+              <p
+                className="font-display italic text-cream"
+                style={{ fontSize: "clamp(15px, 1.5vw, 18px)", fontWeight: 400 }}
+              >
+                1.5 hrs · from £35pp
+              </p>
+            </div>
+            <div>
+              <p
+                className="font-body text-white/35 uppercase tracking-[0.25em] mb-2"
+                style={{ fontSize: "10px", fontWeight: 400 }}
+              >
+                Taste of Ridgeview
+              </p>
+              <p
+                className="font-display italic text-cream"
+                style={{ fontSize: "clamp(15px, 1.5vw, 18px)", fontWeight: 400 }}
+              >
+                30 min · £20pp · hourly
+              </p>
+            </div>
+            <div>
+              <p
+                className="font-body text-white/35 uppercase tracking-[0.25em] mb-2"
+                style={{ fontSize: "10px", fontWeight: 400 }}
+              >
+                Private groups
+              </p>
+              <p
+                className="font-display italic text-cream"
+                style={{ fontSize: "clamp(15px, 1.5vw, 18px)", fontWeight: 400 }}
+              >
+                8+ guests · by email
+              </p>
+            </div>
+          </div>
+        </FadeUp>
+
+        <FadeUp delay={0.55}>
+          <p
+            className="font-body text-white/40 leading-relaxed mx-auto mt-8"
+            style={{
+              fontSize: "12.5px",
+              fontWeight: 300,
+              letterSpacing: "0.02em",
+              maxWidth: "560px",
+            }}
+          >
+            Bookings open in a new tab on Ridgeview&rsquo;s secure events
+            platform. Tours run Friday–Sunday, March through November. Over
+            18s only.
+          </p>
+        </FadeUp>
       </div>
     </section>
   );
@@ -1363,6 +1509,7 @@ export default function BookingPage() {
             NearbyAccommodation ("Where to Stay") below — the natural
             follow-up question after booking the experience. */}
         <ScrollReset><VisitPanels /></ScrollReset>
+        <ScrollReset><TourBookingSection /></ScrollReset>
         <ScrollReset><NearbyAccommodationSection /></ScrollReset>
         <ScrollReset><PracticalInfo /></ScrollReset>
       </main>
