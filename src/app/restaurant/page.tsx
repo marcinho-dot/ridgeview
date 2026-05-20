@@ -814,10 +814,10 @@ function ReserveWidgetSection() {
           </div>
         </div>
 
-        {/* Gold hairline border clips the white widget to rounded corners —
-            no cream background, no padding. Dark → thin gold edge → white widget. */}
+        {/* iframe clipped to rounded corners with soft shadow only —
+            no border, no background. Dark → white widget edge-to-edge. */}
         <div
-          className="reveal relative border border-[#C8A96E]/40 rounded-md overflow-hidden shadow-[0_24px_60px_-18px_rgba(0,0,0,0.70)]"
+          className="reveal relative rounded-md overflow-hidden shadow-[0_24px_60px_-18px_rgba(0,0,0,0.70)]"
           style={{ transitionDelay: "0.35s" }}
         >
           <iframe
