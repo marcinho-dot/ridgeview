@@ -814,42 +814,19 @@ function ReserveWidgetSection() {
           </div>
         </div>
 
-        {/* Cream "reservation card" container. ResDiary's widget renders
-            on a white surface (we have no cross-origin control over its
-            theming), so a hard #0a0a0a frame around it looked stitched-on.
-            Instead we sit the iframe inside a cream card with a gold
-            hairline border — the white widget content blends into the
-            cream bezel, the gold edge integrates with our design system,
-            and a heavy soft shadow grounds the card on the dark page.
-
-            Inner padding (p-4 md:p-6) is symmetric on all four sides so
-            the iframe content has equal cream breathing room top / right
-            / bottom / left — ResDiary's internal padding is heavier
-            below the Continue button than above the logo, so without our
-            own padding the visual frame felt top-tight and bottom-loose.
-            With equal outer padding the asymmetry inside the iframe is
-            visually absorbed by the cream bezel around it. */}
+        {/* Gold hairline border clips the white widget to rounded corners —
+            no cream background, no padding. Dark → thin gold edge → white widget. */}
         <div
-          className="reveal relative bg-[#f5f0e8] border border-[#C8A96E]/40 rounded-md overflow-hidden shadow-[0_24px_60px_-18px_rgba(0,0,0,0.70)] p-4 md:p-6"
+          className="reveal relative border border-[#C8A96E]/40 rounded-md overflow-hidden shadow-[0_24px_60px_-18px_rgba(0,0,0,0.70)]"
           style={{ transitionDelay: "0.35s" }}
         >
           <iframe
             id="resdiary-restaurant"
             title="Reserve a table at The Rows & Vine"
-            // `?language=en-GB` is a de-facto convention many ResDiary
-            // widgets respect; if unsupported the widget silently falls
-            // back to browser Accept-Language. Either way we don't make
-            // it worse — and we get English UI for English-speaking
-            // visitors without depending on their browser locale.
             src="https://booking.resdiary.com/widget/Standard/RidgeviewWineBar/67732?language=en-GB"
             loading="lazy"
             className="w-full block"
-            // minHeight reduced to 560px — the outer cream container
-            // now carries the visual padding so the iframe itself can
-            // be tighter to its content. Secondary ResDiary steps
-            // (customer details, confirmation) still expand naturally
-            // because iframe height is a minimum, not a maximum.
-            style={{ minHeight: "560px", border: 0, background: "#f5f0e8" }}
+            style={{ minHeight: "560px", border: 0 }}
           />
         </div>
 
