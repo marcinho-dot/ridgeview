@@ -104,11 +104,11 @@ export const categories: CategoryMeta[] = [
     slug: "sustainability",
     label: "Sustainability",
     blurb: "Vineyard practices, charity partners, and the long view of caring for the land.",
-    // Aerial vineyard rows — sustainability-as-landscape. Replaces
-    // the pruning-hand image (too small a frame for a category card)
-    // and the original b-corp-impact-report-2025 hero (B Corp visual
-    // identity, removed 2026-05-20).
-    image: "/images/articles/our-sustainable-origins/hero.jpg",
+    // Pruning hand at the vine — sustainability-as-craft. Per-user
+    // preference 2026-05-20 (chose (a) over aerial vineyard).
+    // Replaces the original b-corp-impact-report-2025 hero (B Corp
+    // visual identity, removed alongside all other B Corp content).
+    image: "/images/articles/sustainable-wine-pruning-for-the-future/hero.jpg",
   },
   {
     slug: "estate-life",
