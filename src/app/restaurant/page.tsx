@@ -257,25 +257,28 @@ const MENUS: MenuPdf[] = [
   { label: "Drinks List", href: "/docs/restaurant/drinks-list.pdf" },
 ];
 
-// All four images sourced from the UK restaurant page (verified
-// 2026-05-20 after user feedback that menu cards shouldn't use our
-// own product PNGs). Each pairs with the menu's character:
+// Menu card images — the EXACT same shots the UK restaurant page
+// shows next to each menu link (verified 2026-05-20 via the
+// `data-src` attributes inside the "Explore our sample menus"
+// section of the page HTML). Stored locally under /images/restaurant/
+// with semantic names (the UK filenames were generic numerics —
+// "10.png.webp" etc. — which break the asset-folder readability).
 const MENU_DETAILS: Record<string, { detail: string; image: string }> = {
   "Food Menu": {
     detail: "Seasonal sharing plates · Spring 2026",
-    image: "/images/restaurant/bloomsbury-oysters.webp",
+    image: "/images/restaurant/menu-food.webp",
   },
   "Sunday Menu": {
     detail: "Sunday roast & seasonal feast",
-    image: "/images/restaurant/celebration-toast.webp",
+    image: "/images/restaurant/menu-sunday.webp",
   },
   "Wine List": {
     detail: "Ridgeview cellar + global selection",
-    image: "/images/restaurant/rose-pour.webp",
+    image: "/images/restaurant/menu-wine.webp",
   },
   "Drinks List": {
     detail: "Cocktails, soft drinks & spirits",
-    image: "/images/restaurant/garden-toast.webp",
+    image: "/images/restaurant/menu-drinks.webp",
   },
 };
 
