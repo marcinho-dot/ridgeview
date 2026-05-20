@@ -1180,22 +1180,85 @@ function PracticalInfo() {
               >
                 OPENING TIMES
               </h3>
-              <div className="space-y-3">
+              {/* Hours corrected 2026-05-20 to match the live UK source
+                  (ridgeview.co.uk/visit/opening-hours/). Previous content
+                  showed "Mon-Thu closed / Fri-Sun" which contradicted the
+                  Thu-Mon reality across all visitor venues. */}
+              <div className="space-y-5">
                 {[
-                  { day: "Monday - Thursday", time: "Closed" },
-                  { day: "Friday", time: "10:00 - 17:00" },
-                  { day: "Saturday", time: "10:00 - 17:00" },
-                  { day: "Sunday", time: "10:00 - 16:00" },
-                ].map((item) => (
-                  <div key={item.day} className="flex justify-between items-baseline border-b border-white/[0.06] pb-3">
-                    <span className="font-body text-white/65" style={{ fontSize: "clamp(13px, 1.2vw, 15px)", fontWeight: 300 }}>{item.day}</span>
-                    <span className={`font-body ${item.time === "Closed" ? "text-white/35" : "text-white/65"}`} style={{ fontSize: "clamp(13px, 1.2vw, 15px)", fontWeight: 300 }}>{item.time}</span>
+                  {
+                    venue: "Wine Bar & Shop",
+                    days: "Thursday – Monday",
+                    time: "10:30 – 16:00",
+                    note: null,
+                  },
+                  {
+                    venue: "The Rows & Vine",
+                    days: "Thursday – Monday",
+                    time: "11:00 – 18:30",
+                    note: "Spring & Summer only",
+                  },
+                  {
+                    venue: "Office & Winery",
+                    days: "Monday – Friday",
+                    time: "08:00 – 16:30",
+                    note: null,
+                  },
+                  {
+                    venue: "Tours & Tastings",
+                    days: "By appointment",
+                    time: "",
+                    note: null,
+                  },
+                ].map((v) => (
+                  <div
+                    key={v.venue}
+                    className="border-b border-white/[0.06] pb-4"
+                  >
+                    <p
+                      className="font-body text-cream mb-1"
+                      style={{
+                        fontSize: "clamp(13px, 1.2vw, 14px)",
+                        fontWeight: 400,
+                      }}
+                    >
+                      {v.venue}
+                    </p>
+                    <div className="flex justify-between items-baseline gap-3">
+                      <span
+                        className="font-body text-white/55"
+                        style={{
+                          fontSize: "clamp(12px, 1.1vw, 14px)",
+                          fontWeight: 300,
+                        }}
+                      >
+                        {v.days}
+                      </span>
+                      <span
+                        className="font-body text-white/65"
+                        style={{
+                          fontSize: "clamp(12px, 1.1vw, 14px)",
+                          fontWeight: 300,
+                        }}
+                      >
+                        {v.time}
+                      </span>
+                    </div>
+                    {v.note && (
+                      <p
+                        className="font-body text-[#C8A96E]/70 mt-1"
+                        style={{
+                          fontSize: "clamp(10.5px, 0.95vw, 11.5px)",
+                          fontWeight: 300,
+                          letterSpacing: "0.04em",
+                        }}
+                      >
+                        {v.note}
+                      </p>
+                    )}
                   </div>
                 ))}
               </div>
-              <p className="font-body text-white/35 mt-4" style={{ fontSize: "clamp(11px, 1vw, 13px)", fontWeight: 300 }}>
-                Wine Bar &amp; Shop · Vineyard Tours by appointment
-              </p>
             </div>
           </FadeUp>
 

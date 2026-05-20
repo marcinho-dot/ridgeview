@@ -1,63 +1,57 @@
 "use client";
 
-import { useRef } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { BottomNav } from "@/components/BottomNav";
 import { ScrollReset } from "@/components/ScrollReset";
 import { HashScroll } from "@/components/HashScroll";
+import { MenuPdfModal, type MenuPdf } from "@/components/MenuPdfModal";
 import { basePath } from "@/lib/basePath";
 
 /**
  * /restaurant — The Rows & Vine Restaurant landing page.
  *
- * Top-level URL (not /vineyard-booking/restaurant) so the restaurant
- * gets its own SEO anchor and shorter shareable link. The previous
- * "Reserve a Table" CTA on /vineyard-booking now points here.
+ * Top-level URL (not nested under /vineyard-booking) so the
+ * restaurant gets its own SEO anchor and a shorter shareable link.
+ * The previous "Reserve a Table" CTA on /vineyard-booking points
+ * here.
  *
- * Page covers the full restaurant story:
- *   - Hero (drone video loop of the pavilion + vineyard)
- *   - Welcome / philosophy intro
- *   - Sample Menus download grid (4 PDFs)
- *   - Practical info (hours, party size, dietary, accessibility)
- *   - Reservation CTA (email + phone — OpenTable embed deferred to
- *     Phase 2 of the roadmap)
+ * Sections (top → bottom):
+ *   1. Hero — autoplay drone video + animated headline
+ *   2. Welcome — pavilion photo + philosophy intro (2-col on desktop)
+ *   3. Atmosphere banner — wide pavilion-at-golden-hour shot
+ *   4. Sample Menus — 4 download cards that open a PDF modal
+ *      preview with a Download button (MenuPdfModal)
+ *   5. Visit info — 4-column hours / party size / dietary / accessibility
+ *   6. FAQ — accordion with the verbatim UK FAQ answers
+ *   7. Reserve — email + phone CTAs (OpenTable embed Phase 2)
+ *   8. Cross-page rail — Tours, directions, Wine Club
  *
- * Footer links across the site now route to anchors on this page
- * (#menus, #reserve, #visit) so the wayfinding is consistent.
+ * All imagery sourced from the UK restaurant page (with permission —
+ * same brand, same restaurant). The drone video lives in /public/videos.
  */
 
 // ── Section: Hero with autoplay drone video ────────────────────────────────
 function RestaurantHero() {
   return (
     <section className="relative h-screen min-h-[640px] w-full overflow-hidden">
-      {/* Background video — drone shot of The Rows & Vine pavilion.
-          Muted + autoPlay + loop + playsInline so it works on mobile
-          (Safari/iOS) without user interaction. Poster falls back to
-          a still frame while the video downloads. */}
       <video
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
-        poster={`${basePath}/images/booking/7.jpg`}
+        poster={`${basePath}/images/restaurant/banner-vineyard.webp`}
         className="absolute inset-0 w-full h-full object-cover"
       >
         <source src={`${basePath}/videos/rows-vine-hero.mp4`} type="video/mp4" />
       </video>
 
-      {/* Three-layer overlay stack — matches the Vineyard Hero
-          treatment so the two booking-adjacent pages feel like one
-          family. Top gradient is darker (text legibility), bottom
-          lighter (let the pavilion read), centre fades through black
-          for the CTA area. */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 to-black/55 pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-r from-black/35 via-transparent to-transparent pointer-events-none" />
 
-      {/* Hero copy — anchored bottom-left on desktop, bottom-centre
-          on mobile. Editorial line-reveal animation. */}
       <div className="absolute inset-0 flex flex-col justify-end pb-[14vh] md:pb-[10vh] px-6 md:px-16 max-w-[1600px] mx-auto left-0 right-0">
         <motion.p
           className="font-display italic text-[#C8A96E] mb-4"
@@ -124,85 +118,131 @@ function RestaurantHero() {
   );
 }
 
-// ── Section: Welcome / philosophy intro ────────────────────────────────────
+// ── Section: Welcome — 2-col image + philosophy text ──────────────────────
 function WelcomeSection() {
   return (
     <section className="relative bg-[#010101] py-20 md:py-28 border-t border-white/[0.06]">
-      <div className="max-w-[1100px] mx-auto px-6 md:px-16 text-center">
-        <div className="reveal" style={{ transitionDelay: "0.05s" }}>
-          <p
-            className="font-display italic text-[#C8A96E] tracking-widest mb-5"
-            style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
-          >
-            [ Vineyard Restaurant · Sussex ]
-          </p>
-        </div>
-        <div className="reveal" style={{ transitionDelay: "0.15s" }}>
-          <h2
-            className="font-display italic text-cream leading-[1.08] mb-7"
-            style={{ fontSize: "clamp(34px, 4.5vw, 64px)", fontWeight: 400 }}
-          >
-            A playground for <span className="text-[#C8A96E]">celebration</span>.
-          </h2>
-        </div>
-        <div className="reveal" style={{ transitionDelay: "0.25s" }}>
-          <p
-            className="font-body text-white/65 leading-[1.85] mx-auto mb-5"
-            style={{
-              fontSize: "clamp(15px, 1.4vw, 18px)",
-              fontWeight: 300,
-              maxWidth: "640px",
-            }}
-          >
-            Our vineyard restaurant is made for celebration. Dine alfresco
-            through spring and summer, with soaring vineyard views.
-          </p>
-        </div>
-        <div className="reveal" style={{ transitionDelay: "0.35s" }}>
-          <p
-            className="font-body text-white/55 leading-[1.85] mx-auto"
-            style={{
-              fontSize: "clamp(14px, 1.3vw, 16px)",
-              fontWeight: 300,
-              maxWidth: "640px",
-            }}
-          >
-            A wine-inspired menu journeys through seasonal flavours and
-            sensational wines, while palate-tingling plates share the stories
-            of the places, producers and people behind Ridgeview&rsquo;s
-            award-winning wines.
-          </p>
+      <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+        <div className="grid grid-cols-1 md:grid-cols-[5fr_6fr] gap-10 md:gap-16 items-center">
+          {/* Image — pavilion in summer light, slight cinematic crop */}
+          <div className="reveal" style={{ transitionDelay: "0.05s" }}>
+            <div className="relative aspect-[4/5] overflow-hidden rounded-sm group">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`${basePath}/images/restaurant/pavilion-summer.webp`}
+                alt="The Rows & Vine alfresco pavilion in summer"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.03]"
+              />
+              <div className="absolute inset-0 bg-black/15 transition-colors duration-700 group-hover:bg-black/5" />
+            </div>
+          </div>
+
+          {/* Text */}
+          <div>
+            <div className="reveal" style={{ transitionDelay: "0.15s" }}>
+              <p
+                className="font-display italic text-[#C8A96E] tracking-widest mb-5"
+                style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
+              >
+                [ Vineyard Restaurant · Sussex ]
+              </p>
+            </div>
+            <div className="reveal" style={{ transitionDelay: "0.25s" }}>
+              <h2
+                className="font-display italic text-cream leading-[1.08] mb-6"
+                style={{ fontSize: "clamp(34px, 4.5vw, 64px)", fontWeight: 400 }}
+              >
+                A playground for{" "}
+                <span className="text-[#C8A96E]">celebration</span>.
+              </h2>
+            </div>
+            <div className="reveal" style={{ transitionDelay: "0.35s" }}>
+              <p
+                className="font-body text-white/65 leading-[1.85] mb-5"
+                style={{
+                  fontSize: "clamp(15px, 1.4vw, 18px)",
+                  fontWeight: 300,
+                  maxWidth: "560px",
+                }}
+              >
+                Our vineyard restaurant is made for celebration. Dine alfresco
+                through spring and summer, with soaring vineyard views.
+              </p>
+            </div>
+            <div className="reveal" style={{ transitionDelay: "0.45s" }}>
+              <p
+                className="font-body text-white/55 leading-[1.85]"
+                style={{
+                  fontSize: "clamp(14px, 1.3vw, 16px)",
+                  fontWeight: 300,
+                  maxWidth: "560px",
+                }}
+              >
+                A wine-inspired menu journeys through seasonal flavours and
+                sensational wines, while palate-tingling plates share the
+                stories of the places, producers and people behind
+                Ridgeview&rsquo;s award-winning wines.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-// ── Section: Sample Menus download grid ────────────────────────────────────
-const MENUS = [
-  {
-    label: "Food Menu",
-    detail: "Seasonal sharing plates · Spring 2026",
-    href: "/docs/restaurant/food-menu.pdf",
-  },
-  {
-    label: "Sunday Menu",
-    detail: "Sunday roast & seasonal feast",
-    href: "/docs/restaurant/sunday-menu.pdf",
-  },
-  {
-    label: "Wine List",
-    detail: "Ridgeview cellar + global selection",
-    href: "/docs/restaurant/wine-list.pdf",
-  },
-  {
-    label: "Drinks List",
-    detail: "Cocktails, soft drinks &amp; spirits",
-    href: "/docs/restaurant/drinks-list.pdf",
-  },
-] as const;
+// ── Section: Atmosphere banner — full-bleed cinematic shot ─────────────────
+function AtmosphereBanner() {
+  return (
+    <section className="relative h-[55vh] min-h-[420px] w-full overflow-hidden border-t border-white/[0.06]">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={`${basePath}/images/restaurant/restaurant-summer-view.webp`}
+        alt="The Rows & Vine restaurant tables looking out over the vineyard at sunset"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/55 pointer-events-none" />
 
-function MenuDownloadIcon() {
+      {/* Pull-quote overlay — editorial cue rather than a marketing
+          panel. Centred, light gold, lots of breathing room. */}
+      <div className="absolute inset-0 flex items-center justify-center px-6 md:px-16">
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+          className="font-display italic text-cream/90 text-center leading-[1.25]"
+          style={{
+            fontSize: "clamp(22px, 2.8vw, 40px)",
+            fontWeight: 400,
+            maxWidth: "780px",
+            textShadow: "0 2px 22px rgba(0,0,0,0.65)",
+          }}
+        >
+          Every occasion deserves something{" "}
+          <span className="text-[#C8A96E]">extraordinary</span>.
+        </motion.p>
+      </div>
+    </section>
+  );
+}
+
+// ── Section: Sample Menus — opens MenuPdfModal on click ───────────────────
+const MENUS: MenuPdf[] = [
+  { label: "Food Menu", href: "/docs/restaurant/food-menu.pdf" },
+  { label: "Sunday Menu", href: "/docs/restaurant/sunday-menu.pdf" },
+  { label: "Wine List", href: "/docs/restaurant/wine-list.pdf" },
+  { label: "Drinks List", href: "/docs/restaurant/drinks-list.pdf" },
+];
+
+const MENU_DETAILS: Record<string, string> = {
+  "Food Menu": "Seasonal sharing plates · Spring 2026",
+  "Sunday Menu": "Sunday roast & seasonal feast",
+  "Wine List": "Ridgeview cellar + global selection",
+  "Drinks List": "Cocktails, soft drinks & spirits",
+};
+
+function MenuViewIcon() {
   return (
     <svg
       width="20"
@@ -215,14 +255,13 @@ function MenuDownloadIcon() {
       strokeLinejoin="round"
       aria-hidden
     >
-      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-      <polyline points="7 10 12 15 17 10" />
-      <line x1="12" x2="12" y1="15" y2="3" />
+      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+      <circle cx="12" cy="12" r="3" />
     </svg>
   );
 }
 
-function MenusSection() {
+function MenusSection({ onOpen }: { onOpen: (m: MenuPdf) => void }) {
   return (
     <section id="menus" className="relative bg-[#010101] py-20 md:py-28 border-t border-white/[0.06] scroll-mt-24">
       <div className="max-w-[1400px] mx-auto px-6 md:px-16">
@@ -253,8 +292,8 @@ function MenusSection() {
               }}
             >
               Our wine-inspired menu places Ridgeview&rsquo;s award-winning
-              sparkling wines at the heart of every dish. Sample menus shown —
-              subject to change with the season.
+              sparkling wines at the heart of every dish. Click any menu to
+              preview — download for offline reading.
             </p>
           </div>
         </div>
@@ -272,14 +311,13 @@ function MenusSection() {
                 ease: [0.16, 1, 0.3, 1],
               }}
             >
-              <a
-                href={`${basePath}${m.href}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-5 md:gap-6 p-6 md:p-7 bg-[#0d0d0d] border border-white/[0.08] hover:border-[#C8A96E]/40 hover:bg-[#C8A96E]/[0.03] rounded-md transition-all duration-400"
+              <button
+                type="button"
+                onClick={() => onOpen(m)}
+                className="group w-full flex items-center gap-5 md:gap-6 p-6 md:p-7 bg-[#0d0d0d] border border-white/[0.08] hover:border-[#C8A96E]/40 hover:bg-[#C8A96E]/[0.03] rounded-md transition-all duration-400 text-left"
               >
                 <span className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-sm border border-[#C8A96E]/30 group-hover:border-[#C8A96E]/70 bg-[#C8A96E]/[0.04] group-hover:bg-[#C8A96E]/[0.10] flex items-center justify-center text-[#C8A96E]/80 group-hover:text-[#C8A96E] transition-colors duration-400">
-                  <MenuDownloadIcon />
+                  <MenuViewIcon />
                 </span>
                 <div className="flex-1 min-w-0">
                   <p
@@ -291,17 +329,18 @@ function MenusSection() {
                   <p
                     className="font-body text-white/45 group-hover:text-white/65 transition-colors duration-400"
                     style={{ fontSize: "13px", fontWeight: 300 }}
-                    dangerouslySetInnerHTML={{ __html: m.detail }}
-                  />
+                  >
+                    {MENU_DETAILS[m.label]}
+                  </p>
                 </div>
                 <span
                   aria-hidden
                   className="font-body text-[#C8A96E]/60 group-hover:text-[#C8A96E] uppercase tracking-[0.2em] transition-colors duration-400"
                   style={{ fontSize: "10px" }}
                 >
-                  PDF
+                  View
                 </span>
-              </a>
+              </button>
             </motion.li>
           ))}
         </ul>
@@ -412,6 +451,137 @@ function VisitInfoSection() {
   );
 }
 
+// ── Section: FAQ accordion — verbatim from UK FAQ ──────────────────────────
+const FAQ_ITEMS: Array<{ q: string; a: string }> = [
+  {
+    q: "Do I need to make a reservation?",
+    a: "Advance reservations are recommended to secure your table and avoid disappointment, especially during busy periods. Walk-ins are welcome subject to availability.",
+  },
+  {
+    q: "What if my party is larger than 8 guests?",
+    a: "Tables for 8 or more guests need to be booked by email at [email protected] — we'll plan around your group size and the season.",
+  },
+  {
+    q: "Are children welcome?",
+    a: "Yes, under-18s are welcome at our restaurant. Children must be supervised by an adult at all times during the visit. We operate a Challenge 25 policy when serving alcohol.",
+  },
+  {
+    q: "What about dogs?",
+    a: "Only guide dogs and assistance dogs are allowed at The Rows & Vine.",
+  },
+  {
+    q: "Is there a dress code?",
+    a: "Casual dress and footwear is recommended for comfort. The Rows & Vine is an alfresco setting in spring and summer — dress appropriately for the weather. Our pavilions are heated and have retractable roofs and sides to protect from wind and rain.",
+  },
+  {
+    q: "What allergies / intolerances can you accommodate?",
+    a: "Vegan and vegetarian options are available. For other allergies or intolerances, please let your server know on arrival and we'll work with you.",
+  },
+  {
+    q: "Can you host private events or weddings?",
+    a: "We host private dining for up to 150 guests in our pavilions or stretch tent (excluding weekends and bank holidays). We don't hold a wedding ceremony licence, but we love hosting pre- and post-wedding dining and drinks. Email [email protected].",
+  },
+  {
+    q: "How do I get there?",
+    a: "We're at Fragbarrow Lane, Ditchling Common, BN6 8TP — under an hour from London Bridge by train, 15 minutes from Brighton. Step-free access across the estate, dedicated disabled parking, EV chargers available.",
+  },
+];
+
+function FaqItem({ q, a, idx }: { q: string; a: string; idx: number }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <motion.li
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, delay: 0.03 + idx * 0.04, ease: [0.16, 1, 0.3, 1] }}
+      className="border-b border-white/[0.08]"
+    >
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        className="w-full flex items-center gap-4 py-5 md:py-6 text-left group"
+      >
+        <span
+          className="flex-1 font-display italic text-cream group-hover:text-white transition-colors duration-300"
+          style={{ fontSize: "clamp(18px, 1.8vw, 24px)", fontWeight: 400 }}
+        >
+          {q}
+        </span>
+        <span
+          aria-hidden
+          className={`flex-shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-sm border border-white/15 group-hover:border-[#C8A96E]/50 text-white/60 group-hover:text-[#C8A96E] transition-all duration-300 ${
+            open ? "rotate-45" : ""
+          }`}
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.4"
+            strokeLinecap="round"
+          >
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
+        </span>
+      </button>
+
+      {open && (
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+          className="overflow-hidden"
+        >
+          <p
+            className="font-body text-white/65 leading-[1.85] pb-6 md:pb-7 pr-10"
+            style={{ fontSize: "clamp(14px, 1.3vw, 16px)", fontWeight: 300 }}
+          >
+            {a}
+          </p>
+        </motion.div>
+      )}
+    </motion.li>
+  );
+}
+
+function FaqSection() {
+  return (
+    <section id="faq" className="relative bg-[#010101] py-20 md:py-28 border-t border-white/[0.06] scroll-mt-24">
+      <div className="max-w-[960px] mx-auto px-6 md:px-16">
+        <div className="text-center mb-10 md:mb-14">
+          <div className="reveal" style={{ transitionDelay: "0.05s" }}>
+            <p
+              className="font-display italic text-[#C8A96E] tracking-widest mb-5"
+              style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
+            >
+              [ Frequently Asked ]
+            </p>
+          </div>
+          <div className="reveal" style={{ transitionDelay: "0.15s" }}>
+            <h2
+              className="font-display italic text-cream leading-[1.08] mb-6"
+              style={{ fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 400 }}
+            >
+              Visiting <span className="text-[#C8A96E]">The Rows &amp; Vine</span>.
+            </h2>
+          </div>
+        </div>
+
+        <ul className="border-t border-white/[0.08]">
+          {FAQ_ITEMS.map((it, i) => (
+            <FaqItem key={it.q} q={it.q} a={it.a} idx={i} />
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
 // ── Section: Reservation CTA ───────────────────────────────────────────────
 function ReserveSection() {
   return (
@@ -419,7 +589,6 @@ function ReserveSection() {
       id="reserve"
       className="relative bg-[#010101] py-24 md:py-32 border-t border-white/[0.06] overflow-hidden scroll-mt-24"
     >
-      {/* Atmospheric gold radial */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -459,9 +628,6 @@ function ReserveSection() {
           </p>
         </div>
 
-        {/* Two contact methods — email + phone — laid out side by side
-            on desktop, stacked on mobile. Same `.btn-cta` etched-crystal
-            treatment as every other CTA on the site. */}
         <div className="reveal flex flex-wrap items-center justify-center gap-3 md:gap-4 mb-12" style={{ transitionDelay: "0.35s" }}>
           <a href="mailto:[email protected]" className="btn-cta">
             Email to Reserve
@@ -485,7 +651,7 @@ function ReserveSection() {
   );
 }
 
-// ── Section: Cross-page links — Tours, Wine Bar, Directions ───────────────
+// ── Section: Cross-page links ──────────────────────────────────────────────
 function ContextLinksSection() {
   const links = [
     {
@@ -494,9 +660,9 @@ function ContextLinksSection() {
       href: "/vineyard-booking",
     },
     {
-      label: "Opening Times & Directions",
-      blurb: "How to find us across all of Ridgeview.",
-      href: "/vineyard-booking#practical",
+      label: "How to Find Us",
+      blurb: "Train, bus, bike, car — every way to reach Ridgeview.",
+      href: "/directions",
     },
     {
       label: "OurView Wine Club",
@@ -546,10 +712,9 @@ function ContextLinksSection() {
 }
 
 export default function RestaurantPage() {
-  const _scrollRef = useRef<HTMLDivElement>(null);
+  const [openMenu, setOpenMenu] = useState<MenuPdf | null>(null);
   return (
-    <div ref={_scrollRef} className="bg-[#010101] min-h-screen">
-      {/* Grain noise overlay — visual continuity with other non-home routes */}
+    <div className="bg-[#010101] min-h-screen">
       <div
         aria-hidden
         className="pointer-events-none fixed inset-0 z-[100] opacity-[0.035]"
@@ -564,24 +729,18 @@ export default function RestaurantPage() {
       <HashScroll />
       <main>
         <RestaurantHero />
-        <ScrollReset>
-          <WelcomeSection />
-        </ScrollReset>
-        <ScrollReset>
-          <MenusSection />
-        </ScrollReset>
-        <ScrollReset>
-          <VisitInfoSection />
-        </ScrollReset>
-        <ScrollReset>
-          <ReserveSection />
-        </ScrollReset>
-        <ScrollReset>
-          <ContextLinksSection />
-        </ScrollReset>
+        <ScrollReset><WelcomeSection /></ScrollReset>
+        <AtmosphereBanner />
+        <ScrollReset><MenusSection onOpen={setOpenMenu} /></ScrollReset>
+        <ScrollReset><VisitInfoSection /></ScrollReset>
+        <ScrollReset><FaqSection /></ScrollReset>
+        <ScrollReset><ReserveSection /></ScrollReset>
+        <ScrollReset><ContextLinksSection /></ScrollReset>
       </main>
       <Footer />
       <BottomNav />
+
+      <MenuPdfModal pdf={openMenu} onClose={() => setOpenMenu(null)} />
     </div>
   );
 }

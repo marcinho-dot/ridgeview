@@ -162,7 +162,7 @@ export function Footer({ withBackground = true }: FooterProps = {}) {
               { label: "Vineyard Tours & Wine Tastings", href: `${home}vineyard-booking` },
               { label: "The Rows & Vine Restaurant", href: `${home}restaurant` },
               { label: "Wine Bar & Shop", href: `${home}vineyard-booking` },
-              { label: "How to get to Ridgeview", href: `${home}vineyard-booking/#practical` },
+              { label: "How to get to Ridgeview", href: `${home}directions` },
               { label: "Nearby Accommodation", href: `${home}vineyard-booking/#nearby-accommodation` },
               { label: "Opening Times", href: `${home}restaurant/#hours` },
             ].map((item) => (
