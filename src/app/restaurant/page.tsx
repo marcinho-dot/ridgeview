@@ -207,7 +207,7 @@ function AtmosphereBanner() {
         // Anchor the crop to the upper third — image's top section
         // (vineyard rows beyond the tables) is the more cinematic
         // half. Default centre-cover hid most of the vineyard.
-        style={{ objectPosition: "center 20%" }}
+        style={{ objectPosition: "center 35%" }}
       />
 
       {/* Overlay stack tuned 2026-05-20 for text legibility.
