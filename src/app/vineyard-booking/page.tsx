@@ -13,6 +13,30 @@ import { NearbyAccommodationSection } from "@/components/NearbyAccommodationSect
 import { HashScroll } from "@/components/HashScroll";
 import { basePath } from "@/lib/basePath";
 
+// ─── Email constants ────────────────────────────────────────────────────────
+// Tours inbox is the real UK address — verified against the UK source
+// (decoded from data-cfemail 2026-05-20). Pre-filled mailto template lets
+// the user only fill the blanks (date, tour type, party) before sending.
+const TOUR_EMAIL = "[email protected]";
+
+const TOUR_PRIVATE_MAILTO =
+  `mailto:${TOUR_EMAIL}` +
+  `?subject=${encodeURIComponent("Private vineyard tour enquiry — Ridgeview")}` +
+  `&body=${encodeURIComponent(
+    "Hello,\n\n" +
+      "I'd like to enquire about a private vineyard tour at Ridgeview.\n\n" +
+      "Preferred date(s): \n" +
+      "Tour type (Classic / Taste of Ridgeview / Cellar / Vegan / Bespoke): \n" +
+      "Party size (8+): \n" +
+      "Approximate timing: \n" +
+      "Dietary requirements / accessibility needs: \n" +
+      "Any other details we should know: \n\n" +
+      "Contact:\n" +
+      "Name: \n" +
+      "Phone: \n\n" +
+      "Thank you.\n"
+  )}`;
+
 // ── Animation Helpers ────────────────────────────────────────────────────────
 
 function FadeUp({ children, delay = 0, className = "" }: {
@@ -921,7 +945,10 @@ function TourBookingSection() {
             >
               View dates &amp; book
             </a>
-            <a href="mailto:[email protected]" className="btn-cta">
+            {/* Private-group CTA uses TOUR_PRIVATE_MAILTO — pre-filled
+                subject + structured body so the user only fills the
+                blanks before sending. */}
+            <a href={TOUR_PRIVATE_MAILTO} className="btn-cta">
               Email for private groups
             </a>
           </div>
@@ -988,7 +1015,11 @@ function TourBookingSection() {
           >
             Bookings open in a new tab on Ridgeview&rsquo;s secure events
             platform. Tours run Friday–Sunday, March through November. Over
-            18s only.
+            18s only. Private groups (8+) please{" "}
+            <a href={TOUR_PRIVATE_MAILTO} className="text-[#C8A96E] hover:underline">
+              email {TOUR_EMAIL}
+            </a>
+            .
           </p>
         </FadeUp>
       </div>

@@ -10,6 +10,51 @@ import { HashScroll } from "@/components/HashScroll";
 import { MenuPdfModal, type MenuPdf } from "@/components/MenuPdfModal";
 import { basePath } from "@/lib/basePath";
 
+// ─── Email constants ────────────────────────────────────────────────────────
+// Restaurant + group/event enquiries go to the real UK hospitality inbox.
+// Verified against the UK source (Cloudflare-protected data-cfemail decoded
+// 2026-05-20). DO NOT swap for `[email protected]` — that address
+// does not exist; previous use was a guess and was corrected.
+const RESTAURANT_EMAIL = "[email protected]";
+
+// Pre-filled mailto templates. The user clicks the CTA, their mail client
+// opens with a ready-made enquiry — they only need to fill the blanks (date,
+// party, time) and send. Massive conversion uplift over a blank compose
+// window because the user never has to write the structure themselves.
+const RESTAURANT_RESERVE_MAILTO =
+  `mailto:${RESTAURANT_EMAIL}` +
+  `?subject=${encodeURIComponent("Reservation enquiry — The Rows & Vine")}` +
+  `&body=${encodeURIComponent(
+    "Hello,\n\n" +
+      "I'd like to enquire about a table at The Rows & Vine.\n\n" +
+      "Preferred date: \n" +
+      "Preferred time: \n" +
+      "Party size: \n" +
+      "Any dietary requirements / accessibility needs: \n\n" +
+      "Contact:\n" +
+      "Name: \n" +
+      "Phone: \n\n" +
+      "Thank you.\n"
+  )}`;
+
+const RESTAURANT_GROUP_MAILTO =
+  `mailto:${RESTAURANT_EMAIL}` +
+  `?subject=${encodeURIComponent("Group / private event enquiry — The Rows & Vine")}` +
+  `&body=${encodeURIComponent(
+    "Hello,\n\n" +
+      "I'd like to enquire about a group booking or private event at The Rows & Vine.\n\n" +
+      "Occasion (birthday / wedding / corporate / other): \n" +
+      "Preferred date(s): \n" +
+      "Party size (8+): \n" +
+      "Approximate timing: \n" +
+      "Dietary requirements / accessibility needs: \n" +
+      "Any other details we should know: \n\n" +
+      "Contact:\n" +
+      "Name: \n" +
+      "Phone: \n\n" +
+      "Thank you.\n"
+  )}`;
+
 /**
  * /restaurant — The Rows & Vine Restaurant landing page.
  *
@@ -520,7 +565,7 @@ const FAQ_ITEMS: Array<{ q: string; a: string }> = [
   },
   {
     q: "What if my party is larger than 8 guests?",
-    a: "Tables for 8 or more guests need to be booked by email at [email protected] — we'll plan around your group size and the season.",
+    a: `Tables for 8 or more guests need to be booked by email at ${RESTAURANT_EMAIL} — we'll plan around your group size and the season.`,
   },
   {
     q: "Are children welcome?",
@@ -690,7 +735,9 @@ function ReserveSection() {
         </div>
 
         <div className="reveal flex flex-wrap items-center justify-center gap-3 md:gap-4 mb-12" style={{ transitionDelay: "0.35s" }}>
-          <a href="mailto:[email protected]" className="btn-cta">
+          {/* href uses RESTAURANT_RESERVE_MAILTO — pre-filled subject + body
+              so the user only fills the blanks before sending. */}
+          <a href={RESTAURANT_RESERVE_MAILTO} className="btn-cta">
             Email to Reserve
           </a>
           <a href="tel:+441444242040" className="btn-cta">
@@ -762,23 +809,35 @@ function ReserveWidgetSection() {
           </div>
         </div>
 
+        {/* Cream "reservation card" container. ResDiary's widget renders
+            on a white surface (we have no cross-origin control over its
+            theming), so a hard #0a0a0a frame around it looked stitched-on.
+            Instead we sit the iframe inside a cream card with a gold
+            hairline border — the white widget content blends into the
+            cream bezel, the gold edge integrates with our design system,
+            and a heavy soft shadow grounds the card on the dark page. */}
         <div
-          className="reveal relative bg-[#0a0a0a] border border-white/[0.08] rounded-md overflow-hidden"
+          className="reveal relative bg-[#f5f0e8] border border-[#C8A96E]/40 rounded-md overflow-hidden shadow-[0_24px_60px_-18px_rgba(0,0,0,0.70)]"
           style={{ transitionDelay: "0.35s" }}
         >
           <iframe
             id="resdiary-restaurant"
             title="Reserve a table at The Rows & Vine"
-            src="https://booking.resdiary.com/widget/Standard/RidgeviewWineBar/67732"
+            // `?language=en-GB` is a de-facto convention many ResDiary
+            // widgets respect; if unsupported the widget silently falls
+            // back to browser Accept-Language. Either way we don't make
+            // it worse — and we get English UI for English-speaking
+            // visitors without depending on their browser locale.
+            src="https://booking.resdiary.com/widget/Standard/RidgeviewWineBar/67732?language=en-GB"
             loading="lazy"
             className="w-full block"
-            style={{ minHeight: "720px", border: 0, background: "#fff" }}
+            style={{ minHeight: "720px", border: 0, background: "#f5f0e8" }}
           />
         </div>
 
         <div className="reveal mt-6 text-center" style={{ transitionDelay: "0.45s" }}>
           <p
-            className="font-body text-white/40 leading-relaxed mx-auto"
+            className="font-body text-white/45 leading-relaxed mx-auto"
             style={{
               fontSize: "12.5px",
               fontWeight: 300,
@@ -787,12 +846,12 @@ function ReserveWidgetSection() {
             }}
           >
             Bookings are processed by ResDiary on behalf of Ridgeview. For
-            tables of 8+, private events or weddings please email{" "}
+            tables of 8+, private events or weddings please{" "}
             <a
-              href="mailto:[email protected]"
+              href={RESTAURANT_GROUP_MAILTO}
               className="text-[#C8A96E] hover:underline"
             >
-              [email protected]
+              email {RESTAURANT_EMAIL}
             </a>
             .
           </p>
