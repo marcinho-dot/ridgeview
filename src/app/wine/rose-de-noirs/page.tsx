@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ScrollReset } from "@/components/ScrollReset";
+import { initialVariantIdxFromHash } from "@/lib/cart/variantFromHash";
 import { TestimonialSection } from "@/components/sku/TestimonialSection";
 import { AwardSection } from "@/components/sku/AwardSection";
 import { StickyMobileCTA } from "@/components/sku/StickyMobileCTA";
@@ -765,7 +766,9 @@ const RELATED_WINES = [
 
 export default function RoseDeNoirsPage() {
   const testimonial = getTestimonial("rose-de-noirs");
-  const [variantIdx, setVariantIdx] = useState(0);
+  const [variantIdx, setVariantIdx] = useState(() =>
+    initialVariantIdxFromHash(ROSE_DE_NOIRS_VARIANTS),
+  );
   const activeVariant = ROSE_DE_NOIRS_VARIANTS[variantIdx];
 
   return (

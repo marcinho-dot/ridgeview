@@ -71,6 +71,34 @@ function PageHero() {
           Three decades of English sparkling and still wines, Méthode Traditionnelle
           and hand-harvested at our estate on Ditchling Common.
         </motion.p>
+
+        {/* Cross-link to the Cases landing page — bulk-buyers /
+            gifting / wine-club-curious cohort lands directly on the
+            6-bottle pricing without needing to open a single SKU
+            page first. The underline + arrow treatment matches the
+            "Shop Bottle" CTA at the bottom of each WineGrid card so
+            the two pages feel like one collection. */}
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
+          className="mt-8 md:mt-10"
+        >
+          <a
+            href={`${basePath}/wines/cases`}
+            className="group inline-flex items-center gap-2.5 font-body text-cream uppercase tracking-[0.22em] pb-1 relative hover:text-[#C8A96E] transition-colors duration-400"
+            style={{ fontSize: "11px", fontWeight: 400 }}
+          >
+            <span>Browse Cases · Save 10%</span>
+            <span aria-hidden className="text-[#C8A96E]">
+              →
+            </span>
+            <span
+              aria-hidden
+              className="absolute left-0 right-0 bottom-0 h-px bg-[#C8A96E] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"
+            />
+          </a>
+        </motion.div>
       </div>
     </section>
   );

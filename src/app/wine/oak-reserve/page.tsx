@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ScrollReset } from "@/components/ScrollReset";
+import { initialVariantIdxFromHash } from "@/lib/cart/variantFromHash";
 import { TestimonialSection } from "@/components/sku/TestimonialSection";
 import { StickyMobileCTA } from "@/components/sku/StickyMobileCTA";
 import { PurchaseWidget, type Variant } from "@/components/sku/PurchaseWidget";
@@ -761,7 +762,9 @@ const RELATED_WINES = [
 
 export default function OakReservePage() {
   const testimonial = getTestimonial("oak-reserve");
-  const [variantIdx, setVariantIdx] = useState(0);
+  const [variantIdx, setVariantIdx] = useState(() =>
+    initialVariantIdxFromHash(OAK_RESERVE_VARIANTS),
+  );
   const activeVariant = OAK_RESERVE_VARIANTS[variantIdx];
 
   return (

@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ScrollReset } from "@/components/ScrollReset";
+import { initialVariantIdxFromHash } from "@/lib/cart/variantFromHash";
 import { TestimonialSection } from "@/components/sku/TestimonialSection";
 import { AwardSection } from "@/components/sku/AwardSection";
 import { StickyMobileCTA } from "@/components/sku/StickyMobileCTA";
@@ -819,7 +820,9 @@ const RELATED_WINES = [
 
 export default function BlancDeNoirsPage() {
   const testimonial = getTestimonial("blanc-de-noirs");
-  const [variantIdx, setVariantIdx] = useState(0);
+  const [variantIdx, setVariantIdx] = useState(() =>
+    initialVariantIdxFromHash(BLANC_DE_NOIRS_VARIANTS),
+  );
   const activeVariant = BLANC_DE_NOIRS_VARIANTS[variantIdx];
 
   return (

@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ScrollReset } from "@/components/ScrollReset";
+import { initialVariantIdxFromHash } from "@/lib/cart/variantFromHash";
 import { TestimonialSection } from "@/components/sku/TestimonialSection";
 import { AwardSection } from "@/components/sku/AwardSection";
 import { StickyMobileCTA } from "@/components/sku/StickyMobileCTA";
@@ -839,7 +840,9 @@ export default function BlancDeBlancsPage() {
   const testimonial = getTestimonial("blanc-de-blancs");
   // Variant state lives at the page root so every ATB on the page
   // (hero, ClosingCTA, sticky mobile bar) acts on the SAME selection.
-  const [variantIdx, setVariantIdx] = useState(0);
+  const [variantIdx, setVariantIdx] = useState(() =>
+    initialVariantIdxFromHash(BLANC_DE_BLANCS_VARIANTS),
+  );
   const activeVariant = BLANC_DE_BLANCS_VARIANTS[variantIdx];
 
   return (

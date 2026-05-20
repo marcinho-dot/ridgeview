@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ScrollReset } from "@/components/ScrollReset";
+import { initialVariantIdxFromHash } from "@/lib/cart/variantFromHash";
 import { TestimonialSection } from "@/components/sku/TestimonialSection";
 import { AwardSection } from "@/components/sku/AwardSection";
 import { StickyMobileCTA } from "@/components/sku/StickyMobileCTA";
@@ -888,7 +889,13 @@ export default function BloomsburyPage() {
   // (hero, ClosingCTA, sticky mobile bar) acts on the SAME selection.
   // The PurchaseWidget format selector mutates this via onVariantChange,
   // and the hero bottle image swaps in sync via activeVariant.image.
-  const [variantIdx, setVariantIdx] = useState(0);
+  // Variant index is initialised from the URL hash so deep links
+  // like /wine/bloomsbury#case6 (from /wines/cases) arrive with the
+  // Case variant pre-selected — no flicker, hero bottle swaps to
+  // the case shot on first paint.
+  const [variantIdx, setVariantIdx] = useState(() =>
+    initialVariantIdxFromHash(BLOOMSBURY_VARIANTS),
+  );
   const activeVariant = BLOOMSBURY_VARIANTS[variantIdx];
 
   return (

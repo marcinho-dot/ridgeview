@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ScrollReset } from "@/components/ScrollReset";
+import { initialVariantIdxFromHash } from "@/lib/cart/variantFromHash";
 import { TestimonialSection } from "@/components/sku/TestimonialSection";
 import { AwardSection } from "@/components/sku/AwardSection";
 import { StickyMobileCTA } from "@/components/sku/StickyMobileCTA";
@@ -805,7 +806,9 @@ const RELATED_WINES = [
 
 export default function FitzroviaPage() {
   const testimonial = getTestimonial("fitzrovia");
-  const [variantIdx, setVariantIdx] = useState(0);
+  const [variantIdx, setVariantIdx] = useState(() =>
+    initialVariantIdxFromHash(FITZROVIA_VARIANTS),
+  );
   const activeVariant = FITZROVIA_VARIANTS[variantIdx];
 
   return (

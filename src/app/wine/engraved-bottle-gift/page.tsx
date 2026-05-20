@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ScrollReset } from "@/components/ScrollReset";
+import { initialVariantIdxFromHash } from "@/lib/cart/variantFromHash";
 import { TestimonialSection } from "@/components/sku/TestimonialSection";
 import { StickyMobileCTA } from "@/components/sku/StickyMobileCTA";
 import { PurchaseWidget, type Variant } from "@/components/sku/PurchaseWidget";
@@ -747,7 +748,9 @@ export default function EngravedBottleGiftPage() {
   // No press testimonial for the engraved-bottle gift service.
   // getTestimonial returns undefined → TestimonialSection skipped.
   const testimonial = getTestimonial("engraved-bottle-gift");
-  const [variantIdx, setVariantIdx] = useState(0);
+  const [variantIdx, setVariantIdx] = useState(() =>
+    initialVariantIdxFromHash(ENGRAVED_BOTTLE_VARIANTS),
+  );
   const activeVariant = ENGRAVED_BOTTLE_VARIANTS[variantIdx];
 
   return (
