@@ -511,60 +511,120 @@ function WineGrid() {
   );
 }
 
-// ── Section: View Switch ────────────────────────────────────────────────────
-// Small UX gimmick (added 2026-05-17): pill-toggle between the
-// compact horizontal bottle-row and the editorial card grid. Two
-// modes are mutually exclusive - only one renders at a time so the
-// page reads as a single deliberate composition rather than a
-// scroll-down catalog.
+// ── Section: Gallery Toolbar ────────────────────────────────────────────────
+// Top-right toolbar (2026-05-20): replaces the previous center-aligned
+// pill switch which felt like a primary action even though the two
+// views show the same wines.
+//
+// Three elements, right-aligned:
+//   1. Hint label "Layout" — tiny uppercase tracking, white/35.
+//      Hidden on mobile (cramped viewport).
+//   2. Counter "10 / 10 available" — gold italic kicker, makes
+//      inventory legible before the user scrolls.
+//   3. Icon-only switch — outline SVG (3 lines / 2×2 grid) inside a
+//      square hairline-bordered frame. Active icon = gold bg @ 15%,
+//      cream text. matches our .btn-cta layered-border language.
 
-function ViewSwitch({
+function RowIcon() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.4}
+      strokeLinecap="round"
+      aria-hidden
+    >
+      <line x1="3" y1="4" x2="13" y2="4" />
+      <line x1="3" y1="8" x2="13" y2="8" />
+      <line x1="3" y1="12" x2="13" y2="12" />
+    </svg>
+  );
+}
+
+function GridIcon() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.4}
+      aria-hidden
+    >
+      <rect x="3" y="3" width="4.5" height="4.5" />
+      <rect x="8.5" y="3" width="4.5" height="4.5" />
+      <rect x="3" y="8.5" width="4.5" height="4.5" />
+      <rect x="8.5" y="8.5" width="4.5" height="4.5" />
+    </svg>
+  );
+}
+
+function GalleryToolbar({
   view,
   onChange,
+  count,
+  total,
 }: {
   view: "row" | "grid";
   onChange: (v: "row" | "grid") => void;
+  count: number;
+  total: number;
 }) {
-  const baseBtn =
-    "px-5 py-2 rounded-full font-body uppercase transition-all duration-300";
-  const labelStyle = {
-    fontSize: "11px",
-    letterSpacing: "0.22em",
-    fontWeight: 400,
-  } as const;
   return (
-    <section className="relative bg-[#010101] pt-2 md:pt-4 pb-6 md:pb-8">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-16 flex justify-center">
+    <section className="relative bg-[#010101] pt-0 md:pt-2 pb-4 md:pb-6">
+      <div className="max-w-[1500px] mx-auto px-6 md:px-12 flex items-center justify-end gap-4 md:gap-5">
+        {/* Hint label — desktop only, explains the icons */}
+        <span
+          className="hidden md:inline font-body text-white/35 uppercase tracking-[0.22em]"
+          style={{ fontSize: "10px", fontWeight: 400 }}
+        >
+          Layout
+        </span>
+
+        {/* Inventory counter — gold tracking, mobile keeps it visible */}
+        <span
+          className="font-body text-[#C8A96E]/80 uppercase tracking-[0.18em]"
+          style={{ fontSize: "10px", fontWeight: 400 }}
+          aria-label={`${count} of ${total} bottles available`}
+        >
+          {count} / {total} available
+        </span>
+
+        {/* Icon switch — outline SVGs, square hairline frame */}
         <div
           role="group"
           aria-label="Catalog view"
-          className="inline-flex items-center gap-1 border border-white/20 rounded-full p-1 bg-white/[0.03] backdrop-blur-sm"
+          className="inline-flex items-center border border-white/15 rounded-sm p-0.5 bg-white/[0.03] backdrop-blur-sm"
         >
           <button
             type="button"
             onClick={() => onChange("row")}
             aria-pressed={view === "row"}
-            className={`${baseBtn} ${
+            title="Row view — compact horizontal strip"
+            className={`p-1.5 rounded-sm transition-colors duration-300 ${
               view === "row"
                 ? "bg-[#C8A96E]/15 text-cream"
                 : "text-white/55 hover:text-white/85"
             }`}
-            style={labelStyle}
           >
-            Row
+            <RowIcon />
           </button>
           <button
             type="button"
             onClick={() => onChange("grid")}
             aria-pressed={view === "grid"}
-            className={`${baseBtn} ${
+            title="Grid view — editorial cards"
+            className={`p-1.5 rounded-sm transition-colors duration-300 ${
               view === "grid"
                 ? "bg-[#C8A96E]/15 text-cream"
                 : "text-white/55 hover:text-white/85"
             }`}
-            style={labelStyle}
           >
-            Cards
+            <GridIcon />
           </button>
         </div>
       </div>
@@ -726,7 +786,12 @@ export default function WinesPage() {
       <Navbar />
       <main>
         <PageHero />
-        <ViewSwitch view={view} onChange={setView} />
+        <GalleryToolbar
+          view={view}
+          onChange={setView}
+          count={wines.length}
+          total={wines.length}
+        />
         {view === "row" ? (
           <WineLegend />
         ) : (
