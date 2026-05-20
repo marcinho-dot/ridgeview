@@ -278,6 +278,79 @@ export function Footer({ withBackground = true }: FooterProps = {}) {
         </div>
       </div>
 
+      {/* Credentials strip — B Corp + SWGB visible above the legal links.
+          Two editorial badges, gold hairline border, ridgeview tone. Builds
+          trust before the legal small-print row that follows. Hover shifts
+          the badge to a soft gold-tinted background. */}
+      <div className="border-t border-white/[0.06]">
+        <div className="max-w-[1600px] mx-auto px-6 md:px-16 py-7 md:py-8 flex flex-col md:flex-row items-center justify-center md:justify-start gap-5 md:gap-8">
+          <p
+            className="font-display italic text-white/40 tracking-widest text-center md:text-left shrink-0"
+            style={{ fontSize: "11px", letterSpacing: "0.25em", textTransform: "uppercase", fontWeight: 400 }}
+          >
+            [ Credentials ]
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
+            {/* B Corp Certified — text-based pill */}
+            <a
+              href="/sustainability"
+              className="group inline-flex items-center gap-2.5 border border-[#C8A96E]/30 hover:border-[#C8A96E]/70 hover:bg-[#C8A96E]/[0.06] rounded-sm px-4 py-2.5 transition-all duration-400"
+            >
+              <span
+                aria-hidden
+                className="font-display italic text-[#C8A96E] leading-none group-hover:scale-110 transition-transform duration-400"
+                style={{ fontSize: "20px", fontWeight: 700 }}
+              >
+                B
+              </span>
+              <span className="flex flex-col leading-tight">
+                <span
+                  className="font-body text-cream/85 group-hover:text-cream uppercase tracking-[0.22em] transition-colors"
+                  style={{ fontSize: "10px", fontWeight: 500 }}
+                >
+                  Certified B Corp
+                </span>
+                <span
+                  className="font-body text-white/40 group-hover:text-white/60 tracking-[0.15em] transition-colors mt-0.5"
+                  style={{ fontSize: "9px", fontWeight: 300 }}
+                >
+                  Since 2023
+                </span>
+              </span>
+            </a>
+
+            {/* SWGB Founder Member — uses local badge asset */}
+            <a
+              href="/sustainability"
+              className="group inline-flex items-center gap-2.5 border border-[#C8A96E]/30 hover:border-[#C8A96E]/70 hover:bg-[#C8A96E]/[0.06] rounded-sm px-4 py-2.5 transition-all duration-400"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/awards/sustainable-wines-gb-founder-member.png"
+                alt="Sustainable Wines of Great Britain Founder Member"
+                className="h-9 w-auto opacity-80 group-hover:opacity-100 transition-opacity duration-400"
+                loading="lazy"
+              />
+              <span className="flex flex-col leading-tight">
+                <span
+                  className="font-body text-cream/85 group-hover:text-cream uppercase tracking-[0.22em] transition-colors"
+                  style={{ fontSize: "10px", fontWeight: 500 }}
+                >
+                  SWGB Founder
+                </span>
+                <span
+                  className="font-body text-white/40 group-hover:text-white/60 tracking-[0.15em] transition-colors mt-0.5"
+                  style={{ fontSize: "9px", fontWeight: 300 }}
+                >
+                  Gold Recertified
+                </span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+
       {/* Bottom bar - same 1600px constraint as the top grid */}
       <div className="border-t border-white/10">
         <div className="max-w-[1600px] mx-auto px-6 md:px-16 py-4 md:py-5 flex flex-col md:flex-row items-center gap-3 md:gap-0 md:justify-between">
