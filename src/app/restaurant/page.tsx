@@ -690,11 +690,22 @@ function FaqSection() {
 }
 
 // ── Section: Reservation CTA ───────────────────────────────────────────────
+// ── Section: Reservations — combined editorial + ResDiary widget ──────────
+//
+// Single conversion surface that consolidates what used to be two
+// stacked sections (editorial Reserve CTA + standalone widget). The
+// widget is the PRIMARY path (instant slot picker), the email/call
+// pair sits underneath as a fallback for users who don't trust embeds,
+// and the 8+/private-event disclaimer closes the section.
+//
+// DSGVO note: ResDiary sets cookies and loads third-party JS. The
+// iframe is lazy-loaded so the widget only initialises when scrolled
+// into view, but a real consent-gate is a follow-up task.
 function ReserveSection() {
   return (
     <section
       id="reserve"
-      className="relative bg-[#010101] py-24 md:py-32 border-t border-white/[0.06] overflow-hidden scroll-mt-24"
+      className="relative bg-[#010101] py-20 md:py-28 border-t border-white/[0.06] overflow-hidden scroll-mt-24"
     >
       <div
         className="absolute inset-0 pointer-events-none"
@@ -704,119 +715,43 @@ function ReserveSection() {
         }}
       />
 
-      <div className="relative max-w-[1000px] mx-auto px-6 md:px-16 text-center">
-        <div className="reveal" style={{ transitionDelay: "0.05s" }}>
-          <p
-            className="font-display italic text-[#C8A96E] tracking-widest mb-5"
-            style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
-          >
-            [ Reservations ]
-          </p>
-        </div>
-        <div className="reveal" style={{ transitionDelay: "0.15s" }}>
-          <h2
-            className="font-display italic text-cream leading-[1.08] mb-7"
-            style={{ fontSize: "clamp(34px, 4.5vw, 64px)", fontWeight: 400 }}
-          >
-            Reserve your <span className="text-[#C8A96E]">table</span>.
-          </h2>
-        </div>
-        <div className="reveal" style={{ transitionDelay: "0.25s" }}>
-          <p
-            className="font-body text-white/65 leading-[1.85] mx-auto mb-10"
-            style={{
-              fontSize: "clamp(14px, 1.3vw, 16px)",
-              fontWeight: 300,
-              maxWidth: "560px",
-            }}
-          >
-            Advance reservations are recommended, especially during busy
-            periods. Walk-ins welcome subject to availability.
-          </p>
-        </div>
-
-        <div className="reveal flex flex-wrap items-center justify-center gap-3 md:gap-4 mb-12" style={{ transitionDelay: "0.35s" }}>
-          {/* href uses RESTAURANT_RESERVE_MAILTO — pre-filled subject + body
-              so the user only fills the blanks before sending. */}
-          <a href={RESTAURANT_RESERVE_MAILTO} className="btn-cta">
-            Email to Reserve
-          </a>
-          <a href="tel:+441444242040" className="btn-cta">
-            Call 01444 242040
-          </a>
-        </div>
-
-        <div className="reveal" style={{ transitionDelay: "0.45s" }}>
-          <p
-            className="font-body text-white/45 leading-relaxed"
-            style={{ fontSize: "12.5px", fontWeight: 300, letterSpacing: "0.04em" }}
-          >
-            For tables of 8 or more, weddings and private events please email
-            us — we&rsquo;ll plan around your group size and the season.
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ── Section: ResDiary widget — live booking inline ────────────────────────
-//
-// Embeds the same ResDiary microsite the UK site uses
-// (RidgeviewWineBar/67732). Sits directly UNDER ReserveSection so the
-// editorial email/phone CTAs remain the first conversion touch and the
-// real-time slot picker is a second-screen affordance for users who
-// want to commit on the spot.
-//
-// DSGVO note: ResDiary sets cookies and loads third-party JS. The
-// iframe is lazy-loaded so the widget only initialises when scrolled
-// into view, but a real consent-gate is a follow-up task.
-function ReserveWidgetSection() {
-  return (
-    <section
-      id="book-online"
-      className="relative bg-[#010101] py-16 md:py-20 border-t border-white/[0.06] scroll-mt-24"
-    >
-      <div className="max-w-[1100px] mx-auto px-6 md:px-16">
-        <div className="text-center mb-10 md:mb-12">
+      <div className="relative max-w-[1100px] mx-auto px-6 md:px-16">
+        {/* Header — editorial kicker + h2 + combined subline */}
+        <div className="text-center mb-10 md:mb-14">
           <div className="reveal" style={{ transitionDelay: "0.05s" }}>
             <p
-              className="font-display italic text-[#C8A96E] tracking-widest mb-4"
+              className="font-display italic text-[#C8A96E] tracking-widest mb-5"
               style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
             >
-              [ Live availability ]
+              [ Reservations ]
             </p>
           </div>
           <div className="reveal" style={{ transitionDelay: "0.15s" }}>
-            <h3
-              className="font-display italic text-cream leading-[1.08] mb-5"
-              style={{ fontSize: "clamp(28px, 3.2vw, 44px)", fontWeight: 400 }}
+            <h2
+              className="font-display italic text-cream leading-[1.08] mb-6"
+              style={{ fontSize: "clamp(34px, 4.5vw, 64px)", fontWeight: 400 }}
             >
-              Check a <span className="text-[#C8A96E]">table</span>.
-            </h3>
+              Reserve a <span className="text-[#C8A96E]">table</span>.
+            </h2>
           </div>
           <div className="reveal" style={{ transitionDelay: "0.25s" }}>
-            {/* Two-line subheadline. Line 1 = the action ("what you do"),
-                line 2 = the promise ("what you get"). Forced break via
-                <br /> keeps the split editorial even at wider viewports
-                where it would otherwise stay on one line. */}
             <p
-              className="font-body text-white/55 leading-[1.7] mx-auto"
+              className="font-body text-white/65 leading-[1.85] mx-auto"
               style={{
-                fontSize: "clamp(13px, 1.25vw, 15px)",
+                fontSize: "clamp(13px, 1.3vw, 16px)",
                 fontWeight: 300,
-                maxWidth: "520px",
+                maxWidth: "580px",
               }}
             >
-              Pick a date, party size and time.
-              <br />
-              Confirmed instantly by email through our booking partner.
+              Pick a date, party size and time — confirmed instantly by email
+              through our booking partner. Walk-ins welcome subject to
+              availability.
             </p>
           </div>
         </div>
 
-        {/* iframe clipped to rounded corners with soft shadow only —
-            no border, no background. Dark → white widget edge-to-edge. */}
+        {/* ResDiary widget — primary conversion path. Clipped to rounded
+            corners with soft shadow; no border or cream background. */}
         <div
           className="reveal relative rounded-md overflow-hidden shadow-[0_24px_60px_-18px_rgba(0,0,0,0.70)]"
           style={{ transitionDelay: "0.35s" }}
@@ -831,18 +766,35 @@ function ReserveWidgetSection() {
           />
         </div>
 
-        <div className="reveal mt-6 text-center" style={{ transitionDelay: "0.45s" }}>
+        {/* Fallback CTAs — for users who prefer not to use the widget. */}
+        <div
+          className="reveal mt-10 flex flex-wrap items-center justify-center gap-3 md:gap-4"
+          style={{ transitionDelay: "0.45s" }}
+        >
+          <a href={RESTAURANT_RESERVE_MAILTO} className="btn-cta">
+            Email to Reserve
+          </a>
+          <a href="tel:+441444242040" className="btn-cta">
+            Call 01444 242040
+          </a>
+        </div>
+
+        {/* Disclaimer — 8+ groups, weddings, private events. */}
+        <div
+          className="reveal mt-6 text-center"
+          style={{ transitionDelay: "0.55s" }}
+        >
           <p
             className="font-body text-white/45 leading-relaxed mx-auto"
             style={{
               fontSize: "12.5px",
               fontWeight: 300,
               letterSpacing: "0.02em",
-              maxWidth: "560px",
+              maxWidth: "640px",
             }}
           >
             Bookings are processed by ResDiary on behalf of Ridgeview. For
-            tables of 8+, private events or weddings please{" "}
+            tables of 8+, weddings or private events please{" "}
             <a
               href={RESTAURANT_GROUP_MAILTO}
               className="text-[#C8A96E] hover:underline"
@@ -941,7 +893,6 @@ export default function RestaurantPage() {
         <ScrollReset><VisitInfoSection /></ScrollReset>
         <ScrollReset><FaqSection /></ScrollReset>
         <ScrollReset><ReserveSection /></ScrollReset>
-        <ScrollReset><ReserveWidgetSection /></ScrollReset>
         <ScrollReset><ContextLinksSection /></ScrollReset>
       </main>
       <Footer />
