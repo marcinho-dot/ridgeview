@@ -163,6 +163,40 @@ function PageHeader() {
         >
           Visit the estate that established English sparkling in the méthode traditionnelle. Planted 1995. An hour from London, twenty minutes from Brighton.
         </motion.p>
+
+        {/* Hero CTA — anchors to VisitPanels (#visit "Book Your Experience")
+            so visitors land on the tour grid without scrolling. Uses the
+            standard .btn-cta with a small chevron-down to telegraph scroll
+            intent. Animation continues the cascade (kicker → h1 → subline
+            → CTA) with a slightly longer delay so the CTA feels like the
+            arrival point of the hero's read-flow. */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.05, ease: "easeOut" }}
+          className="mt-7 md:mt-9"
+        >
+          <a
+            href="#visit"
+            className="btn-cta inline-flex items-center gap-3"
+            aria-label="Scroll to Book Your Experience"
+          >
+            <span>Book Your Experience</span>
+            <svg
+              width="11"
+              height="11"
+              viewBox="0 0 12 12"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M6 2v8M2.5 6.5L6 10l3.5-3.5" />
+            </svg>
+          </a>
+        </motion.div>
       </motion.div>
     </section>
   );
