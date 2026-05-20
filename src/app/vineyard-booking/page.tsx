@@ -14,10 +14,10 @@ import { HashScroll } from "@/components/HashScroll";
 import { basePath } from "@/lib/basePath";
 
 // ─── Email constants ────────────────────────────────────────────────────────
-// Tours inbox is the real UK address — verified against the UK source
-// (decoded from data-cfemail 2026-05-20). Pre-filled mailto template lets
-// the user only fill the blanks (date, tour type, party) before sending.
-const TOUR_EMAIL = "[email protected]";
+// Tour enquiries go to the dedicated tours inbox. The pre-filled mailto
+// template lets the user only fill the blanks (date, tour type, party)
+// before sending. If tours@ bounces, fall back to info@ridgeview.co.uk.
+const TOUR_EMAIL = "tours@ridgeview.co.uk";
 
 const TOUR_PRIVATE_MAILTO =
   `mailto:${TOUR_EMAIL}` +

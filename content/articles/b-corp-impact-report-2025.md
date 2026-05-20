@@ -205,4 +205,4 @@ Ridgeview has always been about more than exceptional wine – it’s about brin
 
 We’re proud of the progress shared here but the work is ongoing. This report marks a moment in time, part of a much longer journey. We’ll continue learning, listening and making considered choices to do better for people, place and planet. We welcome any feedback, reflections or ideas on how we can do better at any stage of the winemaking journey, from grape to glass and everything in between.
 
-Email [[email protected]](/cdn-cgi/l/email-protection#cca5a2aaa38cbea5a8aba9baa5a9bbe2afa3e2b9a7) to help shape what comes next.
+Email [info@ridgeview.co.uk](mailto:info@ridgeview.co.uk) to help shape what comes next.

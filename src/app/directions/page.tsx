@@ -166,7 +166,7 @@ const TRANSPORT_MODES = [
     label: "By Coach",
     headline: "Group Travel",
     body: "Cost-effective for larger parties and corporate events. RDH Coaches (eco-friendly) and CT Sussex Transport (community charity offering private fleet hire) operate locally.",
-    detail: "Email [email protected] for group arrangements",
+    detail: "Email info@ridgeview.co.uk for group arrangements",
   },
   {
     label: "By Car Share",
@@ -461,17 +461,17 @@ function AccessibilitySection() {
             For additional mobility or access requirements, please get in touch in
             advance — tours{" "}
             <a
-              href="mailto:[email protected]"
+              href="mailto:tours@ridgeview.co.uk"
               className="link-underline text-cream hover:text-[#C8A96E] transition-colors"
             >
-              [email protected]
+              tours@ridgeview.co.uk
             </a>
             , restaurant{" "}
             <a
-              href="mailto:[email protected]"
+              href="mailto:info@ridgeview.co.uk"
               className="link-underline text-cream hover:text-[#C8A96E] transition-colors"
             >
-              [email protected]
+              info@ridgeview.co.uk
             </a>
             , or call{" "}
             <a

@@ -15,7 +15,7 @@ More information on these awards can be found at: http://businesswomenexcellence
 
 ## Media requests, images and interviews
 
-These can be arranged by contacting Astrid Lewis on 07598269842 ([[email protected]](/cdn-cgi/l/email-protection#66071512140f02261516140f121c0b07140d03120f080148050948130d)), Elizabeth Cook ([[email protected]](/cdn-cgi/l/email-protection#8beee7e2f1eae9eeffe3cbf8fbf9e2fff1e6eaf9e0eeffe2e5eca5e8e4a5fee0)) or Mardi Roberts ([[email protected]](/cdn-cgi/l/email-protection#305d51425459704259545755465955471e535f1e455b)). For US distribution enquiries please contact [[email protected]](/cdn-cgi/l/email-protection#3c4f55504a555d7c4e55585b594a55594b125f53124957)
+These can be arranged by contacting Astrid Lewis on 07598269842 ([astrid@spitzmarketing.co.uk](mailto:astrid@spitzmarketing.co.uk)), Elizabeth Cook ([elizabeth@spitzmarketing.co.uk](mailto:elizabeth@spitzmarketing.co.uk)) or Mardi Roberts ([mardi@ridgeview.co.uk](mailto:mardi@ridgeview.co.uk)). For US distribution enquiries please contact [silvia@ridgeview.co.uk](mailto:silvia@ridgeview.co.uk)
 
 ## Notes for editors: Ridgeview Wine Estate
 

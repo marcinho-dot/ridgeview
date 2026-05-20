@@ -11,11 +11,11 @@ import { MenuPdfModal, type MenuPdf } from "@/components/MenuPdfModal";
 import { basePath } from "@/lib/basePath";
 
 // ─── Email constants ────────────────────────────────────────────────────────
-// Restaurant + group/event enquiries go to the real UK hospitality inbox.
-// Verified against the UK source (Cloudflare-protected data-cfemail decoded
-// 2026-05-20). DO NOT swap for `[email protected]` — that address
-// does not exist; previous use was a guess and was corrected.
-const RESTAURANT_EMAIL = "[email protected]";
+// Restaurant + group/event enquiries route to the general info inbox
+// (verified real address, decoded from Cloudflare data-cfemail on the UK
+// source). No dedicated `restaurant@` or `hospitality@` address has been
+// confirmed yet — pending confirmation from Ridgeview management.
+const RESTAURANT_EMAIL = "info@ridgeview.co.uk";
 
 // Pre-filled mailto templates. The user clicks the CTA, their mail client
 // opens with a ready-made enquiry — they only need to fill the blanks (date,
