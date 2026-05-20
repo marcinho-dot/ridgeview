@@ -36,14 +36,18 @@ import { basePath } from "@/lib/basePath";
 // ── Section: Hero with autoplay drone video ────────────────────────────────
 function RestaurantHero() {
   return (
-    <section className="relative h-screen min-h-[640px] w-full overflow-hidden">
+    <section className="relative h-screen min-h-[640px] w-full overflow-hidden bg-[#010101]">
+      {/* No poster image — flashed visibly between paint and video
+          autoplay (jarring on slow connections). Solid black bg
+          stays under the video; the video fades in via autoplay
+          once it has decoded enough frames. Looks cleaner than a
+          poster→video swap. */}
       <video
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
-        poster={`${basePath}/images/restaurant/banner-vineyard.webp`}
         className="absolute inset-0 w-full h-full object-cover"
       >
         <source src={`${basePath}/videos/rows-vine-hero.mp4`} type="video/mp4" />
@@ -201,22 +205,40 @@ function AtmosphereBanner() {
         alt="The Rows & Vine restaurant tables looking out over the vineyard at sunset"
         className="absolute inset-0 w-full h-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/55 pointer-events-none" />
 
-      {/* Pull-quote overlay — editorial cue rather than a marketing
-          panel. Centred, light gold, lots of breathing room. */}
+      {/* Overlay stack tuned 2026-05-20 for text legibility.
+          - Base vertical gradient: heavier at top + bottom, lets the
+            middle of the image breathe.
+          - Center radial darken: a focused vignette under the pull-
+            quote that pulls the bright green vines back into shadow
+            so the cream + gold typography reads clearly without
+            losing the vineyard backdrop. */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/65 pointer-events-none" />
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 55% 50% at 50% 50%, rgba(0,0,0,0.55) 0%, transparent 70%)",
+        }}
+      />
+
       <div className="absolute inset-0 flex items-center justify-center px-6 md:px-16">
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-          className="font-display italic text-cream/90 text-center leading-[1.25]"
+          className="font-display italic text-cream text-center leading-[1.25]"
           style={{
             fontSize: "clamp(22px, 2.8vw, 40px)",
             fontWeight: 400,
             maxWidth: "780px",
-            textShadow: "0 2px 22px rgba(0,0,0,0.65)",
+            // Triple-layered text shadow — heavy inner core for
+            // contrast, soft outer halo for atmosphere, far blur
+            // glow for any remaining bright image patches.
+            textShadow:
+              "0 2px 4px rgba(0,0,0,0.95), 0 4px 18px rgba(0,0,0,0.85), 0 0 40px rgba(0,0,0,0.7)",
           }}
         >
           Every occasion deserves something{" "}
@@ -235,11 +257,23 @@ const MENUS: MenuPdf[] = [
   { label: "Drinks List", href: "/docs/restaurant/drinks-list.pdf" },
 ];
 
-const MENU_DETAILS: Record<string, string> = {
-  "Food Menu": "Seasonal sharing plates · Spring 2026",
-  "Sunday Menu": "Sunday roast & seasonal feast",
-  "Wine List": "Ridgeview cellar + global selection",
-  "Drinks List": "Cocktails, soft drinks & spirits",
+const MENU_DETAILS: Record<string, { detail: string; image: string }> = {
+  "Food Menu": {
+    detail: "Seasonal sharing plates · Spring 2026",
+    image: "/images/restaurant/bloomsbury-oysters.webp",
+  },
+  "Sunday Menu": {
+    detail: "Sunday roast & seasonal feast",
+    image: "/images/restaurant/restaurant-interior.webp",
+  },
+  "Wine List": {
+    detail: "Ridgeview cellar + global selection",
+    image: "/products/bloomsbury.png",
+  },
+  "Drinks List": {
+    detail: "Cocktails, soft drinks & spirits",
+    image: "/images/restaurant/restaurant-summer-view.webp",
+  },
 };
 
 function MenuViewIcon() {
@@ -298,51 +332,68 @@ function MenusSection({ onOpen }: { onOpen: (m: MenuPdf) => void }) {
           </div>
         </div>
 
-        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-7 max-w-[960px] mx-auto">
-          {MENUS.map((m, i) => (
-            <motion.li
-              key={m.label}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{
-                duration: 0.7,
-                delay: 0.05 + (i % 2) * 0.08,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-            >
-              <button
-                type="button"
-                onClick={() => onOpen(m)}
-                className="group w-full flex items-center gap-5 md:gap-6 p-6 md:p-7 bg-[#0d0d0d] border border-white/[0.08] hover:border-[#C8A96E]/40 hover:bg-[#C8A96E]/[0.03] rounded-md transition-all duration-400 text-left"
+        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 max-w-[1100px] mx-auto">
+          {MENUS.map((m, i) => {
+            const info = MENU_DETAILS[m.label];
+            return (
+              <motion.li
+                key={m.label}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{
+                  duration: 0.7,
+                  delay: 0.05 + (i % 2) * 0.08,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
               >
-                <span className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-sm border border-[#C8A96E]/30 group-hover:border-[#C8A96E]/70 bg-[#C8A96E]/[0.04] group-hover:bg-[#C8A96E]/[0.10] flex items-center justify-center text-[#C8A96E]/80 group-hover:text-[#C8A96E] transition-colors duration-400">
-                  <MenuViewIcon />
-                </span>
-                <div className="flex-1 min-w-0">
-                  <p
-                    className="font-display italic text-cream group-hover:text-white transition-colors duration-400 leading-[1.15] mb-1"
-                    style={{ fontSize: "clamp(20px, 2vw, 26px)", fontWeight: 400 }}
-                  >
-                    {m.label}
-                  </p>
-                  <p
-                    className="font-body text-white/45 group-hover:text-white/65 transition-colors duration-400"
-                    style={{ fontSize: "13px", fontWeight: 300 }}
-                  >
-                    {MENU_DETAILS[m.label]}
-                  </p>
-                </div>
-                <span
-                  aria-hidden
-                  className="font-body text-[#C8A96E]/60 group-hover:text-[#C8A96E] uppercase tracking-[0.2em] transition-colors duration-400"
-                  style={{ fontSize: "10px" }}
+                <button
+                  type="button"
+                  onClick={() => onOpen(m)}
+                  className="group w-full bg-[#0d0d0d] border border-white/[0.08] hover:border-[#C8A96E]/40 rounded-md transition-all duration-400 text-left overflow-hidden"
                 >
-                  View
-                </span>
-              </button>
-            </motion.li>
-          ))}
+                  {/* Image-first layout — atmospheric food/wine
+                      photography sets the tone for each menu. Aspect
+                      16:9 reads as a magazine plate. */}
+                  <div className="relative aspect-[16/9] overflow-hidden bg-[#0a0a0a]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`${basePath}${info.image}`}
+                      alt=""
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.04]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent transition-colors duration-700 group-hover:from-black/40" />
+                  </div>
+
+                  {/* Caption row */}
+                  <div className="flex items-center gap-4 md:gap-5 p-5 md:p-6">
+                    <div className="flex-1 min-w-0">
+                      <p
+                        className="font-display italic text-cream group-hover:text-white transition-colors duration-400 leading-[1.15] mb-1"
+                        style={{ fontSize: "clamp(20px, 2vw, 26px)", fontWeight: 400 }}
+                      >
+                        {m.label}
+                      </p>
+                      <p
+                        className="font-body text-white/45 group-hover:text-white/65 transition-colors duration-400"
+                        style={{ fontSize: "13px", fontWeight: 300 }}
+                      >
+                        {info.detail}
+                      </p>
+                    </div>
+                    <span
+                      aria-hidden
+                      className="flex-shrink-0 inline-flex items-center gap-1.5 font-body text-[#C8A96E]/70 group-hover:text-[#C8A96E] uppercase tracking-[0.2em] transition-colors duration-400"
+                      style={{ fontSize: "10px" }}
+                    >
+                      <MenuViewIcon />
+                      View
+                    </span>
+                  </div>
+                </button>
+              </motion.li>
+            );
+          })}
         </ul>
       </div>
     </section>

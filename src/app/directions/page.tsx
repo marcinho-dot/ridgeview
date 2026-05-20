@@ -152,15 +152,27 @@ const TRANSPORT_MODES = [
   },
   {
     label: "By Car",
-    headline: "Visitor Parking + EV",
-    body: "Dedicated visitor parking. Three electric charging points in our car park (Porsche partnership; Podpoint and ChargeYourCar networks). Dedicated disabled spaces close to the entrance.",
-    detail: "Free parking. EV charging available on arrival",
+    headline: "Visitor Parking",
+    body: "Dedicated visitor parking on arrival. Dedicated disabled spaces close to the entrance. From Brighton 10 minutes north on the A23 / Folders Lane.",
+    detail: "Free parking · No advance booking needed",
+  },
+  {
+    label: "Electric Car",
+    headline: "Three EV Chargers",
+    body: "Three electric charging points in our visitor car park — installed in partnership with Porsche. Available on Podpoint and ChargeYourCar networks. Charge while you taste.",
+    detail: "Podpoint + ChargeYourCar",
   },
   {
     label: "By Coach",
     headline: "Group Travel",
     body: "Cost-effective for larger parties and corporate events. RDH Coaches (eco-friendly) and CT Sussex Transport (community charity offering private fleet hire) operate locally.",
     detail: "Email [email protected] for group arrangements",
+  },
+  {
+    label: "By Car Share",
+    headline: "Lift Share",
+    body: "Liftshare and the West Sussex Car Sharing Scheme are both free to join — reduce emissions and meet fellow guests before you arrive. Single-occupancy car trips are one of the world's biggest sources of greenhouse gases.",
+    detail: "liftshare.com · westsussexcarshare.com",
   },
 ];
 
@@ -230,6 +242,24 @@ function ModeIcon({ label }: { label: string }) {
         <path d="M3 9h18" />
         <circle cx="7" cy="19" r="2" />
         <circle cx="17" cy="19" r="2" />
+      </svg>
+    );
+  if (label === "Electric Car")
+    return (
+      <svg {...common}>
+        <path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2" />
+        <circle cx="6.5" cy="16.5" r="2.5" />
+        <circle cx="16.5" cy="16.5" r="2.5" />
+        <path d="M12 4l-2 4h3l-2 4" />
+      </svg>
+    );
+  if (label === "By Car Share")
+    return (
+      <svg {...common}>
+        <path d="M16 11a4 4 0 0 0-8 0" />
+        <circle cx="8" cy="7" r="3" />
+        <circle cx="16" cy="7" r="3" />
+        <path d="M2 21v-2a4 4 0 0 1 4-4h12a4 4 0 0 1 4 4v2" />
       </svg>
     );
   return null;
@@ -458,7 +488,129 @@ function AccessibilitySection() {
   );
 }
 
-// ── Section: Return rail ───────────────────────────────────────────────────
+// ── Section: Opening hours summary ────────────────────────────────────────
+function OpeningHoursSection() {
+  return (
+    <section className="relative bg-[#0a0a0a] py-16 md:py-20 border-t border-white/[0.06]">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-16">
+        <div className="grid grid-cols-1 md:grid-cols-[5fr_7fr] gap-10 md:gap-16 items-start">
+          <div>
+            <div className="reveal" style={{ transitionDelay: "0.05s" }}>
+              <p
+                className="font-display italic text-[#C8A96E] tracking-widest mb-5"
+                style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
+              >
+                [ When to Visit ]
+              </p>
+            </div>
+            <div className="reveal" style={{ transitionDelay: "0.15s" }}>
+              <h2
+                className="font-display italic text-cream leading-[1.08]"
+                style={{ fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 400 }}
+              >
+                Opening <span className="text-[#C8A96E]">hours</span>.
+              </h2>
+            </div>
+          </div>
+
+          <ul className="space-y-4 md:space-y-5">
+            {[
+              { venue: "Wine Bar & Shop", days: "Thursday – Monday", time: "10:30 – 16:00" },
+              { venue: "The Rows & Vine", days: "Thursday – Monday", time: "11:00 – 18:30", note: "Spring & Summer only" },
+              { venue: "Office & Winery", days: "Monday – Friday", time: "08:00 – 16:30" },
+              { venue: "Tours & Tastings", days: "By appointment", time: "" },
+            ].map((v) => (
+              <li
+                key={v.venue}
+                className="border-b border-white/[0.08] pb-4 md:pb-5"
+              >
+                <p
+                  className="font-body text-cream mb-1"
+                  style={{ fontSize: "14px", fontWeight: 400 }}
+                >
+                  {v.venue}
+                </p>
+                <div className="flex justify-between items-baseline gap-3">
+                  <span
+                    className="font-body text-white/55"
+                    style={{ fontSize: "13.5px", fontWeight: 300 }}
+                  >
+                    {v.days}
+                  </span>
+                  <span
+                    className="font-body text-white/65"
+                    style={{ fontSize: "13.5px", fontWeight: 300 }}
+                  >
+                    {v.time}
+                  </span>
+                </div>
+                {v.note && (
+                  <p
+                    className="font-body text-[#C8A96E]/70 mt-1"
+                    style={{ fontSize: "11px", fontWeight: 300, letterSpacing: "0.04em" }}
+                  >
+                    {v.note}
+                  </p>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ── Section: Sustainable Staycation ───────────────────────────────────────
+function StaycationSection() {
+  return (
+    <section className="relative bg-[#010101] py-16 md:py-20 border-t border-white/[0.06]">
+      <div className="max-w-[1100px] mx-auto px-6 md:px-16 text-center">
+        <div className="reveal" style={{ transitionDelay: "0.05s" }}>
+          <p
+            className="font-display italic text-[#C8A96E] tracking-widest mb-5"
+            style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
+          >
+            [ Sustainable Staycation ]
+          </p>
+        </div>
+        <div className="reveal" style={{ transitionDelay: "0.15s" }}>
+          <h2
+            className="font-display italic text-cream leading-[1.08] mb-6"
+            style={{ fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 400 }}
+          >
+            Make a weekend of it{" "}
+            <span className="text-[#C8A96E]">in the South Downs</span>.
+          </h2>
+        </div>
+        <div className="reveal" style={{ transitionDelay: "0.25s" }}>
+          <p
+            className="font-body text-white/65 leading-[1.85] mx-auto mb-8"
+            style={{
+              fontSize: "clamp(14px, 1.3vw, 16px)",
+              fontWeight: 300,
+              maxWidth: "620px",
+            }}
+          >
+            Stay close to Ridgeview at one of six hand-picked properties in
+            and around the South Downs — luxury hotels, country manors and
+            award-winning pubs with rooms.
+          </p>
+        </div>
+        <div className="reveal" style={{ transitionDelay: "0.35s" }}>
+          <a
+            href={`${basePath}/vineyard-booking/#nearby-accommodation`}
+            className="btn-cta"
+          >
+            View Nearby Accommodation
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ── Section: Find Out More — cross-page rail ──────────────────────────────
 function ReturnRailSection() {
   const links = [
     {
@@ -471,11 +623,34 @@ function ReturnRailSection() {
       blurb: "Alfresco dining among the vines.",
       href: "/restaurant",
     },
+    {
+      label: "Wine Bar & Shop",
+      blurb: "A taste of Ridgeview, on the day.",
+      href: "/vineyard-booking",
+    },
   ];
   return (
     <section className="relative bg-[#010101] py-16 md:py-20 border-t border-white/[0.06]">
-      <div className="max-w-[1100px] mx-auto px-6 md:px-16">
-        <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+        <div className="text-center mb-10 md:mb-14 max-w-[640px] mx-auto">
+          <div className="reveal" style={{ transitionDelay: "0.05s" }}>
+            <p
+              className="font-display italic text-[#C8A96E] tracking-widest mb-5"
+              style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
+            >
+              [ Find Out More ]
+            </p>
+          </div>
+          <div className="reveal" style={{ transitionDelay: "0.15s" }}>
+            <h2
+              className="font-display italic text-cream leading-[1.08]"
+              style={{ fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 400 }}
+            >
+              While you&rsquo;re <span className="text-[#C8A96E]">here</span>.
+            </h2>
+          </div>
+        </div>
+        <ul className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {links.map((l) => (
             <li key={l.label}>
               <a
@@ -530,9 +705,11 @@ export default function DirectionsPage() {
       <main>
         <DirectionsHero />
         <ScrollReset><AddressSection /></ScrollReset>
+        <ScrollReset><OpeningHoursSection /></ScrollReset>
         <ScrollReset><TransportSection /></ScrollReset>
         <ScrollReset><WalkingRouteSection /></ScrollReset>
         <ScrollReset><AccessibilitySection /></ScrollReset>
+        <ScrollReset><StaycationSection /></ScrollReset>
         <ScrollReset><ReturnRailSection /></ScrollReset>
       </main>
       <Footer />
