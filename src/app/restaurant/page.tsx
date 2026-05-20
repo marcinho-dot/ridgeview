@@ -201,8 +201,8 @@ function AtmosphereBanner() {
     <section className="relative h-[55vh] min-h-[420px] w-full overflow-hidden border-t border-white/[0.06]">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={`${basePath}/images/restaurant/restaurant-summer-view.webp`}
-        alt="The Rows & Vine restaurant tables looking out over the vineyard at sunset"
+        src={`${basePath}/images/restaurant/restaurant-interior.webp`}
+        alt="The Rows & Vine interior — warm cellar dining"
         className="absolute inset-0 w-full h-full object-cover"
       />
 
@@ -257,6 +257,9 @@ const MENUS: MenuPdf[] = [
   { label: "Drinks List", href: "/docs/restaurant/drinks-list.pdf" },
 ];
 
+// All four images sourced from the UK restaurant page (verified
+// 2026-05-20 after user feedback that menu cards shouldn't use our
+// own product PNGs). Each pairs with the menu's character:
 const MENU_DETAILS: Record<string, { detail: string; image: string }> = {
   "Food Menu": {
     detail: "Seasonal sharing plates · Spring 2026",
@@ -264,15 +267,15 @@ const MENU_DETAILS: Record<string, { detail: string; image: string }> = {
   },
   "Sunday Menu": {
     detail: "Sunday roast & seasonal feast",
-    image: "/images/restaurant/restaurant-interior.webp",
+    image: "/images/restaurant/celebration-toast.webp",
   },
   "Wine List": {
     detail: "Ridgeview cellar + global selection",
-    image: "/products/bloomsbury.png",
+    image: "/images/restaurant/rose-pour.webp",
   },
   "Drinks List": {
     detail: "Cocktails, soft drinks & spirits",
-    image: "/images/restaurant/restaurant-summer-view.webp",
+    image: "/images/restaurant/garden-toast.webp",
   },
 };
 
