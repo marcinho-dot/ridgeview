@@ -204,6 +204,10 @@ function AtmosphereBanner() {
         src={`${basePath}/images/restaurant/restaurant-interior.webp`}
         alt="The Rows & Vine interior — warm cellar dining"
         className="absolute inset-0 w-full h-full object-cover"
+        // Anchor the crop to the upper third — image's top section
+        // (vineyard rows beyond the tables) is the more cinematic
+        // half. Default centre-cover hid most of the vineyard.
+        style={{ objectPosition: "center 20%" }}
       />
 
       {/* Overlay stack tuned 2026-05-20 for text legibility.
