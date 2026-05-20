@@ -585,7 +585,7 @@ const FAQ_ITEMS: Array<{ q: string; a: string }> = [
   },
   {
     q: "Can you host private events or weddings?",
-    a: "We host private dining for up to 150 guests in our pavilions or stretch tent (excluding weekends and bank holidays). We don't hold a wedding ceremony licence, but we love hosting pre- and post-wedding dining and drinks. Email [email protected].",
+    a: `We host private dining for up to 150 guests in our pavilions or stretch tent (excluding weekends and bank holidays). We don't hold a wedding ceremony licence, but we love hosting pre- and post-wedding dining and drinks. Email ${RESTAURANT_EMAIL}.`,
   },
   {
     q: "How do I get there?",
@@ -795,16 +795,21 @@ function ReserveWidgetSection() {
             </h3>
           </div>
           <div className="reveal" style={{ transitionDelay: "0.25s" }}>
+            {/* Two-line subheadline. Line 1 = the action ("what you do"),
+                line 2 = the promise ("what you get"). Forced break via
+                <br /> keeps the split editorial even at wider viewports
+                where it would otherwise stay on one line. */}
             <p
-              className="font-body text-white/55 leading-relaxed mx-auto"
+              className="font-body text-white/55 leading-[1.7] mx-auto"
               style={{
                 fontSize: "clamp(13px, 1.25vw, 15px)",
                 fontWeight: 300,
                 maxWidth: "520px",
               }}
             >
-              Pick a date, party size and time — confirmed instantly by
-              email through our booking partner.
+              Pick a date, party size and time.
+              <br />
+              Confirmed instantly by email through our booking partner.
             </p>
           </div>
         </div>
@@ -815,9 +820,17 @@ function ReserveWidgetSection() {
             Instead we sit the iframe inside a cream card with a gold
             hairline border — the white widget content blends into the
             cream bezel, the gold edge integrates with our design system,
-            and a heavy soft shadow grounds the card on the dark page. */}
+            and a heavy soft shadow grounds the card on the dark page.
+
+            Inner padding (p-4 md:p-6) is symmetric on all four sides so
+            the iframe content has equal cream breathing room top / right
+            / bottom / left — ResDiary's internal padding is heavier
+            below the Continue button than above the logo, so without our
+            own padding the visual frame felt top-tight and bottom-loose.
+            With equal outer padding the asymmetry inside the iframe is
+            visually absorbed by the cream bezel around it. */}
         <div
-          className="reveal relative bg-[#f5f0e8] border border-[#C8A96E]/40 rounded-md overflow-hidden shadow-[0_24px_60px_-18px_rgba(0,0,0,0.70)]"
+          className="reveal relative bg-[#f5f0e8] border border-[#C8A96E]/40 rounded-md overflow-hidden shadow-[0_24px_60px_-18px_rgba(0,0,0,0.70)] p-4 md:p-6"
           style={{ transitionDelay: "0.35s" }}
         >
           <iframe
@@ -831,7 +844,12 @@ function ReserveWidgetSection() {
             src="https://booking.resdiary.com/widget/Standard/RidgeviewWineBar/67732?language=en-GB"
             loading="lazy"
             className="w-full block"
-            style={{ minHeight: "720px", border: 0, background: "#f5f0e8" }}
+            // minHeight reduced to 560px — the outer cream container
+            // now carries the visual padding so the iframe itself can
+            // be tighter to its content. Secondary ResDiary steps
+            // (customer details, confirmation) still expand naturally
+            // because iframe height is a minimum, not a maximum.
+            style={{ minHeight: "560px", border: 0, background: "#f5f0e8" }}
           />
         </div>
 
