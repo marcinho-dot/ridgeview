@@ -198,7 +198,7 @@ function WelcomeSection() {
 // ── Section: Atmosphere banner — full-bleed cinematic shot ─────────────────
 function AtmosphereBanner() {
   return (
-    <section className="relative h-[55vh] min-h-[420px] w-full overflow-hidden border-t border-white/[0.06]">
+    <section className="relative h-[70vh] min-h-[520px] w-full overflow-hidden border-t border-white/[0.06]">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={`${basePath}/images/restaurant/restaurant-interior.webp`}
