@@ -145,6 +145,7 @@ export function Footer({ withBackground = true }: FooterProps = {}) {
               //     the checkout flow (Royal Mail shipping only). Listing
               //     it was misleading.
               { label: "English Sparkling Wine", href: `${home}wines` },
+              { label: "Gift Sets", href: `${home}gift-sets` },
               { label: "Gift Vouchers", href: `${home}gift-vouchers` },
               { label: "OurView Wine Club", href: `${home}wine-club/` },
             ].map((item) => (
