@@ -838,7 +838,7 @@ function VisitPanels() {
               >
                 Spring &amp; Summer · Open Daily
               </p>
-              <a href="#" className="btn-cta">
+              <a href={`${basePath}/restaurant`} className="btn-cta">
                 Reserve a Table
               </a>
             </div>
@@ -1144,7 +1144,10 @@ function PracticalInfo() {
   // horizontal rhythm. The nested variant gave title-to-OT 80px
   // but OT-to-GH only 40px, breaking the visual cadence.
   return (
-    <section className="bg-[#010101]">
+    // id="practical" anchor target for the Footer's "How to get to
+    // Ridgeview" link and similar cross-page jumps. scroll-mt-24 in
+    // case the Navbar overlaps the section top after the hash scroll.
+    <section id="practical" className="bg-[#010101] scroll-mt-24">
       <div className="max-w-[1400px] mx-auto px-6 md:px-16 py-20 md:py-28">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-20 items-start">
 

@@ -160,10 +160,11 @@ export function Footer({ withBackground = true }: FooterProps = {}) {
           <ul className="space-y-3">
             {[
               { label: "Vineyard Tours & Wine Tastings", href: `${home}vineyard-booking` },
+              { label: "The Rows & Vine Restaurant", href: `${home}restaurant` },
               { label: "Wine Bar & Shop", href: `${home}vineyard-booking` },
-              { label: "How to get to Ridgeview", href: `${home}#footer` },
+              { label: "How to get to Ridgeview", href: `${home}vineyard-booking/#practical` },
               { label: "Nearby Accommodation", href: `${home}vineyard-booking/#nearby-accommodation` },
-              { label: "Opening Times", href: `${home}vineyard-booking` },
+              { label: "Opening Times", href: `${home}restaurant/#hours` },
             ].map((item) => (
               <li key={item.label}>
                 <a href={item.href} className="link-underline font-body text-white/55 text-sm hover:text-[#C8A96E]/80 transition-colors duration-300" style={{ fontWeight: 300 }}>
