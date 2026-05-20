@@ -115,7 +115,7 @@ const CATEGORIES: Category[] = [
     faqs: [
       {
         q: "Can under-18s order from the website?",
-        a: "No. As required by UK law, ridgeview.co.uk and online ordering are open only to those 18 and over.",
+        a: "No. As required by UK law, our online shop is open only to those 18 and over.",
       },
       {
         q: "Are your terms and conditions available?",

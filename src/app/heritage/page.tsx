@@ -311,28 +311,31 @@ function TimelineSection() {
           <ol className="space-y-10 md:space-y-12">
             {TIMELINE.map((m, i) => (
               <FadeUp key={i} delay={0.2 + Math.min(i, 8) * 0.05}>
-                <li className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-4 md:gap-12 relative">
+                {/* Hover micro: dot scales + gets a gold halo, year brightens,
+                    title shifts to white, body text lightens. Subtle but
+                    rewards scanning the timeline. */}
+                <li className="group grid grid-cols-1 md:grid-cols-[120px_1fr] gap-4 md:gap-12 relative">
                   <div className="md:text-right md:pr-2 relative">
                     <p
-                      className="font-display italic text-[#C8A96E] leading-none"
+                      className="font-display italic text-[#C8A96E] group-hover:text-[#e0c08a] leading-none transition-colors duration-400"
                       style={{ fontSize: "clamp(32px, 3vw, 44px)", fontWeight: 400 }}
                     >
                       {m.year}
                     </p>
-                    {/* Dot on the rail (desktop only) */}
+                    {/* Dot on the rail (desktop only) — scales with a halo on hover */}
                     <span
                       aria-hidden
-                      className="hidden md:block absolute right-[-7px] top-3 w-[13px] h-[13px] rounded-full bg-[#010101] border border-[#C8A96E]"
+                      className="hidden md:block absolute right-[-7px] top-3 w-[13px] h-[13px] rounded-full bg-[#010101] border border-[#C8A96E] group-hover:scale-125 group-hover:shadow-[0_0_0_4px_rgba(200,169,110,0.18)] transition-all duration-400 ease-out"
                     />
                   </div>
                   <div className="md:pl-2">
                     <h3
-                      className="font-display italic text-cream leading-[1.18] mb-3"
+                      className="font-display italic text-cream group-hover:text-white leading-[1.18] mb-3 transition-colors duration-400"
                       style={{ fontSize: "clamp(20px, 1.85vw, 26px)", fontWeight: 400 }}
                       dangerouslySetInnerHTML={{ __html: m.title }}
                     />
                     <p
-                      className="font-body text-white/55 leading-[1.75] max-w-[640px]"
+                      className="font-body text-white/55 group-hover:text-white/75 leading-[1.75] max-w-[640px] transition-colors duration-400"
                       style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 300 }}
                       dangerouslySetInnerHTML={{ __html: m.body }}
                     />

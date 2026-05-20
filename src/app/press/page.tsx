@@ -175,10 +175,17 @@ function ReleasesSection() {
         <ol className="space-y-0">
           {RELEASES.map((r, i) => (
             <FadeUp key={i} delay={0.3 + Math.min(i, 6) * 0.04}>
-              <li className="grid grid-cols-[80px_1fr] md:grid-cols-[120px_1fr] gap-6 md:gap-10 py-8 md:py-10 border-t border-white/[0.08] first:border-t-0">
+              {/* Hover microinteraction: row picks up gold-accent border on hover,
+                  date glows brighter, title shifts to white, summary lightens. */}
+              <li className="group grid grid-cols-[80px_1fr] md:grid-cols-[120px_1fr] gap-6 md:gap-10 py-8 md:py-10 border-t border-white/[0.08] first:border-t-0 hover:border-t-[#C8A96E]/30 transition-colors duration-500 relative">
+                {/* Subtle gold accent stripe that grows in on hover from the left */}
+                <span
+                  aria-hidden
+                  className="absolute left-0 top-0 h-px w-0 bg-[#C8A96E]/70 group-hover:w-12 transition-[width] duration-700 ease-out"
+                />
                 <div>
                   <p
-                    className="font-body text-[#C8A96E]/70 tracking-[0.25em] uppercase"
+                    className="font-body text-[#C8A96E]/70 group-hover:text-[#C8A96E] tracking-[0.25em] uppercase transition-colors duration-400"
                     style={{ fontSize: "12px", fontWeight: 400 }}
                   >
                     {r.date}
@@ -186,13 +193,13 @@ function ReleasesSection() {
                 </div>
                 <div>
                   <h3
-                    className="font-display italic text-cream leading-[1.18] mb-3"
+                    className="font-display italic text-cream group-hover:text-white leading-[1.18] mb-3 transition-colors duration-400"
                     style={{ fontSize: "clamp(20px, 1.85vw, 28px)", fontWeight: 400 }}
                   >
                     {r.title}
                   </h3>
                   <p
-                    className="font-body text-white/55 leading-[1.75] max-w-[640px]"
+                    className="font-body text-white/55 group-hover:text-white/75 leading-[1.75] max-w-[640px] transition-colors duration-400"
                     style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 300 }}
                     dangerouslySetInnerHTML={{ __html: r.summary }}
                   />
