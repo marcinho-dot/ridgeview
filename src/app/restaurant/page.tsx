@@ -248,11 +248,12 @@ function AtmosphereBanner() {
       <img
         src={`${basePath}/images/restaurant/atmosphere-aerial.webp`}
         alt="Aerial view of The Rows & Vine pavilions at golden hour, with Sussex vineyards beyond"
-        className="absolute inset-0 w-full h-full object-cover"
-        // Aerial composition: vineyard + distant hills at top, two
-        // pavilions in lower third. Anchor slightly below centre so
-        // pavilions stay visible while vineyard backdrop dominates.
-        style={{ objectPosition: "center 45%" }}
+        // Mobile crop: anchor to the RIGHT side of the wide aerial so
+        // the right pavilion + dining scene stays visible in the narrow
+        // viewport. Desktop reverts to centre — full panorama reads.
+        // Vertical 45% on both keeps the pavilions in the lower third
+        // while the vineyard backdrop dominates the upper two-thirds.
+        className="absolute inset-0 w-full h-full object-cover object-[right_45%] md:object-[center_45%]"
       />
 
       {/* Overlay stack tuned 2026-05-20 for text legibility.
