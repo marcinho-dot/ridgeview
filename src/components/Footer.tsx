@@ -109,7 +109,7 @@ export function Footer({ withBackground = true }: FooterProps = {}) {
           </h4>
           <ul className="space-y-3">
             <li>
-              <a href={`${home}#heritage`} className="link-underline font-body text-cream text-sm hover:text-white/60 transition-colors" style={{ fontWeight: 500 }}>
+              <a href="/heritage" className="link-underline font-body text-cream text-sm hover:text-white/60 transition-colors" style={{ fontWeight: 500 }}>
                 Our Story
               </a>
             </li>
@@ -145,6 +145,7 @@ export function Footer({ withBackground = true }: FooterProps = {}) {
               //     the checkout flow (Royal Mail shipping only). Listing
               //     it was misleading.
               { label: "English Sparkling Wine", href: `${home}wines` },
+              { label: "Gift Vouchers", href: `${home}gift-vouchers` },
               { label: "OurView Wine Club", href: `${home}wine-club/` },
             ].map((item) => (
               <li key={item.label}>
