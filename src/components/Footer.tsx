@@ -182,16 +182,16 @@ export function Footer({ withBackground = true }: FooterProps = {}) {
           </h4>
           <ul className="space-y-3">
             {[
-              "Delivery",
-              "Returns",
-              "Legal",
-              "Privacy Policy",
-              "Help & FAQs",
-              "Corporate Services",
+              { label: "Delivery", href: "/legal/delivery" },
+              { label: "Returns", href: "/legal/returns" },
+              { label: "Legal", href: "/legal/terms" },
+              { label: "Privacy Policy", href: "/legal/privacy" },
+              { label: "Help & FAQs", href: "#" },
+              { label: "Corporate Services", href: "/corporate-services/corporate-wine-gifts" },
             ].map((item) => (
-              <li key={item}>
-                <a href="#" className="link-underline font-body text-white/55 text-sm hover:text-[#C8A96E]/80 transition-colors duration-300" style={{ fontWeight: 300 }}>
-                  {item}
+              <li key={item.label}>
+                <a href={item.href} className="link-underline font-body text-white/55 text-sm hover:text-[#C8A96E]/80 transition-colors duration-300" style={{ fontWeight: 300 }}>
+                  {item.label}
                 </a>
               </li>
             ))}
