@@ -314,7 +314,13 @@ export default function WineClubPage() {
                   style={{
                     fontSize: "clamp(13px, 1.15vw, 15px)",
                     fontWeight: 300,
-                    maxWidth: "560px",
+                    maxWidth: "480px",
+                    // CSS text-balance lets the browser distribute words
+                    // evenly across the two lines instead of letting one
+                    // word ("access") sit alone on line 2. Combined with
+                    // a tighter max-width this produces a clean two-line
+                    // wrap on every viewport between mobile and desktop.
+                    textWrap: "balance",
                   }}
                 >
                   Award-winning English sparkling, bespoke member experiences
