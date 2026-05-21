@@ -151,67 +151,91 @@ function PricingCard({
 
   return (
     <div
-      className={`relative h-full flex flex-col p-8 md:p-10 rounded-sm border ${
+      className={`relative h-full p-7 md:p-10 rounded-sm border ${
         recommended
           ? "border-[#C8A96E]/60 bg-[rgba(200,169,110,0.04)]"
           : "border-white/12 bg-[#0a0a0a]"
       }`}
     >
-      {/* "Most chosen" badge removed 2026-05-17 - only one membership
-          tier exists so the comparative framing was meaningless. The
-          gold border + gold-tinted fill above (when recommended) keep
-          the card visually prominent. */}
-      <p
-        className="font-body text-[#C8A96E] uppercase tracking-[0.22em] mb-5"
-        style={{ fontSize: "11px" }}
-      >
-        [ {badge} ]
-      </p>
-      <h3
-        className="font-display italic text-cream leading-[1.1] mb-3"
-        style={{ fontSize: "clamp(26px, 2.4vw, 32px)", fontWeight: 400 }}
-      >
-        {title}
-      </h3>
-      <div className="mb-8">
-        <p
-          className="font-display italic text-cream leading-none"
-          style={{ fontSize: "clamp(40px, 4.6vw, 64px)", fontWeight: 400 }}
-        >
-          {price}
-        </p>
-        <p
-          className="font-body text-white/55 mt-2"
-          style={{ fontSize: "13px", fontWeight: 300 }}
-        >
-          {cadence}
-        </p>
-      </div>
-      <ul className="space-y-3 mb-8 flex-1">
-        {highlights.map((h, i) => (
-          <li
-            key={i}
-            className="flex items-start gap-3 font-body text-white/70 leading-[1.6]"
-            style={{ fontSize: "14px", fontWeight: 300 }}
+      {/* Layout: vertical on mobile (identity → price → benefits → CTA),
+          horizontal 2-column on desktop so the card fits the hero
+          viewport without scrolling. Left column carries the identity
+          + CTA (sticky read order), right column is the benefits scan.
+          A subtle gold hairline separates the columns on desktop. */}
+      <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_1px_minmax(0,1.15fr)] md:gap-x-10 lg:gap-x-14 items-stretch h-full">
+        {/* ── Left column: Identity + Price + CTA ─────────────────── */}
+        <div className="flex flex-col">
+          <p
+            className="font-body text-[#C8A96E] uppercase tracking-[0.22em] mb-4 md:mb-5"
+            style={{ fontSize: "11px" }}
           >
-            <span
-              aria-hidden
-              className="text-[#C8A96E] flex-shrink-0 mt-1"
-              style={{ fontSize: "10px" }}
+            [ {badge} ]
+          </p>
+          <h3
+            className="font-display italic text-cream leading-[1.1] mb-3"
+            style={{ fontSize: "clamp(26px, 2.4vw, 32px)", fontWeight: 400 }}
+          >
+            {title}
+          </h3>
+          <div className="mb-6 md:mb-8">
+            <p
+              className="font-display italic text-cream leading-none"
+              style={{ fontSize: "clamp(40px, 4.4vw, 60px)", fontWeight: 400 }}
             >
-              ◆
-            </span>
-            <span>{h}</span>
-          </li>
-        ))}
-      </ul>
-      <button
-        type="button"
-        onClick={handleAdd}
-        className="btn-cta w-full text-center"
-      >
-        Add to basket
-      </button>
+              {price}
+            </p>
+            <p
+              className="font-body text-white/55 mt-2"
+              style={{ fontSize: "13px", fontWeight: 300, maxWidth: "320px" }}
+            >
+              {cadence}
+            </p>
+          </div>
+          {/* CTA — pinned to bottom of left column on desktop so it
+              aligns with the end of the benefits list visually. */}
+          <button
+            type="button"
+            onClick={handleAdd}
+            className="btn-cta w-full md:w-auto md:self-start text-center mt-auto"
+          >
+            Add to basket
+          </button>
+        </div>
+
+        {/* ── Divider — gold hairline only on desktop ─────────────── */}
+        <div
+          aria-hidden
+          className="hidden md:block w-px bg-gradient-to-b from-transparent via-[#C8A96E]/25 to-transparent"
+        />
+
+        {/* ── Right column: Benefits list ─────────────────────────── */}
+        <div className="mt-7 md:mt-0 pt-7 md:pt-0 border-t md:border-t-0 border-white/[0.06]">
+          <p
+            className="font-body text-white/40 uppercase tracking-[0.22em] mb-4"
+            style={{ fontSize: "10px", fontWeight: 500 }}
+          >
+            What you get
+          </p>
+          <ul className="space-y-2.5 md:space-y-3">
+            {highlights.map((h, i) => (
+              <li
+                key={i}
+                className="flex items-start gap-3 font-body text-white/70 leading-[1.55]"
+                style={{ fontSize: "clamp(13px, 1.05vw, 14px)", fontWeight: 300 }}
+              >
+                <span
+                  aria-hidden
+                  className="text-[#C8A96E] flex-shrink-0 mt-1.5"
+                  style={{ fontSize: "8px" }}
+                >
+                  ◆
+                </span>
+                <span>{h}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }
@@ -321,11 +345,14 @@ export default function WineClubPage() {
                 </motion.h2>
               </div>
 
-              {/* Single card - Ridgeview offers only one membership tier
+              {/* Single card — Ridgeview offers only one membership tier
                   (verified 2026-05-17 against ridgeview.co.uk/ourview-
-                  wine-club). The previously rendered "Biannual" plan
-                  was fabricated and has been removed. */}
-              <div className="max-w-[640px] mx-auto">
+                  wine-club). Container widened from 640px → 1100px so
+                  the card's horizontal 2-column desktop layout
+                  (identity/CTA left, benefits right) fits inside the
+                  hero viewport without forcing a scroll on standard
+                  monitors. Mobile still gets the natural vertical stack. */}
+              <div className="max-w-[1100px] mx-auto">
                 <PricingCard
                   variant="annual"
                   badge="Annual"
