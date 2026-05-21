@@ -151,7 +151,7 @@ function PricingCard({
 
   return (
     <div
-      className={`relative h-full p-7 md:p-10 rounded-sm border ${
+      className={`relative h-full p-6 md:p-8 rounded-sm border ${
         recommended
           ? "border-[#C8A96E]/60 bg-[rgba(200,169,110,0.04)]"
           : "border-white/12 bg-[#0a0a0a]"
@@ -160,39 +160,38 @@ function PricingCard({
       {/* Layout: vertical on mobile (identity → price → benefits → CTA),
           horizontal 2-column on desktop so the card fits the hero
           viewport without scrolling. Left column carries the identity
-          + CTA (sticky read order), right column is the benefits scan.
-          A subtle gold hairline separates the columns on desktop. */}
-      <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_1px_minmax(0,1.15fr)] md:gap-x-10 lg:gap-x-14 items-stretch h-full">
+          + CTA, right column is the benefits scan. Subtle gold hairline
+          separates the columns on desktop. */}
+      <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_1px_minmax(0,1.2fr)] md:gap-x-8 lg:gap-x-12 items-stretch h-full">
         {/* ── Left column: Identity + Price + CTA ─────────────────── */}
         <div className="flex flex-col">
           <p
-            className="font-body text-[#C8A96E] uppercase tracking-[0.22em] mb-4 md:mb-5"
+            className="font-body text-[#C8A96E] uppercase tracking-[0.22em] mb-3 md:mb-4"
             style={{ fontSize: "11px" }}
           >
             [ {badge} ]
           </p>
           <h3
-            className="font-display italic text-cream leading-[1.1] mb-3"
-            style={{ fontSize: "clamp(26px, 2.4vw, 32px)", fontWeight: 400 }}
+            className="font-display italic text-cream leading-[1.1] mb-2"
+            style={{ fontSize: "clamp(24px, 2.2vw, 30px)", fontWeight: 400 }}
           >
             {title}
           </h3>
-          <div className="mb-6 md:mb-8">
+          <div className="mb-5 md:mb-6">
             <p
               className="font-display italic text-cream leading-none"
-              style={{ fontSize: "clamp(40px, 4.4vw, 60px)", fontWeight: 400 }}
+              style={{ fontSize: "clamp(36px, 3.8vw, 52px)", fontWeight: 400 }}
             >
               {price}
             </p>
             <p
               className="font-body text-white/55 mt-2"
-              style={{ fontSize: "13px", fontWeight: 300, maxWidth: "320px" }}
+              style={{ fontSize: "12.5px", fontWeight: 300, maxWidth: "320px" }}
             >
               {cadence}
             </p>
           </div>
-          {/* CTA — pinned to bottom of left column on desktop so it
-              aligns with the end of the benefits list visually. */}
+          {/* CTA pinned to bottom of left column on desktop. */}
           <button
             type="button"
             onClick={handleAdd}
@@ -209,23 +208,23 @@ function PricingCard({
         />
 
         {/* ── Right column: Benefits list ─────────────────────────── */}
-        <div className="mt-7 md:mt-0 pt-7 md:pt-0 border-t md:border-t-0 border-white/[0.06]">
+        <div className="mt-5 md:mt-0 pt-5 md:pt-0 border-t md:border-t-0 border-white/[0.06]">
           <p
-            className="font-body text-white/40 uppercase tracking-[0.22em] mb-4"
+            className="font-body text-white/40 uppercase tracking-[0.22em] mb-3"
             style={{ fontSize: "10px", fontWeight: 500 }}
           >
             What you get
           </p>
-          <ul className="space-y-2.5 md:space-y-3">
+          <ul className="space-y-2 md:space-y-2.5">
             {highlights.map((h, i) => (
               <li
                 key={i}
-                className="flex items-start gap-3 font-body text-white/70 leading-[1.55]"
-                style={{ fontSize: "clamp(13px, 1.05vw, 14px)", fontWeight: 300 }}
+                className="flex items-start gap-2.5 font-body text-white/70 leading-[1.5]"
+                style={{ fontSize: "clamp(12.5px, 1vw, 13.5px)", fontWeight: 300 }}
               >
                 <span
                   aria-hidden
-                  className="text-[#C8A96E] flex-shrink-0 mt-1.5"
+                  className="text-[#C8A96E] flex-shrink-0 mt-1"
                   style={{ fontSize: "8px" }}
                 >
                   ◆
@@ -272,12 +271,12 @@ export default function WineClubPage() {
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/55 to-[#010101]" />
 
-            <div className="relative max-w-[1600px] mx-auto px-6 md:px-16 pt-32 md:pt-40 pb-8 md:pb-10 text-center">
+            <div className="relative max-w-[1600px] mx-auto px-6 md:px-16 pt-24 md:pt-28 pb-4 md:pb-6 text-center">
               <motion.p
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7 }}
-                className="font-display italic text-[#C8A96E] tracking-widest mb-5"
+                className="font-display italic text-[#C8A96E] tracking-widest mb-4"
                 style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
               >
                 [ OurView · Wine Club ]
@@ -286,11 +285,11 @@ export default function WineClubPage() {
                 initial={{ opacity: 0, y: 22 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.0, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
-                className="font-display italic text-cream leading-[1.06] mb-8 mx-auto"
+                className="font-display italic text-cream leading-[1.04] mb-5 mx-auto"
                 style={{
-                  fontSize: "clamp(40px, 6vw, 88px)",
+                  fontSize: "clamp(36px, 5vw, 68px)",
                   fontWeight: 400,
-                  maxWidth: "920px",
+                  maxWidth: "820px",
                 }}
               >
                 Find your <span className="text-[#C8A96E]">sparkle</span>.
@@ -299,51 +298,31 @@ export default function WineClubPage() {
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.18 }}
-                className="font-body text-white/70 leading-[1.75] mx-auto"
+                className="font-body text-white/70 leading-[1.7] mx-auto"
                 style={{
-                  fontSize: "clamp(15px, 1.4vw, 18px)",
+                  fontSize: "clamp(14px, 1.25vw, 16px)",
                   fontWeight: 300,
-                  maxWidth: "640px",
+                  maxWidth: "560px",
                 }}
               >
-                Enjoy Ridgeview&rsquo;s award-winning English sparkling wines,
-                bespoke member experiences and rare-cellar access when you
-                join OurView.
+                Award-winning English sparkling, bespoke member experiences
+                and rare-cellar access — when you join OurView.
               </motion.p>
             </div>
           </section>
         </ScrollReset>
 
         {/* ── Pricing ──────────────────────────────────────────────── */}
-        {/* border-t removed + top padding reduced 2026-05-17 so the
-            hero flows directly into the membership cards without a
-            visible cut + so more of the first card is in the initial
-            viewport. */}
+        {/* The redundant "Become a member" interstitial was removed
+            2026-05-21 — the card's own [ANNUAL] kicker + "Annual
+            Membership" headline carry the same message without forcing
+            visitors to scroll past a second hero before the price reads.
+            Pricing section now sits tight against the hero so on
+            standard desktop monitors the entire card fits in one
+            viewport below the fold. */}
         <ScrollReset>
           <section className="relative bg-[#010101]">
-            <div className="max-w-[1600px] mx-auto px-6 md:px-16 pt-8 md:pt-10 pb-20 md:pb-28">
-              <div className="mb-6 md:mb-8 max-w-[820px] mx-auto text-center">
-                <motion.p
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.4 }}
-                  transition={{ duration: 0.7 }}
-                  className="font-display italic text-[#C8A96E] tracking-widest mb-4"
-                  style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
-                >
-                  [ Membership ]
-                </motion.p>
-                <motion.h2
-                  initial={{ opacity: 0, y: 22 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.95, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
-                  className="font-display italic text-cream leading-[1.08]"
-                  style={{ fontSize: "clamp(32px, 4.6vw, 64px)", fontWeight: 400 }}
-                >
-                  Become a <span className="text-[#C8A96E]">member</span>.
-                </motion.h2>
-              </div>
+            <div className="max-w-[1600px] mx-auto px-6 md:px-16 pt-2 md:pt-4 pb-16 md:pb-20">
 
               {/* Single card — Ridgeview offers only one membership tier
                   (verified 2026-05-17 against ridgeview.co.uk/ourview-
