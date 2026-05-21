@@ -871,6 +871,7 @@ export default function BlancDeBlancsPage() {
             { label: "Hand Harvest", detail: "Grapes are picked at first light and sorted by hand to keep only the most balanced bunches." },
             { label: "Méthode Traditionnelle", detail: "An English invention - coal-fired bottles strong enough to hold the bubbles, the cork to seal them in, deliberate secondary fermentation." },
           ]}
+          techSheetPdf="/pdfs/tech-sheets/blanc-de-blancs-2020.pdf"
         />
       </ScrollReset>
 

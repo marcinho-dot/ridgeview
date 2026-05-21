@@ -2,6 +2,7 @@
 
 import { ReactNode } from "react";
 import { motion } from "framer-motion";
+import { basePath } from "@/lib/basePath";
 
 /**
  * BehindTheBottleSection - Production / craftsmanship story for an SKU.
@@ -41,6 +42,11 @@ interface Props {
   backgroundImage?: string;
   /** Optional alt text for the background image. */
   backgroundImageAlt?: string;
+  /** Optional path to the wine's technical sheet PDF (relative to /public,
+   *  e.g. "/pdfs/tech-sheets/bloomsbury-nv.pdf"). When set, renders a
+   *  compact download CTA below the intro — for sommeliers, trade and
+   *  enthusiasts who want analysis-level detail. */
+  techSheetPdf?: string;
 }
 
 export function BehindTheBottleSection({
@@ -51,6 +57,7 @@ export function BehindTheBottleSection({
   compact = false,
   backgroundImage,
   backgroundImageAlt = "",
+  techSheetPdf,
 }: Props) {
   return (
     <section
@@ -159,6 +166,54 @@ export function BehindTheBottleSection({
                 >
                   {intro}
                 </p>
+              </div>
+            )}
+
+            {/* Technical sheet download — for sommeliers / trade / enthusiasts.
+                Compact gold-accent link with PDF icon; doesn't compete with
+                the editorial prose above. Opens in new tab. Hover slides the
+                icon's underline in from the left. */}
+            {techSheetPdf && (
+              <div
+                className={`reveal ${compact ? "mt-5" : "mt-7"}`}
+                style={{ transitionDelay: "0.3s" }}
+              >
+                <a
+                  href={`${basePath}${techSheetPdf}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-3 font-body text-[#C8A96E] hover:text-cream uppercase tracking-[0.22em] transition-colors duration-400"
+                  style={{ fontSize: "11px", fontWeight: 500 }}
+                >
+                  <span
+                    aria-hidden
+                    className="inline-flex items-center justify-center w-8 h-8 rounded-sm border border-[#C8A96E]/40 group-hover:border-[#C8A96E] group-hover:bg-[#C8A96E]/[0.06] transition-all duration-400"
+                  >
+                    <svg
+                      width="13"
+                      height="13"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                  </span>
+                  <span className="flex flex-col items-start leading-tight">
+                    <span>Technical Sheet</span>
+                    <span
+                      className="font-body text-white/40 group-hover:text-white/60 normal-case tracking-[0.1em] transition-colors mt-0.5"
+                      style={{ fontSize: "10px", fontWeight: 300, letterSpacing: "0.1em" }}
+                    >
+                      PDF · opens in new tab
+                    </span>
+                  </span>
+                </a>
               </div>
             )}
           </div>

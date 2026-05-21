@@ -802,6 +802,7 @@ export default function SparklingRedReservePage() {
             { label: "Hand Harvest", detail: "Grapes are picked at first light and sorted by hand to keep only the most balanced bunches." },
             { label: "Méthode Traditionnelle", detail: "An English invention - coal-fired bottles strong enough to hold the bubbles, the cork to seal them in, deliberate secondary fermentation." },
           ]}
+          techSheetPdf="/pdfs/tech-sheets/sparkling-red-reserve.pdf"
         />
       </ScrollReset>
 
