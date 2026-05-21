@@ -157,7 +157,7 @@ function JoinCTA() {
           </h2>
         </FadeUp>
         <FadeUp delay={0.25}>
-          <p className="font-body text-white/65 leading-[1.85] mx-auto mb-10" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300, maxWidth: "560px" }}>
+          <p className="subline-section mx-auto mb-10">
             See the full OurView wine club page for membership tiers and pricing, or read the
             terms before signing up.
           </p>

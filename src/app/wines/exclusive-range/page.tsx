@@ -174,7 +174,7 @@ function EnquiriesCTA() {
           </h2>
         </FadeUp>
         <FadeUp delay={0.25}>
-          <p className="font-body text-white/65 leading-[1.85] mx-auto mb-10" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300, maxWidth: "560px" }}>
+          <p className="subline-section mx-auto mb-10">
             For allocation enquiries, future-release waitlists, sommelier samples or wholesale of
             the exclusive range — email the team.
           </p>

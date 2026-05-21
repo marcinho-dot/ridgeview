@@ -184,7 +184,7 @@ function ShopGrid() {
             </h2>
           </FadeUp>
           <FadeUp delay={0.25}>
-            <p className="font-body text-white/65 leading-[1.85] mx-auto mt-6" style={{ fontSize: "clamp(13px, 1.25vw, 15px)", fontWeight: 300, maxWidth: "580px" }}>
+            <p className="subline-section mx-auto mt-6">
               Each one a complete gift on its own — personalised, packaged and ready to arrive
               with the right note. From engraved single bottles to year-long memberships.
             </p>
@@ -309,7 +309,7 @@ function BespokeSection() {
             </h2>
           </FadeUp>
           <FadeUp delay={0.25}>
-            <p className="font-body text-white/65 leading-[1.85] mx-auto" style={{ fontSize: "clamp(13px, 1.25vw, 15px)", fontWeight: 300, maxWidth: "620px" }}>
+            <p className="subline-section mx-auto">
               For curated sets beyond the catalogue — Duos, Trios, mixed cases and fully bespoke
               gifts — we build to order. Send a brief, we&rsquo;ll come back with proposals,
               imagery and pricing.

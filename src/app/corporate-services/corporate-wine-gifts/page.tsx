@@ -168,8 +168,7 @@ function IndustryGrid() {
           </FadeUp>
           <FadeUp delay={0.25}>
             <p
-              className="font-body text-white/65 leading-[1.85] mx-auto"
-              style={{ fontSize: "clamp(14px, 1.3vw, 16px)", fontWeight: 300, maxWidth: "640px" }}
+              className="subline-section mx-auto"
             >
               Ridgeview is a leading corporate wine supplier across the UK, working with businesses
               of every shape and scale. Find the sector that fits and start the conversation.
@@ -321,8 +320,7 @@ function BenefitsSection() {
           </FadeUp>
           <FadeUp delay={0.25}>
             <p
-              className="font-body text-white/65 leading-[1.85] mx-auto mt-6"
-              style={{ fontSize: "clamp(13px, 1.25vw, 15px)", fontWeight: 300, maxWidth: "580px" }}
+              className="subline-section mx-auto mt-6"
             >
               Six reasons procurement teams and event leads come back to us — the things that make
               corporate wine services with Ridgeview hit differently.
@@ -542,8 +540,7 @@ function StartHereCTA() {
         </FadeUp>
         <FadeUp delay={0.25}>
           <p
-            className="font-body text-white/65 leading-[1.85] mx-auto mb-10"
-            style={{ fontSize: "clamp(14px, 1.3vw, 16px)", fontWeight: 300, maxWidth: "560px" }}
+            className="subline-section mx-auto mb-10"
           >
             Whether you&rsquo;re briefing a one-off project or planning a year&rsquo;s gifting calendar,
             we&rsquo;d love to hear from you. Tell us what you have in mind.

@@ -60,6 +60,17 @@ h1, h2, h3, h4, p, blockquote, li {
   color: rgb(255 255 255 / 0.7);
   max-width: 380px;
 }
+/* Section-intro subline — sits directly under a section H2.
+   Slightly more generous max-width + airier leading than .subline so it
+   reads as a section descender rather than a hero-tight teaser. */
+.subline-section {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(14px, 1.25vw, 16px);
+  line-height: 1.85;
+  color: rgb(255 255 255 / 0.65);
+  max-width: 560px;
+}
 
 /* Hide scrollbars on horizontal-scroll rows (e.g. Beyond-the-Bottle
    category card row on the homepage). Still scrollable via touch,

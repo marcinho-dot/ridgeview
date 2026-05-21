@@ -180,7 +180,7 @@ function GoodBusinessSection() {
           </h2>
         </FadeUp>
         <FadeUp delay={0.25}>
-          <p className="font-body text-white/65 leading-[1.85] mx-auto mb-6" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300, maxWidth: "640px" }}>
+          <p className="subline-section mx-auto mb-6">
             From the health of the planet to the customers and community around us, we strive
             to make the business a force for good. Our ambition: leading sustainable and
             ethical practice in the English wine industry, with every step of production made
@@ -188,7 +188,7 @@ function GoodBusinessSection() {
           </p>
         </FadeUp>
         <FadeUp delay={0.35}>
-          <p className="font-body text-white/65 leading-[1.85] mx-auto mb-8" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300, maxWidth: "640px" }}>
+          <p className="subline-section mx-auto mb-8">
             As founder members of Sustainable Wines GB, we&rsquo;re committed to continuous
             improvement — for a better Sussex, a better wine industry, and a better future.
           </p>
@@ -364,7 +364,7 @@ function HeritageCTA() {
           </h2>
         </FadeUp>
         <FadeUp delay={0.25}>
-          <p className="font-body text-white/65 leading-[1.85] mx-auto mb-10" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300, maxWidth: "560px" }}>
+          <p className="subline-section mx-auto mb-10">
             The best way to understand Ridgeview is to walk the vines and pour the wine.
             Vineyard tours run year-round; the restaurant and pavilions open through spring
             and summer.

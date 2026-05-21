@@ -168,8 +168,7 @@ function EventGrid() {
           </FadeUp>
           <FadeUp delay={0.25}>
             <p
-              className="font-body text-white/65 leading-[1.85] mx-auto"
-              style={{ fontSize: "clamp(14px, 1.3vw, 16px)", fontWeight: 300, maxWidth: "640px" }}
+              className="subline-section mx-auto"
             >
               Six event archetypes we host most often — each tailored end-to-end. From half-day
               board meetings to thousand-guest activations, the estate flexes to fit.
@@ -329,8 +328,7 @@ function WhatWeOfferSection() {
           </FadeUp>
           <FadeUp delay={0.25}>
             <p
-              className="font-body text-white/65 leading-[1.85] mx-auto mt-6"
-              style={{ fontSize: "clamp(13px, 1.25vw, 15px)", fontWeight: 300, maxWidth: "580px" }}
+              className="subline-section mx-auto mt-6"
             >
               Choose a tour, a meal, a venue or a meeting space — or combine all four into a
               tailored corporate package designed around your business objectives.
@@ -368,8 +366,7 @@ function WhatWeOfferSection() {
                       {offer.title}
                     </h3>
                     <p
-                      className="font-body text-white/65 leading-[1.85] mb-6"
-                      style={{ fontSize: "clamp(13px, 1.2vw, 15.5px)", fontWeight: 300, maxWidth: "520px" }}
+                      className="subline-section mb-6"
                     >
                       {offer.body}
                     </p>
@@ -410,8 +407,7 @@ function TailoredPackageCallout() {
         </FadeUp>
         <FadeUp delay={0.25}>
           <p
-            className="font-body text-white/65 leading-[1.85] mx-auto"
-            style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300, maxWidth: "580px" }}
+            className="subline-section mx-auto"
           >
             Create a standout event with a tailored corporate package at Ridgeview — expert-led
             tastings, exclusive dining, seasonal activities. Combined into one programme that
@@ -446,8 +442,7 @@ function PlanEventCTA() {
         </FadeUp>
         <FadeUp delay={0.25}>
           <p
-            className="font-body text-white/65 leading-[1.85] mx-auto mb-10"
-            style={{ fontSize: "clamp(14px, 1.3vw, 16px)", fontWeight: 300, maxWidth: "580px" }}
+            className="subline-section mx-auto mb-10"
           >
             Whether you&rsquo;re looking for a vineyard experience, a private sparkling wine
             tasting or a professional yet relaxed meeting space — Ridgeview offers everything for

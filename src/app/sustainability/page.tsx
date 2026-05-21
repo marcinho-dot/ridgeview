@@ -117,7 +117,7 @@ function PracticesSection() {
             </h2>
           </FadeUp>
           <FadeUp delay={0.25}>
-            <p className="font-body text-white/65 leading-[1.85] mx-auto" style={{ fontSize: "clamp(14px, 1.3vw, 16px)", fontWeight: 300, maxWidth: "640px" }}>
+            <p className="subline-section mx-auto">
               Six pillars guide everything from how the vines are tended to how the bottles ship.
               Both our vineyard and winery are SWGB-accredited — our vineyard achieved Gold in
               its recertification.
@@ -229,7 +229,7 @@ function ProgressiveEmployersSection() {
             </h2>
           </FadeUp>
           <FadeUp delay={0.25}>
-            <p className="font-body text-white/65 leading-[1.85] mx-auto" style={{ fontSize: "clamp(13px, 1.25vw, 15px)", fontWeight: 300, maxWidth: "580px" }}>
+            <p className="subline-section mx-auto">
               Our social responsibility aligns with our environmental goals. The way we hire,
               pay, support and develop our team is part of the same standard we apply to the vines.
             </p>
@@ -288,7 +288,7 @@ function ContactCTA() {
           </h2>
         </FadeUp>
         <FadeUp delay={0.25}>
-          <p className="font-body text-white/65 leading-[1.85] mx-auto mb-10" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300, maxWidth: "560px" }}>
+          <p className="subline-section mx-auto mb-10">
             For ESG-aligned procurement, sustainability reporting, or partnerships built around
             shared values — get in touch.
           </p>

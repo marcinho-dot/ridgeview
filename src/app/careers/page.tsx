@@ -136,7 +136,7 @@ function BenefitsSection() {
             </h2>
           </FadeUp>
           <FadeUp delay={0.25}>
-            <p className="font-body text-white/65 leading-[1.85] mx-auto mt-6" style={{ fontSize: "clamp(13px, 1.25vw, 15px)", fontWeight: 300, maxWidth: "560px" }}>
+            <p className="subline-section mx-auto mt-6">
               When you join the team, you unlock staff benefits designed to support professional
               and personal wellbeing, at work and beyond.
             </p>
@@ -177,7 +177,7 @@ function OpenPositionsSection() {
           </h2>
         </FadeUp>
         <FadeUp delay={0.25}>
-          <p className="font-body text-white/65 leading-[1.85] mx-auto" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300, maxWidth: "580px" }}>
+          <p className="subline-section mx-auto">
             New roles open across the year as the estate grows — vineyard, winery,
             hospitality, retail, marketing and operations. If you see yourself at Ridgeview,
             send a short note about the area you&rsquo;d like to fit. We keep an active talent
@@ -201,7 +201,7 @@ function GetInTouchCTA() {
           </h2>
         </FadeUp>
         <FadeUp delay={0.25}>
-          <p className="font-body text-white/65 leading-[1.85] mx-auto mb-10" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300, maxWidth: "560px" }}>
+          <p className="subline-section mx-auto mb-10">
             A short note about your background and the area you&rsquo;d love to work in goes
             further than a polished CV alone. Tell us where you&rsquo;d fit.
           </p>

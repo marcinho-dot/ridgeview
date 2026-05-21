@@ -208,7 +208,7 @@ function VoucherProducts() {
             </h2>
           </FadeUp>
           <FadeUp delay={0.25}>
-            <p className="font-body text-white/65 leading-[1.85] mx-auto mt-6" style={{ fontSize: "clamp(13px, 1.25vw, 15px)", fontWeight: 300, maxWidth: "560px" }}>
+            <p className="subline-section mx-auto mt-6">
               Both vouchers are valid for 12 months from purchase. Both can be delivered
               digitally by email or posted via Royal Mail first class.
             </p>
@@ -350,7 +350,7 @@ function RedeemCTA() {
           </h2>
         </FadeUp>
         <FadeUp delay={0.25}>
-          <p className="font-body text-white/65 leading-[1.85] mx-auto mb-10" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300, maxWidth: "560px" }}>
+          <p className="subline-section mx-auto mb-10">
             Tour vouchers redeem against our online tour booking system. Restaurant vouchers
             redeem onsite at The Rows &amp; Vine. Bring the voucher reference with you.
           </p>

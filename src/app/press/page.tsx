@@ -223,7 +223,7 @@ function ReleasesSection() {
             </h2>
           </FadeUp>
           <FadeUp delay={0.25}>
-            <p className="font-body text-white/65 leading-[1.85] mx-auto mt-6" style={{ fontSize: "clamp(13px, 1.25vw, 15px)", fontWeight: 300, maxWidth: "560px" }}>
+            <p className="subline-section mx-auto mt-6">
               For full text, imagery or additional context on any of the stories below, email the
               press team — we keep press packs current.
             </p>
