@@ -316,18 +316,7 @@ export default function WineClubPage() {
                   initial={{ opacity: 0, y: 14 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.18 }}
-                  className="font-body text-white/70 leading-[1.65] mx-auto"
-                  style={{
-                    fontSize: "clamp(13px, 1.15vw, 15px)",
-                    fontWeight: 300,
-                    maxWidth: "480px",
-                    // CSS text-balance lets the browser distribute words
-                    // evenly across the two lines instead of letting one
-                    // word ("access") sit alone on line 2. Combined with
-                    // a tighter max-width this produces a clean two-line
-                    // wrap on every viewport between mobile and desktop.
-                    textWrap: "balance",
-                  }}
+                  className="subline mx-auto"
                 >
                   Award-winning English sparkling, bespoke member experiences
                   and rare-cellar access — when you join OurView.

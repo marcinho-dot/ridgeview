@@ -14,6 +14,53 @@
   --foreground: #f5f0e8;
 }
 
+/* ── Typography balance — site-wide rule ────────────────────────────
+   Every block-level text element that can wrap to 2+ lines gets
+   browser-balanced line breaks by default. Kills "widow" lines
+   (e.g. 25 words on line 1 + 3 words on line 2) automatically across
+   every page without per-element opt-in.
+
+   Browser support: Chrome 114+, Safari 17.5+, Firefox 121+. Older
+   browsers fall back to greedy wrapping — same as today, no regression.
+
+   To opt out for an individual element (e.g. a deliberately single-
+   line statement that should never wrap), set `text-wrap: auto` inline. */
+h1, h2, h3, h4, p, blockquote, li {
+  text-wrap: balance;
+}
+
+/* ── Subline component classes ──────────────────────────────────────
+   Use `.subline*` on every hero/section intro paragraph instead of
+   re-declaring font + max-width + balance per page. Three width
+   variants cover ~95% of cases; for one-offs, combine with arbitrary
+   Tailwind `md:max-w-[NNNpx]` to override.
+
+   text-wrap: balance is already inherited from the global rule above. */
+.subline {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(13px, 1.15vw, 15px);
+  line-height: 1.65;
+  color: rgb(255 255 255 / 0.7);
+  max-width: 480px;
+}
+.subline-hero {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(14px, 1.4vw, 17px);
+  line-height: 1.7;
+  color: rgb(255 255 255 / 0.65);
+  max-width: 680px;
+}
+.subline-narrow {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(13px, 1.15vw, 15px);
+  line-height: 1.65;
+  color: rgb(255 255 255 / 0.7);
+  max-width: 380px;
+}
+
 /* Hide scrollbars on horizontal-scroll rows (e.g. Beyond-the-Bottle
    category card row on the homepage). Still scrollable via touch,
    trackpad, drag, and shift+wheel — just visually clean. */
