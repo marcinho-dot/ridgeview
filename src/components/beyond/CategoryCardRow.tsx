@@ -269,12 +269,12 @@ export function CategoryCardRow() {
                 <motion.li
                   key={cat.slug}
                   className="flex-shrink-0 w-[78vw] sm:w-[44vw] md:w-[320px] lg:w-[340px]"
-                  initial={{ opacity: 0, y: 32 }}
+                  initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.1 }}
                   transition={{
-                    duration: 0.8,
-                    delay: 0.2 + i * 0.08,
+                    duration: 0.5,
+                    delay: 0.08 + i * 0.05,
                     ease: [0.16, 1, 0.3, 1],
                   }}
                 >
