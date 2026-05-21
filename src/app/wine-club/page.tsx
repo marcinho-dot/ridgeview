@@ -258,9 +258,19 @@ export default function WineClubPage() {
       <Navbar />
 
       <main>
-        {/* ── Hero ─────────────────────────────────────────────────── */}
+        {/* ── Hero + Pricing — unified viewport-height section ─────────
+            Single fixed-height hero (min-h-svh on mobile, min-h-screen
+            on desktop) that holds the entire conversion arc — brand
+            kicker, "Find your sparkle" promise, subline, membership
+            kicker, "Become a member" call-to-action AND the PricingCard
+            — all in one viewport. Content is flex-distributed vertically
+            so it scales gracefully across viewport heights; the next
+            "How it works" section never bleeds into the initial view.
+            Restructured 2026-05-21 after user feedback that the previous
+            split-section layout left visitors scrolling past a second
+            hero to find the price. */}
         <ScrollReset>
-          <section className="relative bg-[#010101] overflow-hidden">
+          <section className="relative bg-[#010101] overflow-hidden min-h-svh md:min-h-screen flex flex-col">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={`${basePath}/images/cellar-bg.png`}
@@ -271,58 +281,77 @@ export default function WineClubPage() {
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/55 to-[#010101]" />
 
-            <div className="relative max-w-[1600px] mx-auto px-6 md:px-16 pt-24 md:pt-28 pb-4 md:pb-6 text-center">
-              <motion.p
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7 }}
-                className="font-display italic text-[#C8A96E] tracking-widest mb-4"
-                style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
-              >
-                [ OurView · Wine Club ]
-              </motion.p>
-              <motion.h1
-                initial={{ opacity: 0, y: 22 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.0, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
-                className="font-display italic text-cream leading-[1.04] mb-5 mx-auto"
-                style={{
-                  fontSize: "clamp(36px, 5vw, 68px)",
-                  fontWeight: 400,
-                  maxWidth: "820px",
-                }}
-              >
-                Find your <span className="text-[#C8A96E]">sparkle</span>.
-              </motion.h1>
-              <motion.p
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.18 }}
-                className="font-body text-white/70 leading-[1.7] mx-auto"
-                style={{
-                  fontSize: "clamp(14px, 1.25vw, 16px)",
-                  fontWeight: 300,
-                  maxWidth: "560px",
-                }}
-              >
-                Award-winning English sparkling, bespoke member experiences
-                and rare-cellar access — when you join OurView.
-              </motion.p>
-            </div>
-          </section>
-        </ScrollReset>
+            <div className="relative z-10 flex-1 flex flex-col justify-center max-w-[1600px] mx-auto w-full px-6 md:px-16 pt-24 md:pt-28 pb-10 md:pb-14">
+              {/* ── Brand intro ─────────────────────────────── */}
+              <div className="text-center mb-8 md:mb-10">
+                <motion.p
+                  initial={{ opacity: 0, y: 14 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7 }}
+                  className="font-display italic text-[#C8A96E] tracking-widest mb-3 md:mb-4"
+                  style={{ fontSize: "clamp(12px, 1.2vw, 15px)" }}
+                >
+                  [ OurView · Wine Club ]
+                </motion.p>
+                <motion.h1
+                  initial={{ opacity: 0, y: 22 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1.0, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+                  className="font-display italic text-cream leading-[1.04] mb-4 mx-auto"
+                  style={{
+                    fontSize: "clamp(34px, 4.6vw, 60px)",
+                    fontWeight: 400,
+                    maxWidth: "780px",
+                  }}
+                >
+                  Find your <span className="text-[#C8A96E]">sparkle</span>.
+                </motion.h1>
+                <motion.p
+                  initial={{ opacity: 0, y: 14 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.18 }}
+                  className="font-body text-white/70 leading-[1.65] mx-auto"
+                  style={{
+                    fontSize: "clamp(13px, 1.15vw, 15px)",
+                    fontWeight: 300,
+                    maxWidth: "560px",
+                  }}
+                >
+                  Award-winning English sparkling, bespoke member experiences
+                  and rare-cellar access — when you join OurView.
+                </motion.p>
+              </div>
 
-        {/* ── Pricing ──────────────────────────────────────────────── */}
-        {/* The redundant "Become a member" interstitial was removed
-            2026-05-21 — the card's own [ANNUAL] kicker + "Annual
-            Membership" headline carry the same message without forcing
-            visitors to scroll past a second hero before the price reads.
-            Pricing section now sits tight against the hero so on
-            standard desktop monitors the entire card fits in one
-            viewport below the fold. */}
-        <ScrollReset>
-          <section className="relative bg-[#010101]">
-            <div className="max-w-[1600px] mx-auto px-6 md:px-16 pt-2 md:pt-4 pb-16 md:pb-20">
+              {/* ── Membership call-out ─────────────────────────────
+                  Restored 2026-05-21 — the "Become a member" line gives
+                  visitors a clear semantic shift from brand-promise (above)
+                  to commercial action (below). Pairing kicker on the
+                  left of the H2 keeps it tonally separate from the hero
+                  H1 above without taking another full viewport row. */}
+              <div className="text-center mb-5 md:mb-6">
+                <motion.p
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{ duration: 0.6 }}
+                  className="font-display italic text-[#C8A96E] tracking-widest mb-2"
+                  style={{ fontSize: "clamp(11px, 1.1vw, 13px)" }}
+                >
+                  [ Membership ]
+                </motion.p>
+                <motion.h2
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.85, delay: 0.06, ease: [0.16, 1, 0.3, 1] }}
+                  className="font-display italic text-cream leading-[1.08]"
+                  style={{ fontSize: "clamp(24px, 2.8vw, 38px)", fontWeight: 400 }}
+                >
+                  Become a <span className="text-[#C8A96E]">member</span>.
+                </motion.h2>
+              </div>
+
+              {/* ── PricingCard ────────────────────────────────── */}
 
               {/* Single card — Ridgeview offers only one membership tier
                   (verified 2026-05-17 against ridgeview.co.uk/ourview-
