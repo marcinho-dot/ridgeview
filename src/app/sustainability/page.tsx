@@ -31,8 +31,8 @@ function PageHeader() {
       <motion.div className="absolute inset-0" style={{ scale: imgScale, opacity: imgOpacity }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={`${basePath}/images/vineyard-bg.png`}
-          alt="Ridgeview vineyard rows on chalk soil — sustainable winegrowing in Sussex"
+          src={`${basePath}/images/sustainability/hero-chardonnay-vineyard.webp`}
+          alt="Ridgeview Chardonnay vineyard — rooted in the Sussex land"
           className="absolute inset-0 w-full h-full object-cover object-[center_45%]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black/75" />
@@ -146,34 +146,51 @@ function PracticesSection() {
 function CommunitySection() {
   return (
     <section className="relative bg-[#0a0a0a] py-20 md:py-28 border-t border-white/[0.06]">
-      <div className="max-w-[1100px] mx-auto px-6 md:px-16">
-        <div className="text-center mb-12">
-          <FadeUp delay={0.05}><p className="font-display italic text-[#C8A96E] tracking-widest mb-5" style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}>[ Community & Place ]</p></FadeUp>
+      <div className="max-w-[1300px] mx-auto px-6 md:px-16">
+        <div className="grid grid-cols-1 md:grid-cols-[45fr_55fr] gap-10 md:gap-16 items-center">
+          {/* Volunteer image — Chessnut Tree community day */}
           <FadeUp delay={0.15}>
-            <h2 className="font-display italic text-cream leading-[1.08]" style={{ fontSize: "clamp(30px, 3.8vw, 52px)", fontWeight: 400 }}>
-              Committed to our community and <span className="text-[#C8A96E]">social responsibility</span>
-            </h2>
+            <div className="relative aspect-[4/5] rounded-md overflow-hidden border border-white/[0.06]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`${basePath}/images/sustainability/community-volunteer-day.webp`}
+                alt="Ridgeview team volunteering at Chessnut Tree — community day"
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+            </div>
           </FadeUp>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
-          <FadeUp delay={0.25}>
-            <p className="font-body text-white/65 leading-[1.85]" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300 }}>
-              Sussex is home — not just a postcode on the address. Thriving isn&rsquo;t about
-              market success alone; it comes from genuinely supporting and uplifting the people
-              and place around the estate. Our team embraces a culture where small contributions
-              compound — volunteer days, environmental initiatives, and steady commitments to the
-              local community add up to the kind of impact we&rsquo;re proud of.
-            </p>
-          </FadeUp>
-          <FadeUp delay={0.35}>
-            <p className="font-body text-white/65 leading-[1.85]" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300 }}>
-              Conscious energy and waste practices run across every operation. Solar generation,
-              sensor-activated lighting, the Bio-Bubble water treatment system, sustainable
-              packaging — every operational decision is weighed against its footprint, and we
-              keep pushing for lower.
-            </p>
-          </FadeUp>
+          <div>
+            <FadeUp delay={0.05}>
+              <p className="font-display italic text-[#C8A96E] tracking-widest mb-5" style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}>
+                [ Community & Place ]
+              </p>
+            </FadeUp>
+            <FadeUp delay={0.15}>
+              <h2 className="font-display italic text-cream leading-[1.08] mb-6" style={{ fontSize: "clamp(30px, 3.8vw, 52px)", fontWeight: 400 }}>
+                Committed to our community and <span className="text-[#C8A96E]">social responsibility</span>
+              </h2>
+            </FadeUp>
+            <FadeUp delay={0.25}>
+              <p className="font-body text-white/65 leading-[1.85] mb-5" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300 }}>
+                Sussex is home — not just a postcode on the address. Thriving isn&rsquo;t about
+                market success alone; it comes from genuinely supporting and uplifting the people
+                and place around the estate. Our team embraces a culture where small contributions
+                compound — volunteer days, environmental initiatives, and steady commitments to
+                the local community add up to the kind of impact we&rsquo;re proud of.
+              </p>
+            </FadeUp>
+            <FadeUp delay={0.35}>
+              <p className="font-body text-white/65 leading-[1.85]" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300 }}>
+                Conscious energy and waste practices run across every operation. Solar generation,
+                sensor-activated lighting, the Bio-Bubble water treatment system, sustainable
+                packaging — every operational decision is weighed against its footprint, and we
+                keep pushing for lower.
+              </p>
+            </FadeUp>
+          </div>
         </div>
       </div>
     </section>

@@ -84,7 +84,19 @@ function PageHeader() {
 }
 
 // ─── Press releases archive (recent stories, our prose) ───────────────────
-type Release = { date: string; title: string; summary: string };
+// Each release has an image (downloaded from the legacy ridgeview.co.uk
+// press archive 2026-05-21, stored locally in /public/images/press/) and
+// an optional downloadable PDF (mirrored to /public/pdfs/press/). PDFs
+// open in a new tab; cards without a PDF show a "By email" fallback
+// that opens the press mailto template.
+type Release = {
+  date: string;
+  title: string;
+  summary: string;
+  image: string;
+  alt: string;
+  pdf?: string;
+};
 
 const RELEASES: Release[] = [
   {
@@ -92,54 +104,106 @@ const RELEASES: Release[] = [
     title: "Ridgeview enters its next chapter under new ownership",
     summary:
       "Following the change of ownership, Ridgeview continues as a leading English sparkling wine producer with a renewed focus on quality, sustainability and the Sussex estate.",
+    image: "/images/press/quantum-acquisition.webp",
+    alt: "Ridgeview press release announcement square",
+    pdf: "/pdfs/press/quantum-beverage-acquisition.pdf",
   },
   {
     date: "2024",
     title: "Official English Sparkling Wine supplier of the Goodwood Estate",
     summary:
       "A partnership with the historic Goodwood Estate sees Ridgeview&rsquo;s award-winning sparkling poured across motorsport, racing and hospitality experiences.",
+    image: "/images/press/goodwood-partnership.webp",
+    alt: "Ridgeview x Goodwood Estate partnership",
+    pdf: "/pdfs/press/goodwood-partnership.pdf",
   },
   {
     date: "2024",
     title: "Ridgeview takes off with Gatwick Airport",
     summary:
       "Selected as the official English sparkling at London Gatwick — bringing Sussex&rsquo;s flagship pour to international travellers.",
+    image: "/images/press/gatwick-takeoff.webp",
+    alt: "Two bottles of Ridgeview Wine in Duty Free at Gatwick Airport",
+    pdf: "/pdfs/press/gatwick-airport.pdf",
+  },
+  {
+    date: "2024",
+    title: "The Rows &amp; Vine takes residence in the winery",
+    summary:
+      "Our seasonal restaurant settles into the winery for a new chapter — refreshed dining experience, expanded pavilions and a redesigned tour for visiting guests.",
+    image: "/images/press/rows-vine-winery.webp",
+    alt: "The Rows & Vine restaurant indoor — dining and tasting in Sussex",
+    pdf: "/pdfs/press/rows-vine-residence.pdf",
   },
   {
     date: "2024",
     title: "Featured in the London Gatwick Northern Runway Campaign",
     summary:
       "Ridgeview featured as part of the regional showcase for the Northern Runway proposal — celebrating Sussex producers on the international stage.",
+    image: "/images/press/gatwick-northern-runway.webp",
+    alt: "Ridgeview featured in Gatwick Northern Runway campaign visual",
   },
   {
     date: "2024",
     title: "Wins at WineGB and Decanter World Wine Awards",
     summary:
       "Another medal-strong season — silverware across multiple categories at WineGB and Decanter, reinforcing Ridgeview&rsquo;s position among the world&rsquo;s best sparkling.",
+    image: "/images/press/winegb-decanter-awards.webp",
+    alt: "Ridgeview wins at WineGB and Decanter World Wine Awards",
   },
   {
     date: "2023",
     title: "Blanc de Blancs served at King Charles&rsquo; first state banquet",
     summary:
       "Ridgeview Blanc de Blancs poured at the State Banquet at Buckingham Palace — the second time our wines have been chosen for the most formal of occasions.",
+    image: "/images/press/king-charles-banquet.webp",
+    alt: "Ridgeview Blanc de Blancs bottle",
+    pdf: "/pdfs/press/king-charles-banquet.pdf",
+  },
+  {
+    date: "2023",
+    title: "Ridgefest is back for 2023",
+    summary:
+      "Our annual vineyard festival returns — live music, food, sparkling wine and a full day at the estate to celebrate the start of the season.",
+    image: "/images/press/ridgefest-2023.webp",
+    alt: "Ridgefest 2023 — Ridgeview Wine Estate Festival in Sussex",
+    pdf: "/pdfs/press/ridgefest-2023.pdf",
   },
   {
     date: "2023",
     title: "Launch of our new Sparkling Red Reserve",
     summary:
       "A bold, distinctively English Sparkling Red — pressed from Sussex Pinot Noir, aged on lees, made for slow winter evenings and richer pairings.",
+    image: "/images/press/sparkling-red-launch.webp",
+    alt: "Ridgeview Sparkling Red Reserve launch",
+    pdf: "/pdfs/press/sparkling-red-launch.pdf",
+  },
+  {
+    date: "2023",
+    title: "Ridgeview achieves B Corp certification",
+    summary:
+      "Independent certification of our environmental and social performance — formally recognising what we&rsquo;ve always tried to be: a business as a force for good.",
+    image: "/images/press/b-corp-cert.webp",
+    alt: "Ridgeview B Corp certification announcement",
+    pdf: "/pdfs/press/b-corp-certification.pdf",
   },
   {
     date: "2022",
     title: "Unveiling our new hospitality project",
     summary:
       "The Rows &amp; Vine — a seasonal restaurant in the vines, alongside expanded pavilions and a redesigned tour experience for visiting guests.",
+    image: "/images/press/hospitality-unveil.webp",
+    alt: "Ridgeview hospitality project unveiling",
+    pdf: "/pdfs/press/hospitality-unveil.pdf",
   },
   {
     date: "2021",
     title: "Ridgeview served at COP26 Global Leaders Reception",
     summary:
       "Selected as the English sparkling poured at the COP26 Leaders Reception — a flag for British sustainable winemaking on the world climate stage.",
+    image: "/images/press/cop26.webp",
+    alt: "Ridgeview bottle in the Chardonnay vineyard at sunset",
+    pdf: "/pdfs/press/cop26-leaders.pdf",
   },
 ];
 
@@ -166,42 +230,95 @@ function ReleasesSection() {
           </FadeUp>
         </div>
 
-        <ol className="space-y-0">
+        {/* News-card grid — image + date + headline + summary + PDF download.
+            Designed to look distinct from /heritage timeline: no rail, no
+            year column, images dominant. Layout: 1 col mobile, 2 cols tablet,
+            3 cols desktop. PDF cards get a download button; year-only cards
+            get an "Enquire by email" fallback. */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {RELEASES.map((r, i) => (
-            <FadeUp key={i} delay={0.3 + Math.min(i, 6) * 0.04}>
-              {/* Hover microinteraction: row picks up gold-accent border on hover,
-                  date glows brighter, title shifts to white, summary lightens. */}
-              <li className="group grid grid-cols-[80px_1fr] md:grid-cols-[120px_1fr] gap-6 md:gap-10 py-8 md:py-10 border-t border-white/[0.08] first:border-t-0 hover:border-t-[#C8A96E]/30 transition-colors duration-500 relative">
-                {/* Subtle gold accent stripe that grows in on hover from the left */}
-                <span
-                  aria-hidden
-                  className="absolute left-0 top-0 h-px w-0 bg-[#C8A96E]/70 group-hover:w-12 transition-[width] duration-700 ease-out"
-                />
-                <div>
-                  <p
-                    className="font-body text-[#C8A96E]/70 group-hover:text-[#C8A96E] tracking-[0.25em] uppercase transition-colors duration-400"
-                    style={{ fontSize: "12px", fontWeight: 400 }}
+            <FadeUp key={i} delay={0.3 + Math.min(i, 8) * 0.05}>
+              <article className="group h-full bg-[#0d0d0d] border border-white/[0.08] hover:border-[#C8A96E]/40 rounded-md overflow-hidden flex flex-col transition-all duration-400">
+                {/* Image — 16:10 aspect, hover scale */}
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={`${basePath}${r.image}`}
+                    alt={r.alt}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.04]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent transition-colors duration-700 group-hover:from-black/25" />
+                  {/* Year chip top-left */}
+                  <span
+                    className="absolute top-4 left-4 font-body text-[#C8A96E] uppercase tracking-[0.25em] border border-[#C8A96E]/40 bg-black/60 backdrop-blur-sm px-2.5 py-1 rounded-sm"
+                    style={{ fontSize: "10px", fontWeight: 500 }}
                   >
                     {r.date}
-                  </p>
+                  </span>
+                  {r.pdf && (
+                    <span
+                      className="absolute top-4 right-4 font-body text-white/75 uppercase tracking-[0.22em] border border-white/25 bg-black/60 backdrop-blur-sm px-2.5 py-1 rounded-sm"
+                      style={{ fontSize: "9.5px", fontWeight: 400 }}
+                    >
+                      PDF
+                    </span>
+                  )}
                 </div>
-                <div>
+
+                <div className="p-6 md:p-7 flex flex-col flex-1">
                   <h3
                     className="font-display italic text-cream group-hover:text-white leading-[1.18] mb-3 transition-colors duration-400"
-                    style={{ fontSize: "clamp(20px, 1.85vw, 28px)", fontWeight: 400 }}
-                  >
-                    {r.title}
-                  </h3>
+                    style={{ fontSize: "clamp(19px, 1.65vw, 24px)", fontWeight: 400 }}
+                    dangerouslySetInnerHTML={{ __html: r.title }}
+                  />
                   <p
-                    className="font-body text-white/55 group-hover:text-white/75 leading-[1.75] max-w-[640px] transition-colors duration-400"
-                    style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 300 }}
+                    className="font-body text-white/55 leading-[1.75] mb-6 flex-1"
+                    style={{ fontSize: "clamp(13px, 1.1vw, 14.5px)", fontWeight: 300 }}
                     dangerouslySetInnerHTML={{ __html: r.summary }}
                   />
+
+                  {/* Action row — download PDF (primary) or enquire by email */}
+                  {r.pdf ? (
+                    <a
+                      href={`${basePath}${r.pdf}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 font-body text-[#C8A96E] hover:text-cream uppercase tracking-[0.22em] transition-colors duration-300 self-start"
+                      style={{ fontSize: "11px", fontWeight: 500 }}
+                    >
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden
+                      >
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                      </svg>
+                      <span>Download press release</span>
+                    </a>
+                  ) : (
+                    <a
+                      href={PRESS_MAILTO}
+                      className="inline-flex items-center gap-2 font-body text-white/55 hover:text-[#C8A96E] uppercase tracking-[0.22em] transition-colors duration-300 self-start"
+                      style={{ fontSize: "11px", fontWeight: 500 }}
+                    >
+                      <span>Request by email</span>
+                      <span aria-hidden>→</span>
+                    </a>
+                  )}
                 </div>
-              </li>
+              </article>
             </FadeUp>
           ))}
-        </ol>
+        </div>
       </div>
     </section>
   );
