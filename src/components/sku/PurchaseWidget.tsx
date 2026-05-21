@@ -232,76 +232,127 @@ export function PurchaseWidget({
         <p className="font-body text-white/45 text-[12px] mt-1">{variant.detail}</p>
       </div>
 
-      {/* ── Quantity + ATB ───────────────────────────────────────── */}
-      <div className="flex flex-wrap items-center gap-3">
-        {/* Quantity Selector */}
-        <div className="inline-flex items-center border border-white/20 rounded-md overflow-hidden backdrop-blur-md bg-white/[0.03]">
-          <button
-            type="button"
-            onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-            aria-label="Decrease quantity"
-            className="w-9 h-[44px] flex items-center justify-center text-white/65 hover:text-cream hover:bg-white/[0.08] active:scale-[0.95] transition-all duration-200 text-base"
-          >
-            &minus;
-          </button>
-          <div
-            aria-live="polite"
-            className="w-9 text-center font-body text-cream text-[13px] tabular-nums"
-          >
-            {quantity}
-          </div>
-          <button
-            type="button"
-            onClick={() => setQuantity((q) => Math.min(99, q + 1))}
-            aria-label="Increase quantity"
-            className="w-9 h-[44px] flex items-center justify-center text-white/65 hover:text-cream hover:bg-white/[0.08] active:scale-[0.95] transition-all duration-200 text-base"
-          >
-            +
-          </button>
-        </div>
-
-        {/* ATB Button vs Notify-Me Form. data-atb-trigger ties into the
-            StickyMobileCTA observer. When the active variant is OOS the
-            button is disabled and short-circuits. When EVERY variant is
-            OOS AND notifyMeOnOOS is set, the button is replaced entirely
-            with an email-capture form so visitors can register interest. */}
-        {showNotifyMe ? (
-          notifySubmitted ? (
+      {/* ── Purchase block vs Notify-Me block ─────────────────────────
+          When every variant is OOS AND the parent SKU page opted into
+          notifyMeOnOOS, the quantity selector + ATB row are replaced
+          wholesale by a self-contained Notify-Me panel. The panel has
+          its own status pill, headline and helper text so visitors
+          immediately understand what they're looking at — instead of a
+          dangling email field next to a stale quantity widget. */}
+      {showNotifyMe ? (
+        <div className="border border-[#C8A96E]/25 bg-[#C8A96E]/[0.04] rounded-md p-5 md:p-6">
+          {/* Status pill */}
+          <div className="flex items-center gap-2 mb-4">
+            <span
+              aria-hidden
+              className="inline-block w-1.5 h-1.5 rounded-full bg-[#C8A96E]"
+              style={{ boxShadow: "0 0 8px rgba(200,169,110,0.55)" }}
+            />
             <p
-              className="font-body text-[#C8A96E] leading-relaxed flex-1 self-center"
-              style={{ fontSize: "13px", fontWeight: 400 }}
-              role="status"
-              aria-live="polite"
+              className="font-body text-[#C8A96E] uppercase tracking-[0.25em]"
+              style={{ fontSize: "10px", fontWeight: 500 }}
             >
-              ✓ Thank you — we&rsquo;ll be in touch when {productName} returns.
+              Currently out of stock
             </p>
-          ) : (
-            <form
-              onSubmit={handleNotifySubmit}
-              className="flex items-stretch border border-[#C8A96E]/40 hover:border-[#C8A96E]/70 focus-within:border-[#C8A96E] rounded-sm bg-white/[0.03] transition-colors duration-300 flex-1 max-w-[420px]"
-              aria-label={`Notify me when ${productName} is back in stock`}
-            >
-              <input
-                type="email"
-                inputMode="email"
-                required
-                placeholder="Your email"
-                value={notifyEmail}
-                onChange={(e) => setNotifyEmail(e.target.value)}
-                className="flex-1 bg-transparent border-0 px-4 py-3 font-body text-cream text-[13px] tracking-wide placeholder:text-white/45 focus:outline-none"
-                style={{ fontWeight: 300 }}
-              />
-              <button
-                id={ctaId}
-                type="submit"
-                className="font-body text-[#C8A96E] hover:text-cream uppercase tracking-[0.22em] border-l border-[#C8A96E]/40 hover:bg-[#C8A96E]/[0.08] px-4 py-3 transition-all duration-300 whitespace-nowrap"
-                style={{ fontSize: "10px", fontWeight: 500 }}
+          </div>
+
+          {notifySubmitted ? (
+            <div role="status" aria-live="polite">
+              <h3
+                className="font-display italic text-cream leading-[1.15] mb-2"
+                style={{ fontSize: "clamp(20px, 2vw, 26px)", fontWeight: 400 }}
               >
-                Notify Me
-              </button>
-            </form>
-          )
-        ) : (
+                ✓ Thank you — we&rsquo;ll be in touch
+              </h3>
+              <p
+                className="font-body text-white/65 leading-relaxed"
+                style={{ fontSize: "13px", fontWeight: 300, maxWidth: "440px" }}
+              >
+                We&rsquo;ll send a single message the moment {productName}{" "}
+                returns to stock. No marketing list, no newsletter — just this.
+              </p>
+            </div>
+          ) : (
+            <>
+              <h3
+                className="font-display italic text-cream leading-[1.15] mb-2"
+                style={{ fontSize: "clamp(20px, 2vw, 26px)", fontWeight: 400 }}
+              >
+                Notify me when {productName} returns
+              </h3>
+              <p
+                className="font-body text-white/65 leading-relaxed mb-5"
+                style={{ fontSize: "13px", fontWeight: 300, maxWidth: "440px" }}
+              >
+                Leave your email and we&rsquo;ll send a single message the
+                moment this wine is back in stock — no marketing, just this.
+              </p>
+              <form
+                onSubmit={handleNotifySubmit}
+                className="flex items-stretch border border-[#C8A96E]/40 hover:border-[#C8A96E]/70 focus-within:border-[#C8A96E] rounded-sm bg-white/[0.04] transition-colors duration-300"
+                aria-label={`Notify me when ${productName} is back in stock`}
+              >
+                <input
+                  type="email"
+                  inputMode="email"
+                  required
+                  placeholder="Your email address"
+                  value={notifyEmail}
+                  onChange={(e) => setNotifyEmail(e.target.value)}
+                  className="flex-1 min-w-0 bg-transparent border-0 px-4 py-3 font-body text-cream text-[13px] tracking-wide placeholder:text-white/45 focus:outline-none"
+                  style={{ fontWeight: 300 }}
+                />
+                <button
+                  id={ctaId}
+                  type="submit"
+                  className="font-body text-[#C8A96E] hover:text-cream uppercase tracking-[0.22em] border-l border-[#C8A96E]/40 hover:bg-[#C8A96E]/[0.08] active:bg-[#C8A96E]/[0.16] px-4 md:px-5 py-3 transition-all duration-300 whitespace-nowrap"
+                  style={{ fontSize: "10px", fontWeight: 500 }}
+                >
+                  Notify Me
+                </button>
+              </form>
+              <p
+                className="font-body text-white/40 leading-relaxed mt-3"
+                style={{ fontSize: "11px", fontWeight: 300 }}
+              >
+                We only use your address for this single notification.
+              </p>
+            </>
+          )}
+        </div>
+      ) : (
+        <div className="flex flex-wrap items-center gap-3">
+          {/* Quantity Selector */}
+          <div className="inline-flex items-center border border-white/20 rounded-md overflow-hidden backdrop-blur-md bg-white/[0.03]">
+            <button
+              type="button"
+              onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+              aria-label="Decrease quantity"
+              className="w-9 h-[44px] flex items-center justify-center text-white/65 hover:text-cream hover:bg-white/[0.08] active:scale-[0.95] transition-all duration-200 text-base"
+            >
+              &minus;
+            </button>
+            <div
+              aria-live="polite"
+              className="w-9 text-center font-body text-cream text-[13px] tabular-nums"
+            >
+              {quantity}
+            </div>
+            <button
+              type="button"
+              onClick={() => setQuantity((q) => Math.min(99, q + 1))}
+              aria-label="Increase quantity"
+              className="w-9 h-[44px] flex items-center justify-center text-white/65 hover:text-cream hover:bg-white/[0.08] active:scale-[0.95] transition-all duration-200 text-base"
+            >
+              +
+            </button>
+          </div>
+
+          {/* ATB Button. data-atb-trigger ties into the StickyMobileCTA
+              observer. Disabled + label-swap when the active variant is
+              OOS (single-variant or per-format OOS still uses this path
+              — only the all-variants-OOS-with-opt-in case routes to the
+              Notify-Me panel above). */}
           <button
             id={ctaId}
             data-atb-trigger
@@ -313,8 +364,8 @@ export function PurchaseWidget({
           >
             {isOOS ? "Out of Stock" : `Add to basket · ${formatGBP(total)}`}
           </button>
-        )}
-      </div>
+        </div>
+      )}
 
       {/* ── Free Shipping Bar ──────────────────────────────────────
           Hidden when the active variant is out of stock - no point
