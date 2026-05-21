@@ -9,10 +9,12 @@ import { Fragment, ReactNode, useEffect, useRef, useState } from "react";
  *   - Beobachtet die Scroll-Position.
  *   - Sobald der User von "nicht ganz oben" auf scrollY < 5 wechselt
  *     (Flanken-getriggert) UND das umschlossene Element unterhalb des
- *     Viewports liegt (rect.top > innerHeight), wird der interne `key`
- *     inkrementiert. Das führt zu einem Re-Mount der Children - und
- *     damit triggern Framer-Motion-Animationen mit `whileInView once:true`
- *     beim nächsten Runterscrollen frisch.
+ *     Viewports liegt (rect.top + 4 >= innerHeight — 4px Sub-Pixel-
+ *     Puffer für Sections die exakt am Fold sitzen, z.B. direkt unter
+ *     einem h-svh Hero), wird der interne `key` inkrementiert. Das
+ *     führt zu einem Re-Mount der Children — und damit triggern
+ *     Framer-Motion-Animationen mit `whileInView once:true` beim
+ *     nächsten Runterscrollen frisch.
  *
  * Wichtig:
  *   - Die Animationen selbst werden NICHT verändert. Nur das Reset-Trigger-
@@ -34,10 +36,18 @@ export function ScrollReset({ children }: { children: ReactNode }) {
     const onScroll = () => {
       const isTop = window.scrollY < 5;
       if (isTop && !wasTop) {
-        // Gerade an den Seitenanfang gescrollt - prüfen, ob unsere
+        // Gerade an den Seitenanfang gescrollt — prüfen, ob unsere
         // Section unterhalb des Viewports liegt; nur dann resetten.
+        //
+        // Threshold-Toleranz (2026-05-22): die ursprüngliche strikte
+        // `r.top > innerHeight` Bedingung scheiterte für Sections die
+        // direkt am Fold sitzen (z.B. CategoryCardRow direkt unter
+        // einem `h-svh` Hero → r.top === innerHeight, strikte `>`
+        // ist false). `>=` mit kleinem Sub-Pixel-Puffer löst das,
+        // ohne Resets auf tatsächlich teilsichtbaren Sections zu
+        // riskieren (die wären mindestens 4+ px überm Fold).
         const r = ref.current?.getBoundingClientRect();
-        if (r && r.top > window.innerHeight) {
+        if (r && r.top + 4 >= window.innerHeight) {
           setResetKey((k) => k + 1);
         }
       }
