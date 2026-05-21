@@ -150,7 +150,10 @@ function PricingCard({
   };
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 28, scale: 0.985 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 0.95, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
       className={`relative h-full p-6 md:p-8 rounded-sm border ${
         recommended
           ? "border-[#C8A96E]/60 bg-[rgba(200,169,110,0.04)]"
@@ -217,25 +220,28 @@ function PricingCard({
           </p>
           <ul className="space-y-2 md:space-y-2.5">
             {highlights.map((h, i) => (
-              <li
+              <motion.li
                 key={i}
-                className="flex items-start gap-2.5 font-body text-white/70 leading-[1.5]"
+                initial={{ opacity: 0, x: 16 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.55, delay: 0.55 + i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+                className="group/perk flex items-start gap-2.5 font-body text-white/70 leading-[1.5] hover:text-cream/95 transition-colors duration-300"
                 style={{ fontSize: "clamp(12.5px, 1vw, 13.5px)", fontWeight: 300 }}
               >
                 <span
                   aria-hidden
-                  className="text-[#C8A96E] flex-shrink-0 mt-1"
+                  className="text-[#C8A96E]/70 group-hover/perk:text-[#C8A96E] flex-shrink-0 mt-1 transition-all duration-300 group-hover/perk:scale-125"
                   style={{ fontSize: "8px" }}
                 >
                   ◆
                 </span>
                 <span>{h}</span>
-              </li>
+              </motion.li>
             ))}
           </ul>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -394,18 +400,26 @@ export default function WineClubPage() {
           <section className="relative bg-[#010101] border-t border-white/[0.06]">
             <div className="max-w-[1600px] mx-auto px-6 md:px-16 py-20 md:py-28">
               <div className="mb-14 md:mb-20 max-w-[820px]">
-                <p
+                <motion.p
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                   className="font-display italic text-[#C8A96E] tracking-widest mb-4"
                   style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
                 >
                   [ How it works ]
-                </p>
-                <h2
+                </motion.p>
+                <motion.h2
+                  initial={{ opacity: 0, y: 22 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                   className="font-display italic text-cream leading-[1.08]"
                   style={{ fontSize: "clamp(32px, 4.6vw, 64px)", fontWeight: 400 }}
                 >
                   Three steps to your first <span className="text-[#C8A96E]">case</span>.
-                </h2>
+                </motion.h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
                 {STEPS.map((step, i) => (
@@ -414,23 +428,33 @@ export default function WineClubPage() {
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.7, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                    className="p-8 md:p-10 border border-white/8 rounded-sm bg-[#0a0a0a]"
+                    transition={{ duration: 0.7, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
+                    className="group relative p-8 md:p-10 border border-white/[0.08] hover:border-[#C8A96E]/45 rounded-sm bg-[#0a0a0a] hover:bg-[#0d0d0d] transition-all duration-500 overflow-hidden"
                   >
+                    {/* Hover accent — soft gold radial that fades in from the
+                        top-left, giving the card a "warming" feel on hover. */}
+                    <div
+                      aria-hidden
+                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+                      style={{
+                        background:
+                          "radial-gradient(ellipse 60% 60% at 0% 0%, rgba(200,169,110,0.07) 0%, transparent 70%)",
+                      }}
+                    />
                     <p
-                      className="font-display italic text-[#C8A96E]/70 mb-5"
+                      className="relative font-display italic text-[#C8A96E]/70 group-hover:text-[#C8A96E] mb-5 transition-all duration-500 group-hover:-translate-y-0.5"
                       style={{ fontSize: "clamp(36px, 3.4vw, 48px)", fontWeight: 400 }}
                     >
                       {step.n}
                     </p>
                     <h3
-                      className="font-display italic text-cream leading-[1.15] mb-4"
+                      className="relative font-display italic text-cream group-hover:text-white leading-[1.15] mb-4 transition-colors duration-500"
                       style={{ fontSize: "clamp(22px, 2vw, 28px)", fontWeight: 400 }}
                     >
                       {step.title}
                     </h3>
                     <p
-                      className="font-body text-white/65 leading-[1.7]"
+                      className="relative font-body text-white/65 group-hover:text-white/80 leading-[1.7] transition-colors duration-500"
                       style={{ fontSize: "14px", fontWeight: 300 }}
                     >
                       {step.body}
@@ -447,18 +471,26 @@ export default function WineClubPage() {
           <section className="relative bg-[#010101] border-t border-white/[0.06]">
             <div className="max-w-[1600px] mx-auto px-6 md:px-16 py-20 md:py-28">
               <div className="mb-14 md:mb-20 max-w-[820px]">
-                <p
+                <motion.p
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                   className="font-display italic text-[#C8A96E] tracking-widest mb-4"
                   style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
                 >
                   [ Member benefits ]
-                </p>
-                <h2
+                </motion.p>
+                <motion.h2
+                  initial={{ opacity: 0, y: 22 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                   className="font-display italic text-cream leading-[1.08]"
                   style={{ fontSize: "clamp(32px, 4.6vw, 64px)", fontWeight: 400 }}
                 >
                   Everything <span className="text-[#C8A96E]">included</span>.
-                </h2>
+                </motion.h2>
               </div>
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-5">
                 {PERKS.map((perk, i) => (
@@ -467,18 +499,23 @@ export default function WineClubPage() {
                     initial={{ opacity: 0, x: 24 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.55, delay: (i % 7) * 0.05, ease: [0.16, 1, 0.3, 1] }}
-                    className="flex items-start gap-4 py-3 border-b border-white/[0.06]"
+                    transition={{ duration: 0.55, delay: (i % 7) * 0.06, ease: [0.16, 1, 0.3, 1] }}
+                    className="group flex items-start gap-4 py-3 border-b border-white/[0.06] hover:border-[#C8A96E]/30 transition-colors duration-500 relative"
                   >
+                    {/* Hover stripe — gold underline grows from left on hover */}
                     <span
                       aria-hidden
-                      className="text-[#C8A96E] flex-shrink-0 mt-1.5"
+                      className="absolute left-0 bottom-[-1px] h-px w-0 bg-[#C8A96E]/60 group-hover:w-16 transition-[width] duration-700 ease-out"
+                    />
+                    <span
+                      aria-hidden
+                      className="text-[#C8A96E]/70 group-hover:text-[#C8A96E] flex-shrink-0 mt-1.5 transition-all duration-400 group-hover:scale-110 group-hover:translate-x-0.5"
                       style={{ fontSize: "11px" }}
                     >
                       ◆
                     </span>
                     <p
-                      className="font-body text-white/75 leading-[1.6]"
+                      className="font-body text-white/75 group-hover:text-cream leading-[1.6] transition-colors duration-400"
                       style={{ fontSize: "15px", fontWeight: 300 }}
                     >
                       {perk}
@@ -505,19 +542,23 @@ export default function WineClubPage() {
             />
             <div className="absolute inset-0 bg-gradient-to-b from-[#010101] via-black/55 to-[#010101]" />
             <div className="relative max-w-[1400px] mx-auto px-6 md:px-16 py-24 md:py-32">
-              <p
+              <motion.p
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                 className="font-display italic text-[#C8A96E] tracking-widest mb-12 md:mb-16 text-center"
                 style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
               >
                 [ From our members ]
-              </p>
+              </motion.p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
                 <motion.figure
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className="border-l border-[#C8A96E]/30 pl-6 md:pl-8"
+                  className="group border-l border-[#C8A96E]/30 hover:border-[#C8A96E]/85 pl-6 md:pl-8 transition-all duration-500 hover:translate-x-1"
                 >
                   <blockquote
                     className="font-display italic text-cream leading-[1.45] mb-6"
@@ -545,7 +586,7 @@ export default function WineClubPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  className="border-l border-[#C8A96E]/30 pl-6 md:pl-8"
+                  className="group border-l border-[#C8A96E]/30 hover:border-[#C8A96E]/85 pl-6 md:pl-8 transition-all duration-500 hover:translate-x-1"
                 >
                   <blockquote
                     className="font-display italic text-cream leading-[1.45] mb-6"
@@ -572,7 +613,7 @@ export default function WineClubPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                  className="border-l border-[#C8A96E]/30 pl-6 md:pl-8"
+                  className="group border-l border-[#C8A96E]/30 hover:border-[#C8A96E]/85 pl-6 md:pl-8 transition-all duration-500 hover:translate-x-1"
                 >
                   <blockquote
                     className="font-display italic text-cream leading-[1.45] mb-6"
@@ -600,42 +641,64 @@ export default function WineClubPage() {
           <section className="relative bg-[#010101] border-t border-white/[0.06]">
             <div className="max-w-[1100px] mx-auto px-6 md:px-16 py-20 md:py-28">
               <div className="mb-14 md:mb-20">
-                <p
+                <motion.p
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                   className="font-display italic text-[#C8A96E] tracking-widest mb-4"
                   style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
                 >
                   [ FAQ ]
-                </p>
-                <h2
+                </motion.p>
+                <motion.h2
+                  initial={{ opacity: 0, y: 22 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                   className="font-display italic text-cream leading-[1.08]"
                   style={{ fontSize: "clamp(32px, 4.6vw, 64px)", fontWeight: 400 }}
                 >
                   Good <span className="text-[#C8A96E]">questions</span>.
-                </h2>
+                </motion.h2>
               </div>
               <div className="border-t border-white/[0.06]">
                 {FAQS.map((faq, i) => {
                   const isOpen = openFaq === i;
                   return (
-                    <div key={faq.q} className="border-b border-white/[0.06]">
+                    <motion.div
+                      key={faq.q}
+                      initial={{ opacity: 0, y: 14 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.2 }}
+                      transition={{ duration: 0.6, delay: Math.min(i, 5) * 0.06, ease: [0.16, 1, 0.3, 1] }}
+                      className="border-b border-white/[0.06]"
+                    >
                       <button
                         onClick={() => setOpenFaq(isOpen ? null : i)}
                         aria-expanded={isOpen}
                         className="w-full flex items-center justify-between gap-6 py-6 md:py-7 text-left group focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C8A96E]/40"
                       >
                         <span
-                          className="font-display italic text-cream leading-[1.3]"
+                          className="font-display italic text-cream group-hover:text-white leading-[1.3] transition-colors duration-300"
                           style={{ fontSize: "clamp(18px, 1.8vw, 24px)", fontWeight: 400 }}
                         >
                           {faq.q}
                         </span>
                         <span
                           aria-hidden
-                          className={`flex-shrink-0 w-8 h-8 border border-[#C8A96E]/55 rounded-full flex items-center justify-center transition-transform duration-400 ${
-                            isOpen ? "rotate-45 border-[#C8A96E] bg-[#C8A96E]/10" : ""
+                          className={`flex-shrink-0 w-8 h-8 border rounded-full flex items-center justify-center transition-all duration-400 ${
+                            isOpen
+                              ? "rotate-45 border-[#C8A96E] bg-[#C8A96E]/10 scale-110"
+                              : "border-[#C8A96E]/55 group-hover:border-[#C8A96E] group-hover:bg-[#C8A96E]/[0.06] group-hover:scale-105"
                           }`}
                         >
-                          <span className="text-[#C8A96E]" style={{ fontSize: "14px" }}>+</span>
+                          <span
+                            className="text-[#C8A96E] group-hover:text-cream transition-colors duration-300"
+                            style={{ fontSize: "14px" }}
+                          >
+                            +
+                          </span>
                         </span>
                       </button>
                       <AnimatePresence initial={false}>
@@ -656,7 +719,7 @@ export default function WineClubPage() {
                           </motion.div>
                         )}
                       </AnimatePresence>
-                    </div>
+                    </motion.div>
                   );
                 })}
               </div>
@@ -668,22 +731,44 @@ export default function WineClubPage() {
         <ScrollReset>
           <section
             id="join"
-            className="relative bg-[#010101] border-t border-white/[0.06]"
+            className="relative bg-[#010101] border-t border-white/[0.06] overflow-hidden"
           >
-            <div className="max-w-[820px] mx-auto px-6 md:px-16 py-24 md:py-32 text-center">
-              <p
+            {/* Ambient gold radial — gives the final CTA section a soft
+                warm pool that subtly pulls focus toward the join button. */}
+            <div
+              aria-hidden
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(ellipse 50% 60% at 50% 60%, rgba(200,169,110,0.06) 0%, transparent 70%)",
+              }}
+            />
+            <div className="relative max-w-[820px] mx-auto px-6 md:px-16 py-24 md:py-32 text-center">
+              <motion.p
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                 className="font-display italic text-[#C8A96E] tracking-widest mb-5"
                 style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
               >
                 [ Join us ]
-              </p>
-              <h2
+              </motion.p>
+              <motion.h2
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 1.0, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
                 className="font-display italic text-cream leading-[1.08] mb-7"
                 style={{ fontSize: "clamp(34px, 5vw, 68px)", fontWeight: 400 }}
               >
                 Begin your <span className="text-[#C8A96E]">membership</span>.
-              </h2>
-              <p
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                 className="font-body text-white/65 leading-[1.7] mb-10 mx-auto"
                 style={{
                   fontSize: "clamp(15px, 1.3vw, 17px)",
@@ -694,16 +779,28 @@ export default function WineClubPage() {
                 Sign up takes a few minutes, your luxury Welcome Case ships
                 direct to your door, and every benefit is yours from the
                 moment you join.
-              </p>
-              <a href="#" className="btn-cta">
-                Join the Wine Club
-              </a>
-              <p
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.7, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
+                className="inline-block"
+              >
+                <a href="#" className="btn-cta">
+                  Join the Wine Club
+                </a>
+              </motion.div>
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.6, delay: 0.45 }}
                 className="font-body text-white/35 mt-8"
                 style={{ fontSize: "12px", fontWeight: 300 }}
               >
-                Questions? Call 01444 242 040
-              </p>
+                Questions? Call <a href="tel:+441444242040" className="hover:text-[#C8A96E]/85 transition-colors duration-300">01444 242 040</a>
+              </motion.p>
             </div>
           </section>
         </ScrollReset>
