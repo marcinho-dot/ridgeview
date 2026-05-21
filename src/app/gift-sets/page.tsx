@@ -253,18 +253,23 @@ function ShopGrid() {
 // ─── Bespoke Sets ──────────────────────────────────────────────────────────
 type BespokeFormat = { title: string; body: string; image?: string; alt?: string };
 
+// These formats mirror the curated wine-gift catalogue on the legacy
+// Ridgeview shop. Pricing varies by current vintage and stock, so each
+// card invites the visitor to email for the current line-up rather than
+// quoting a number we can't guarantee mid-launch. Mixed-case + fully-
+// bespoke at the bottom stay purely text — bespoke by definition.
 const BESPOKE_FORMATS: BespokeFormat[] = [
   {
     title: "Rosé Duo",
-    body: "Two of our rosé sparkling wines, paired and presented in a single gift box — built around the recipient&rsquo;s palate.",
+    body: "Two rosé sparkling wines from the Ridgeview range, paired in a single gift box. Email for the current pairing.",
     image: "/images/gift-sets/rose-duo.webp",
     alt: "Ridgeview Rosé Duo gift set",
   },
   {
     title: "Limited Release Duo",
-    body: "Two scarce, allocation-limited wines from the cellar. Selected by us, presented as a single statement.",
+    body: "Two allocation-limited wines from the cellar, presented together. Email for current availability.",
     image: "/images/gift-sets/oak-single.webp",
-    alt: "Ridgeview limited release single",
+    alt: "Ridgeview limited release",
   },
   {
     title: "Signature Trio",
@@ -274,17 +279,17 @@ const BESPOKE_FORMATS: BespokeFormat[] = [
   },
   {
     title: "Limited Release Trio",
-    body: "A trio drawn from current limited releases — for collectors and people who want to be remembered.",
+    body: "A trio drawn from current limited releases. Email for the current set.",
     image: "/images/gift-sets/noirs-trio.webp",
     alt: "Ridgeview Noirs Trio gift set",
   },
   {
     title: "Bespoke Mixed Case",
-    body: "Six or twelve bottles, chosen with you. Branded gift notes and engraved bottles included on request.",
+    body: "Six or twelve bottles, chosen with you. Branded gift notes and engraved bottles available on request.",
   },
   {
     title: "Fully Bespoke",
-    body: "Vouchers + bottles + accessories. We&rsquo;ll build the set around the budget, occasion and recipient.",
+    body: "Vouchers, bottles and accessories combined — built around the budget, occasion and recipient.",
   },
 ];
 

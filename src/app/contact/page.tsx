@@ -81,7 +81,7 @@ const CHANNELS: Channel[] = [
   {
     kicker: "[ General Enquiries ]",
     title: "Anything else",
-    body: "Office, orders, deliveries, account questions, partnerships. The default inbox — replies inside one working day.",
+    body: "Office, orders, deliveries, account questions, partnerships. The default inbox for anything that doesn't fit a specific channel below.",
     email: GENERAL_EMAIL,
   },
   {

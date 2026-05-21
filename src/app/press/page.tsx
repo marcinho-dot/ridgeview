@@ -101,9 +101,9 @@ type Release = {
 const RELEASES: Release[] = [
   {
     date: "2026",
-    title: "Ridgeview enters its next chapter under new ownership",
+    title: "Quantum Beverage Company leads investor consortium to acquire Ridgeview Wine Estate",
     summary:
-      "Following the change of ownership, Ridgeview continues as a leading English sparkling wine producer with a renewed focus on quality, sustainability and the Sussex estate.",
+      "Announcement of the change in ownership of Ridgeview Wine Estate. See the full release for the consortium structure and next steps.",
     image: "/images/press/quantum-acquisition.webp",
     alt: "Ridgeview press release announcement square",
     pdf: "/pdfs/press/quantum-beverage-acquisition.pdf",
@@ -112,7 +112,7 @@ const RELEASES: Release[] = [
     date: "2024",
     title: "Official English Sparkling Wine supplier of the Goodwood Estate",
     summary:
-      "A partnership with the historic Goodwood Estate sees Ridgeview&rsquo;s award-winning sparkling poured across motorsport, racing and hospitality experiences.",
+      "Partnership announcement: Ridgeview becomes the Official English Sparkling Wine supplier of the Goodwood Estate.",
     image: "/images/press/goodwood-partnership.webp",
     alt: "Ridgeview x Goodwood Estate partnership",
     pdf: "/pdfs/press/goodwood-partnership.pdf",
@@ -121,7 +121,7 @@ const RELEASES: Release[] = [
     date: "2024",
     title: "Ridgeview takes off with Gatwick Airport",
     summary:
-      "Selected as the official English sparkling at London Gatwick — bringing Sussex&rsquo;s flagship pour to international travellers.",
+      "Ridgeview becomes available at London Gatwick. See the full release for retail locations and the partnership context.",
     image: "/images/press/gatwick-takeoff.webp",
     alt: "Two bottles of Ridgeview Wine in Duty Free at Gatwick Airport",
     pdf: "/pdfs/press/gatwick-airport.pdf",
@@ -130,7 +130,7 @@ const RELEASES: Release[] = [
     date: "2024",
     title: "The Rows &amp; Vine takes residence in the winery",
     summary:
-      "Our seasonal restaurant settles into the winery for a new chapter — refreshed dining experience, expanded pavilions and a redesigned tour for visiting guests.",
+      "Ridgeview&rsquo;s restaurant, The Rows &amp; Vine, takes residency in the winery for a new chapter of dining at the estate.",
     image: "/images/press/rows-vine-winery.webp",
     alt: "The Rows & Vine restaurant indoor — dining and tasting in Sussex",
     pdf: "/pdfs/press/rows-vine-residence.pdf",
@@ -139,23 +139,23 @@ const RELEASES: Release[] = [
     date: "2024",
     title: "Featured in the London Gatwick Northern Runway Campaign",
     summary:
-      "Ridgeview featured as part of the regional showcase for the Northern Runway proposal — celebrating Sussex producers on the international stage.",
+      "Ridgeview featured in the London Gatwick Northern Runway campaign.",
     image: "/images/press/gatwick-northern-runway.webp",
     alt: "Ridgeview featured in Gatwick Northern Runway campaign visual",
   },
   {
     date: "2024",
-    title: "Wins at WineGB and Decanter World Wine Awards",
+    title: "Ridgeview wins at WineGB and Decanter World Wine Awards",
     summary:
-      "Another medal-strong season — silverware across multiple categories at WineGB and Decanter, reinforcing Ridgeview&rsquo;s position among the world&rsquo;s best sparkling.",
+      "Ridgeview wins at both WineGB and the Decanter World Wine Awards.",
     image: "/images/press/winegb-decanter-awards.webp",
     alt: "Ridgeview wins at WineGB and Decanter World Wine Awards",
   },
   {
     date: "2023",
-    title: "Blanc de Blancs served at King Charles&rsquo; first state banquet",
+    title: "Ridgeview Blanc de Blancs served at King Charles&rsquo; first state banquet",
     summary:
-      "Ridgeview Blanc de Blancs poured at the State Banquet at Buckingham Palace — the second time our wines have been chosen for the most formal of occasions.",
+      "Ridgeview Blanc de Blancs served at King Charles&rsquo; first state banquet at Buckingham Palace.",
     image: "/images/press/king-charles-banquet.webp",
     alt: "Ridgeview Blanc de Blancs bottle",
     pdf: "/pdfs/press/king-charles-banquet.pdf",
@@ -164,7 +164,7 @@ const RELEASES: Release[] = [
     date: "2023",
     title: "Ridgefest is back for 2023",
     summary:
-      "Our annual vineyard festival returns — live music, food, sparkling wine and a full day at the estate to celebrate the start of the season.",
+      "Announcement of Ridgefest 2023 — Ridgeview&rsquo;s vineyard festival at the estate.",
     image: "/images/press/ridgefest-2023.webp",
     alt: "Ridgefest 2023 — Ridgeview Wine Estate Festival in Sussex",
     pdf: "/pdfs/press/ridgefest-2023.pdf",
@@ -173,7 +173,7 @@ const RELEASES: Release[] = [
     date: "2023",
     title: "Launch of our new Sparkling Red Reserve",
     summary:
-      "A bold, distinctively English Sparkling Red — pressed from Sussex Pinot Noir, aged on lees, made for slow winter evenings and richer pairings.",
+      "Launch announcement for Ridgeview&rsquo;s new Sparkling Red Reserve.",
     image: "/images/press/sparkling-red-launch.webp",
     alt: "Ridgeview Sparkling Red Reserve launch",
     pdf: "/pdfs/press/sparkling-red-launch.pdf",
@@ -182,7 +182,7 @@ const RELEASES: Release[] = [
     date: "2023",
     title: "Ridgeview achieves B Corp certification",
     summary:
-      "Independent certification of our environmental and social performance — formally recognising what we&rsquo;ve always tried to be: a business as a force for good.",
+      "Ridgeview becomes a Certified B Corporation — independent recognition of the estate&rsquo;s environmental and social performance.",
     image: "/images/press/b-corp-cert.webp",
     alt: "Ridgeview B Corp certification announcement",
     pdf: "/pdfs/press/b-corp-certification.pdf",
@@ -191,7 +191,7 @@ const RELEASES: Release[] = [
     date: "2022",
     title: "Unveiling our new hospitality project",
     summary:
-      "The Rows &amp; Vine — a seasonal restaurant in the vines, alongside expanded pavilions and a redesigned tour experience for visiting guests.",
+      "Announcement of Ridgeview&rsquo;s new hospitality project at the estate.",
     image: "/images/press/hospitality-unveil.webp",
     alt: "Ridgeview hospitality project unveiling",
     pdf: "/pdfs/press/hospitality-unveil.pdf",
@@ -200,7 +200,7 @@ const RELEASES: Release[] = [
     date: "2021",
     title: "Ridgeview served at COP26 Global Leaders Reception",
     summary:
-      "Selected as the English sparkling poured at the COP26 Leaders Reception — a flag for British sustainable winemaking on the world climate stage.",
+      "Ridgeview served at the COP26 Global Leaders Reception.",
     image: "/images/press/cop26.webp",
     alt: "Ridgeview bottle in the Chardonnay vineyard at sunset",
     pdf: "/pdfs/press/cop26-leaders.pdf",

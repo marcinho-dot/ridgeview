@@ -546,8 +546,7 @@ function StartHereCTA() {
             style={{ fontSize: "clamp(14px, 1.3vw, 16px)", fontWeight: 300, maxWidth: "560px" }}
           >
             Whether you&rsquo;re briefing a one-off project or planning a year&rsquo;s gifting calendar,
-            we&rsquo;d love to hear from you. Tell us what you have in mind — we&rsquo;ll come back
-            with a tailored proposal.
+            we&rsquo;d love to hear from you. Tell us what you have in mind.
           </p>
         </FadeUp>
         <FadeUp delay={0.35}>

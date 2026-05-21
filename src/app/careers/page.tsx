@@ -161,6 +161,11 @@ function BenefitsSection() {
 }
 
 // ─── Open positions / pipeline ─────────────────────────────────────────────
+// Vacancy status is intentionally non-committal: we don't have a live
+// feed against UK's careers page, so claiming "no vacancies" or
+// counting roles would be fabricated. Visitors are pointed to UK's
+// canonical careers page for current openings, with the speculative
+// channel kept open for off-cycle interest.
 function OpenPositionsSection() {
   return (
     <section className="relative bg-[#010101] py-20 md:py-28 border-t border-white/[0.06]">
@@ -168,15 +173,15 @@ function OpenPositionsSection() {
         <FadeUp delay={0.05}><p className="font-display italic text-[#C8A96E] tracking-widest mb-5" style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}>[ Open Positions ]</p></FadeUp>
         <FadeUp delay={0.15}>
           <h2 className="font-display italic text-cream leading-[1.08] mb-6" style={{ fontSize: "clamp(28px, 3.5vw, 46px)", fontWeight: 400 }}>
-            No current vacancies — <span className="text-[#C8A96E]">always interested</span>
+            Roles, briefs &amp; <span className="text-[#C8A96E]">speculative interest</span>
           </h2>
         </FadeUp>
         <FadeUp delay={0.25}>
           <p className="font-body text-white/65 leading-[1.85] mx-auto" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300, maxWidth: "580px" }}>
-            We&rsquo;re not actively recruiting right now, but new roles open across the year as
-            the business grows — vineyard, winery, hospitality, retail, marketing and operations.
-            If you see yourself at Ridgeview, send a short note. We keep an active talent pool
-            and reach out as roles open.
+            New roles open across the year as the estate grows — vineyard, winery,
+            hospitality, retail, marketing and operations. If you see yourself at Ridgeview,
+            send a short note about the area you&rsquo;d like to fit. We keep an active talent
+            pool and reach out as roles open.
           </p>
         </FadeUp>
       </div>

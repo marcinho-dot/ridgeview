@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, ReactNode } from "react";
+import { useRef, ReactNode } from "react";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
@@ -9,7 +9,37 @@ import { BottomNav } from "@/components/BottomNav";
 import { ScrollReset } from "@/components/ScrollReset";
 import { basePath } from "@/lib/basePath";
 
+// ─── Email constants ────────────────────────────────────────────────────────
+// All voucher enquiries route through the general info inbox. Content on
+// this page is derived from the legacy ridgeview.co.uk Voucher T&Cs page
+// (/voucher-ts-and-cs/) — the two voucher products that actually exist
+// in the Ridgeview catalogue are restaurant-specific and tour-specific,
+// NOT a generic gift card across the whole site.
 const VOUCHER_EMAIL = "info@ridgeview.co.uk";
+
+const TOUR_VOUCHER_MAILTO =
+  `mailto:${VOUCHER_EMAIL}` +
+  `?subject=${encodeURIComponent("Tour & Tasting voucher enquiry — Ridgeview")}` +
+  `&body=${encodeURIComponent(
+    "Hello,\n\nI'd like to enquire about a Tour & Tasting voucher.\n\n" +
+      "Recipient name: \n" +
+      "Recipient email (for digital delivery): \n" +
+      "Personal message (optional): \n" +
+      "Postal delivery instead of email? Y/N: \n\n" +
+      "Buyer:\nName: \nPhone: \n\nThank you.\n",
+  )}`;
+
+const ROWS_VINE_VOUCHER_MAILTO =
+  `mailto:${VOUCHER_EMAIL}` +
+  `?subject=${encodeURIComponent("The Rows & Vine voucher enquiry — Ridgeview")}` +
+  `&body=${encodeURIComponent(
+    "Hello,\n\nI'd like to enquire about a The Rows & Vine restaurant voucher.\n\n" +
+      "Recipient name: \n" +
+      "Recipient email (for digital delivery): \n" +
+      "Personal message (optional): \n" +
+      "Postal delivery instead of email? Y/N: \n\n" +
+      "Buyer:\nName: \nPhone: \n\nThank you.\n",
+  )}`;
 
 function FadeUp({ children, delay = 0, className = "" }: { children: ReactNode; delay?: number; className?: string }) {
   return (
@@ -33,23 +63,20 @@ function PageHeader() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={`${basePath}/images/restaurant/garden-toast.webp`}
-          alt="A Ridgeview toast in the vineyard — gift voucher for English sparkling wine"
+          alt="A Ridgeview toast in the vineyard — vouchers for tours and the restaurant"
           className="absolute inset-0 w-full h-full object-cover object-[center_50%]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black/75" />
       </motion.div>
 
-      <motion.div
-        style={{ y: textY }}
-        className="relative z-10 h-full flex flex-col justify-end max-w-[1400px] mx-auto px-6 md:px-16 pb-8 md:pb-9"
-      >
+      <motion.div style={{ y: textY }} className="relative z-10 h-full flex flex-col justify-end max-w-[1400px] mx-auto px-6 md:px-16 pb-8 md:pb-9">
         <motion.p
           initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="font-display italic text-[#C8A96E] tracking-widest mb-3"
           style={{ fontSize: "clamp(13px, 1.3vw, 16px)", textShadow: "0 1px 10px rgba(0,0,0,1)" }}
         >
-          [ The Gift of Sussex Sparkling ]
+          [ Experience Vouchers · Sussex ]
         </motion.p>
 
         <div className="overflow-hidden mb-3">
@@ -59,7 +86,7 @@ function PageHeader() {
             initial={{ y: "102%", opacity: 0 }} animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1.1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
           >
-            Gift <span className="text-[#C8A96E]">Vouchers</span>
+            Gift the <span className="text-[#C8A96E]">experience</span>
           </motion.h1>
         </div>
 
@@ -69,9 +96,8 @@ function PageHeader() {
           className="font-body text-white/65 max-w-[680px]"
           style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, lineHeight: 1.7, textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
         >
-          The gift that opens — at the table, on the estate, in the cellar. Redeemable across
-          wine, tours, restaurant and OurView membership. Choose an amount, add a personal note,
-          and we&rsquo;ll handle the rest.
+          Two experience vouchers, redeemable at the estate — a Tour &amp; Tasting for two, or a
+          meal at The Rows &amp; Vine. Valid for 12 months from purchase, delivered by email or post.
         </motion.p>
 
         <motion.div
@@ -79,208 +105,169 @@ function PageHeader() {
           transition={{ duration: 0.8, delay: 1.05, ease: "easeOut" }}
           className="mt-7 md:mt-9"
         >
-          <a href="#denominations" className="btn-cta">Choose an amount</a>
+          <a href="#vouchers" className="btn-cta">Compare vouchers</a>
         </motion.div>
       </motion.div>
     </section>
   );
 }
 
-// ─── Denominations grid with selectable cards ──────────────────────────────
-type Denomination = {
-  amount: number;
-  label: string;
-  suggestion: string;
-  popular?: boolean;
-};
-
-const DENOMINATIONS: Denomination[] = [
-  { amount: 25, label: "Twenty-five", suggestion: "A thoughtful thank-you — covers a bottle of NV or a Sunday tasting flight." },
-  { amount: 50, label: "Fifty", suggestion: "The signature gift — Bloomsbury or Cavendish NV plus shipping to anywhere in the UK." },
-  { amount: 100, label: "One hundred", suggestion: "Tour-and-tasting for two, or a Magnum of Bloomsbury for a milestone moment.", popular: true },
-  { amount: 200, label: "Two hundred", suggestion: "A weekend at the estate — tour, lunch at The Rows & Vine and a vintage bottle home." },
-];
-
-function DenominationGrid() {
-  const [selected, setSelected] = useState<number>(100);
-  const [custom, setCustom] = useState<string>("");
-
-  const finalAmount = custom ? Number(custom) : selected;
-  const mailto =
-    `mailto:${VOUCHER_EMAIL}` +
-    `?subject=${encodeURIComponent(`Gift Voucher Order — £${finalAmount}`)}` +
-    `&body=${encodeURIComponent(
-      `Hello,\n\nI'd like to order a Ridgeview gift voucher.\n\n` +
-        `Voucher amount: £${finalAmount}\n` +
-        `Recipient name: \n` +
-        `Recipient email (for digital delivery): \n` +
-        `Personal message (optional): \n` +
-        `Send on (date — leave blank for immediate): \n\n` +
-        `Buyer details:\nName: \nEmail: \nPhone: \n\n` +
-        `Thank you.\n`,
-    )}`;
-
+// ─── Status banner — sales currently on hold ──────────────────────────────
+// Per ridgeview.co.uk/gift-vouchers/ (May 2026 check): voucher sale has
+// been paused while existing voucher holders redeem. The page on UK
+// signals a reopening but no firm date — we mirror that honestly
+// here rather than implying a working cart on our side.
+function StatusBanner() {
   return (
-    <section id="denominations" className="relative bg-[#010101] py-20 md:py-28 border-t border-white/[0.06] scroll-mt-24">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16">
-        <div className="text-center mb-12 md:mb-16">
-          <FadeUp delay={0.05}>
-            <p className="font-display italic text-[#C8A96E] tracking-widest mb-5" style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}>
-              [ Choose Your Amount ]
-            </p>
-          </FadeUp>
-          <FadeUp delay={0.15}>
-            <h2 className="font-display italic text-cream leading-[1.08]" style={{ fontSize: "clamp(30px, 3.8vw, 52px)", fontWeight: 400 }}>
-              Four amounts, <span className="text-[#C8A96E]">or your own</span>
-            </h2>
-          </FadeUp>
-          <FadeUp delay={0.25}>
-            <p className="font-body text-white/65 leading-[1.85] mx-auto mt-6" style={{ fontSize: "clamp(13px, 1.25vw, 15px)", fontWeight: 300, maxWidth: "560px" }}>
-              Pre-set denominations cover most occasions. For bespoke or higher amounts, use the
-              custom field — we&rsquo;ll arrange it personally.
-            </p>
-          </FadeUp>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 mb-10">
-          {DENOMINATIONS.map((d, i) => {
-            const isSelected = !custom && selected === d.amount;
-            return (
-              <FadeUp key={d.amount} delay={0.3 + i * 0.06}>
-                <button
-                  onClick={() => { setSelected(d.amount); setCustom(""); }}
-                  className={`relative w-full h-full text-left rounded-md border p-7 md:p-8 transition-all duration-300 ${
-                    isSelected
-                      ? "border-[#C8A96E] bg-[#1a1612]"
-                      : "border-white/[0.10] bg-[#0d0d0d] hover:border-[#C8A96E]/40"
-                  }`}
-                  aria-pressed={isSelected}
-                >
-                  {d.popular && (
-                    <span
-                      className="absolute top-4 right-4 font-body text-[#C8A96E] uppercase tracking-[0.25em] border border-[#C8A96E]/40 px-2 py-1 rounded-sm"
-                      style={{ fontSize: "9px", fontWeight: 400 }}
-                    >
-                      Popular
-                    </span>
-                  )}
-                  <p
-                    className="font-display italic text-[#C8A96E]/70 mb-2"
-                    style={{ fontSize: "13px", fontWeight: 400 }}
-                  >
-                    {d.label}
-                  </p>
-                  <p
-                    className="font-display italic text-cream leading-none mb-4"
-                    style={{ fontSize: "clamp(40px, 4vw, 56px)", fontWeight: 400 }}
-                  >
-                    £{d.amount}
-                  </p>
-                  <p
-                    className="font-body text-white/55 leading-[1.7]"
-                    style={{ fontSize: "13px", fontWeight: 300 }}
-                  >
-                    {d.suggestion}
-                  </p>
-                </button>
-              </FadeUp>
-            );
-          })}
-        </div>
-
-        {/* Custom amount input */}
-        <FadeUp delay={0.6}>
-          <div className="max-w-[680px] mx-auto bg-[#0d0d0d] border border-white/[0.08] rounded-md p-6 md:p-8 mb-10">
-            <p
-              className="font-display italic text-[#C8A96E] tracking-widest mb-3"
-              style={{ fontSize: "12px", fontWeight: 400, letterSpacing: "0.25em", textTransform: "uppercase" }}
-            >
-              Or a Custom Amount
-            </p>
-            <div className="flex items-center gap-3">
-              <span className="font-display italic text-cream" style={{ fontSize: "32px", fontWeight: 400 }}>£</span>
-              <input
-                type="number"
-                value={custom}
-                onChange={(e) => setCustom(e.target.value)}
-                placeholder="Enter amount"
-                min="10"
-                max="5000"
-                className="flex-1 bg-transparent border-b border-white/15 focus:border-[#C8A96E] outline-none font-display italic text-cream py-2 transition-colors"
-                style={{ fontSize: "clamp(24px, 2.5vw, 32px)", fontWeight: 400 }}
-              />
-            </div>
-            <p
-              className="font-body text-white/45 mt-3"
-              style={{ fontSize: "12px", fontWeight: 300 }}
-            >
-              From £10 upwards. We&rsquo;ll confirm the order by email before charging.
-            </p>
-          </div>
-        </FadeUp>
-
-        {/* CTA */}
-        <FadeUp delay={0.7}>
-          <div className="text-center">
-            <a href={mailto} className="btn-cta inline-flex items-center gap-3">
-              <span>Order — £{finalAmount || 0}</span>
-            </a>
-            <p
-              className="font-body text-white/45 mt-5 mx-auto"
-              style={{ fontSize: "12.5px", fontWeight: 300, letterSpacing: "0.04em", maxWidth: "520px" }}
-            >
-              Vouchers are issued digitally within one working day. Physical gift cards available
-              on request — add a note when ordering.
-            </p>
-          </div>
-        </FadeUp>
+    <section className="relative bg-[#0a0a0a] border-t border-[#C8A96E]/20 py-6 md:py-7">
+      <div className="max-w-[1100px] mx-auto px-6 md:px-16 flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6">
+        <p
+          className="font-display italic text-[#C8A96E] tracking-[0.25em] uppercase shrink-0"
+          style={{ fontSize: "11px", fontWeight: 500 }}
+        >
+          [ Status ]
+        </p>
+        <p
+          className="font-body text-white/65 leading-[1.7] text-center md:text-left"
+          style={{ fontSize: "clamp(13px, 1.15vw, 14.5px)", fontWeight: 300 }}
+        >
+          New voucher sales are paused while existing voucher holders redeem.
+          If you already hold a voucher you can still redeem it online or onsite as usual.
+          For any voucher query, email{" "}
+          <a href={`mailto:${VOUCHER_EMAIL}`} className="text-[#C8A96E] hover:underline">
+            {VOUCHER_EMAIL}
+          </a>
+          .
+        </p>
       </div>
     </section>
   );
 }
 
-// ─── How it works ──────────────────────────────────────────────────────────
-const STEPS = [
-  { n: "01", title: "Choose & order", body: "Pick a denomination (or set your own), add a personal note, and email your order. We confirm within one working day." },
-  { n: "02", title: "Delivered digitally", body: "Vouchers arrive as a beautifully designed PDF with a unique code — sent direct to the recipient on the date you choose." },
-  { n: "03", title: "Redeemable anywhere", body: "Across our wine, vineyard tours, The Rows & Vine restaurant and OurView membership. Valid 12 months from issue." },
+// ─── Two voucher products ──────────────────────────────────────────────────
+type VoucherProduct = {
+  kicker: string;
+  title: string;
+  intro: string;
+  terms: string[];
+  ctaLabel: string;
+  ctaHref: string;
+  image: string;
+  imageAlt: string;
+};
+
+const VOUCHERS: VoucherProduct[] = [
+  {
+    kicker: "[ For Two · Onsite ]",
+    title: "Tour & Tasting Voucher",
+    intro:
+      "A guided vineyard tour and tasting for two — booked through our online system at a date that works for the recipient.",
+    terms: [
+      "Valid 12 months from the date of purchase",
+      "Redeems against a Tour & Tasting for two via the online booking system",
+      "Non-refundable and not redeemable for cash",
+      "Cannot be extended past the expiration date",
+    ],
+    ctaLabel: "Enquire about a Tour voucher",
+    ctaHref: TOUR_VOUCHER_MAILTO,
+    image: "/images/articles/luxury-sparkling-wine-gift-guide/inline-3.webp",
+    imageAlt: "Ridgeview Tour & Tasting voucher — vineyard experience for two",
+  },
+  {
+    kicker: "[ Restaurant · Onsite ]",
+    title: "The Rows & Vine Voucher",
+    intro:
+      "A meal voucher redeemable in The Rows & Vine restaurant on the estate — seasonal plates, vineyard view, sparkling on the table.",
+    terms: [
+      "Valid 12 months from the date of purchase",
+      "Redeemable only in The Rows & Vine restaurant, onsite at Ridgeview",
+      "Gratuity is not included",
+      "Non-refundable and not redeemable for cash",
+      "Cannot be extended past the expiration date",
+    ],
+    ctaLabel: "Enquire about a Restaurant voucher",
+    ctaHref: ROWS_VINE_VOUCHER_MAILTO,
+    image: "/images/restaurant/garden-toast.webp",
+    imageAlt: "The Rows & Vine voucher — vineyard dining experience",
+  },
 ];
 
-function HowItWorks() {
+function VoucherProducts() {
   return (
-    <section className="relative bg-[#0a0a0a] py-20 md:py-28 border-t border-white/[0.06]">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-16">
+    <section id="vouchers" className="relative bg-[#010101] py-20 md:py-28 border-t border-white/[0.06] scroll-mt-24">
+      <div className="max-w-[1300px] mx-auto px-6 md:px-16">
         <div className="text-center mb-12 md:mb-16">
-          <FadeUp delay={0.05}><p className="font-display italic text-[#C8A96E] tracking-widest mb-5" style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}>[ How It Works ]</p></FadeUp>
+          <FadeUp delay={0.05}>
+            <p className="font-display italic text-[#C8A96E] tracking-widest mb-5" style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}>
+              [ Two Vouchers ]
+            </p>
+          </FadeUp>
           <FadeUp delay={0.15}>
-            <h2 className="font-display italic text-cream leading-[1.08]" style={{ fontSize: "clamp(28px, 3.5vw, 46px)", fontWeight: 400 }}>
-              Three steps to <span className="text-[#C8A96E]">gifted</span>
+            <h2 className="font-display italic text-cream leading-[1.08]" style={{ fontSize: "clamp(30px, 3.8vw, 52px)", fontWeight: 400 }}>
+              Pick the <span className="text-[#C8A96E]">experience</span>
             </h2>
+          </FadeUp>
+          <FadeUp delay={0.25}>
+            <p className="font-body text-white/65 leading-[1.85] mx-auto mt-6" style={{ fontSize: "clamp(13px, 1.25vw, 15px)", fontWeight: 300, maxWidth: "560px" }}>
+              Both vouchers are valid for 12 months from purchase. Both can be delivered
+              digitally by email or posted via Royal Mail first class.
+            </p>
           </FadeUp>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
-          {STEPS.map((s, i) => (
-            <FadeUp key={s.n} delay={0.3 + i * 0.1}>
-              <div>
-                <p
-                  className="font-display italic text-[#C8A96E]/40 mb-4 leading-none"
-                  style={{ fontSize: "clamp(56px, 6vw, 80px)", fontWeight: 400 }}
-                >
-                  {s.n}
-                </p>
-                <h3
-                  className="font-display italic text-cream leading-[1.15] mb-3"
-                  style={{ fontSize: "clamp(22px, 2vw, 28px)", fontWeight: 400 }}
-                >
-                  {s.title}
-                </h3>
-                <p
-                  className="font-body text-white/55 leading-[1.75]"
-                  style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 300 }}
-                >
-                  {s.body}
-                </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          {VOUCHERS.map((v, i) => (
+            <FadeUp key={v.title} delay={0.3 + i * 0.08}>
+              <div className="group h-full bg-[#0d0d0d] border border-white/[0.08] hover:border-[#C8A96E]/40 rounded-md overflow-hidden flex flex-col transition-all duration-400">
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={`${basePath}${v.image}`}
+                    alt={v.imageAlt}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.04]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
+                </div>
+                <div className="p-7 md:p-8 flex flex-col flex-1">
+                  <p
+                    className="font-display italic text-[#C8A96E] tracking-widest mb-3"
+                    style={{ fontSize: "clamp(11px, 1.05vw, 13px)" }}
+                  >
+                    {v.kicker}
+                  </p>
+                  <h3
+                    className="font-display italic text-cream group-hover:text-white leading-[1.15] mb-4 transition-colors duration-400"
+                    style={{ fontSize: "clamp(22px, 2vw, 28px)", fontWeight: 400 }}
+                  >
+                    {v.title}
+                  </h3>
+                  <p
+                    className="font-body text-white/65 leading-[1.75] mb-6"
+                    style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 300 }}
+                  >
+                    {v.intro}
+                  </p>
+
+                  <ul className="space-y-2.5 mb-7">
+                    {v.terms.map((t) => (
+                      <li
+                        key={t}
+                        className="flex items-start gap-2.5 font-body text-white/55 leading-[1.6]"
+                        style={{ fontSize: "12.5px", fontWeight: 300 }}
+                      >
+                        <span aria-hidden className="text-[#C8A96E] leading-none pt-1">·</span>
+                        <span>{t}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-auto">
+                    <a href={v.ctaHref} className="btn-cta">
+                      {v.ctaLabel}
+                    </a>
+                  </div>
+                </div>
               </div>
             </FadeUp>
           ))}
@@ -290,124 +277,90 @@ function HowItWorks() {
   );
 }
 
-// ─── Redeemable across ─────────────────────────────────────────────────────
-const REDEEM_TARGETS = [
-  { label: "Wine", href: "/wines", body: "Across the full catalogue — from Bloomsbury NV to vintage Magnums." },
-  { label: "Vineyard Tours", href: "/vineyard-booking", body: "Public dates, private experiences, and bespoke vineyard programmes." },
-  { label: "The Rows & Vine", href: "/restaurant", body: "Seasonal dining at our restaurant in the vines (spring–summer)." },
-  { label: "OurView Membership", href: "/wine-club", body: "Apply against the cost of your first year of OurView wine club." },
-];
-
-function RedeemSection() {
+// ─── General T&Cs (verbatim-pattern from UK voucher-ts-and-cs page) ───────
+function GeneralTermsSection() {
+  // These items mirror the GENERAL TERMS section from ridgeview.co.uk's
+  // /voucher-ts-and-cs/ page, kept short and informative.
+  const items = [
+    "Gift vouchers are sold via our smart-gift partner — orders are confirmed on their platform.",
+    "Vouchers arrive either by email to the address provided at order, or by Royal Mail first-class post.",
+    "Each voucher carries a unique number and printed pattern for verification.",
+    "Vouchers can be redeemed as full or part payment on this site or onsite at Ridgeview Wine Estate.",
+    "A gift voucher cannot be used to purchase another gift voucher.",
+    "Please double-check the recipient email when ordering — once issued, we can't recover a voucher sent to the wrong address.",
+    "Site offers and promotions (including gifts with purchase and discounts) do not apply to voucher purchases.",
+  ];
   return (
-    <section className="relative bg-[#010101] py-20 md:py-28 border-t border-white/[0.06]">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-16">
-        <div className="text-center mb-12 md:mb-16">
-          <FadeUp delay={0.05}><p className="font-display italic text-[#C8A96E] tracking-widest mb-5" style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}>[ Redeemable Across ]</p></FadeUp>
+    <section className="relative bg-[#0a0a0a] py-20 md:py-28 border-t border-white/[0.06]">
+      <div className="max-w-[1000px] mx-auto px-6 md:px-16">
+        <div className="text-center mb-10 md:mb-12">
+          <FadeUp delay={0.05}>
+            <p className="font-display italic text-[#C8A96E] tracking-widest mb-4" style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}>
+              [ General Terms ]
+            </p>
+          </FadeUp>
           <FadeUp delay={0.15}>
-            <h2 className="font-display italic text-cream leading-[1.08]" style={{ fontSize: "clamp(28px, 3.5vw, 46px)", fontWeight: 400 }}>
-              One voucher, <span className="text-[#C8A96E]">four ways</span> to enjoy it
+            <h2 className="font-display italic text-cream leading-[1.08]" style={{ fontSize: "clamp(26px, 3vw, 40px)", fontWeight: 400 }}>
+              The fine print, in <span className="text-[#C8A96E]">plain English</span>
             </h2>
           </FadeUp>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
-          {REDEEM_TARGETS.map((r, i) => (
-            <FadeUp key={r.label} delay={0.3 + i * 0.05}>
-              <Link
-                href={r.href}
-                className="group block bg-[#0d0d0d] border border-white/[0.08] hover:border-[#C8A96E]/40 rounded-md p-6 md:p-7 h-full transition-colors duration-400"
+        <FadeUp delay={0.25}>
+          <ul className="space-y-4 max-w-[760px] mx-auto">
+            {items.map((t, i) => (
+              <li
+                key={i}
+                className="flex items-start gap-4 border-t border-white/[0.06] pt-4 first:border-t-0 first:pt-0"
               >
-                <h3
-                  className="font-display italic text-cream group-hover:text-white leading-[1.18] mb-3 transition-colors"
-                  style={{ fontSize: "clamp(20px, 1.8vw, 24px)", fontWeight: 400 }}
-                >
-                  {r.label}
-                </h3>
-                <p
-                  className="font-body text-white/55 leading-[1.7] mb-4"
-                  style={{ fontSize: "13px", fontWeight: 300 }}
-                >
-                  {r.body}
-                </p>
                 <span
-                  className="font-body text-[#C8A96E]/70 group-hover:text-[#C8A96E] uppercase tracking-[0.2em] transition-colors"
-                  style={{ fontSize: "10px", fontWeight: 400 }}
+                  aria-hidden
+                  className="font-display italic text-[#C8A96E]/70 leading-none mt-0.5"
+                  style={{ fontSize: "18px", fontWeight: 400 }}
                 >
-                  Explore →
+                  ·
                 </span>
-              </Link>
-            </FadeUp>
-          ))}
-        </div>
+                <p
+                  className="font-body text-white/65 leading-[1.85]"
+                  style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 300 }}
+                >
+                  {t}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </FadeUp>
       </div>
     </section>
   );
 }
 
-// ─── T&Cs / FAQs ───────────────────────────────────────────────────────────
-const FAQS = [
-  {
-    q: "How long is the voucher valid?",
-    a: "12 months from the date of issue. We&rsquo;ll send a friendly reminder one month before expiry.",
-  },
-  {
-    q: "Can the voucher be used in multiple visits?",
-    a: "Yes — vouchers can be redeemed across multiple orders or visits until the full balance is used.",
-  },
-  {
-    q: "Is the voucher refundable?",
-    a: "Vouchers are non-refundable but can be transferred to another recipient up to seven days from issue. Email us with the new recipient&rsquo;s details.",
-  },
-  {
-    q: "Do you offer physical gift cards?",
-    a: "Yes — for higher-value gifts we can post a printed card to the recipient (UK only). Mention this in your order note.",
-  },
-];
-
-function FaqSection() {
+// ─── CTA — Hold an existing voucher? ───────────────────────────────────────
+function RedeemCTA() {
   return (
-    <section className="relative bg-[#0a0a0a] py-20 md:py-24 border-t border-white/[0.06]">
-      <div className="max-w-[900px] mx-auto px-6 md:px-16">
-        <div className="text-center mb-10 md:mb-12">
-          <FadeUp delay={0.05}>
-            <p className="font-display italic text-[#C8A96E] tracking-widest mb-4" style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}>
-              [ Voucher FAQs ]
-            </p>
-          </FadeUp>
-          <FadeUp delay={0.15}>
-            <h2 className="font-display italic text-cream leading-[1.08]" style={{ fontSize: "clamp(26px, 3vw, 40px)", fontWeight: 400 }}>
-              Good to <span className="text-[#C8A96E]">know</span>
-            </h2>
-          </FadeUp>
-        </div>
-        <div className="divide-y divide-white/[0.08] border-t border-white/[0.08]">
-          {FAQS.map((f, i) => (
-            <FadeUp key={i} delay={0.25 + i * 0.05}>
-              <details className="group py-5 md:py-6">
-                <summary className="cursor-pointer list-none flex items-start gap-4">
-                  <h3
-                    className="flex-1 font-display italic text-cream group-hover:text-white transition-colors"
-                    style={{ fontSize: "clamp(17px, 1.5vw, 20px)", fontWeight: 400 }}
-                  >
-                    {f.q}
-                  </h3>
-                  <span
-                    className="flex-shrink-0 inline-flex items-center justify-center w-7 h-7 mt-0.5 rounded-sm border border-white/15 group-hover:border-[#C8A96E]/50 text-white/60 group-hover:text-[#C8A96E] transition-all group-open:rotate-45"
-                    aria-hidden
-                  >
-                    +
-                  </span>
-                </summary>
-                <p
-                  className="font-body text-white/65 leading-[1.85] mt-3 max-w-[720px]"
-                  style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 300 }}
-                  dangerouslySetInnerHTML={{ __html: f.a }}
-                />
-              </details>
-            </FadeUp>
-          ))}
-        </div>
+    <section className="relative bg-[#010101] py-20 md:py-28 border-t border-white/[0.06]">
+      <div className="max-w-[900px] mx-auto px-6 md:px-16 text-center">
+        <FadeUp delay={0.05}>
+          <p className="font-display italic text-[#C8A96E] tracking-widest mb-5" style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}>
+            [ Already Hold a Voucher? ]
+          </p>
+        </FadeUp>
+        <FadeUp delay={0.15}>
+          <h2 className="font-display italic text-cream leading-[1.08] mb-6" style={{ fontSize: "clamp(28px, 3.5vw, 46px)", fontWeight: 400 }}>
+            Redeem at the <span className="text-[#C8A96E]">estate</span>
+          </h2>
+        </FadeUp>
+        <FadeUp delay={0.25}>
+          <p className="font-body text-white/65 leading-[1.85] mx-auto mb-10" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300, maxWidth: "560px" }}>
+            Tour vouchers redeem against our online tour booking system. Restaurant vouchers
+            redeem onsite at The Rows &amp; Vine. Bring the voucher reference with you.
+          </p>
+        </FadeUp>
+        <FadeUp delay={0.35}>
+          <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
+            <Link href="/vineyard-booking" className="btn-cta">Book a tour</Link>
+            <Link href="/restaurant" className="btn-cta">Reserve a table</Link>
+          </div>
+        </FadeUp>
       </div>
     </section>
   );
@@ -419,10 +372,10 @@ export default function GiftVouchersPage() {
       <Navbar />
       <main>
         <PageHeader />
-        <ScrollReset><DenominationGrid /></ScrollReset>
-        <ScrollReset><HowItWorks /></ScrollReset>
-        <ScrollReset><RedeemSection /></ScrollReset>
-        <ScrollReset><FaqSection /></ScrollReset>
+        <StatusBanner />
+        <ScrollReset><VoucherProducts /></ScrollReset>
+        <ScrollReset><GeneralTermsSection /></ScrollReset>
+        <ScrollReset><RedeemCTA /></ScrollReset>
       </main>
       <Footer />
       <BottomNav />

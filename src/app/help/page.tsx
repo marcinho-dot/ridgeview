@@ -65,7 +65,7 @@ function PageHeader() {
           style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, lineHeight: 1.7, textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
         >
           Browse the topics below. If your question isn&rsquo;t covered, reach the team directly
-          at the bottom of the page — we reply inside one working day.
+          at the bottom of the page and we&rsquo;ll get back to you.
         </motion.p>
       </motion.div>
     </section>
@@ -277,7 +277,7 @@ function ContactCTA() {
         </FadeUp>
         <FadeUp delay={0.25}>
           <p className="font-body text-white/65 leading-[1.85] mx-auto mb-10" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300, maxWidth: "520px" }}>
-            One working day or sooner. For visit-day questions, calling is fastest.
+            Send a brief and we&rsquo;ll get back to you. For visit-day questions, calling is fastest.
           </p>
         </FadeUp>
         <FadeUp delay={0.35}>
