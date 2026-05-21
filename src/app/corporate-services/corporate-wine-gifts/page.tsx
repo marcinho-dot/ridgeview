@@ -424,6 +424,102 @@ function TestimonialsSection() {
 }
 
 // ─── Section: CTA — "Your Corporate Wine Solution Starts Here" ─────────────
+// ─── Brochure Download — dedicated B2B conversion asset ────────────────────
+// Two PDFs from the legacy Ridgeview corporate hub (mirrored locally):
+// the main 2025 corporate brochure (year-round reference) + the Christmas
+// brochure (seasonal). Renders as an editorial download card with a clear
+// file-size note so procurement leads know what they're committing to.
+function BrochureDownloadSection() {
+  return (
+    <section className="relative bg-[#0a0a0a] py-20 md:py-28 border-t border-white/[0.06]">
+      <div className="max-w-[1100px] mx-auto px-6 md:px-16">
+        <div className="grid grid-cols-1 md:grid-cols-[45fr_55fr] gap-10 md:gap-14 items-center">
+          <FadeUp delay={0.1}>
+            <p className="font-display italic text-[#C8A96E] tracking-widest mb-5" style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}>
+              [ Download · 2025 Corporate Brochure ]
+            </p>
+            <h2 className="font-display italic text-cream leading-[1.1] mb-5" style={{ fontSize: "clamp(28px, 3.4vw, 44px)", fontWeight: 400 }}>
+              Full catalogue, <span className="text-[#C8A96E]">in your inbox</span>
+            </h2>
+            <p className="font-body text-white/65 leading-[1.85] mb-7" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300 }}>
+              Our full corporate brochure — every wine, every gift format, every personalisation
+              option. Designed for procurement teams to share internally and use as a year-round
+              reference.
+            </p>
+            <div className="flex flex-wrap gap-3 md:gap-4">
+              <a
+                href={`${basePath}/pdfs/corporate-services/corporate-brochure-2025.pdf`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-cta inline-flex items-center gap-2.5"
+              >
+                <svg
+                  width="13"
+                  height="13"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden
+                >
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                <span>Download brochure · PDF</span>
+              </a>
+            </div>
+            <p
+              className="font-body text-white/40 mt-4"
+              style={{ fontSize: "11.5px", fontWeight: 300, letterSpacing: "0.04em" }}
+            >
+              PDF · 8.5 MB · opens in new tab
+            </p>
+            <p
+              className="font-body text-white/45 mt-6 leading-relaxed"
+              style={{ fontSize: "12.5px", fontWeight: 300, letterSpacing: "0.04em" }}
+            >
+              Seasonal offer? See our{" "}
+              <a
+                href={`${basePath}/pdfs/corporate-services/corporate-christmas-brochure-2025.pdf`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#C8A96E] hover:underline"
+              >
+                2025 Christmas Brochure
+              </a>{" "}
+              (12.5 MB).
+            </p>
+          </FadeUp>
+
+          <FadeUp delay={0.25}>
+            <div className="relative aspect-[4/5] rounded-md overflow-hidden border border-white/[0.06]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`${basePath}/images/corporate-services/wine-gifts/limited-edition-collection.webp`}
+                alt="Ridgeview Corporate Brochure 2025 — preview"
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/20" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span
+                  className="font-display italic text-cream/85 tracking-widest"
+                  style={{ fontSize: "clamp(20px, 2.4vw, 32px)", textShadow: "0 2px 12px rgba(0,0,0,0.6)" }}
+                >
+                  2025 Corporate Brochure
+                </span>
+              </div>
+            </div>
+          </FadeUp>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function StartHereCTA() {
   return (
     <section id="enquire" className="relative bg-[#010101] py-20 md:py-28 border-t border-white/[0.06] overflow-hidden scroll-mt-24">
@@ -566,6 +662,7 @@ export default function CorporateWineGiftsPage() {
         <BridgeBanner />
         <ScrollReset><BenefitsSection /></ScrollReset>
         <ScrollReset><TestimonialsSection /></ScrollReset>
+        <ScrollReset><BrochureDownloadSection /></ScrollReset>
         <ScrollReset><StartHereCTA /></ScrollReset>
         <ScrollReset><FaqSection /></ScrollReset>
       </main>

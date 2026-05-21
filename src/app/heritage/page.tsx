@@ -128,8 +128,8 @@ function GrapeToGlassSection() {
           <div className="relative aspect-[4/5] rounded-md overflow-hidden border border-white/[0.06]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={`${basePath}/images/cellar-bg.png`}
-              alt="Inside the Ridgeview cellar — Méthode Traditionnelle ageing on lees"
+              src={`${basePath}/images/heritage/chardonnay-grapes.webp`}
+              alt="Hand-picked Chardonnay grapes at Ridgeview — the start of every bottle"
               className="absolute inset-0 w-full h-full object-cover"
               loading="lazy"
             />

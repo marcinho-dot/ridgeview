@@ -116,7 +116,7 @@ const READY_GIFTS: Gift[] = [
     body: "Bespoke engraving on Bloomsbury NV, Fitzrovia Rosé or Blanc de Blancs. A name, a date, a short message — engraved by hand and fulfilled in up to 5 working days.",
     cta: "Personalise a bottle",
     href: "/wine/engraved-bottle-gift",
-    image: "/images/articles/luxury-sparkling-wine-gift-guide/inline-1.webp",
+    image: "/images/gift-sets/engraved-bottle.webp",
     imageAlt: "Engraved Ridgeview bottle with custom message",
     badge: "Most personal",
   },
@@ -135,8 +135,8 @@ const READY_GIFTS: Gift[] = [
     body: "England&rsquo;s answer to a special Pinot moment — wild blackberry, vanilla and warm spice. The gift for someone who already has everything sparkling and white.",
     cta: "Discover the wine",
     href: "/wine/sparkling-red-reserve",
-    image: "/images/articles/luxury-sparkling-wine-gift-guide/inline-5.webp",
-    imageAlt: "Ridgeview Sparkling Red Reserve",
+    image: "/images/gift-sets/sparkling-red-gift.webp",
+    imageAlt: "Ridgeview Sparkling Red Reserve — gift presentation",
   },
   {
     kicker: "[ Magnum · 1.5L ]",
@@ -251,22 +251,32 @@ function ShopGrid() {
 }
 
 // ─── Bespoke Sets ──────────────────────────────────────────────────────────
-const BESPOKE_FORMATS = [
+type BespokeFormat = { title: string; body: string; image?: string; alt?: string };
+
+const BESPOKE_FORMATS: BespokeFormat[] = [
   {
     title: "Rosé Duo",
     body: "Two of our rosé sparkling wines, paired and presented in a single gift box — built around the recipient&rsquo;s palate.",
+    image: "/images/gift-sets/rose-duo.webp",
+    alt: "Ridgeview Rosé Duo gift set",
   },
   {
     title: "Limited Release Duo",
     body: "Two scarce, allocation-limited wines from the cellar. Selected by us, presented as a single statement.",
+    image: "/images/gift-sets/oak-single.webp",
+    alt: "Ridgeview limited release single",
   },
   {
     title: "Signature Trio",
     body: "Three core-range wines that map the Ridgeview house style — a tasting flight, gifted.",
+    image: "/images/gift-sets/signature-trio.webp",
+    alt: "Ridgeview Signature Trio gift set",
   },
   {
     title: "Limited Release Trio",
     body: "A trio drawn from current limited releases — for collectors and people who want to be remembered.",
+    image: "/images/gift-sets/noirs-trio.webp",
+    alt: "Ridgeview Noirs Trio gift set",
   },
   {
     title: "Bespoke Mixed Case",
@@ -302,22 +312,54 @@ function BespokeSection() {
           </FadeUp>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12">
           {BESPOKE_FORMATS.map((f, i) => (
             <FadeUp key={f.title} delay={0.3 + i * 0.05}>
-              <div className="border-t border-[#C8A96E]/25 pt-5">
-                <h3
-                  className="font-display italic text-cream leading-[1.15] mb-3"
-                  style={{ fontSize: "clamp(20px, 1.7vw, 24px)", fontWeight: 400 }}
-                >
-                  {f.title}
-                </h3>
-                <p
-                  className="font-body text-white/55 leading-[1.75]"
-                  style={{ fontSize: "clamp(13px, 1.1vw, 14px)", fontWeight: 300 }}
-                  dangerouslySetInnerHTML={{ __html: f.body }}
-                />
-              </div>
+              {/* Tiles with a product photo render as cards; text-only
+                  formats (Bespoke Mixed Case, Fully Bespoke) stay as
+                  editorial text-blocks with gold-hairline top — visual
+                  variety that telegraphs "this is the imagination-led
+                  end of the menu". */}
+              {f.image ? (
+                <div className="group h-full bg-[#0d0d0d] border border-white/[0.08] hover:border-[#C8A96E]/40 rounded-md overflow-hidden flex flex-col transition-all duration-400">
+                  <div className="relative aspect-square overflow-hidden bg-[#0a0a0a]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`${basePath}${f.image}`}
+                      alt={f.alt || f.title}
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.04]"
+                    />
+                  </div>
+                  <div className="p-6 md:p-7 flex flex-col flex-1">
+                    <h3
+                      className="font-display italic text-cream group-hover:text-white leading-[1.15] mb-3 transition-colors duration-400"
+                      style={{ fontSize: "clamp(19px, 1.65vw, 22px)", fontWeight: 400 }}
+                    >
+                      {f.title}
+                    </h3>
+                    <p
+                      className="font-body text-white/55 leading-[1.75]"
+                      style={{ fontSize: "clamp(13px, 1.1vw, 14px)", fontWeight: 300 }}
+                      dangerouslySetInnerHTML={{ __html: f.body }}
+                    />
+                  </div>
+                </div>
+              ) : (
+                <div className="h-full border-t border-[#C8A96E]/25 pt-5">
+                  <h3
+                    className="font-display italic text-cream leading-[1.15] mb-3"
+                    style={{ fontSize: "clamp(20px, 1.7vw, 24px)", fontWeight: 400 }}
+                  >
+                    {f.title}
+                  </h3>
+                  <p
+                    className="font-body text-white/55 leading-[1.75]"
+                    style={{ fontSize: "clamp(13px, 1.1vw, 14px)", fontWeight: 300 }}
+                    dangerouslySetInnerHTML={{ __html: f.body }}
+                  />
+                </div>
+              )}
             </FadeUp>
           ))}
         </div>
