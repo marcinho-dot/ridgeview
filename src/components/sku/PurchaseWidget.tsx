@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useCart } from "@/lib/cart/CartContext";
 import { variantIdFor } from "@/lib/cart/variantId";
+import { basePath } from "@/lib/basePath";
 
 /**
  * PurchaseWidget - composable purchase block for SKU pages.
@@ -56,6 +57,11 @@ interface Props {
   freeShippingThreshold?: number;
   /** Member-price discount note shown under price. */
   memberNote?: string;
+  /** Optional path to this wine's technical sheet PDF (relative to /public,
+   *  e.g. "/pdfs/tech-sheets/bloomsbury-nv.pdf"). When set, renders a
+   *  compact download chip directly below the member-note — same
+   *  hero-screen as the price + ATB, ideal for sommeliers/trade. */
+  techSheetPdf?: string;
   /** id on the ATB-button for the StickyMobileCTA IntersectionObserver. */
   ctaId?: string;
   /** Wine identity - required for cart line items. */
@@ -82,6 +88,7 @@ export function PurchaseWidget({
   variants,
   freeShippingThreshold = 45,
   memberNote = "20% off for members. Add a free personalised gift note at checkout.",
+  techSheetPdf,
   ctaId,
   slug,
   productName,
@@ -279,6 +286,49 @@ export function PurchaseWidget({
         >
           {memberNote}
         </p>
+      )}
+
+      {/* ── Technical Sheet download — chip directly under the member note.
+          Compact gold-accent affordance for sommeliers, trade and curious
+          enthusiasts. Sits inside the hero screen so it doesn't compete
+          with the ATB button but is still discoverable above the fold. */}
+      {techSheetPdf && (
+        <a
+          href={`${basePath}${techSheetPdf}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group inline-flex items-center gap-2.5 self-start !mt-3 md:!mt-2 border border-[#C8A96E]/30 hover:border-[#C8A96E]/70 hover:bg-[#C8A96E]/[0.06] rounded-sm px-3 py-2 transition-all duration-400"
+        >
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="text-[#C8A96E] group-hover:text-cream transition-colors"
+            aria-hidden
+          >
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+          <span
+            className="font-body text-[#C8A96E] group-hover:text-cream uppercase tracking-[0.22em] transition-colors"
+            style={{ fontSize: "10px", fontWeight: 500 }}
+          >
+            Technical Sheet
+          </span>
+          <span
+            aria-hidden
+            className="font-body text-white/40 group-hover:text-white/60 tracking-[0.1em] transition-colors"
+            style={{ fontSize: "10px", fontWeight: 300 }}
+          >
+            · PDF
+          </span>
+        </a>
       )}
     </div>
   );

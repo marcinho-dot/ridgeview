@@ -169,6 +169,7 @@ function ProductHero() {
                 {/* Stateful purchase block - variant + qty + free-shipping bar + ATB */}
                 <div className="flex-1 max-w-[480px]">
                   <PurchaseWidget
+                    techSheetPdf="/pdfs/tech-sheets/still-english-rose.pdf"
                     slug="still-english-rose"
                     productName={"Still English Rosé"}
                     vintage={"2024 · Limited"}
@@ -737,7 +738,6 @@ export default function StillEnglishRosePage() {
             { label: "Hand Harvest", detail: "Grapes are picked at first light and sorted by hand to keep only the most balanced bunches." },
             { label: "Méthode Traditionnelle", detail: "An English invention - coal-fired bottles strong enough to hold the bubbles, the cork to seal them in, deliberate secondary fermentation." },
           ]}
-          techSheetPdf="/pdfs/tech-sheets/still-english-rose.pdf"
         />
       </ScrollReset>
 
