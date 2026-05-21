@@ -56,8 +56,8 @@ function PageHeader() {
         <motion.p
           initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
-          className="font-body text-white/65 max-w-[680px]"
-          style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, lineHeight: 1.7, textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
+          className="subline-hero"
+          style={{ textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
         >
           Two routes for business: branded wine gifts that arrive ready to send, or corporate
           hospitality at the estate in Sussex. Both run by the same Corporate Services team.
