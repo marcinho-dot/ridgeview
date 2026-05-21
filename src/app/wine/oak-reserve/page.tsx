@@ -193,6 +193,7 @@ function ProductHero({
                 <div className="flex-1 max-w-[480px]">
                   <PurchaseWidget
                     techSheetPdf="/pdfs/tech-sheets/oak-reserve.pdf"
+                    notifyMeOnOOS
                     slug="oak-reserve"
                     productName={"Oak Reserve"}
                     vintage={"Late-Disgorged"}

@@ -31,6 +31,11 @@ const wines = allWines
     // bottles and shouldn't intrude on the price-descending ranking.
     if (a.kind === "membership" && b.kind !== "membership") return 1;
     if (b.kind === "membership" && a.kind !== "membership") return -1;
+    // Out-of-stock wines next-last — still visible in the carousel but
+    // not the lead slide. Keeps Oak Reserve discoverable while signalling
+    // it's currently unavailable.
+    if (!a.outOfStock && b.outOfStock) return -1;
+    if (a.outOfStock && !b.outOfStock) return 1;
     return priceValue(b.price) - priceValue(a.price);
   });
 

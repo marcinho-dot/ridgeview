@@ -62,6 +62,11 @@ interface Props {
    *  compact download chip directly below the member-note — same
    *  hero-screen as the price + ATB, ideal for sommeliers/trade. */
   techSheetPdf?: string;
+  /** When true AND every variant is out of stock, the ATB button is
+   *  replaced with a Notify-Me email-capture form. Visitors leave their
+   *  address so they can be told when the wine returns. Drives interest
+   *  on rare/late-disgorged releases instead of a dead-end disabled CTA. */
+  notifyMeOnOOS?: boolean;
   /** id on the ATB-button for the StickyMobileCTA IntersectionObserver. */
   ctaId?: string;
   /** Wine identity - required for cart line items. */
@@ -89,6 +94,7 @@ export function PurchaseWidget({
   freeShippingThreshold = 45,
   memberNote = "20% off for members. Add a free personalised gift note at checkout.",
   techSheetPdf,
+  notifyMeOnOOS = false,
   ctaId,
   slug,
   productName,
@@ -112,12 +118,40 @@ export function PurchaseWidget({
   const [quantity, setQuantity] = useState(1);
   const { add, openDrawer } = useCart();
 
+  // Notify-Me form state — only used when every variant is OOS and the
+  // parent SKU page opted in via notifyMeOnOOS.
+  const [notifyEmail, setNotifyEmail] = useState("");
+  const [notifySubmitted, setNotifySubmitted] = useState(false);
+
   const variant = variants[variantIdx];
   const total = variant.price * quantity;
   const remaining = Math.max(0, freeShippingThreshold - total);
   const freeShippingMet = remaining === 0;
   const progressPct = Math.min(100, (total / freeShippingThreshold) * 100);
   const isOOS = !!variant.outOfStock;
+  const allVariantsOOS = variants.every((v) => v.outOfStock);
+  const showNotifyMe = notifyMeOnOOS && allVariantsOOS;
+
+  // On submit: open the user's mail client with a pre-filled message to
+  // the Ridgeview team. No backend needed — the team receives a real
+  // email from the visitor's own address, which they can reply to once
+  // the wine is back in stock. Flips local state to a "thank you"
+  // confirmation either way so the form doesn't look broken if the
+  // mail client doesn't open.
+  const handleNotifySubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!notifyEmail.trim()) return;
+    const subject = `Notify me when ${productName} is back in stock`;
+    const body =
+      `Hello,\n\n` +
+      `Please add my email to the notify list for ${productName}` +
+      (vintage ? ` (${vintage})` : "") +
+      `. I'd like to be contacted when this wine returns to stock.\n\n` +
+      `Email: ${notifyEmail}\n\n` +
+      `Thank you.\n`;
+    window.location.href = `mailto:info@ridgeview.co.uk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setNotifySubmitted(true);
+  };
 
   const handleAdd = () => {
     if (isOOS) return;
@@ -226,22 +260,60 @@ export function PurchaseWidget({
           </button>
         </div>
 
-        {/* ATB Button - data-atb-trigger ties into the StickyMobileCTA
-            observer. Dispatches to the cart + auto-opens the drawer.
-            When the active variant is out of stock the button is
-            disabled, label switches to "Out of Stock", and the cart
-            dispatch short-circuits. */}
-        <button
-          id={ctaId}
-          data-atb-trigger
-          type="button"
-          onClick={handleAdd}
-          disabled={isOOS}
-          aria-disabled={isOOS}
-          className={`btn-cta ${isOOS ? "opacity-60 cursor-not-allowed" : ""}`}
-        >
-          {isOOS ? "Out of Stock" : `Add to basket · ${formatGBP(total)}`}
-        </button>
+        {/* ATB Button vs Notify-Me Form. data-atb-trigger ties into the
+            StickyMobileCTA observer. When the active variant is OOS the
+            button is disabled and short-circuits. When EVERY variant is
+            OOS AND notifyMeOnOOS is set, the button is replaced entirely
+            with an email-capture form so visitors can register interest. */}
+        {showNotifyMe ? (
+          notifySubmitted ? (
+            <p
+              className="font-body text-[#C8A96E] leading-relaxed flex-1 self-center"
+              style={{ fontSize: "13px", fontWeight: 400 }}
+              role="status"
+              aria-live="polite"
+            >
+              ✓ Thank you — we&rsquo;ll be in touch when {productName} returns.
+            </p>
+          ) : (
+            <form
+              onSubmit={handleNotifySubmit}
+              className="flex items-stretch border border-[#C8A96E]/40 hover:border-[#C8A96E]/70 focus-within:border-[#C8A96E] rounded-sm bg-white/[0.03] transition-colors duration-300 flex-1 max-w-[420px]"
+              aria-label={`Notify me when ${productName} is back in stock`}
+            >
+              <input
+                type="email"
+                inputMode="email"
+                required
+                placeholder="Your email"
+                value={notifyEmail}
+                onChange={(e) => setNotifyEmail(e.target.value)}
+                className="flex-1 bg-transparent border-0 px-4 py-3 font-body text-cream text-[13px] tracking-wide placeholder:text-white/45 focus:outline-none"
+                style={{ fontWeight: 300 }}
+              />
+              <button
+                id={ctaId}
+                type="submit"
+                className="font-body text-[#C8A96E] hover:text-cream uppercase tracking-[0.22em] border-l border-[#C8A96E]/40 hover:bg-[#C8A96E]/[0.08] px-4 py-3 transition-all duration-300 whitespace-nowrap"
+                style={{ fontSize: "10px", fontWeight: 500 }}
+              >
+                Notify Me
+              </button>
+            </form>
+          )
+        ) : (
+          <button
+            id={ctaId}
+            data-atb-trigger
+            type="button"
+            onClick={handleAdd}
+            disabled={isOOS}
+            aria-disabled={isOOS}
+            className={`btn-cta ${isOOS ? "opacity-60 cursor-not-allowed" : ""}`}
+          >
+            {isOOS ? "Out of Stock" : `Add to basket · ${formatGBP(total)}`}
+          </button>
+        )}
       </div>
 
       {/* ── Free Shipping Bar ──────────────────────────────────────

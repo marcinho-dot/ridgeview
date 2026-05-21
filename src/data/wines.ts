@@ -19,6 +19,12 @@ export interface Wine {
   /** Visually flags this entry as a membership rather than a bottle.
    *  Lets the listing / carousel render an alternate badge or copy. */
   kind?: "wine" | "membership";
+  /** When true, every format/variant of this wine is currently out of stock.
+   *  Affects sort (OOS wines push to the end of the catalogue listing) and
+   *  surfaces a Notify-Me form on the SKU page instead of the disabled ATB
+   *  button. Set true once the corresponding SKU page's _VARIANTS all show
+   *  outOfStock too. */
+  outOfStock?: boolean;
 }
 
 export const wines: Wine[] = [
@@ -98,6 +104,11 @@ export const wines: Wine[] = [
     price: "£85",
     image: "/products/oak-reserve.png",
     slug: "oak-reserve",
+    // All variants (75cl + Case of 6) flagged Out of Stock — matches the
+    // OAK_RESERVE_VARIANTS array in /wine/oak-reserve/page.tsx. Until any
+    // format returns to stock, this wine sorts to the end of the listing
+    // and the SKU page surfaces a Notify-Me form instead of the ATB button.
+    outOfStock: true,
   },
   {
     id: 8,

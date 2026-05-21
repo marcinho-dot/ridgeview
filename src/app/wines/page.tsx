@@ -21,7 +21,17 @@ const wines = allWines
   // existence is single-source; CTAs across the site link to it via
   // its customUrl. It just doesn't belong in this bottle grid.)
   .filter((w) => w.slug !== "engraved-bottle-gift" && w.kind !== "membership")
-  .sort((a, b) => priceValue(b.price) - priceValue(a.price));
+  // Sort:
+  //  1. In-stock wines first, by price descending (flagship first).
+  //  2. Out-of-stock wines last, internally still price-desc.
+  // Keeps Oak Reserve (currently OOS) at the end of the grid without
+  // hiding it — visitors still see the wine and can register interest
+  // via the Notify-Me form on its SKU page.
+  .sort((a, b) => {
+    if (!a.outOfStock && b.outOfStock) return -1;
+    if (a.outOfStock && !b.outOfStock) return 1;
+    return priceValue(b.price) - priceValue(a.price);
+  });
 
 // ── Section: Page Hero ──────────────────────────────────────────────────────
 
