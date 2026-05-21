@@ -48,7 +48,7 @@ function PageHeader() {
           className="font-display italic text-[#C8A96E] tracking-widest mb-3"
           style={{ fontSize: "clamp(13px, 1.3vw, 16px)", textShadow: "0 1px 10px rgba(0,0,0,1)" }}
         >
-          [ Certified B Corp · SWGB Founder Member ]
+          [ SWGB Founder Member · Sussex ]
         </motion.p>
 
         <div className="overflow-hidden mb-3">
@@ -267,7 +267,7 @@ function ContactCTA() {
         <FadeUp delay={0.05}><p className="font-display italic text-[#C8A96E] tracking-widest mb-5" style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}>[ ESG · Reporting · Partnerships ]</p></FadeUp>
         <FadeUp delay={0.15}>
           <h2 className="font-display italic text-cream leading-[1.08] mb-6" style={{ fontSize: "clamp(28px, 3.5vw, 46px)", fontWeight: 400 }}>
-            Talk to us about our <span className="text-[#C8A96E]">B Corp</span> journey
+            Talk to us about our <span className="text-[#C8A96E]">sustainability</span> journey
           </h2>
         </FadeUp>
         <FadeUp delay={0.25}>

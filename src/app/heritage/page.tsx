@@ -189,9 +189,8 @@ function GoodBusinessSection() {
         </FadeUp>
         <FadeUp delay={0.35}>
           <p className="font-body text-white/65 leading-[1.85] mx-auto mb-8" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300, maxWidth: "640px" }}>
-            As founder members of Sustainable Wines GB and a certified B Corp, we&rsquo;re
-            committed to continuous improvement — for a better Sussex, a better wine industry,
-            and a better future.
+            As founder members of Sustainable Wines GB, we&rsquo;re committed to continuous
+            improvement — for a better Sussex, a better wine industry, and a better future.
           </p>
         </FadeUp>
         <FadeUp delay={0.45}>
@@ -278,7 +277,6 @@ const TIMELINE: Milestone[] = [
   { year: "2012", title: "Queen&rsquo;s Diamond Jubilee", body: "Selected for the State Banquet celebrating the Queen&rsquo;s Diamond Jubilee at Buckingham Palace." },
   { year: "2015", title: "State Banquet for the Chinese President", body: "Poured at Buckingham Palace for the State Banquet hosted for the Chinese President — another stage on the world&rsquo;s most formal." },
   { year: "2018", title: "Founder member of Sustainable Wines GB", body: "Ridgeview helps found Sustainable Wines of Great Britain — formalising what the estate had been practising for years." },
-  { year: "2023", title: "B Corp certification", body: "Independent certification of environmental and social performance — confirming what the business has long stood for." },
   { year: "2023", title: "King Charles&rsquo; first State Banquet", body: "Ridgeview Blanc de Blancs poured at the first State Banquet of the new reign." },
   { year: "2024", title: "Goodwood Estate partnership", body: "Selected as Official English Sparkling Wine supplier of the Goodwood Estate." },
   { year: "2024", title: "Gatwick Airport partnership", body: "Ridgeview takes off as the official English sparkling at London Gatwick — Sussex&rsquo;s flagship pour, served to international travellers." },

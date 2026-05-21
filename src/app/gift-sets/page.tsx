@@ -348,7 +348,7 @@ function BespokeSection() {
 const PROMISES = [
   { title: "Free next-day delivery", body: "On UK orders over £45. Confirmed by 12 noon, dispatched same day via DHL." },
   { title: "Personalised gift notes", body: "Add a personal message at checkout — included with every gift, free of charge." },
-  { title: "Sustainable to the door", body: "Lighter glass where the wine permits, recyclable secondary packaging, B Corp certified." },
+  { title: "Sustainable to the door", body: "Lighter glass where the wine permits, recyclable secondary packaging." },
 ];
 
 function PromiseSection() {

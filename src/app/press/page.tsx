@@ -119,12 +119,6 @@ const RELEASES: Release[] = [
   },
   {
     date: "2023",
-    title: "Ridgeview achieves B Corp certification",
-    summary:
-      "Independent certification of our environmental and social performance — formally recognising what we&rsquo;ve always tried to be: a business as a force for good.",
-  },
-  {
-    date: "2023",
     title: "Blanc de Blancs served at King Charles&rsquo; first state banquet",
     summary:
       "Ridgeview Blanc de Blancs poured at the State Banquet at Buckingham Palace — the second time our wines have been chosen for the most formal of occasions.",

@@ -78,7 +78,7 @@ export default function ArticleDetailPage() {
   const slug = typeof params?.slug === "string" ? params.slug : "";
 
   // Drafts: article exists in articles.ts but flagged unpublished
-  // (e.g. archived B Corp content awaiting re-application).
+  // (archived editorial that's temporarily withheld from public).
   // Treat as not-found at the route level so direct URLs 404.
   const articleRaw = articles.find((a) => a.slug === slug);
   const article = articleRaw && !articleRaw.draft ? articleRaw : undefined;
