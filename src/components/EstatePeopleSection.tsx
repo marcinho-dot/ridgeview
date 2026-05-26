@@ -195,7 +195,7 @@ export function EstatePeopleSection() {
           }
           bodies={[
             "A dedicated team of viticulturists, winemakers and hospitality professionals - working together to shape the future of English sparkling wine. From vineyard management to cellar craft, every hand plays a part.",
-            "Ridgeview believes in passion, purpose and a commitment to excellence. The team includes second-generation members who grew up among the vines - alongside specialist winemakers and a hospitality crew devoted to making every visit memorable.",
+            "Ridgeview believes in passion, purpose and a commitment to excellence. The team includes second-generation family members who grew up among the vines - alongside specialist winemakers and a hospitality crew devoted to making every visit memorable.",
           ]}
           imageSrc="/images/harvest-walk.jpg"
           imageAlt="Ridgeview team member walking through the vineyard during harvest, carrying picking buckets"

@@ -1517,6 +1517,17 @@ export default function BookingPage() {
       <HashScroll />
       <main>
         <PageHeader />
+        {/* Order updated 2026-05-26 per CEO approval feedback
+            (Mark, item Vineyard #9): "Move the wine tour booking /
+            dine in vines options to top of page - too far to scroll
+            under the content." VisitPanels (Tour + Restaurant CTAs)
+            and TourBookingSection (NewBridge calendar link-out) now
+            sit directly under the hero so booking is the first
+            content the visitor encounters. The narrative + heritage
+            content (EstatePeople, HeritageReveal, sticky stack,
+            Recognition, CellarBanner) follows below. */}
+        <ScrollReset><VisitPanels /></ScrollReset>
+        <ScrollReset><TourBookingSection /></ScrollReset>
         <ScrollReset><EstatePeopleSection /></ScrollReset>
         {/* Terroir Statement + Chalk Image - merged into a single
             LAYERED REVEAL section. The chalk image is sticky-pinned
@@ -1566,15 +1577,12 @@ export default function BookingPage() {
         <ScrollReset><RecognitionSection /></ScrollReset>
         {/* CellarBanner — the cinematic cellar-hands shot extracted
             from VisitPanels (2026-05-18) and used here as a visual
-            bridge directly under Recognition per user direction. */}
+            bridge directly under Recognition. After the 2026-05-26
+            reorder (VisitPanels + TourBookingSection moved to under
+            the hero per CEO feedback), CellarBanner now bridges
+            Recognition into NearbyAccommodation. Still works as the
+            same cinematic pause between two editorial blocks. */}
         <ScrollReset><CellarBanner /></ScrollReset>
-        {/* Order 2026-05-18 (later in day, second revision per user):
-            VisitPanels ("Book Your Experience") first so the
-            conversion CTAs land right after the cellar bridge,
-            NearbyAccommodation ("Where to Stay") below — the natural
-            follow-up question after booking the experience. */}
-        <ScrollReset><VisitPanels /></ScrollReset>
-        <ScrollReset><TourBookingSection /></ScrollReset>
         <ScrollReset><NearbyAccommodationSection /></ScrollReset>
         <ScrollReset><PracticalInfo /></ScrollReset>
       </main>
