@@ -106,24 +106,28 @@ const CATEGORIES: Category[] = [
         q: "Can I collect my order from the estate?",
         a: "We offer Click &amp; Collect for online orders. Add a note to your order and we&rsquo;ll send confirmation when it&rsquo;s ready to collect from our Winery Shop.",
       },
+      {
+        q: "Can I cancel my order?",
+        a: `Yes — subject to our terms and conditions. Email ${HELP_EMAIL} as soon as possible after placing the order and we&rsquo;ll help where we can.`,
+      },
     ],
   },
   {
     id: "general",
     label: "General & Visit",
-    kicker: "[ Site · Access · Conditions ]",
+    kicker: "[ Site · Access · Parking ]",
     faqs: [
       {
         q: "Can under-18s order from the website?",
         a: "No. As required by UK law, our online shop is open only to those 18 and over.",
       },
       {
-        q: "Are your terms and conditions available?",
-        a: "Yes — our full T&Cs cover orders, deliveries, returns, vouchers and visits. See the link in the footer for the current version.",
-      },
-      {
         q: "What are your opening hours?",
         a: "Office, Winery Shop and The Rows & Vine restaurant each have their own hours. The full breakdown sits on the restaurant page — visit /restaurant#hours for the current schedule across seasons.",
+      },
+      {
+        q: "Is there parking on site?",
+        a: `Yes — there is ample parking for guests, including dedicated disabled parking bays. With advance notice we can also overnight your car in our secure car park; coach parking can be arranged on request. Email ${HELP_EMAIL} ahead of your visit.`,
       },
       {
         q: "What about accessibility?",
@@ -141,8 +145,20 @@ const CATEGORIES: Category[] = [
         a: "Public tour dates and private experiences run year-round via our booking partner. See /vineyard-booking for the calendar and to choose your tour type.",
       },
       {
-        q: "Can I book a private group tour?",
-        a: "Yes — groups of 8 or more book directly with us by email so we can plan around your party size, dietary needs and the season.",
+        q: "How long does a tour take?",
+        a: "On average around one and a half hours — leaving time afterwards to enjoy the vineyard view from The Rows &amp; Vine restaurant and our grazing menu paired to the wines.",
+      },
+      {
+        q: "Is there an age restriction on tours?",
+        a: "Yes — under-18s are not permitted on tours and tastings for health and safety reasons. Children are welcome at The Rows &amp; Vine restaurant when supervised by an adult.",
+      },
+      {
+        q: "Can I book a private tour and tasting?",
+        a: `Yes — we welcome private tours and tastings. Email ${HELP_EMAIL} and we&rsquo;ll advise on options and the season.`,
+      },
+      {
+        q: "Can I cancel a tour booking?",
+        a: "Tours &amp; Tastings tickets are non-refundable. You can reschedule your tour once, with at least two weeks&rsquo; notice. In the case of extreme weather, we may cancel for safety reasons — a full refund or alternative date will then be offered.",
       },
       {
         q: "How do I reserve a table at The Rows & Vine?",
@@ -150,18 +166,18 @@ const CATEGORIES: Category[] = [
       },
       {
         q: "Are children welcome?",
-        a: "Yes, under-18s are welcome at our restaurant. They must be supervised by an adult during the visit. We operate a Challenge 25 policy when serving alcohol.",
+        a: "Under-18s are not permitted on tours and tastings (health and safety). Children are welcome at The Rows &amp; Vine restaurant and on event visits when supervised by an adult throughout. We operate a Challenge 25 policy when serving alcohol.",
       },
       {
         q: "Are dogs allowed?",
-        a: "Only guide and assistance dogs are allowed at The Rows & Vine.",
+        a: "Dogs are not permitted on the estate, apart from assistance and guide dogs.",
       },
     ],
   },
   {
     id: "press",
     label: "Media & Press",
-    kicker: "[ Journalists · PR · Imagery ]",
+    kicker: "[ Journalists · PR ]",
     faqs: [
       {
         q: "Where can I find press releases?",
@@ -169,11 +185,7 @@ const CATEGORIES: Category[] = [
       },
       {
         q: "Who handles media enquiries?",
-        a: `Media requests, images and interviews go through our Marketing &amp; Communications team. Email ${HELP_EMAIL} with your brief and timeline and we&rsquo;ll route it to the right voice.`,
-      },
-      {
-        q: "Can I request high-resolution imagery?",
-        a: "Yes — we maintain a media library of vineyard, cellar, bottle and lifestyle imagery. Send us the context (publication, deadline, intended use) and we&rsquo;ll share the appropriate assets.",
+        a: `Media requests and interviews go through our Marketing &amp; Communications team. Email ${HELP_EMAIL}.`,
       },
     ],
   },
