@@ -368,7 +368,7 @@ const TESTIMONIALS = [
   {
     quote:
       "We chose Ridgeview's Blanc de Noirs following a taste test by our Senior Management Team. The bottles were individually boxed giving a real wow factor and we received excellent customer service.",
-    attribution: "Senior management team",
+    attribution: "Corporate buyer",
   },
 ];
 
