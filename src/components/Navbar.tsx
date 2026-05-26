@@ -114,12 +114,12 @@ export function Navbar() {
             collection carousel, Nearby Accommodation, Beyond
             accordion) still split at `md:` — those are content
             density decisions, not nav-mode decisions. */}
-        <div className="hidden lg:flex lg:flex-1 items-center gap-5 xl:gap-7 min-w-0">
+        <div className="hidden lg:flex lg:flex-1 items-center gap-3 xl:gap-5 2xl:gap-7 min-w-0">
           {menuItems.map(({ label, href }) => (
             <a
               key={label}
               href={href}
-              className="relative top-[2px] link-underline font-body text-white/75 text-[11px] tracking-[0.2em] uppercase hover:text-[#C8A96E] transition-colors duration-300 whitespace-nowrap"
+              className="relative top-[2px] link-underline font-body text-white/75 text-[10px] xl:text-[11px] tracking-[0.12em] xl:tracking-[0.2em] uppercase hover:text-[#C8A96E] transition-colors duration-300 whitespace-nowrap"
             >
               {label}
             </a>
@@ -127,11 +127,13 @@ export function Navbar() {
         </div>
 
         {/* Center logo - in flex flow, naturally centred between the
-            two `lg:flex-1` clusters above + below. On mobile + tablet
-            (left cluster hidden), `justify-between` on the parent
-            pushes logo to the left edge and right cluster to the
-            right edge. */}
-        <div className="lg:shrink-0 lg:mx-4">
+            two `lg:flex-1` clusters above + below. Logo margin
+            (lg:mx-2 → xl:mx-4) gives the LEFT cluster a few more
+            pixels of breathing room at the tightest desktop widths.
+            On mobile + tablet (left cluster hidden), `justify-between`
+            on the parent pushes logo to the left edge and right
+            cluster to the right edge. */}
+        <div className="lg:shrink-0 lg:mx-2 xl:mx-4">
           <Link href="/">
             <motion.div whileHover={{ opacity: 0.75 }} transition={{ duration: 0.2 }}>
               <RidgeviewBadgeLogo scrolled={scrolled} />
@@ -154,7 +156,7 @@ export function Navbar() {
           </button>
           <a
             href={wineClubHref}
-            className="hidden lg:flex relative top-[2px] link-underline font-body text-white/75 text-[11px] tracking-[0.2em] uppercase hover:text-[#C8A96E] transition-colors duration-300"
+            className="hidden lg:flex relative top-[2px] link-underline font-body text-white/75 text-[10px] xl:text-[11px] tracking-[0.12em] xl:tracking-[0.2em] uppercase hover:text-[#C8A96E] transition-colors duration-300 whitespace-nowrap"
           >
             Wine Club
           </a>
