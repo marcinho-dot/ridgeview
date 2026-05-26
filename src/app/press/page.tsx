@@ -179,15 +179,6 @@ const RELEASES: Release[] = [
     pdf: "/pdfs/press/sparkling-red-launch.pdf",
   },
   {
-    date: "2023",
-    title: "Ridgeview achieves B Corp certification",
-    summary:
-      "Ridgeview becomes a Certified B Corporation — independent recognition of the estate&rsquo;s environmental and social performance.",
-    image: "/images/press/b-corp-cert.webp",
-    alt: "Ridgeview B Corp certification announcement",
-    pdf: "/pdfs/press/b-corp-certification.pdf",
-  },
-  {
     date: "2022",
     title: "Unveiling our new hospitality project",
     summary:
