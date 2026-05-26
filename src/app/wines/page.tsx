@@ -94,33 +94,10 @@ function PageHero() {
           and hand-harvested at our estate on Ditchling Common.
         </motion.p>
 
-        {/* Cross-link to the Cases landing page — bulk-buyers /
-            gifting / wine-club-curious cohort lands directly on the
-            6-bottle pricing without needing to open a single SKU
-            page first. The underline + arrow treatment matches the
-            "Shop Bottle" CTA at the bottom of each WineGrid card so
-            the two pages feel like one collection. */}
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
-          className="mt-6 md:mt-7"
-        >
-          <a
-            href={`${basePath}/wines/cases`}
-            className="group inline-flex items-center gap-2.5 font-body text-cream uppercase tracking-[0.22em] pb-1 relative hover:text-[#C8A96E] transition-colors duration-400"
-            style={{ fontSize: "11px", fontWeight: 400 }}
-          >
-            <span>Browse Cases · Save 10%</span>
-            <span aria-hidden className="text-[#C8A96E]">
-              →
-            </span>
-            <span
-              aria-hidden
-              className="absolute left-0 right-0 bottom-0 h-px bg-[#C8A96E] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"
-            />
-          </a>
-        </motion.div>
+        {/* Browse-Cases cross-link previously sat here centred under
+            the hero copy. Moved into GalleryToolbar 2026-05-27 so
+            its baseline lines up with the layout-switcher row
+            instead of floating one row above it. */}
       </div>
     </section>
   );
@@ -598,30 +575,58 @@ function GalleryToolbar({
 }) {
   return (
     <section className="relative bg-[#010101] pt-0 pb-2 md:pb-3">
-      <div className="max-w-[1500px] mx-auto px-6 md:px-12 flex items-center justify-end gap-4 md:gap-5">
-        {/* Hint label — desktop only, explains the icons */}
-        <span
-          className="hidden md:inline font-body text-white/35 uppercase tracking-[0.22em]"
-          style={{ fontSize: "10px", fontWeight: 400 }}
-        >
-          Layout
-        </span>
+      <div className="max-w-[1500px] mx-auto px-6 md:px-12 flex flex-col md:flex-row items-start md:items-center md:justify-between gap-3 md:gap-5">
 
-        {/* Inventory counter — gold tracking, mobile keeps it visible */}
-        <span
-          className="font-body text-[#C8A96E]/80 uppercase tracking-[0.18em]"
-          style={{ fontSize: "10px", fontWeight: 400 }}
-          aria-label={`${count} of ${total} bottles available`}
+        {/* Browse-Cases cross-link — moved here 2026-05-27 from
+            PageHero so its baseline aligns with the layout-switcher
+            row on the right. Bulk-buyers / gifting / wine-club-
+            curious cohort lands directly on the 6-bottle pricing.
+            The underline + arrow treatment matches the "Shop Bottle"
+            CTA at the bottom of each WineGrid card. */}
+        <a
+          href={`${basePath}/wines/cases`}
+          className="group inline-flex items-center gap-2.5 font-body text-cream uppercase tracking-[0.22em] pb-1 relative hover:text-[#C8A96E] transition-colors duration-400"
+          style={{ fontSize: "11px", fontWeight: 400 }}
         >
-          {count} / {total} available
-        </span>
+          <span>Browse Cases · Save 10%</span>
+          <span aria-hidden className="text-[#C8A96E]">
+            →
+          </span>
+          <span
+            aria-hidden
+            className="absolute left-0 right-0 bottom-0 h-px bg-[#C8A96E] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"
+          />
+        </a>
 
-        {/* Icon switch — outline SVGs, square hairline frame */}
-        <div
-          role="group"
-          aria-label="Catalog view"
-          className="inline-flex items-center border border-white/15 rounded-sm p-0.5 bg-white/[0.03] backdrop-blur-sm"
-        >
+        {/* Right-side controls cluster — counter then layout label
+            then switcher. "Layout" sits directly next to the icons
+            so it reads as the icon's label, not a header above the
+            counter. */}
+        <div className="flex items-center gap-4 md:gap-5 self-end md:self-auto">
+          {/* Inventory counter — gold tracking, mobile keeps it visible */}
+          <span
+            className="font-body text-[#C8A96E]/80 uppercase tracking-[0.18em]"
+            style={{ fontSize: "10px", fontWeight: 400 }}
+            aria-label={`${count} of ${total} bottles available`}
+          >
+            {count} / {total} available
+          </span>
+
+          {/* Layout label — desktop only, sits IMMEDIATELY next to
+              the switcher so the relationship is unambiguous. */}
+          <span
+            className="hidden md:inline font-body text-white/35 uppercase tracking-[0.22em]"
+            style={{ fontSize: "10px", fontWeight: 400 }}
+          >
+            Layout
+          </span>
+
+          {/* Icon switch — outline SVGs, square hairline frame */}
+          <div
+            role="group"
+            aria-label="Catalog view"
+            className="inline-flex items-center border border-white/15 rounded-sm p-0.5 bg-white/[0.03] backdrop-blur-sm"
+          >
           <button
             type="button"
             onClick={() => onChange("row")}
@@ -649,6 +654,7 @@ function GalleryToolbar({
             <GridIcon />
           </button>
         </div>
+        </div>{/* /right-cluster */}
       </div>
     </section>
   );
