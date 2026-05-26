@@ -124,10 +124,24 @@ function SpacesSection() {
                 <h3 className="font-display italic text-cream leading-[1.15] mb-4" style={{ fontSize: "clamp(22px, 2vw, 28px)", fontWeight: 400 }}>
                   The Rows &amp; Vine · up to 150 guests
                 </h3>
-                <p className="font-body text-white/65 leading-[1.75]" style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 300 }}>
-                  Full private use of The Rows &amp; Vine during spring and summer. Alfresco
-                  by the Chardonnay vines, seasonal produce, Ridgeview sparkling on the table.
+                <p className="font-body text-white/65 leading-[1.75] mb-5" style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 300 }}>
+                  Alfresco beside the Chardonnay vines, seasonal produce, Ridgeview sparkling on
+                  the table. Three flexible tiers across spring and summer:
                 </p>
+                <ul className="space-y-2 font-body text-white/65 leading-[1.65]" style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 300 }}>
+                  <li className="flex gap-3">
+                    <span className="text-[#C8A96E] flex-shrink-0">·</span>
+                    <span><span className="text-cream/80">Group bookings</span> — for parties of 8 or more.</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-[#C8A96E] flex-shrink-0">·</span>
+                    <span><span className="text-cream/80">Private pavilion hire</span> — each pavilion seats up to 30 guests.</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-[#C8A96E] flex-shrink-0">·</span>
+                    <span><span className="text-cream/80">Full venue hire</span> — exclusive use of the restaurant for up to 150 guests.</span>
+                  </li>
+                </ul>
               </div>
             </div>
           </FadeUp>
@@ -223,6 +237,14 @@ const FAQS = [
   {
     q: "Are there corporate event options?",
     a: "Yes — see Corporate Hospitality &amp; Events for tasting days, team-building, board meetings, networking and brand activations.",
+  },
+  {
+    q: "Do you host weddings or wedding-related events?",
+    a: "We don&rsquo;t currently offer full-service weddings, but Ridgeview is a beautiful setting for engagement parties, rehearsal dinners and wedding-weekend celebrations. Get in touch and we&rsquo;ll see how we can make your moment special.",
+  },
+  {
+    q: "Where is Ridgeview located?",
+    a: "Ridgeview is based in Ditchling, Sussex — around a 15-minute drive from Brighton and an hour from London by train. Set in the South Downs National Park, the estate is a peaceful and picturesque location for private events and vineyard experiences.",
   },
 ];
 
