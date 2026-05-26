@@ -33,10 +33,21 @@ import { basePath } from "@/lib/basePath";
 // Order = ascending price (cheapest entry-point as default), since these
 // are different wines, not formats of the same wine - the FINAL Variant-
 // Ordering rule (75cl/Magnum/Case) doesn't apply here.
+//
+// Each variant now points to its OWN engraved-bottle photograph
+// (added 2026-05-26 — three real engraved samples supplied by
+// Salvatore, sourced from Ridgeview): Bloomsbury NV with the
+// pale silver label, Fitzrovia Rosé with the white label + pink
+// neck band, Blanc de Blancs 2020 with the dark label + gold
+// year band. All three carry the same sample engraving ("Thanks
+// for your dedication this year. From everyone at — COMPANY LOGO")
+// so the visitor sees their chosen wine ACTUALLY engraved when
+// they pick a variant in the dropdown, instead of the un-engraved
+// plain bottle. WebP format throughout (UK source).
 const ENGRAVED_BOTTLE_VARIANTS: Variant[] = [
-  { variantId: "bloomsbury-engraved",      label: "Bloomsbury NV",   detail: "75cl · Custom Engraving · Made-to-Order", price: 50, image: "/products/bloomsbury.png" },
-  { variantId: "fitzrovia-engraved",       label: "Fitzrovia Rosé",  detail: "75cl · Custom Engraving · Made-to-Order", price: 60, image: "/products/fitzrovia.png" },
-  { variantId: "blanc-de-blancs-engraved", label: "Blanc de Blancs", detail: "75cl · Custom Engraving · Made-to-Order", price: 90, badge: "Vintage", image: "/products/blanc-de-blancs.png" },
+  { variantId: "bloomsbury-engraved",      label: "Bloomsbury NV",   detail: "75cl · Custom Engraving · Made-to-Order", price: 50, image: "/products/engraved-bloomsbury.webp" },
+  { variantId: "fitzrovia-engraved",       label: "Fitzrovia Rosé",  detail: "75cl · Custom Engraving · Made-to-Order", price: 60, image: "/products/engraved-fitzrovia.webp" },
+  { variantId: "blanc-de-blancs-engraved", label: "Blanc de Blancs", detail: "75cl · Custom Engraving · Made-to-Order", price: 90, badge: "Vintage", image: "/products/engraved-blanc-de-blancs.webp" },
 ];
 
 // ── Animation Helpers ────────────────────────────────────────────────────────
