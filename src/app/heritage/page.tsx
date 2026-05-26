@@ -268,18 +268,25 @@ function GrapeGrowersSection() {
 type Milestone = { year: string; title: string; body: string };
 
 const TIMELINE: Milestone[] = [
-  { year: "1995", title: "Founded", body: "Mike Roberts plants the first Ridgeview vines at Ditchling Common, East Sussex, betting on Sussex chalk to rival Champagne." },
-  { year: "1999", title: "First vintage", body: "The inaugural Ridgeview sparkling — Méthode Traditionnelle, English-grown, sparkling on its own terms." },
-  { year: "2000", title: "English Wine of the Year", body: "The first major national recognition. The vision starts to be vindicated by the industry." },
-  { year: "2005", title: "Underground cellars", body: "Ridgeview builds England&rsquo;s first underground wine cellars on the estate — naturally temperature-controlled, no refrigeration required." },
-  { year: "2008", title: "Winery operational", body: "The estate winery becomes fully operational — the foundation for the production capacity that followed." },
-  { year: "2010", title: "Decanter World Wine Awards trophy", body: "Ridgeview wins Best Sparkling Wine in the World — the only time the trophy has ever been awarded outside Champagne." },
-  { year: "2012", title: "Queen&rsquo;s Diamond Jubilee", body: "Selected for the State Banquet celebrating the Queen&rsquo;s Diamond Jubilee at Buckingham Palace." },
-  { year: "2015", title: "State Banquet for the Chinese President", body: "Poured at Buckingham Palace for the State Banquet hosted for the Chinese President — another stage on the world&rsquo;s most formal." },
-  { year: "2018", title: "Founder member of Sustainable Wines GB", body: "Ridgeview helps found Sustainable Wines of Great Britain — formalising what the estate had been practising for years." },
-  { year: "2023", title: "King Charles&rsquo; first State Banquet", body: "Ridgeview Blanc de Blancs poured at the first State Banquet of the new reign." },
-  { year: "2024", title: "Goodwood Estate partnership", body: "Selected as Official English Sparkling Wine supplier of the Goodwood Estate." },
-  { year: "2024", title: "Gatwick Airport partnership", body: "Ridgeview takes off as the official English sparkling at London Gatwick — Sussex&rsquo;s flagship pour, served to international travellers." },
+  { year: "1995", title: "Founded", body: "Mike Roberts establishes Ridgeview, planting the first vines at Ditchling Common, East Sussex — a bet that Sussex chalk could rival Champagne." },
+  { year: "1999", title: "Underground cellars &amp; winery operational", body: "Ridgeview builds England&rsquo;s first underground wine cellars and the estate winery becomes operational." },
+  { year: "2000", title: "English Wine of the Year", body: "The first bottling is released and wins English Wine of the Year — the vision starts to be vindicated by the industry." },
+  { year: "2005", title: "IWSC Best International Sparkling Wine", body: "Ridgeview Bloomsbury 2002 wins the IWSC Best International Sparkling Wine trophy." },
+  { year: "2006", title: "Queen Elizabeth II&rsquo;s 80th Birthday", body: "Ridgeview Blanc de Blancs 2004 served at the banquet celebrating Queen Elizabeth II&rsquo;s 80th birthday." },
+  { year: "2008", title: "International export begins", body: "First export cases ship to Norway, Finland and Japan — Sussex sparkling on the world map." },
+  { year: "2010", title: "Decanter Trophy · Best Global Sparkling Wine", body: "Ridgeview Blanc de Blancs 2006 wins the Decanter Trophy for Best Global Sparkling Wine — landmark recognition for English sparkling." },
+  { year: "2011", title: "Mike Roberts MBE", body: "Founder Mike Roberts is awarded an MBE for services to the English wine industry." },
+  { year: "2011", title: "State Banquet for President Obama", body: "Ridgeview Rosé poured at the State Banquet hosted by Queen Elizabeth II for President Obama at Buckingham Palace." },
+  { year: "2012", title: "Queen&rsquo;s Diamond Jubilee Celebrations", body: "Ridgeview Bloomsbury 2009 selected as the official sparkling wine for the Queen&rsquo;s Diamond Jubilee Celebrations." },
+  { year: "2014", title: "Remembering Mike Roberts MBE", body: "The estate marks the passing of founder Mike Roberts MBE — a life well lived, and a legacy carried forward." },
+  { year: "2014", title: "Simon Roberts · Head Winemaker", body: "Simon Roberts moves into the role of Head Winemaker, leading Ridgeview into its next chapter." },
+  { year: "2015", title: "State Banquet for President Xi Jinping", body: "Ridgeview Blanc de Blancs 2009 poured at the State Banquet hosted by Queen Elizabeth II for President Xi Jinping at Buckingham Palace." },
+  { year: "2016", title: "Official sparkling of 10 Downing Street", body: "Ridgeview becomes the official English sparkling wine of 10 Downing Street." },
+  { year: "2018", title: "IWSC International Winemaker of the Year", body: "Ridgeview is awarded International Winemaker of the Year by the IWSC — a first for English wine." },
+  { year: "2018", title: "New identity &amp; first Ridgefest", body: "Launch of the new identity and label design — and the first Ridgefest within the grounds of the estate." },
+  { year: "2020", title: "25th anniversary &amp; new winery", body: "Ridgeview celebrates 25 years with the opening of a new winery, expanding cellar capacity to one million bottles." },
+  { year: "2024", title: "SWGB Gold Award · Vineyard", body: "The vineyard achieves a Gold Award from Sustainable Wines of Great Britain." },
+  { year: "2025", title: "SWGB Gold Award · Winery", body: "The winery achieves a Gold Award from Sustainable Wines of Great Britain." },
 ];
 
 function TimelineSection() {
