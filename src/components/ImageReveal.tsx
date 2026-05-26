@@ -33,6 +33,14 @@ function IconFacebook({ className }: { className?: string }) {
   );
 }
 
+function IconX({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  );
+}
+
 /* ── Gallery images data ───────────────────────────────────────────── */
 
 const galleryImages = [
@@ -55,10 +63,14 @@ const galleryImages = [
 // were pointing to previously were inactive accounts, which CEO
 // feedback flagged as "Social links not active" (Gregg, item Home
 // #5, 2026-05-18). LinkedIn was even returning 404.
+//
+// X (Twitter) added 2026-05-26 per Salvatore — UK has the profile
+// (@RidgeviewWineUK, 9.9k followers, joined Jan 2012, active).
 const socials = [
   { name: "Instagram", icon: IconInstagram, href: "https://www.instagram.com/ridgeviewwineuk/" },
   { name: "LinkedIn", icon: IconLinkedIn, href: "https://www.linkedin.com/company/ridgeviewwineuk" },
   { name: "Facebook", icon: IconFacebook, href: "https://www.facebook.com/Ridgeviewwineuk" },
+  { name: "X", icon: IconX, href: "https://x.com/RidgeviewWineUK" },
 ];
 
 /* ── Lightbox ──────────────────────────────────────────────────────── */
