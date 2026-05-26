@@ -151,6 +151,36 @@ body::after {
   mix-blend-mode: overlay;
 }
 
+/* ─── Form input autofill — kill the yellow ─────────────────
+   Chrome's autofill paints a pale-yellow background (and on
+   some builds a pale-blue) over inputs that have a saved
+   value. Our inputs use cream / white text on dark glassy
+   backgrounds, so the autofill yellow makes the text illegible.
+
+   The block below forces autofilled inputs to:
+   - keep cream text-fill (`-webkit-text-fill-color`)
+   - paint a near-black inset shadow that fills the input area
+     (so the autofill background colour never shows)
+   - keep our cream caret
+   - delay Chrome's eventual re-colour to ~83 minutes via the
+     canonical 5000s transition hack (long enough that the user
+     has navigated away first)
+
+   Shipped 2026-05-26 in response to CEO approval feedback
+   (Home #4): "email capture box renders as white text on yellow
+   sound on my browser and is illegible."
+   ────────────────────────────────────────────────────────── */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: rgba(245, 240, 232, 0.95) !important;
+  -webkit-box-shadow: 0 0 0 1000px rgba(10, 10, 10, 0.98) inset !important;
+  caret-color: rgba(245, 240, 232, 0.95) !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+  border-radius: inherit;
+}
+
 /* ─── Button hover fill micro-interaction ───────────────── */
 .btn-ridge {
   position: relative;

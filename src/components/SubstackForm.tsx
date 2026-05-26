@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 /**
  * SubstackForm - reusable email-capture pill for Ridgeview's Substack.
  *
@@ -11,6 +13,20 @@
  *   placeholder white/40 → white/55
  *   icons       white/50 → white/65 (Substack) / 0.70 (arrow)
  *   hover gold  /40 → /55          (warmer hover edge)
+ *
+ * Submit-feedback state added 2026-05-26 (CEO approval feedback,
+ * Home #4: "Click results in no feedback such as 'successful' or
+ * 'thank you for subscribing'"). On submit, the form swaps itself
+ * for an acknowledgement message at identical height (no layout
+ * shift). The message is intentionally NON-COMMITAL — "newsletter
+ * is launching soon" — because no real Substack/Mailchimp backend
+ * is wired up yet. Honest UX over fake-success UX.
+ *
+ * NOTE for future devs: this form still does not capture emails
+ * anywhere. The submit handler just sets local state. A real
+ * backend (Substack URL / Mailchimp / Web3Forms) needs to be
+ * decided + wired up before launch. Parked in tasks/approval-
+ * tracker.md "Rückfragen" section.
  *
  * Used on:
  *   - Homepage  ImageReveal "Stay close to the estate" block
@@ -37,21 +53,52 @@ function IconArrowRight({ className }: { className?: string }) {
   );
 }
 
+function IconCheck({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <polyline points="4 11 8 15 16 6" />
+    </svg>
+  );
+}
+
 interface Props {
   className?: string;
 }
 
 export function SubstackForm({ className = "" }: Props) {
+  const [submitted, setSubmitted] = useState(false);
+
+  if (submitted) {
+    // Acknowledgement pill — same height + rounded shape as the
+    // input form so the page does not jump when the swap happens.
+    // Gold accent border + warm gold-tinted bg signal "success
+    // state" without claiming the user is actually subscribed.
+    return (
+      <div
+        role="status"
+        aria-live="polite"
+        className={`flex items-center justify-center gap-3 border border-[#C8A96E]/55 bg-[#C8A96E]/[0.06] rounded-full px-5 h-[50px] ${className}`}
+      >
+        <IconCheck className="w-[16px] h-[16px] text-[#C8A96E] flex-shrink-0" />
+        <p
+          className="font-body text-white/85 text-[13px] tracking-wide"
+          style={{ fontWeight: 300 }}
+        >
+          Thanks — our newsletter is launching soon.
+        </p>
+      </div>
+    );
+  }
+
   return (
     <form
       onSubmit={(e) => {
-        // Substack URL temporarily removed 2026-05-17 — the
-        // previous `https://substack.com/@ridgeview` link was the
-        // wrong account. User will provide the correct Substack
-        // URL later; until then the form just no-ops on submit.
-        // TODO: re-wire window.open(...) once the real Substack
-        // handle is confirmed.
+        // No real backend wired up yet — see the file header
+        // comment. For now we acknowledge the click locally so
+        // the user sees feedback (the previous silent no-op was
+        // flagged as a UX bug by Gregg in the 2026-05-18 review).
         e.preventDefault();
+        setSubmitted(true);
       }}
       className={`flex items-center gap-0 border border-white/35 bg-white/[0.04] rounded-full hover:border-[#C8A96E]/55 focus-within:border-[#C8A96E]/55 transition-colors duration-300 ${className}`}
     >
