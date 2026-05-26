@@ -110,6 +110,23 @@ export function WineCollectionSection() {
     return () => clearTimeout(t);
   }, [current, paginate, isInView]);
 
+  // Reset to slide 0 whenever the user scrolls AWAY from the
+  // section. Added 2026-05-26 after CEO approval feedback
+  // (Gregg, item Home #3): when Gregg returned to the carousel
+  // section, the auto-rotation had advanced to an arbitrary
+  // wine (e.g. Oak Reserve or Rosé) instead of the intended
+  // flagship lead slide, which made the section read as
+  // unintentional / confusing. By resetting on exit, the slide
+  // change happens off-screen and the next entry into the
+  // section always shows the lead wine (Oak Reserve at the
+  // current price-descending sort) fresh from position 1/N.
+  useEffect(() => {
+    if (!isInView) {
+      setCurrent(0);
+      setDir(0);
+    }
+  }, [isInView]);
+
   const wine = wines[current];
 
   return (
