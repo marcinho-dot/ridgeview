@@ -95,7 +95,7 @@ export function BottomNav({ hideWhileVisibleSelector, showWhenVisibleSelector }:
     <AnimatePresence>
       {visible && (
         <motion.div
-          className="fixed bottom-0 left-0 w-full z-40 md:hidden bg-black/60 backdrop-blur-xl border-t border-white/[0.06] py-4 px-6 flex items-center justify-between"
+          className="fixed bottom-0 left-0 w-full z-40 lg:hidden bg-black/60 backdrop-blur-xl border-t border-white/[0.06] py-4 px-6 flex items-center justify-between"
           initial={{ y: "100%", opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: "100%", opacity: 0 }}

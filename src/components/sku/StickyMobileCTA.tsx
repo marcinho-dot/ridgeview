@@ -117,7 +117,7 @@ export function StickyMobileCTA({
     <AnimatePresence>
       {show && (
         <motion.div
-          className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-black/85 backdrop-blur-xl border-t border-white/[0.08] px-4 py-3 flex items-center gap-3"
+          className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-black/85 backdrop-blur-xl border-t border-white/[0.08] px-4 py-3 flex items-center gap-3"
           initial={{ y: "100%", opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: "100%", opacity: 0 }}

@@ -97,16 +97,24 @@ export function Navbar() {
             CEO feedback fix (2026-05-26, approval item Home #1):
             The logo was previously `md:absolute md:left-1/2
             -translate-x-1/2` (always pinned to viewport centre).
-            At narrow desktop widths (~768-1040px) the LEFT cluster
-            extended right into the absolute-positioned logo and
-            visually overlapped it. New approach: LEFT and RIGHT
-            clusters carry `md:flex-1` so they share remaining
-            space equally; logo sits naturally between them in the
-            flex flow and is always centred without colliding.
-            Also: gap reduced progressively at narrower desktops
-            (gap-3 / lg:gap-5 / xl:gap-7) so the 5 menu labels fit
-            their column without crowding. */}
-        <div className="hidden md:flex md:flex-1 items-center gap-3 lg:gap-5 xl:gap-7 min-w-0">
+            At narrow desktop widths the LEFT cluster extended right
+            into the absolute-positioned logo and visually overlapped
+            it. New approach: LEFT and RIGHT clusters carry
+            `lg:flex-1` so they share remaining space equally; logo
+            sits naturally between them in the flex flow and is
+            always centred without colliding.
+
+            Breakpoint switch (2026-05-26): desktop/mobile-nav switch
+            moved from `md:` (768px) to `lg:` (1024px). Tablets
+            (iPad-portrait and smaller laptops) now see the hamburger
+            drawer instead of trying to squeeze 5 menu items + logo +
+            right cluster into ~768px. Gives us a real buffer for
+            future menu items (Restaurant, Heritage, Press, …).
+            Layout-density components (RecognitionSection, Wine
+            collection carousel, Nearby Accommodation, Beyond
+            accordion) still split at `md:` — those are content
+            density decisions, not nav-mode decisions. */}
+        <div className="hidden lg:flex lg:flex-1 items-center gap-5 xl:gap-7 min-w-0">
           {menuItems.map(({ label, href }) => (
             <a
               key={label}
@@ -119,11 +127,11 @@ export function Navbar() {
         </div>
 
         {/* Center logo - in flex flow, naturally centred between the
-            two `md:flex-1` clusters above + below. On mobile (left
-            cluster hidden), `justify-between` on the parent pushes
-            logo to the left edge and right cluster to the right
-            edge (unchanged from previous behaviour). */}
-        <div className="md:shrink-0 md:mx-4">
+            two `lg:flex-1` clusters above + below. On mobile + tablet
+            (left cluster hidden), `justify-between` on the parent
+            pushes logo to the left edge and right cluster to the
+            right edge. */}
+        <div className="lg:shrink-0 lg:mx-4">
           <Link href="/">
             <motion.div whileHover={{ opacity: 0.75 }} transition={{ duration: 0.2 }}>
               <RidgeviewBadgeLogo scrolled={scrolled} />
@@ -137,24 +145,24 @@ export function Navbar() {
             cluster (after the hamburger on mobile, after Wine Club on
             desktop) per user direction 2026-05-16 - keeps the basket
             icon as the visual terminus of the row on every viewport. */}
-        <div className="flex items-center gap-4 md:gap-5 md:flex-1 md:justify-end">
-          <button aria-label="Search" className="hidden md:flex text-white/65 hover:text-[#C8A96E] transition-colors duration-300 p-1">
+        <div className="flex items-center gap-4 md:gap-5 lg:flex-1 lg:justify-end">
+          <button aria-label="Search" className="hidden lg:flex text-white/65 hover:text-[#C8A96E] transition-colors duration-300 p-1">
             <SearchIcon />
           </button>
-          <button aria-label="Account" className="hidden md:flex text-white/65 hover:text-[#C8A96E] transition-colors duration-300 p-1">
+          <button aria-label="Account" className="hidden lg:flex text-white/65 hover:text-[#C8A96E] transition-colors duration-300 p-1">
             <AccountIcon />
           </button>
           <a
             href={wineClubHref}
-            className="hidden md:flex relative top-[2px] link-underline font-body text-white/75 text-[11px] tracking-[0.2em] uppercase hover:text-[#C8A96E] transition-colors duration-300"
+            className="hidden lg:flex relative top-[2px] link-underline font-body text-white/75 text-[11px] tracking-[0.2em] uppercase hover:text-[#C8A96E] transition-colors duration-300"
           >
             Wine Club
           </a>
 
-          {/* Hamburger + MENU - mobile only */}
+          {/* Hamburger + MENU - mobile + tablet (< lg, < 1024px) */}
           <button
             aria-label="Toggle menu"
-            className="md:hidden flex items-center gap-2.5"
+            className="lg:hidden flex items-center gap-2.5"
             onClick={() => setMenuOpen((v) => !v)}
           >
             <span className="font-body text-white/70 text-[10px] uppercase tracking-[0.22em]">
