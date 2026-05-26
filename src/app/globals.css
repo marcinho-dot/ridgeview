@@ -94,33 +94,31 @@ html {
   scroll-padding-top: 0px;
 }
 
-/* Offset for fixed navbar when scrolling to anchor links */
-[id] {
-  scroll-margin-top: 66px;
-}
+/* Offset for fixed navbar when scrolling to anchor links.
+   ─────────────────────────────────────────────────────────────
+   Anchors land just below the fixed navbar:
+     Mobile navbar ≈ 70px → 80px offset (10px breathing room).
+     Desktop navbar ≈ 95px → 110px offset (15px breathing room).
 
-/* Anchor sections: scroll target lands just below the fixed navbar.
-   Mobile navbar ≈ 70px → 80px offset (10px breathing room).
-   Desktop navbar ≈ 95px → 110px offset (15px breathing room).
-   IMPORTANT: these IDs MUST sit on the inner header wrapper, NOT on
-   the outer <section> tag — otherwise the section's own py-* top
-   padding adds another 80–112px of empty space below the anchor
-   target and the user lands mid-content (see WineCollectionSection.tsx
-   header comment). Tuned 2026-05-12 after a "Shop" breadcrumb click
-   on a SKU page kept landing mid-carousel even with offset set. */
-#wine-collection,
-#heritage,
-#ourview,
-#journal,
-#footer {
+   Promoted to a global default 2026-05-27 (was 66px globally +
+   80/110 only on five specific IDs). The 66px default was a
+   leftover from a thinner navbar and made every newly-added
+   anchor (e.g. #nearby-accommodation on /vineyard-booking,
+   #hours on /directions, etc.) land slightly inside its own
+   section header on desktop. Promoting the 80/110 numbers to
+   the default catches every anchor — old and new — without us
+   having to remember to opt-in per-section.
+
+   IMPORTANT: the `id` should sit on the inner header wrapper,
+   NOT on the outer <section> tag — otherwise the section's own
+   py-* top padding adds another 80-112px of empty space below
+   the anchor target and the user lands mid-content (see
+   WineCollectionSection.tsx header comment). */
+[id] {
   scroll-margin-top: 80px;
 }
 @media (min-width: 768px) {
-  #wine-collection,
-  #heritage,
-  #ourview,
-  #journal,
-  #footer {
+  [id] {
     scroll-margin-top: 110px;
   }
 }
