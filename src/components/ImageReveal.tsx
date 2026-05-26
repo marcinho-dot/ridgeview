@@ -49,10 +49,16 @@ const galleryImages = [
 
 /* ── Social links ──────────────────────────────────────────────────── */
 
+// Social profile URLs verified against the live UK site
+// (ridgeview.co.uk footer, 2026-05-26). All four UK handles use
+// the `ridgeviewwineuk` suffix — the older un-suffixed handles we
+// were pointing to previously were inactive accounts, which CEO
+// feedback flagged as "Social links not active" (Gregg, item Home
+// #5, 2026-05-18). LinkedIn was even returning 404.
 const socials = [
-  { name: "Instagram", icon: IconInstagram },
-  { name: "LinkedIn", icon: IconLinkedIn },
-  { name: "Facebook", icon: IconFacebook },
+  { name: "Instagram", icon: IconInstagram, href: "https://www.instagram.com/ridgeviewwineuk/" },
+  { name: "LinkedIn", icon: IconLinkedIn, href: "https://www.linkedin.com/company/ridgeviewwineuk" },
+  { name: "Facebook", icon: IconFacebook, href: "https://www.facebook.com/Ridgeviewwineuk" },
 ];
 
 /* ── Lightbox ──────────────────────────────────────────────────────── */
@@ -331,16 +337,24 @@ export function ImageRevealSection() {
 
         {/* ── Social & Newsletter ───────────────────────────────── */}
         <div className="max-w-[520px] mx-auto px-6 pb-16 md:pb-20">
-          {/* Social Icons - no links */}
+          {/* Social Icons — clickable links to Ridgeview's social
+              profiles. Previously these were `<div>` elements with
+              cursor-pointer but no href (the visual cue suggested
+              they were links but clicking did nothing). Fixed
+              2026-05-26 per CEO approval feedback (Gregg, item
+              Home #5: "Social links not active"). */}
           <div className="flex items-center justify-center gap-5 mb-6">
             {socials.map((s) => (
-              <div
+              <a
                 key={s.name}
-                aria-label={s.name}
-                className="group/icon relative w-12 h-12 flex items-center justify-center rounded-full border border-white/15 hover:border-[#C8A96E]/40 transition-all duration-300 cursor-pointer"
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Ridgeview on ${s.name}`}
+                className="group/icon relative w-12 h-12 flex items-center justify-center rounded-full border border-white/15 hover:border-[#C8A96E]/40 transition-all duration-300"
               >
                 <s.icon className="w-[22px] h-[22px] text-white/45 group-hover/icon:text-[#C8A96E] transition-colors duration-300" />
-              </div>
+              </a>
             ))}
           </div>
 

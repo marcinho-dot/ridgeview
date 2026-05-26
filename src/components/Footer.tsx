@@ -266,15 +266,19 @@ export function Footer({ withBackground = true }: FooterProps = {}) {
             info@ridgeview.co.uk
           </a>
 
-          {/* Social icons */}
+          {/* Social icons - URLs verified live 2026-05-26 against
+              ridgeview.co.uk footer. Previous handles were old /
+              inactive accounts (LinkedIn was 404); all four UK
+              social handles use the `ridgeviewwineuk` suffix. CEO
+              approval feedback Home #5: "Social links not active". */}
           <div className="flex items-center gap-4">
-            <a href="https://www.instagram.com/ridgeviewwine/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-white/55 social-icon">
+            <a href="https://www.instagram.com/ridgeviewwineuk/" target="_blank" rel="noopener noreferrer" aria-label="Ridgeview on Instagram" className="text-white/55 social-icon">
               <InstagramIcon />
             </a>
-            <a href="https://www.facebook.com/RidgeviewWineEstate/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-white/55 social-icon">
+            <a href="https://www.facebook.com/Ridgeviewwineuk" target="_blank" rel="noopener noreferrer" aria-label="Ridgeview on Facebook" className="text-white/55 social-icon">
               <FacebookIcon />
             </a>
-            <a href="https://www.linkedin.com/company/ridgeview-wine-estate/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-white/55 social-icon">
+            <a href="https://www.linkedin.com/company/ridgeviewwineuk" target="_blank" rel="noopener noreferrer" aria-label="Ridgeview on LinkedIn" className="text-white/55 social-icon">
               <LinkedInIcon />
             </a>
           </div>
