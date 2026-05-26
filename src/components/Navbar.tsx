@@ -92,21 +92,38 @@ export function Navbar() {
             Vineyard, Beyond the Bottle, People) mirrored in the
             mobile drawer.
             All entries share the same link-underline text style -
-            no standalone gold CTA. Wine Club lives on the right. */}
-        <div className="hidden md:flex items-center gap-7">
+            no standalone gold CTA. Wine Club lives on the right.
+            ─────────────────────────────────────────────────────
+            CEO feedback fix (2026-05-26, approval item Home #1):
+            The logo was previously `md:absolute md:left-1/2
+            -translate-x-1/2` (always pinned to viewport centre).
+            At narrow desktop widths (~768-1040px) the LEFT cluster
+            extended right into the absolute-positioned logo and
+            visually overlapped it. New approach: LEFT and RIGHT
+            clusters carry `md:flex-1` so they share remaining
+            space equally; logo sits naturally between them in the
+            flex flow and is always centred without colliding.
+            Also: gap reduced progressively at narrower desktops
+            (gap-3 / lg:gap-5 / xl:gap-7) so the 5 menu labels fit
+            their column without crowding. */}
+        <div className="hidden md:flex md:flex-1 items-center gap-3 lg:gap-5 xl:gap-7 min-w-0">
           {menuItems.map(({ label, href }) => (
             <a
               key={label}
               href={href}
-              className="relative top-[2px] link-underline font-body text-white/75 text-[11px] tracking-[0.2em] uppercase hover:text-[#C8A96E] transition-colors duration-300"
+              className="relative top-[2px] link-underline font-body text-white/75 text-[11px] tracking-[0.2em] uppercase hover:text-[#C8A96E] transition-colors duration-300 whitespace-nowrap"
             >
               {label}
             </a>
           ))}
         </div>
 
-        {/* Center logo */}
-        <div className="md:absolute md:left-1/2 md:-translate-x-1/2">
+        {/* Center logo - in flex flow, naturally centred between the
+            two `md:flex-1` clusters above + below. On mobile (left
+            cluster hidden), `justify-between` on the parent pushes
+            logo to the left edge and right cluster to the right
+            edge (unchanged from previous behaviour). */}
+        <div className="md:shrink-0 md:mx-4">
           <Link href="/">
             <motion.div whileHover={{ opacity: 0.75 }} transition={{ duration: 0.2 }}>
               <RidgeviewBadgeLogo scrolled={scrolled} />
@@ -120,7 +137,7 @@ export function Navbar() {
             cluster (after the hamburger on mobile, after Wine Club on
             desktop) per user direction 2026-05-16 - keeps the basket
             icon as the visual terminus of the row on every viewport. */}
-        <div className="flex items-center gap-4 md:gap-5">
+        <div className="flex items-center gap-4 md:gap-5 md:flex-1 md:justify-end">
           <button aria-label="Search" className="hidden md:flex text-white/65 hover:text-[#C8A96E] transition-colors duration-300 p-1">
             <SearchIcon />
           </button>
