@@ -85,12 +85,12 @@ function FoundingSection() {
           <h2 className="font-display italic text-cream leading-[1.1] mb-6" style={{ fontSize: "clamp(28px, 3.4vw, 48px)", fontWeight: 400 }}>
             A Sussex estate, a long view, and <span className="text-[#C8A96E]">a leap of faith</span>
           </h2>
-          <p className="font-body text-white/65 leading-[1.85] mb-5" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300 }}>
+          <p className="font-body text-white/65 leading-[1.85] mb-5" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 400 }}>
             Ridgeview was founded in 1995 by Mike Roberts — a pioneer of English sparkling
             wine who recognised, decades before the rest of the industry caught on, that
             Sussex chalk could rival Champagne&rsquo;s greatest terroir.
           </p>
-          <p className="font-body text-white/65 leading-[1.85]" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300 }}>
+          <p className="font-body text-white/65 leading-[1.85]" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 400 }}>
             What started with the planting of traditional Champagne varieties on a single
             estate at Ditchling Common has become a benchmark in English winemaking — and
             the standard against which others are measured.
@@ -144,13 +144,13 @@ function GrapeToGlassSection() {
           <h2 className="font-display italic text-cream leading-[1.1] mb-6" style={{ fontSize: "clamp(28px, 3.4vw, 48px)", fontWeight: 400 }}>
             Tradition meets <span className="text-[#C8A96E]">contemporary expertise</span>
           </h2>
-          <p className="font-body text-white/65 leading-[1.85] mb-5" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300 }}>
+          <p className="font-body text-white/65 leading-[1.85] mb-5" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 400 }}>
             We use only the finest, perfectly balanced grapes — handpicked in bunches and
             gently pressed. From fermentation through ageing on lees, blending and bottling,
             the winemaking team combines traditional Méthode Traditionnelle technique with
             modern, data-led understanding.
           </p>
-          <p className="font-body text-white/65 leading-[1.85]" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300 }}>
+          <p className="font-body text-white/65 leading-[1.85]" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 400 }}>
             The wines that emerge are distinctive — purity, elegance, complexity. A memorable
             moment in every glass, by design and by patience.
           </p>
@@ -223,14 +223,14 @@ function GrapeGrowersSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14">
           <FadeUp delay={0.25}>
-            <p className="font-body text-white/65 leading-[1.85]" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300 }}>
+            <p className="font-body text-white/65 leading-[1.85]" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 400 }}>
               Alongside hand-picked grapes from the heritage vines on our home estate in Sussex,
               we partner with premier vineyards across Southern England to source superior
               fruit from some of the greatest growers in the country.
             </p>
           </FadeUp>
           <FadeUp delay={0.35}>
-            <p className="font-body text-white/65 leading-[1.85]" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300 }}>
+            <p className="font-body text-white/65 leading-[1.85]" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 400 }}>
               Each vineyard is dedicated to its land and the grapes it grows. Diversifying our
               sources is key to the wines we produce — every site contributes a different
               character, terroir and structural note, all of which find their way into the
@@ -341,7 +341,7 @@ function TimelineSection() {
                     />
                     <p
                       className="font-body text-white/55 group-hover:text-white/75 leading-[1.75] max-w-[640px] transition-colors duration-400"
-                      style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 300 }}
+                      style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 400 }}
                       dangerouslySetInnerHTML={{ __html: m.body }}
                     />
                   </div>

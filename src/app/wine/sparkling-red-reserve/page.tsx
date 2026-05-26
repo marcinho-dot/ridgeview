@@ -169,7 +169,7 @@ function ProductHero({
             <FadeUp delay={0.45} className="order-7">
               <p
                 className="font-body text-white/70 mb-4 md:mb-6"
-                style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, lineHeight: 1.75, maxWidth: "540px" }}
+                style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 400, lineHeight: 1.75, maxWidth: "540px" }}
               >
                 A pioneering, punchy sparkling red from our Head Winemaker&rsquo;s
                 portfolio of esoteric creations. Highly aromatic with wild
@@ -494,7 +494,7 @@ function BlendSection() {
               className="font-body text-white/60 mt-10 leading-[1.85]"
               style={{
                 fontSize: "clamp(14px, 1.35vw, 17px)",
-                fontWeight: 300,
+                fontWeight: 400,
                 textWrap: "balance",
               }}
             >

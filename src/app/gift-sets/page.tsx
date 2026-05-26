@@ -231,7 +231,7 @@ function ShopGrid() {
                   </h3>
                   <p
                     className="font-body text-white/55 leading-[1.7] mb-5"
-                    style={{ fontSize: "clamp(13px, 1.15vw, 14.5px)", fontWeight: 300 }}
+                    style={{ fontSize: "clamp(13px, 1.15vw, 14.5px)", fontWeight: 400 }}
                     dangerouslySetInnerHTML={{ __html: g.body }}
                   />
                   <span
@@ -345,7 +345,7 @@ function BespokeSection() {
                     </h3>
                     <p
                       className="font-body text-white/55 leading-[1.75]"
-                      style={{ fontSize: "clamp(13px, 1.1vw, 14px)", fontWeight: 300 }}
+                      style={{ fontSize: "clamp(13px, 1.1vw, 14px)", fontWeight: 400 }}
                       dangerouslySetInnerHTML={{ __html: f.body }}
                     />
                   </div>
@@ -360,7 +360,7 @@ function BespokeSection() {
                   </h3>
                   <p
                     className="font-body text-white/55 leading-[1.75]"
-                    style={{ fontSize: "clamp(13px, 1.1vw, 14px)", fontWeight: 300 }}
+                    style={{ fontSize: "clamp(13px, 1.1vw, 14px)", fontWeight: 400 }}
                     dangerouslySetInnerHTML={{ __html: f.body }}
                   />
                 </div>
@@ -376,7 +376,7 @@ function BespokeSection() {
             </a>
             <p
               className="font-body text-white/45 leading-relaxed mt-6 mx-auto"
-              style={{ fontSize: "12.5px", fontWeight: 300, letterSpacing: "0.04em", maxWidth: "560px" }}
+              style={{ fontSize: "12.5px", fontWeight: 400, letterSpacing: "0.04em", maxWidth: "560px" }}
             >
               Buying for a company event or larger volumes? See{" "}
               <Link href="/corporate-services/corporate-wine-gifts" className="text-[#C8A96E] hover:underline">
@@ -414,7 +414,7 @@ function PromiseSection() {
                 </h3>
                 <p
                   className="font-body text-white/55 leading-[1.75]"
-                  style={{ fontSize: "clamp(13px, 1.1vw, 14px)", fontWeight: 300 }}
+                  style={{ fontSize: "clamp(13px, 1.1vw, 14px)", fontWeight: 400 }}
                 >
                   {p.body}
                 </p>

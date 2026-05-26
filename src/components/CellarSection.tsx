@@ -74,12 +74,12 @@ export function CellarSection() {
             >
               From a pioneering vision to the world stage.
             </h3>
-            <p className="font-body text-white/60 text-[14px] leading-relaxed mb-5" style={{ fontWeight: 300 }}>
+            <p className="font-body text-white/60 text-[14px] leading-relaxed mb-5" style={{ fontWeight: 400 }}>
               It began with a belief: that the chalk soils beneath the South Downs - the same Cretaceous
               seabed that surfaces across the Channel - could produce world-class sparkling wine. In 1995,
               Ridgeview planted its first vines at a time when many said it simply couldn&apos;t be done.
             </p>
-            <p className="font-body text-white/60 text-[14px] leading-relaxed mb-8" style={{ fontWeight: 300 }}>
+            <p className="font-body text-white/60 text-[14px] leading-relaxed mb-8" style={{ fontWeight: 400 }}>
               Today, Ridgeview is one of the most decorated English sparkling wine producers in the world. Poured at
               State Banquets, served to heads of state, and awarded at the finest competitions globally.
               The family is still here. The commitment to quality unchanged.
@@ -123,7 +123,7 @@ export function CellarSection() {
                 >
                   {m.year}
                 </span>
-                <p className="font-body text-white/50 text-[13px] leading-relaxed group-hover:text-white/70 transition-colors duration-300" style={{ fontWeight: 300 }}>
+                <p className="font-body text-white/50 text-[13px] leading-relaxed group-hover:text-white/70 transition-colors duration-300" style={{ fontWeight: 400 }}>
                   {m.text}
                 </p>
               </motion.div>

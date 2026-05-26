@@ -108,7 +108,7 @@ function PageHero() {
           className="font-body text-white/65 leading-[1.75] mx-auto"
           style={{
             fontSize: "clamp(14px, 1.4vw, 17px)",
-            fontWeight: 300,
+            fontWeight: 400,
             maxWidth: "560px",
           }}
         >

@@ -85,7 +85,7 @@ export function WineClubUpsellSection() {
             <div className="reveal" style={{ transitionDelay: "0.2s" }}>
               <p
                 className="font-body text-white/70 leading-[1.85] mb-9"
-                style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, maxWidth: "440px" }}
+                style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 400, maxWidth: "440px" }}
               >
                 Membership opens a quieter door to the estate - with vineyard
                 partner-perks, first access to new releases, and seasonal cellar
@@ -123,7 +123,7 @@ export function WineClubUpsellSection() {
                   </p>
                   <p
                     className="font-body text-white/55 group-hover:text-white/75 leading-relaxed transition-colors duration-500"
-                    style={{ fontSize: "clamp(13px, 1.25vw, 15px)", fontWeight: 300 }}
+                    style={{ fontSize: "clamp(13px, 1.25vw, 15px)", fontWeight: 400 }}
                   >
                     {p.detail}
                   </p>

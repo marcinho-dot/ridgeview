@@ -132,7 +132,7 @@ function PracticesSection() {
                 <h3 className="font-display italic text-cream leading-[1.15] mb-3" style={{ fontSize: "clamp(20px, 1.85vw, 26px)", fontWeight: 400 }}>
                   {p.title}
                 </h3>
-                <p className="font-body text-white/55 leading-[1.75]" style={{ fontSize: "clamp(13px, 1.15vw, 14.5px)", fontWeight: 300 }} dangerouslySetInnerHTML={{ __html: p.body }} />
+                <p className="font-body text-white/55 leading-[1.75]" style={{ fontSize: "clamp(13px, 1.15vw, 14.5px)", fontWeight: 400 }} dangerouslySetInnerHTML={{ __html: p.body }} />
               </div>
             </FadeUp>
           ))}
@@ -174,7 +174,7 @@ function CommunitySection() {
               </h2>
             </FadeUp>
             <FadeUp delay={0.25}>
-              <p className="font-body text-white/65 leading-[1.85] mb-5" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300 }}>
+              <p className="font-body text-white/65 leading-[1.85] mb-5" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 400 }}>
                 Sussex is home — not just a postcode on the address. Thriving isn&rsquo;t about
                 market success alone; it comes from genuinely supporting and uplifting the people
                 and place around the estate. Our team embraces a culture where small contributions
@@ -183,7 +183,7 @@ function CommunitySection() {
               </p>
             </FadeUp>
             <FadeUp delay={0.35}>
-              <p className="font-body text-white/65 leading-[1.85]" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300 }}>
+              <p className="font-body text-white/65 leading-[1.85]" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 400 }}>
                 Conscious energy and waste practices run across every operation. Solar generation,
                 sensor-activated lighting, the Bio-Bubble water treatment system, sustainable
                 packaging — every operational decision is weighed against its footprint, and we
@@ -243,7 +243,7 @@ function ProgressiveEmployersSection() {
                 <h3 className="font-display italic text-cream leading-[1.15] mb-3" style={{ fontSize: "clamp(20px, 1.85vw, 26px)", fontWeight: 400 }}>
                   {p.title}
                 </h3>
-                <p className="font-body text-white/55 leading-[1.75]" style={{ fontSize: "clamp(13px, 1.15vw, 14.5px)", fontWeight: 300 }} dangerouslySetInnerHTML={{ __html: p.body }} />
+                <p className="font-body text-white/55 leading-[1.75]" style={{ fontSize: "clamp(13px, 1.15vw, 14.5px)", fontWeight: 400 }} dangerouslySetInnerHTML={{ __html: p.body }} />
               </div>
             </FadeUp>
           ))}
@@ -266,7 +266,7 @@ function StatBanner() {
           </p>
         </FadeUp>
         <FadeUp delay={0.25}>
-          <p className="font-body text-white/65 leading-[1.75] mx-auto mt-6" style={{ fontSize: "clamp(14px, 1.3vw, 16px)", fontWeight: 300, maxWidth: "580px" }}>
+          <p className="font-body text-white/65 leading-[1.75] mx-auto mt-6" style={{ fontSize: "clamp(14px, 1.3vw, 16px)", fontWeight: 400, maxWidth: "580px" }}>
             of waste water cleaned by our Bio-Bubble system across the estate (as of 2023) —
             roughly the equivalent of nine Olympic swimming pools.
           </p>

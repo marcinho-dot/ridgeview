@@ -153,7 +153,7 @@ export function BehindTheBottleSection({
                   className={`font-body text-white/70 ${compact ? "leading-relaxed" : "leading-[1.85]"}`}
                   style={{
                     fontSize: compact ? "clamp(13px, 1.3vw, 15px)" : "clamp(14px, 1.4vw, 17px)",
-                    fontWeight: 300,
+                    fontWeight: 400,
                     maxWidth: "440px",
                   }}
                 >
@@ -210,7 +210,7 @@ export function BehindTheBottleSection({
                       className="font-body text-white/55 group-hover:text-white/75 leading-relaxed transition-colors duration-500"
                       style={{
                         fontSize: compact ? "clamp(12px, 1.1vw, 14px)" : "clamp(13px, 1.25vw, 15px)",
-                        fontWeight: 300,
+                        fontWeight: 400,
                       }}
                     >
                       {p.detail}

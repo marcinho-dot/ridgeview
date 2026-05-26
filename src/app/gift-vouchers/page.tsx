@@ -129,7 +129,7 @@ function StatusBanner() {
         </p>
         <p
           className="font-body text-white/65 leading-[1.7] text-center md:text-left"
-          style={{ fontSize: "clamp(13px, 1.15vw, 14.5px)", fontWeight: 300 }}
+          style={{ fontSize: "clamp(13px, 1.15vw, 14.5px)", fontWeight: 400 }}
         >
           New voucher sales are paused while existing voucher holders redeem.
           If you already hold a voucher you can still redeem it online or onsite as usual.
@@ -244,7 +244,7 @@ function VoucherProducts() {
                   </h3>
                   <p
                     className="font-body text-white/65 leading-[1.75] mb-6"
-                    style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 300 }}
+                    style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 400 }}
                   >
                     {v.intro}
                   </p>
@@ -254,7 +254,7 @@ function VoucherProducts() {
                       <li
                         key={t}
                         className="flex items-start gap-2.5 font-body text-white/55 leading-[1.6]"
-                        style={{ fontSize: "12.5px", fontWeight: 300 }}
+                        style={{ fontSize: "12.5px", fontWeight: 400 }}
                       >
                         <span aria-hidden className="text-[#C8A96E] leading-none pt-1">·</span>
                         <span>{t}</span>
@@ -321,7 +321,7 @@ function GeneralTermsSection() {
                 </span>
                 <p
                   className="font-body text-white/65 leading-[1.85]"
-                  style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 300 }}
+                  style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 400 }}
                 >
                   {t}
                 </p>

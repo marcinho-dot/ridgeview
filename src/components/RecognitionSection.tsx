@@ -90,7 +90,7 @@ export function RecognitionSection() {
         {/* Body copy */}
         <motion.p
           className="font-body text-white/60 leading-relaxed text-center mb-10 md:mb-12 mx-auto"
-          style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, maxWidth: "720px" }}
+          style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 400, maxWidth: "720px" }}
           initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
           transition={{ duration: 0.9, delay: 0.45, ease: "easeOut" }}
@@ -145,7 +145,7 @@ export function RecognitionSection() {
                   </span>
                   <motion.p
                     className="font-body text-white/45 text-[12px] leading-relaxed mt-3"
-                    style={{ fontWeight: 300, maxWidth: "130px" }}
+                    style={{ fontWeight: 400, maxWidth: "130px" }}
                     initial={false}
                     animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 6 }}
                     transition={{ duration: 0.25 }}
@@ -192,7 +192,7 @@ export function RecognitionSection() {
                   </span>
                   <p
                     className="font-body text-white/50 text-[13px] leading-relaxed"
-                    style={{ fontWeight: 300 }}
+                    style={{ fontWeight: 400 }}
                   >
                     {m.text}
                   </p>
@@ -204,7 +204,7 @@ export function RecognitionSection() {
           {/* Ridgeview closing line */}
           <motion.p
             className="font-body text-white/30 text-center mt-10 tracking-[0.2em] uppercase"
-            style={{ fontSize: "clamp(10px, 1vw, 12px)", fontWeight: 300 }}
+            style={{ fontSize: "clamp(10px, 1vw, 12px)", fontWeight: 400 }}
             initial={{ opacity: 0 }}
             animate={timelineInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 1, delay: 0.8 }}

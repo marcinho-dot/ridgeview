@@ -265,7 +265,7 @@ function ReleasesSection() {
                   />
                   <p
                     className="font-body text-white/55 leading-[1.75] mb-6 flex-1"
-                    style={{ fontSize: "clamp(13px, 1.1vw, 14.5px)", fontWeight: 300 }}
+                    style={{ fontSize: "clamp(13px, 1.1vw, 14.5px)", fontWeight: 400 }}
                     dangerouslySetInnerHTML={{ __html: r.summary }}
                   />
 
@@ -327,7 +327,7 @@ function PressKitSection() {
           <h2 className="font-display italic text-cream leading-[1.1] mb-5" style={{ fontSize: "clamp(28px, 3.2vw, 42px)", fontWeight: 400 }}>
             Imagery &amp; assets
           </h2>
-          <p className="font-body text-white/65 leading-[1.85] mb-6" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300 }}>
+          <p className="font-body text-white/65 leading-[1.85] mb-6" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 400 }}>
             High-resolution vineyard, cellar, bottle and lifestyle imagery available on request.
             Send the context — publication, deadline and intended use — and we&rsquo;ll share the
             appropriate assets along with our usage terms.
@@ -342,16 +342,16 @@ function PressKitSection() {
           <h2 className="font-display italic text-cream leading-[1.1] mb-5" style={{ fontSize: "clamp(28px, 3.2vw, 42px)", fontWeight: 400 }}>
             Speak to the team
           </h2>
-          <p className="font-body text-white/65 leading-[1.85] mb-3" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300 }}>
+          <p className="font-body text-white/65 leading-[1.85] mb-3" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 400 }}>
             For interviews, statements, fact-checks and image requests:
           </p>
           <a href={`mailto:${PRESS_EMAIL}`} className="font-display italic text-cream hover:text-[#C8A96E] transition-colors block mb-3" style={{ fontSize: "clamp(18px, 1.7vw, 22px)", fontWeight: 400 }}>
             {PRESS_EMAIL}
           </a>
-          <a href="tel:+441444242040" className="font-body text-white/55 hover:text-white/80 transition-colors block mb-6" style={{ fontSize: "14px", fontWeight: 300 }}>
+          <a href="tel:+441444242040" className="font-body text-white/55 hover:text-white/80 transition-colors block mb-6" style={{ fontSize: "14px", fontWeight: 400 }}>
             01444 242040 — Mon–Fri, 8:00–16:30
           </a>
-          <p className="font-body text-white/45 leading-[1.75] mt-4" style={{ fontSize: "12.5px", fontWeight: 300 }}>
+          <p className="font-body text-white/45 leading-[1.75] mt-4" style={{ fontSize: "12.5px", fontWeight: 400 }}>
             Looking for company &amp; founding history? See{" "}
             <Link href="/sustainability" className="text-[#C8A96E] hover:underline">Sustainability &amp; Ethics</Link>{" "}
             and{" "}

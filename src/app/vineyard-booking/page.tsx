@@ -159,7 +159,7 @@ function PageHeader() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
           className="font-body text-white/60 max-w-[640px]"
-          style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300, lineHeight: 1.7, textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
+          style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 400, lineHeight: 1.7, textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
         >
           Visit the estate that established English sparkling in the méthode traditionnelle. Planted 1995. An hour from London, twenty minutes from Brighton.
         </motion.p>
@@ -436,7 +436,7 @@ function HeritageRevealStack() {
             className="font-body text-white leading-snug mx-auto"
             style={{
               fontSize: "clamp(18px, 1.8vw, 26px)",
-              fontWeight: 300,
+              fontWeight: 400,
               maxWidth: "680px",
               textShadow:
                 "0 2px 8px rgba(0,0,0,0.95), 0 4px 24px rgba(0,0,0,0.85), 0 0 60px rgba(0,0,0,0.55)",
@@ -497,7 +497,7 @@ function HeritageRevealStack() {
             className="font-body text-white/70 leading-relaxed mx-auto mt-12 md:mt-16"
             style={{
               fontSize: "clamp(14px, 1.4vw, 17px)",
-              fontWeight: 300,
+              fontWeight: 400,
               // 700px (was 560px) gives the paragraph room to settle into
               // 3 lines on desktop instead of breaking onto 4 with a
               // word orphan on the last line. text-wrap:balance lets the
@@ -548,7 +548,7 @@ function HeritageDiscoverySection() {
                 className="font-body text-white/75 leading-relaxed mb-10"
                 style={{
                   fontSize: "clamp(14px, 1.35vw, 16px)",
-                  fontWeight: 300,
+                  fontWeight: 400,
                   // 460px (was 520px) is narrow enough to force a
                   // 2-line break for the 73-char intro on desktop,
                   // and text-wrap:balance distributes the words
@@ -611,7 +611,7 @@ function HeritageDiscoverySection() {
                 className="font-body text-white/70 leading-relaxed mb-10"
                 style={{
                   fontSize: "clamp(13px, 1.3vw, 15px)",
-                  fontWeight: 300,
+                  fontWeight: 400,
                   maxWidth: "520px",
                   textShadow: "0 2px 14px rgba(0,0,0,0.85)",
                 }}
@@ -828,7 +828,7 @@ function VisitPanels() {
               </h3>
               <p
                 className="font-body text-white/65 leading-relaxed mb-5"
-                style={{ fontSize: "clamp(13px, 1.3vw, 16px)", fontWeight: 300, maxWidth: "380px" }}
+                style={{ fontSize: "clamp(13px, 1.3vw, 16px)", fontWeight: 400, maxWidth: "380px" }}
               >
                 Walk the estate with our team, from vine to cellar. Understand what
                 English chalk does to a sparkling wine. Taste directly from the cellar.
@@ -889,7 +889,7 @@ function VisitPanels() {
               </p>
               <p
                 className="font-body text-white/65 leading-relaxed mb-5"
-                style={{ fontSize: "clamp(13px, 1.3vw, 16px)", fontWeight: 300, maxWidth: "380px" }}
+                style={{ fontSize: "clamp(13px, 1.3vw, 16px)", fontWeight: 400, maxWidth: "380px" }}
               >
                 A seasonal menu designed around the wines of the estate. Reserve a
                 table with views across the Sussex vineyard.
@@ -959,7 +959,7 @@ function TourBookingSection() {
             className="font-body text-white/65 leading-[1.85] mx-auto mb-9"
             style={{
               fontSize: "clamp(14px, 1.3vw, 16px)",
-              fontWeight: 300,
+              fontWeight: 400,
               maxWidth: "560px",
             }}
           >
@@ -1042,7 +1042,7 @@ function TourBookingSection() {
             className="font-body text-white/40 leading-relaxed mx-auto mt-8"
             style={{
               fontSize: "12.5px",
-              fontWeight: 300,
+              fontWeight: 400,
               letterSpacing: "0.02em",
               maxWidth: "560px",
             }}
@@ -1440,7 +1440,7 @@ function PracticalInfo() {
                         className="font-body text-white/55"
                         style={{
                           fontSize: "clamp(12px, 1.1vw, 14px)",
-                          fontWeight: 300,
+                          fontWeight: 400,
                         }}
                       >
                         {v.days}
@@ -1449,7 +1449,7 @@ function PracticalInfo() {
                         className="font-body text-white/65"
                         style={{
                           fontSize: "clamp(12px, 1.1vw, 14px)",
-                          fontWeight: 300,
+                          fontWeight: 400,
                         }}
                       >
                         {v.time}
@@ -1460,7 +1460,7 @@ function PracticalInfo() {
                         className="font-body text-[#C8A96E]/70 mt-1"
                         style={{
                           fontSize: "clamp(10.5px, 0.95vw, 11.5px)",
-                          fontWeight: 300,
+                          fontWeight: 400,
                           letterSpacing: "0.04em",
                         }}
                       >
@@ -1481,14 +1481,14 @@ function PracticalInfo() {
               >
                 GETTING HERE
               </h3>
-              <address className="font-body text-white/65 not-italic leading-relaxed mb-6" style={{ fontSize: "clamp(13px, 1.2vw, 15px)", fontWeight: 300 }}>
+              <address className="font-body text-white/65 not-italic leading-relaxed mb-6" style={{ fontSize: "clamp(13px, 1.2vw, 15px)", fontWeight: 400 }}>
                 Ridgeview Wine Estate<br />
                 Fragbarrow Lane<br />
                 Ditchling Common<br />
                 East Sussex<br />
                 BN6 8TP
               </address>
-              <p className="font-body text-white/45 leading-relaxed" style={{ fontSize: "clamp(12px, 1.1vw, 14px)", fontWeight: 300 }}>
+              <p className="font-body text-white/45 leading-relaxed" style={{ fontSize: "clamp(12px, 1.1vw, 14px)", fontWeight: 400 }}>
                 Located at the foot of the South Downs, 10 minutes north of Brighton. Free parking available on site.
               </p>
             </div>

@@ -199,7 +199,7 @@ function EventGrid() {
                   </h3>
                   <p
                     className="font-body text-white/55 leading-[1.7]"
-                    style={{ fontSize: "clamp(13px, 1.15vw, 14.5px)", fontWeight: 300 }}
+                    style={{ fontSize: "clamp(13px, 1.15vw, 14.5px)", fontWeight: 400 }}
                   >
                     {item.body}
                   </p>
@@ -259,7 +259,7 @@ function EscapeBanner() {
               className="font-body text-white/70 leading-[1.85] mx-auto mt-6"
               style={{
                 fontSize: "clamp(14px, 1.3vw, 16px)",
-                fontWeight: 300,
+                fontWeight: 400,
                 maxWidth: "620px",
                 textShadow: "0 1px 8px rgba(0,0,0,0.8)",
               }}
@@ -463,7 +463,7 @@ function PlanEventCTA() {
         <FadeUp delay={0.45}>
           <p
             className="font-body text-white/45 leading-relaxed mt-10 mx-auto"
-            style={{ fontSize: "12.5px", fontWeight: 300, letterSpacing: "0.04em", maxWidth: "520px" }}
+            style={{ fontSize: "12.5px", fontWeight: 400, letterSpacing: "0.04em", maxWidth: "520px" }}
           >
             Looking for branded gifts or wine for activations instead? See{" "}
             <Link href="/corporate-services/corporate-wine-gifts" className="text-[#C8A96E] hover:underline">

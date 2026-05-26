@@ -70,7 +70,7 @@ function PageHero() {
           className="font-body text-white/65 leading-[1.75] mx-auto"
           style={{
             fontSize: "clamp(14px, 1.4vw, 17px)",
-            fontWeight: 300,
+            fontWeight: 400,
             maxWidth: "580px",
           }}
         >
@@ -191,7 +191,7 @@ function CasesGrid() {
                       className="font-body text-white/40 line-through tabular-nums"
                       style={{
                         fontSize: "clamp(12px, 1.1vw, 14px)",
-                        fontWeight: 300,
+                        fontWeight: 400,
                       }}
                     >
                       {formatGBP(entry.originalPrice)}
@@ -203,7 +203,7 @@ function CasesGrid() {
                     className="font-body text-white/45 mb-5"
                     style={{
                       fontSize: "11.5px",
-                      fontWeight: 300,
+                      fontWeight: 400,
                       letterSpacing: "0.06em",
                     }}
                   >

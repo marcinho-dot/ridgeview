@@ -131,6 +131,20 @@ body {
   font-family: 'Raleway', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Legibility hints — added 2026-05-26 in response to CEO
+     approval feedback (Gregg, item Home #7): "fine font used on
+     the product descriptor text… looks blocky and much less
+     legible" on a lower-resolution monitor. The body text weight
+     was bumped from Raleway 300 (Light) to 400 (Regular) site-wide
+     in the same commit (191 inline fontWeight references). These
+     CSS hints sit on top of that:
+     - text-rendering: optimizeLegibility -> browser favours
+       kerning + ligature quality over render speed
+     - font-feature-settings -> explicit kerning + standard
+       ligatures + contextual alternates (helps sans-serifs that
+       have stylistic OpenType features). */
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
   /* Same `clip` vs `hidden` reasoning as on <html>: keep sticky
      positioning functional for the sticky-card-stack on /vineyard-
      booking/ and any future sticky use. */

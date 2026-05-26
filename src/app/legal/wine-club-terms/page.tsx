@@ -90,7 +90,7 @@ function OperatorSection() {
               >
                 Legal Entity
               </p>
-              <p className="font-body text-white/75 leading-[1.85]" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300 }}>
+              <p className="font-body text-white/75 leading-[1.85]" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 400 }}>
                 QBRidge Limited<br />
                 trading as Ridgeview Wine Estate<br />
                 Company registration: <span className="text-cream">16702308</span><br />
@@ -104,7 +104,7 @@ function OperatorSection() {
               >
                 Registered Office
               </p>
-              <p className="font-body text-white/75 leading-[1.85]" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300 }}>
+              <p className="font-body text-white/75 leading-[1.85]" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 400 }}>
                 Ridgeview Wine Estate<br />
                 Fragbarrow Lane<br />
                 Ditchling Common<br />
@@ -116,7 +116,7 @@ function OperatorSection() {
         </FadeUp>
         <FadeUp delay={0.35}>
           <div className="mt-8 pt-6 border-t border-white/[0.08]">
-            <p className="font-body text-white/65 leading-[1.85]" style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 300 }}>
+            <p className="font-body text-white/65 leading-[1.85]" style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 400 }}>
               Contact the membership team:{" "}
               <a href={`mailto:${MEMBERSHIP_EMAIL}`} className="text-[#C8A96E] hover:underline">
                 {MEMBERSHIP_EMAIL}
@@ -194,7 +194,7 @@ function OverviewSection() {
             </h2>
           </FadeUp>
           <FadeUp delay={0.25}>
-            <p className="font-body text-white/55 leading-[1.75] mx-auto mt-5" style={{ fontSize: "clamp(13px, 1.15vw, 14.5px)", fontWeight: 300, maxWidth: "580px" }}>
+            <p className="font-body text-white/55 leading-[1.75] mx-auto mt-5" style={{ fontSize: "clamp(13px, 1.15vw, 14.5px)", fontWeight: 400, maxWidth: "580px" }}>
               This is a plain-English summary of what each section of the binding terms covers.
               It is not the full legal document — for the binding version or any specific clause,
               email the membership team.
@@ -213,7 +213,7 @@ function OverviewSection() {
                 />
                 <p
                   className="font-body text-white/65 leading-[1.85]"
-                  style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 300 }}
+                  style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 400 }}
                   dangerouslySetInnerHTML={{ __html: item.body }}
                 />
               </div>

@@ -210,7 +210,7 @@ function WelcomeSection() {
                 className="font-body text-white/65 leading-[1.85] mb-5"
                 style={{
                   fontSize: "clamp(15px, 1.4vw, 18px)",
-                  fontWeight: 300,
+                  fontWeight: 400,
                   maxWidth: "560px",
                 }}
               >
@@ -223,7 +223,7 @@ function WelcomeSection() {
                 className="font-body text-white/55 leading-[1.85]"
                 style={{
                   fontSize: "clamp(14px, 1.3vw, 16px)",
-                  fontWeight: 300,
+                  fontWeight: 400,
                   maxWidth: "560px",
                 }}
               >
@@ -377,7 +377,7 @@ function MenusSection({ onOpen }: { onOpen: (m: MenuPdf) => void }) {
               className="font-body text-white/55 leading-relaxed mx-auto"
               style={{
                 fontSize: "clamp(14px, 1.3vw, 16px)",
-                fontWeight: 300,
+                fontWeight: 400,
                 maxWidth: "560px",
               }}
             >
@@ -432,7 +432,7 @@ function MenusSection({ onOpen }: { onOpen: (m: MenuPdf) => void }) {
                       </p>
                       <p
                         className="font-body text-white/45 group-hover:text-white/65 transition-colors duration-400"
-                        style={{ fontSize: "13px", fontWeight: 300 }}
+                        style={{ fontSize: "13px", fontWeight: 400 }}
                       >
                         {info.detail}
                       </p>
@@ -544,7 +544,7 @@ function VisitInfoSection() {
                   <li
                     key={j}
                     className="font-body text-white/65 leading-relaxed"
-                    style={{ fontSize: "14px", fontWeight: 300 }}
+                    style={{ fontSize: "14px", fontWeight: 400 }}
                   >
                     {line}
                   </li>
@@ -646,7 +646,7 @@ function FaqItem({ q, a, idx }: { q: string; a: string; idx: number }) {
         >
           <p
             className="font-body text-white/65 leading-[1.85] pb-6 md:pb-7 pr-10"
-            style={{ fontSize: "clamp(14px, 1.3vw, 16px)", fontWeight: 300 }}
+            style={{ fontSize: "clamp(14px, 1.3vw, 16px)", fontWeight: 400 }}
           >
             {a}
           </p>
@@ -739,7 +739,7 @@ function ReserveSection() {
               className="font-body text-white/65 leading-[1.85] mx-auto"
               style={{
                 fontSize: "clamp(13px, 1.3vw, 16px)",
-                fontWeight: 300,
+                fontWeight: 400,
                 maxWidth: "580px",
               }}
             >
@@ -788,7 +788,7 @@ function ReserveSection() {
             className="font-body text-white/45 leading-relaxed mx-auto"
             style={{
               fontSize: "12.5px",
-              fontWeight: 300,
+              fontWeight: 400,
               letterSpacing: "0.02em",
               maxWidth: "640px",
             }}
@@ -846,7 +846,7 @@ function ContextLinksSection() {
                 </p>
                 <p
                   className="font-body text-white/55 group-hover:text-white/75 transition-colors duration-400 mb-5"
-                  style={{ fontSize: "13.5px", fontWeight: 300 }}
+                  style={{ fontSize: "13.5px", fontWeight: 400 }}
                 >
                   {l.blurb}
                 </p>

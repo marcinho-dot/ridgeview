@@ -333,7 +333,7 @@ export function CategoryCardRow() {
                       className="font-body text-white/55 group-hover:text-white/75 leading-relaxed transition-colors duration-400"
                       style={{
                         fontSize: "clamp(13px, 1.1vw, 14px)",
-                        fontWeight: 300,
+                        fontWeight: 400,
                       }}
                     >
                       {cat.blurb}

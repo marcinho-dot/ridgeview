@@ -127,7 +127,7 @@ function ParallaxRow({
                   i === 0
                     ? "clamp(15px, 1.5vw, 18px)"
                     : "clamp(14px, 1.3vw, 16px)",
-                fontWeight: 300,
+                fontWeight: 400,
                 maxWidth: "480px",
               }}
             >

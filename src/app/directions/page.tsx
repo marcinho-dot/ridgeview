@@ -67,7 +67,7 @@ function DirectionsHero() {
           className="font-body text-white/65 leading-[1.75] mx-auto"
           style={{
             fontSize: "clamp(14px, 1.4vw, 17px)",
-            fontWeight: 300,
+            fontWeight: 400,
             maxWidth: "560px",
           }}
         >
@@ -100,7 +100,7 @@ function AddressSection() {
             </p>
             <p
               className="font-body text-white/65 leading-[1.55] mt-1"
-              style={{ fontSize: "clamp(13px, 1.2vw, 15px)", fontWeight: 300 }}
+              style={{ fontSize: "clamp(13px, 1.2vw, 15px)", fontWeight: 400 }}
             >
               Fragbarrow Lane, Ditchling Common, East Sussex, BN6 8TP
             </p>
@@ -321,13 +321,13 @@ function TransportSection() {
               </p>
               <p
                 className="font-body text-white/65 leading-[1.7] mb-3"
-                style={{ fontSize: "13.5px", fontWeight: 300 }}
+                style={{ fontSize: "13.5px", fontWeight: 400 }}
               >
                 {m.body}
               </p>
               <p
                 className="font-body text-white/40"
-                style={{ fontSize: "11.5px", fontWeight: 300, letterSpacing: "0.04em" }}
+                style={{ fontSize: "11.5px", fontWeight: 400, letterSpacing: "0.04em" }}
               >
                 {m.detail}
               </p>
@@ -373,7 +373,7 @@ function WalkingRouteSection() {
             <div className="reveal" style={{ transitionDelay: "0.25s" }}>
               <p
                 className="font-body text-white/55 leading-[1.85] mb-2"
-                style={{ fontSize: "clamp(13.5px, 1.25vw, 15px)", fontWeight: 300 }}
+                style={{ fontSize: "clamp(13.5px, 1.25vw, 15px)", fontWeight: 400 }}
               >
                 Allow about 30 minutes from Burgess Hill station. The
                 footpath can get muddy — wear appropriate footwear,
@@ -400,7 +400,7 @@ function WalkingRouteSection() {
                 </span>
                 <p
                   className="font-body text-white/75 leading-[1.7] pt-1.5"
-                  style={{ fontSize: "clamp(14px, 1.3vw, 16px)", fontWeight: 300 }}
+                  style={{ fontSize: "clamp(14px, 1.3vw, 16px)", fontWeight: 400 }}
                 >
                   {s}
                 </p>
@@ -439,7 +439,7 @@ function AccessibilitySection() {
             className="font-body text-white/65 leading-[1.85] mx-auto mb-6"
             style={{
               fontSize: "clamp(14.5px, 1.35vw, 17px)",
-              fontWeight: 300,
+              fontWeight: 400,
               maxWidth: "640px",
             }}
           >
@@ -454,7 +454,7 @@ function AccessibilitySection() {
             className="font-body text-white/55 leading-[1.85] mx-auto"
             style={{
               fontSize: "clamp(13px, 1.2vw, 15px)",
-              fontWeight: 300,
+              fontWeight: 400,
               maxWidth: "640px",
             }}
           >
@@ -533,13 +533,13 @@ function OpeningHoursSection() {
                 <div className="flex justify-between items-baseline gap-3">
                   <span
                     className="font-body text-white/55"
-                    style={{ fontSize: "13.5px", fontWeight: 300 }}
+                    style={{ fontSize: "13.5px", fontWeight: 400 }}
                   >
                     {v.days}
                   </span>
                   <span
                     className="font-body text-white/65"
-                    style={{ fontSize: "13.5px", fontWeight: 300 }}
+                    style={{ fontSize: "13.5px", fontWeight: 400 }}
                   >
                     {v.time}
                   </span>
@@ -547,7 +547,7 @@ function OpeningHoursSection() {
                 {v.note && (
                   <p
                     className="font-body text-[#C8A96E]/70 mt-1"
-                    style={{ fontSize: "11px", fontWeight: 300, letterSpacing: "0.04em" }}
+                    style={{ fontSize: "11px", fontWeight: 400, letterSpacing: "0.04em" }}
                   >
                     {v.note}
                   </p>
@@ -588,7 +588,7 @@ function StaycationSection() {
             className="font-body text-white/65 leading-[1.85] mx-auto mb-8"
             style={{
               fontSize: "clamp(14px, 1.3vw, 16px)",
-              fontWeight: 300,
+              fontWeight: 400,
               maxWidth: "620px",
             }}
           >
@@ -665,7 +665,7 @@ function ReturnRailSection() {
                 </p>
                 <p
                   className="font-body text-white/55 group-hover:text-white/75 transition-colors duration-400 mb-5"
-                  style={{ fontSize: "13.5px", fontWeight: 300 }}
+                  style={{ fontSize: "13.5px", fontWeight: 400 }}
                 >
                   {l.blurb}
                 </p>

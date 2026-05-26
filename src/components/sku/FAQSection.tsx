@@ -119,7 +119,7 @@ export function FAQSection({ kicker = "[ Good to know ]", headline = "Questions,
                         />
                         <p
                           className="font-body text-white/65 leading-[1.85]"
-                          style={{ fontSize: "clamp(13px, 1.25vw, 15px)", fontWeight: 300 }}
+                          style={{ fontSize: "clamp(13px, 1.25vw, 15px)", fontWeight: 400 }}
                         >
                           {item.answer}
                         </p>

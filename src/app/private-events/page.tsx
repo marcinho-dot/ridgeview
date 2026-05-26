@@ -124,11 +124,11 @@ function SpacesSection() {
                 <h3 className="font-display italic text-cream leading-[1.15] mb-4" style={{ fontSize: "clamp(22px, 2vw, 28px)", fontWeight: 400 }}>
                   The Rows &amp; Vine · up to 150 guests
                 </h3>
-                <p className="font-body text-white/65 leading-[1.75] mb-5" style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 300 }}>
+                <p className="font-body text-white/65 leading-[1.75] mb-5" style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 400 }}>
                   Alfresco beside the Chardonnay vines, seasonal produce, Ridgeview sparkling on
                   the table. Three flexible tiers across spring and summer:
                 </p>
-                <ul className="space-y-2 font-body text-white/65 leading-[1.65]" style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 300 }}>
+                <ul className="space-y-2 font-body text-white/65 leading-[1.65]" style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 400 }}>
                   <li className="flex gap-3">
                     <span className="text-[#C8A96E] flex-shrink-0">·</span>
                     <span><span className="text-cream/80">Group bookings</span> — for parties of 8 or more.</span>
@@ -164,7 +164,7 @@ function SpacesSection() {
                 <h3 className="font-display italic text-cream leading-[1.15] mb-4" style={{ fontSize: "clamp(22px, 2vw, 28px)", fontWeight: 400 }}>
                   Winery indoor spaces
                 </h3>
-                <p className="font-body text-white/65 leading-[1.75]" style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 300 }}>
+                <p className="font-body text-white/65 leading-[1.75]" style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 400 }}>
                   In the cooler months we host indoor events in the winery&rsquo;s event spaces —
                   drinks receptions, networking and intimate gatherings. Capacity, layout and
                   catering tailored per event.
@@ -190,11 +190,11 @@ function PrivateTourSection() {
           <h2 className="font-display italic text-cream leading-[1.1] mb-6" style={{ fontSize: "clamp(28px, 3.4vw, 44px)", fontWeight: 400 }}>
             Tailored to <span className="text-[#C8A96E]">your group</span>
           </h2>
-          <p className="font-body text-white/65 leading-[1.85] mb-5" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300 }}>
+          <p className="font-body text-white/65 leading-[1.85] mb-5" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 400 }}>
             Exclusive year-round private tour and tasting experiences, built around your group.
             No minimum number — book for two or for a hundred.
           </p>
-          <p className="font-body text-white/65 leading-[1.85] mb-7" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300 }}>
+          <p className="font-body text-white/65 leading-[1.85] mb-7" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 400 }}>
             Led by an experienced guide, your party journeys through the estate to discover the
             world behind our English sparkling wines, followed by a tutored tasting overlooking
             the vines. Add Sussex cheese pairing, limited-edition tasting or dining at the
@@ -284,7 +284,7 @@ function FaqSection() {
                 </summary>
                 <p
                   className="font-body text-white/65 leading-[1.85] mt-3 max-w-[720px]"
-                  style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 300 }}
+                  style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 400 }}
                   dangerouslySetInnerHTML={{ __html: f.a }}
                 />
               </details>
@@ -292,7 +292,7 @@ function FaqSection() {
           ))}
         </div>
         <FadeUp delay={0.6}>
-          <p className="font-body text-white/45 leading-relaxed mt-10 text-center mx-auto" style={{ fontSize: "12.5px", fontWeight: 300, letterSpacing: "0.04em", maxWidth: "560px" }}>
+          <p className="font-body text-white/45 leading-relaxed mt-10 text-center mx-auto" style={{ fontSize: "12.5px", fontWeight: 400, letterSpacing: "0.04em", maxWidth: "560px" }}>
             Looking for corporate packages instead? See{" "}
             <Link href="/corporate-services/corporate-hospitality-events" className="text-[#C8A96E] hover:underline">
               Corporate Hospitality &amp; Events

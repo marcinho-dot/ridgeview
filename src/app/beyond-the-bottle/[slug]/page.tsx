@@ -46,7 +46,7 @@ function NotFound() {
           </h1>
           <p
             className="font-body text-white/65 leading-[1.7] mb-9"
-            style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300 }}
+            style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 400 }}
           >
             The article you were looking for has moved or never existed under
             this slug. Browse all our stories below.
@@ -274,7 +274,7 @@ function ComingSoonStub({ categoryLabel }: { categoryLabel?: string }) {
       </h2>
       <p
         className="font-body text-white/55 leading-[1.8]"
-        style={{ fontSize: "clamp(14px, 1.3vw, 16px)", fontWeight: 300 }}
+        style={{ fontSize: "clamp(14px, 1.3vw, 16px)", fontWeight: 400 }}
       >
         We&rsquo;re moving our editorial archive across as the new estate site
         comes together. Check back soon - in the meantime, browse

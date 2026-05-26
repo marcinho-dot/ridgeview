@@ -139,7 +139,7 @@ function ExclusiveGrid() {
                   </h3>
                   <p
                     className="font-body text-white/65 leading-[1.75] mb-5"
-                    style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 300 }}
+                    style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 400 }}
                   >
                     {s.body}
                   </p>

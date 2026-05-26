@@ -221,7 +221,7 @@ function FaqAccordion({ items }: { items: Faq[] }) {
             <div className="overflow-hidden">
               <p
                 className="font-body text-white/65 leading-[1.85] mt-4 max-w-[760px]"
-                style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 300 }}
+                style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 400 }}
                 dangerouslySetInnerHTML={{ __html: f.a }}
               />
             </div>
@@ -299,7 +299,7 @@ function ContactCTA() {
           </div>
         </FadeUp>
         <FadeUp delay={0.45}>
-          <p className="font-body text-white/45 leading-relaxed mt-10 mx-auto" style={{ fontSize: "12.5px", fontWeight: 300, letterSpacing: "0.04em", maxWidth: "520px" }}>
+          <p className="font-body text-white/45 leading-relaxed mt-10 mx-auto" style={{ fontSize: "12.5px", fontWeight: 400, letterSpacing: "0.04em", maxWidth: "520px" }}>
             Visit-day question? See the{" "}
             <Link href="/contact" className="text-[#C8A96E] hover:underline">contact hub</Link>{" "}
             for the right inbox.

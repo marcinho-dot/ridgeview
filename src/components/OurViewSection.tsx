@@ -62,7 +62,7 @@ export function OurViewSection() {
 
           <p
             className="font-body text-white/60 text-sm leading-relaxed mb-8"
-            style={{ fontWeight: 300, maxWidth: "460px" }}
+            style={{ fontWeight: 400, maxWidth: "460px" }}
           >
             Become a member of OurView to enjoy exclusive access to our private
             cellar, limited releases, and curated selections reserved for our

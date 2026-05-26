@@ -100,7 +100,7 @@ export function HeritageSoilSection() {
               className="font-body text-white/80 leading-relaxed mb-6 sm:mb-8"
               style={{
                 fontSize: "clamp(13px, 1.2vw, 16px)",
-                fontWeight: 300,
+                fontWeight: 400,
                 maxWidth: "520px",
                 textShadow: "0 2px 10px rgba(0,0,0,0.9)",
               }}

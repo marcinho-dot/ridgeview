@@ -132,7 +132,7 @@ function RoutesGrid() {
                   <h3 className="font-display italic text-cream group-hover:text-white leading-[1.15] mb-4 transition-colors duration-400" style={{ fontSize: "clamp(24px, 2.2vw, 32px)", fontWeight: 400 }}>
                     {r.title}
                   </h3>
-                  <p className="font-body text-white/55 leading-[1.75] mb-6" style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 300 }}>
+                  <p className="font-body text-white/55 leading-[1.75] mb-6" style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 400 }}>
                     {r.body}
                   </p>
                   <span className="font-body text-[#C8A96E]/80 group-hover:text-[#C8A96E] uppercase tracking-[0.22em] transition-colors" style={{ fontSize: "11px", fontWeight: 400 }}>

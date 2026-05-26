@@ -82,7 +82,7 @@ export function SubstackForm({ className = "" }: Props) {
         <IconCheck className="w-[16px] h-[16px] text-[#C8A96E] flex-shrink-0" />
         <p
           className="font-body text-white/85 text-[13px] tracking-wide"
-          style={{ fontWeight: 300 }}
+          style={{ fontWeight: 400 }}
         >
           Thanks — our newsletter is launching soon.
         </p>
@@ -110,7 +110,7 @@ export function SubstackForm({ className = "" }: Props) {
         placeholder="Your email for our Substack newsletter"
         required
         className="flex-1 bg-transparent border-0 px-3 py-3.5 font-body text-white/95 text-[13px] tracking-wide placeholder:text-white/55 focus:outline-none"
-        style={{ fontWeight: 300 }}
+        style={{ fontWeight: 400 }}
       />
       <button
         type="submit"

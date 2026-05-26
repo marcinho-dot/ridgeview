@@ -86,7 +86,7 @@ function PageHero() {
           className="font-body text-white/65 leading-[1.75] mx-auto"
           style={{
             fontSize: "clamp(14px, 1.4vw, 17px)",
-            fontWeight: 300,
+            fontWeight: 400,
             maxWidth: "560px",
           }}
         >
@@ -491,7 +491,7 @@ function WineGrid() {
                   className="font-body text-white/55 group-hover:text-white/80 tracking-wider transition-colors duration-400 mb-5"
                   style={{
                     fontSize: "clamp(13px, 1.2vw, 15px)",
-                    fontWeight: 300,
+                    fontWeight: 400,
                   }}
                 >
                   {wine.price}
@@ -691,7 +691,7 @@ function GiftCTA() {
           className="font-body text-white/65 leading-[1.8] mx-auto mb-9"
           style={{
             fontSize: "clamp(14px, 1.4vw, 17px)",
-            fontWeight: 300,
+            fontWeight: 400,
             maxWidth: "520px",
           }}
         >

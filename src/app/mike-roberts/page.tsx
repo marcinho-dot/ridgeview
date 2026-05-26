@@ -104,7 +104,7 @@ export default function MikeRobertsPage() {
                 className="font-body uppercase text-white/70 tracking-[0.3em]"
                 style={{
                   fontSize: "11px",
-                  fontWeight: 300,
+                  fontWeight: 400,
                   textShadow: "0 1px 10px rgba(0,0,0,0.95)",
                 }}
               >
@@ -149,7 +149,7 @@ export default function MikeRobertsPage() {
               >
                 <p
                   className="font-body text-white/75 leading-[1.85] mb-6"
-                  style={{ fontSize: "clamp(15px, 1.4vw, 18px)", fontWeight: 300 }}
+                  style={{ fontSize: "clamp(15px, 1.4vw, 18px)", fontWeight: 400 }}
                 >
                   Mike planted Ridgeview&rsquo;s first vines in 1995 on the chalk
                   soils beneath the South Downs - convinced that the same
@@ -158,7 +158,7 @@ export default function MikeRobertsPage() {
                 </p>
                 <p
                   className="font-body text-white/55 leading-[1.85]"
-                  style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300 }}
+                  style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 400 }}
                 >
                   His daring dream - to produce sparkling wine in England
                   that would stand shoulder to shoulder with the world&rsquo;s
@@ -196,7 +196,7 @@ export default function MikeRobertsPage() {
                 </h2>
                 <p
                   className="font-body text-white/75 leading-[1.85] mb-6"
-                  style={{ fontSize: "clamp(15px, 1.4vw, 18px)", fontWeight: 300 }}
+                  style={{ fontSize: "clamp(15px, 1.4vw, 18px)", fontWeight: 400 }}
                 >
                   Awarded an MBE in 2011 for services to the English sparkling
                   wine industry. Mike&rsquo;s commitment went far beyond
@@ -205,7 +205,7 @@ export default function MikeRobertsPage() {
                 </p>
                 <p
                   className="font-body text-white/55 leading-[1.85]"
-                  style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300 }}
+                  style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 400 }}
                 >
                   Generous with his knowledge from the start, he shared what he
                   had learned from French winemaking colleagues with a new
@@ -268,13 +268,13 @@ export default function MikeRobertsPage() {
               </motion.p>
               <p
                 className="font-body uppercase text-white/55 tracking-[0.3em] mb-12"
-                style={{ fontSize: "11px", fontWeight: 300 }}
+                style={{ fontSize: "11px", fontWeight: 400 }}
               >
                 - Mike Roberts
               </p>
               <p
                 className="font-body text-white/70 leading-[1.85] max-w-[560px] mx-auto"
-                style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300 }}
+                style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 400 }}
               >
                 Mike&rsquo;s guiding motto - now the house motto at
                 Ridgeview. Every bottle is shaped by the same conviction: that

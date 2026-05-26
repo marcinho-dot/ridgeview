@@ -81,7 +81,7 @@ function renderContentBlock(block: SideBySideContent, key: number) {
         <p
           key={key}
           className="font-body text-white/75 leading-[1.85] mb-6"
-          style={{ fontSize: "clamp(15px, 1.2vw, 17px)", fontWeight: 300 }}
+          style={{ fontSize: "clamp(15px, 1.2vw, 17px)", fontWeight: 400 }}
         >
           {renderInlineLinks(block.text)}
         </p>
@@ -117,7 +117,7 @@ function renderContentBlock(block: SideBySideContent, key: number) {
               className={`font-body text-white/75 leading-[1.75] ${
                 block.ordered ? "" : "flex items-start gap-3"
               }`}
-              style={{ fontSize: "clamp(14px, 1.2vw, 16px)", fontWeight: 300 }}
+              style={{ fontSize: "clamp(14px, 1.2vw, 16px)", fontWeight: 400 }}
             >
               {!block.ordered && (
                 <span
@@ -184,7 +184,7 @@ function renderContentBlock(block: SideBySideContent, key: number) {
           {block.caption && (
             <figcaption
               className="font-body italic text-white/45 mt-3 text-center"
-              style={{ fontSize: "clamp(12px, 1vw, 14px)", fontWeight: 300 }}
+              style={{ fontSize: "clamp(12px, 1vw, 14px)", fontWeight: 400 }}
             >
               {block.caption}
             </figcaption>
@@ -209,7 +209,7 @@ export function ArticleBodyRenderer({ blocks }: Props) {
                 className="font-body text-white/75 leading-[1.85] mb-7"
                 style={{
                   fontSize: "clamp(15px, 1.25vw, 17px)",
-                  fontWeight: 300,
+                  fontWeight: 400,
                 }}
               >
                 {renderInlineLinks(block.text)}
@@ -263,7 +263,7 @@ export function ArticleBodyRenderer({ blocks }: Props) {
                     className="font-body italic text-white/45 mt-3 text-center"
                     style={{
                       fontSize: "clamp(12px, 1vw, 14px)",
-                      fontWeight: 300,
+                      fontWeight: 400,
                     }}
                   >
                     {block.caption}
@@ -316,7 +316,7 @@ export function ArticleBodyRenderer({ blocks }: Props) {
                     }`}
                     style={{
                       fontSize: "clamp(15px, 1.25vw, 17px)",
-                      fontWeight: 300,
+                      fontWeight: 400,
                     }}
                   >
                     {!block.ordered && (

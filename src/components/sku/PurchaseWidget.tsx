@@ -266,7 +266,7 @@ export function PurchaseWidget({
               </h3>
               <p
                 className="font-body text-white/65 leading-relaxed"
-                style={{ fontSize: "13px", fontWeight: 300, maxWidth: "440px" }}
+                style={{ fontSize: "13px", fontWeight: 400, maxWidth: "440px" }}
               >
                 We&rsquo;ll send a single message the moment {productName}{" "}
                 returns to stock. No marketing list, no newsletter — just this.
@@ -282,7 +282,7 @@ export function PurchaseWidget({
               </h3>
               <p
                 className="font-body text-white/65 leading-relaxed mb-5"
-                style={{ fontSize: "13px", fontWeight: 300, maxWidth: "440px" }}
+                style={{ fontSize: "13px", fontWeight: 400, maxWidth: "440px" }}
               >
                 Leave your email and we&rsquo;ll send a single message the
                 moment this wine is back in stock — no marketing, just this.
@@ -300,7 +300,7 @@ export function PurchaseWidget({
                   value={notifyEmail}
                   onChange={(e) => setNotifyEmail(e.target.value)}
                   className="flex-1 min-w-0 bg-transparent border-0 px-4 py-3 font-body text-cream text-[13px] tracking-wide placeholder:text-white/45 focus:outline-none"
-                  style={{ fontWeight: 300 }}
+                  style={{ fontWeight: 400 }}
                 />
                 <button
                   id={ctaId}
@@ -313,7 +313,7 @@ export function PurchaseWidget({
               </form>
               <p
                 className="font-body text-white/40 leading-relaxed mt-3"
-                style={{ fontSize: "11px", fontWeight: 300 }}
+                style={{ fontSize: "11px", fontWeight: 400 }}
               >
                 We only use your address for this single notification.
               </p>
@@ -447,7 +447,7 @@ export function PurchaseWidget({
           <span
             aria-hidden
             className="font-body text-white/40 group-hover:text-white/60 tracking-[0.1em] transition-colors"
-            style={{ fontSize: "10px", fontWeight: 300 }}
+            style={{ fontSize: "10px", fontWeight: 400 }}
           >
             · PDF
           </span>

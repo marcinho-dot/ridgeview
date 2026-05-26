@@ -68,7 +68,7 @@ export function DiscoverSection() {
           {/* Description - larger, more legible */}
           <motion.p
             className="font-body text-white/75 leading-relaxed mb-10"
-            style={{ fontSize: "clamp(14px, 1.5vw, 18px)", fontWeight: 300, maxWidth: "520px" }}
+            style={{ fontSize: "clamp(14px, 1.5vw, 18px)", fontWeight: 400, maxWidth: "520px" }}
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}

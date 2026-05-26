@@ -98,7 +98,7 @@ export function VisitSection() {
 
             <p
               className="font-body text-white/65 leading-relaxed mb-5"
-              style={{ fontSize: "clamp(13px, 1.3vw, 16px)", fontWeight: 300, maxWidth: "380px" }}
+              style={{ fontSize: "clamp(13px, 1.3vw, 16px)", fontWeight: 400, maxWidth: "380px" }}
             >
               Walk the estate with our team, from vine to cellar. Understand what
               English chalk does to a sparkling wine. Taste directly from the cellar.
@@ -165,7 +165,7 @@ export function VisitSection() {
 
             <p
               className="font-body text-white/65 leading-relaxed mb-5"
-              style={{ fontSize: "clamp(13px, 1.3vw, 16px)", fontWeight: 300, maxWidth: "380px" }}
+              style={{ fontSize: "clamp(13px, 1.3vw, 16px)", fontWeight: 400, maxWidth: "380px" }}
             >
               A seasonal menu designed around the wines of the estate. Reserve a
               table with views across the Sussex vineyard.

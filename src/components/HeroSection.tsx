@@ -171,7 +171,7 @@ export function HeroSection() {
                 className="font-body text-white/80"
                 style={{
                   fontSize: "clamp(13px, 1.3vw, 16px)",
-                  fontWeight: 300,
+                  fontWeight: 400,
                   letterSpacing: "0.1em",
                   lineHeight: 1.4,
                   textShadow: "0 1px 8px rgba(0,0,0,0.95)",

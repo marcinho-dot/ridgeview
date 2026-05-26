@@ -150,7 +150,7 @@ function BenefitsSection() {
                 <h3 className="font-display italic text-cream leading-[1.15] mb-3" style={{ fontSize: "clamp(18px, 1.55vw, 22px)", fontWeight: 400 }}>
                   {b.title}
                 </h3>
-                <p className="font-body text-white/55 leading-[1.75]" style={{ fontSize: "clamp(13px, 1.1vw, 14px)", fontWeight: 300 }} dangerouslySetInnerHTML={{ __html: b.body }} />
+                <p className="font-body text-white/55 leading-[1.75]" style={{ fontSize: "clamp(13px, 1.1vw, 14px)", fontWeight: 400 }} dangerouslySetInnerHTML={{ __html: b.body }} />
               </div>
             </FadeUp>
           ))}

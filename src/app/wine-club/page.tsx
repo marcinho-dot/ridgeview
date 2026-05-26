@@ -189,7 +189,7 @@ function PricingCard({
             </p>
             <p
               className="font-body text-white/55 mt-2"
-              style={{ fontSize: "12.5px", fontWeight: 300, maxWidth: "320px" }}
+              style={{ fontSize: "12.5px", fontWeight: 400, maxWidth: "320px" }}
             >
               {cadence}
             </p>
@@ -226,7 +226,7 @@ function PricingCard({
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.55, delay: 0.55 + i * 0.07, ease: [0.16, 1, 0.3, 1] }}
                 className="group/perk flex items-start gap-2.5 font-body text-white/70 leading-[1.5] hover:text-cream/95 transition-colors duration-300"
-                style={{ fontSize: "clamp(12.5px, 1vw, 13.5px)", fontWeight: 300 }}
+                style={{ fontSize: "clamp(12.5px, 1vw, 13.5px)", fontWeight: 400 }}
               >
                 <span
                   aria-hidden
@@ -444,7 +444,7 @@ export default function WineClubPage() {
                     </h3>
                     <p
                       className="relative font-body text-white/65 group-hover:text-white/80 leading-[1.7] transition-colors duration-500"
-                      style={{ fontSize: "14px", fontWeight: 300 }}
+                      style={{ fontSize: "14px", fontWeight: 400 }}
                     >
                       {step.body}
                     </p>
@@ -505,7 +505,7 @@ export default function WineClubPage() {
                     </span>
                     <p
                       className="font-body text-white/75 group-hover:text-cream leading-[1.6] transition-colors duration-400"
-                      style={{ fontSize: "15px", fontWeight: 300 }}
+                      style={{ fontSize: "15px", fontWeight: 400 }}
                     >
                       {perk}
                     </p>
@@ -701,7 +701,7 @@ export default function WineClubPage() {
                           >
                             <p
                               className="font-body text-white/70 leading-[1.75] pb-7 pr-12"
-                              style={{ fontSize: "15px", fontWeight: 300 }}
+                              style={{ fontSize: "15px", fontWeight: 400 }}
                             >
                               {faq.a}
                             </p>
@@ -761,7 +761,7 @@ export default function WineClubPage() {
                 className="font-body text-white/65 leading-[1.7] mb-10 mx-auto"
                 style={{
                   fontSize: "clamp(15px, 1.3vw, 17px)",
-                  fontWeight: 300,
+                  fontWeight: 400,
                   maxWidth: "520px",
                 }}
               >
@@ -786,7 +786,7 @@ export default function WineClubPage() {
                 viewport={{ once: true, amount: 0.5 }}
                 transition={{ duration: 0.6, delay: 0.45 }}
                 className="font-body text-white/35 mt-8"
-                style={{ fontSize: "12px", fontWeight: 300 }}
+                style={{ fontSize: "12px", fontWeight: 400 }}
               >
                 Questions? Call <a href="tel:+441444242040" className="hover:text-[#C8A96E]/85 transition-colors duration-300">01444 242 040</a>
               </motion.p>

@@ -234,7 +234,7 @@ export function NearbyAccommodationSection() {
           <div className="reveal" style={{ transitionDelay: "0.25s" }}>
             <p
               className="font-body text-white/60 leading-relaxed"
-              style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 300 }}
+              style={{ fontSize: "clamp(14px, 1.4vw, 17px)", fontWeight: 400 }}
             >
               Six places to rest your head within a short drive of the estate &mdash;
               from luxury spa hotels and historic seafront landmarks to
@@ -293,7 +293,7 @@ export function NearbyAccommodationSection() {
                     className="font-body text-white/65 leading-relaxed mb-4"
                     style={{
                       fontSize: "clamp(13px, 1.3vw, 15px)",
-                      fontWeight: 300,
+                      fontWeight: 400,
                       display: "-webkit-box",
                       WebkitLineClamp: 5,
                       WebkitBoxOrient: "vertical",
@@ -418,7 +418,7 @@ export function NearbyAccommodationSection() {
                   className="font-body text-white/65 leading-relaxed mb-3"
                   style={{
                     fontSize: "13px",
-                    fontWeight: 300,
+                    fontWeight: 400,
                     display: "-webkit-box",
                     WebkitLineClamp: 4,
                     WebkitBoxOrient: "vertical",

@@ -184,7 +184,7 @@ function DesktopStrip({
                     className="font-body text-white/85 leading-relaxed max-w-[480px]"
                     style={{
                       fontSize: "clamp(13px, 1.15vw, 16px)",
-                      fontWeight: 300,
+                      fontWeight: 400,
                       textShadow:
                         "0 1px 10px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,0.85)",
                     }}
@@ -332,7 +332,7 @@ function MobileAccordion({
                       className="font-body italic text-white/65 leading-relaxed mb-7"
                       style={{
                         fontSize: "13px",
-                        fontWeight: 300,
+                        fontWeight: 400,
                         textShadow: "0 1px 8px rgba(0,0,0,0.85)",
                       }}
                     >

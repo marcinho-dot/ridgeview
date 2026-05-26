@@ -144,7 +144,7 @@ function ChannelsSection() {
                 <h3 className="font-display italic text-cream leading-[1.15] mb-3" style={{ fontSize: "clamp(20px, 1.85vw, 26px)", fontWeight: 400 }}>
                   {c.title}
                 </h3>
-                <p className="font-body text-white/55 leading-[1.75] flex-1 mb-5" style={{ fontSize: "clamp(13px, 1.15vw, 14.5px)", fontWeight: 300 }} dangerouslySetInnerHTML={{ __html: c.body }} />
+                <p className="font-body text-white/55 leading-[1.75] flex-1 mb-5" style={{ fontSize: "clamp(13px, 1.15vw, 14.5px)", fontWeight: 400 }} dangerouslySetInnerHTML={{ __html: c.body }} />
                 <div className="flex flex-wrap items-center gap-3">
                   <a href={`mailto:${c.email}`} className="font-body text-[#C8A96E] hover:text-cream transition-colors duration-300" style={{ fontSize: "13px", fontWeight: 400 }}>
                     {c.email}
@@ -176,7 +176,7 @@ function AddressSection() {
           <h2 className="font-display italic text-cream leading-[1.1] mb-6" style={{ fontSize: "clamp(28px, 3.2vw, 42px)", fontWeight: 400 }}>
             Find us in Sussex
           </h2>
-          <address className="font-body text-white/65 not-italic leading-[1.85]" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300 }}>
+          <address className="font-body text-white/65 not-italic leading-[1.85]" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 400 }}>
             Ridgeview Wine Estate<br />
             Fragbarrow Lane<br />
             Ditchling Common<br />
@@ -198,11 +198,11 @@ function AddressSection() {
           <a href="tel:+441444242040" className="font-display italic text-cream/90 hover:text-[#C8A96E] transition-colors duration-300 block mb-4" style={{ fontSize: "clamp(22px, 2.5vw, 32px)", fontWeight: 400 }}>
             01444 242040
           </a>
-          <p className="font-body text-white/55 leading-[1.85]" style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 300 }}>
+          <p className="font-body text-white/55 leading-[1.85]" style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 400 }}>
             Monday to Friday<br />
             8:00 — 16:30 GMT
           </p>
-          <p className="font-body text-white/45 mt-6 leading-[1.85]" style={{ fontSize: "12.5px", fontWeight: 300 }}>
+          <p className="font-body text-white/45 mt-6 leading-[1.85]" style={{ fontSize: "12.5px", fontWeight: 400 }}>
             Restaurant and tour hours differ — see{" "}
             <Link href="/restaurant#hours" className="text-[#C8A96E] hover:underline">opening times</Link>.
           </p>

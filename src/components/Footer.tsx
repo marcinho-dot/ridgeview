@@ -85,7 +85,7 @@ export function Footer({ withBackground = true }: FooterProps = {}) {
           </h3>
           <p
             className="font-body text-white/55 mb-6 md:mb-7"
-            style={{ fontSize: "13px", fontWeight: 300, maxWidth: "480px" }}
+            style={{ fontSize: "13px", fontWeight: 400, maxWidth: "480px" }}
           >
             Subscribe to our Substack newsletter for harvest dispatches,
             cellar updates and member-only releases - direct from
@@ -119,7 +119,7 @@ export function Footer({ withBackground = true }: FooterProps = {}) {
               { label: "Contact Us", href: "/contact" },
             ].map((item) => (
               <li key={item.label}>
-                <a href={item.href} className="link-underline font-body text-white/55 text-sm hover:text-[#C8A96E]/80 transition-colors duration-300" style={{ fontWeight: 300 }}>
+                <a href={item.href} className="link-underline font-body text-white/55 text-sm hover:text-[#C8A96E]/80 transition-colors duration-300" style={{ fontWeight: 400 }}>
                   {item.label}
                 </a>
               </li>
@@ -151,7 +151,7 @@ export function Footer({ withBackground = true }: FooterProps = {}) {
               { label: "OurView Wine Club", href: `${home}wine-club/` },
             ].map((item) => (
               <li key={item.label}>
-                <a href={item.href} className="link-underline font-body text-white/55 text-sm hover:text-[#C8A96E]/80 transition-colors duration-300" style={{ fontWeight: 300 }}>
+                <a href={item.href} className="link-underline font-body text-white/55 text-sm hover:text-[#C8A96E]/80 transition-colors duration-300" style={{ fontWeight: 400 }}>
                   {item.label}
                 </a>
               </li>
@@ -175,7 +175,7 @@ export function Footer({ withBackground = true }: FooterProps = {}) {
               { label: "Opening Times", href: `${home}restaurant/#hours` },
             ].map((item) => (
               <li key={item.label}>
-                <a href={item.href} className="link-underline font-body text-white/55 text-sm hover:text-[#C8A96E]/80 transition-colors duration-300" style={{ fontWeight: 300 }}>
+                <a href={item.href} className="link-underline font-body text-white/55 text-sm hover:text-[#C8A96E]/80 transition-colors duration-300" style={{ fontWeight: 400 }}>
                   {item.label}
                 </a>
               </li>
@@ -199,7 +199,7 @@ export function Footer({ withBackground = true }: FooterProps = {}) {
               { label: "Corporate Services", href: "/corporate-services" },
             ].map((item) => (
               <li key={item.label}>
-                <a href={item.href} className="link-underline font-body text-white/55 text-sm hover:text-[#C8A96E]/80 transition-colors duration-300" style={{ fontWeight: 300 }}>
+                <a href={item.href} className="link-underline font-body text-white/55 text-sm hover:text-[#C8A96E]/80 transition-colors duration-300" style={{ fontWeight: 400 }}>
                   {item.label}
                 </a>
               </li>
@@ -222,7 +222,7 @@ export function Footer({ withBackground = true }: FooterProps = {}) {
                 <a
                   href={item.href}
                   className="link-underline font-body text-white/55 text-sm hover:text-[#C8A96E]/80 transition-colors duration-300"
-                  style={{ fontWeight: 300 }}
+                  style={{ fontWeight: 400 }}
                   {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 >
                   {item.label}
@@ -239,7 +239,7 @@ export function Footer({ withBackground = true }: FooterProps = {}) {
           </h4>
           <address
             className="font-body text-white/55 text-sm not-italic leading-relaxed mb-4"
-            style={{ fontWeight: 300 }}
+            style={{ fontWeight: 400 }}
           >
             Ridgeview Wine Estate
             <br />
@@ -254,14 +254,14 @@ export function Footer({ withBackground = true }: FooterProps = {}) {
           <a
             href="tel:01444242040"
             className="link-underline font-body text-white/55 text-sm hover:text-white/80 transition-colors block mb-1"
-            style={{ fontWeight: 300 }}
+            style={{ fontWeight: 400 }}
           >
             01444 242040
           </a>
           <a
             href="mailto:info@ridgeview.co.uk"
             className="link-underline font-body text-white/55 text-sm hover:text-white/80 transition-colors block mb-6"
-            style={{ fontWeight: 300 }}
+            style={{ fontWeight: 400 }}
           >
             info@ridgeview.co.uk
           </a>
@@ -316,7 +316,7 @@ export function Footer({ withBackground = true }: FooterProps = {}) {
                 </span>
                 <span
                   className="font-body text-white/40 group-hover:text-white/60 tracking-[0.15em] transition-colors mt-0.5"
-                  style={{ fontSize: "9px", fontWeight: 300 }}
+                  style={{ fontSize: "9px", fontWeight: 400 }}
                 >
                   Gold Recertified
                 </span>
@@ -329,7 +329,7 @@ export function Footer({ withBackground = true }: FooterProps = {}) {
       {/* Bottom bar - same 1600px constraint as the top grid */}
       <div className="border-t border-white/10">
         <div className="max-w-[1600px] mx-auto px-6 md:px-16 py-4 md:py-5 flex flex-col md:flex-row items-center gap-3 md:gap-0 md:justify-between">
-        <p className="font-body text-white/40 text-xs" style={{ fontWeight: 300 }}>
+        <p className="font-body text-white/40 text-xs" style={{ fontWeight: 400 }}>
           © Ridgeview 2026
         </p>
         <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
@@ -346,7 +346,7 @@ export function Footer({ withBackground = true }: FooterProps = {}) {
               key={href}
               href={href}
               className="link-underline font-body text-white/40 text-xs hover:text-white/60 transition-colors"
-              style={{ fontWeight: 300 }}
+              style={{ fontWeight: 400 }}
             >
               {label}
             </a>

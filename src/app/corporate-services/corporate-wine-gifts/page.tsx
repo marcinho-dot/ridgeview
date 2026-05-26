@@ -199,7 +199,7 @@ function IndustryGrid() {
                   </h3>
                   <p
                     className="font-body text-white/55 leading-[1.7]"
-                    style={{ fontSize: "clamp(13px, 1.15vw, 14.5px)", fontWeight: 300 }}
+                    style={{ fontSize: "clamp(13px, 1.15vw, 14.5px)", fontWeight: 400 }}
                   >
                     {item.body}
                   </p>
@@ -259,7 +259,7 @@ function BridgeBanner() {
               className="font-body text-white/70 leading-[1.85] mx-auto mt-6"
               style={{
                 fontSize: "clamp(14px, 1.3vw, 16px)",
-                fontWeight: 300,
+                fontWeight: 400,
                 maxWidth: "620px",
                 textShadow: "0 1px 8px rgba(0,0,0,0.8)",
               }}
@@ -340,7 +340,7 @@ function BenefitsSection() {
                 </h3>
                 <p
                   className="font-body text-white/55 leading-[1.75]"
-                  style={{ fontSize: "clamp(13px, 1.15vw, 14.5px)", fontWeight: 300 }}
+                  style={{ fontSize: "clamp(13px, 1.15vw, 14.5px)", fontWeight: 400 }}
                 >
                   {b.body}
                 </p>
@@ -439,7 +439,7 @@ function BrochureDownloadSection() {
             <h2 className="font-display italic text-cream leading-[1.1] mb-5" style={{ fontSize: "clamp(28px, 3.4vw, 44px)", fontWeight: 400 }}>
               Full catalogue, <span className="text-[#C8A96E]">in your inbox</span>
             </h2>
-            <p className="font-body text-white/65 leading-[1.85] mb-7" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 300 }}>
+            <p className="font-body text-white/65 leading-[1.85] mb-7" style={{ fontSize: "clamp(14px, 1.25vw, 16px)", fontWeight: 400 }}>
               Our full corporate brochure — every wine, every gift format, every personalisation
               option. Designed for procurement teams to share internally and use as a year-round
               reference.
@@ -471,13 +471,13 @@ function BrochureDownloadSection() {
             </div>
             <p
               className="font-body text-white/40 mt-4"
-              style={{ fontSize: "11.5px", fontWeight: 300, letterSpacing: "0.04em" }}
+              style={{ fontSize: "11.5px", fontWeight: 400, letterSpacing: "0.04em" }}
             >
               PDF · 8.5 MB · opens in new tab
             </p>
             <p
               className="font-body text-white/45 mt-6 leading-relaxed"
-              style={{ fontSize: "12.5px", fontWeight: 300, letterSpacing: "0.04em" }}
+              style={{ fontSize: "12.5px", fontWeight: 400, letterSpacing: "0.04em" }}
             >
               Seasonal offer? See our{" "}
               <a
@@ -559,7 +559,7 @@ function StartHereCTA() {
         <FadeUp delay={0.45}>
           <p
             className="font-body text-white/45 leading-relaxed mt-10 mx-auto"
-            style={{ fontSize: "12.5px", fontWeight: 300, letterSpacing: "0.04em", maxWidth: "520px" }}
+            style={{ fontSize: "12.5px", fontWeight: 400, letterSpacing: "0.04em", maxWidth: "520px" }}
           >
             Looking for hospitality at the estate instead? See{" "}
             <Link href="/corporate-services/corporate-hospitality-events" className="text-[#C8A96E] hover:underline">
@@ -634,7 +634,7 @@ function FaqSection() {
                 </summary>
                 <p
                   className="font-body text-white/65 leading-[1.85] mt-4 max-w-[760px]"
-                  style={{ fontSize: "clamp(13px, 1.2vw, 15px)", fontWeight: 300 }}
+                  style={{ fontSize: "clamp(13px, 1.2vw, 15px)", fontWeight: 400 }}
                 >
                   {f.a}
                 </p>
