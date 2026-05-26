@@ -479,6 +479,76 @@ function BlendSection() {
   );
 }
 
+// ── Engraving Detail ─────────────────────────────────────────────────────────
+//
+// Added 2026-05-26 in response to CEO approval feedback (Gregg, item
+// Engraved Bottle Gift #11): "Can we show detailed examples of engraving
+// quality". Visitors see a zoomed-in crop of the actual etched text +
+// company-logo area of a real Ridgeview Blanc de Blancs sample, so the
+// laser-etch depth and finish are visible before they commit to a
+// bespoke order. The detail image is sourced from the UK product
+// imagery and cropped tight on the engraving area.
+
+function EngravingDetailSection() {
+  return (
+    <section className="bg-[#0a0a0a] border-t border-white/[0.06]">
+      <div className="max-w-[1100px] mx-auto px-6 md:px-16 py-20 md:py-28">
+        <div className="grid grid-cols-1 md:grid-cols-[45fr_55fr] gap-10 md:gap-16 items-center">
+
+          {/* Engraving detail crop - left column on desktop */}
+          <FadeUp>
+            <div className="relative rounded-md overflow-hidden border border-white/[0.06] bg-[#050505]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`${basePath}/products/engraved-detail.png`}
+                alt="Close-up detail of a custom engraving on a Ridgeview Blanc de Blancs bottle — laser-etched message and company logo"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-auto block"
+              />
+            </div>
+          </FadeUp>
+
+          {/* Copy + framing - right column on desktop */}
+          <FadeUp delay={0.12}>
+            <p
+              className="font-display italic text-[#C8A96E] tracking-widest mb-4"
+              style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
+            >
+              [ Engraving · Up Close ]
+            </p>
+            <h2
+              className="font-display italic text-white leading-[1.05] mb-6"
+              style={{ fontSize: "clamp(28px, 3.4vw, 48px)", fontWeight: 400 }}
+            >
+              Hand-engraved. Made <span className="text-[#C8A96E]">personal.</span>
+            </h2>
+            <GoldDivider />
+            <p
+              className="font-body text-white/70 mt-6 mb-4"
+              style={{ fontSize: "clamp(14px, 1.3vw, 16px)", fontWeight: 400, lineHeight: 1.85, maxWidth: "480px" }}
+            >
+              Your message is laser-etched directly onto the bottle by a
+              specialist engraver — never a sticker, never a print. The
+              finish is precise, crisp and permanent, sitting flush against
+              the existing label.
+            </p>
+            <p
+              className="font-body text-white/55"
+              style={{ fontSize: "clamp(13px, 1.25vw, 15px)", fontWeight: 400, lineHeight: 1.85, maxWidth: "480px" }}
+            >
+              Bespoke text, a name, a date, a company logo — your engraving
+              is set with care alongside Ridgeview&rsquo;s own branding,
+              ready in up to five working days.
+            </p>
+          </FadeUp>
+
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ── Awards & Specs ──────────────────────────────────────────────────────────
 
 function AwardsSpecsSection() {
@@ -768,6 +838,18 @@ export default function EngravedBottleGiftPage() {
           underlying wine is chosen at order time (3 options), so the page
           surfaces the gifting story instead. The local component definitions
           remain in this file but are not rendered. */}
+
+      {/* Engraving Detail Section - added 2026-05-26 in response to
+          CEO approval feedback (Gregg, item Engraved Bottle Gift #11):
+          "Can we show detailed examples of engraving quality". Zooms
+          into the actual etched text + COMPANY LOGO area of the hero
+          bottle so visitors can see laser-etch depth + finish before
+          committing to a bespoke order. The crop is sourced from the
+          UK product imagery (sharper than our previous re-compressed
+          version, see commit fixing engraved-bottle-gift.png). */}
+      <ScrollReset>
+        <EngravingDetailSection />
+      </ScrollReset>
 
       {/* A) Behind the Bottle - production craft pillars shared across every
           Ridgeview SKU (Soil → Harvest → Winemaking). SKU-specific details
