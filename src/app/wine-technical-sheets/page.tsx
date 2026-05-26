@@ -26,7 +26,7 @@ const CATEGORIES: Category[] = [
     sheets: [
       { name: "Bloomsbury", vintage: "NV", pdf: "/pdfs/tech-sheets/bloomsbury-nv.pdf", slug: "/wine/bloomsbury" },
       { name: "Cavendish", vintage: "NV", pdf: "/pdfs/tech-sheets/cavendish-nv.pdf", slug: "/wine/cavendish" },
-      { name: "Fitzrovia Rosé", pdf: "/pdfs/tech-sheets/fitzrovia-rose.pdf", slug: "/wine/fitzrovia" },
+      { name: "Fitzrovia Rosé", vintage: "NV", pdf: "/pdfs/tech-sheets/fitzrovia-rose.pdf", slug: "/wine/fitzrovia" },
     ],
   },
   {
@@ -43,8 +43,8 @@ const CATEGORIES: Category[] = [
     title: "Limited Edition Bottles and Magnums",
     sheets: [
       { name: "Blanc de Blancs Magnum", vintage: "2010", pdf: "/pdfs/tech-sheets/blanc-de-blancs-2010-magnum.pdf", slug: "/wine/blanc-de-blancs" },
-      { name: "Bloomsbury Magnum", pdf: "/pdfs/tech-sheets/bloomsbury-magnum.pdf", slug: "/wine/bloomsbury" },
-      { name: "Oak Reserve", pdf: "/pdfs/tech-sheets/oak-reserve.pdf", slug: "/wine/oak-reserve" },
+      { name: "Bloomsbury Magnum", vintage: "NV", pdf: "/pdfs/tech-sheets/bloomsbury-magnum.pdf", slug: "/wine/bloomsbury" },
+      { name: "Oak Reserve", vintage: "NV", pdf: "/pdfs/tech-sheets/oak-reserve.pdf", slug: "/wine/oak-reserve" },
       { name: "Sparkling Red Reserve", pdf: "/pdfs/tech-sheets/sparkling-red-reserve.pdf", slug: "/wine/sparkling-red-reserve" },
     ],
   },
