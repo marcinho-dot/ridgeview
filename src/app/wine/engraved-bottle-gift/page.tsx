@@ -549,6 +549,79 @@ function EngravingDetailSection() {
   );
 }
 
+// ── Gifting Moments ──────────────────────────────────────────────────────────
+//
+// Added 2026-05-26: mirrors the UK product gallery's lifestyle shots
+// (pouring, clinking glasses with RV monogram, celebratory moment) so
+// visitors see the gift in context, not just on a white studio
+// backdrop. UK gallery has 4 images total; the engraved-bottle close-up
+// lives in the EngravingDetailSection above, the three lifestyle
+// images are surfaced here as a 3-column editorial grid.
+//
+// Source: ridgeview.co.uk/product/personalised-engraved-wine-bottle-gift/
+// gallery (downloaded + saved locally to public/products/).
+
+function GiftingMomentsSection() {
+  const moments = [
+    { src: "/products/engraved-pour.png",      alt: "A glass of Ridgeview sparkling being poured at a celebration",       caption: "First pour" },
+    { src: "/products/engraved-cheers.jpg",    alt: "Friends raising glasses etched with the Ridgeview monogram",         caption: "Round the table" },
+    { src: "/products/engraved-celebrate.png", alt: "A bottle of Ridgeview with two flutes set out for a special moment", caption: "Moments to remember" },
+  ];
+
+  return (
+    <section className="bg-[#010101] border-t border-white/[0.06]">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-16 py-20 md:py-28">
+
+        <div className="text-center mb-12 md:mb-16">
+          <FadeUp>
+            <p
+              className="font-display italic text-[#C8A96E] tracking-widest mb-4"
+              style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}
+            >
+              [ Gifting · Around the Bottle ]
+            </p>
+          </FadeUp>
+          <FadeUp delay={0.08}>
+            <h2
+              className="font-display italic text-white leading-[1.05]"
+              style={{ fontSize: "clamp(28px, 3.4vw, 48px)", fontWeight: 400 }}
+            >
+              The moments your <span className="text-[#C8A96E]">gift</span> makes.
+            </h2>
+          </FadeUp>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+          {moments.map((m, i) => (
+            <FadeUp key={m.src} delay={0.16 + i * 0.08}>
+              <figure className="group">
+                <div className="relative aspect-square overflow-hidden rounded-md border border-white/[0.06]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={`${basePath}${m.src}`}
+                    alt={m.alt}
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.03]"
+                  />
+                  <div className="absolute inset-0 bg-black/10 transition-colors duration-700 group-hover:bg-black/0" />
+                </div>
+                <figcaption
+                  className="font-body text-white/55 mt-4 text-center tracking-[0.18em] uppercase"
+                  style={{ fontSize: "11px", fontWeight: 400 }}
+                >
+                  {m.caption}
+                </figcaption>
+              </figure>
+            </FadeUp>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
 // ── Awards & Specs ──────────────────────────────────────────────────────────
 
 function AwardsSpecsSection() {
@@ -849,6 +922,15 @@ export default function EngravedBottleGiftPage() {
           version, see commit fixing engraved-bottle-gift.png). */}
       <ScrollReset>
         <EngravingDetailSection />
+      </ScrollReset>
+
+      {/* Gifting Moments - 3-column lifestyle grid mirroring UK gallery
+          (pouring, clinking glasses with RV-monogram, celebratory
+          moment). Sits between the engraving close-up and the broader
+          craft narrative so the visitor sees both the proof-of-quality
+          AND the gift-in-use story. */}
+      <ScrollReset>
+        <GiftingMomentsSection />
       </ScrollReset>
 
       {/* A) Behind the Bottle - production craft pillars shared across every
