@@ -118,35 +118,42 @@ function PageHeader() {
 // ─── Section: Event Grid — "Corporate Events & Experiences with Impact" ───
 type EventType = { title: string; body: string; image: string };
 
+// Body copy 1:1 aligned with the live UK source 2026-05-27
+// (ridgeview.co.uk/corporate-services/corporate-hospitality-events/).
+// Earlier draft included invented closing flourishes ("quiet luxury,
+// served at your pace", "outdoor moments that connect... to the land",
+// "everything you need to think clearly", "and conversations that
+// matter", "around the launch moment") which were removed in the
+// 2026-05-27 audit pass.
 const EVENTS: EventType[] = [
   {
     title: "Client Entertainment & Hospitality",
-    body: "Impress key clients with exclusive corporate wine tastings and vineyard dining experiences — quiet luxury, served at your pace.",
+    body: "Impress key clients with exclusive corporate wine tastings and vineyard dining experiences.",
     image: "client-entertainment.webp",
   },
   {
     title: "Company Team Building with Impact",
-    body: "Strengthen teams with inspiring tastings, vineyard tours and outdoor moments that connect people to one another and to the land.",
+    body: "Strengthen teams with inspiring corporate wine tastings, vineyard tours and opportunities to connect with nature.",
     image: "team-building.webp",
   },
   {
     title: "Board Meetings & Strategy Days",
-    body: "A focused space with vineyard views, HD smart screen, fast Wi-Fi, free parking and refreshments — everything you need to think clearly.",
+    body: "A focused space with inspiring vineyard views and all you need to succeed — HD smart screen, fast Wi-Fi, free parking &amp; refreshments.",
     image: "board-meetings.webp",
   },
   {
     title: "Business Networking & Industry Events",
-    body: "Host impactful receptions in a setting where exceptional hospitality fosters valuable connections and conversations that matter.",
+    body: "Host impactful receptions in a unique setting, where exceptional hospitality fosters valuable connections.",
     image: "networking.webp",
   },
   {
     title: "Product Launches & Brand Activations",
-    body: "Showcase your brand in a venue designed to impress — creating lasting impact and engagement around the launch moment.",
+    body: "Showcase your brand in a setting designed to impress, creating lasting impact and engagement.",
     image: "product-launches.webp",
   },
   {
     title: "Company Parties & Celebrations",
-    body: "Unforgettable celebrations that bring together your team, partners and stakeholders for a truly memorable experience.",
+    body: "Host unforgettable celebrations, bringing together your team, partners and stakeholders for a truly memorable experience.",
     image: "company-parties.webp",
   },
 ];
@@ -158,21 +165,13 @@ function EventGrid() {
         <div className="text-center mb-12 md:mb-16">
           <FadeUp delay={0.05}>
             <p className="font-display italic text-[#C8A96E] tracking-widest mb-5" style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}>
-              [ Six Ways to Gather ]
+              [ Engage · Inspire · Impress ]
             </p>
           </FadeUp>
           <FadeUp delay={0.15}>
             <h2 className="font-display italic text-cream leading-[1.08] mb-6" style={{ fontSize: "clamp(34px, 4.5vw, 64px)", fontWeight: 400 }}>
               Corporate Events &amp; Experiences with <span className="text-[#C8A96E]">Impact</span>
             </h2>
-          </FadeUp>
-          <FadeUp delay={0.25}>
-            <p
-              className="subline-section mx-auto"
-            >
-              Six event archetypes we host most often — each tailored end-to-end. From half-day
-              board meetings to thousand-guest activations, the estate flexes to fit.
-            </p>
           </FadeUp>
         </div>
 
@@ -264,9 +263,9 @@ function EscapeBanner() {
                 textShadow: "0 1px 8px rgba(0,0,0,0.8)",
               }}
             >
-              Guided tastings. Seasonal dining. Private vineyard tours. The perfect balance of
-              inspiration, connection and celebration — designed for teams who deserve more than
-              a conference-centre coffee break.
+              Escape the office and immerse your team in a unique vineyard experience. From guided
+              wine tastings to seasonal dining and private vineyard tours, our corporate days out
+              offer the perfect balance of inspiration, connection and celebration.
             </p>
           </FadeUp>
         </div>
@@ -409,9 +408,9 @@ function TailoredPackageCallout() {
           <p
             className="subline-section mx-auto"
           >
-            Create a standout event with a tailored corporate package at Ridgeview — expert-led
-            tastings, exclusive dining, seasonal activities. Combined into one programme that
-            aligns with your business needs and the outcome you&rsquo;re aiming for.
+            Create a standout event with a tailored corporate package at Ridgeview. Choose from a
+            range of experiences — expert-led tastings, exclusive dining and seasonal activities —
+            to design an event that perfectly aligns with your business needs and objectives.
           </p>
         </FadeUp>
       </div>
@@ -444,10 +443,10 @@ function PlanEventCTA() {
           <p
             className="subline-section mx-auto mb-10"
           >
-            Whether you&rsquo;re looking for a vineyard experience, a private sparkling wine
-            tasting or a professional yet relaxed meeting space — Ridgeview offers everything for
-            a successful and memorable event. Send a short brief and we&rsquo;ll come back with a
-            tailored plan.
+            Whether you&rsquo;re looking for a vineyard experience, a private English sparkling
+            wine tasting or a professional yet relaxed meeting space, Ridgeview offers everything
+            you need for a successful and memorable event. Simply enquire below to start planning
+            your corporate event today.
           </p>
         </FadeUp>
         <FadeUp delay={0.35}>
