@@ -60,21 +60,26 @@ function PageHero() {
           [ The Collection · {wines.length} sparkling {wines.length === 1 ? "wine" : "wines"} ]
         </motion.p>
 
-        {/* Headline — "Sussex chalk." always wraps to its own line on
-            every breakpoint via a `block` span (NOT a <br>). The Cockpit
-            content editor splits headlines at <br> tags into two
-            separately-editable text fields; using display:block keeps
-            the line break visual-only and the headline stays one DOM
-            text node from the editor's perspective. */}
+        {/* Headline — single line on desktop (md+), broken to two
+            lines on mobile because the full sentence doesn't fit a
+            narrow viewport at the cap font-size. The break happens
+            via `block md:inline` on the wrapper span (NOT a <br>);
+            the Cockpit content editor still sees one DOM text node
+            so headline edits stay single-field.
+
+            Font-size capped at 72px (down from 88px on 2026-05-27)
+            so the whole sentence — "Sparkling wines from Sussex
+            chalk." — fits one line within the max-w-[1200px]
+            container at desktop widths without re-wrapping. */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="font-display italic text-cream leading-[1.06] mb-6"
-          style={{ fontSize: "clamp(38px, 6vw, 88px)", fontWeight: 400 }}
+          style={{ fontSize: "clamp(38px, 5.2vw, 72px)", fontWeight: 400 }}
         >
           Sparkling wines from{" "}
-          <span className="block">
+          <span className="block md:inline">
             <span className="text-[#C8A96E]">Sussex chalk</span>.
           </span>
         </motion.h1>
