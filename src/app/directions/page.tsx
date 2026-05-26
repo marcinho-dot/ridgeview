@@ -489,9 +489,14 @@ function AccessibilitySection() {
 }
 
 // ── Section: Opening hours summary ────────────────────────────────────────
+// `id="hours"` lets the Footer "Opening Times" link + other in-site
+// CTAs (e.g. /wine-bar-shop "All venue hours →") anchor straight to
+// this table. Added 2026-05-27 when the Footer link was redirected
+// from `/restaurant/#hours` (restaurant-only) to `/directions#hours`
+// (all four venues).
 function OpeningHoursSection() {
   return (
-    <section className="relative bg-[#0a0a0a] py-16 md:py-20 border-t border-white/[0.06]">
+    <section id="hours" className="relative bg-[#0a0a0a] py-16 md:py-20 border-t border-white/[0.06] scroll-mt-24">
       <div className="max-w-[1200px] mx-auto px-6 md:px-16">
         <div className="grid grid-cols-1 md:grid-cols-[5fr_7fr] gap-10 md:gap-16 items-start">
           <div>
@@ -626,7 +631,7 @@ function ReturnRailSection() {
     {
       label: "Wine Bar & Shop",
       blurb: "A taste of Ridgeview, on the day.",
-      href: "/vineyard-booking",
+      href: "/wine-bar-shop",
     },
   ];
   return (
