@@ -73,12 +73,12 @@ const BENEFITS = [
     body: "A complimentary Tour & Tasting voucher for two arrives in your welcome case, valid 12 months — an invitation to go behind the scenes of vineyard and winery.",
   },
   {
-    title: "20% Off Future Orders",
-    body: "Members enjoy an ongoing 20% discount on all future classic-tour and classic-tasting bookings, plus member pricing on wine.",
+    title: "Member Discounts · Wine, Tours & Dining",
+    body: "20% off Ridgeview wine (online and onsite), 20% off classic tour and tasting bookings, plus 10% off your food bill at The Rows & Vine — applied automatically from the moment you join.",
   },
   {
-    title: "Two Curated Cases a Year",
-    body: "In May and November you receive a six-bottle case hand-picked by the Head Winemaker — a curated exploration of the Ridgeview portfolio, vintage classics and new releases.",
+    title: "Two Curated Cases · 12 Bottles a Year",
+    body: "Twice a year, in May and November, you receive a six-bottle case hand-picked by the Head Winemaker — twelve bottles annually across the Ridgeview portfolio, with new discoveries and vintage classics.",
   },
   {
     title: "Complimentary Next-Working-Day Delivery",
@@ -94,7 +94,7 @@ const BENEFITS = [
   },
   {
     title: "Priority Invitations to Estate Events",
-    body: "A calendar of exclusive estate events — Winemaker blending masterclasses, Riedel glass experiences, vertical archive tastings, artisanal cheese pairings and seasonal celebrations.",
+    body: "A calendar of exclusive estate events — Winemaker blending masterclasses, Riedel glass experiences, vertical archive tastings, artisanal cheese pairings and seasonal celebrations. Most events are ticketed; some are complimentary.",
   },
   {
     title: "Dedicated Concierge",
