@@ -69,8 +69,8 @@ function PageHeader() {
           style={{ textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
         >
           From vine to glass, from soil to staff. As founder members of Sustainable Wines of
-          Great Britain, we set the standard for sustainable English winemaking — and prove that
-          a force for good and a great glass aren&rsquo;t separate goals.
+          Great Britain, we work to set new standards for sustainable English winemaking — and
+          prove that a force for good and a great glass aren&rsquo;t separate goals.
         </motion.p>
       </motion.div>
     </section>
@@ -81,7 +81,7 @@ function PageHeader() {
 const PRACTICES = [
   {
     title: "Sustainable Vineyard Management",
-    body: "Cover crops for soil biodiversity, structural improvements that retain moisture, and natural pest pressure that reduces our reliance on synthetic intervention. Every choice in the rows builds long-term vine health.",
+    body: "Cover crop bio-diversity, improving soil structure, and encouraging natural predators of grape pests — practices that reduce reliance on synthetic chemicals and herbicides. Every choice in the rows builds long-term vine health.",
   },
   {
     title: "Waste Reduction and Recycling",
@@ -93,15 +93,15 @@ const PRACTICES = [
   },
   {
     title: "Water Conservation",
-    body: "Rainwater harvesting now supplies grey water for bathrooms, vineyard spraying, machinery washing and the diverse plant-life across the estate — a foundational change in how the estate runs.",
+    body: "Making great strides in rainwater harvesting for grey water — for onsite bathrooms, vineyard spraying, machinery washing and the diverse plant-life across the estate. A simple but fundamental change in how the estate manages its water.",
   },
   {
     title: "Sustainable Supply Chain",
-    body: "Working with growers and suppliers who share our standards. From bottle glass to capsule foils, every input is reviewed against its environmental footprint.",
+    body: "Working with growers and suppliers who share our standards — every input reviewed against its environmental footprint, from raw materials through to the journey to your door.",
   },
   {
     title: "Sustainable Packaging",
-    body: "Lighter glass where the wine permits, recyclable secondary packaging, and a constant audit of what we ship — because the bottle in your hand is only one part of the impact.",
+    body: "Sustainable, recyclable secondary packaging across the range and a continuous review of what we ship — because the bottle in your hand is only one part of the impact.",
   },
 ];
 
@@ -205,15 +205,15 @@ const STAFF_PRACTICES = [
   },
   {
     title: "Diversity & Equality",
-    body: "Active gender pay analysis, inclusive employment practices and Disability Confident membership. Diversity isn&rsquo;t a check-box; it&rsquo;s a hiring discipline.",
+    body: "Active gender pay analysis, inclusive employment practices and Disability Confident membership — supporting workplace equality across the team.",
   },
   {
     title: "Health & Wellbeing",
-    body: "Annual health and wellbeing check-ups under MSDC guidelines, plus a positive mental health programme that treats the wellbeing of the team as a leading indicator.",
+    body: "Annual health and wellbeing check-ups under MSDC guidelines, plus a positive mental health programme.",
   },
   {
     title: "Aligned With the Land",
-    body: "Sustainable employment practices that align with our environmental goals — because the people growing the wine are part of the ecology we protect.",
+    body: "Sustainable employment practices that align with our social and environmental goals — reflecting our commitment to the wellbeing of the team.",
   },
 ];
 
