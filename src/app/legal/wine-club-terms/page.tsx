@@ -145,31 +145,35 @@ const OVERVIEW = [
     body: "Standard legal definitions cover terms used through the document — Application Form, Business Day (Monday–Friday excluding English bank holidays), Membership Agreement, Welcome Case, Annual Case, and so on.",
   },
   {
-    title: "4 · Your benefits",
-    body: "What you receive as a member — welcome Tour & Tasting voucher, twice-yearly curated cases, member pricing, archive access, dedicated concierge support and event invitations. Full benefits listed on the OurView Benefits page.",
+    title: "4 · Eligibility",
+    body: "To become a member you must have completed an Application Form, be over the age of 18, and reside in the UK. We may request proof of age and identification at our discretion, and reserve the right to decline or revoke a membership where the eligibility criteria are not met.",
   },
   {
-    title: "5 · Fees, payment and renewal",
-    body: "Membership fees, payment schedule, when payments fall due, and how renewal is handled. For current pricing see the OurView membership page; payments are processed on a recurring annual basis unless cancelled.",
+    title: "5 · Your benefits",
+    body: "What you receive as a member — a Welcome Set (one bottle of Bloomsbury NV, two Ridgeview branded glasses and a sparkling-wine bottle stopper), a complimentary Classic Tour &amp; Tasting voucher for two, two mixed cases of wine across the Membership Term (delivered around the second week of May and November), 20% off Ridgeview wine, 20% off Ridgeview wine and 10% off food at The Rows &amp; Vine, archive access and priority event invitations. Full benefits listed on the OurView Benefits page.",
   },
   {
-    title: "6 · Cancellation and refunds",
-    body: "Your statutory rights as a UK consumer, our cancellation window, and how to cancel future renewals. Cancellations don&rsquo;t affect the benefits already delivered during the membership year.",
+    title: "6 · Fees, payment and renewal",
+    body: "Membership runs for an initial 12-month term and auto-renews for further 12-month periods unless cancelled. Payment is collected as a one-off annual payment via GoCardless, an FCA-authorised payment institution. We will not increase your fees during a Membership Term; for any change at renewal we give at least 30 days&rsquo; notice by email.",
   },
   {
-    title: "7 · Changes to these terms",
+    title: "7 · Cancellation and refunds",
+    body: "You have a 14-day cooling-off period from membership confirmation (and from the start of each renewed term) to change your mind. After that you can cancel at any time in writing — refunds are only made where the cancellation is due to a significant change of terms, a serious breach by us, or your statutory rights as a UK consumer. Benefits already delivered during the Membership Term are not affected.",
+  },
+  {
+    title: "8 · Changes to these terms",
     body: "We may update these terms occasionally. Material changes will be notified to active members by email before they take effect.",
   },
   {
-    title: "8 · Our liability",
-    body: "Standard liability provisions for a UK consumer service — we&rsquo;re not liable for indirect or consequential losses. Nothing limits our liability for matters where UK law doesn&rsquo;t allow it (death, personal injury, fraud).",
+    title: "9 · Our liability",
+    body: "We are responsible for carrying out our obligations to a reasonable standard. Our overall liability under the Membership is capped at 150% of the total amount paid by you in the 12 months preceding the incident. Nothing limits our liability where UK law does not allow it (death or personal injury caused by negligence, fraud).",
   },
   {
-    title: "9 · Data &amp; privacy",
-    body: "How we handle your member data. Full detail is in our Privacy Policy. We use your data to fulfil the membership and to communicate about it; we don&rsquo;t sell it to third parties.",
+    title: "10 · Data &amp; privacy",
+    body: "We only process your personal information in accordance with applicable data-protection laws and our Privacy Policy. Full detail on what we collect, why and how — and your data-protection rights — is set out in the Privacy Policy linked in the footer.",
   },
   {
-    title: "10 · Law &amp; jurisdiction",
+    title: "11 · Law &amp; jurisdiction",
     body: "Governed by the laws of England and Wales. Any disputes fall under the exclusive jurisdiction of the courts of England and Wales.",
   },
 ];
