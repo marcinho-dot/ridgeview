@@ -91,7 +91,18 @@ export function WineCollectionSection() {
   const [dir,     setDir]     = useState(0);
   const touchStartX = useRef(0);
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { amount: 0.15 });
+  // amount: 0.5 — the 12-second auto-rotate timer only starts once
+  // HALF of the section is actually in the viewport, i.e. the user
+  // has clearly arrived at the carousel itself, not just the kicker
+  // line peeking up from below the hero. Salvatore flagged the
+  // earlier 0.15 threshold (2026-05-27): timer was already ticking
+  // while the user was still on the hero, so by the time they
+  // reached the carousel they could be mid-rotation. The reset-on-
+  // exit effect below handles the opposite direction (set back to
+  // slide 0 the moment the section drops below the threshold), so
+  // the two rules together guarantee: every fresh entry into the
+  // section starts at position 1 with a clean 12 s window.
+  const isInView = useInView(sectionRef, { amount: 0.5 });
 
   const paginate = useCallback((d: number) => {
     setDir(d);
