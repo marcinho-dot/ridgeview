@@ -114,6 +114,7 @@ export function Footer({ withBackground = true }: FooterProps = {}) {
               </a>
             </li>
             {[
+              { label: "People", href: "/people" },
               { label: "Sustainable & Ethical Practices", href: "/sustainability" },
               { label: "Career Vacancies", href: "/careers" },
             ].map((item) => (
@@ -149,11 +150,11 @@ export function Footer({ withBackground = true }: FooterProps = {}) {
               // the pages exist and are worth discovering.
               { label: "English Sparkling Wine", href: `${home}wines` },
               { label: "Cases of Wine", href: `${home}wines/cases` },
-              { label: "Exclusive Range", href: `${home}wines/exclusive-range` },
-              { label: "Gift Sets", href: `${home}gift-sets` },
               { label: "Gift Vouchers", href: `${home}gift-vouchers` },
-              { label: "OurView Wine Club", href: `${home}wine-club/` },
+              { label: "Gift Sets", href: `${home}gift-sets` },
+              { label: "Exclusive Range", href: `${home}wines/exclusive-range` },
               { label: "Click & Collect", href: "/legal/delivery" },
+              { label: "OurView Wine Club", href: `${home}wine-club/` },
             ].map((item) => (
               <li key={item.label}>
                 <a href={item.href} className="link-underline font-body text-white/55 text-sm hover:text-[#C8A96E]/80 transition-colors duration-300" style={{ fontWeight: 400 }}>
