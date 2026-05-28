@@ -116,7 +116,6 @@ export function Footer({ withBackground = true }: FooterProps = {}) {
             {[
               { label: "Sustainable & Ethical Practices", href: "/sustainability" },
               { label: "Career Vacancies", href: "/careers" },
-              { label: "Contact Us", href: "/contact" },
             ].map((item) => (
               <li key={item.label}>
                 <a href={item.href} className="link-underline font-body text-white/55 text-sm hover:text-[#C8A96E]/80 transition-colors duration-300" style={{ fontWeight: 400 }}>
@@ -240,8 +239,10 @@ export function Footer({ withBackground = true }: FooterProps = {}) {
 
         {/* CONTACT US */}
         <div>
-          <h4 className="font-body text-cream text-xs uppercase tracking-[0.2em] mb-5" style={{ fontWeight: 500 }}>
-            CONTACT US
+          <h4 className="mb-5">
+            <a href="/contact" className="link-underline font-body text-cream text-xs uppercase tracking-[0.2em] hover:text-[#C8A96E]/80 transition-colors duration-300" style={{ fontWeight: 500 }}>
+              CONTACT US
+            </a>
           </h4>
           <address
             className="font-body text-white/55 text-sm not-italic leading-relaxed mb-4"
