@@ -100,7 +100,7 @@ export function MemberBenefitsGrid() {
             ease: [0.16, 1, 0.3, 1],
           }}
         >
-          <article className="group relative h-full overflow-hidden rounded-sm border border-white/[0.08] bg-[#0a0a0a] p-7 md:p-8 transition-all duration-500 hover:-translate-y-1.5 hover:border-[#C8A96E]/45 hover:bg-[#0d0d0d]">
+          <article className="ridge-grad-border group relative h-full overflow-hidden rounded-sm p-7 md:p-8 hover:-translate-y-1.5">
             {/* Soft gold radial that warms in from the top-left on hover */}
             <div
               aria-hidden

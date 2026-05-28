@@ -792,3 +792,40 @@ input:-webkit-autofill:active {
     filter: none;
   }
 }
+
+/* ─── Animated gold gradient border — MemberBenefitsGrid cards ──────
+   Adapted from the 21st.dev "Animated Gradient Border" pattern, re-skinned
+   to the Ridgeview gold palette. A conic-gradient lives on the border-box
+   while a solid fill holds the padding-box; on hover --ridge-angle rotates
+   so the gold "flows" around the card (the liquid-border effect), plus a
+   soft outer gold glow. Pure CSS — no external assets. Auto-disabled under
+   prefers-reduced-motion by the global rule above. */
+@property --ridge-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+.ridge-grad-border {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(#0a0a0a, #0a0a0a) padding-box,
+    conic-gradient(
+      from var(--ridge-angle),
+      rgba(200, 169, 110, 0.06),
+      rgba(200, 169, 110, 0.45),
+      rgba(249, 222, 144, 0.75),
+      rgba(200, 169, 110, 0.40),
+      rgba(200, 169, 110, 0.06),
+      rgba(200, 169, 110, 0.06)
+    ) border-box;
+  transition: transform 0.5s ease, translate 0.5s ease, box-shadow 0.6s ease;
+}
+.ridge-grad-border:hover {
+  box-shadow: 0 0 26px -8px rgba(200, 169, 110, 0.3);
+  animation: ridge-angle-spin 6s linear infinite;
+}
+@keyframes ridge-angle-spin {
+  to {
+    --ridge-angle: 360deg;
+  }
+}
