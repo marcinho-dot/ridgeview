@@ -55,7 +55,7 @@ function PageHeader() {
           alt="Corporate hospitality at Ridgeview — vineyard dining and tasting in Sussex"
           className="absolute inset-0 w-full h-full object-cover object-[center_45%]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black/75" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
       </motion.div>
 
       <motion.div

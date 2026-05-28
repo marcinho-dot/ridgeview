@@ -13,7 +13,7 @@ export function DiscoverSection() {
       {/* Full-bleed background image */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={`${basePath}/images/vineyard-bg.png`}
+        src={`${basePath}/images/terroir-vineyard.jpg`}
         alt="Ridgeview vineyard, Ditchling Common"
         className="absolute inset-0 w-full h-full object-cover"
         style={{ objectPosition: "center 55%" }}

@@ -67,7 +67,7 @@ export function VisitSection() {
           {/* Background image */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={`${basePath}/images/vineyard-bg.png`}
+            src={`${basePath}/images/terroir-vineyard.jpg`}
             alt="Ridgeview vineyard rows at Ditchling Common"
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.03]"
             style={{ objectPosition: "center 55%" }}

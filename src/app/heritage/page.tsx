@@ -34,7 +34,11 @@ function PageHeader() {
           alt="Ridgeview vineyards on the South Downs — Sussex chalk soil since 1995"
           className="absolute inset-0 w-full h-full object-cover object-[center_45%]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black/75" />
+        {/* Bottom-weighted scrim: the image stays bright across the
+            top ~60%, darkening only toward the bottom where the kicker
+            / "Our Story" / subline sit. (Was a flat from-black/55
+            via-/45 to-/75 that muted the whole vineyard.) */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
       </motion.div>
 
       <motion.div style={{ y: textY }} className="relative z-10 h-full flex flex-col justify-end max-w-[1400px] mx-auto px-6 md:px-16 pb-8 md:pb-9">
@@ -106,7 +110,7 @@ function FoundingSection() {
           <div className="relative aspect-[4/5] rounded-md overflow-hidden border border-white/[0.06]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={`${basePath}/images/vineyard-bg.png`}
+              src={`${basePath}/images/terroir-vineyard.jpg`}
               alt="Ridgeview vineyards in spring — Ditchling Common, East Sussex"
               className="absolute inset-0 w-full h-full object-cover"
               loading="lazy"
