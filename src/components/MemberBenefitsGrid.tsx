@@ -138,12 +138,6 @@ export function MemberBenefitsGrid() {
             >
               {b.body}
             </p>
-
-            {/* Gold hairline grows from the left on hover */}
-            <span
-              aria-hidden
-              className="absolute left-7 md:left-8 bottom-0 h-px w-0 bg-[#C8A96E]/60 group-hover:w-12 transition-[width] duration-700 ease-out"
-            />
           </article>
         </motion.div>
       ))}
