@@ -82,14 +82,20 @@ const EXCLUSIVES: ExclusiveSku[] = [
     name: "Sparkling Red Reserve",
     body: "A love-letter to England's finest Pinot grapes — highly aromatic with vanilla, cherry and forest fruits, finished by a twist of pomegranate and sweet, peppery spice.",
     href: "/wine/sparkling-red-reserve",
-    image: "/images/gift-sets/sparkling-red-gift.webp",
+    // Was /images/gift-sets/sparkling-red-gift.webp — that file actually
+    // contains a Blanc de Blancs 2010 bottle (misnamed), so the card
+    // showed the wrong wine with jagged composite edges. Now uses the
+    // correct transparent Sparkling Red Reserve product shot.
+    image: "/products/sparkling-red-reserve.png",
   },
   {
     kicker: "[ Magnum · 2010 ]",
     name: "Blanc de Blancs Magnum",
     body: "Made exclusively from the estate's finest Chardonnay grapes. Aged on lees for over twelve years — rich layers of lemon blossom, honeyed orchard fruit, spiced baked apple and biscotti.",
     href: "/wine/blanc-de-blancs",
-    image: "/images/press/king-charles-banquet.webp",
+    // Was /images/press/king-charles-banquet.webp (a press still, not a
+    // clean product shot). Now uses the proper transparent magnum image.
+    image: "/products/blanc-de-blancs-magnum.png",
   },
 ];
 
@@ -114,15 +120,28 @@ function ExclusiveGrid() {
           {EXCLUSIVES.map((s, i) => (
             <FadeUp key={s.name} delay={0.3 + i * 0.08}>
               <Link href={s.href} className="group block h-full bg-[#0d0d0d] border border-white/[0.08] hover:border-[#C8A96E]/40 rounded-md overflow-hidden transition-all duration-400">
-                <div className="relative aspect-[4/3] overflow-hidden">
+                {/* Bottle stage — object-contain on a dark plate so the
+                    transparent product shots show in full without cropping.
+                    Was object-cover on aspect-[4/3], which cropped the
+                    bottles and (combined with the wrong source images)
+                    produced the jagged mid-bottle render. */}
+                <div className="relative aspect-[4/5] overflow-hidden bg-[#0a0a0a]">
+                  {/* Concentrated gold halo behind the bottle */}
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background:
+                        "radial-gradient(ellipse 70% 55% at 50% 62%, rgba(200,169,110,0.08) 0%, transparent 65%)",
+                    }}
+                  />
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={`${basePath}${s.image}`}
                     alt={s.name}
                     loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.04]"
+                    className="absolute inset-0 w-full h-full object-contain p-5 md:p-8 transition-transform duration-[1.4s] ease-out group-hover:scale-[1.04] [filter:drop-shadow(0_14px_24px_rgba(0,0,0,0.55))]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
                 </div>
                 <div className="p-7 md:p-8">
                   <p
