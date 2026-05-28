@@ -304,7 +304,7 @@ function WineLegend() {
                         : "#"
                   }
                   aria-label={`Open ${wine.name}`}
-                  className="group relative flex flex-col items-center w-[88px] md:w-[220px] lg:w-[240px] focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C8A96E]/40 rounded-sm"
+                  className="group relative flex flex-col items-center w-[27vw] md:w-[220px] lg:w-[240px] focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C8A96E]/40 rounded-sm"
                 >
                   {/* Bottle stage - square thumb on mobile, taller portrait
                       plate on desktop so the bottle reads as a poster
