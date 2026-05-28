@@ -45,9 +45,9 @@ function PageHeader() {
       <motion.div className="absolute inset-0" style={{ scale: imgScale, opacity: imgOpacity }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={`${basePath}/images/chalk-bottles.jpg`}
-          alt="Ridgeview bottles arranged on Sussex chalk — gift set selection"
-          className="absolute inset-0 w-full h-full object-cover object-[center_45%]"
+          src={`${basePath}/images/gift-sets-hero.webp`}
+          alt="Ridgeview Blanc de Blancs presented in its branded gift box — celebratory table setting"
+          className="absolute inset-0 w-full h-full object-cover object-[center_40%]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black/75" />
       </motion.div>

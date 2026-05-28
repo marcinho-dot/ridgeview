@@ -41,9 +41,9 @@ function PageHeader() {
       <motion.div className="absolute inset-0" style={{ scale: imgScale, opacity: imgOpacity }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={`${basePath}/images/hero-v2.jpg`}
+          src={`${basePath}/images/harvest-walk.jpg`}
           alt="Ridgeview team in the vines at Ditchling Common"
-          className="absolute inset-0 w-full h-full object-cover object-[center_45%]"
+          className="absolute inset-0 w-full h-full object-cover object-[center_35%]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black/75" />
       </motion.div>

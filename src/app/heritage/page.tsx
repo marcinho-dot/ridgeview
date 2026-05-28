@@ -30,7 +30,7 @@ function PageHeader() {
       <motion.div className="absolute inset-0" style={{ scale: imgScale, opacity: imgOpacity }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={`${basePath}/images/hero-v2.jpg`}
+          src={`${basePath}/images/estate-vineyard.jpg`}
           alt="Ridgeview vineyards on the South Downs — Sussex chalk soil since 1995"
           className="absolute inset-0 w-full h-full object-cover object-[center_45%]"
         />
