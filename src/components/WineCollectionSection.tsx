@@ -11,11 +11,15 @@ import { basePath } from "@/lib/basePath";
 // out here so the slider's "01 / NN" counter, dots, and rotation
 // reflect the wine range only. (2026-05-12)
 //
-// Carousel order: most expensive → least expensive (2026-05-12). The
-// editorial intent is to open with the flagship - Oak Reserve £85 -
-// and step down to the entry-level Still wines. Price strings are
-// parsed defensively so "£75", "£27.50", and any future "From £X"
-// formats all yield numeric values for the sort.
+// Carousel order: in-stock wines first, then price descending
+// (2026-05-12). The editorial intent is to open with the priciest
+// IN-STOCK flagship and step down to the entry-level Still wines.
+// Note: Oak Reserve is the dearest wine (£85) but is currently
+// out of stock, so the out-of-stock rule below demotes it and the
+// actual lead slide is the top in-stock wine (currently Blanc de
+// Blancs £75). Price strings are parsed defensively so "£75",
+// "£27.50", and any future "From £X" formats all yield numeric
+// values for the sort.
 const priceValue = (p: string): number =>
   parseFloat(p.replace(/[^0-9.]/g, "")) || 0;
 
@@ -129,8 +133,9 @@ export function WineCollectionSection() {
   // flagship lead slide, which made the section read as
   // unintentional / confusing. By resetting on exit, the slide
   // change happens off-screen and the next entry into the
-  // section always shows the lead wine (Oak Reserve at the
-  // current price-descending sort) fresh from position 1/N.
+  // section always shows the lead wine (currently Blanc de Blancs
+  // — the top in-stock wine in the price-descending sort) fresh
+  // from position 1/N.
   useEffect(() => {
     if (!isInView) {
       setCurrent(0);
