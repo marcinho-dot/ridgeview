@@ -1,8 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
+import {
+  Gift,
+  BadgePercent,
+  Package,
+  Truck,
+  Gem,
+  Ticket,
+  ConciergeBell,
+  Sparkles,
+  BookOpen,
+  type LucideIcon,
+} from "lucide-react";
 
-type Benefit = { title: string; body: string };
+type Benefit = { Icon: LucideIcon; title: string; body: string };
 
 /**
  * Consolidated OurView member benefits.
@@ -16,41 +28,53 @@ type Benefit = { title: string; body: string };
  * "Member Discounts" card; "limited-edition" + "archive" wines
  * collapse into one. All copy is verified against the live
  * ridgeview.co.uk/ourview-wine-club page — nothing fabricated.
+ *
+ * Icons: lucide-react (bundled locally — no external request, DSGVO-safe),
+ * rendered as thin gold line marks to suit the editorial aesthetic.
  */
 const BENEFITS: Benefit[] = [
   {
+    Icon: Gift,
     title: "Luxury Welcome Case",
     body: "A luxury Welcome Case worth £134 arrives at your door — a Bloomsbury NV gift set with two Ridgeview flutes, a bespoke stopper, your membership card and a complimentary Tour & Tasting voucher for two, valid 12 months.",
   },
   {
+    Icon: BadgePercent,
     title: "Member Discounts",
     body: "20% off Ridgeview wine all year round, 20% off classic tour and tasting bookings, plus 10% off food and 20% off wine when you dine at The Rows & Vine — applied automatically from the moment you join.",
   },
   {
+    Icon: Package,
     title: "Two Curated Cases a Year",
     body: "Each May and November a six-bottle case hand-picked by our Head Winemaker — twelve bottles annually across the Ridgeview portfolio, blending new discoveries with vintage classics.",
   },
   {
+    Icon: Truck,
     title: "Next-Day Delivery, On Us",
     body: "Complimentary next-working-day delivery on every order — whether you're restocking your collection or sending a gift with a personalised note.",
   },
   {
+    Icon: Gem,
     title: "Rare & Limited-Edition Wines",
     body: "Step inside the archive — limited-edition wines made exclusively for members, alongside some of the oldest and rarest vintages in English sparkling wine history, never released to the public.",
   },
   {
+    Icon: Ticket,
     title: "Priority Estate Invitations",
     body: "First access to a calendar of member-only experiences — Winemaker blending masterclasses, Riedel glass tastings, vertical archive flights, cheese pairings and seasonal celebrations.",
   },
   {
+    Icon: ConciergeBell,
     title: "Dedicated OurView Concierge",
     body: "A dedicated Ridgeview concierge to plan your visits, secure the perfect table at The Rows & Vine, and recommend curated local hotel partners.",
   },
   {
+    Icon: Sparkles,
     title: "The Joy of the Unexpected",
     body: "Spontaneous delights through the year — a gift tucked into a shipment, a ‘secret pour’ at the cellar door, birthday bubbles on a visit, rewards when you renew.",
   },
   {
+    Icon: BookOpen,
     title: "Insight & Partner Privileges",
     body: "Exclusive behind-the-scenes articles and news from the vineyard, plus members-only offers with our luxury partner brands.",
   },
@@ -88,18 +112,17 @@ export function MemberBenefitsGrid() {
             />
 
             <div className="relative flex items-center justify-between mb-5">
+              <b.Icon
+                aria-hidden
+                size={28}
+                strokeWidth={1.5}
+                className="text-[#C8A96E]/85 group-hover:text-[#C8A96E] transition-all duration-500 group-hover:scale-110"
+              />
               <span
-                className="font-display italic text-[#C8A96E]/70 group-hover:text-[#C8A96E] transition-all duration-500 group-hover:-translate-y-0.5"
-                style={{ fontSize: "clamp(28px, 2.6vw, 38px)", fontWeight: 400 }}
+                className="font-display italic text-[#C8A96E]/35 group-hover:text-[#C8A96E]/60 transition-colors duration-500"
+                style={{ fontSize: "clamp(20px, 1.8vw, 26px)", fontWeight: 400 }}
               >
                 {String(i + 1).padStart(2, "0")}
-              </span>
-              <span
-                aria-hidden
-                className="text-[#C8A96E]/40 group-hover:text-[#C8A96E]/80 transition-all duration-500 group-hover:scale-125"
-                style={{ fontSize: "9px" }}
-              >
-                ◆
               </span>
             </div>
 
