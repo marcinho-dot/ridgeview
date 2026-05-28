@@ -6,6 +6,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { BottomNav } from "@/components/BottomNav";
 import { ScrollReset } from "@/components/ScrollReset";
+import { MemberBenefitsGrid } from "@/components/MemberBenefitsGrid";
 import { basePath } from "@/lib/basePath";
 import { useCart } from "@/lib/cart/CartContext";
 
@@ -24,26 +25,6 @@ import { useCart } from "@/lib/cart/CartContext";
  * Replaces the previous /#ourview anchor target for every Wine Club
  * CTA across the site (Navbar, BottomNav, Footer, SKU upsell, etc.).
  */
-
-// PERKS - verbatim from the live ridgeview.co.uk/ourview-wine-club/
-// benefits list (verified 2026-05-17). Order kept consistent with the
-// live page. Previous fabricated entries (gift scheduling, bottle
-// customization, members pricing) were removed; real-page-only
-// benefits (OurView Concierge, Joy of the Unexpected, masterclasses)
-// were added.
-const PERKS = [
-  "20% off Ridgeview wines all year round",
-  "10% off food at The Rows & Vine and 20% off wine when dining",
-  "A luxury Welcome Case worth £134, including Bloomsbury NV and a Tour for two",
-  "Two 6-bottle cases of Ridgeview wine delivered each year (May and November)",
-  "Complimentary next-working-day delivery on all orders and gifts",
-  "Exclusive access to the ‘OurView Concierge’ for personal estate bookings",
-  "Access to rare archive and limited-edition wines not available to the public",
-  "Priority invitations to member-only experiences and masterclasses",
-  "The ‘Joy of the Unexpected’: spontaneous gifts and on-site surprises",
-  "Exclusive insight articles and behind-the-scenes news from the vineyard",
-  "Exclusive offers with luxury partner brands",
-];
 
 const STEPS = [
   {
@@ -481,37 +462,7 @@ export default function WineClubPage() {
                   Everything <span className="text-[#C8A96E]">included</span>.
                 </motion.h2>
               </div>
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-5">
-                {PERKS.map((perk, i) => (
-                  <motion.li
-                    key={perk}
-                    initial={{ opacity: 0, x: 24 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.55, delay: (i % 7) * 0.06, ease: [0.16, 1, 0.3, 1] }}
-                    className="group flex items-start gap-4 py-3 border-b border-white/[0.06] hover:border-[#C8A96E]/30 transition-colors duration-500 relative"
-                  >
-                    {/* Hover stripe — gold underline grows from left on hover */}
-                    <span
-                      aria-hidden
-                      className="absolute left-0 bottom-[-1px] h-px w-0 bg-[#C8A96E]/60 group-hover:w-16 transition-[width] duration-700 ease-out"
-                    />
-                    <span
-                      aria-hidden
-                      className="text-[#C8A96E]/70 group-hover:text-[#C8A96E] flex-shrink-0 mt-1.5 transition-all duration-400 group-hover:scale-110 group-hover:translate-x-0.5"
-                      style={{ fontSize: "11px" }}
-                    >
-                      ◆
-                    </span>
-                    <p
-                      className="font-body text-white/75 group-hover:text-cream leading-[1.6] transition-colors duration-400"
-                      style={{ fontSize: "15px", fontWeight: 400 }}
-                    >
-                      {perk}
-                    </p>
-                  </motion.li>
-                ))}
-              </ul>
+              <MemberBenefitsGrid />
             </div>
           </section>
         </ScrollReset>
