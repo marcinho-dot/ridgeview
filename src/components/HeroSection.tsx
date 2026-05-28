@@ -23,39 +23,72 @@ export function HeroSection() {
   }, []);
 
   return (
-    // h-screen (= 100vh) gives the section the FULL viewport height in
-    // every context: DevTools mobile simulation, desktop, and real
-    // mobile (where the lower edge may sit under the URL bar - that's
-    // fine because all our content is top-aligned, the unused bottom
-    // of the image is just decorative).
-    <section className="relative h-screen w-full overflow-hidden">
-
-      {/* Background image - vineyard hero at Ridgeview, Sussex.
-          Source is 2560×1440 (16:9). object-cover lands edge-to-edge with
-          no crop on 16:9 desktop viewports; on shorter / portrait viewports
-          (16:10 macs, mobile) it crops the BOTTOM only - objectPosition
-          "center top" anchors the upper half of the image so sky, horizon
-          and the headline-overlay zone are always preserved. */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={`${basePath}/images/vineyardhero.jpg`}
-        alt="Sunlight breaking through mist over the Ridgeview vineyard, Sussex"
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ objectPosition: "center top" }}
+    // Height is set with 100lvh (largest-viewport-height), NOT 100vh/100dvh.
+    // lvh = the height WITH the mobile URL bar hidden, and it stays CONSTANT
+    // as the bar shows/hides. That avoids the notorious mobile "zoom jump"
+    // where a vh/dvh-sized full-bleed video resizes (and visibly re-scales)
+    // the instant the address bar collapses on first scroll. The h-screen
+    // Tailwind class (= 100vh) stays as a fallback floor for the handful of
+    // ancient browsers without lvh support: the inline 100lvh wins where
+    // supported, and is dropped (falling back to the class) where it isn't.
+    // bg-[#010101] is fallback stage 1 — the brand-dark fill painted
+    // instantly, before the poster (stage 2) or the video (stage 3) arrive.
+    <section
+      className="relative h-screen w-full overflow-hidden bg-[#010101]"
+      style={{ height: "100lvh" }}
+    >
+      {/* Stage-2 fallback hint: tell the browser to fetch the poster at high
+          priority the moment the HTML lands, so the first paint after the
+          black fill is the real opening frame — not a blank hero. React 19
+          hoists this <link> into <head> and dedupes it. */}
+      <link
+        rel="preload"
+        as="image"
+        href={`${basePath}/videos/hero-poster.jpg`}
+        fetchPriority="high"
       />
 
-      {/* Three-layer overlay stack (mobile + desktop):
-          1) Full-frame vertical gradient - TOP boosted to compensate
-             for the brighter sky in the new 16:9 image, so the upper
-             zone reads as dark as on the old crop.
-          2) Left-side fade - original strength.
-          3) Bottom dark band on lower 55% - reduced to 25% of
-             original (95/70 → 24/18) so the lower image breathes. */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/15 to-black/50 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-transparent to-transparent pointer-events-none" />
+      {/* Hero video — 3-scene estate montage (Rows & Vine terrace → aerial
+          vineyard → the estate at golden hour). 21:9 ultrawide (2520×1080)
+          with all subjects centred, so object-cover + object-center fills
+          the viewport edge-to-edge with no letterbox and crops symmetrically
+          on narrower / portrait viewports.
+            • poster  → stage-2 fallback (154 KB first frame) shown until the
+                        video has decoded enough to play.
+            • mobile  → a 1280-wide / 5 MB cut served under 768px so phones
+                        don't pull the 20 MB desktop master.
+            • desktop → the full 2520×1080 master (faststart, audio stripped).
+          Muted + playsInline + autoplay is what unlocks inline autoplay on
+          iOS; loop keeps the montage running. */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        poster={`${basePath}/videos/hero-poster.jpg`}
+        className="absolute inset-0 w-full h-full object-cover object-center"
+      >
+        <source
+          src={`${basePath}/videos/hero-mobile.mp4`}
+          type="video/mp4"
+          media="(max-width: 767px)"
+        />
+        <source src={`${basePath}/videos/hero-desktop.mp4`} type="video/mp4" />
+      </video>
+
+      {/* Single bottom-anchored legibility gradient — NO full-frame overlay,
+          so the video stays clean and bright across its top ~70%. Dark at
+          the very bottom (where the mobile text sits, justify-end) and faded
+          out by ~72% up. The mid stop also lends the vertically-centred
+          desktop text some backing in the lower-middle band; the heavy
+          per-element text-shadows below carry the rest. */}
       <div
-        className="absolute left-0 right-0 bottom-0 bg-gradient-to-t from-black/24 via-black/[0.18] to-transparent pointer-events-none"
-        style={{ height: "55%" }}
+        className="absolute inset-x-0 bottom-0 top-0 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.35) 38%, rgba(0,0,0,0) 72%)",
+        }}
       />
 
       {/* Mobile: text anchored to bottom (justify-end + pb-[14vh]) -
