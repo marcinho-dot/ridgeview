@@ -134,21 +134,27 @@ export function Footer({ withBackground = true }: FooterProps = {}) {
           </h4>
           <ul className="space-y-3">
             {[
-              // Cases of Wine, Gift Sets & Collections, Click & Collect
-              // were removed 2026-05-16:
-              //   - Cases are SKU format variants (Magnum, Case of 6) on
-              //     each /wine/<slug>/ page - no separate landing needed.
-              //   - Gift Sets pointed to /wines (redundant); no dedicated
-              //     /gifts route exists. The engraved-bottle-gift SKU is
-              //     still discoverable via the main catalogue.
-              //   - Click & Collect was advertised but never wired into
-              //     the checkout flow (Royal Mail shipping only). Listing
-              //     it was misleading.
+              // Cases of Wine + Click & Collect re-added 2026-05-28
+              // after a footer audit against the UK source. They had
+              // been removed 2026-05-16 on rationales that are now
+              // stale:
+              //   - "Cases have no landing page" — false now, the
+              //     /wines/cases catalog page exists (UK links its
+              //     own /product-category/cases-of-wine/).
+              //   - "Click & Collect not wired into checkout" — false
+              //     now, it's a live shipping option in
+              //     lib/checkout/shipping.ts. UK links it to /delivery;
+              //     we point it at /legal/delivery, which describes it.
+              // Exclusive Range + Gift Vouchers are our own additions
+              // (UK doesn't surface them in the footer) — kept because
+              // the pages exist and are worth discovering.
               { label: "English Sparkling Wine", href: `${home}wines` },
+              { label: "Cases of Wine", href: `${home}wines/cases` },
               { label: "Exclusive Range", href: `${home}wines/exclusive-range` },
               { label: "Gift Sets", href: `${home}gift-sets` },
               { label: "Gift Vouchers", href: `${home}gift-vouchers` },
               { label: "OurView Wine Club", href: `${home}wine-club/` },
+              { label: "Click & Collect", href: "/legal/delivery" },
             ].map((item) => (
               <li key={item.label}>
                 <a href={item.href} className="link-underline font-body text-white/55 text-sm hover:text-[#C8A96E]/80 transition-colors duration-300" style={{ fontWeight: 400 }}>
