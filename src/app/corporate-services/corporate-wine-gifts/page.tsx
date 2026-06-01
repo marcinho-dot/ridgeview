@@ -219,8 +219,8 @@ function BridgeBanner() {
     <section className="relative h-[55vh] min-h-[420px] w-full overflow-hidden border-t border-white/[0.06]">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={`${basePath}/images/corporate-services/wine-gifts/limited-edition-collection.webp`}
-        alt="Ridgeview corporate limited-edition wine collection"
+        src={`${basePath}/images/corporate-services/wine-gifts/branded-gifts.webp`}
+        alt="Ridgeview corporate wine gift collection"
         className="absolute inset-0 w-full h-full object-cover object-[center_55%]"
         loading="lazy"
       />
@@ -496,7 +496,7 @@ function BrochureDownloadSection() {
             <div className="relative aspect-[4/5] rounded-md overflow-hidden border border-white/[0.06]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={`${basePath}/images/corporate-services/wine-gifts/limited-edition-collection.webp`}
+                src={`${basePath}/images/corporate-services/wine-gifts/luxury-brand-partnerships.webp`}
                 alt="Ridgeview Corporate Brochure 2025 — preview"
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"

@@ -145,14 +145,14 @@ export function Footer({ withBackground = true }: FooterProps = {}) {
               //     now, it's a live shipping option in
               //     lib/checkout/shipping.ts. UK links it to /delivery;
               //     we point it at /legal/delivery, which describes it.
-              // Exclusive Range + Gift Vouchers are our own additions
-              // (UK doesn't surface them in the footer) — kept because
-              // the pages exist and are worth discovering.
+              // Gift Vouchers is our own addition (UK doesn't surface it
+              // in the footer) — kept because the page exists. Exclusive
+              // Range retired 2026-05-30: every wine on it was already in
+              // /wines; magnums live as SKU variants.
               { label: "English Sparkling Wine", href: `${home}wines` },
               { label: "Cases of Wine", href: `${home}wines/cases` },
               { label: "Gift Vouchers", href: `${home}gift-vouchers` },
               { label: "Gift Sets", href: `${home}gift-sets` },
-              { label: "Exclusive Range", href: `${home}wines/exclusive-range` },
               { label: "Click & Collect", href: "/legal/delivery" },
               { label: "OurView Wine Club", href: `${home}wine-club/` },
             ].map((item) => (
