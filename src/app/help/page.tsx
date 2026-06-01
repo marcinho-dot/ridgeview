@@ -123,7 +123,7 @@ const CATEGORIES: Category[] = [
       },
       {
         q: "What are your opening hours?",
-        a: "Office, Winery Shop and The Rows & Vine restaurant each have their own hours. The full breakdown sits on the restaurant page — visit /restaurant#hours for the current schedule across seasons.",
+        a: "Office, Winery Shop and The Rows & Vine restaurant each have their own hours. The full breakdown sits on the directions page — visit /directions#hours for the current schedule across seasons.",
       },
       {
         q: "Is there parking on site?",

@@ -204,7 +204,7 @@ function AddressSection() {
           </p>
           <p className="font-body text-white/45 mt-6 leading-[1.85]" style={{ fontSize: "12.5px", fontWeight: 400 }}>
             Restaurant and tour hours differ — see{" "}
-            <Link href="/restaurant#hours" className="text-[#C8A96E] hover:underline">opening times</Link>.
+            <Link href="/directions#hours" className="text-[#C8A96E] hover:underline">opening times</Link>.
           </p>
         </FadeUp>
       </div>
