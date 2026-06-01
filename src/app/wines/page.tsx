@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ScrollReset } from "@/components/ScrollReset";
-import { wines as allWines } from "@/data/wines";
+import { wines as allWines, WINE_CATEGORY, type WineCategory, type Wine } from "@/data/wines";
 import { basePath } from "@/lib/basePath";
 
 // ── Data ────────────────────────────────────────────────────────────────────
@@ -115,7 +115,7 @@ function PageHero() {
 // bottle they came for. On mobile the strip scrolls horizontally with snap;
 // desktop wraps to a single (or two-line on narrow viewports) row.
 
-function WineLegend() {
+function WineLegend({ wines }: { wines: Wine[] }) {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const cbarRef = useRef<HTMLDivElement | null>(null);
   const cthumbRef = useRef<HTMLDivElement | null>(null);
@@ -377,7 +377,7 @@ function WineLegend() {
 
 // ── Section: Wine Grid ──────────────────────────────────────────────────────
 
-function WineGrid() {
+function WineGrid({ wines }: { wines: Wine[] }) {
   // Track the URL hash so the matching grid card gets a gold ring -
   // signals to the user "this is the wine you jumped to from the
   // legend strip above". Reads on mount AND on every hashchange so
@@ -794,13 +794,62 @@ function BackToTop() {
   );
 }
 
+// ── Category filter ─────────────────────────────────────────────────────────
+// Signature vs Limited Release vs Still — the one meaningful grouping the
+// UK shop makes. Pills filter the grid/legend below; "All" is the default.
+const WINE_FILTERS: { key: WineCategory | "all"; label: string }[] = [
+  { key: "all", label: "All Wines" },
+  { key: "signature", label: "Signature" },
+  { key: "limited", label: "Limited Release" },
+  { key: "still", label: "Still" },
+];
+
+function CategoryFilter({
+  active,
+  onChange,
+}: {
+  active: WineCategory | "all";
+  onChange: (c: WineCategory | "all") => void;
+}) {
+  return (
+    <section className="relative bg-[#010101] pb-5 md:pb-7">
+      <div className="max-w-[1500px] mx-auto px-6 md:px-12 flex flex-wrap gap-2 md:gap-2.5">
+        {WINE_FILTERS.map((f) => {
+          const on = active === f.key;
+          return (
+            <button
+              key={f.key}
+              type="button"
+              onClick={() => onChange(f.key)}
+              aria-pressed={on}
+              className={`font-body uppercase tracking-[0.18em] px-4 py-2 rounded-sm border transition-colors duration-300 ${
+                on
+                  ? "border-[#C8A96E] text-cream bg-[rgba(200,169,110,0.10)]"
+                  : "border-white/12 text-white/55 hover:border-[#C8A96E]/50 hover:text-[#C8A96E]"
+              }`}
+              style={{ fontSize: "10.5px", fontWeight: 400 }}
+            >
+              {f.label}
+            </button>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
 // ── Page ────────────────────────────────────────────────────────────────────
 
 export default function WinesPage() {
   // View mode: "row" = compact horizontal bottle strip (default),
-  // "grid" = editorial card grid. Mutually exclusive - toggled via
-  // the ViewSwitch pill above the gallery.
+  // "grid" = editorial card grid. Toggled via the layout switch.
   const [view, setView] = useState<"row" | "grid">("row");
+  // Category filter (Signature / Limited / Still / All).
+  const [cat, setCat] = useState<WineCategory | "all">("all");
+  const filtered =
+    cat === "all"
+      ? wines
+      : wines.filter((w) => w.slug && WINE_CATEGORY[w.slug] === cat);
 
   return (
     <div className="bg-[#010101] min-h-screen">
@@ -822,13 +871,14 @@ export default function WinesPage() {
         <GalleryToolbar
           view={view}
           onChange={setView}
-          count={wines.length}
+          count={filtered.length}
           total={wines.length}
         />
+        <CategoryFilter active={cat} onChange={setCat} />
         {view === "row" ? (
-          <WineLegend />
+          <WineLegend wines={filtered} />
         ) : (
-          <ScrollReset><WineGrid /></ScrollReset>
+          <ScrollReset key={cat}><WineGrid wines={filtered} /></ScrollReset>
         )}
         <ScrollReset><GiftCTA /></ScrollReset>
       </main>

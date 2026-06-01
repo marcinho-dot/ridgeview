@@ -168,3 +168,26 @@ export const wines: Wine[] = [
     kind: "membership",
   },
 ];
+
+export type WineCategory = "signature" | "limited" | "still";
+
+/**
+ * Wine slug -> shop filter category, mirroring the UK split:
+ *   Signature = everyday non-vintage cuvées (Bloomsbury/Cavendish/Fitzrovia)
+ *   Limited   = vintage / premium / single-variety sparkling
+ *   Still     = the still (non-sparkling) wines
+ * Wines absent from this map (e.g. the engraved gift) appear only under
+ * the "All" filter on /wines.
+ */
+export const WINE_CATEGORY: Record<string, WineCategory> = {
+  bloomsbury: "signature",
+  cavendish: "signature",
+  fitzrovia: "signature",
+  "blanc-de-blancs": "limited",
+  "blanc-de-noirs": "limited",
+  "rose-de-noirs": "limited",
+  "oak-reserve": "limited",
+  "sparkling-red-reserve": "limited",
+  "still-chardonnay": "still",
+  "still-english-rose": "still",
+};
