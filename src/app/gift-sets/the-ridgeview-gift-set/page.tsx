@@ -25,13 +25,16 @@ import { initialVariantIdxFromHash } from "@/lib/cart/variantFromHash";
 
 // Verbatim UK variation prices (the-ridgeview-gift-set, fetched 2026-05-30).
 // Ordered cheapest-first so the page anchors on the £64 entry price.
+// Each variant carries its own gift-set photo (the verbatim UK product
+// shots, on a clean white studio background — NOT background-removed, so
+// no ragged cut-out edge). Selecting a wine swaps the hero image.
 const GIFT_SET_VARIANTS: Variant[] = [
-  { variantId: "bloomsbury",     label: "Bloomsbury NV",     detail: "Signature · citrus & brioche",       price: 64,  image: "/products/bloomsbury.png" },
-  { variantId: "cavendish",      label: "Cavendish NV",      detail: "Signature · rich red-berry depth",   price: 66,  image: "/products/cavendish.png" },
-  { variantId: "fitzrovia",      label: "Fitzrovia Rosé NV", detail: "Signature · vibrant fruit purity",   price: 70,  image: "/products/fitzrovia-rose.png" },
-  { variantId: "blanc-de-noirs", label: "Blanc de Noirs",    detail: "Limited · red fruit & gentle spice", price: 90,  image: "/products/blanc-de-noirs.png" },
-  { variantId: "rose-de-noirs",  label: "Rosé de Noirs",     detail: "Limited · peach, cherry & almond",   price: 95,  image: "/products/rose-de-noirs.png" },
-  { variantId: "blanc-de-blancs",label: "Blanc de Blancs",   detail: "Limited · 100% Chardonnay, vintage", price: 105, image: "/products/blanc-de-blancs.png" },
+  { variantId: "bloomsbury",     label: "Bloomsbury NV",     detail: "Signature · citrus & brioche",       price: 64,  image: "/images/gift-sets/gift-set-bloomsbury.webp" },
+  { variantId: "cavendish",      label: "Cavendish NV",      detail: "Signature · rich red-berry depth",   price: 66,  image: "/images/gift-sets/gift-set-cavendish.webp" },
+  { variantId: "fitzrovia",      label: "Fitzrovia Rosé NV", detail: "Signature · vibrant fruit purity",   price: 70,  image: "/images/gift-sets/gift-set-fitzrovia.webp" },
+  { variantId: "blanc-de-noirs", label: "Blanc de Noirs",    detail: "Limited · red fruit & gentle spice", price: 90,  image: "/images/gift-sets/gift-set-blanc-de-noirs.webp" },
+  { variantId: "rose-de-noirs",  label: "Rosé de Noirs",     detail: "Limited · peach, cherry & almond",   price: 95,  image: "/images/gift-sets/gift-set-rose-de-noirs.webp" },
+  { variantId: "blanc-de-blancs",label: "Blanc de Blancs",   detail: "Limited · 100% Chardonnay, vintage", price: 105, image: "/images/gift-sets/gift-set-blanc-de-blancs.webp" },
 ];
 
 const INCLUDED = [
@@ -48,6 +51,7 @@ function FadeUp({ children, delay = 0, className = "" }: { children: ReactNode; 
 
 function GiftSetHero() {
   const [variantIdx, setVariantIdx] = useState(() => initialVariantIdxFromHash(GIFT_SET_VARIANTS));
+  const activeVariant = GIFT_SET_VARIANTS[variantIdx];
 
   return (
     <section className="relative bg-[#010101] pt-28 md:pt-24 pb-12 md:pb-16 overflow-hidden">
@@ -129,7 +133,7 @@ function GiftSetHero() {
                   slug="the-ridgeview-gift-set"
                   productName="The Ridgeview Gift Set"
                   vintage="Gift Set"
-                  image="/images/gift-sets/gift-set.webp"
+                  image={activeVariant.image ?? GIFT_SET_VARIANTS[0].image!}
                   variants={GIFT_SET_VARIANTS}
                   selectorLabel="Choose your wine"
                   freeShippingThreshold={45}
@@ -144,22 +148,19 @@ function GiftSetHero() {
 
           {/* ── Image column ── */}
           <FadeUp delay={0.2} className="order-1 md:order-2">
-            <div className="relative aspect-[4/5] md:aspect-square w-full rounded-md overflow-hidden bg-[#0d0d0d] border border-white/[0.06]">
-              <div
-                aria-hidden
-                className="absolute inset-0 pointer-events-none"
-                style={{ background: "radial-gradient(ellipse 60% 60% at 50% 45%, rgba(200,169,110,0.07) 0%, transparent 70%)" }}
-              />
+            {/* White stage — the UK product shots sit on a clean white
+                studio background, so a white stage lets them read as a
+                framed product photo with no hard rectangle edge. Image
+                swaps with the selected wine (key forces a clean re-render). */}
+            <div className="relative aspect-[4/5] md:aspect-square w-full rounded-md overflow-hidden bg-[#f5f0e8] border border-white/[0.10]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={`${basePath}/images/gift-sets/gift-set.webp`}
-                alt="The Ridgeview Gift Set — sparkling wine, two branded flutes and a bottle stopper in a gift box"
-                className="absolute inset-0 w-full h-full object-contain p-6 md:p-10"
+                key={activeVariant.image}
+                src={`${basePath}${activeVariant.image}`}
+                alt={`The Ridgeview Gift Set with ${activeVariant.label} — bottle, two branded flutes and a bottle stopper in a gift box`}
+                className="absolute inset-0 w-full h-full object-contain"
               />
             </div>
-            <p className="mt-3 font-body text-white/30 text-center" style={{ fontSize: "11px" }}>
-              Shown with Bloomsbury NV · your chosen wine is included
-            </p>
           </FadeUp>
         </div>
       </div>

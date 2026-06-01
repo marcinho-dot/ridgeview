@@ -118,7 +118,7 @@ const READY_GIFTS: Gift[] = [
     body: "Your choice of Ridgeview sparkling wine, two branded flutes and a bottle stopper — boxed and ready to gift. From £64.",
     cta: "Build your gift set",
     href: "/gift-sets/the-ridgeview-gift-set",
-    image: "/images/gift-sets/gift-set.webp",
+    image: "/images/gift-sets/gift-set-bloomsbury.webp",
     imageAlt: "The Ridgeview Gift Set in its gift box with two flutes",
     badge: "Flagship gift",
   },
