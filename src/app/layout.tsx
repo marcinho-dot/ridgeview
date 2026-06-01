@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { RevealInit } from "@/components/RevealInit";
+import { HashScroll } from "@/components/HashScroll";
 import { CartProvider } from "@/lib/cart/CartContext";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 
@@ -28,6 +29,12 @@ export default function RootLayout({
       <body className="antialiased">
         <CartProvider>
           <RevealInit />
+          {/* Global hash-anchor scroller — native fragment scrolling is
+              broken site-wide by `overflow-x: clip` on <html>, so every
+              page needs this JS scroller. One instance here covers all
+              routes (same-page #clicks via hashchange + full-load landings
+              via mount). */}
+          <HashScroll />
           <ScrollProgress />
           {children}
           <CartDrawer />

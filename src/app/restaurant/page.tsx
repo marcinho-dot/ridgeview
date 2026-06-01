@@ -6,7 +6,6 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { BottomNav } from "@/components/BottomNav";
 import { ScrollReset } from "@/components/ScrollReset";
-import { HashScroll } from "@/components/HashScroll";
 import { MenuPdfModal, type MenuPdf } from "@/components/MenuPdfModal";
 import { basePath } from "@/lib/basePath";
 
@@ -882,7 +881,6 @@ export default function RestaurantPage() {
       />
 
       <Navbar />
-      <HashScroll />
       <main>
         <RestaurantHero />
         <ScrollReset><WelcomeSection /></ScrollReset>

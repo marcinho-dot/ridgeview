@@ -10,7 +10,6 @@ import { EstatePeopleSection } from "@/components/EstatePeopleSection";
 import { ScrollReset } from "@/components/ScrollReset";
 import { BehindTheBottleSection } from "@/components/sku/BehindTheBottleSection";
 import { NearbyAccommodationSection } from "@/components/NearbyAccommodationSection";
-import { HashScroll } from "@/components/HashScroll";
 import { basePath } from "@/lib/basePath";
 
 // ─── Email constants ────────────────────────────────────────────────────────
@@ -1513,7 +1512,6 @@ export default function BookingPage() {
         }}
       />
       <Navbar />
-      <HashScroll />
       <main>
         <PageHeader />
         {/* Order updated 2026-05-26 per CEO approval feedback

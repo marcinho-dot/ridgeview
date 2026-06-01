@@ -5,7 +5,6 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { BottomNav } from "@/components/BottomNav";
 import { ScrollReset } from "@/components/ScrollReset";
-import { HashScroll } from "@/components/HashScroll";
 import { basePath } from "@/lib/basePath";
 
 /**
@@ -708,7 +707,6 @@ export default function DirectionsPage() {
       />
 
       <Navbar />
-      <HashScroll />
       <main>
         <DirectionsHero />
         <ScrollReset><AddressSection /></ScrollReset>
