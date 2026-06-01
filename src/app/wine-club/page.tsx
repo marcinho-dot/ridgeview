@@ -175,14 +175,24 @@ function PricingCard({
               {cadence}
             </p>
           </div>
-          {/* CTA pinned to bottom of left column on desktop. */}
-          <button
-            type="button"
-            onClick={handleAdd}
-            className="btn-cta w-full md:w-auto md:self-start text-center mt-auto"
-          >
-            Add to basket
-          </button>
+          {/* CTA row — primary Add-to-basket + Gift-this-membership, pinned to
+              the bottom of the left column on desktop. Gift sits to the right
+              of the ATB (stacks full-width on mobile). */}
+          <div className="flex flex-col sm:flex-row flex-wrap gap-3 mt-auto md:self-start">
+            <button
+              type="button"
+              onClick={handleAdd}
+              className="btn-cta w-full sm:w-auto text-center"
+            >
+              Add to basket
+            </button>
+            <a
+              href={`${basePath}/wine-club/gift`}
+              className="btn-cta w-full sm:w-auto text-center"
+            >
+              Gift this membership
+            </a>
+          </div>
         </div>
 
         {/* ── Divider — gold hairline only on desktop ─────────────── */}

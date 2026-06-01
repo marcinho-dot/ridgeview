@@ -164,6 +164,12 @@ export default function CheckoutPage() {
           itemCount: items.reduce((s, i) => s + i.quantity, 0),
           bottleCount: totalBottleCount(items),
           marketingOptIn,
+          // Full line items — including each line's `note` (e.g. the gift-
+          // membership recipient's name, birthday, delivery address and gift
+          // message) — so the details captured in the basket travel WITH the
+          // order record and are ready to hand straight to the payment /
+          // fulfilment provider once that backend is wired.
+          items,
         }),
       );
     } catch {

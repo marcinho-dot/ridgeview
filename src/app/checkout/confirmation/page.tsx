@@ -30,6 +30,10 @@ interface LastOrder {
   itemCount: number;
   bottleCount: number;
   marketingOptIn: boolean;
+  /** Full basket lines as placed. `note` carries gift-membership recipient
+   *  details (name · birthday · delivery address · message). Optional so
+   *  older saved orders without it still parse. */
+  items?: { name: string; variantLabel: string; note?: string }[];
 }
 
 export default function ConfirmationPage() {
@@ -143,6 +147,36 @@ export default function ConfirmationPage() {
                     {formatPence(order.totalPence)}
                   </span>
                 </div>
+
+                {order.items && order.items.some((i) => i.note) && (
+                  <div className="mt-6 pt-5 border-t border-white/[0.06]">
+                    <p
+                      className="font-body font-light text-[#C8A96E] uppercase tracking-[0.22em] mb-3"
+                      style={{ fontSize: "clamp(9.5px, 0.85vw, 10.5px)" }}
+                    >
+                      Gift details registered
+                    </p>
+                    {order.items
+                      .filter((i) => i.note)
+                      .map((i, idx) => (
+                        <div key={idx} className="mb-3 last:mb-0">
+                          <p
+                            className="font-display italic text-cream"
+                            style={{ fontSize: "clamp(14px, 1.3vw, 16px)" }}
+                          >
+                            {i.name}{" "}
+                            <span className="text-white/45">· {i.variantLabel}</span>
+                          </p>
+                          <p
+                            className="font-body font-light text-white/55 leading-[1.6] mt-1"
+                            style={{ fontSize: "12px" }}
+                          >
+                            {i.note}
+                          </p>
+                        </div>
+                      ))}
+                  </div>
+                )}
               </div>
 
               <div className="border border-white/[0.06] rounded-sm p-6 md:p-8 text-left mb-10 bg-[#080808]">
