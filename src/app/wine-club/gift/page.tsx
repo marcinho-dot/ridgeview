@@ -49,6 +49,39 @@ export default function WineClubGiftPage() {
   const set = (k: keyof typeof f) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setF((s) => ({ ...s, [k]: e.target.value }));
 
+  // ── Required-field validation ──────────────────────────────────────────
+  // Mirrors the old site's gift-membership form: Title, First, Last, Email,
+  // Birthday, Address line 1, City and Postcode are mandatory (Address line 2,
+  // County and the message stay optional). Add-to-basket is blocked until every
+  // required field is valid AND the recipient is 18+, so each gift always
+  // carries the correct name, age check and delivery address.
+  const REQUIRED: { key: keyof typeof f; label: string }[] = [
+    { key: "title", label: "Title" },
+    { key: "first", label: "First name" },
+    { key: "last", label: "Last name" },
+    { key: "email", label: "Email" },
+    { key: "birthday", label: "Birthday" },
+    { key: "address1", label: "Address line 1" },
+    { key: "city", label: "City / Town" },
+    { key: "postcode", label: "Postcode" },
+  ];
+  const missing = REQUIRED.filter(({ key }) => !f[key].trim());
+  const emailInvalid =
+    !!f.email.trim() && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.trim());
+  // Age gate — the recipient must be 18 or over (UK licensing).
+  const recipientAge = (() => {
+    if (!f.birthday) return null;
+    const dob = new Date(f.birthday);
+    if (Number.isNaN(dob.getTime())) return null;
+    const today = new Date();
+    let a = today.getFullYear() - dob.getFullYear();
+    const mo = today.getMonth() - dob.getMonth();
+    if (mo < 0 || (mo === 0 && today.getDate() < dob.getDate())) a -= 1;
+    return a;
+  })();
+  const underage = recipientAge !== null && recipientAge < 18;
+  const isComplete = missing.length === 0 && !emailInvalid && !underage;
+
   // Add the gift membership to the basket — same £580 product as the
   // regular membership card, just bought for someone else. The recipient's
   // details ride along on the cart line's `note` so they surface in the
@@ -57,6 +90,9 @@ export default function WineClubGiftPage() {
   // to the recipient's name so two different gifts stay as separate lines.
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    // Defensive: the button is disabled while incomplete, but guard the
+    // Enter-key submit path too so a partial gift can never reach the basket.
+    if (!isComplete) return;
     const recipientName = `${f.first} ${f.last}`.trim();
     const recipientFull = [f.title, recipientName].filter(Boolean).join(" ").trim();
     const recipientSlug =
@@ -186,31 +222,31 @@ export default function WineClubGiftPage() {
 
                     <div className="grid grid-cols-[80px_1fr] gap-3">
                       <div>
-                        <label className={labelClass} style={{ fontSize: "9.5px" }} htmlFor="g-title">Title</label>
-                        <select id="g-title" value={f.title} onChange={set("title")} className={inputClass}>
+                        <label className={labelClass} style={{ fontSize: "9.5px" }} htmlFor="g-title">Title <span className="text-[#C8A96E]">*</span></label>
+                        <select id="g-title" required value={f.title} onChange={set("title")} className={inputClass}>
                           <option value="">—</option>
                           <option>Mr</option><option>Mrs</option><option>Ms</option><option>Mx</option><option>Dr</option>
                         </select>
                       </div>
                       <div>
-                        <label className={labelClass} style={{ fontSize: "9.5px" }} htmlFor="g-first">First name</label>
+                        <label className={labelClass} style={{ fontSize: "9.5px" }} htmlFor="g-first">First name <span className="text-[#C8A96E]">*</span></label>
                         <input id="g-first" required value={f.first} onChange={set("first")} className={inputClass} autoComplete="given-name" />
                       </div>
                     </div>
 
                     <div>
-                      <label className={labelClass} style={{ fontSize: "9.5px" }} htmlFor="g-last">Last name</label>
+                      <label className={labelClass} style={{ fontSize: "9.5px" }} htmlFor="g-last">Last name <span className="text-[#C8A96E]">*</span></label>
                       <input id="g-last" required value={f.last} onChange={set("last")} className={inputClass} autoComplete="family-name" />
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className={labelClass} style={{ fontSize: "9.5px" }} htmlFor="g-email">Email</label>
+                        <label className={labelClass} style={{ fontSize: "9.5px" }} htmlFor="g-email">Email <span className="text-[#C8A96E]">*</span></label>
                         <input id="g-email" type="email" required value={f.email} onChange={set("email")} className={inputClass} autoComplete="email" />
                       </div>
                       <div>
-                        <label className={labelClass} style={{ fontSize: "9.5px" }} htmlFor="g-bday">Birthday</label>
-                        <input id="g-bday" type="date" value={f.birthday} onChange={set("birthday")} className={`${inputClass} [color-scheme:dark]`} />
+                        <label className={labelClass} style={{ fontSize: "9.5px" }} htmlFor="g-bday">Birthday <span className="text-[#C8A96E]">*</span></label>
+                        <input id="g-bday" type="date" required value={f.birthday} onChange={set("birthday")} className={`${inputClass} [color-scheme:dark]`} />
                       </div>
                     </div>
                     <p className="font-body text-white/35" style={{ fontSize: "11px", marginTop: "-8px" }}>
@@ -218,8 +254,8 @@ export default function WineClubGiftPage() {
                     </p>
 
                     <div>
-                      <label className={labelClass} style={{ fontSize: "9.5px" }} htmlFor="g-addr1">Address line 1</label>
-                      <input id="g-addr1" value={f.address1} onChange={set("address1")} className={inputClass} autoComplete="address-line1" />
+                      <label className={labelClass} style={{ fontSize: "9.5px" }} htmlFor="g-addr1">Address line 1 <span className="text-[#C8A96E]">*</span></label>
+                      <input id="g-addr1" required value={f.address1} onChange={set("address1")} className={inputClass} autoComplete="address-line1" />
                     </div>
                     <div>
                       <label className={labelClass} style={{ fontSize: "9.5px" }} htmlFor="g-addr2">Address line 2</label>
@@ -227,8 +263,8 @@ export default function WineClubGiftPage() {
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className={labelClass} style={{ fontSize: "9.5px" }} htmlFor="g-city">City / Town</label>
-                        <input id="g-city" value={f.city} onChange={set("city")} className={inputClass} autoComplete="address-level2" />
+                        <label className={labelClass} style={{ fontSize: "9.5px" }} htmlFor="g-city">City / Town <span className="text-[#C8A96E]">*</span></label>
+                        <input id="g-city" required value={f.city} onChange={set("city")} className={inputClass} autoComplete="address-level2" />
                       </div>
                       <div>
                         <label className={labelClass} style={{ fontSize: "9.5px" }} htmlFor="g-county">County</label>
@@ -236,8 +272,8 @@ export default function WineClubGiftPage() {
                       </div>
                     </div>
                     <div className="sm:max-w-[200px]">
-                      <label className={labelClass} style={{ fontSize: "9.5px" }} htmlFor="g-post">Postcode</label>
-                      <input id="g-post" value={f.postcode} onChange={set("postcode")} className={inputClass} autoComplete="postal-code" />
+                      <label className={labelClass} style={{ fontSize: "9.5px" }} htmlFor="g-post">Postcode <span className="text-[#C8A96E]">*</span></label>
+                      <input id="g-post" required value={f.postcode} onChange={set("postcode")} className={inputClass} autoComplete="postal-code" />
                     </div>
 
                     <div>
@@ -245,7 +281,41 @@ export default function WineClubGiftPage() {
                       <textarea id="g-msg" rows={3} value={f.message} onChange={set("message")} className={inputClass} />
                     </div>
 
-                    <button type="submit" className="btn-cta w-full md:w-auto text-center">
+                    {/* Live "what's still needed" notice — explains exactly why the
+                        button is disabled. Updates as the buyer fills the form. */}
+                    {!isComplete && (
+                      <div
+                        role="status"
+                        aria-live="polite"
+                        className="rounded-sm border border-[#C8A96E]/30 bg-[#C8A96E]/[0.05] px-4 py-3"
+                      >
+                        <p className="font-body text-[#C8A96E] uppercase tracking-[0.18em] mb-1.5" style={{ fontSize: "10px" }}>
+                          A few details needed
+                        </p>
+                        {missing.length > 0 && (
+                          <p className="font-body text-white/70 leading-[1.6]" style={{ fontSize: "12px" }}>
+                            Please add: {missing.map((m) => m.label).join(", ")}.
+                          </p>
+                        )}
+                        {emailInvalid && (
+                          <p className="font-body text-white/70 leading-[1.6]" style={{ fontSize: "12px" }}>
+                            Please enter a valid email address.
+                          </p>
+                        )}
+                        {underage && (
+                          <p className="font-body text-[#e0b07e] leading-[1.6]" style={{ fontSize: "12px" }}>
+                            The recipient must be 18 or over.
+                          </p>
+                        )}
+                      </div>
+                    )}
+
+                    <button
+                      type="submit"
+                      disabled={!isComplete}
+                      aria-disabled={!isComplete}
+                      className="btn-cta w-full md:w-auto text-center disabled:opacity-40 disabled:cursor-not-allowed"
+                    >
                       Add gift to basket — {PRICE}
                     </button>
                     <p className="font-body text-white/35" style={{ fontSize: "11px" }}>
