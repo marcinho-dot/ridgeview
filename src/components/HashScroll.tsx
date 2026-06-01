@@ -6,59 +6,103 @@ import { useEffect } from "react";
  * HashScroll — robust hash-anchor scroller for content-heavy pages.
  *
  * Why this exists: when a user lands on `/vineyard-booking/#nearby-
- * accommodation` (e.g. from the footer link), the browser's native
- * scroll-to-hash fires once on initial paint — but at that moment
- * the page is mid-render: `.reveal` elements still have opacity 0,
- * `<ScrollReset>` wrappers haven't laid out their children yet, and
- * the section's position is still settling. By the time everything
- * stabilises, the browser has already moved on and the page sits
- * at scrollY=0 with no anchor scroll.
+ * accommodation` (e.g. from the footer link or the Directions-page
+ * "View Nearby Accommodation" button), the target sits BELOW very tall
+ * sticky sections (HeritageRevealStack is 320vh + a -100vh pull-up),
+ * lazy-loaded carousel images, and the Cormorant/Raleway web-font swap.
+ * All of those change the document height ABOVE the anchor for up to
+ * ~1.5s after first paint, so the anchor's absolute position keeps
+ * moving while the layout settles.
  *
- * This component listens for `hashchange` AND runs on mount, then
- * resolves the target element and scrolls to it after the layout
- * has had a chance to settle (two rAFs + a short timeout). The
- * `scroll-mt-24` Tailwind class on the target sections compensates
- * for the fixed navbar height.
+ * The old implementation scrolled exactly ONCE (a single 600ms
+ * timeout). If layout settling ran past 600ms, that one-shot landed on
+ * the WRONG section (it overshot onto the "Find us." / PracticalInfo
+ * block that sits just below the accommodation carousel).
  *
- * Place once near the top of any page that needs hash-scroll
- * support — typically inside `<main>` directly under the navbar.
+ * Fix: re-assert the scroll position several times across the settle
+ * window, plus once `document.fonts.ready` resolves and once `window`
+ * fires `load` (all images in). Each pass re-measures the target's
+ * live position, so the scroll CONVERGES on the correct spot as the
+ * page stabilises. We stop the moment the user scrolls (wheel / touch /
+ * key) so we never fight them, and re-arm on `hashchange`.
+ *
+ * Offset = the target's OWN computed scroll-margin-top (80px mobile /
+ * 110px desktop via the [id] rule in globals.css, or any inline
+ * override) — keeping this JS path in lockstep with the native CSS
+ * scroll-margin path.
+ *
+ * Place once near the top of any page that needs hash-scroll support —
+ * typically inside `<main>` directly under the navbar.
  */
 export function HashScroll() {
   useEffect(() => {
-    const scrollToHash = () => {
-      if (typeof window === "undefined") return;
+    let cancelled = false;
+    let userInterrupted = false;
+    let timers: ReturnType<typeof setTimeout>[] = [];
+
+    const align = () => {
+      if (cancelled || userInterrupted) return;
       const hash = window.location.hash;
-      if (!hash) return;
-      const id = hash.slice(1);
-      // Wait 600ms for the vineyard-booking page to fully lay out
-      // (it has multiple sticky-scroll sections, ScrollReset
-      // wrappers, and reveal animations that all affect final
-      // positions). Re-resolve the target inside the timer so we
-      // pick up the post-layout DOM position.
-      setTimeout(() => {
-        const target = document.getElementById(id);
-        if (!target) return;
-        // Use window.scrollTo with an explicit pixel offset rather than
-        // scrollIntoView, because globals.css sets `overflow: clip visible`
-        // on html/body which makes scrollIntoView unreliable on long pages.
-        // behavior: "instant" — the html-level `scroll-behavior: smooth`
-        // would otherwise leave the JS scroll un-executed in some browsers
-        // / dev environments.
-        //
-        // Offset = the target's OWN computed scroll-margin-top (set globally
-        // to 80px mobile / 110px desktop by the [id] rule in globals.css, or
-        // any inline override). Reading it here keeps this JS path in lockstep
-        // with the native CSS scroll-margin path — otherwise a hardcoded value
-        // (was 96px) lands the anchor too tight against the ~91px desktop navbar.
-        const smt = parseFloat(getComputedStyle(target).scrollMarginTop) || 96;
-        const top = target.getBoundingClientRect().top + window.scrollY - smt;
+      if (!hash || hash.length < 2) return;
+      const target = document.getElementById(decodeURIComponent(hash.slice(1)));
+      if (!target) return;
+      // window.scrollTo with an explicit pixel offset (not scrollIntoView,
+      // which is unreliable here because globals.css sets overflow: clip on
+      // html). behavior:"instant" so the html-level smooth-scroll doesn't
+      // swallow the programmatic jump.
+      const smt = parseFloat(getComputedStyle(target).scrollMarginTop) || 96;
+      const top = Math.max(
+        0,
+        target.getBoundingClientRect().top + window.scrollY - smt,
+      );
+      // Only move if we're meaningfully off — avoids pointless re-jumps once
+      // we've already converged.
+      if (Math.abs(window.scrollY - top) > 2) {
         window.scrollTo({ top, behavior: "instant" });
-      }, 600);
+      }
     };
 
-    scrollToHash();
-    window.addEventListener("hashchange", scrollToHash);
-    return () => window.removeEventListener("hashchange", scrollToHash);
+    const run = () => {
+      // A fresh hashchange is an explicit navigation intent — re-arm.
+      userInterrupted = false;
+      timers.forEach(clearTimeout);
+      timers = [];
+      align();
+      // Re-assert across the settle window. Capped at ~1.7s so we never
+      // yank a user who has started reading/scrolling.
+      [80, 200, 400, 650, 950, 1300, 1700].forEach((d) => {
+        timers.push(setTimeout(align, d));
+      });
+    };
+
+    // Any genuine user scroll intent cancels further auto-alignment.
+    const interrupt = () => {
+      userInterrupted = true;
+      timers.forEach(clearTimeout);
+      timers = [];
+    };
+    const interruptOpts = { passive: true } as const;
+    window.addEventListener("wheel", interrupt, interruptOpts);
+    window.addEventListener("touchstart", interrupt, interruptOpts);
+    window.addEventListener("keydown", interrupt, interruptOpts);
+    window.addEventListener("hashchange", run);
+    window.addEventListener("load", align);
+    // Fonts changing metrics is a classic late height-shift above the anchor.
+    if (typeof document !== "undefined" && document.fonts?.ready) {
+      document.fonts.ready.then(align);
+    }
+
+    run();
+
+    return () => {
+      cancelled = true;
+      timers.forEach(clearTimeout);
+      window.removeEventListener("wheel", interrupt);
+      window.removeEventListener("touchstart", interrupt);
+      window.removeEventListener("keydown", interrupt);
+      window.removeEventListener("hashchange", run);
+      window.removeEventListener("load", align);
+    };
   }, []);
 
   return null;
