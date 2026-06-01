@@ -40,6 +40,9 @@ export interface CartItem {
   image: string;
   /** Number of this variant in the basket. */
   quantity: number;
+  /** Optional free-text note shown under the line — e.g. gift-membership
+   *  recipient details. Carries through cart → checkout → order. */
+  note?: string;
 }
 
 export interface CartState {
@@ -109,6 +112,7 @@ export interface AddInput {
   priceLabel: string;
   image: string;
   quantity?: number;
+  note?: string;
 }
 
 /** Build the canonical line id from (slug, variantId). Exposed for

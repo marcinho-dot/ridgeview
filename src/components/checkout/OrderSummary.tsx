@@ -78,6 +78,11 @@ export function OrderSummary({
               >
                 {item.vintage} · {item.variantLabel}
               </p>
+              {item.note && (
+                <p className="mt-1 font-body font-light text-white/40 leading-[1.5]" style={{ fontSize: "9.5px" }}>
+                  {item.note}
+                </p>
+              )}
             </div>
             <p
               className="font-body font-light text-cream tabular-nums whitespace-nowrap"

@@ -6,22 +6,21 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { BottomNav } from "@/components/BottomNav";
 import { basePath } from "@/lib/basePath";
+import { useCart } from "@/lib/cart/CartContext";
 
 /**
- * /wine-club/gift — gift the OurView membership (£580), mirroring the UK
- * gift-membership product. Collects the RECIPIENT's details (the buyer
- * gifts a year to someone else) exactly like the UK form: title, name,
- * email, birthday, delivery address.
+ * /wine-club/gift — gift the OurView membership (£580). Same product as the
+ * regular membership, just bought FOR someone else: the form collects the
+ * RECIPIENT's details (title, name, email, birthday, delivery address) like
+ * the old site's gift-membership form.
  *
- * No payment backend yet, so submit opens a prefilled email to the team
- * (same enquiry pattern as the engraved-bottle / bespoke-set / notify-me
- * forms). The buyer's own address becomes the reply-to, so the team can
- * arrange payment + dispatch. Wiring this to real checkout is a launch
- * decision tracked in tasks/roadmap.md. UK also runs a product video
- * here — likewise noted in the roadmap.
+ * "Add to basket" is the action — identical to the regular membership card,
+ * just £580 with the recipient carried on the line via the cart `note` field
+ * so it flows through to the drawer, cart page, checkout and the order.
+ * Payment rails are wired later and are independent of this. The old site
+ * also runs a product video here — noted in tasks/roadmap.md (Video-TODO).
  */
 
-const GIFT_EMAIL = "info@ridgeview.co.uk";
 const PRICE = "£580";
 
 const inputClass =
@@ -31,6 +30,7 @@ const labelClass =
   "block font-body text-white/45 uppercase tracking-[0.2em] mb-2";
 
 export default function WineClubGiftPage() {
+  const { add, openDrawer } = useCart();
   const [sent, setSent] = useState(false);
   const [f, setF] = useState({
     title: "",
@@ -49,24 +49,42 @@ export default function WineClubGiftPage() {
   const set = (k: keyof typeof f) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setF((s) => ({ ...s, [k]: e.target.value }));
 
+  // Add the gift membership to the basket — same £580 product as the
+  // regular membership card, just bought for someone else. The recipient's
+  // details ride along on the cart line's `note` so they surface in the
+  // drawer, the cart page and the order summary, and flow through to whatever
+  // payment / fulfilment rail is wired at checkout later. variantId is keyed
+  // to the recipient's name so two different gifts stay as separate lines.
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    const subject = "OurView Wine Club — Gift Membership request";
-    const body =
-      `Hello Ridgeview team,\n\n` +
-      `I'd like to gift a year of OurView Wine Club membership (${PRICE}).\n\n` +
-      `RECIPIENT'S DETAILS\n` +
-      `Title: ${f.title}\n` +
-      `Name: ${f.first} ${f.last}\n` +
-      `Email: ${f.email}\n` +
-      `Birthday: ${f.birthday}\n` +
-      `Address: ${f.address1}${f.address2 ? ", " + f.address2 : ""}\n` +
-      `City/Town: ${f.city}\n` +
-      `County: ${f.county}\n` +
-      `Postcode: ${f.postcode}\n\n` +
-      (f.message ? `Gift message:\n${f.message}\n\n` : "") +
-      `Please reply to this email to arrange payment and the welcome case delivery.\n\nThank you.\n`;
-    window.location.href = `mailto:${GIFT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const recipientName = `${f.first} ${f.last}`.trim();
+    const recipientFull = [f.title, recipientName].filter(Boolean).join(" ").trim();
+    const recipientSlug =
+      recipientName.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "") ||
+      "recipient";
+    const addr = [f.address1, f.address2, f.city, f.county, f.postcode]
+      .map((s) => s.trim())
+      .filter(Boolean)
+      .join(", ");
+    const noteParts: string[] = [];
+    if (f.email.trim()) noteParts.push(f.email.trim());
+    if (f.birthday) noteParts.push(`Birthday ${f.birthday}`);
+    if (addr) noteParts.push(`Deliver to ${addr}`);
+    if (f.message.trim()) noteParts.push(`“${f.message.trim()}”`);
+
+    add({
+      slug: "wine-club-gift",
+      name: "OurView Wine Club — Gift",
+      vintage: "Gift Membership",
+      variantId: `gift-${recipientSlug}`,
+      variantLabel: `For ${recipientFull}`,
+      unitPricePence: 58000, // £580
+      priceLabel: PRICE,
+      image: "/products/bloomsbury.png",
+      quantity: 1,
+      note: noteParts.length ? noteParts.join(" · ") : undefined,
+    });
+    openDrawer();
     setSent(true);
   };
 
@@ -131,12 +149,34 @@ export default function WineClubGiftPage() {
                 {sent ? (
                   <div className="text-center py-10">
                     <p className="font-display italic text-[#C8A96E] mb-3" style={{ fontSize: "clamp(22px, 2.2vw, 30px)" }}>
-                      Thank you.
+                      Added to your basket.
                     </p>
-                    <p className="font-body text-white/65 leading-[1.7]" style={{ fontSize: "14px", maxWidth: "360px", margin: "0 auto" }}>
-                      Your gift request is on its way to our team. We&rsquo;ll reply
-                      shortly to arrange payment and the Welcome Case delivery.
+                    <p className="font-body text-white/65 leading-[1.7] mb-7" style={{ fontSize: "14px", maxWidth: "360px", margin: "0 auto" }}>
+                      A year of OurView for{" "}
+                      <span className="text-cream">{f.first} {f.last}</span> is in your
+                      basket, with their details attached. Review it any time to check
+                      out — the Welcome Case ships once payment is complete.
                     </p>
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                      <a href={`${basePath}/cart`} className="btn-cta text-center">
+                        View basket
+                      </a>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setSent(false);
+                          setF({
+                            title: "", first: "", last: "", email: "", birthday: "",
+                            address1: "", address2: "", city: "", county: "",
+                            postcode: "", message: "",
+                          });
+                        }}
+                        className="font-body text-white/45 hover:text-[#C8A96E] uppercase tracking-[0.22em] transition-colors duration-300"
+                        style={{ fontSize: "11px" }}
+                      >
+                        Gift another
+                      </button>
+                    </div>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-5">
@@ -206,10 +246,11 @@ export default function WineClubGiftPage() {
                     </div>
 
                     <button type="submit" className="btn-cta w-full md:w-auto text-center">
-                      Send gift request
+                      Add gift to basket — {PRICE}
                     </button>
                     <p className="font-body text-white/35" style={{ fontSize: "11px" }}>
-                      We&rsquo;ll reply to arrange payment and delivery — no charge is taken now.
+                      We keep the recipient&rsquo;s details with your order — the Welcome
+                      Case ships once payment is complete at checkout.
                     </p>
                   </form>
                 )}

@@ -54,6 +54,11 @@ export function CartLineItem({ item }: CartLineItemProps) {
             {item.vintage} <span className="text-[#C8A96E]/60 mx-1">·</span>{" "}
             {item.variantLabel}
           </p>
+          {item.note && (
+            <p className="font-body text-white/40 text-[10px] leading-[1.5] mt-1.5 normal-case tracking-normal">
+              {item.note}
+            </p>
+          )}
         </div>
 
         {/* Qty spinner - same -/+ pattern as PurchaseWidget */}

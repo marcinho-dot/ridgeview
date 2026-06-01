@@ -144,6 +144,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         priceLabel: input.priceLabel,
         image: input.image,
         quantity: Math.min(99, addQty),
+        note: input.note,
       };
       return [...current, newLine];
     });

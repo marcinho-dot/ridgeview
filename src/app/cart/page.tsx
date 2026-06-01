@@ -143,6 +143,11 @@ export default function CartPage() {
                               >
                                 {item.vintage} · {item.variantLabel}
                               </p>
+                              {item.note && (
+                                <p className="mt-1.5 font-body font-light text-white/40 leading-[1.5]" style={{ fontSize: "10px" }}>
+                                  {item.note}
+                                </p>
+                              )}
                             </div>
                             <p
                               className="font-body font-light text-cream tabular-nums whitespace-nowrap"
