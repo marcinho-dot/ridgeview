@@ -205,16 +205,22 @@ export function NearbyAccommodationSection() {
   return (
     <section
       ref={sectionRef}
-      id="nearby-accommodation"
-      className="bg-[#010101] py-20 md:py-28 scroll-mt-24"
+      className="bg-[#010101] py-20 md:py-28"
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-16">
 
         {/* ── Header — kicker + headline + body intro ─────────
             Uses the global .reveal class (managed by <RevealInit />
             in layout.tsx) for stagger fade-ups — same pattern as
-            the rest of /vineyard-booking. */}
-        <div className="mb-12 md:mb-16 max-w-[760px]">
+            the rest of /vineyard-booking.
+
+            `id="nearby-accommodation"` sits HERE on the header wrapper,
+            NOT on the <section> — the section's py-28 (112px) top padding
+            would otherwise push this kicker ~145px below the fixed navbar
+            on landing (see globals.css [id] comment). With the id on the
+            header, the global [id] scroll-margin-top (80/110px) lands the
+            "Where to Stay" kicker compactly just under the navbar. */}
+        <div id="nearby-accommodation" className="mb-12 md:mb-16 max-w-[760px]">
           <div className="reveal" style={{ transitionDelay: "0.05s" }}>
             <p
               className="font-display italic text-[#C8A96E] tracking-widest mb-5"

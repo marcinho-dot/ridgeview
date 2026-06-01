@@ -38,14 +38,20 @@ export function HashScroll() {
       setTimeout(() => {
         const target = document.getElementById(id);
         if (!target) return;
-        // Use window.scrollTo with an explicit pixel offset (-96px
-        // for the fixed navbar) rather than scrollIntoView, because
-        // globals.css sets `overflow: clip visible` on html/body
-        // which makes scrollIntoView unreliable on long pages.
-        // behavior: "instant" — the html-level
-        // `scroll-behavior: smooth` would otherwise leave the JS
-        // scroll un-executed in some browsers / dev environments.
-        const top = target.getBoundingClientRect().top + window.scrollY - 96;
+        // Use window.scrollTo with an explicit pixel offset rather than
+        // scrollIntoView, because globals.css sets `overflow: clip visible`
+        // on html/body which makes scrollIntoView unreliable on long pages.
+        // behavior: "instant" — the html-level `scroll-behavior: smooth`
+        // would otherwise leave the JS scroll un-executed in some browsers
+        // / dev environments.
+        //
+        // Offset = the target's OWN computed scroll-margin-top (set globally
+        // to 80px mobile / 110px desktop by the [id] rule in globals.css, or
+        // any inline override). Reading it here keeps this JS path in lockstep
+        // with the native CSS scroll-margin path — otherwise a hardcoded value
+        // (was 96px) lands the anchor too tight against the ~91px desktop navbar.
+        const smt = parseFloat(getComputedStyle(target).scrollMarginTop) || 96;
+        const top = target.getBoundingClientRect().top + window.scrollY - smt;
         window.scrollTo({ top, behavior: "instant" });
       }, 600);
     };
