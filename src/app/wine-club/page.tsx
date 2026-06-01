@@ -725,10 +725,13 @@ export default function WineClubPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, amount: 0.5 }}
                 transition={{ duration: 0.7, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
-                className="inline-block"
+                className="flex flex-wrap items-center justify-center gap-3 md:gap-4"
               >
                 <a href="#" className="btn-cta">
                   Join the Wine Club
+                </a>
+                <a href={`${basePath}/wine-club/gift`} className="btn-cta">
+                  Gift this membership
                 </a>
               </motion.div>
               <motion.p
