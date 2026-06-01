@@ -187,11 +187,12 @@ export default function WineClubGiftPage() {
                     <p className="font-display italic text-[#C8A96E] mb-3" style={{ fontSize: "clamp(22px, 2.2vw, 30px)" }}>
                       Added to your basket.
                     </p>
-                    <p className="font-body text-white/65 leading-[1.7] mb-7" style={{ fontSize: "14px", maxWidth: "360px", margin: "0 auto" }}>
+                    <p className="font-body text-white/65 leading-[1.7] mb-7" style={{ fontSize: "14px", maxWidth: "380px", margin: "0 auto" }}>
                       A year of OurView for{" "}
                       <span className="text-cream">{f.first} {f.last}</span> is in your
-                      basket, with their details attached. Review it any time to check
-                      out — the Welcome Case ships once payment is complete.
+                      basket, with their details attached. Once your order is complete,
+                      please allow up to three working days for their Welcome Case to
+                      arrive.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-3 justify-center">
                       <a href={`${basePath}/cart`} className="btn-cta text-center">
@@ -318,9 +319,10 @@ export default function WineClubGiftPage() {
                     >
                       Add gift to basket — {PRICE}
                     </button>
-                    <p className="font-body text-white/35" style={{ fontSize: "11px" }}>
-                      We keep the recipient&rsquo;s details with your order — the Welcome
-                      Case ships once payment is complete at checkout.
+                    <p className="font-body text-white/35 leading-[1.6]" style={{ fontSize: "11px" }}>
+                      Please allow up to three working days for the recipient to receive
+                      their Welcome Case. Shipments for the following annual period are
+                      received in May and November.
                     </p>
                   </form>
                 )}
