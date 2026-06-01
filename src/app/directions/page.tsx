@@ -5,6 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { BottomNav } from "@/components/BottomNav";
 import { ScrollReset } from "@/components/ScrollReset";
+import { HashScroll } from "@/components/HashScroll";
 import { basePath } from "@/lib/basePath";
 
 /**
@@ -496,9 +497,9 @@ function AccessibilitySection() {
 // (all four venues).
 function OpeningHoursSection() {
   return (
-    <section id="hours" className="relative bg-[#0a0a0a] py-16 md:py-20 border-t border-white/[0.06] scroll-mt-24">
+    <section className="relative bg-[#0a0a0a] py-16 md:py-20 border-t border-white/[0.06]">
       <div className="max-w-[1200px] mx-auto px-6 md:px-16">
-        <div className="grid grid-cols-1 md:grid-cols-[5fr_7fr] gap-10 md:gap-16 items-start">
+        <div id="hours" className="grid grid-cols-1 md:grid-cols-[5fr_7fr] gap-10 md:gap-16 items-start">
           <div>
             <div className="reveal" style={{ transitionDelay: "0.05s" }}>
               <p
@@ -707,6 +708,7 @@ export default function DirectionsPage() {
       />
 
       <Navbar />
+      <HashScroll />
       <main>
         <DirectionsHero />
         <ScrollReset><AddressSection /></ScrollReset>

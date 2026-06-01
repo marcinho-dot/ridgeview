@@ -194,8 +194,8 @@ function OpenPositionsSection() {
 // ─── CTA — Get in touch ────────────────────────────────────────────────────
 function GetInTouchCTA() {
   return (
-    <section id="get-in-touch" className="relative bg-[#0a0a0a] py-20 md:py-28 border-t border-white/[0.06] scroll-mt-24">
-      <div className="max-w-[900px] mx-auto px-6 md:px-16 text-center">
+    <section className="relative bg-[#0a0a0a] py-20 md:py-28 border-t border-white/[0.06]">
+      <div id="get-in-touch" className="max-w-[900px] mx-auto px-6 md:px-16 text-center">
         <FadeUp delay={0.05}><p className="font-display italic text-[#C8A96E] tracking-widest mb-5" style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}>[ Get in Touch ]</p></FadeUp>
         <FadeUp delay={0.15}>
           <h2 className="font-display italic text-cream leading-[1.08] mb-6" style={{ fontSize: "clamp(28px, 3.5vw, 46px)", fontWeight: 400 }}>

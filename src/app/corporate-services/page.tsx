@@ -96,9 +96,9 @@ const ROUTES = [
 
 function RoutesGrid() {
   return (
-    <section id="routes" className="relative bg-[#010101] py-20 md:py-28 border-t border-white/[0.06] scroll-mt-24">
+    <section className="relative bg-[#010101] py-20 md:py-28 border-t border-white/[0.06]">
       <div className="max-w-[1400px] mx-auto px-6 md:px-16">
-        <div className="text-center mb-12 md:mb-16">
+        <div id="routes" className="text-center mb-12 md:mb-16">
           <FadeUp delay={0.05}>
             <p className="font-display italic text-[#C8A96E] tracking-widest mb-5" style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}>
               [ Two Routes ]

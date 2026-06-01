@@ -926,8 +926,7 @@ function VisitPanels() {
 function TourBookingSection() {
   return (
     <section
-      id="book-tour"
-      className="relative bg-[#010101] py-20 md:py-28 border-t border-white/[0.06] overflow-hidden scroll-mt-24"
+      className="relative bg-[#010101] py-20 md:py-28 border-t border-white/[0.06] overflow-hidden"
     >
       <div
         className="absolute inset-0 pointer-events-none"
@@ -937,7 +936,7 @@ function TourBookingSection() {
         }}
       />
 
-      <div className="relative max-w-[1000px] mx-auto px-6 md:px-16 text-center">
+      <div id="book-tour" className="relative max-w-[1000px] mx-auto px-6 md:px-16 text-center">
         <FadeUp delay={0.05}>
           <p
             className="font-display italic text-[#C8A96E] tracking-widest mb-5"

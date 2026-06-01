@@ -353,9 +353,9 @@ function MenuViewIcon() {
 
 function MenusSection({ onOpen }: { onOpen: (m: MenuPdf) => void }) {
   return (
-    <section id="menus" className="relative bg-[#010101] py-20 md:py-28 border-t border-white/[0.06] scroll-mt-24">
+    <section className="relative bg-[#010101] py-20 md:py-28 border-t border-white/[0.06]">
       <div className="max-w-[1400px] mx-auto px-6 md:px-16">
-        <div className="text-center mb-12 md:mb-16 max-w-[760px] mx-auto">
+        <div id="menus" className="text-center mb-12 md:mb-16 max-w-[760px] mx-auto">
           <div className="reveal" style={{ transitionDelay: "0.05s" }}>
             <p
               className="font-display italic text-[#C8A96E] tracking-widest mb-5"
@@ -499,11 +499,10 @@ function VisitInfoSection() {
 
   return (
     <section
-      id="visit"
-      className="relative bg-[#0a0a0a] py-20 md:py-28 border-t border-white/[0.06] scroll-mt-24"
+      className="relative bg-[#0a0a0a] py-20 md:py-28 border-t border-white/[0.06]"
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-16">
-        <div className="text-center mb-12 md:mb-16 max-w-[760px] mx-auto">
+        <div id="visit" className="text-center mb-12 md:mb-16 max-w-[760px] mx-auto">
           <div className="reveal" style={{ transitionDelay: "0.05s" }}>
             <p
               className="font-display italic text-[#C8A96E] tracking-widest mb-5"
@@ -704,8 +703,7 @@ function FaqSection() {
 function ReserveSection() {
   return (
     <section
-      id="reserve"
-      className="relative bg-[#010101] py-20 md:py-28 border-t border-white/[0.06] overflow-hidden scroll-mt-24"
+      className="relative bg-[#010101] py-20 md:py-28 border-t border-white/[0.06] overflow-hidden"
     >
       <div
         className="absolute inset-0 pointer-events-none"
@@ -717,7 +715,7 @@ function ReserveSection() {
 
       <div className="relative max-w-[1100px] mx-auto px-6 md:px-16">
         {/* Header — editorial kicker + h2 + combined subline */}
-        <div className="text-center mb-10 md:mb-14">
+        <div id="reserve" className="text-center mb-10 md:mb-14">
           <div className="reveal" style={{ transitionDelay: "0.05s" }}>
             <p
               className="font-display italic text-[#C8A96E] tracking-widest mb-5"

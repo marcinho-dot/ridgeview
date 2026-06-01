@@ -172,9 +172,9 @@ const READY_GIFTS: Gift[] = [
 
 function ShopGrid() {
   return (
-    <section id="shop" className="relative bg-[#010101] py-20 md:py-28 border-t border-white/[0.06] scroll-mt-24">
+    <section className="relative bg-[#010101] py-20 md:py-28 border-t border-white/[0.06]">
       <div className="max-w-[1400px] mx-auto px-6 md:px-16">
-        <div className="text-center mb-12 md:mb-16">
+        <div id="shop" className="text-center mb-12 md:mb-16">
           <FadeUp delay={0.05}>
             <p className="font-display italic text-[#C8A96E] tracking-widest mb-5" style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}>
               [ Ready to Gift ]
@@ -297,9 +297,9 @@ const BESPOKE_FORMATS: BespokeFormat[] = [
 
 function BespokeSection() {
   return (
-    <section id="bespoke" className="relative bg-[#0a0a0a] py-20 md:py-28 border-t border-white/[0.06] scroll-mt-24">
+    <section className="relative bg-[#0a0a0a] py-20 md:py-28 border-t border-white/[0.06]">
       <div className="max-w-[1300px] mx-auto px-6 md:px-16">
-        <div className="text-center mb-12 md:mb-16">
+        <div id="bespoke" className="text-center mb-12 md:mb-16">
           <FadeUp delay={0.05}>
             <p className="font-display italic text-[#C8A96E] tracking-widest mb-5" style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}>
               [ Bespoke Gift Sets · By Enquiry ]
