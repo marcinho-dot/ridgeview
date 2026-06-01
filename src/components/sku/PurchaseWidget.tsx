@@ -84,6 +84,9 @@ interface Props {
    *  default self-contained behaviour. */
   variantIdx?: number;
   onVariantChange?: (idx: number, variant: Variant) => void;
+  /** Heading above the variant selector. Default "Format"; the gift set
+   *  page passes "Choose your wine" since its variants are wine choices. */
+  selectorLabel?: string;
 }
 
 export const formatGBP = (n: number) =>
@@ -103,6 +106,7 @@ export function PurchaseWidget({
   onAddToBasket,
   variantIdx: controlledIdx,
   onVariantChange,
+  selectorLabel = "Format",
 }: Props) {
   const [internalIdx, setInternalIdx] = useState(0);
   // Controlled mode kicks in as soon as the parent passes a numeric
@@ -176,7 +180,7 @@ export function PurchaseWidget({
       {variants.length > 1 && (
         <div>
           <p className="font-body text-white/40 text-[10px] uppercase tracking-[0.25em] mb-2.5">
-            Format
+            {selectorLabel}
           </p>
           <div className="flex flex-wrap gap-2">
             {variants.map((v, i) => {

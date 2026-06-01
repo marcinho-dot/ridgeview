@@ -113,6 +113,16 @@ type Gift = {
 
 const READY_GIFTS: Gift[] = [
   {
+    kicker: "[ The Gift Set ]",
+    title: "The Ridgeview Gift Set",
+    body: "Your choice of Ridgeview sparkling wine, two branded flutes and a bottle stopper — boxed and ready to gift. From £64.",
+    cta: "Build your gift set",
+    href: "/gift-sets/the-ridgeview-gift-set",
+    image: "/images/gift-sets/gift-set.webp",
+    imageAlt: "The Ridgeview Gift Set in its gift box with two flutes",
+    badge: "Flagship gift",
+  },
+  {
     kicker: "[ Personalised ]",
     title: "Engraved Bottle Gift",
     body: "Bespoke engraving on Bloomsbury NV, Fitzrovia Rosé or Blanc de Blancs. A name, a date, a short message — engraved by hand and fulfilled in up to 5 working days.",
@@ -182,7 +192,7 @@ function ShopGrid() {
           </FadeUp>
           <FadeUp delay={0.15}>
             <h2 className="font-display italic text-cream leading-[1.08]" style={{ fontSize: "clamp(30px, 3.8vw, 52px)", fontWeight: 400 }}>
-              Six gifts, <span className="text-[#C8A96E]">delivered</span>
+              Gifts, <span className="text-[#C8A96E]">delivered</span>
             </h2>
           </FadeUp>
           <FadeUp delay={0.25}>
