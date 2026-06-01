@@ -23,7 +23,29 @@ function FadeUp({ children, delay = 0, className = "" }: { children: ReactNode; 
   return <div className={`reveal ${className}`} style={{ transitionDelay: `${delay}s` }}>{children}</div>;
 }
 
-export function GiftProductPage({ product }: { product: GiftProduct }) {
+export function GiftProductPage({
+  product,
+  category,
+  related,
+}: {
+  product: GiftProduct;
+  /** Breadcrumb category segment. Default: Gift Sets. */
+  category?: { label: string; href: string };
+  /** Closing-CTA heading + buttons. Default: gift range. */
+  related?: { heading: ReactNode; links: { label: string; href: string }[] };
+}) {
+  const cat = category ?? { label: "Gift Sets", href: "/gift-sets" };
+  const rel = related ?? {
+    heading: (
+      <>
+        Explore the full <span className="text-[#C8A96E]">gift range</span>
+      </>
+    ),
+    links: [
+      { label: "All gift sets", href: "/gift-sets" },
+      { label: "Gift vouchers", href: "/gift-vouchers" },
+    ],
+  };
   const variants: Variant[] = [
     { variantId: product.slug, label: product.name, detail: product.kind, price: product.price, image: product.image },
   ];
@@ -45,7 +67,7 @@ export function GiftProductPage({ product }: { product: GiftProduct }) {
               <p className="font-body text-white/35 text-[10px] uppercase tracking-[0.3em] mb-4 md:mb-6">
                 <a href={`${basePath}/`} className="link-underline hover:text-[#C8A96E] transition-colors duration-500">Home</a>
                 <span className="mx-3 text-white/20">/</span>
-                <a href={`${basePath}/gift-sets`} className="link-underline hover:text-[#C8A96E] transition-colors duration-500">Gift Sets</a>
+                <a href={`${basePath}${cat.href}`} className="link-underline hover:text-[#C8A96E] transition-colors duration-500">{cat.label}</a>
                 <span className="mx-3 text-white/20">/</span>
                 <span className="text-white/55">{product.name}</span>
               </p>
@@ -145,13 +167,14 @@ export function GiftProductPage({ product }: { product: GiftProduct }) {
             </FadeUp>
             <FadeUp delay={0.15}>
               <h2 className="font-display italic text-cream leading-[1.08] mb-8" style={{ fontSize: "clamp(28px, 3.5vw, 46px)", fontWeight: 400 }}>
-                Explore the full <span className="text-[#C8A96E]">gift range</span>
+                {rel.heading}
               </h2>
             </FadeUp>
             <FadeUp delay={0.25}>
               <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
-                <a href={`${basePath}/gift-sets`} className="btn-cta">All gift sets</a>
-                <a href={`${basePath}/gift-vouchers`} className="btn-cta">Gift vouchers</a>
+                {rel.links.map((l) => (
+                  <a key={l.href} href={`${basePath}${l.href}`} className="btn-cta">{l.label}</a>
+                ))}
               </div>
             </FadeUp>
           </div>

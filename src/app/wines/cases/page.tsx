@@ -107,7 +107,7 @@ function CasesGrid() {
                 className={`group relative ${isOOS ? "opacity-70" : ""}`}
               >
                 <a
-                  href={`${basePath}/wine/${entry.slug}#case6`}
+                  href={entry.href ? `${basePath}${entry.href}` : `${basePath}/wine/${entry.slug}#case6`}
                   aria-label={`View ${entry.name} case of 6`}
                   aria-disabled={isOOS}
                   className="block text-center focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C8A96E]/40 rounded-sm"

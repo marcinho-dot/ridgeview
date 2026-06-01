@@ -33,6 +33,9 @@ export interface CaseEntry {
   badge: string;
   /** Out-of-stock flag - card renders as disabled with overlay. */
   outOfStock?: boolean;
+  /** Override link target. Mixed cases have no parent wine SKU, so they
+   *  point at their own /wines/cases/<slug> page instead of #case6. */
+  href?: string;
 }
 
 export const cases: CaseEntry[] = [
@@ -124,5 +127,29 @@ export const cases: CaseEntry[] = [
     bottlePrice: 85,
     badge: "Save 10%",
     outOfStock: true,
+  },
+  {
+    slug: "signature-mixed-case",
+    name: "Signature Mixed Case",
+    vintage: "Signature Blends",
+    image: "/images/gift-sets/signature-mixed-case.webp",
+    tastingNotes: ["Bloomsbury", "Cavendish", "Fitzrovia Rosé"],
+    casePrice: 198,
+    originalPrice: 220,
+    bottlePrice: 33,
+    badge: "Mixed · Save 10%",
+    href: "/wines/cases/signature-mixed-case",
+  },
+  {
+    slug: "ridgeview-mixed-case",
+    name: "Ridgeview Mixed Case",
+    vintage: "Signature & Limited",
+    image: "/images/gift-sets/ridgeview-mixed-case.webp",
+    tastingNotes: ["3 Signature", "3 Limited", "Tasting Flight"],
+    casePrice: 279,
+    originalPrice: 310,
+    bottlePrice: 47,
+    badge: "Mixed · Save 10%",
+    href: "/wines/cases/ridgeview-mixed-case",
   },
 ];

@@ -121,3 +121,46 @@ export const GIFT_PRODUCTS: Record<string, GiftProduct> = {
 };
 
 export const GIFT_PRODUCT_SLUGS = Object.keys(GIFT_PRODUCTS);
+
+/**
+ * Mixed cases — six-bottle cases of DIFFERENT wines (unlike the
+ * single-wine cases that live as `case6` variants on a wine SKU). They
+ * have no parent wine page, so they get their own product pages under
+ * /wines/cases/<slug>, rendered by the same <GiftProductPage>. Prices +
+ * contents verbatim from the UK shop (fetched 2026-05-30).
+ */
+export const MIXED_CASES: Record<string, GiftProduct> = {
+  "signature-mixed-case": {
+    slug: "signature-mixed-case",
+    name: "Signature Mixed Case",
+    price: 198,
+    kind: "Case of 6",
+    kicker: "[ Mixed Case · Signature ]",
+    subtitle: "Our three signature blends, two of each.",
+    description:
+      "A showcase of Ridgeview's signature style: two bottles each of the crisp, citrus-driven Bloomsbury NV, the rich red-fruited Cavendish NV, and the vibrant, fruit-pure Fitzrovia Rosé NV. Perfect for effortless entertaining, thoughtful gifting, or stocking up.",
+    included: [
+      "2 × Bloomsbury NV — 75cl",
+      "2 × Cavendish NV — 75cl",
+      "2 × Fitzrovia Rosé NV — 75cl",
+      "Free next-working-day delivery",
+    ],
+    image: "/images/gift-sets/signature-mixed-case.webp",
+  },
+  "ridgeview-mixed-case": {
+    slug: "ridgeview-mixed-case",
+    name: "Ridgeview Mixed Case",
+    price: 279,
+    kind: "Case of 6",
+    kicker: "[ Mixed Case · Signature & Limited ]",
+    subtitle: "A tasting journey — signature meets limited release.",
+    description:
+      "Three of our signature non-vintage blends alongside three limited-release vintage wines — a true exploration of style and craftsmanship. Perfect for an at-home tasting, sharing with friends and family, or marking a special occasion with something exceptional.",
+    included: [
+      "3 × Signature NV — Bloomsbury, Cavendish, Fitzrovia Rosé",
+      "3 × Limited-release vintage wines",
+      "Free next-working-day delivery",
+    ],
+    image: "/images/gift-sets/ridgeview-mixed-case.webp",
+  },
+};
