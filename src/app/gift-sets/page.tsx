@@ -263,37 +263,59 @@ function ShopGrid() {
 }
 
 // ─── Bespoke Sets ──────────────────────────────────────────────────────────
-type BespokeFormat = { title: string; body: string; image?: string; alt?: string };
+type BespokeFormat = { title: string; body: string; image?: string; alt?: string; href?: string; price?: number };
 
-// These formats mirror the curated wine-gift catalogue on the legacy
-// Ridgeview shop. Pricing varies by current vintage and stock, so each
-// card invites the visitor to email for the current line-up rather than
-// quoting a number we can't guarantee mid-launch. Mixed-case + fully-
-// bespoke at the bottom stay purely text — bespoke by definition.
+// Curated sets + accessories are real products now (verbatim UK prices,
+// links to their own SKU pages). Only "Bespoke Mixed Case" and "Fully
+// Bespoke" stay text-only — genuinely made-to-order, no fixed price.
 const BESPOKE_FORMATS: BespokeFormat[] = [
   {
     title: "Rosé Duo",
-    body: "Two rosé sparkling wines from the Ridgeview range, paired in a single gift box. Email for the current pairing.",
+    body: "Fitzrovia Rosé NV + vintage Rosé de Noirs, boxed together — two forms of England&rsquo;s finest Pinot.",
     image: "/images/gift-sets/rose-duo.webp",
-    alt: "Ridgeview Rosé Duo gift set",
+    alt: "Ridgeview Rosé Duo gift set — Fitzrovia Rosé and Rosé de Noirs",
+    href: "/gift-sets/rose-duo",
+    price: 105,
   },
   {
     title: "Limited Release Duo",
-    body: "Two allocation-limited wines from the cellar, presented together. Email for current availability.",
-    image: "/images/gift-sets/oak-single.webp",
-    alt: "Ridgeview limited release",
+    body: "Blanc de Blancs 2020 + Blanc de Noirs — two of our finest vintage sparkling wines.",
+    image: "/images/gift-sets/limited-release-duo.webp",
+    alt: "Ridgeview Limited Release Duo — Blanc de Blancs and Blanc de Noirs",
+    href: "/gift-sets/limited-release-duo",
+    price: 135,
   },
   {
     title: "Signature Trio",
-    body: "Three core-range wines that map the Ridgeview house style — a tasting flight, gifted.",
+    body: "Bloomsbury, Cavendish &amp; Fitzrovia Rosé — our three bestselling signature blends.",
     image: "/images/gift-sets/signature-trio.webp",
-    alt: "Ridgeview Signature Trio gift set",
+    alt: "Ridgeview Signature Trio gift set — three bottles",
+    href: "/gift-sets/signature-trio",
+    price: 110,
   },
   {
     title: "Limited Release Trio",
-    body: "A trio drawn from current limited releases. Email for the current set.",
-    image: "/images/gift-sets/noirs-trio.webp",
-    alt: "Ridgeview Noirs Trio gift set",
+    body: "Blanc de Blancs, Blanc de Noirs &amp; Rosé de Noirs — vintage sparkling, in individual gift boxes.",
+    image: "/images/gift-sets/limited-release-trio.webp",
+    alt: "Ridgeview Limited Release Trio gift set — three bottles in gift boxes",
+    href: "/gift-sets/limited-release-trio",
+    price: 200,
+  },
+  {
+    title: "Sparkling Bottle Stopper",
+    body: "Chrome Ridgeview stopper — keep the mousse fresh between pours.",
+    image: "/images/gift-sets/bottle-stopper.webp",
+    alt: "Ridgeview chrome bottle stopper with pink enamel badge",
+    href: "/gift-sets/bottle-stopper",
+    price: 8,
+  },
+  {
+    title: "The Ridgeview Umbrella",
+    body: "Wooden-handled umbrella in black and estate teal — life is for celebrating.",
+    image: "/images/gift-sets/umbrella.webp",
+    alt: "Ridgeview umbrella, black canopy with teal underside",
+    href: "/gift-sets/umbrella",
+    price: 39,
   },
   {
     title: "Bespoke Mixed Case",
@@ -312,7 +334,7 @@ function BespokeSection() {
         <div id="bespoke" className="text-center mb-12 md:mb-16">
           <FadeUp delay={0.05}>
             <p className="font-display italic text-[#C8A96E] tracking-widest mb-5" style={{ fontSize: "clamp(13px, 1.3vw, 16px)" }}>
-              [ Bespoke Gift Sets · By Enquiry ]
+              [ Curated Sets · Duos, Trios &amp; Accessories ]
             </p>
           </FadeUp>
           <FadeUp delay={0.15}>
@@ -322,9 +344,9 @@ function BespokeSection() {
           </FadeUp>
           <FadeUp delay={0.25}>
             <p className="subline-section mx-auto">
-              For curated sets beyond the catalogue — Duos, Trios, mixed cases and fully bespoke
-              gifts — we build to order. Send a brief, we&rsquo;ll come back with proposals,
-              imagery and pricing.
+              Ready-boxed duos and trios at the prices shown, plus our gifting
+              accessories. Need something beyond the catalogue? We also build mixed
+              cases and fully bespoke gifts to order.
             </p>
           </FadeUp>
         </div>
@@ -338,14 +360,17 @@ function BespokeSection() {
                   variety that telegraphs "this is the imagination-led
                   end of the menu". */}
               {f.image ? (
-                <div className="group h-full bg-[#0d0d0d] border border-white/[0.08] hover:border-[#C8A96E]/40 rounded-md overflow-hidden flex flex-col transition-all duration-400">
+                <a
+                  href={f.href ? `${basePath}${f.href}` : undefined}
+                  className="group h-full bg-[#0d0d0d] border border-white/[0.08] hover:border-[#C8A96E]/40 rounded-md overflow-hidden flex flex-col transition-all duration-400"
+                >
                   <div className="relative aspect-square overflow-hidden bg-[#0a0a0a]">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={`${basePath}${f.image}`}
                       alt={f.alt || f.title}
                       loading="lazy"
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.04]"
+                      className="absolute inset-0 w-full h-full object-contain p-4 transition-transform duration-[1.4s] ease-out group-hover:scale-[1.04]"
                     />
                   </div>
                   <div className="p-6 md:p-7 flex flex-col flex-1">
@@ -360,8 +385,13 @@ function BespokeSection() {
                       style={{ fontSize: "clamp(13px, 1.1vw, 14px)", fontWeight: 400 }}
                       dangerouslySetInnerHTML={{ __html: f.body }}
                     />
+                    {typeof f.price === "number" && (
+                      <p className="mt-4 font-body text-[#C8A96E]" style={{ fontSize: "15px" }}>
+                        £{f.price}
+                      </p>
+                    )}
                   </div>
-                </div>
+                </a>
               ) : (
                 <div className="h-full border-t border-[#C8A96E]/25 pt-5">
                   <h3
