@@ -968,7 +968,7 @@ function TourBookingSection() {
         </FadeUp>
 
         <FadeUp delay={0.35}>
-          <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 mb-10">
+          <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 mb-6">
             <a
               href="https://ridgeview.newbridgevouchers.co.uk/events"
               target="_blank"
@@ -984,6 +984,24 @@ function TourBookingSection() {
               Email for private groups
             </a>
           </div>
+        </FadeUp>
+
+        {/* Gift route — secondary link so it doesn't compete with the primary
+            "book now" action; points to our branded vouchers page, which then
+            links out to the NewbridgeVouchers voucher checkout. */}
+        <FadeUp delay={0.4}>
+          <p
+            className="font-body text-white/55 mb-10"
+            style={{ fontSize: "clamp(12.5px, 1.1vw, 14px)", fontWeight: 400 }}
+          >
+            Looking to give it as a gift?{" "}
+            <a
+              href={`${basePath}/gift-vouchers`}
+              className="link-underline text-[#C8A96E] hover:text-cream transition-colors duration-300"
+            >
+              Gift a Tour &amp; Tasting voucher
+            </a>
+          </p>
         </FadeUp>
 
         <FadeUp delay={0.45}>

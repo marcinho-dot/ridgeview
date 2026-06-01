@@ -9,37 +9,20 @@ import { BottomNav } from "@/components/BottomNav";
 import { ScrollReset } from "@/components/ScrollReset";
 import { basePath } from "@/lib/basePath";
 
-// ─── Email constants ────────────────────────────────────────────────────────
-// All voucher enquiries route through the general info inbox. Content on
-// this page is derived from the legacy ridgeview.co.uk Voucher T&Cs page
-// (/voucher-ts-and-cs/) — the two voucher products that actually exist
-// in the Ridgeview catalogue are restaurant-specific and tour-specific,
-// NOT a generic gift card across the whole site.
+// ─── Voucher products (sold on our existing partner platform) ────────────────
+// Vouchers are bought on Ridgeview's existing third-party storefront,
+// NewbridgeVouchers (smart-gift). We link straight to the real, purchasable
+// products rather than running voucher checkout ourselves — insourcing that
+// is a B-version decision (per Marc). Products + prices verified against the
+// live storefront (ridgeview.newbridgevouchers.co.uk): a fixed £70 Tour &
+// Tasting voucher, and a flexible £10–£700 gift voucher. There is NO
+// restaurant voucher on the platform (only legacy T&Cs mention one), so we
+// don't advertise one.
 const VOUCHER_EMAIL = "info@ridgeview.co.uk";
-
-const TOUR_VOUCHER_MAILTO =
-  `mailto:${VOUCHER_EMAIL}` +
-  `?subject=${encodeURIComponent("Tour & Tasting voucher enquiry — Ridgeview")}` +
-  `&body=${encodeURIComponent(
-    "Hello,\n\nI'd like to enquire about a Tour & Tasting voucher.\n\n" +
-      "Recipient name: \n" +
-      "Recipient email (for digital delivery): \n" +
-      "Personal message (optional): \n" +
-      "Postal delivery instead of email? Y/N: \n\n" +
-      "Buyer:\nName: \nPhone: \n\nThank you.\n",
-  )}`;
-
-const ROWS_VINE_VOUCHER_MAILTO =
-  `mailto:${VOUCHER_EMAIL}` +
-  `?subject=${encodeURIComponent("The Rows & Vine voucher enquiry — Ridgeview")}` +
-  `&body=${encodeURIComponent(
-    "Hello,\n\nI'd like to enquire about a The Rows & Vine restaurant voucher.\n\n" +
-      "Recipient name: \n" +
-      "Recipient email (for digital delivery): \n" +
-      "Personal message (optional): \n" +
-      "Postal delivery instead of email? Y/N: \n\n" +
-      "Buyer:\nName: \nPhone: \n\nThank you.\n",
-  )}`;
+const TOUR_VOUCHER_URL =
+  "https://ridgeview.newbridgevouchers.co.uk/product/668/ridgeview-tour-tasting-voucher-for-two";
+const GIFT_VOUCHER_URL =
+  "https://ridgeview.newbridgevouchers.co.uk/product/1647/ridgeview-voucher-winery-shop-online-tours-tastings";
 
 function FadeUp({ children, delay = 0, className = "" }: { children: ReactNode; delay?: number; className?: string }) {
   return (
@@ -76,7 +59,7 @@ function PageHeader() {
           className="font-display italic text-[#C8A96E] tracking-widest mb-3"
           style={{ fontSize: "clamp(13px, 1.3vw, 16px)", textShadow: "0 1px 10px rgba(0,0,0,1)" }}
         >
-          [ Experience Vouchers · Sussex ]
+          [ Gift Vouchers · Sussex ]
         </motion.p>
 
         <div className="overflow-hidden mb-3">
@@ -96,8 +79,8 @@ function PageHeader() {
           className="subline-hero"
           style={{ textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
         >
-          Two experience vouchers, redeemable at the estate — a Tour &amp; Tasting for two, or a
-          meal at The Rows &amp; Vine. Valid for 12 months from purchase, delivered by email or post.
+          Two ways to gift Ridgeview — a Tour &amp; Tasting for two, or a flexible gift voucher for
+          our wines, accessories and tours. Valid 12 months from purchase, delivered by email or post.
         </motion.p>
 
         <motion.div
@@ -112,42 +95,11 @@ function PageHeader() {
   );
 }
 
-// ─── Status banner — sales currently on hold ──────────────────────────────
-// Per ridgeview.co.uk/gift-vouchers/ (May 2026 check): voucher sale has
-// been paused while existing voucher holders redeem. The page on UK
-// signals a reopening but no firm date — we mirror that honestly
-// here rather than implying a working cart on our side.
-function StatusBanner() {
-  return (
-    <section className="relative bg-[#0a0a0a] border-t border-[#C8A96E]/20 py-6 md:py-7">
-      <div className="max-w-[1100px] mx-auto px-6 md:px-16 flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6">
-        <p
-          className="font-display italic text-[#C8A96E] tracking-[0.25em] uppercase shrink-0"
-          style={{ fontSize: "11px", fontWeight: 500 }}
-        >
-          [ Status ]
-        </p>
-        <p
-          className="font-body text-white/65 leading-[1.7] text-center md:text-left"
-          style={{ fontSize: "clamp(13px, 1.15vw, 14.5px)", fontWeight: 400 }}
-        >
-          New voucher sales are paused while existing voucher holders redeem.
-          If you already hold a voucher you can still redeem it online or onsite as usual.
-          For any voucher query, email{" "}
-          <a href={`mailto:${VOUCHER_EMAIL}`} className="text-[#C8A96E] hover:underline">
-            {VOUCHER_EMAIL}
-          </a>
-          .
-        </p>
-      </div>
-    </section>
-  );
-}
-
 // ─── Two voucher products ──────────────────────────────────────────────────
 type VoucherProduct = {
   kicker: string;
   title: string;
+  price: string;
   intro: string;
   terms: string[];
   ctaLabel: string;
@@ -158,37 +110,38 @@ type VoucherProduct = {
 
 const VOUCHERS: VoucherProduct[] = [
   {
-    kicker: "[ For Two · Onsite ]",
+    kicker: "[ For Two · £70 ]",
     title: "Tour & Tasting Voucher",
+    price: "£70",
     intro:
-      "A guided vineyard tour and tasting for two — booked through our online system at a date that works for the recipient.",
+      "A guided tour through the home vineyard and winery, followed by a tutored tasting of our current-release sparkling wines — for two, booked at a date that suits the recipient.",
     terms: [
-      "Valid 12 months from the date of purchase",
+      "Valid 12 months from the date of issue",
       "Redeems against a Tour & Tasting for two via the online booking system",
+      "Delivered free by email (PDF) or by Royal Mail post (£1.75)",
       "Non-refundable and not redeemable for cash",
-      "Cannot be extended past the expiration date",
     ],
-    ctaLabel: "Enquire about a Tour voucher",
-    ctaHref: TOUR_VOUCHER_MAILTO,
-    image: "/images/articles/luxury-sparkling-wine-gift-guide/inline-3.webp",
-    imageAlt: "Ridgeview Tour & Tasting voucher — vineyard experience for two",
+    ctaLabel: "Buy a Tour & Tasting voucher",
+    ctaHref: TOUR_VOUCHER_URL,
+    image: "/images/wine-bar-shop-hero.webp",
+    imageAlt: "Rosé poured at a Ridgeview tasting, the vineyard behind",
   },
   {
-    kicker: "[ Restaurant · Onsite ]",
-    title: "The Rows & Vine Voucher",
+    kicker: "[ Any Amount · £10–£700 ]",
+    title: "Ridgeview Gift Voucher",
+    price: "£10–£700",
     intro:
-      "A meal voucher redeemable in The Rows & Vine restaurant on the estate — seasonal plates, vineyard view, sparkling on the table.",
+      "A flexible gift voucher to spend on Ridgeview wines and accessories — online or at the Winery Shop — or on a Tour & Tasting. Choose any amount from £10 to £700.",
     terms: [
-      "Valid 12 months from the date of purchase",
-      "Redeemable only in The Rows & Vine restaurant, onsite at Ridgeview",
-      "Gratuity is not included",
+      "Valid 12 months from the date of issue",
+      "Redeems against wine & accessories (online or Winery Shop) and Tours & Tastings",
+      "Not redeemable at The Rows & Vine restaurant",
       "Non-refundable and not redeemable for cash",
-      "Cannot be extended past the expiration date",
     ],
-    ctaLabel: "Enquire about a Restaurant voucher",
-    ctaHref: ROWS_VINE_VOUCHER_MAILTO,
-    image: "/images/restaurant/garden-toast.webp",
-    imageAlt: "The Rows & Vine voucher — vineyard dining experience",
+    ctaLabel: "Buy a gift voucher",
+    ctaHref: GIFT_VOUCHER_URL,
+    image: "/images/chalk-bottles.jpg",
+    imageAlt: "Ridgeview sparkling wine bottles ageing in the cellar",
   },
 ];
 
@@ -237,11 +190,17 @@ function VoucherProducts() {
                     {v.kicker}
                   </p>
                   <h3
-                    className="font-display italic text-cream group-hover:text-white leading-[1.15] mb-4 transition-colors duration-400"
+                    className="font-display italic text-cream group-hover:text-white leading-[1.15] mb-2 transition-colors duration-400"
                     style={{ fontSize: "clamp(22px, 2vw, 28px)", fontWeight: 400 }}
                   >
                     {v.title}
                   </h3>
+                  <p
+                    className="font-body text-[#C8A96E] tracking-[0.08em] mb-4"
+                    style={{ fontSize: "clamp(15px, 1.4vw, 18px)", fontWeight: 400 }}
+                  >
+                    {v.price}
+                  </p>
                   <p
                     className="font-body text-white/65 leading-[1.75] mb-6"
                     style={{ fontSize: "clamp(13px, 1.15vw, 15px)", fontWeight: 400 }}
@@ -263,7 +222,12 @@ function VoucherProducts() {
                   </ul>
 
                   <div className="mt-auto">
-                    <a href={v.ctaHref} className="btn-cta">
+                    <a
+                      href={v.ctaHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-cta"
+                    >
                       {v.ctaLabel}
                     </a>
                   </div>
@@ -272,6 +236,20 @@ function VoucherProducts() {
             </FadeUp>
           ))}
         </div>
+
+        <FadeUp delay={0.5}>
+          <p
+            className="text-center font-body text-white/40 leading-[1.7] mt-10 md:mt-14 max-w-[640px] mx-auto"
+            style={{ fontSize: "12.5px", fontWeight: 400 }}
+          >
+            Vouchers are purchased and delivered securely through our gifting partner,
+            NewbridgeVouchers. Questions about a voucher? Email{" "}
+            <a href={`mailto:${VOUCHER_EMAIL}`} className="text-[#C8A96E] hover:underline">
+              {VOUCHER_EMAIL}
+            </a>
+            .
+          </p>
+        </FadeUp>
       </div>
     </section>
   );
@@ -282,7 +260,7 @@ function GeneralTermsSection() {
   // These items mirror the GENERAL TERMS section from ridgeview.co.uk's
   // /voucher-ts-and-cs/ page, kept short and informative.
   const items = [
-    "Gift vouchers are sold via our smart-gift partner — orders are confirmed on their platform.",
+    "Gift vouchers are sold through our gifting partner, NewbridgeVouchers — orders are confirmed on their platform.",
     "Vouchers arrive either by email to the address provided at order, or by Royal Mail first-class post.",
     "Each voucher carries a unique number and printed pattern for verification.",
     "Vouchers can be redeemed as full or part payment on this site or onsite at Ridgeview Wine Estate.",
@@ -351,14 +329,15 @@ function RedeemCTA() {
         </FadeUp>
         <FadeUp delay={0.25}>
           <p className="subline-section mx-auto mb-10">
-            Tour vouchers redeem against our online tour booking system. Restaurant vouchers
-            redeem onsite at The Rows &amp; Vine. Bring the voucher reference with you.
+            Tour &amp; Tasting vouchers redeem against our online tour booking system. Gift
+            vouchers redeem against wine in the Winery Shop or online. Have the voucher
+            reference to hand.
           </p>
         </FadeUp>
         <FadeUp delay={0.35}>
           <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
             <Link href="/vineyard-booking" className="btn-cta">Book a tour</Link>
-            <Link href="/restaurant" className="btn-cta">Reserve a table</Link>
+            <Link href="/wines" className="btn-cta">Shop the wines</Link>
           </div>
         </FadeUp>
       </div>
@@ -372,7 +351,6 @@ export default function GiftVouchersPage() {
       <Navbar />
       <main>
         <PageHeader />
-        <StatusBanner />
         <ScrollReset><VoucherProducts /></ScrollReset>
         <ScrollReset><GeneralTermsSection /></ScrollReset>
         <ScrollReset><RedeemCTA /></ScrollReset>
